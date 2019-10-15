@@ -200,7 +200,7 @@ nav {
 											alt="..."></a>
 									</span>
 									<div class="search">
-										<input placeholder="댓글 달기.." type="text">
+										<input placeholder="댓글 달기..." type="text">
 										<button>
 											<h6>게시</h6>
 										</button>
