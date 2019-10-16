@@ -53,6 +53,18 @@ nav {
 	text-align: center;
 }
 
+.radiusSmallImg {
+	width: 45px;
+	height: 45px;
+	/* background-image:url("배경이미지경로"); */
+	border-radius: 150px; /* 레이어 반크기만큼 반경을 잡기*/
+	display: table-cell;
+	vertical-align: middle;
+	color: #ffffff;
+	font-weight: bold;
+	text-align: center;
+}
+
 /* 배우감독이름 스팬 */
 .actorSpan {
 	font-size: 1.2em;
@@ -152,12 +164,12 @@ nav {
 
 								<div class="card-body">
 									<div class="row">
-									
+
 										<div class="col-sm-3" align="center">
 											<img class="img-fluid"
 												src="<c:url value="/resources/img/friends/pic1.jpg"/>"
 												alt="Image"
-												style="padding-left: 1.2em;width: 250px; height: 100px">
+												style="padding-left: 1.2em; width: 250px; height: 100px">
 										</div>
 										<div class="col-sm-9">
 											<h4 class="card-title">조커(Joker)</h4>
@@ -242,29 +254,21 @@ nav {
 						<span class="actorSpan" style="font-size: 1.5em">Road_dong</span>
 						<h6 class="actorSpan" style="font-size: 0.9em">길동이</h6>
 					</div>
-					<div>
-						<button type="button" class="btn btn-primary">글쓰기</button>
-					</div>
 
 				</div>
 
 
-				<div>
+				<!-- 타임라인 -->
+				<div style="padding: 10px">
 					<h5>타임라인</h5>
 					<div class="wrap">
-
-						<ul>
-							<li>김길동</li>
-							<li>박길동</li>
-							<li>정길동</li>
-							<li>정길동</li>
-							<li>정길동</li>
-							<li>정길동</li>
-							<li>정길동</li>
-							<li>정길동</li>
-
-
-						</ul>
+						<div class="col-sm-3">
+							<img class="radiusSmallImg" alt="프사진"
+								src="<c:url value='/resources/img/friends/boy.png'/>">
+						</div>
+						<div class="col-sm-6">
+							<h6 class="actorSpan" style="font-size: 0.9em">정길동</h6>
+						</div>
 					</div>
 
 				</div>
