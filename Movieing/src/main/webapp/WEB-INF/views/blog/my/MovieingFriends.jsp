@@ -255,6 +255,7 @@ nav {
 						<h6 class="actorSpan" style="font-size: 0.9em">길동이</h6>
 					</div>
 
+
 				</div>
 
 
