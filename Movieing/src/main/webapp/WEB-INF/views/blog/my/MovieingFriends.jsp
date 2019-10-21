@@ -119,7 +119,47 @@ a {
 	width: 500px;
 	margin: auto;
 }
+
+/*모달 위치*/
+.modal {
+	text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+	.modal:before {
+		display: inline-block;
+		vertical-align: middle;
+		content: " ";
+		height: 100%;
+	}
+}
+
+.modal-dialog {
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+}
+
+/*더보기 ...조건*/
+.card-text {
+	white-space: nowrap;
+	word-wrap: normal;
+	height: 140px;
+	width: 578.63px;
+	text-overflow: ellipsis;
+	float: left;
+	overflow: hidden;
+	 display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    line-height:20px;
+}
 </style>
+
+
+
+
+
 
 <!-- 위에 패딩주기 -->
 <div style="padding-top: 150px; background-color: white;"></div>
@@ -129,8 +169,9 @@ a {
 <div
 	style="padding-left: 40px; background-color: white; padding-right: 40px">
 	<div class="row">
-		<a class="btn btn-secondary"
-			href="<c:url value='/Movieing/Blog/BlogMain.mov'/>">◁ 블로그 메인</a>
+		<a class="btn btn-secondary btn-default"
+			href="<c:url value='/Movieing/Blog/BlogMain.mov'/>"
+			style="text-align: center;">◁ 블로그 메인</a>
 
 		<div style="padding-left: 450px">
 			<h3 style="color: orange; font-weight: bold;">팔로우 유저들의 활동로그</h3>
@@ -142,10 +183,12 @@ a {
 			</h3>
 		</div>
 
+
 	</div>
 	<!-- 중간줄 -->
 	<hr class="my-3">
 </div>
+
 
 
 <!-- 피드보이기시작 -->
@@ -173,7 +216,7 @@ a {
 				<div class="card">
 
 					<div class="card-body">
-						<div class="h5">@road_dong</div>
+						<div class="h5">@Road_dong</div>
 						<div class="h7 text-muted">우빈이</div>
 						<div class="h7">스릴러를 좋아하는 우빈이라고 합니다</div>
 					</div>
@@ -203,11 +246,46 @@ a {
 									<img class="rounded-circle" width="45"
 										src="https://picsum.photos/50/50" alt="">
 								</div>
-								<div class="ml-2">
-									<div class="h5 m-0" style="color: black;">@LeeCross</div>
-									<div class="h7 text-muted">Miracles Lee Cross</div>
+								<div class="ml-2" style="padding-right: 570px">
+									<div class="h5 m-0" style="color: black;">@_mongjiee</div>
+									<div class="h7 text-muted">안양 CGV</div>
+								</div>
+
+
+								<!-- 모달 띄우기 -->
+								<div style="text-align: right;">
+									<button class="btn btn-link dropdown-toggle" type="button"
+										id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
+										aria-expanded="false" data-target="#myModal"
+										style="text-align: right;">
+										<i class="fa fa-ellipsis-h"></i>
+									</button>
+									<div class="modal fade" id="myModal" tabindex="-1"
+										role="dialog" aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<button type="button" class="btn btn-outline-secondary"
+													style="border-bottom: thin; width: 500px; height: 60px; color: red">부적절한
+													콘텐츠로 신고</button>
+												<button type="button" class="btn btn-outline-secondary"
+													style="border-bottom: thin; width: 500px; height: 60px; color: red">팔로우
+													취소</button>
+												<button type="button" class="btn btn-outline-secondary"
+													style="border-bottom: thin; width: 500px; height: 60px; color: black;">게시물로
+													이동</button>
+												<button type="button" class="btn btn-outline-secondary"
+													style="border-bottom: thin; width: 500px; height: 60px; color: black;">퍼가기</button>
+												<button type="button" class="btn btn-outline-secondary"
+													style="border-bottom: thin; width: 500px; height: 60px; color: black;"
+													data-dismiss="modal">취소</button>
+
+											</div>
+										</div>
+									</div>
+									<!-- 모달 끝 -->
 								</div>
 							</div>
+
 
 						</div>
 
@@ -243,7 +321,12 @@ a {
 									너무 재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
 									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
 									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다...</p>
+									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다 더하기 재밌었고, 너무 재밌어서 너무 재밌을
+									뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무 재밌었고, 너무 재밌어서 너무 재밌을 뻔했다.
+									너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무 재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무
+									재밌는 영화였다 재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무
+									재밌었다. 너무 재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무
+									재밌었다. 너무 재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다</p>
 								<h6
 									style="text-align: center; text-decoration: underline; padding-bottom: 10px">
 									<a href="">+더보기</a>
@@ -569,9 +652,12 @@ a {
 									alt="타임라인 로고" style="width: 25px; height: 25px" />
 								<h5 class="card-title;"
 									style="padding-left: 10px; font-weight: bold;">타임 라인</h5>
-								<h6 style="padding-left: 50px; text-decoration: underline;">모두
-									보기</h6>
+								<a style="padding-left: 50px; text-decoration: underline;"
+									href="<c:url value='/Movieing/Blog/MF_Timeline.mov'/>">모두
+									보기</a>
+
 							</div>
+
 
 
 
@@ -582,9 +668,6 @@ a {
 
 							<!-- 팔로우 프사 보이기(시간순) -->
 							<div>
-
-
-
 
 								<!-- 제일큰 바디 다이브 -->
 								<div

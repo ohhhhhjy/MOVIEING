@@ -89,23 +89,20 @@
 				<input type="file" class="text-center center-block file-upload">
 			</div>
 
-
 			<div class="row">
 
-
 				<a href="<c:url value='/Movieing/Blog/MyPage.mov'/>"
-					class="list-group-item list-group-item-action active">프로필 편집</a> <a
+					class="list-group-item list-group-item-action">프로필 편집</a> <a
 					href="<c:url value='/Movieing/Blog/MyPage_Pass.mov'/>"
 					class="list-group-item list-group-item-action">비밀번호 설정</a> <a
 					href="<c:url value='/Movieing/Blog/MyPage_Permit.mov'/>"
 					class="list-group-item list-group-item-action">공개범위 설정</a> <a
 					href="<c:url value='/Movieing/Blog/MyPage_Notice.mov"'/>"
-					class="list-group-item list-group-item-action">알림 메시지</a> <a
+					class="list-group-item list-group-item-action active">알림 메시지</a> <a
 					href="<c:url value='/Movieing/Blog/MyPage_QnA.mov'/>"
 					class="list-group-item list-group-item-action">문의글</a> <a
 					href="<c:url value='/Movieing/Blog/MyPage_Help.mov'/>"
 					class="list-group-item list-group-item-action">도움말</a>
-
 			</div>
 		</div>
 		<!-- col-md-3끝 -->
@@ -119,66 +116,34 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col-md-12">
-							<h4>프로필</h4>
+							<h4>알림 메시지 받아보기</h4>
 							<hr>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-12">
 							<form>
-								<div class="form-group row">
-									<label for="username" class="col-4 col-form-label">이름*</label>
-									<div class="col-8">
-										<input id="username" name="username" placeholder="이름"
-											class="form-control here" required="required" type="text">
-									</div>
+								<!-- 내용시작 -->
+								<div class="checkbox">
+									<input id="checkbox1" type="checkbox" checked="checked">
+									<label for="checkbox1">게시물 알림 </label>
 								</div>
-								<div class="form-group row">
-									<label for="name" class="col-4 col-form-label">닉네임*</label>
-									<div class="col-8">
-										<input id="name" name="name" placeholder="닉네임"
-											class="form-control here" type="text">
-									</div>
+								<label style="color: gray; padding-left: 10px">팔로우한 유저가
+									게시물이나 댓글 등을 올릴경우, 실시간으로 게시물 알림이 가는 기능</label>
+								<div class="checkbox">
+									<input id="checkbox1" type="checkbox"> <label
+										for="checkbox1"> 메시지 알림 </label>
 								</div>
-
-								<div class="form-group row">
-									<label for="lastname" class="col-4 col-form-label">관심장르*</label>
-									<div class="col-8">
-										<input id="lastname" name="lastname"
-											placeholder="#로맨스 #코미디 #멜로 #가족 #범죄" class="form-control here"
-											type="text">
-									</div>
-								</div>
-
-								<div class="form-group row">
-									<label for="select" class="col-4 col-form-label">성별</label>
-									<div class="col-8">
-										<select id="select" name="select" class="custom-select">
-											<option value="admin">여자</option>
-											<option value="admin">남자</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group row">
-									<label for="email" class="col-4 col-form-label">이메일*</label>
-									<div class="col-8">
-										<input id="email" name="email" placeholder="Email"
-											class="form-control here" required="required" type="text">
-									</div>
-								</div>
-								<div class="form-group row">
-									<label for="publicinfo" class="col-4 col-form-label">자기
-										소개</label>
-									<div class="col-8">
-										<textarea id="publicinfo" name="publicinfo" cols="40" rows="4"
-											class="form-control"></textarea>
-									</div>
-								</div>
+								<label style="color: gray; padding-left: 10px">다른 유저가
+									메시지를 보내면, 실시간으로 메시지 알림이 가는 기능</label>
 
 
 
-								<div class="form-group row">
-									<div class="offset-4 col-8" style="text-align: right;">
+
+								<div style="padding-bottom: 30px"></div>
+
+								<div class="form-group row" style="text-align: right;">
+									<div class="offset-4 col-8">
 										<button name="submit" type="submit" class="btn btn-primary">수정
 											완료</button>
 									</div>
