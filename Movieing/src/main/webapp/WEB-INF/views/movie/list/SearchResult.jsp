@@ -74,6 +74,11 @@ body {
 color:#db147b;
 }
 
+.movieImg{
+width:130px;
+height: 200px;
+}
+
 
 </style>
 
@@ -156,7 +161,7 @@ color:#db147b;
 
 			<!-- 검색결과1.영화 -->
 			<div>
-				<div class="row">
+				<div class="row" style="padding-top: 10px">
 					<div class="col-md-10 ">
 						<h3>영화</h3>
 					</div>
@@ -165,25 +170,25 @@ color:#db147b;
 					</div>
 
 				</div>
-				<div class="row d-flex justify-content-center" style="">
+				<div class="row d-flex justify-content-center" style="padding-bottom: 20px">
 					<div class="col-md-2 col-sm-6 movie-poster" style="">
-						<img class="movieImg" src="http://placehold.it/130x200" alt="" /><br>
+						<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" /><br>
 						<span class="movieTitle">영화제목</span>
 					</div>
 					<div class="col-md-2 col-sm-6 movie-poster" style="">
-						<img class="movieImg" src="http://placehold.it/130x200" alt="" /><br>
+						<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" /><br>
 						<span class="movieTitle">영화제목</span>
 					</div>
 					<div class="col-md-2 col-sm-6 movie-poster" style="">
-						<img class="movieImg" src="http://placehold.it/130x200" alt="" /><br>
+						<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" /><br>
 						<span class="movieTitle">영화제목</span>
 					</div>
 					<div class="col-md-2 col-sm-6 movie-poster" style="">
-						<img class="movieImg" src="http://placehold.it/130x200" alt="" /><br>
+						<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" /><br>
 						<span class="movieTitle">영화제목</span>
 					</div>
 					<div class="col-md-2 col-sm-6 movie-poster" style="">
-						<img class="movieImg" src="http://placehold.it/130x200" alt="" /><br>
+						<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" /><br>
 						<span class="movieTitle">영화제목</span>
 					</div>
 					<!-- <div class="col-md-2 col-sm-6 movie-poster" style="">
@@ -197,7 +202,7 @@ color:#db147b;
 			<hr class="my-3">
 
 
-			<div class="row">
+			<div class="row" style="padding-bottom: 20px;padding-top: 10px">
 				<!-- 검색결과2.영화인 -->
 				<div class="col-md-6">
 					<div class="row">
@@ -307,7 +312,7 @@ color:#db147b;
 			</div>
 			<hr class="my-3">
 			<!-- "검색어"가 포함된 리뷰 -->
-			<div class="row">
+			<div class="row" style="padding-bottom: 20px;padding-top: 10px">
 				<div class="col-md-8">
 					<h5>"검색어"가 포함된 리뷰</h5>
 				</div>
@@ -332,7 +337,7 @@ color:#db147b;
 			<hr class="my-3">
 			
 			<!-- "검색어"가 포함된 댓글 -->
-			<div class="row">
+			<div class="row" style="padding-bottom: 20px;padding-top: 10px">
 				<div class="col-md-8">
 					<h5>"검색어"가 포함된 댓글</h5>
 				</div>
