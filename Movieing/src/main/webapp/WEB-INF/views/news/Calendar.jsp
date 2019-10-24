@@ -61,7 +61,7 @@
 
 <style TYPE="text/css">
 body {
-	padding-top: 100px;
+	padding-top: 150px;
 	scrollbar-face-color: #F6F6F6;
 	scrollbar-highlight-color: #bbbbbb;
 	scrollbar-3dlight-color: #FFFFFF;
@@ -129,7 +129,7 @@ A:hover {
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-offset-3 col-md-9">
 
 
 			<form name="calendarFrm" id="calendarFrm" action="" method="post">
