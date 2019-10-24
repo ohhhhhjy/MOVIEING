@@ -45,6 +45,12 @@ public class LoginController {
 		return "member/SignUp.tiles";
 	}
 	
+	@RequestMapping("/Movieing/Movie/Main.mov")
+	public String loginMain() {
+		return "main_logined.tiles";
+	}
+	
+	
 	public boolean isLogin(Map map) {
 		if("KIM".equals(map.get("id")) && "1234".equals(map.get("pwd"))) {
 			return true;
