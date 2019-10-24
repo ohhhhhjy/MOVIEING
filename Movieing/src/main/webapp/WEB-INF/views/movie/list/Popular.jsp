@@ -57,6 +57,11 @@
     font-size: 1.3em;
     line-height: 3em;
   }
+  
+  .mvimg{
+  	width:230px;
+  	height:300px
+  }
 
 </style>
 <script >
@@ -119,58 +124,58 @@ $(function() {
 		
 		
 	</div>
-    	<div class="row" style="margin-top: 20px" >
+      	<div class="row" style="margin-top: 20px" >
 		<div class="col-md-2 col-sm-6 movie-poster" >
 		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="movie"  src="http://placehold.it/230x300"  alt=""/></a>
+		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
 		 
     	</div> 
     	<div class="col-md-2 col-sm-6 movie-poster">
 		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="movie"  src="http://placehold.it/230x300"  alt=""/></a>
+		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
     	</div> 
     	<div class="col-md-2 col-sm-6 movie-poster">
 		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="movie"  src="http://placehold.it/230x300"  alt=""/></a>
+		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
     	</div> 
     	<div class="col-md-2 col-sm-6 movie-poster">
 		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="movie"  src="http://placehold.it/230x300"  alt=""/></a>
+		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
     	</div> 
     	<div class="col-md-2 col-sm-6 movie-poster">
 		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="movie"  src="http://placehold.it/230x300"  alt=""/></a>
+		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
     	</div> 
     	<div class="col-md-2 col-sm-6 movie-poster">
 		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="movie"  src="http://placehold.it/230x300"  alt=""/></a>
+		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
     	</div> 
   	</div>
   	
   	<div class="row" style="margin-top: 20px" >
 		<div class="col-md-2 col-sm-6 movie-poster">
 		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="movie1"  src="http://placehold.it/230x300"  alt=""/></a>
+		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
     	</div>
     	<div class="col-md-2 col-sm-6 movie-poster">
 		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="movie1"  src="http://placehold.it/230x300"  alt=""/></a>
+		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
     	</div> 
     	<div class="col-md-2 col-sm-6 movie-poster">
 			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="movie1"  src="http://placehold.it/230x300"  alt=""/></a>
+		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
     	</div>  
     	<div class="col-md-2 col-sm-6 movie-poster">
 			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="movie1"  src="http://placehold.it/230x300"  alt=""/></a>
+		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
     	</div> 
     	<div class="col-md-2 col-sm-6 movie-poster">
 			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="movie1"  src="http://placehold.it/230x300"  alt=""/></a>
+		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
     	</div> 
     	<div class="col-md-2 col-sm-6 movie-poster">
 			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="movie1"  src="http://placehold.it/230x300"  alt=""/></a>
+		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
     	</div> 
     
   	</div>
@@ -178,27 +183,27 @@ $(function() {
   	<div class="row" style="margin-top: 20px" >
 		<div class="col-md-2 col-sm-6 movie-poster">
 		 	<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="movie2"  src="http://placehold.it/230x300"  alt=""/></a>
+		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
     	</div>
     	<div class="col-md-2 col-sm-6 movie-poster">
 			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="movie2"  src="http://placehold.it/230x300"  alt=""/></a>
+		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
     	</div> 
     	<div class="col-md-2 col-sm-6 movie-poster">
 			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="movie2"  src="http://placehold.it/230x300"  alt=""/></a>
+		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
     	</div>  
     	<div class="col-md-2 col-sm-6 movie-poster">
 			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="movie2"  src="http://placehold.it/230x300"  alt=""/></a>
+		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
     	</div> 
     	<div class="col-md-2 col-sm-6 movie-poster">
 		 <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="movie2"  src="http://placehold.it/230x300"  alt=""/></a>
+		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
     	</div> 
     	<div class="col-md-2 col-sm-6 movie-poster">
 		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="movie2"  src="http://placehold.it/230x300"  alt=""/></a>
+		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
     	</div> 
     
   	</div>
