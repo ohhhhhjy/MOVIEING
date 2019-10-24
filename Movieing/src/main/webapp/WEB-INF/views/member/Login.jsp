@@ -2,18 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-
-
-
 
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -30,7 +18,7 @@
 	<div class="row d-flex justify-content-center">
 		<div class="col-md-8" style="padding-left: 80px">
 			<!-- Default form login -->
-			<form class="text-center border border-light p-5" action="#!">
+			<form class="text-center border border-light p-5" action="<c:url value='/Movieing/Member/LoginProcess.mov'/>">
 
 				<h1 class="page-title">
 					<strong>로그인</strong>
@@ -41,12 +29,12 @@
 				</p>
 
 				<div style="padding-bottom: 10px">
-					<input type="email" class="form-control" id="inputEmail"
+					<input type="text" class="form-control" id="id" name="id"
 						placeholder="아이디를 입력해주세요.">
 				</div>
 				<div style="padding-bottom: 10px">
 					<!-- Password -->
-					<input type="password" class="form-control" id="inputPassword"
+					<input type="password" class="form-control" id="pwd" name="pwd"
 						placeholder="비밀번호를 입력해주세요.">
 				</div>
 				<div class="d-flex justify-content-around">
@@ -63,8 +51,8 @@
 				</div>
 
 				<!-- Sign in button -->
-				<a class="btn btn-info btn-block my-4" role="button" type="submit" href="<c:url value='/Movieing/main_logined.mov'/>">
-				Sign in</a>
+				<button class="btn btn-info btn-block my-4" type="submit">
+				Sign in</button>
 
 				<!-- Register -->
 				<div class="row" style="padding-left: 150px">
@@ -76,7 +64,7 @@
 					<div style="padding-left: 10px"></div>
 					<label>| </label>
 					<div style="padding-left: 10px"></div>
-					<label>회원가입</label>
+					<label><a href="<c:url value='/Movieing/Member/SignUp.mov'/>">회원가입</a></label>
 
 				</div>
 

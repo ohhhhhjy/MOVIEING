@@ -42,7 +42,7 @@
         <br>       
         <br>       
         <br>       
-        <a class="btn btn-primary text-uppercase js-scroll-trigger btn-lg" href="#services">취향 알아보러 가기	</a>
+        <a class="btn btn-primary text-uppercase js-scroll-trigger btn-lg" href="<c:url value='/Movieing/Member/SignUp.mov'/>">취향 알아보러 가기	</a>
       </div>
     </div>
   </header>
