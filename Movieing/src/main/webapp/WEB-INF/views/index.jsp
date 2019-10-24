@@ -42,7 +42,7 @@
         <br>       
         <br>       
         <br>       
-        <a class="btn btn-primary text-uppercase js-scroll-trigger btn-lg" href="#services">취향 알아보러 가기	</a>
+        <a class="btn btn-primary text-uppercase js-scroll-trigger btn-lg" href="<c:url value='/Movieing/Member/SignUp.mov'/>">취향 알아보러 가기	</a>
       </div>
     </div>
   </header>
@@ -258,7 +258,7 @@
                 <p class="item-intro text-muted">
                 	아직 무빙의 회원이 아니신가요?<br/>
                 	무빙의 모든 서비스는 회원만 이용 가능합니다.<br/>
-                	회원가입을 원하신다면 <a href="#" style="color: #e4288c">함께하기</a>를 눌러주세요. 
+                	회원가입을 원하신다면 <a href="<c:url value='/Movieing/Member/SignUp.mov'/>" style="color: #e4288c">함께하기</a>를 눌러주세요. 
                 </p>
                 <button class="btn btn-primary" data-dismiss="modal" type="button">로그인</button>
               </div>

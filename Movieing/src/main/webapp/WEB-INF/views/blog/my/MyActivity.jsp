@@ -255,9 +255,9 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
 									<p class="card-text">토이스토리를 봤다. 너무 재밌었다. 너무 재밌었고, 너무 재밌어서
 										너무 재밌을 뻔했다. 너무 재밌는 영화였다.</p>
 									<a href="#"><span
-										style="font-weight: bold; color: #db147b; font-size: 0.9em">좋아요
+										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
 											25 </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
-										style="font-weight: bold; color: #db147b; font-size: 0.9em">댓글
+										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
 											4 </span></a>
 								</div>
 							</div>
@@ -288,9 +288,9 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
 									<p class="card-text">토이스토리를 봤다. 너무 재밌었다. 너무 재밌었고, 너무 재밌어서 너무
 										재밌을 뻔했다. 너무 재밌는 영화였다.</p>
 									<a href="#"><span
-										style="font-weight: bold; color: #db147b; font-size: 0.9em">좋아요
+										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
 											25 </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
-										style="font-weight: bold; color: #db147b; font-size: 0.9em">댓글
+										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
 											4 </span></a>
 								</div>
 							</div>

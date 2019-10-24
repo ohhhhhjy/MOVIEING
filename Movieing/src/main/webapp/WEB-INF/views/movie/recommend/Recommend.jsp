@@ -6,47 +6,52 @@
 컨트롤러가서 RequestMapping해줘야됨.
 -->
 <style media="screen">
-   .wrap{
-     width: 1500px;
-     height: 250px;
-     overflow-x: scroll;
-     margin-left:130px;
-     white-space:nowrap
-    
-     
-   }
-   .wrap img{
-       width:200px;
-       height:100%;
-    
-   
+.wrap {
+	width: 1500px;
+	height: 250px;
+	overflow-x: scroll;
+	margin-left: 130px;
+	white-space: nowrap
 }
- </style>
 
-<div>
+.wrap img {
+	width: 200px;
+	height: 100%;
+}
 
-<div class="card text-white bg-dark mb-3" style="max-width: 10rem; margin-top:100px;margin-left:150px">
+</style>
+
+
+
+
+<div class="card text-white bg-dark mb-3" style="max-width: 10rem; margin-top:120px;margin-left:150px">
   <div class="card-header">추천인기영화</div>
    <a href="<c:url value='/Movieing/Movie/AllMovie.mov'/>" class="card-link" style="float:none; margin:0 auto">더보기></a>
- 
+  
 	</div>
 	
-
-</div>  
-	  
-</div>
   <div class="wrap" style="margin-top: 20px">
- 	
- 	   <img class="movie1"  src="<c:url value='/resources/img/movie/mo.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/blood.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/end.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/exit.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/gemini.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/gostop.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/joker.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/jang.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/ki.jpg'/>"  alt=""/>
+		
+	  <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+	  <img class="movie1"  src="<c:url value='/resources/img/movie/mo.jpg'/>"  alt=""/></a>
+	  <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/blood.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/end.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/exit.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/gemini.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/gostop.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/joker.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/jang.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/ki.jpg'/>"  alt=""/></a>
      
   </div>
   
@@ -55,16 +60,26 @@
   <a href="<c:url value='/Movieing/Movie/AllMovie.mov'/>" class="card-link" style="float:none; margin:0 auto">더보기></a>
 	</div>
    <div class="wrap" style="margin-top: 20px">
-      <img class="movie1"  src="<c:url value='/resources/img/movie/kim.jpg'/>" alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/mul.jpg'/>" alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/perfect.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/toystory.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/you.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/mo.jpg'/>" alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/ki.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/jang.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/end.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/exit.jpg'/>" alt=""/>
+   	  <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/kim.jpg'/>" alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/mul.jpg'/>" alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/perfect.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/toystory.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/you.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/jang.jpg'/>" alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/ki.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/mn.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/end.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/exit.jpg'/>" alt=""/></a>
       
   </div>
   	
@@ -73,17 +88,28 @@
   	 <a href="<c:url value='/Movieing/Movie/AllMovie.mov'/>" class="card-link" style="float:none; margin:0 auto">더보기></a>
 	</div>
    <div class="wrap" style="margin-top: 20px">
-      <img class="movie1"  src="<c:url value='/resources/img/movie/movie1.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/movie5.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/movie3.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/movie4.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/movie11.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/movie7.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/movie8.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/movie9.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/movie13.jpg'/>"  alt=""/>
-      <img class="movie1"  src="<c:url value='/resources/img/movie/movie2.jpg'/>"  alt=""/>
+   	  <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/movie1.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/movie5.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/movie3.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/movie4.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/movie11.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/movie2.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/movie9.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/movie8.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/movie13.jpg'/>"  alt=""/></a>
+      <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
+      <img class="movie1"  src="<c:url value='/resources/img/movie/movie7.jpg'/>"  alt=""/></a>
       
   </div>
 
+</div>
 </div>

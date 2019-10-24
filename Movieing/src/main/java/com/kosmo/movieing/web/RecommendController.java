@@ -9,4 +9,6 @@ public class RecommendController {
 	public String recommend() {
 		return "movie/recommend/Recommend.tiles";
 	}
+	
+	
 }

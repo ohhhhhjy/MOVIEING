@@ -96,7 +96,7 @@ body {
 					<!-- 프로필 사진 -->
 					<div class="col-sm-3" align="center">
 						<img class="profileImage" alt="프로필사진"
-							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+							src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1676/167613_P09_182225.jpg" />
 						<h5 style="padding-top: 20px">Road-dong</h5>
 						<div class="row">
 							<div class="col-sm-6">
@@ -178,9 +178,9 @@ body {
 							<p class="card-text">토이스토리를 봤다. 너무 재밌었다. 너무 재밌었고, 너무 재밌어서 너무
 								재밌을 뻔했다. 너무 재밌는 영화였다.</p>
 							<a href="#"><span
-								style="font-weight: bold; color: #db147b; font-size: 0.9em">좋아요
+								style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i>
 									25 </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
-								style="font-weight: bold; color: #db147b; font-size: 0.9em">댓글
+								style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i>
 									4 </span></a>
 						</div>
 					</div>
