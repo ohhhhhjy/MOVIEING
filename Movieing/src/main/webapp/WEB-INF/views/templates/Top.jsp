@@ -82,7 +82,7 @@
       <%--  </c:if> --%>
        <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
-            <a class="nav-link portfolio-link" href="#login-modal" data-toggle="modal">로그인</a>
+            <a class="nav-link portfolio-link" href="<c:url value='/Movieing/Movie/Login.mov'/>">로그인</a>
           </li>
           </ul>
          

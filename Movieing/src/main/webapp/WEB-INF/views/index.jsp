@@ -232,7 +232,9 @@
     </div>
   </div>
 
+ 
   <!-- Modal LOGIN -->
+  <!--  
   <div class="login-modal modal fade" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
     
@@ -249,7 +251,7 @@
           <div class="row">
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
-                <!-- Project Details Go Here -->
+                <!-- Project Details Go Here 
                 <h5>로그인</h5>
                 <input type="text" placeholder="아이디" class="form group form-control"/>
                 <input type="password" placeholder="비밀번호" class="form group form-control"/>
@@ -266,6 +268,7 @@
         </div>
     </div>
   </div>
+-->
   
   <script type="text/javascript">
   

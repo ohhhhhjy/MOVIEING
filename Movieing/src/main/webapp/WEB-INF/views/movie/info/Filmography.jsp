@@ -1,99 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link href="<c:url value='/resources/css/movieLayout.css'/>" rel="stylesheet" type="text/css">
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>>
-
-
-<div class="container" id="rating_container">
-	<c:forEach var="i" begin="1" end="7">
-	<div style="margin-bottom: 50px;">
-	
-		<div id="leftFrame" class=""><!-- 왼쪽 틀 시작 -->
-			<div class="title-poster" style="overflow: hidden;">
-				<img src="http://placehold.it/177x246">
-			</div>
-		</div><!-- 왼쪽 틀 끝 -->
-		<div id="rigthFrame" class=""><!-- 오른쪽 틀 시작 -->
-			<a>
-				<span class="title-list-row_row_title">영화제목${i}</span>
-				<span>2019</span>
-			</a>
-			<div>
-				<p class="detail-infos_subheading">
-					지금 시청하기
-				</p>
-				<div class="price-comparison_grid_row">
-							<div class="price-comparison_grid_row_title" >
-								구&nbsp;&nbsp;매
-							</div>
-							<div class="price-comparison_grid_row_holder">
-								<div class="price-comparison_grid_row_elemnet">
-									<div class="price-comparison_grid_row_element_icon">
-										<a href="www.naver.com">
-											<img class = "jw-provider-icon price-comparison_grid_row_icon" alt="Naver Store" title="Naver Store" src="<c:url value='/resources/img/movie/naver.png'/>">
-										</a>
-											<div class="price-comparison_grid_row_price">
-												${i}000원
-											</div>
-									</div>
-								</div>
-								
-								<div class="price-comparison_grid_row_elemnet">
-									<div class="price-comparison_grid_row_element_icon">
-										<a href="www.naver.com">
-											<img class = "jw-provider-icon price-comparison_grid_row_icon" alt="Naver Store" title="Naver Store" src="<c:url value='/resources/img/movie/pooq.jpg'/>">
-										</a>
-											<div class="price-comparison_grid_row_price">
-												${i+1}000원
-											</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="price-comparison_grid_row">
-							<div class="price-comparison_grid_row_title" >
-								대&nbsp;&nbsp;여
-							</div>
-							<div class="price-comparison_grid_row_holder">
-								<div class="price-comparison_grid_row_elemnet">
-									<div class="price-comparison_grid_row_element_icon">
-										<a href="www.naver.com">
-											<img class = "jw-provider-icon price-comparison_grid_row_icon" alt="Naver Store" title="Naver Store" src="<c:url value='/resources/img/movie/naver.png'/>">
-										</a>
-											<div class="price-comparison_grid_row_price">
-												3000원
-											</div>
-									</div>
-								</div>
-								
-								<div class="price-comparison_grid_row_elemnet">
-									<div class="price-comparison_grid_row_element_icon">
-										<a href="www.naver.com">
-											<img class = "jw-provider-icon price-comparison_grid_row_icon" alt="Naver Store" title="Naver Store" src="<c:url value='/resources/img/movie/pooq.jpg'/>">
-										</a>
-											<div class="price-comparison_grid_row_price">
-												4000원
-											</div>
-									</div>
-								</div>
-							</div>
-						</div><!-- 아이콘 배치 끝 -->
-						
-						<div class="horizontal-flow">
-							<div >
-								평점
-							</div>
-							<div>
-								별점
-							</div>
-							
-						</div><!-- 평점 별점 끝 -->
+<!-- 타일즈 설정되어 있어서  바디부분만 작성하면 됨. 
+근데 타일즈라 그냥 만들기만 한다고 되는게 아님.
+컨트롤러가서 RequestMapping해줘야됨.
+-->
+<div class="container">
+	<div>
+		<div class="filmo-all-Frame" >
+			<div class="filmo-header-Frame">
+				<div class="filmo-back-button-Frame">
+					<div class="filmo-back-button-Frame2">
+						<button class="filmo-back-button">
+							<img src="<c:url value='/resources/img/etc/backbutton.png'/>">
+						</button>
 					</div>
-				</div><!-- 오른쪽 틀 끝 -->
+				</div>
+				<div class="filmo-name-Frame" >
+					<div class="filmo-name-second-frame">
+						검색에 해당하는 이름1
+					</div>
+				</div>
 			</div>
-	</c:forEach>
+			
+			<div >
+				<div class="filmo-movie-row">
+					
+					<ul class="filmo-movie-list-Frame">
+					<c:forEach begin="1" end="12" var="i">
+						<li class="filmo-movie-list-li">
+						
+							<div class="filmo-movie-image-Frame">
+								<div class="filmo-moive-image-second">
+									<img class="filmo-movie-image" src="http://placehold.it/230x300">
+								</div>
+							</div>
+							<div class=filmo-movie-Title-Frame>
+								<div class="filmo-movie-Title">영화제목 ${i}</div>
+								<div class="filmo-movie-Rating">평점</div>
+							</div>
+						
+						</li>
+						
+					</c:forEach>
+						
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-	
