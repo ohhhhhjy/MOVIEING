@@ -96,6 +96,11 @@ body {
 	line-height: 40px;
 	font-weight: bold
 }
+
+.movieImg{
+width:135px;
+height: 200px;
+}
 </style>
 
 <!--1.컨트롤러에서 넘어오는 page값 이용해서 탭 선택시켜주기 https://stackoverflow.com/questions/39461076/how-to-change-active-bootstrap-tab-with-javascript-->
@@ -207,32 +212,32 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
                  <div class="tab-pane fade " id="nav-star" role="tabpanel" aria-labelledby="nav-star-tab">
                    		<div class="row" style="">
 							<div class="col-md-2 col-sm-6 movie-poster" style="">
-								<img  class="movieImg" src="http://placehold.it/135x200" alt=""/>
+								<img  class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt=""/>
 								<span class="movieTitle">말레피센트</span><br>
 								<Span class="movieStar">★4.5</Span>
 							</div>
 							<div class="col-md-2 col-xs-6 movie-poster" style="">
-								<img class="movieImg" src="http://placehold.it/135x200" alt="" />
+								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
 								<span class="movieTitle">말레피센트</span><br>
 								<Span class="movieStar">★4.5</Span>
 							</div>
 							<div class="col-md-2 col-sm-6 movie-poster">
-								<img class="movieImg" src="http://placehold.it/135x200" alt="" />
+								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
 								<span class="movieTitle">말레피센트</span><br>
 								<Span class="movieStar">★4.5</Span>
 							</div>
 							<div class="col-md-2 col-sm-6 movie-poster">
-								<img class="movieImg" src="http://placehold.it/135x200" alt="" />
+								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
 								<span class="movieTitle">말레피센트</span><br>
 								<Span class="movieStar">★4.5</Span>
 							</div>
 							<div class="col-md-2 col-sm-6 movie-poster">
-								<img class="movieImg" src="http://placehold.it/135x200" alt="" />
+								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
 								<span class="movieTitle">말레피센트</span><br>
 								<Span class="movieStar">★4.5</Span>
 							</div>
 							<div class="col-md-2 col-sm-6 movie-poster">
-								<img class="movieImg" src="http://placehold.it/135x200" alt="" />
+								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
 								<span class="movieTitle">말레피센트</span><br>
 								<Span class="movieStar">★4.5</Span>
 							</div>
@@ -255,9 +260,9 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
 									<p class="card-text">토이스토리를 봤다. 너무 재밌었다. 너무 재밌었고, 너무 재밌어서
 										너무 재밌을 뻔했다. 너무 재밌는 영화였다.</p>
 									<a href="#"><span
-										style="font-weight: bold; color: #db147b; font-size: 0.9em">좋아요
+										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
 											25 </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
-										style="font-weight: bold; color: #db147b; font-size: 0.9em">댓글
+										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
 											4 </span></a>
 								</div>
 							</div>
@@ -288,9 +293,9 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
 									<p class="card-text">토이스토리를 봤다. 너무 재밌었다. 너무 재밌었고, 너무 재밌어서 너무
 										재밌을 뻔했다. 너무 재밌는 영화였다.</p>
 									<a href="#"><span
-										style="font-weight: bold; color: #db147b; font-size: 0.9em">좋아요
+										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
 											25 </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
-										style="font-weight: bold; color: #db147b; font-size: 0.9em">댓글
+										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
 											4 </span></a>
 								</div>
 							</div>
@@ -302,32 +307,32 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
                   <div class="tab-pane fade" id="nav-wish" role="tabpanel" aria-labelledby="nav-wish-tab">
                   	  <div class="row" style="">
 							<div class="col-md-2 col-sm-6 movie-poster" style="">
-								<img  class="movieImg" src="http://placehold.it/135x200" alt=""/>
+								<img  class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt=""/>
 								<span class="movieTitle">말레피센트</span><br>
 								<Span class="movieExpect">예상★4.5</Span>
 							</div>
 							<div class="col-md-2 col-xs-6 movie-poster" style="">
-								<img class="movieImg" src="http://placehold.it/135x200" alt="" />
+								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
 								<span class="movieTitle">말레피센트</span><br>
 								<Span class="movieExpect">예상★4.5</Span>
 							</div>
 							<div class="col-md-2 col-sm-6 movie-poster">
-								<img class="movieImg" src="http://placehold.it/135x200" alt="" />
+								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
 								<span class="movieTitle">말레피센트</span><br>
 								<Span class="movieExpect">예상★4.5</Span>
 							</div>
 							<div class="col-md-2 col-sm-6 movie-poster">
-								<img class="movieImg" src="http://placehold.it/135x200" alt="" />
+								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
 								<span class="movieTitle">말레피센트</span><br>
 								<Span class="movieExpect">예상★4.5</Span>
 							</div>
 							<div class="col-md-2 col-sm-6 movie-poster">
-								<img class="movieImg" src="http://placehold.it/135x200" alt="" />
+								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
 								<span class="movieTitle">말레피센트</span><br>
 								<Span class="movieExpect">예상★4.5</Span>
 							</div>
 							<div class="col-md-2 col-sm-6 movie-poster">
-								<img class="movieImg" src="http://placehold.it/135x200" alt="" />
+								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
 								<span class="movieTitle">말레피센트</span><br>
 								<Span class="movieExpect">예상★4.5</Span>
 							</div>

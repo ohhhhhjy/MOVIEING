@@ -9,4 +9,9 @@ public class RecommendController {
 	public String recommend() {
 		return "movie/recommend/Recommend.tiles";
 	}
+	
+	@RequestMapping("/Movieing/Movie/test.mov")
+	public String test() {
+		return "movie/recommend/test.tiles";
+	}
 }

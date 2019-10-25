@@ -44,7 +44,7 @@ body {
 
 /* 배우 스팬 */
 .actorForm {
-	padding-bottom: 20px;;
+	padding-bottom: 20px;
 }
 
 /* 장르스팬 */
@@ -73,3 +73,24 @@ body {
 .followForm{
 padding-left: 50px;padding-right: 30px;
 }
+
+/* 선호태그 스팬 */
+.mySpan{
+	color:#db147b;
+}
+
+.tagSpan {
+	color: #db147b;
+	position: absolute;
+	/* font-size: 17px; */
+	font-weight: bold;
+	/* line-height: 23px; */
+	font-style: normal;
+	width: 64px;
+	text-align: center;
+	white-space: nowrap;
+	transform-origin: center bottom;
+	/* transform: translate(132px, 62px) rotate(0deg);  */
+}
+
+
