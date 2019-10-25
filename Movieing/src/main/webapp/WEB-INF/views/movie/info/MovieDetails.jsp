@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -87,6 +88,7 @@ body {
 
 
 
+
 <div class="container">
 	<div style="margin-left: -15px; margin-right: -15px; margin-top: 15px;">
 		<div id="leftFrame">
@@ -102,6 +104,7 @@ body {
 					</a>
 				</div>
 				<div id="watchListButton">
+
 					<a href="www.naver.com" id="likeButtonSpa"> <span
 						id="likeButtonSpan">좋아요</span>
 					</a>
@@ -301,6 +304,7 @@ body {
 								</div>
 
 							</div>
+
 							<!-- 안쪽 div 끝-->
 						</div>
 						<!-- 가장 바깥쪽 div 끝 -->
@@ -353,12 +357,14 @@ body {
 									</div>
 									<div class="title-poster">
 										<img src="<c:url value='/resources/img/movie/555.jpg'/>"  style="width: 166px;height: 236px">
+
 									</div>
 								</div>
 
 
 							</div>
 						</div>
+
 					</div>
 				</div>
 				<!-- 영화 이미지 들어갈 틀 끝 -->

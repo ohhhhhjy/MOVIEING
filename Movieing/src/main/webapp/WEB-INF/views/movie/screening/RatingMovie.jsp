@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link href="<c:url value='/resources/css/movieLayout.css'/>"
@@ -6,7 +7,9 @@
 
 
 
+
 <script type="text/javascript">
+
 	$(document).ready(function() {
 		$('.starRev span').click(function() {
 			$(this).parent().children('span').removeClass('on');
@@ -45,11 +48,13 @@
 							<c:forEach var="i" begin="1" end="20">
 								<li class="liFrame">
 
+
 									<div class="rating-PosterContainer">
 										<div class="rating-Poster-Imagediv">
 											<img class="rating-Img" src="http://placehold.it/120x108">
 										</div>
 									</div>
+
 
 									<div class="rating-Detail">
 										<h3>영화제목 ${i}</h3>
@@ -60,10 +65,12 @@
 													<span class="starR">★</span> <span class="starR">★</span> <span
 														class="starR">★</span> <span class="starR">★</span> <span
 														class="starR">★</span>
+
 												</div>
 											</div>
 										</div>
 									</div>
+
 
 								</li>
 							</c:forEach>
@@ -73,6 +80,7 @@
 				</div>
 			</div>
 		</div>
+
 
 
 
