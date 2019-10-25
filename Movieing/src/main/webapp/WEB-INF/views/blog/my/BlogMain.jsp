@@ -8,53 +8,6 @@
 <link href="<c:url value='/resources/css/blogMainLayout.css'/>"
 	rel="stylesheet" type="text/css">
 
-<style>
-body {
-	padding-top: 100px;
-}
-
-.movieImage {
-	width: 120px;
-	height: 180px;
-}
-/* 원형이미지들 */
-.radiusImg {
-	width: 65px;
-	height: 65px;
-	/* background-image:url("배경이미지경로"); */
-	border-radius: 150px; /* 레이어 반크기만큼 반경을 잡기*/
-	display: table-cell;
-	vertical-align: middle;
-	color: #ffffff;
-	font-weight: bold;
-	text-align: center;
-}
-/* 배우감독이름 스팬 */
-.actorSpan {
-	font-size: 1.2em;
-	font-weight: bold;
-	line-height: 65px; . actorSpan { font-size : 1.2em;
-	font-weight: bold;
-	line-height: 65px;
-}
- /* 필모그램 스팬 */    
-.filmoSpan {
-	line-height: 65px;
-}
-
-/* 배우 스팬 */
-.actorForm {
-	padding-bottom: 20px;; 
-	font-weight: bold;
-	font-size: 1.2em;
-}
-
-.genreSpan {
-	color: #37C2AD;
-	font-weight: bold;
-	font-size: 1.2em;
-}
-</style>
 
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
@@ -92,20 +45,21 @@ body {
 			<!-- 프로필 -->
 			<div class="jumbotron">
 				<div class="row">
-
 					<!-- 프로필 사진 -->
 					<div class="col-sm-3" align="center">
 						<img class="profileImage" alt="프로필사진"
-							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+							src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1676/167613_P09_182225.jpg" />
 						<h5 style="padding-top: 20px">Road-dong</h5>
 						<div class="row">
 							<div class="col-sm-6">
-								<a href="#followModal" data-toggle="modal" id="followerModal" class="followModal"><span
+								<a href="#followModal" data-toggle="modal" id="followerModal"
+									class="followModal"><span
 									style="font-weight: bold; color: black; font-size: 0.9em">팔로워
 										25 </span></a>
 							</div>
 							<div class="col-sm-6">
-								<a href="#followModal" data-toggle="modal" id="followingModal" class="followModal"><span
+								<a href="#followModal" data-toggle="modal" id="followingModal"
+									class="followModal"><span
 									style="font-weight: bold; color: black; font-size: 0.9em">팔로잉
 										43 </span></a>
 							</div>
@@ -121,7 +75,8 @@ body {
 					<!-- 프로필 활동내역 -->
 					<div class="col-sm-9">
 						<p align="right" style="padding-bottom: 20px">
-							<a class="btn btn-dark btn-sm" href="#" role="button">마이페이지</a>
+							<a class="btn btn-dark btn-sm"
+								href="<c:url value='/Movieing/Blog/MyPage.mov'/>" role="button">마이페이지</a>
 						</p>
 						<div class="row"
 							style="padding-top: 20px; padding-bottom: 20px; background-color: white; border-radius: 10px 10px 10px 10px;">
@@ -132,20 +87,20 @@ body {
 							</div>
 							<div class="col-sm-3" align="center"
 								style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
-								<a href="<c:url value='/Movieing/Blog/MyActivity.mov?page=b'/>"><span style="font-weight: bold">리뷰<br>
-										47
+								<a href="<c:url value='/Movieing/Blog/MyActivity.mov?page=b'/>"><span
+									style="font-weight: bold">리뷰<br> 47
 								</span></a>
 							</div>
 							<div class="col-sm-3" align="center"
 								style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
-								<a href="<c:url value='/Movieing/Blog/MyActivity.mov?page=c'/>"><span style="font-weight: bold">좋아요<br>
-										25
+								<a href="<c:url value='/Movieing/Blog/MyActivity.mov?page=c'/>"><span
+									style="font-weight: bold">좋아요<br> 25
 								</span></a>
 							</div>
 							<div class="col-sm-3" align="center"
 								style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
-								<a href="<c:url value='/Movieing/Blog/MyActivity.mov?page=d'/>"><span style="font-weight: bold">보고싶어요<br>
-										91
+								<a href="<c:url value='/Movieing/Blog/MyActivity.mov?page=d'/>"><span
+									style="font-weight: bold">보고싶어요<br> 91
 								</span></a>
 							</div>
 						</div>
@@ -178,10 +133,10 @@ body {
 							<p class="card-text">토이스토리를 봤다. 너무 재밌었다. 너무 재밌었고, 너무 재밌어서 너무
 								재밌을 뻔했다. 너무 재밌는 영화였다.</p>
 							<a href="#"><span
-								style="font-weight: bold; color: #db147b; font-size: 0.9em">좋아요
-									25 </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
-								style="font-weight: bold; color: #db147b; font-size: 0.9em">댓글
-									4 </span></a>
+								style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
+									class="far fa-thumbs-up"></i> 25 </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
+								style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
+									class="far fa-comments"></i> 4 </span></a>
 						</div>
 					</div>
 				</div>
@@ -211,9 +166,23 @@ body {
 				</p>
 				<div id="chart"
 					style="width: 500px; height: 170px; padding-left: 50px"></div>
+					
 				<hr class="my-3">
+				
 				<h5>선호태그</h5>
-				##여기에 선호태그들...##
+				<div class="card border-secondary mb-3 justify-content-center" style="max-width: 200rem;padding-left: 10px">
+					<div style="color: rgba(0, 0, 0, 1); width: 280px; height: 172px;padding-left: 20px;padding-top: 20px" >
+						<span style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(98px, 61px) rotate(0deg);font-weight: bold">웃기는</span>
+						<span style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(160px, 73px) rotate(0deg);font-weight: bold">발랄한</span>
+						<span style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(80px, 32px) rotate(0deg);font-weight: bold">따뜻한</span>
+						<span style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(179px, 43px) rotate(0deg);font-weight: bold">사랑</span>
+						<span style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(79px, 90px) rotate(0deg);font-weight: bold">슬픈</span>
+						<span style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(156px, 19px) rotate(0deg);font-weight: bold">귀여운</span>
+						<span style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(28px, 30px) rotate(0deg);font-weight: bold">재밌는</span>
+						<span style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(39px, 62px) rotate(0deg);font-weight: bold">뭉클한</span>
+						<span style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(27px, 85px) rotate(0deg);font-weight: bold">감동적인</span>
+					</div>
+				</div>
 				<hr class="my-3">
 				<h5>선호배우</h5>
 				<div class="row actorForm">
@@ -341,15 +310,15 @@ body {
 			</div>
 			<!-- 모달 헤더 -->
 			<ul class="nav nav-pills nav-justified " role="tablist"
-				style="padding-bottom: 20px;  ">
-				<li class="nav-item"><a class="nav-link "
-					href="#follower" data-toggle="pill" aria-controls="pills-follower"
+				style="padding-bottom: 20px;">
+				<li class="nav-item"><a class="nav-link " href="#follower"
+					data-toggle="pill" aria-controls="pills-follower"
 					id="pills-follower-tab">팔로워</a></li>
 				<li class="nav-item"><a class="nav-link" href="#following"
 					data-toggle="pill" aria-controls="pills-following"
 					id="pills-following-tab">팔로잉</a></li>
 			</ul>
-			
+
 			<!-- 모달컨텐츠 -->
 			<div class="tab-content" id="myTabContent"
 				style="height: 477px; overflow-y: scroll; overflow-x: hidden;">
@@ -408,9 +377,9 @@ body {
 						</div>
 
 					</div>
-					
+
 				</div>
-				
+
 				<!-- 모달컨텐츠2:팔로잉 -->
 				<div class="tab-pane fade" id="following" role="tabpanel"
 					aria-labelledby="pills-following-tab">
