@@ -10,15 +10,14 @@
 
 <body id="page-top">
 	
- 
+	
   <!-- Header -->
   <header class="masthead">
     <div class="container">
       <div class="intro-text">
         <div class="intro-heading text-uppercase">Welcome To MOVIEING</div>
-        <h4>당신의 취향을 알려주세요 :)</h4>
-        <br>
-        <div class="btn btn-outline-light"  onclick="btnChange()">#간담서늘한</div>
+        
+        <div class="btn btn-outline-light">#간담서늘한</div>
         <div class="btn btn-outline-light"  onclick="btnChange()">#배꼽빠지는</div>
         <div class="btn btn-outline-light" onclick="btnChange()">#친구랑 보기 좋은</div>
         <div class="btn btn-outline-light" onclick="btnChange()">#첫데이트</div>
@@ -39,8 +38,11 @@
         <div class="btn btn-outline-light" onclick="btnChange()">#(대충 액션 영화라는 내용)</div>       
         <br>
         <br>
+        <br>
         <br>       
-        <a class="btn btn-primary text-uppercase js-scroll-trigger btn-lg" href="#services">취향 알아보러 가기	</a>
+        <br>       
+        <br>       
+        <a class="btn btn-primary text-uppercase js-scroll-trigger btn-lg" href="<c:url value='/Movieing/Member/SignUp.mov'/>">취향 알아보러 가기	</a>
       </div>
     </div>
   </header>
@@ -230,7 +232,9 @@
     </div>
   </div>
 
+ 
   <!-- Modal LOGIN -->
+  <!--  
   <div class="login-modal modal fade" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
     
@@ -247,14 +251,14 @@
           <div class="row">
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
-                <!-- Project Details Go Here -->
+                <!-- Project Details Go Here 
                 <h5>로그인</h5>
                 <input type="text" placeholder="아이디" class="form group form-control"/>
                 <input type="password" placeholder="비밀번호" class="form group form-control"/>
                 <p class="item-intro text-muted">
                 	아직 무빙의 회원이 아니신가요?<br/>
                 	무빙의 모든 서비스는 회원만 이용 가능합니다.<br/>
-                	회원가입을 원하신다면 <a href="#" style="color: #e4288c">함께하기</a>를 눌러주세요. 
+                	회원가입을 원하신다면 <a href="<c:url value='/Movieing/Member/SignUp.mov'/>" style="color: #e4288c">함께하기</a>를 눌러주세요. 
                 </p>
                 <button class="btn btn-primary" data-dismiss="modal" type="button">로그인</button>
               </div>
@@ -264,15 +268,23 @@
         </div>
     </div>
   </div>
+-->
   
   <script type="text/javascript">
   
   	 function btnChange() {
 		var btn = document.getElementsByClassName('btn btn-outline-light');
 		
-		btn.className = "btn btn-light";
 		
 	}
+  	 $('.btn-outline-light').click(function() {
+		$(this).toggleClass('btn-light');
+		$(this).toggleClass('btn-outline-light');
+	});
+  	 
+  	//$('.btn-light').click(function() {
+	//	$(this).attr('class', 'btn btn-outline-light');
+	//});
   
   </script>
 
