@@ -16,6 +16,7 @@
 		<!-- 아래는 버전 그대로 유지해도 무방 -->
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
+		<webapp.lib>${basedir}/src/main/webapp/WEB-INF/lib</webapp.lib>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -169,6 +170,14 @@
 			<version>1.1.1</version>
 		</dependency>
 
+		<!-- json onbjectmapper -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind/2.10.0 -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.10.0</version>
+		</dependency>
+
 		<!-- 시큐리티 -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -197,8 +206,17 @@
 			<artifactId>jquery</artifactId>
 			<version>3.4.1</version>
 		</dependency>
-	</dependencies>
 
+		<!-- 영진위 kobis API 추가 -->
+		<dependency>
+			<groupId>kobis-opcl-rest</groupId>
+			<artifactId>kobis-opcl-rest</artifactId>
+			<scope>system</scope>
+			<version>1.0</version>
+			<systemPath>${webapp.lib}/kobis-opcl-rest-v1.0.jar</systemPath>
+		</dependency>
+
+	</dependencies>
 
 
 	<build>
