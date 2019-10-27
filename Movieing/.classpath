@@ -38,5 +38,4 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/qaz23/Downloads/kobis-opcl-rest-v1.0.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/kobis-opcl-rest-v1.0.jar"/>
-	<classpathentry kind="output" path="target/classes"/>
 </classpath>
