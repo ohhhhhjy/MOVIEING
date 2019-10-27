@@ -399,16 +399,17 @@ $('#blogCarousel').carousel({
 					<h5>상영영화 일간 박스오피스</h5>
 
 
+
 					<!--Table-->
 					<table id="tablePreview" class="table table-hover table-sm"
-						style="width: 300px; height: 400px">
+						style="width: auto; height: 400px">
 						<!--Table head-->
 
 						<thead>
 							<tr>
 								<th>순위</th>
 								<th>영화명</th>
-								<th style="text-align: center;">관객수</th>
+								<th style="text-align: center;">누적관객수</th>
 							</tr>
 						</thead>
 						<!--Table head-->
@@ -437,7 +438,8 @@ $('#blogCarousel').carousel({
 					</table>
 
 
-					<label style="color: gray;">영화진흥위원회 자료제공</label>
+
+					<label style="color: gray;">영화진흥위원회 자료제공(2019년 10월 26일 기준)</label>
 					<!--Table-->
 
 				</div>

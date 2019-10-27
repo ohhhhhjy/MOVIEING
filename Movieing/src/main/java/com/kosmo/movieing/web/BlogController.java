@@ -74,5 +74,12 @@ public class BlogController {
 	public String myPage_Help() {
 		return "blog/my/MyPage_Help.tiles";
 	}
+	
+	//글쓰기 페이지]
+		@RequestMapping("/Movieing/Blog/WritePage.mov")
+		public String write() {
+			return "blog/my/WritePage.tiles";
+		}
+
 
 }//////// class
