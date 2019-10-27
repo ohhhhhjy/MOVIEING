@@ -44,4 +44,12 @@ public class MovieController {
 	public String searchResult() {
 		return "movie/list/SearchResult.tiles";
 	}
+	
+	
+	
+	//상세 테스팅
+	@RequestMapping("/Movieing/Movie/MovieDetailsTest.mov")
+	public String movieDetailsTest() {
+		return "movie/info/MovieDetailsTest.tiles";
+	}
 }
