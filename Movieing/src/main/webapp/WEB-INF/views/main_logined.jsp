@@ -414,67 +414,22 @@ $('#blogCarousel').carousel({
 						<!--Table head-->
 						<!--Table body-->
 						<tbody>
-							<tr>
+							<!-- <tr>
 								<th scope="row" style="text-align: center;">1</th>
 								<td>말레피센트2</td>
-								<!-- 링크걸기 -->
+								링크걸기
 								<td style="color: gray; text-align: right;">5732559653명</td>
 
-							</tr>
-							<tr>
-								<th scope="row" style="text-align: center;">2</th>
-								<td>조커</td>
-								<td style="color: gray; text-align: right;">43542634명</td>
-
-							</tr>
-							<tr>
-								<th scope="row" style="text-align: center;">3</th>
-								<td>82년생 김지영</td>
-								<td style="color: gray; text-align: right;">2131245명</td>
-
-							</tr>
-							<tr>
-								<th scope="row" style="text-align: center;">4</th>
-								<td>82년생 김지영</td>
-								<td style="color: gray; text-align: right;">2131245명</td>
-
-							</tr>
-							<tr>
-								<th scope="row" style="text-align: center;">5</th>
-								<td>82년생 김지영</td>
-								<td style="color: gray; text-align: right;">2131245명</td>
-
-							</tr>
-							<tr>
-								<th scope="row" style="text-align: center;">6</th>
-								<td>82년생 김지영</td>
-								<td style="color: gray; text-align: right;">2131245명</td>
-
-							</tr>
-							<tr>
-								<th scope="row" style="text-align: center;">7</th>
-								<td>82년생 김지영</td>
-								<td style="color: gray; text-align: right;">2131245명</td>
-
-							</tr>
-							<tr>
-								<th scope="row" style="text-align: center;">8</th>
-								<td>82년생 김지영</td>
-								<td style="color: gray; text-align: right;">2131245명</td>
-
-							</tr>
-							<tr>
-								<th scope="row" style="text-align: center;">9</th>
-								<td>82년생 김지영</td>
-								<td style="color: gray; text-align: right;">2131245명</td>
-
-							</tr>
-							<tr>
-								<th scope="row" style="text-align: center;">10</th>
-								<td>82년생 김지영</td>
-								<td style="color: gray; text-align: right;">2131245명</td>
-
-							</tr>
+							</tr> -->
+							<c:if test="${not empty dailyResult.boxOfficeResult.dailyBoxOfficeList }" var="result">
+								<c:forEach items="${dailyResult.boxOfficeResult.dailyBoxOfficeList }" var="item">
+									<tr>
+									<th scope="row" style="text-align: center;"><c:out value="${item.rank }"/></th>
+									<td><c:out value="${item.movieNm }"/></td>
+									<td style="color: gray; text-align: right;"><c:out value="${item.audiAcc }"/>명</td>
+									</tr>
+								</c:forEach>
+							</c:if>
 						</tbody>
 
 						<!--Table body-->
