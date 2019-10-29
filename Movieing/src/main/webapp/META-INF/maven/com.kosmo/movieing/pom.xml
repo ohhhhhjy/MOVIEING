@@ -216,6 +216,13 @@
 			<systemPath>${webapp.lib}/kobis-opcl-rest-v1.0.jar</systemPath>
 		</dependency>
 
+		<!-- 크롤링 Jsoup 디펜던시 https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+		<dependency>
+		    <groupId>org.jsoup</groupId>
+		    <artifactId>jsoup</artifactId>
+		    <version>1.12.1</version>
+		</dependency>
+
 		<!-- 네이버 아이디로 로그인 -->
 		<!-- naver -->
 		<dependency>
