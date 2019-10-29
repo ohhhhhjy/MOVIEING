@@ -175,18 +175,6 @@ height: 3.6em;
 color:#db147b;
 }
 
-/* .headerDiv{
-height: 1000px;
-overflow: hidden;
-} */
-
-/* .headerImg{
--webkit-filter:blur(1px);
--moz-filter:blur(1px);
--o-filter:blur(1px);
--ms-filter:blur(1px);
-filter:blur(1px);
-} */
 
 .headerBackImg{
 -webkit-filter:blur(5px);
@@ -211,9 +199,13 @@ $(document).ready(function() {
 		return false;
 	});
 	
-/* 	$('#Carousel').carousel({
-        interval: 5000
-    }); */
+ 	$('#btnWish').click(function(){
+ 		if($('#wishBtnIcon').prop('class')=='fas fa-plus')
+ 			$('#wishBtnIcon').removeClass('fa-plus').addClass('fa-bookmark');
+ 		else
+ 			$('#wishBtnIcon').removeClass('fa-bookmark').addClass('fa-plus'); 
+	});
+
 });
 
 
@@ -239,11 +231,14 @@ $(document).ready(function() {
 			</div>
 			<!-- 기본정보+별점 -->
 			<div class="col-md-6  ">
-					<h2>툴리</h2>
-					<span>2018 가족 </span>
+					<h1>${movieInfoMap.movieInfoResult.movieInfo.movieNm}<span class="text-muted px-2" >${movieInfoMap.movieInfoResult.movieInfo.prdtYear}</span></h1>
+					<h6 class="px-2">${movieInfoMap.movieInfoResult.movieInfo.movieNmEn}</h6>
 					<hr class="my-3">
-					<span>평점★3.8&nbsp;&nbsp;</span>
-					<span style="color:#db147b">예상★4.0</span>
+					<span class="px-2">${movieInfoMap.movieInfoResult.movieInfo.audits[0].watchGradeNm} ・ ${movieInfoMap.movieInfoResult.movieInfo.genres[0].genreNm} ・ ${movieInfoMap.movieInfoResult.movieInfo.nations[0].nationNm}</span>
+					<hr class="my-3">
+					<span class="px-2" style="font-weight: bold">평점★3.8</span>
+					<span> ・</span>
+					<span class="px-2" style="color:#db147b;font-weight: bold">예상★4.0</span>
 					<hr class="my-3">
 					<div class="row">
 						<!-- 별점 -->
@@ -254,7 +249,7 @@ $(document).ready(function() {
 					      <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="별로예요">2 stars</label>
 					      <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="싫어요">1 star</label>
 					    </div>
-					    <button type="button" id="btnWish" class="btn btn-outline-danger waves-effect" data-toggle="button"><i class="fas fa-bookmark"></i>&nbsp;보고싶어요</button>
+					    <button  id="btnWish" class="btn btn-outline-danger waves-effect" data-toggle="button"><i class="fas fa-plus" id="wishBtnIcon"></i>&nbsp;보고싶어요</button>
 					</div>
 					<hr class="my-3">
 					<div class="row">
@@ -336,7 +331,7 @@ $(document).ready(function() {
 			<!-- 감독 -->
 			<div class="row">
 				<div class="col-md-1"><h4>감독</h4></div>
-				<a class="moviePersonName"  href="#">감독이름</a>
+				<a class="moviePersonName"  href="#">${movieInfoMap.movieInfoResult.movieInfo.directors[0].peopleNm}</a>
 			</div>
 			
 			<hr class="my-3">
@@ -344,8 +339,9 @@ $(document).ready(function() {
 			<!-- 배우 -->
 			<div class="row">
 				<div class="col-md-1"><h4>배우</h4></div>
-				<a class="moviePersonName" href="#">배우이름</a>
-				<a class="moviePersonName" href="#">배우이름</a>
+				<c:forEach items="${movieInfoMap.movieInfoResult.movieInfo.actors}" var="actors">
+					<a class="moviePersonName" href="#">${actors.peopleNm }</a>
+				</c:forEach>
 			</div>
 			
 			<%-- <div class="row actorForm">
@@ -441,8 +437,7 @@ $(document).ready(function() {
 				<!-- 영상 -->
 				<h4>영상</h4>
 				<div align="center">
-						<c:set var="title" value="툴리"></c:set>
-						<c:set var="result" value="[${title }]메인예고편" />
+						<c:set var="result" value="[${movieInfoMap.movieInfoResult.movieInfo.movieNm}]메인예고편" />
 						<iframe id="ytplayer1" type="text/html" width="80%"
 							height="500px"
 							src="https://www.youtube.com/embed/?listType=search&list='${result}'&autoplay=1"
