@@ -124,8 +124,8 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col-sm-3" align="center">
-							<img class="movieImage"
-								src="../../resources/img/movie/toystoryMain.jpg" alt="포스터" />
+							<a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"><img class="movieImage"
+								src="../../resources/img/movie/toystoryMain.jpg" alt="포스터" /></a>
 						</div>
 						<div class="col-sm-9">
 							<h4 class="card-title">토이스토리4</h4>

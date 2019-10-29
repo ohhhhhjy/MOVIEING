@@ -219,6 +219,32 @@ $('.carousel').carousel({
 		margin: 8px 0 0;
 	}
 }
+
+/*카드*/
+/* 배우감독이름 스팬 */
+.actorSpan {
+	font-size: 1.2em;
+	font-weight: bold;
+	line-height: 55px;
+}
+
+/* 필모그램 스팬 */
+.filmoSpan {
+	line-height: 65px;
+}
+
+/* 원형이미지들 */
+.radiusImg {
+	width: 55px;
+	height: 55px;
+	/* background-image:url("배경이미지경로"); */
+	border-radius: 150px; /* 레이어 반크기만큼 반경을 잡기*/
+	display: table-cell;
+	vertical-align: middle;
+	color: #ffffff;
+	font-weight: bold;
+	text-align: center;
+}
 </style>
 
 
@@ -368,7 +394,7 @@ $('#blogCarousel').carousel({
 
 			<div class="row">
 				<div class="col-md-8">
-					<h5>인기 트레일러</h5>
+					<h5 style="font-weight: bold;">인기 트레일러</h5>
 
 					<DIV>
 						<!--  
@@ -396,85 +422,47 @@ $('#blogCarousel').carousel({
 				<div>
 
 
-					<h5>상영영화 일간 박스오피스</h5>
+					<h5 style="font-weight: bold;">상영영화 일간 박스오피스</h5>
+
 
 
 					<!--Table-->
 					<table id="tablePreview" class="table table-hover table-sm"
-						style="width: 300px; height: 400px">
+						style="width: auto; height: 400px">
 						<!--Table head-->
 
 						<thead>
 							<tr>
 								<th>순위</th>
 								<th>영화명</th>
-								<th style="text-align: center;">관객수</th>
+								<th style="text-align: center;">누적관객수</th>
 							</tr>
 						</thead>
 						<!--Table head-->
 						<!--Table body-->
 						<tbody>
-							<tr>
+							<!-- <tr>
 								<th scope="row" style="text-align: center;">1</th>
 								<td>말레피센트2</td>
-								<!-- 링크걸기 -->
+								링크걸기
 								<td style="color: gray; text-align: right;">5732559653명</td>
 
-							</tr>
-							<tr>
-								<th scope="row" style="text-align: center;">2</th>
-								<td>조커</td>
-								<td style="color: gray; text-align: right;">43542634명</td>
-
-							</tr>
-							<tr>
-								<th scope="row" style="text-align: center;">3</th>
-								<td>82년생 김지영</td>
-								<td style="color: gray; text-align: right;">2131245명</td>
-
-							</tr>
-							<tr>
-								<th scope="row" style="text-align: center;">4</th>
-								<td>82년생 김지영</td>
-								<td style="color: gray; text-align: right;">2131245명</td>
-
-							</tr>
-							<tr>
-								<th scope="row" style="text-align: center;">5</th>
-								<td>82년생 김지영</td>
-								<td style="color: gray; text-align: right;">2131245명</td>
-
-							</tr>
-							<tr>
-								<th scope="row" style="text-align: center;">6</th>
-								<td>82년생 김지영</td>
-								<td style="color: gray; text-align: right;">2131245명</td>
-
-							</tr>
-							<tr>
-								<th scope="row" style="text-align: center;">7</th>
-								<td>82년생 김지영</td>
-								<td style="color: gray; text-align: right;">2131245명</td>
-
-							</tr>
-							<tr>
-								<th scope="row" style="text-align: center;">8</th>
-								<td>82년생 김지영</td>
-								<td style="color: gray; text-align: right;">2131245명</td>
-
-							</tr>
-							<tr>
-								<th scope="row" style="text-align: center;">9</th>
-								<td>82년생 김지영</td>
-								<td style="color: gray; text-align: right;">2131245명</td>
-
-							</tr>
-							<tr>
-								<th scope="row" style="text-align: center;">10</th>
-								<td>82년생 김지영</td>
-								<td style="color: gray; text-align: right;">2131245명</td>
-
-							</tr>
+							</tr> -->
+							<c:if
+								test="${not empty dailyResult.boxOfficeResult.dailyBoxOfficeList }"
+								var="result">
+								<c:forEach
+									items="${dailyResult.boxOfficeResult.dailyBoxOfficeList }"
+									var="item">
+									<tr>
+										<th scope="row" style="text-align: center;"><c:out
+												value="${item.rank }" /></th>
+										<td><c:out value="${item.movieNm }" /></td>
+										<td style="color: gray; text-align: right;"><c:out
+												value="${item.audiAcc }" />명</td>
+									</tr>
+								</c:forEach>
+							</c:if>
 						</tbody>
 
 						<!--Table body-->
@@ -482,7 +470,8 @@ $('#blogCarousel').carousel({
 					</table>
 
 
-					<label style="color: gray;">영화진흥위원회 자료제공</label>
+
+					<label style="color: gray;">영화진흥위원회 자료제공(2019년 10월 26일 기준)</label>
 					<!--Table-->
 
 				</div>
@@ -510,7 +499,7 @@ $('#blogCarousel').carousel({
 			<!-- 2행 -->
 			<div>
 				<div class="col-xl-12">
-					<h5>할인 영화</h5>
+					<h5 style="font-weight: bold;">할인 영화</h5>
 				</div>
 
 				<div id="carouselSixColumn" class="carousel slide"
@@ -771,214 +760,208 @@ $('#blogCarousel').carousel({
 					<!-- 2행 div끝 -->
 				</div>
 
+				<div>
+					<!-- 3행 div시작 ------------------------------------>
 
-				<!-- 3행 div시작 ------------------------------------>
-				<div class="row">
+					<h5 style="font-weight: bold;">무비 블로그 인기 글</h5>
+					<!-- Card group -->
+					<div class="card-group">
 
-					<div class="col-md-6">
-						<h5>무비 블로그 인기 글</h5>
+						<!-- Card -->
+						<div class="card mb-4">
 
 
-						<div class="accordion" id="accordionExample">
-							<div class="card z-depth-0 bordered">
-								<div class="card-header row" id="headingOne">
-									<h5 class="mb-0">
-										<button class="btn btn-link" type="button"
-											data-toggle="collapse" data-target="#collapseOne"
-											aria-expanded="true" aria-controls="collapseOne">
-											장사리 : 잊혀진 영웅들</button>
+							<!-- Card image -->
+							<div class="view overlay">
+								<img class="card-img-top"
+									src="<c:url value='/resources/img/main/7.jpg'/>"
+									alt="Card image cap" style="width: 357px; height: 354px">
+								<a href="#!">
+									<div class="mask rgba-white-slight"></div>
+								</a>
+							</div>
 
-									</h5>
 
+
+
+
+							<!-- Card content -->
+							<div class="card-body">
+
+								<!-- Title -->
+								<h4 class="card-title">
 									<div style="align-content: right;">
 										<span class="fa fa-star checked"></span> <span
 											class="fa fa-star checked"></span> <span
 											class="fa fa-star checked"></span> <span class="fa fa-star"></span>
 										<span class="fa fa-star"></span>
 									</div>
-
-								</div>
-								<div id="collapseOne" class="collapse show"
-									aria-labelledby="headingOne" data-parent="#accordionExample">
-									<div class="card-body row">
-
-										<div class="col-md-3">
-											<img src="<c:url value='/resources/img/main/7.jpg'/>"
-												style="width: 120px; height: 180px">
-
-										</div>
-										<div class="col-md-9">장사리 : 잊혀진 영웅들 너무 재밌다.장사리 : 잊혀진 영웅들
-											너무 재밌다.장사리 : 잊혀진 영웅들 너무 재밌다. 장사리 : 잊혀진 영웅들 너무 재밌다.장사리 : 잊혀진
-											영웅들 너무 재밌다.장사리 : 잊혀진 영웅들 너무 재밌다 장사리 : 잊혀진 영웅들 너무 재밌다.장사리 :
-											잊혀진 영웅들 너무 재밌다.장사리 : 잊혀진 영웅들 너무 재밌다...</div>
-
+								</h4>
+								<!-- Text -->
+								<p class="card-text">장사리 : 잊혀진 영웅들 너무 재밌다.장사리 : 잊혀진 영웅들 너무
+									재밌다.장사리 : 잊혀진 영웅들 너무 재밌다. ...</p>
+								<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+								<div class="row actorForm">
+									<div class="col-sm-3">
+										<img class="radiusImg" alt="감독사진"
+											src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
 									</div>
+									<div class="col-sm-4">
+										<span class="actorSpan">light_hj</span>
+									</div>
+									<div class="col-sm-5"></div>
 								</div>
+
+
+
+
 							</div>
-
-
-
-							<div class="card z-depth-0 bordered">
-								<div class="card-header row" id="headingTwo">
-									<h5 class="mb-0">
-										<button class="btn btn-link collapsed" type="button"
-											data-toggle="collapse" data-target="#collapseTwo"
-											aria-expanded="false" aria-controls="collapseTwo">
-											82년생 김지영</button>
-									</h5>
-									<div style="text-align: right"></div>
-									<div>
-										<span class="fa fa-star checked"></span> <span
-											class="fa fa-star checked"></span> <span
-											class="fa fa-star checked"></span> <span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-									</div>
-								</div>
-								<div id="collapseTwo" class="collapse"
-									aria-labelledby="headingTwo" data-parent="#accordionExample">
-									<div class="card-body row">
-
-										<div class="col-md-3">
-											<img src="<c:url value='/resources/img/main/8.jpg'/>"
-												style="width: 120px; height: 180px">
-
-										</div>
-										<div class="col-md-9">장사리 : 잊혀진 영웅들 너무 재밌다.장사리 : 잊혀진 영웅들
-											너무 재밌다.장사리 : 잊혀진 영웅들 너무 재밌다. 장사리 : 잊혀진 영웅들 너무 재밌다.장사리 : 잊혀진
-											영웅들 너무 재밌다.장사리 : 잊혀진 영웅들 너무 재밌다 장사리 : 잊혀진 영웅들 너무 재밌다.장사리 :
-											잊혀진 영웅들 너무 재밌다.장사리 : 잊혀진 영웅들 너무 재밌다...</div>
-
-									</div>
-								</div>
-							</div>
-							<div class="card z-depth-0 bordered">
-								<div class="card-header row" id="headingThree">
-									<h5 class="mb-0">
-										<button class="btn btn-link collapsed" type="button"
-											data-toggle="collapse" data-target="#collapseThree"
-											aria-expanded="false" aria-controls="collapseThree">
-											아담스 패밀리</button>
-									</h5>
-									<div style="text-align: right"></div>
-									<div>
-										<span class="fa fa-star checked"></span> <span
-											class="fa fa-star checked"></span> <span
-											class="fa fa-star checked"></span> <span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-									</div>
-								</div>
-								<div id="collapseThree" class="collapse"
-									aria-labelledby="headingThree" data-parent="#accordionExample">
-									<div class="card-body row">
-
-										<div class="col-md-3">
-											<img src="<c:url value='/resources/img/main/9.jpg'/>"
-												style="width: 120px; height: 180px">
-
-										</div>
-										<div class="col-md-9">장사리 : 잊혀진 영웅들 너무 재밌다.장사리 : 잊혀진 영웅들
-											너무 재밌다.장사리 : 잊혀진 영웅들 너무 재밌다. 장사리 : 잊혀진 영웅들 너무 재밌다.장사리 : 잊혀진
-											영웅들 너무 재밌다.장사리 : 잊혀진 영웅들 너무 재밌다 장사리 : 잊혀진 영웅들 너무 재밌다.장사리 :
-											잊혀진 영웅들 너무 재밌다.장사리 : 잊혀진 영웅들 너무 재밌다...</div>
-
-									</div>
-								</div>
-							</div>
-							<div class="card z-depth-0 bordered">
-								<div class="card-header row" id="headingThree">
-									<h5 class="mb-0">
-										<button class="btn btn-link collapsed" type="button"
-											data-toggle="collapse" data-target="#collapseThree"
-											aria-expanded="false" aria-controls="collapseThree">
-											겨울 왕국</button>
-									</h5>
-									<div style="text-align: right"></div>
-									<div>
-										<span class="fa fa-star checked"></span> <span
-											class="fa fa-star checked"></span> <span
-											class="fa fa-star checked"></span> <span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-									</div>
-								</div>
-								<div id="collapseThree" class="collapse"
-									aria-labelledby="headingThree" data-parent="#accordionExample">
-									<div class="card-body row">
-
-										<div class="col-md-3">
-											<img src="<c:url value='/resources/img/main/10.jpg'/>"
-												style="width: 120px; height: 180px">
-
-										</div>
-										<div class="col-md-9">장사리 : 잊혀진 영웅들 너무 재밌다.장사리 : 잊혀진 영웅들
-											너무 재밌다.장사리 : 잊혀진 영웅들 너무 재밌다. 장사리 : 잊혀진 영웅들 너무 재밌다.장사리 : 잊혀진
-											영웅들 너무 재밌다.장사리 : 잊혀진 영웅들 너무 재밌다 장사리 : 잊혀진 영웅들 너무 재밌다.장사리 :
-											잊혀진 영웅들 너무 재밌다.장사리 : 잊혀진 영웅들 너무 재밌다...</div>
-
-									</div>
-								</div>
-							</div>
+							<!-- Card content -->
 
 						</div>
+						<!-- Card -->
+						<div style="padding-left: 20px"></div>
+
+						<!-- Card -->
+						<div class="card mb-4">
+
+							<!-- Card image -->
+							<div class="view overlay">
+								<img class="card-img-top"
+									src="<c:url value='/resources/img/main/8.jpg'/>"
+									alt="Card image cap" style="width: 357px; height: 354px">
+								<a href="#!">
+									<div class="mask rgba-white-slight"></div>
+								</a>
+							</div>
+
+							<!-- Card content -->
+							<div class="card-body">
+								<!-- Title -->
+								<h4 class="card-title">
+									<span class="fa fa-star checked"></span> <span
+										class="fa fa-star checked"></span> <span
+										class="fa fa-star checked"></span> <span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+								</h4>
+								<!-- Text -->
+								<p class="card-text">장사리 : 잊혀진 영웅들 너무 재밌다.장사리 : 잊혀진 영웅들 너무
+									재밌다.장사리 : 잊혀진 영웅들 너무 재밌다. ...</p>
+								<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+								<div class="row actorForm">
+									<div class="col-sm-3">
+										<img class="radiusImg" alt="감독사진"
+											src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+									</div>
+									<div class="col-sm-4">
+										<span class="actorSpan">light_hj</span>
+									</div>
+									<div class="col-sm-5"></div>
+								</div>
+
+							</div>
+							<!-- Card content -->
+
+
+
+						</div>
+						<!-- Card -->
+						<div style="padding-left: 20px"></div>
+						<!-- Card -->
+						<div class="card mb-4">
+
+							<!-- Card image -->
+							<div class="view overlay">
+								<img class="card-img-top"
+									src="<c:url value='/resources/img/main/9.jpg'/>"
+									alt="Card image cap" style="width: 357px; height: 354px">
+								<a href="#!">
+									<div class="mask rgba-white-slight"></div>
+								</a>
+							</div>
+
+
+
+							<!-- Card content -->
+							<div class="card-body">
+
+								<!-- Title -->
+								<h4 class="card-title">
+									<span class="fa fa-star checked"></span> <span
+										class="fa fa-star checked"></span> <span
+										class="fa fa-star checked"></span> <span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+								</h4>
+								<!-- Text -->
+								<p class="card-text">장사리 : 잊혀진 영웅들 너무 재밌다.장사리 : 잊혀진 영웅들 너무
+									재밌다.장사리 : 잊혀진 영웅들 너무 재밌다. ...</p>
+								<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+								<div class="row actorForm">
+									<div class="col-sm-3">
+										<img class="radiusImg" alt="감독사진"
+											src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+									</div>
+									<div class="col-sm-4">
+										<span class="actorSpan">light_hj</span>
+									</div>
+									<div class="col-sm-5"></div>
+								</div>
+
+							</div>
+							<!-- Card content -->
+
+						</div>
+						<!-- Card -->
 
 					</div>
-					<!-- 아코디언 끝 -->
+					<!-- Card group -->
+
 					<!--  
 				<div class="col-md-6">
 				-->
 
 
 
-
-					<div class="col-md-6">
-						<h5>평론가 인기글</h5>
-
-						<div class="row">
-							<div>
-								<div class="card flex-md-row mb-4 shadow-sm h-md-250">
-									<div class="card-body d-flex flex-column align-items-start">
-										<strong class="d-inline-block mb-2 text-primary">오지윤
-											평론가</strong>
-										<h6 class="mb-0">
-											<a class="text-dark" href="#" style="font-weight: bold;">영화
-												알라딘은 동심을 자극하는 따뜻한 영화이다.</a>
-										</h6>
-										<div class="mb-1 text-muted small">10월 24일</div>
-										<br />
-
-										<p class="card-text mb-auto">
-											내 마음속에 지니가 살아 숨쉬고 있다.<br />오지윤의 지는 지니의 지다.아라비안 나이트는 내 인생노래다
-											.<br /> 12월 6일이 된다면, 나도 지니처럼 자유의 몸이 되겠지 내 마음속에 지니가 살아 숨쉬고
-											있다.<br />
-										</p>
-										<br /> <a class="btn btn-outline-primary btn-sm"
-											role="button" href="http://www.jquery2dotnet.com/">자세히 읽기</a>
-									</div>
-									<img class="card-img-right flex-auto d-none d-lg-block"
-										alt="Thumbnail [200x250]"
-										src="<c:url value='/resources/img/main/alra.jpg'/>"
-										class="profile-avatar" style="width: 200px; height: 320px;">
-								</div>
-							</div>
+				</div>
 
 
+				<div style="padding-top: 60px"></div>
+				<div>
+					<h5 style="font-weight: bold;">평론가 인기글</h5>
 
 
+					<div class="card flex-md-row mb-4 shadow-sm h-md-250">
+						<div class="card-body d-flex flex-column align-items-start">
+							<strong class="d-inline-block mb-2 text-primary">오지윤 평론가</strong>
+							<h6 class="mb-0">
+								<a class="text-dark" href="#" style="font-weight: bold;">영화
+									알라딘은 동심을 자극하는 따뜻한 영화이다.</a>
+							</h6>
+							<div class="mb-1 text-muted small">10월 24일</div>
+							<br />
+
+							<p class="card-text mb-auto">
+								내 마음속에 지니가 살아 숨쉬고 있다.<br />오지윤의 지는 지니의 지다.아라비안 나이트는 내 인생노래다 .<br />
+								12월 6일이 된다면, 나도 지니처럼 자유의 몸이 되겠지 내 마음속에 지니가 살아 숨쉬고 있다.<br />
+							</p>
+							<br /> <a class="btn btn-outline-primary btn-sm" role="button"
+								href="http://www.jquery2dotnet.com/">자세히 읽기</a>
 						</div>
+						<img class="card-img-right flex-auto d-none d-lg-block"
+							alt="Thumbnail [200x250]"
+							src="<c:url value='/resources/img/main/alra.jpg'/>"
+							class="profile-avatar" style="width: 300px; height: 320px;">
 					</div>
-					<!-- 큰 row -->
-
-
 
 
 
 
 				</div>
 
-
 				<!-- 4행시작 -->
 				<div style="padding-top: 60px"></div>
 				<div class="row blog">
-					<h5>영화제</h5>
+					<h5 style="font-weight: bold;">영화제</h5>
 					<div class="col-md-12">
 						<div id="blogCarousel" class="carousel slide" data-ride="carousel">
 
@@ -993,22 +976,26 @@ $('#blogCarousel').carousel({
 								<div class="carousel-item active">
 									<div class="row">
 										<div class="col-md-3">
-											<a href="#"> <img src="<c:url value='/resources/img/main/jun1.PNG'/>"
+											<a href="#"> <img
+												src="<c:url value='/resources/img/main/jun1.PNG'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
 										<div class="col-md-3">
-											<a href="#"> <img src="<c:url value='/resources/img/main/jun2.PNG'/>"
+											<a href="#"> <img
+												src="<c:url value='/resources/img/main/jun2.PNG'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
 										<div class="col-md-3">
-											<a href="#"> <img src="<c:url value='/resources/img/main/jun3.PNG'/>"
+											<a href="#"> <img
+												src="<c:url value='/resources/img/main/jun3.PNG'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
 										<div class="col-md-3">
-											<a href="#"> <img src="<c:url value='/resources/img/main/jun4.PNG'/>"
+											<a href="#"> <img
+												src="<c:url value='/resources/img/main/jun4.PNG'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
@@ -1021,22 +1008,26 @@ $('#blogCarousel').carousel({
 								<div class="carousel-item">
 									<div class="row">
 										<div class="col-md-3">
-											<a href="#"> <img src="<c:url value='/resources/img/main/jun1.PNG'/>"
+											<a href="#"> <img
+												src="<c:url value='/resources/img/main/jun1.PNG'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
 										<div class="col-md-3">
-											<a href="#"> <img src="<c:url value='/resources/img/main/jun2.PNG'/>"
+											<a href="#"> <img
+												src="<c:url value='/resources/img/main/jun2.PNG'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
 										<div class="col-md-3">
-											<a href="#"> <img src="<c:url value='/resources/img/main/jun3.PNG'/>"
+											<a href="#"> <img
+												src="<c:url value='/resources/img/main/jun3.PNG'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
 										<div class="col-md-3">
-											<a href="#"> <img src="<c:url value='/resources/img/main/jun4.PNG'/>"
+											<a href="#"> <img
+												src="<c:url value='/resources/img/main/jun4.PNG'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
@@ -1065,10 +1056,11 @@ $('#blogCarousel').carousel({
 
 
 					<ul class="list-unstyled video-list-thumbs row">
-						<li class="col-lg-3 col-sm-4 col-xs-6"><a href="#"
+						<li class="col-lg-3 col-sm-4 col-xs-6" ><a href="#" data-toggle="modal" data-target="centralModalSm"
 							title="Claudio Bravo, antes su debut con el Barça en la Liga">
 								<img src="http://i.ytimg.com/vi/ZKOtE9DOwGE/mqdefault.jpg"
-								alt="Barca" class="img-responsive" height="130px" />
+								alt="Barca" class="img-responsive" height="130px" 
+								 />
 								<h2>터미네이터 : 다크페이트</h2> <span
 								class="glyphicon glyphicon-play-circle"></span> <span
 								class="duration">03:15</span>
@@ -1077,28 +1069,57 @@ $('#blogCarousel').carousel({
 							title="Claudio Bravo, antes su debut con el Barça en la Liga">
 								<img src="http://i.ytimg.com/vi/ZKOtE9DOwGE/mqdefault.jpg"
 								alt="Barca" class="img-responsive" height="130px" />
-								<h2>날씨의 아이</h2> <span
-								class="glyphicon glyphicon-play-circle"></span> <span
-								class="duration">03:15</span>
+								<h2>날씨의 아이</h2> <span class="glyphicon glyphicon-play-circle"></span>
+								<span class="duration">03:15</span>
 						</a></li>
 						<li class="col-lg-3 col-sm-4 col-xs-6"><a href="#"
 							title="Claudio Bravo, antes su debut con el Barça en la Liga">
 								<img src="http://i.ytimg.com/vi/ZKOtE9DOwGE/mqdefault.jpg"
 								alt="Barca" class="img-responsive" height="130px" />
-								<h2>우먼 헐리우드</h2> <span
-								class="glyphicon glyphicon-play-circle"></span> <span
-								class="duration">03:15</span>
+								<h2>우먼 헐리우드</h2> <span class="glyphicon glyphicon-play-circle"></span>
+								<span class="duration">03:15</span>
 						</a></li>
 						<li class="col-lg-3 col-md-4 col-sm-4 col-xs-6"><a href="#"
 							title="Claudio Bravo, antes su debut con el Barça en la Liga">
 								<img src="http://i.ytimg.com/vi/ZKOtE9DOwGE/mqdefault.jpg"
 								alt="Barca" class="img-responsive" height="130px" />
-								<h2>니나 내나</h2> <span
-								class="glyphicon glyphicon-play-circle"></span> <span
-								class="duration">03:15</span>
+								<h2>니나 내나</h2> <span class="glyphicon glyphicon-play-circle"></span>
+								<span class="duration">03:15</span>
 						</a></li>
 
+			
+					
 					</ul>
+					<!-- 영화 예고 동영상 모달 -->
+						<!-- Central Modal Small -->
+						<div class="modal fade" id="centralModalSm" tabindex="-1"
+							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+							<!-- Change class .modal-sm to change the size of the modal -->
+							<div class="modal-dialog modal-sm" role="document">
+
+
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title w-100" id="myModalLabel">Modal
+											title</h4>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">...</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary btn-sm"
+											data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary btn-sm">Save
+											changes</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Central Modal Small -->
+					
 				</div>
 
 
