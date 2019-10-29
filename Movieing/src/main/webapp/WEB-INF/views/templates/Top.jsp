@@ -105,10 +105,11 @@
          </li>
          <li><span>&nbsp;&nbsp;&nbsp;</span></li>
          <li>
-         <a href="https://www.naver.com">
+         <a href="<c:url value='/Movieing/admin/admin_main.mov'/>">
          <img  alt="user" src="<c:url value='/resources/img/user.png'/>"/>
       </a>
           </li>
+          
           
           
         </ul>

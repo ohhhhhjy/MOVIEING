@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" output="target/classes" path="src/main/java">
@@ -36,7 +37,8 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/qaz23/Downloads/kobis-opcl-rest-v1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/kosmo_15/git/MOVIEING/Movieing/src/main/webapp/WEB-INF/lib/kobis-opcl-rest-v1.0.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/kobis-opcl-rest-v1.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
+
