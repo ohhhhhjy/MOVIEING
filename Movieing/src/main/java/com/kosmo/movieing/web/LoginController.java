@@ -1,5 +1,6 @@
 package com.kosmo.movieing.web;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -9,25 +10,42 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.scribejava.core.model.OAuth2AccessToken;
+import com.kosmo.movieing.web.NaverLoginBO;
 
 import kr.or.kobis.kobisopenapi.consumer.rest.KobisOpenAPIRestService;
 
 @Controller
 public class LoginController {
 
-	
+	/* NaverLoginBO */
+	private NaverLoginBO naverLoginBO;
+	private String apiResult = null;
+	@Autowired
+	private void setNaverLoginBO(NaverLoginBO naverLoginBO) {
+	this.naverLoginBO = naverLoginBO;
+	}
 	//로그인 화면
-	@RequestMapping("/Movieing/Member/Login.mov")
-	public String Login() {
+	@RequestMapping(value = "/Movieing/Member/Login.mov",  method = { RequestMethod.GET, RequestMethod.POST })
+	public String Login(Model model, HttpSession session) {
+		/* 네이버아이디로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl메소드 호출 */
+		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
+		model.addAttribute("url", naverAuthUrl);
 		return "member/Login.tiles";
 	}
+	
 	
 	@RequestMapping("/Movieing/Member/LoginProcess.mov")
 	public String process(HttpSession session, @RequestParam  Map map, Model model) throws Exception {
@@ -58,9 +76,30 @@ public class LoginController {
 		return "member/SignUp.tiles";
 	}
 	
-	@RequestMapping("/Movieing/Movie/Main.mov")
-	public String loginMain(Model model)  throws Exception{
+	@RequestMapping(value = "/Movieing/Movie/Main.mov",  method = { RequestMethod.GET, RequestMethod.POST })
+	public String loginMain(Model model, @RequestParam String code, @RequestParam String state, HttpSession session) throws Exception{
+		OAuth2AccessToken oauthToken;
+		oauthToken = naverLoginBO.getAccessToken(session, code, state);
+		//1. 로그인 사용자 정보를 읽어온다.
+		apiResult = naverLoginBO.getUserProfile(oauthToken); //String형식의 json데이터
+		//2. String형식인 apiResult를 json형태로 바꿈
+		JSONParser parser = new JSONParser();
+		Object obj = parser.parse(apiResult);
+		JSONObject jsonObj = (JSONObject) obj;
+		//3. 데이터 파싱
+		//Top레벨 단계 _response 파싱
+		JSONObject response_obj = (JSONObject)jsonObj.get("response");
+		//response의 nickname값 파싱
+		String nickname = (String)response_obj.get("nickname");
+		System.out.println(nickname);
+		//4.파싱 닉네임 세션으로 저장
+		session.setAttribute("sessionId",nickname); //세션 생성
+		model.addAttribute("result", apiResult);
 		model.addAttribute("dailyResult", boxofficeResult());//박스오피스JSON을 모델에 넘겨준다
+		return "main_logined.tiles";
+	}
+	@RequestMapping("/Movieing/Movie/Home.mov")
+	public String goToHome() {
 		return "main_logined.tiles";
 	}
 	
