@@ -6,7 +6,8 @@
 <%@page import="java.text.SimpleDateFormat"%>
 
 <%@page import="java.util.Calendar"%>
-<link href="<c:url value='/resources/css/calendar.css'/>" rel="stylesheet" type="text/css">
+<link href="<c:url value='/resources/css/calendar.css'/>"
+	rel="stylesheet" type="text/css">
 <%
 	Calendar cal = Calendar.getInstance();
 
@@ -184,20 +185,17 @@ A:hover {
 											href="<c:url value='/CalendarExam2.jsp' />?year=<%=year - 1%>&amp;month=<%=month%>"
 											target="_self"><b>&lt;&lt;</b> <!-- 이전해 --> </a> <%
  	if (month > 0) {
- %>
-											<a
+ %> <a
 											href="<c:url value='/CalendarExam2.jsp' />?year=<%=year%>&amp;month=<%=month - 1%>"
 											target="_self"><b>&lt;</b> <!-- 이전달 --> </a> <%
  	} else {
- %> <b>&lt;</b>
-											<%
-												}
-											%> <span style="font-size: 20pt; font-weight: bold">&nbsp;&nbsp;<%=year%>년
+ %> <b>&lt;</b> <%
+ 	}
+ %> <span style="font-size: 20pt; font-weight: bold">&nbsp;&nbsp;<%=year%>년
 												<%=month + 1%>월 &nbsp;&nbsp;
-										</span>
-											<%
-												if (month < 11) {
-											%> <a
+										</span> <%
+ 	if (month < 11) {
+ %> <a
 											href="<c:url value='/CalendarExam2.jsp' />?year=<%=year%>&amp;month=<%=month + 1%>"
 											target="_self"> <!-- 다음달 --> <b>&gt;</b>
 
@@ -413,7 +411,8 @@ A:hover {
 			</thead>
 			<tbody>
 				<tr>
-					<td><a class="nav-link" href="#calendar-modal" data-toggle="modal">부산 국제 영화제</a></td>
+					<td><a class="nav-link" href="#calendar-modal"
+						data-toggle="modal">부산 국제 영화제</a></td>
 					<td>2019.10.03(목) ~ 2019.10.12(토)</td>
 					<td>부산</td>
 				</tr>
@@ -438,42 +437,46 @@ A:hover {
 
 
 <!-- Calendar LOGIN -->
-  <div class="calendar-modal modal fade" id="calendar-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-    
-      <div class="modal-content">
-      
-     
-      <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-      
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <div class="modal-body">
-                <!-- Project Details Go Here -->
-                <h5>부산국제영화제</h5>
-                <img alt="이미지" src="<c:url value='/resources/img/news/busan.jpg'/>">
-                <p class="item-intro text-muted">
-                	<ul>
-                		<li>이름 : 부산국제영화제</li>
-                		<li>일시 : 2019.10.03(목) ~ 2019.10.12(토)</li>
-                		<li>장소 : 부산</li>
-                		<li><p>
-                		한국 영화의 발상지인 부산을, 영상문화의 중앙 집중에서 벗어나 지방 자치시대에 걸맞은 문화예술의 고장으로 발전시키고자 기획된 영화제이다. 1996년 제1회를 시작으로 2003년 제8회를 맞이한 부산국제영화제는 5년이라는 짧은 역사에도 불구하고 서구에 억눌려 있던 아시아 영화인의 연대를 실현했다는 평가를 받고 있다.<br>
+<div class="calendar-modal modal fade" id="calendar-modal" tabindex="-1"
+	role="dialog" aria-hidden="true">
+	<div class="modal-dialog" role="document">
 
-</p></li>
-                	</ul>
-                </p>
-               
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-    </div>
-  </div>
+		<div class="modal-content">
+
+
+			<div class="close-modal" data-dismiss="modal">
+				<div class="lr">
+					<div class="rl"></div>
+				</div>
+			</div>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 mx-auto">
+						<div class="modal-body">
+							<!-- Project Details Go Here -->
+							<h5>부산국제영화제</h5>
+							<img alt="이미지"
+								src="<c:url value='/resources/img/news/busan.jpg'/>">
+							<p class="item-intro text-muted">
+							<ul>
+								<li>이름 : 부산국제영화제</li>
+								<li>일시 : 2019.10.03(목) ~ 2019.10.12(토)</li>
+								<li>장소 : 부산</li>
+								<li><p>
+										한국 영화의 발상지인 부산을, 영상문화의 중앙 집중에서 벗어나 지방 자치시대에 걸맞은 문화예술의 고장으로
+										발전시키고자 기획된 영화제이다. 1996년 제1회를 시작으로 2003년 제8회를 맞이한 부산국제영화제는
+										5년이라는 짧은 역사에도 불구하고 서구에 억눌려 있던 아시아 영화인의 연대를 실현했다는 평가를 받고 있다.<br>
+
+									</p></li>
+							</ul>
+							</p>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
