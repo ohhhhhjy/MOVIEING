@@ -93,6 +93,8 @@ $('.carousel').carousel({
 		</div>
 	</div>
 	
+	
+	
 	<!-- 캐러셀 시작  -->
 
 	<div id="carouselSixColumn" class="carousel slide" data-ride="carousel">
@@ -104,10 +106,10 @@ $('.carousel').carousel({
 		<div class="carousel-inner">
 			<div class="carousel-item active">
 				<div class="row">
-					<div class="col-xl-2 p-1">
+					<div class="col-sm-1">
 						<div class="card">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
+								<img class="w-50"
 								src="<c:url value='/resources/img/movie/mo.jpg'/>" alt="" />
 							</a>
 							<div class="card-body">
@@ -118,7 +120,9 @@ $('.carousel').carousel({
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-2 p-1">
+					
+					
+					<div class="col-sm-1">
 						<div class="card">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
 								<img class="w-100"
@@ -134,7 +138,7 @@ $('.carousel').carousel({
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-2 p-1">
+					<div class="col-sm-1">
 						<div class="card">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
 								<img class="w-100"
@@ -149,7 +153,7 @@ $('.carousel').carousel({
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-2 p-1">
+						<div class="col-sm-1">
 						<div class="card">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
 								<img class="w-100"
@@ -165,7 +169,7 @@ $('.carousel').carousel({
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-2 p-1">
+						<div class="col-sm-1">
 						<div class="card">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
 								<img class="w-100"
@@ -180,7 +184,7 @@ $('.carousel').carousel({
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-2 p-1">
+					<div class="col-sm-1">
 						<div class="card">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
 								<img class="w-100"
@@ -196,9 +200,13 @@ $('.carousel').carousel({
 					
 				</div>
 			</div>
+			
+			
+			
+			
 			<div class="carousel-item">
 				<div class="row">
-					<div class="col-xl-2 p-1">
+					<div class="col-sm-2">
 						<div class="card">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
 								<img class="w-100"
@@ -213,7 +221,7 @@ $('.carousel').carousel({
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-2 p-1">
+					<div class="col-sm-2 p-1">
 						<div class="card">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
 								<img class="w-100"
@@ -228,7 +236,7 @@ $('.carousel').carousel({
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-2 p-1">
+						<div class="col-sm-2 p-1">
 						<div class="card">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
 								<img class="w-100"
@@ -243,7 +251,7 @@ $('.carousel').carousel({
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-2 p-1">
+					<div class="col-sm-2 p-1">
 						<div class="card">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
 								<img class="w-100"
@@ -257,7 +265,7 @@ $('.carousel').carousel({
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-2 p-1">
+						<div class="col-sm-2 p-1">
 						<div class="card">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
 								<img class="w-100"
@@ -274,7 +282,7 @@ $('.carousel').carousel({
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-2 p-1">
+					<div class="col-sm-2 p-1">
 						<div class="card">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
 								<img class="w-100"
@@ -292,9 +300,10 @@ $('.carousel').carousel({
 				</div>
 
 			</div>
+			
 			<div class="carousel-item">
 				<div class="row">
-					<div class="col-xl-2 p-1">
+					<div class="col-md-2 p-1">
 						<div class="card">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
 								<img class="w-100"
@@ -310,7 +319,7 @@ $('.carousel').carousel({
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-2 p-1">
+					<div class="col-md-2 p-1">
 						<div class="card">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
 								<img class="w-100"
@@ -325,7 +334,7 @@ $('.carousel').carousel({
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-2 p-1">
+					<div class="col-md-2 p-1">
 						<div class="card">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
 								<img class="w-100"
@@ -340,7 +349,7 @@ $('.carousel').carousel({
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-2 p-1">
+					<div class="col-md-2 p-1">
 						<div class="card">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
 								<img class="w-100"
@@ -354,7 +363,7 @@ $('.carousel').carousel({
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-2 p-1">
+					<div class="col-md-2 p-1">
 						<div class="card">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
 								<img class="w-100"
@@ -368,7 +377,7 @@ $('.carousel').carousel({
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-2 p-1">
+					<div class="col-md-2 p-1">
 						<div class="card">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
 								<img class="w-100"
@@ -394,6 +403,9 @@ $('.carousel').carousel({
 				class="sr-only">Next</span>
 			</a>
 		</div>
+		
+		
+		
 
 
 		<!-- 2행 div끝 -->
