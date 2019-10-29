@@ -61,15 +61,56 @@ img:hover {
 	color: black;
 	font-weight: bold;
 }
+
+/*전시회 모달*/
+tbody>tr {
+	cursor: pointer;
+}
+
+.result {
+	margin-top: 20px;
+}
+
+.thumb-contenido {
+	margin-bottom: 1%;
+	margin-left: 0px;
+	padding-left: 0px;
+}
 </style>
 
+
+<script>
+	/*전시회 모달*/
+	$(function() {
+		/* BOOTSNIPP FULLSCREEN FIX */
+		if (window.location == window.parent.location) {
+			$('#back-to-bootsnipp').removeClass('hide');
+			$('.alert').addClass('hide');
+		}
+
+		$('#fullscreen').on('click', function(event) {
+			event.preventDefault();
+			window.parent.location = "http://bootsnipp.com/iframe/Q60Oj";
+		});
+
+		$('tbody > tr').on('click', function(event) {
+			event.preventDefault();
+			$('#myModal').modal('show');
+		})
+
+		$('.btn-mais-info').on('click', function(event) {
+			$('.open_info').toggleClass("hide");
+		})
+
+	});
+</script>
 
 
 <div class="container" style="padding-top: 150px;">
 	<div id="calendar" style="width: auto; height: 800px;"></div>
-	
-	
-	
+
+
+
 	<div style="padding-bottom: 80px"></div>
 	<div>
 		<table class="table table-striped">
@@ -148,11 +189,99 @@ img:hover {
 	</div>
 </div>
 
-<!-- 전시회 --------------------------------->
+<!-- 전시회 --------------------------------------------------------------------------->
 <div class="container" style="padding-top: 30px">
 
 
+
+
 	<h1>전시회</h1>
+	<div class="row">
+		<div class="col-md-3 text" data-toggle="modal"
+			data-target=".bd-example-modal-lg">
+			<img class="" src="<c:url value='/resources/img/news/j1.PNG'/>"
+				alt="Pineapple">
+			<div class="middle">
+				<div class="text">부산 국제 영화제</div>
+			</div>
+		</div>
+
+
+
+
+		<!-- 모달 -->
+
+		<div class="modal fade bd-example-modal-lg" tabindex="-1"
+			role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content p-4">
+					<div class="well">
+						<div class="row">
+							<div class="col-md-12" style="padding-top: 10px;padding-left: 10px;padding-right: 10px">
+								<h1 class="hidden-xs hidden-sm">부산국제영화제</h1>
+								<i style="color: gray">Busan International Film Festival</i>
+
+								<hr>
+
+
+								<p class="text-justify">
+								<div class="row" style="padding-left: 10px;padding-right: 10px;padding-bottom: 10px">
+									<div class="col-md-4">
+										<img class="center-block img-responsive"
+											src='<c:url value='/resources/img/news/j1.PNG'/>' />
+									</div>
+									<div class="col-md-8">
+										<small>장소: 부산</small><br> <small><strong>개체월
+												: 10월</strong></small> <br></br>
+												
+												한국 영화의 발상지인 부산을, 영상문화의 중앙 집중에서 벗어나 지방 자치시대에 걸맞은 문화예술의
+										고장으로 발전시키고자 기획된 영화제이다. 1996년 제1회를 시작으로 2003년 제8회를 맞이한 부산국제영화제는
+										5년이라는 짧은 역사에도 불구하고 서구에 억눌려 있던 아시아 영화인의 연대를 실현했다는 평가를 받고 있다.<br>
+										<br>
+									</div>
+								</div>
+							</div>
+
+
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+		<!-- 모달 끝 -->
+
+
+		<div class="col-md-3 text">
+			<img class="img-responsive"
+				src="<c:url value='/resources/img/news/j2.PNG'/>" alt="Pineapple">
+			<div class="middle">
+				<div class="text">전주 국제 영화제</div>
+			</div>
+		</div>
+		<div class="col-md-3 text">
+			<img class="img-responsive"
+				src="<c:url value='/resources/img/news/j3.PNG'/>" alt="Pineapple">
+			<div class="middle">
+				<div class="text">부천국제판타스틱영화제</div>
+			</div>
+		</div>
+		<div class="col-md-3 text">
+			<img class="img-responsive"
+				src="<c:url value='/resources/img/news/j4.PNG'/>" alt="Pineapple">
+			<div class="middle">
+				<div class="text">서울독립영화제(구 금관상영화제, 한국청소년영화제, 한국독립단편영화제)</div>
+			</div>
+		</div>
+	</div>
+
+	<div style="padding-bottom: 70px"></div>
 	<div class="row">
 		<div class="col-md-3 text">
 			<img class="" src="<c:url value='/resources/img/news/j1.PNG'/>"
@@ -184,9 +313,8 @@ img:hover {
 			</div>
 		</div>
 	</div>
-	
-	<div style="padding-bottom: 70px"> </div>
-		<div class="row">
+	<div style="padding-bottom: 70px"></div>
+	<div class="row">
 		<div class="col-md-3 text">
 			<img class="" src="<c:url value='/resources/img/news/j1.PNG'/>"
 				alt="Pineapple">
@@ -217,8 +345,8 @@ img:hover {
 			</div>
 		</div>
 	</div>
-	<div style="padding-bottom: 70px"> </div>
-		<div class="row">
+	<div style="padding-bottom: 70px"></div>
+	<div class="row">
 		<div class="col-md-3 text">
 			<img class="" src="<c:url value='/resources/img/news/j1.PNG'/>"
 				alt="Pineapple">
@@ -249,42 +377,10 @@ img:hover {
 			</div>
 		</div>
 	</div>
-	<div style="padding-bottom: 70px"> </div>
-		<div class="row">
-		<div class="col-md-3 text">
-			<img class="" src="<c:url value='/resources/img/news/j1.PNG'/>"
-				alt="Pineapple">
-			<div class="middle">
-				<div class="text">부산 국제 영화제</div>
-			</div>
-		</div>
 
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j2.PNG'/>" alt="Pineapple">
-			<div class="middle">
-				<div class="text">전주 국제 영화제</div>
-			</div>
-		</div>
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j3.PNG'/>" alt="Pineapple">
-			<div class="middle">
-				<div class="text">부천국제판타스틱영화제</div>
-			</div>
-		</div>
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j4.PNG'/>" alt="Pineapple">
-			<div class="middle">
-				<div class="text">서울독립영화제(구 금관상영화제, 한국청소년영화제, 한국독립단편영화제)</div>
-			</div>
-		</div>
-	</div>
-	
-	
-	
-	
+
+
+
 </div>
 
 
