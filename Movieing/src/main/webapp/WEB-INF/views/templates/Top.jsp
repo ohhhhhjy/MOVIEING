@@ -36,8 +36,8 @@
 <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#002941">
     <div class="container">
-    <c:if test="${! empty sessionScope.id }" var="isLogin">
-      <a class="navbar-brand js-scroll-trigger" href="<c:url value='/Movieing/Movie/Main.mov'/>"><img alt="logo" src="<c:url value='/resources/img/logos/logo.png'/>"/></a>
+    <c:if test="${! empty sessionScope.id || ! empty sessionId}" var="isLogin">
+      <a class="navbar-brand js-scroll-trigger" href="<c:url value='/Movieing/Movie/Home.mov'/>"><img alt="logo" src="<c:url value='/resources/img/logos/logo.png'/>"/></a>
       </c:if>
       <c:if test="${!isLogin }">
       <a class="navbar-brand js-scroll-trigger" href="<c:url value='/'/>"><img alt="logo" src="<c:url value='/resources/img/logos/logo.png'/>"/></a>
@@ -101,6 +101,7 @@
           
            -->
            <li>
+           
           <div id="custom-search-input">
             <div class="input-group col-md-12">
                <input type="text" class="form-control input-lg"

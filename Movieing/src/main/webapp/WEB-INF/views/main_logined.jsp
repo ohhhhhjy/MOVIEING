@@ -1151,4 +1151,3 @@ $('#blogCarousel').carousel({
 </body>
 
 </html>
-
