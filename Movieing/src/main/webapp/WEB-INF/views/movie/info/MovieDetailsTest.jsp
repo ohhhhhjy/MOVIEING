@@ -176,6 +176,7 @@ color:#db147b;
 }
 
 
+/* 상단에 이미지 넣으려다 실패 
 .headerBackImg{
 -webkit-filter:blur(5px);
 -moz-filter:blur(5px);
@@ -185,7 +186,7 @@ filter:blur(5px);
 position: absolute; top:0; left: 0;
 width: 100%;
 height: 100%;
-}
+} */
 
 
 </style>
@@ -226,7 +227,7 @@ $(document).ready(function() {
 			<!-- 포스터 -->
 			<div class="col-md-3 ">
 				<a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"><img
-					class="movieImage" src="../../resources/img/movie/tooly.jpg"
+					class="movieImage" src="${movieImgMap}"
 					alt="포스터" /></a>
 			</div>
 			<!-- 기본정보+별점 -->
@@ -367,7 +368,7 @@ $(document).ready(function() {
 							<h4>리뷰</h4>
 						</div>
 						<div class="col-md-4" align="right">
-							<a href="#" class="moreContent">더보기</a>
+							<a href="<c:url value='/Movieing/Movie/MovieReviews.mov'/>" class="moreContent">더보기</a>
 						</div>
 					</div>
 			
