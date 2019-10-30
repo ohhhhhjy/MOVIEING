@@ -46,6 +46,8 @@
         Menu
         <i class="fas fa-bars"></i>
       </button>
+      
+      
       <div class="collapse navbar-collapse" id="navbarResponsive" >
       <%-- <c:if test="" > 여기는 로그인시에만 보이는 메뉴들--%>
      <c:if test="${isLogin}">
@@ -54,7 +56,7 @@
             <a class="nav-link js-scroll-trigger" href="<c:url value='/Movieing/Movie/AllMovie.mov'/>">전체영화</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<c:url value='/Movieing/Movie/RatingMovie.mov'/>">평가</a>
+            <a class="nav-link js-scroll-trigger" href="<c:url value='/Movieing/Movie/screening/First_like.mov'/>">평가</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="<c:url value='/Movieing/Movie/Recommend.mov'/>">추천</a>
