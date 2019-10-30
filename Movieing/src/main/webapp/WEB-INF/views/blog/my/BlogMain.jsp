@@ -155,7 +155,7 @@
 				style="padding-top: 60px">
 				<h3 align="center">홍길동님의 취향은?</h3>
 				<p align="right">
-					<a href="#" style="color: #a8a5a5">더 평가하러 가기</a>
+					<a href="<c:url value='/Movieing/Movie/RatingMovie.mov'/>" style="color: #a8a5a5">더 평가하러 가기</a>
 				</p>
 				<hr class="my-3">
 				<p align="center" style="font-size: 1em">무빙과 함께한지 164일째!</p>

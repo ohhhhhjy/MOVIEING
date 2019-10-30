@@ -6,7 +6,7 @@
 .dropdown-content {
 	display: none;
 	position: absolute;
-	background-color: white;/* #002941 */
+	background-color: #002941;/* #002941 */
 	min-width: 90px;
 	padding: 5px;
 	border-radius: 4px;
@@ -20,15 +20,24 @@
 	text-decoration: none;
 	display: block;
 }
+
+.dropItem{
+	color: white;
+}
+
+
 .dropdown:hover .dropdown-content { display: block; }
 .dropdown:hover .dropdown-button { }
+
+
+
 
 </style>
 <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#002941">
     <div class="container">
-    <c:if test="${! empty sessionScope.id }" var="isLogin">
-      <a class="navbar-brand js-scroll-trigger" href="<c:url value='/Movieing/Movie/Main.mov'/>"><img alt="logo" src="<c:url value='/resources/img/logos/logo.png'/>"/></a>
+    <c:if test="${! empty sessionScope.id || ! empty sessionId}" var="isLogin">
+      <a class="navbar-brand js-scroll-trigger" href="<c:url value='/Movieing/Movie/Home.mov'/>"><img alt="logo" src="<c:url value='/resources/img/logos/logo.png'/>"/></a>
       </c:if>
       <c:if test="${!isLogin }">
       <a class="navbar-brand js-scroll-trigger" href="<c:url value='/'/>"><img alt="logo" src="<c:url value='/resources/img/logos/logo.png'/>"/></a>
@@ -55,10 +64,10 @@
            	<div class="dropdown">
             	 <a class="nav-link js-scroll-trigger dropdown-button" href="<c:url value='/Movieing/Blog/BlogMain.mov'/>">블로그</a>    
 				  <div class="dropdown-content" >
-				    <a href="<c:url value='/Movieing/Blog/BlogMain.mov'/>">나의 피드</a>
-				    <a href="<c:url value='/Movieing/Blog/MyActivity.mov?page=a'/>">나의 활동</a>
-				    <a href="<c:url value='/Movieing/Blog/MovieingFriends.mov'/>">무빙프렌즈</a>
-				    <a href="<c:url value='/Movieing/Blog/MyPage.mov'/>">마이페이지</a>
+				    <a class="dropItem" href="<c:url value='/Movieing/Blog/BlogMain.mov'/>" style="color:white" >나의 피드</a>
+				    <a class="dropItem" href="<c:url value='/Movieing/Blog/MyActivity.mov?page=a'/>" style="color:white">나의 활동</a>
+				    <a class="dropItem" href="<c:url value='/Movieing/Blog/MovieingFriends.mov'/>" style="color:white">무빙프렌즈</a>
+				    <a class="dropItem" href="<c:url value='/Movieing/Blog/MyPage.mov'/>" style="color:white">마이페이지</a>
 				  </div>
             </div> 
           </li>
@@ -93,6 +102,7 @@
           
            -->
            <li>
+           
           <div id="custom-search-input">
             <div class="input-group col-md-12">
                <input type="text" class="form-control input-lg"
