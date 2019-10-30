@@ -77,978 +77,1152 @@ $('.carousel').carousel({
 	padding: 10px 0;
 }
 
-/*별점*/
+/*새로 쉐도우*/
+
+img.border-shadow{
+    border:1px solid #888888;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
 </style>
 
 
 
-<div style="margin-top: 130px">
-	<div class="col-xl-12">
-		<div class="card text-white bg-dark mb-3"
-			style="max-width: 10rem; margin-top: 120px;">
-			<div class="card-header">추천인기영화</div>
-			<a href="<c:url value='/Movieing/Movie/AllMovie.mov'/>"
-				class="card-link" style="float: none; margin: 0 auto">더보기></a>
+
+<div class="container-fluid" style="padding-left: 120px;padding-right: 120px">
+<!-- 한 장르 시작 -->
+	<div style="margin-top: 150px">
+		<div class="col-xl-12">
+			<div class="row">
+				<div class="col-xl-10">
+					<h3>#추천인기영화</h3>
+				</div>
+				<div class="col-xl-2" align="right">
+					<button type="button" class="btn btn-light btn-lg"><h5 style="color: gray;">모두 보기 ></h5></button>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- 캐러셀 시작  -->
+
+		<div class="row blog">
+			<div class="col-md-12">
+				<div id="blogCarousel" class="carousel slide" data-ride="carousel">
+
+					<ol class="carousel-indicators">
+						<li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#blogCarousel" data-slide-to="1"></li>
+						<li data-target="#blogCarousel" data-slide-to="2"></li>
+					</ol>
+
+					<!-- Carousel items -->
+					<div class="carousel-inner">
+
+
+						<div class="carousel-item active">
+							<div class="row">
+								<div class="col-md-2" >
+									<a href="#"> <img class= "border-shadow" 
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+
+							</div>
+
+						</div>
+
+
+
+
+
+
+						<div class="carousel-item">
+							<div class="row">
+								<div class="col-md-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+
+							</div>
+						</div>
+						<!--.item-->
+
+
+						<div class="carousel-item">
+							<div class="row">
+								<div class="col-md-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+
+							</div>
+						</div>
+
+
+					</div>
+					<!--.carousel-inner-->
+
+					<a class="carousel-control-prev" href="#blogCarousel" role="button"
+						data-slide="prev"> <span class="carousel-control-prev-icon"
+						aria-hidden="true"></span> <span class="sr-only">Previous</span>
+					</a> <a class="carousel-control-next" href="#blogCarousel"
+						role="button" data-slide="next"> <span
+						class="carousel-control-next-icon" aria-hidden="true"></span> <span
+						class="sr-only">Next</span>
+					</a>
+
+				</div>
+				<!--.Carousel-->
+
+
+
+
+
+			</div>
 
 		</div>
+
+
+
 	</div>
-	
-	
-	
-	<!-- 캐러셀 시작  -->
-
-	<div id="carouselSixColumn" class="carousel slide" data-ride="carousel">
-		<ol class="carousel-indicators">
-			<li data-target="#carouselSixColumn" data-slide-to="0" class="active"></li>
-			<li data-target="#carouselSixColumn" data-slide-to="1"></li>
-			<li data-target="#carouselSixColumn" data-slide-to="2"></li>
-		</ol>
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<div class="row">
-					<div class="col-sm-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-50"
-								src="<c:url value='/resources/img/movie/mo.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">가장보통의연애</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									188분</span> <br> <span style="font-size: small;">누적관객
-									149,112명</span>
-							</div>
-						</div>
-					</div>
-					
-					
-					<div class="col-sm-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/aladdin.jpg'/>" alt="" />
-							</a>
-
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">알라딘</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									200분</span> <br> <span style="font-size: small;">누적관객
-									279,112명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/blood.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">블러드심플</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									100분</span> <br> <span style="font-size: small;">누적관객
-									879,852명</span>
-
-							</div>
-						</div>
-					</div>
-						<div class="col-sm-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/end.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">어벤져스엔드게임</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									250분</span> <br> <span style="font-size: small;">누적관객
-									1,009,112명</span>
+	<!-- 캐러셀 다이브  -->
 
 
-							</div>
-						</div>
-					</div>
-						<div class="col-sm-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/exit.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">엑시트</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									120분</span> <br> <span style="font-size: small;">누적관객
-									389,881명</span>
 
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/gemini.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">제미니맨</p>
-								<span style="font-size: small; font-weight: nomal">상영 90분</span>
-								<br> <span style="font-size: small;">누적관객 123,221명</span>
-							</div>
-						</div>
-					</div>
-					
+<!-- 한 장르 끝 -->
+
+
+
+<!-- 한 장르 시작 -->
+	<div style="margin-top: 60px">
+		<div class="col-xl-12">
+			<div class="row">
+				<div class="col-xl-10">
+					<h3>#무빙 최고 인기작</h3>
+				</div>
+				<div class="col-xl-2" align="right">
+					<button type="button" class="btn btn-light btn-lg"><h5 style="color: gray;">모두 보기 ></h5></button>
 				</div>
 			</div>
-			
-			
-			
-			
-			<div class="carousel-item">
-				<div class="row">
-					<div class="col-sm-2">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/gostop.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">타짜</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									115분</span> <br> <span style="font-size: small;">누적관객
-									589,871명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/joker.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">조커</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									130분</span> <br> <span style="font-size: small;">누적관객
-									662,421명</span>
-
-							</div>
-						</div>
-					</div>
-						<div class="col-sm-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/jang.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">장사리</p>
-								<span style="font-size: small; font-weight: nomal">상영 70분</span>
-								<br> <span style="font-size: small;">누적관객 112,100명</span>
-
-
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/it.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">그것2</p>
-								<span style="font-size: small; font-weight: nomal">상영65분</span>
-								<br> <span style="font-size: small;">누적관객 396,123명</span>
-
-							</div>
-						</div>
-					</div>
-						<div class="col-sm-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/ki.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">기생충</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									130분</span> <br> <span style="font-size: small;">누적관객
-									892,100명</span>
-
-
-
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/kim.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">82년생김지영</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									119분</span> <br> <span style="font-size: small;">누적관객
-									472,550명</span>
-
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-			
-			<div class="carousel-item">
-				<div class="row">
-					<div class="col-md-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/you.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">유열의음악앨범</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									110분</span> <br> <span style="font-size: small;">누적관객
-									522,550명</span>
-
-
-							</div>
-						</div>
-					</div>
-					<div class="col-md-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/mul.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">양자물리학</p>
-								<span style="font-size: small; font-weight: nomal">상영 80분</span>
-								<br> <span style="font-size: small;">누적관객 123,480명</span>
-
-
-							</div>
-						</div>
-					</div>
-					<div class="col-md-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/perfect.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">퍼펙트게임</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									115분</span> <br> <span style="font-size: small;">누적관객
-									123,480명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-md-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/toystory.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">토이스토리4</p>
-								<span style="font-size: small; font-weight: nomal">상영 95분</span>
-								<br> <span style="font-size: small;">누적관객 568,258명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-md-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/shin.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">변신</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									115분</span> <br> <span style="font-size: small;">누적관객774,680명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-md-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/jang.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">장사리</p>
-								<span style="font-size: small; font-weight: nomal">상영 60분</span>
-								<br> <span style="font-size: small;">누적관객 123,480명</span>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<a class="carousel-control-prev" href="#carouselSixColumn"
-				role="button" data-slide="prev"> <span
-				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-				class="sr-only">Previous</span>
-			</a> <a class="carousel-control-next" href="#carouselSixColumn"
-				role="button" data-slide="next"> <span
-				class="carousel-control-next-icon" aria-hidden="true"></span> <span
-				class="sr-only">Next</span>
-			</a>
 		</div>
-		
-		
-		
 
 
-		<!-- 2행 div끝 -->
+
+		<!-- 캐러셀 시작  -->
+
+		<div class="row blog">
+			<div class="col-md-12">
+				<div id="blogCarousel" class="carousel slide" data-ride="carousel">
+
+					<ol class="carousel-indicators">
+						<li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#blogCarousel" data-slide-to="1"></li>
+						<li data-target="#blogCarousel" data-slide-to="2"></li>
+					</ol>
+
+					<!-- Carousel items -->
+					<div class="carousel-inner">
+
+
+
+						<div class="carousel-item active">
+							<div class="row">
+								<div class="col-md-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+
+							</div>
+
+						</div>
+
+
+
+
+
+
+						<div class="carousel-item">
+							<div class="row">
+								<div class="col-md-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+
+							</div>
+						</div>
+						<!--.item-->
+
+
+						<div class="carousel-item">
+							<div class="row">
+								<div class="col-md-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+
+							</div>
+						</div>
+
+
+					</div>
+					<!--.carousel-inner-->
+
+					<a class="carousel-control-prev" href="#blogCarousel" role="button"
+						data-slide="prev"> <span class="carousel-control-prev-icon"
+						aria-hidden="true"></span> <span class="sr-only">Previous</span>
+					</a> <a class="carousel-control-next" href="#blogCarousel"
+						role="button" data-slide="next"> <span
+						class="carousel-control-next-icon" aria-hidden="true"></span> <span
+						class="sr-only">Next</span>
+					</a>
+
+				</div>
+				<!--.Carousel-->
+
+
+
+
+
+			</div>
+
+		</div>
+
+
+
 	</div>
+	<!-- 캐러셀 다이브  -->
 
+
+
+<!-- 한 장르 끝 -->
+
+<!-- 한 장르 시작 -->
+	<div style="margin-top: 60px">
+		<div class="col-xl-12">
+			<div class="row">
+				<div class="col-xl-10">
+					<h3>#온몸이 쭈뼛쭈뼛 서게만드는 공포영화</h3>
+				</div>
+				<div class="col-xl-2" align="right">
+					<button type="button" class="btn btn-light btn-lg"><h5 style="color: gray;">모두 보기 ></h5></button>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- 캐러셀 시작  -->
+
+		<div class="row blog">
+			<div class="col-md-12">
+				<div id="blogCarousel" class="carousel slide" data-ride="carousel">
+
+					<ol class="carousel-indicators">
+						<li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#blogCarousel" data-slide-to="1"></li>
+						<li data-target="#blogCarousel" data-slide-to="2"></li>
+					</ol>
+
+					<!-- Carousel items -->
+					<div class="carousel-inner">
+
+
+
+						<div class="carousel-item active">
+							<div class="row">
+								<div class="col-md-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+
+							</div>
+
+						</div>
+
+
+
+
+
+
+						<div class="carousel-item">
+							<div class="row">
+								<div class="col-md-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+
+							</div>
+						</div>
+						<!--.item-->
+
+
+						<div class="carousel-item">
+							<div class="row">
+								<div class="col-md-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+
+							</div>
+						</div>
+
+
+					</div>
+					<!--.carousel-inner-->
+
+					<a class="carousel-control-prev" href="#blogCarousel" role="button"
+						data-slide="prev"> <span class="carousel-control-prev-icon"
+						aria-hidden="true"></span> <span class="sr-only">Previous</span>
+					</a> <a class="carousel-control-next" href="#blogCarousel"
+						role="button" data-slide="next"> <span
+						class="carousel-control-next-icon" aria-hidden="true"></span> <span
+						class="sr-only">Next</span>
+					</a>
+
+				</div>
+				<!--.Carousel-->
+
+
+
+
+
+			</div>
+
+		</div>
+
+
+
+	</div>
+	<!-- 캐러셀 다이브  -->
+
+
+
+<!-- 한 장르 끝 -->
+
+<!-- 한 장르 시작 -->
+<div style="margin-top: 60px">
+		<div class="col-xl-12">
+			<div class="row">
+				<div class="col-xl-10">
+					<h3>#마음이 따듯해지는 영화</h3>
+				</div>
+				<div class="col-xl-2" align="right">
+					<button type="button" class="btn btn-light btn-lg"><h5 style="color: gray;">모두 보기 ></h5></button>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- 캐러셀 시작  -->
+
+		<div class="row blog">
+			<div class="col-md-12">
+				<div id="blogCarousel" class="carousel slide" data-ride="carousel">
+
+					<ol class="carousel-indicators">
+						<li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#blogCarousel" data-slide-to="1"></li>
+						<li data-target="#blogCarousel" data-slide-to="2"></li>
+					</ol>
+
+					<!-- Carousel items -->
+					<div class="carousel-inner">
+
+
+
+						<div class="carousel-item active">
+							<div class="row">
+								<div class="col-md-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+
+							</div>
+
+						</div>
+
+
+
+
+
+
+						<div class="carousel-item">
+							<div class="row">
+								<div class="col-md-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+
+							</div>
+						</div>
+						<!--.item-->
+
+
+						<div class="carousel-item">
+							<div class="row">
+								<div class="col-md-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+
+							</div>
+						</div>
+
+
+					</div>
+					<!--.carousel-inner-->
+
+					<a class="carousel-control-prev" href="#blogCarousel" role="button"
+						data-slide="prev"> <span class="carousel-control-prev-icon"
+						aria-hidden="true"></span> <span class="sr-only">Previous</span>
+					</a> <a class="carousel-control-next" href="#blogCarousel"
+						role="button" data-slide="next"> <span
+						class="carousel-control-next-icon" aria-hidden="true"></span> <span
+						class="sr-only">Next</span>
+					</a>
+
+				</div>
+				<!--.Carousel-->
+
+
+
+
+
+			</div>
+
+		</div>
+
+
+
+	</div>
+	<!-- 캐러셀 다이브  -->
+
+
+
+<!-- 한 장르 끝 -->
+
+<!-- 한 장르 시작 -->
+<div style="margin-top: 60px">
+		<div class="col-xl-12">
+			<div class="row">
+				<div class="col-xl-10">
+					<h3>#푸하하하!웃음폭탄</h3>
+				</div>
+				<div class="col-xl-2" align="right">
+					<button type="button" class="btn btn-light btn-lg"><h5 style="color: gray;">모두 보기 ></h5></button>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- 캐러셀 시작  -->
+
+		<div class="row blog">
+			<div class="col-md-12">
+				<div id="blogCarousel" class="carousel slide" data-ride="carousel">
+
+					<ol class="carousel-indicators">
+						<li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#blogCarousel" data-slide-to="1"></li>
+						<li data-target="#blogCarousel" data-slide-to="2"></li>
+					</ol>
+
+					<!-- Carousel items -->
+					<div class="carousel-inner">
+
+
+
+						<div class="carousel-item active">
+							<div class="row">
+								<div class="col-md-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img class="border-shadow"
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+
+							</div>
+
+						</div>
+
+
+
+
+
+
+						<div class="carousel-item">
+							<div class="row">
+								<div class="col-md-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+
+							</div>
+						</div>
+						<!--.item-->
+
+
+						<div class="carousel-item">
+							<div class="row">
+								<div class="col-md-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+								<div class="col-sm-2">
+									<a href="#"> <img
+										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
+										alt="Image" style="width: 310px; height: 400px">
+									</a>
+
+								</div>
+
+
+							</div>
+						</div>
+
+
+					</div>
+					<!--.carousel-inner-->
+
+					<a class="carousel-control-prev" href="#blogCarousel" role="button"
+						data-slide="prev"> <span class="carousel-control-prev-icon"
+						aria-hidden="true"></span> <span class="sr-only">Previous</span>
+					</a> <a class="carousel-control-next" href="#blogCarousel"
+						role="button" data-slide="next"> <span
+						class="carousel-control-next-icon" aria-hidden="true"></span> <span
+						class="sr-only">Next</span>
+					</a>
+
+				</div>
+				<!--.Carousel-->
+
+
+
+
+
+			</div>
+
+		</div>
+
+
+
+	</div>
+	<!-- 캐러셀 다이브  -->
+
+
+
+
+
+<!-- 한 장르 끝 -->
 
 </div>
 <!-- container끝 -->
-<div>
-	<div class="col-xl-12">
-		<div class="card text-white bg-dark mb-3" style="max-width: 10rem;">
-			<div class="card-header">취향분석영화</div>
-			<a href="<c:url value='/Movieing/Movie/AllMovie.mov'/>"
-				class="card-link" style="float: none; margin: 0 auto">더보기></a>
-
-		</div>
-	</div>
-
-	<div id="carouselSixColumn" class="carousel slide" data-ride="carousel">
-		<ol class="carousel-indicators">
-			<li data-target="#carouselSixColumn" data-slide-to="0" class="active"></li>
-			<li data-target="#carouselSixColumn" data-slide-to="1"></li>
-			<li data-target="#carouselSixColumn" data-slide-to="2"></li>
-		</ol>
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<div class="row">
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/mo.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">가장보통의연애</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									188분</span> <br> <span style="font-size: small;">누적관객
-									149,112명</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/aladdin.jpg'/>" alt="" />
-							</a>
-
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">알라딘</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									200분</span> <br> <span style="font-size: small;">누적관객
-									279,112명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/blood.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">블러드심플</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									100분</span> <br> <span style="font-size: small;">누적관객
-									435,892명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/end.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">어벤져스엔드게임</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									250분</span> <br> <span style="font-size: small;">누적관객
-									1,009,112명</span>
-
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/exit.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">엑시트</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									120분</span> <br> <span style="font-size: small;">누적관객
-									389,881명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/gemini.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">제미니맨</p>
-								<span style="font-size: small; font-weight: nomal">상영 90분</span>
-								<br> <span style="font-size: small;">누적관객 123,221명</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<div class="row">
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/gostop.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">타짜</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									115분</span> <br> <span style="font-size: small;">누적관객
-									589,871명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/joker.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">조커</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									130분</span> <br> <span style="font-size: small;">누적관객
-									662,421명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/jang.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">장사리</p>
-								<span style="font-size: small; font-weight: nomal">상영 70분</span>
-								<br> <span style="font-size: small;">누적관객 112,100명</span>
-
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/it.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">그것2</p>
-								<span style="font-size: small; font-weight: nomal">상영65분</span>
-								<br> <span style="font-size: small;">누적관객 396,123명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/ki.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">기생충</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									130분</span> <br> <span style="font-size: small;">누적관객
-									892,100명</span>
-
-
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/kim.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">82년생김지영</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									119분</span> <br> <span style="font-size: small;">누적관객
-									472,550명</span>
-
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-			<div class="carousel-item">
-				<div class="row">
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/you.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">유열의음악앨범</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									110분</span> <br> <span style="font-size: small;">누적관객
-									522,550명</span>
-
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/mul.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">양자물리학</p>
-								<span style="font-size: small; font-weight: nomal">상영 80분</span>
-								<br> <span style="font-size: small;">누적관객 123,480명</span>
-
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/perfect.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">퍼펙트게임</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									115분</span> <br> <span style="font-size: small;">누적관객
-									893,420명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/toystory.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">토이스토리4</p>
-								<span style="font-size: small; font-weight: nomal">상영 95분</span>
-								<br> <span style="font-size: small;">누적관객 568,258명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/shin.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">변신</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									115분</span> <br> <span style="font-size: small;">누적관객774,680명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/jang.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">장사리</p>
-								<span style="font-size: small; font-weight: nomal">상영 60분</span>
-								<br> <span style="font-size: small;">누적관객 123,480명</span>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<a class="carousel-control-prev" href="#carouselSixColumn"
-				role="button" data-slide="prev"> <span
-				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-				class="sr-only">Previous</span>
-			</a> <a class="carousel-control-next" href="#carouselSixColumn"
-				role="button" data-slide="next"> <span
-				class="carousel-control-next-icon" aria-hidden="true"></span> <span
-				class="sr-only">Next</span>
-			</a>
-		</div>
-
-
-		<!-- 2행 div끝 -->
-	</div>
-
-
-</div>
-<!-- container끝 -->
-
-<div>
-	<div class="col-xl-12">
-		<div class="card text-white bg-dark mb-3" style="max-width: 10rem;">
-			<div class="card-header">색다른영화</div>
-			<a href="<c:url value='/Movieing/Movie/AllMovie.mov'/>"
-				class="card-link" style="float: none; margin: 0 auto">더보기></a>
-
-		</div>
-	</div>
-
-	<div id="carouselSixColumn" class="carousel slide" data-ride="carousel">
-		<ol class="carousel-indicators">
-			<li data-target="#carouselSixColumn" data-slide-to="0" class="active"></li>
-			<li data-target="#carouselSixColumn" data-slide-to="1"></li>
-			<li data-target="#carouselSixColumn" data-slide-to="2"></li>
-		</ol>
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<div class="row">
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/mo.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">가장보통의연애</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									188분</span> <br> <span style="font-size: small;">누적관객
-									149,112명</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/aladdin.jpg'/>" alt="" />
-							</a>
-
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">알라딘</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									200분</span> <br> <span style="font-size: small;">누적관객
-									279,112명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/blood.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">블러드심플</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									100분</span> <br> <span style="font-size: small;">누적관객
-									279,112명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/end.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">어벤져스엔드게임</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									250분</span> <br> <span style="font-size: small;">누적관객
-									1,009,112명</span>
-
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/exit.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">엑시트</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									120분</span> <br> <span style="font-size: small;">누적관객
-									389,881명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/gemini.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">제미니맨</p>
-								<span style="font-size: small; font-weight: nomal">상영 90분</span>
-								<br> <span style="font-size: small;">누적관객 123,221명</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<div class="row">
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/gostop.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">타짜</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									115분</span> <br> <span style="font-size: small;">누적관객
-									589,871명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/joker.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">조커</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									130분</span> <br> <span style="font-size: small;">누적관객
-									662,421명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/jang.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">장사리</p>
-								<span style="font-size: small; font-weight: nomal">상영 70분</span>
-								<br> <span style="font-size: small;">누적관객 112,100명</span>
-
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/it.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">그것2</p>
-								<span style="font-size: small; font-weight: nomal">상영65분</span>
-								<br> <span style="font-size: small;">누적관객 396,123명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/ki.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">기생충</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									130분</span> <br> <span style="font-size: small;">누적관객
-									892,100명</span>
-
-
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/kim.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">82년생김지영</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									119분</span> <br> <span style="font-size: small;">누적관객
-									472,550명</span>
-
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-			<div class="carousel-item">
-				<div class="row">
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/you.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">유열의음악앨범</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									110분</span> <br> <span style="font-size: small;">누적관객
-									522,550명</span>
-
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/mul.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">양자물리학</p>
-								<span style="font-size: small; font-weight: nomal">상영 80분</span>
-								<br> <span style="font-size: small;">누적관객 123,480명</span>
-
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/perfect.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">퍼펙트게임</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									115분</span> <br> <span style="font-size: small;">누적관객
-									123,480명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/toystory.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">토이스토리4</p>
-								<span style="font-size: small; font-weight: nomal">상영 95분</span>
-								<br> <span style="font-size: small;">누적관객 568,258명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/shin.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">변신</p>
-								<span style="font-size: small; font-weight: nomal">상영
-									115분</span> <br> <span style="font-size: small;">누적관객774,680명</span>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 p-1">
-						<div class="card">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-								<img class="w-100"
-								src="<c:url value='/resources/img/movie/jang.jpg'/>" alt="" />
-							</a>
-							<div class="card-body">
-								<p style="font-size: 11pt; font-weight: bold">장사리</p>
-								<span style="font-size: small; font-weight: nomal">상영 60분</span>
-								<br> <span style="font-size: small;">누적관객 123,480명</span>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<a class="carousel-control-prev" href="#carouselSixColumn"
-				role="button" data-slide="prev"> <span
-				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-				class="sr-only">Previous</span>
-			</a> <a class="carousel-control-next" href="#carouselSixColumn"
-				role="button" data-slide="next"> <span
-				class="carousel-control-next-icon" aria-hidden="true"></span> <span
-				class="sr-only">Next</span>
-			</a>
-		</div>
-
-
-		<!-- 2행 div끝 -->
-	</div>
-
-
-</div>
-<!-- container끝 -->
-
-
-
-
-
