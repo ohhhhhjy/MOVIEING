@@ -54,8 +54,9 @@
             <a class="nav-link js-scroll-trigger" href="<c:url value='/Movieing/Movie/AllMovie.mov'/>">전체영화</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<c:url value='/Movieing/Movie/RatingMovie.mov'/>">평가</a>
+            <a class="nav-link js-scroll-trigger" href="<c:url value='/Movieing/Movie/First_like.mov'/>">평가</a>
           </li>
+          
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="<c:url value='/Movieing/Movie/Recommend.mov'/>">추천</a>
           </li>
