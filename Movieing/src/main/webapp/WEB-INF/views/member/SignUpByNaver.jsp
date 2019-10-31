@@ -93,14 +93,11 @@
 									<label for="id" class="col-4 col-form-label">아이디*</label>
 									<div class="col-8">
 										<div class="row">
-											<div class="col-md-6">
-												<input id="userid" name="username" placeholder="아이디"
-													class="form-control here" required="required" type="text">
+											<div class="col-md-8">
+												<input id="userid" name="username" placeholder="네이버 아이디로"
+													class="form-control here" required="required" type="text" disabled="disabled">
 											</div>
-											<div class="col-md-2">
-												
-												<input class="btn btn-primary text-white" onclick="btnClick()" type="submit" value="중복확인"/>
-											</div>
+											
 										</div>
 									</div>
 								</div>
@@ -114,22 +111,22 @@
 								<div class="form-group row">
 									<label for="username" class="col-4 col-form-label">비밀번호*<small id="pass1" class="text-muted">&nbsp;(비밀번호는 8~12자, !@#$ 포함)</small></label>
 									<div class="col-8">
-										<input id="userpass" name="userpass" placeholder="비밀번호"
-											class="form-control here" required="required" type="password">
+										<input id="userpass" name="userpass" placeholder="네이버 비밀번호로"
+											class="form-control here" required="required" type="password" disabled="disabled">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="username" class="col-4 col-form-label">비밀번호 확인*<small id="pass2" class="text-muted">&nbsp;(비밀번호와 일치하지 않습니다.)</small></label>
 									<div class="col-8">
 										<input id="passcheck" name="passcheck" placeholder="비밀번호 확인"
-											class="form-control here" required="required" type="password">
+											class="form-control here" required="required" type="password" disabled="disabled">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="userpass" class="col-4 col-form-label">이름*</label>
 									<div class="col-8">
-										<input id="username" name="username" placeholder="이름"
-											class="form-control here" required="required" type="text">
+										<input id="username" name="username" placeholder="네이버 이름으로"
+											class="form-control here" required="required" type="text" disabled="disabled">
 									</div>
 								</div>
 								<div class="form-group row">
