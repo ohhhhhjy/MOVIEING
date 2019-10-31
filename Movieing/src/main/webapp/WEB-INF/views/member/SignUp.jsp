@@ -74,10 +74,7 @@
 		<div class="col-md-12">
 			<!-- col-md-3시작 -->
 
-			
-
-
-			
+	
 			<div class="card">
 				<div class="card-body">
 					<div class="row">

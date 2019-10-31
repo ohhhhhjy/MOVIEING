@@ -1068,32 +1068,36 @@ $('#blogCarousel').carousel({
 
 
 				<ul class="list-unstyled video-list-thumbs row">
-					<li class="col-lg-3 col-sm-4 col-xs-6"><a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"
-						title="터미네이터 : 다크페이트">
-							<img src="<c:url value='/resources/img/main/pre1.PNG'/>"
-							alt="Barca" class="img-responsive" width="240px"  height="167px" />
+					<li class="col-lg-3 col-sm-4 col-xs-6"><a
+						href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"
+						title="터미네이터 : 다크페이트"> <img
+							src="<c:url value='/resources/img/main/pre1.PNG'/>" alt="Barca"
+							class="img-responsive" width="240px" height="167px" />
 							<h2>터미네이터 : 다크페이트</h2> <span
 							class="glyphicon glyphicon-play-circle"></span> <span
 							class="duration">03:15</span>
 					</a></li>
-					<li class="col-lg-3 col-sm-4 col-xs-6"><a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"
-						title="날씨의 아이">
-								<img src="<c:url value='/resources/img/main/pre1.PNG'/>"
-							alt="Barca" class="img-responsive" width="240px"  height="167px" />
+					<li class="col-lg-3 col-sm-4 col-xs-6"><a
+						href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"
+						title="날씨의 아이"> <img
+							src="<c:url value='/resources/img/main/pre1.PNG'/>" alt="Barca"
+							class="img-responsive" width="240px" height="167px" />
 							<h2>날씨의 아이</h2> <span class="glyphicon glyphicon-play-circle"></span>
 							<span class="duration">03:15</span>
 					</a></li>
-					<li class="col-lg-3 col-sm-4 col-xs-6"><a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"
-						title="우먼 헐리우드">
-								<img src="<c:url value='/resources/img/main/pre1.PNG'/>"
-							alt="Barca" class="img-responsive" width="240px"  height="167px" />
+					<li class="col-lg-3 col-sm-4 col-xs-6"><a
+						href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"
+						title="우먼 헐리우드"> <img
+							src="<c:url value='/resources/img/main/pre1.PNG'/>" alt="Barca"
+							class="img-responsive" width="240px" height="167px" />
 							<h2>우먼 헐리우드</h2> <span class="glyphicon glyphicon-play-circle"></span>
 							<span class="duration">03:15</span>
 					</a></li>
-					<li class="col-lg-3 col-md-4 col-sm-4 col-xs-6"><a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"
-						title="니나 내나">
-								<img src="<c:url value='/resources/img/main/pre1.PNG'/>"
-							alt="Barca" class="img-responsive" width="240px"  height="167px" />
+					<li class="col-lg-3 col-md-4 col-sm-4 col-xs-6"><a
+						href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"
+						title="니나 내나"> <img
+							src="<c:url value='/resources/img/main/pre1.PNG'/>" alt="Barca"
+							class="img-responsive" width="240px" height="167px" />
 							<h2>니나 내나</h2> <span class="glyphicon glyphicon-play-circle"></span>
 							<span class="duration">03:15</span>
 					</a></li>
@@ -1107,10 +1111,6 @@ $('#blogCarousel').carousel({
 
 
 			</div>
-
-
-
-
 			<!-- container끝 -->
 	</section>
 

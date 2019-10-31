@@ -167,6 +167,7 @@ img::-moz-selection {
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.25em;
     padding: 12px 0;
+    
   }
 }
 
@@ -178,6 +179,7 @@ header.masthead {
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
+  
 }
 
 header.masthead .intro-text {

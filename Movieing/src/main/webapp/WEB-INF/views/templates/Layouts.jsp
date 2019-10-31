@@ -40,13 +40,18 @@
   <body>
   	<!-- 탑 부분 -->
   	<tiles:insertAttribute name="Top"/>
-  	
+  
+ 
   	<!--바디 부분 -->
   	<tiles:insertAttribute name="Body"/>
   	<div class="row">&nbsp;</div>
+  	<!-- 어사이드 부분 -->
+  	<tiles:insertAttribute name="Aside"/>	 
+  	
+  	
   	<!-- 푸터 부분 -->
   	<tiles:insertAttribute name="Footer"/>
-  	
+  
   	  <!-- Bootstrap core JavaScript -->
 	  <script src="<c:url value='/resources/vendor/jquery/jquery.min.js'/>"></script>
 	  <script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
