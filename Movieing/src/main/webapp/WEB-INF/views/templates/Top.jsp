@@ -36,8 +36,8 @@
 <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:#002941">
     <div class="container">
-    <c:if test="${! empty sessionScope.id }" var="isLogin">
-      <a class="navbar-brand js-scroll-trigger" href="<c:url value='/Movieing/Movie/Main.mov'/>"><img alt="logo" src="<c:url value='/resources/img/logos/logo.png'/>"/></a>
+    <c:if test="${! empty sessionScope.id || ! empty sessionId}" var="isLogin">
+      <a class="navbar-brand js-scroll-trigger" href="<c:url value='/Movieing/Movie/Home.mov'/>"><img alt="logo" src="<c:url value='/resources/img/logos/logo.png'/>"/></a>
       </c:if>
       <c:if test="${!isLogin }">
       <a class="navbar-brand js-scroll-trigger" href="<c:url value='/'/>"><img alt="logo" src="<c:url value='/resources/img/logos/logo.png'/>"/></a>
@@ -54,8 +54,9 @@
             <a class="nav-link js-scroll-trigger" href="<c:url value='/Movieing/Movie/AllMovie.mov'/>">전체영화</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="<c:url value='/Movieing/Movie/RatingMovie.mov'/>">평가</a>
+            <a class="nav-link js-scroll-trigger" href="<c:url value='/Movieing/Movie/First_like.mov'/>">평가</a>
           </li>
+          
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="<c:url value='/Movieing/Movie/Recommend.mov'/>">추천</a>
           </li>

@@ -308,6 +308,7 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
+			
 			<!-- 모달 헤더 -->
 			<ul class="nav nav-pills nav-justified " role="tablist"
 				style="">

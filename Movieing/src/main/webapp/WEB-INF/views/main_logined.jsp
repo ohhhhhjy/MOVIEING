@@ -245,6 +245,16 @@ $('.carousel').carousel({
 	font-weight: bold;
 	text-align: center;
 }
+
+/*새로넣거*/
+
+/* remove defaults from responsive cols */
+.nopadding {
+	padding: 2px !important;
+	margin: 0 !important;
+	outline: 2px solid #333;
+	background: #333;
+}
 </style>
 
 
@@ -259,6 +269,7 @@ $(document).ready(function() {
 $('#blogCarousel').carousel({
 		interval: 5000
 });
+
 </script>
 
 

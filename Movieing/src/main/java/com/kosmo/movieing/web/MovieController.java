@@ -42,7 +42,7 @@ public class MovieController {
 	public String ratingMovie() {
 		return "movie/screening/RatingMovie.tiles";
 	}
-	
+	 
 	///////////////////////////////////////////////////////
 	
 	@RequestMapping("/Movieing/Movie/Genre.mov")
