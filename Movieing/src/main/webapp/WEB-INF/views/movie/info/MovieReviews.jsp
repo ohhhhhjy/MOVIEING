@@ -78,7 +78,7 @@ border-radius: 6px;
 		<!-- 펼쳐질 댓글창 -->
 		<div id="commentWindow${i}" class="collapse commentDiv" aria-labelledby="headingOne2"
 		      data-parent="#reviewAccordion">
-		    <hr class="my-3">
+		    <hr class="my-1">
 		    <c:forEach begin="1" end="5">
 				<div class="card-body row comment  px-3">
 				 	<div class="col-md-1 d-flex justify-content-end">
@@ -86,7 +86,7 @@ border-radius: 6px;
 					</div>
 					<div class="col-md-11 px-2" >
 						<h6>유저이름</h6>
-						<p class="commentP">리뷰에 공감합니다.. 몸이 스무 개라도 모자란 엄마 ‘마를로’를 위해 그녀의 오빠는 야간 보모 고용을 권유한다. 아이는 엄마가 돌봐야 한다고 철석같이 믿어 왔던 ‘마를로’는 고민 끝에 야간 보모 ‘툴리’(맥켄지 데이비스)를 부르게 된다. 홀로 삼 남매 육아를 도맡아 하면서 슈퍼 맘이 되어야만 했던 ‘마를로’ 곁에서 ‘툴리’는 마치 자신의 가족처럼 그녀와 아이들을 돌봐준다. 슈퍼 보모이자 때로는 인생 친구가 되어 주</p> 
+						<p class="commentP">댓글내용</p> 
 					</div> 
 				</div>
 				<hr class="my-1">

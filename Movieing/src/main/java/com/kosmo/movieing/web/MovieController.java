@@ -32,10 +32,11 @@ public class MovieController {
 	public String movieMain() {
 		return "movie/list/AllMovie.tiles";
 	}
-	@RequestMapping("/Movieing/Movie/MovieDetails.mov")
-	public String movieDetail() {
-		return "movie/info/MovieDetails.tiles";
-	}
+
+	/*
+	 * @RequestMapping("/Movieing/Movie/MovieDetails.mov") public String
+	 * movieDetail() { return "movie/info/MovieDetails.tiles"; }
+	 */
 	@RequestMapping("/Movieing/Movie/Filmography.mov")
 	public String filmography() {
 		return "movie/info/Filmography.tiles";
@@ -45,7 +46,7 @@ public class MovieController {
 	public String ratingMovie() {
 		return "movie/screening/RatingMovie.tiles";
 	}
-	
+	 
 	///////////////////////////////////////////////////////
 	
 	@RequestMapping("/Movieing/Movie/Genre.mov")
@@ -69,14 +70,14 @@ public class MovieController {
 	
 	
 	
-	//상세 테스팅
-	@RequestMapping("/Movieing/Movie/MovieDetailsTest.mov")
+	//영화 상세 페이지
+	@RequestMapping("/Movieing/Movie/MovieDetails.mov")
 	public String movieDetailsTest(@RequestParam  Map map, Model model)throws Exception {
 		//영화상세정보
 		model.addAttribute("movieInfoMap", movieInfoMap("20182669"));//아직 해당영화 코드 가져올 방법이 없으므로 하드코딩
 		//영화이미지
 		model.addAttribute("movieImgMap", movieImgMap("툴리"));
-		return "movie/info/MovieDetailsTest.tiles";
+		return "movie/info/MovieDetails.tiles";
 	}
 	
 	@RequestMapping("/Movieing/Movie/MovieReviews.mov")

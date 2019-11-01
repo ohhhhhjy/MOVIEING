@@ -119,7 +119,6 @@ public class LoginController {
 		
 		//kobis api적용
 		String targetDt = format.format(cal.getTime());
-		System.out.println(targetDt);
 		String itemPerPage ="10";
 
 		String key = "094699f8b0bafb4aa9ba1fa2eca21b67";//API키
