@@ -482,7 +482,7 @@ $('#blogCarousel').carousel({
 
 
 
-					<label style="color: gray;">영화진흥위원회 자료제공(2019년 10월 26일 기준)</label>
+					<label style="color: gray;">영화진흥위원회 자료제공(2019년 12월 4일 기준)</label>
 					<!--Table-->
 
 				</div>
