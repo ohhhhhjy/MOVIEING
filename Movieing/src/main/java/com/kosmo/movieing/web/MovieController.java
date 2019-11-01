@@ -98,7 +98,6 @@ public class MovieController {
 		//getMovieList는 영화명,코드,어쩌구저쩌구로  정보를 다 가져올 수 있지만, 배우정보는 주지 않는다
 		//String movieInfoResponse =service.getMovieList(true, null, null, "툴리", null, null, null, null, null, null, null);
 		
-		System.out.println(movieInfoResponse);
 		//JSON
 		ObjectMapper mapper = new ObjectMapper();
 		//서비스에서 받은 json스트링을 맵형태로 바꾸어 dailyResult에 저장
