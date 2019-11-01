@@ -33,6 +33,7 @@ public class MovieController {
 		return "movie/list/AllMovie.tiles";
 	}
 
+	
 	/*
 	 * @RequestMapping("/Movieing/Movie/MovieDetails.mov") public String
 	 * movieDetail() { return "movie/info/MovieDetails.tiles"; }
