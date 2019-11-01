@@ -54,7 +54,7 @@
 					<a style="padding-right: 10px" href="#"> <img
 						src="<c:url value='/resources/img/login/kakao.png'/>"
 						style="width: 50px; height: 50px" >
-					</a> <a style="padding-right: 10px" href="#"> <img
+					</a> <a style="padding-right: 10px" href="${url }"> <img
 						src="<c:url value='/resources/img/login/naver.jpg'/>"
 						style="width: 50px; height: 50px">
 
@@ -95,5 +95,9 @@
 
 
 </div>
+<!-- 네이버 로그인 창으로 이동 -->
+<div id="naver_id_login" style="text-align:center"><a href="${url}">
+<img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a></div>
+<br>
 
 
