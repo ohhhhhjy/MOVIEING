@@ -1062,79 +1062,56 @@ $('#blogCarousel').carousel({
 
 
 				<!-- 5행 시작 -->
-				<h5>최신 예고편</h5>
-				<div>
+				<h5 style="font-weight: bold;">최신 예고편</h5>
 
 
-					<ul class="list-unstyled video-list-thumbs row">
-						<li class="col-lg-3 col-sm-4 col-xs-6" ><a href="#" data-toggle="modal" data-target="centralModalSm"
-							title="Claudio Bravo, antes su debut con el Barça en la Liga">
-								<img src="http://i.ytimg.com/vi/ZKOtE9DOwGE/mqdefault.jpg"
-								alt="Barca" class="img-responsive" height="130px" 
-								 />
-								<h2>터미네이터 : 다크페이트</h2> <span
-								class="glyphicon glyphicon-play-circle"></span> <span
-								class="duration">03:15</span>
-						</a></li>
-						<li class="col-lg-3 col-sm-4 col-xs-6"><a href="#"
-							title="Claudio Bravo, antes su debut con el Barça en la Liga">
-								<img src="http://i.ytimg.com/vi/ZKOtE9DOwGE/mqdefault.jpg"
-								alt="Barca" class="img-responsive" height="130px" />
-								<h2>날씨의 아이</h2> <span class="glyphicon glyphicon-play-circle"></span>
-								<span class="duration">03:15</span>
-						</a></li>
-						<li class="col-lg-3 col-sm-4 col-xs-6"><a href="#"
-							title="Claudio Bravo, antes su debut con el Barça en la Liga">
-								<img src="http://i.ytimg.com/vi/ZKOtE9DOwGE/mqdefault.jpg"
-								alt="Barca" class="img-responsive" height="130px" />
-								<h2>우먼 헐리우드</h2> <span class="glyphicon glyphicon-play-circle"></span>
-								<span class="duration">03:15</span>
-						</a></li>
-						<li class="col-lg-3 col-md-4 col-sm-4 col-xs-6"><a href="#"
-							title="Claudio Bravo, antes su debut con el Barça en la Liga">
-								<img src="http://i.ytimg.com/vi/ZKOtE9DOwGE/mqdefault.jpg"
-								alt="Barca" class="img-responsive" height="130px" />
-								<h2>니나 내나</h2> <span class="glyphicon glyphicon-play-circle"></span>
-								<span class="duration">03:15</span>
-						</a></li>
-
-			
-					
-					</ul>
-					<!-- 영화 예고 동영상 모달 -->
-						<!-- Central Modal Small -->
-						<div class="modal fade" id="centralModalSm" tabindex="-1"
-							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-
-							<!-- Change class .modal-sm to change the size of the modal -->
-							<div class="modal-dialog modal-sm" role="document">
 
 
-								<div class="modal-content">
-									<div class="modal-header">
-										<h4 class="modal-title w-100" id="myModalLabel">Modal
-											title</h4>
-										<button type="button" class="close" data-dismiss="modal"
-											aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">...</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary btn-sm"
-											data-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary btn-sm">Save
-											changes</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Central Modal Small -->
-					
-				</div>
+				<ul class="list-unstyled video-list-thumbs row">
+					<li class="col-lg-3 col-sm-4 col-xs-6"><a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"
+						title="터미네이터 : 다크페이트">
+							<img src="<c:url value='/resources/img/main/pre1.PNG'/>"
+							alt="Barca" class="img-responsive" width="240px"  height="167px" />
+							<h2>터미네이터 : 다크페이트</h2> <span
+							class="glyphicon glyphicon-play-circle"></span> <span
+							class="duration">03:15</span>
+					</a></li>
+					<li class="col-lg-3 col-sm-4 col-xs-6"><a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"
+						title="날씨의 아이">
+								<img src="<c:url value='/resources/img/main/pre1.PNG'/>"
+							alt="Barca" class="img-responsive" width="240px"  height="167px" />
+							<h2>날씨의 아이</h2> <span class="glyphicon glyphicon-play-circle"></span>
+							<span class="duration">03:15</span>
+					</a></li>
+					<li class="col-lg-3 col-sm-4 col-xs-6"><a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"
+						title="우먼 헐리우드">
+								<img src="<c:url value='/resources/img/main/pre1.PNG'/>"
+							alt="Barca" class="img-responsive" width="240px"  height="167px" />
+							<h2>우먼 헐리우드</h2> <span class="glyphicon glyphicon-play-circle"></span>
+							<span class="duration">03:15</span>
+					</a></li>
+					<li class="col-lg-3 col-md-4 col-sm-4 col-xs-6"><a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"
+						title="니나 내나">
+								<img src="<c:url value='/resources/img/main/pre1.PNG'/>"
+							alt="Barca" class="img-responsive" width="240px"  height="167px" />
+							<h2>니나 내나</h2> <span class="glyphicon glyphicon-play-circle"></span>
+							<span class="duration">03:15</span>
+					</a></li>
 
 
-				<!-- container끝 -->
+
+
+				</ul>
+
+
+
+
+			</div>
+
+
+
+
+			<!-- container끝 -->
 	</section>
 
 
@@ -1162,4 +1139,3 @@ $('#blogCarousel').carousel({
 </body>
 
 </html>
-

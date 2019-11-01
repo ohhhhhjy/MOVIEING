@@ -46,6 +46,7 @@ public class LoginController {
 		return "member/Login.tiles";
 	}
 	
+	
 	@RequestMapping("/Movieing/Member/LoginProcess.mov")
 	public String process(HttpSession session, @RequestParam  Map map, Model model) throws Exception {
 		//서비스 호출
