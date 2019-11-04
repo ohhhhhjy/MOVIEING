@@ -124,7 +124,7 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col-sm-3" align="center">
-							<a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"><img class="movieImage"
+							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>"><img class="movieImage"
 								src="../../resources/img/movie/toystoryMain.jpg" alt="포스터" /></a>
 						</div>
 						<div class="col-sm-9">
@@ -308,9 +308,10 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
+			
 			<!-- 모달 헤더 -->
 			<ul class="nav nav-pills nav-justified " role="tablist"
-				style="padding-bottom: 20px;">
+				style="">
 				<li class="nav-item"><a class="nav-link " href="#follower"
 					data-toggle="pill" aria-controls="pills-follower"
 					id="pills-follower-tab">팔로워</a></li>
@@ -320,11 +321,11 @@
 			</ul>
 
 			<!-- 모달컨텐츠 -->
-			<div class="tab-content" id="myTabContent"
-				style="height: 477px; overflow-y: scroll; overflow-x: hidden;">
+			<div class="tab-content " id="myTabContent"
+				style="height: 477px; overflow-y: scroll; overflow-x: hidden;background-color: #f2f0f0;padding-top: 20px">
 				<!-- 모달컨텐츠1.팔로워 -->
 				<div class="tab-pane fade " id="follower" role="tabpanel"
-					aria-labelledby="pills-follower-tab">
+					aria-labelledby="pills-follower-tab" >
 					<div class="row followForm">
 						<div class="col-sm-3">
 							<img class="radiusImg" alt="감독사진"
