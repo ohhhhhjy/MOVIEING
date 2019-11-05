@@ -43,10 +43,16 @@ public class MovieController {
 		return "movie/info/Filmography.tiles";
 	}
 	
+	@RequestMapping("/Movieing/Movie/screening/First_like.mov")
+	public String ratingMovie() {
+		return "movie/screening/First_like.tiles";
+	}
+	/*
 	@RequestMapping("/Movieing/Movie/RatingMovie.mov")
 	public String ratingMovie() {
 		return "movie/screening/RatingMovie.tiles";
 	}
+	*/
 	 
 	///////////////////////////////////////////////////////
 	

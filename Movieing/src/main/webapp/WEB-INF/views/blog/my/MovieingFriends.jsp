@@ -141,25 +141,17 @@ a {
 }
 
 /*더보기 ...조건*/
-/*
 .card-text {
-	white-space: nowrap;
-	word-wrap: normal;
-	height: 140px;
-	width: 578.63px;
-	text-overflow: ellipsis;
-	float: left;
 	overflow: hidden;
-	 display:-webkit-box;
-    -webkit-line-clamp:3;
-    -webkit-box-orient:vertical;
-    line-height:20px;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 9; /* 라인수 */
+	-webkit-box-orient: vertical;
+	word-wrap: break-word;
+	line-height: 1.2em;
+	height: 10.7em;
 }
-*/
 </style>
-
-
-
 
 
 <!-- 위에 패딩주기 -->
@@ -196,8 +188,7 @@ a {
 
 <div style="background-color: white; padding-top: 10px">
 
-	<div class="container gedf-wrapper"
-		style="background-color: white;">
+	<div class="container gedf-wrapper" style="background-color: white;">
 
 		<div class="row">
 
@@ -283,7 +274,14 @@ a {
 								<hr class="my-3">
 
 
+
 								<p class="card-text" style="color: black;">조커를 봤다. 너무 재밌었다.
+									너무 재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
+									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
+									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
+									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다 더하기 재밌었고, 너무 재밌어서 너무 재밌을
+									뻔했다. 너무 재밌는 영화였다.
+									조커를 봤다. 너무 재밌었다.
 									너무 재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
 									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
 									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
@@ -679,41 +677,41 @@ a {
 
 
 
-			
-					<!-- 버튼: 시간순/인기순 -->
+
+				<!-- 버튼: 시간순/인기순 -->
 
 
 
-					<div style="padding-bottom: 50px">
-						<select class="form-control" style="width: 130px">
-							<option>시간 순</option>
-							<option>좋아요 순</option>
-							<option>댓글 순</option>
+				<div style="padding-bottom: 50px">
+					<select class="form-control" style="width: 130px">
+						<option>시간 순</option>
+						<option>좋아요 순</option>
+						<option>댓글 순</option>
 
-						</select>
+					</select>
+				</div>
+
+
+
+				<div class="card">
+
+					<div class="card-body">
+						<div class="h5">@Road_dong</div>
+						<div class="h7 text-muted">우빈이</div>
+						<div class="h7">스릴러를 좋아하는 우빈이라고 합니다</div>
 					</div>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">
+							<div class="h6 text-muted">Followers</div>
+							<div class="h5">325</div>
+						</li>
+						<li class="list-group-item">
+							<div class="h6 text-muted">Following</div>
+							<div class="h5">278</div>
+						</li>
+					</ul>
+				</div>
 
-
-
-					<div class="card">
-
-						<div class="card-body">
-							<div class="h5">@Road_dong</div>
-							<div class="h7 text-muted">우빈이</div>
-							<div class="h7">스릴러를 좋아하는 우빈이라고 합니다</div>
-						</div>
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item">
-								<div class="h6 text-muted">Followers</div>
-								<div class="h5">325</div>
-							</li>
-							<li class="list-group-item">
-								<div class="h6 text-muted">Following</div>
-								<div class="h5">278</div>
-							</li>
-						</ul>
-					</div>
-		
 
 
 
@@ -732,12 +730,16 @@ a {
 									src="<c:url value='/resources/img/friends/passage-of-time.png'/>"
 									alt="타임라인 로고" style="width: 25px; height: 25px" />
 								<h6 class="card-title;"
-									style="padding-left: 5px; font-weight: bold;padding-right: 20px">타임 라인</h6>
+									style="padding-left: 5px; font-weight: bold; padding-right: 40px">타임
+									라인</h6>
 								<a style="text-decoration: underline;"
 									href="<c:url value='/Movieing/Blog/MF_Timeline.mov'/>">모두
 									보기</a>
 
 							</div>
+
+
+
 
 
 							<div>
@@ -749,14 +751,9 @@ a {
 							<div>
 
 
-
-
-
-
-
 								<!-- 제일큰 바디 다이브 -->
 								<div
-									style="overflow: auto; overflow-x: hidden; width: 180px;height: 540px; ">
+									style="overflow: auto; overflow-x: hidden; width: 220px; height: 300px;">
 
 									<!-- 한 사람 시작 -->
 									<div class="row profileForm" style="padding-left: 10px">
