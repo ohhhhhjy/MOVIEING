@@ -76,10 +76,10 @@ public class BlogController {
 	}
 	
 	//글쓰기 페이지]
-		@RequestMapping("/Movieing/Blog/WritePage.mov")
-		public String write() {
-			return "blog/my/WritePage.tiles";
-		}
+	@RequestMapping("/Movieing/Blog/WritePage.mov")
+	public String write() {
+		return "blog/my/WritePage.tiles";
+	}
 
 
 }//////// class

@@ -6,7 +6,7 @@ public class ReviewDto {
 
 	String reviewNo;
 	String id;
-	String movNo;
+	String movieNo;
 	String title;
 	String content;
 	Date postDate;
@@ -20,8 +20,12 @@ public class ReviewDto {
 	public void setCommentCount(String commentCount) {
 		this.commentCount = commentCount;
 	}
-	
-	
+	public String getMovieNo() {
+		return movieNo;
+	}
+	public void setMovieNo(String movieNo) {
+		this.movieNo = movieNo;
+	}
 	public String getReviewNo() {
 		return reviewNo;
 	}
@@ -34,12 +38,7 @@ public class ReviewDto {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getMovNo() {
-		return movNo;
-	}
-	public void setMovNo(String movNo) {
-		this.movNo = movNo;
-	}
+
 	public String getTitle() {
 		return title;
 	}

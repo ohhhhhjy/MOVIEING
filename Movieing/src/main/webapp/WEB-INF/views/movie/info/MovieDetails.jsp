@@ -253,7 +253,7 @@ $(document).ready(function() {
 			<!-- 포스터 -->
 			<div class="col-md-3 ">
 				<a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"><img
-					class="movieImage" src="${movieImgMap}"
+					class="movieImage" src="${movieImgUrl}"
 					alt="포스터" /></a>
 			</div>
 			<!-- 기본정보+별점 -->

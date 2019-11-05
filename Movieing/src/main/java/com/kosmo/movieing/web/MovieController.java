@@ -43,10 +43,16 @@ public class MovieController {
 		return "movie/info/Filmography.tiles";
 	}
 	
+	@RequestMapping("/Movieing/Movie/screening/First_like.mov")
+	public String ratingMovie() {
+		return "movie/screening/First_like.tiles";
+	}
+	/*
 	@RequestMapping("/Movieing/Movie/RatingMovie.mov")
 	public String ratingMovie() {
 		return "movie/screening/RatingMovie.tiles";
 	}
+	*/
 	 
 	///////////////////////////////////////////////////////
 	
@@ -77,7 +83,7 @@ public class MovieController {
 		//영화상세정보
 		model.addAttribute("movieInfoMap", movieInfoMap("20182669"));//아직 해당영화 코드 가져올 방법이 없으므로 하드코딩
 		//영화이미지
-		model.addAttribute("movieImgMap", movieImgMap("툴리"));
+		model.addAttribute("movieImgUrl", movieImgUrl("툴리"));
 		return "movie/info/MovieDetails.tiles";
 	}
 	
@@ -86,7 +92,7 @@ public class MovieController {
 		return "movie/info/MovieReviews.tiles";
 	}
 	
-	
+	//영화진흥위원회에서 영화상세정보를 얻기위한 메소드(영화제목,원제목,제작년도,장르,감독,배우)
 	public HashMap<String,Object> movieInfoMap(String movieCd) throws Exception {
 
 		//kobis api적용
@@ -107,7 +113,8 @@ public class MovieController {
 		return movieInfoMap;
 	}//movieInfoMap
 	
-	public String movieImgMap(String movieNm) throws Exception {
+	//네이버의 고화질 영화포스터 이미지url을 얻기위한 메소드
+	public String movieImgUrl(String movieNm) throws Exception {
 		
         String clientId = "T1e73cqxyZeqqNbXbMLa";//애플리케이션 클라이언트 아이디값";
         String clientSecret = "cqCUwiyR31";//애플리케이션 클라이언트 시크릿값";
@@ -135,10 +142,11 @@ public class MovieController {
             
             //JSON
     		ObjectMapper mapper = new ObjectMapper();
-    		//서비스에서 받은 json스트링을 맵형태로 바꾸어 dailyResult에 저장
     		HashMap<String,List<Map>> movieInfoMap = mapper.readValue(response.toString(), HashMap.class);
     		String imgStr = movieInfoMap.get("items").get(0).get("link").toString();	
     		String movieCode = imgStr.substring(imgStr.indexOf('=')+1);
+    		//위의 모든 코드는 네이버의 영화코드를 얻기위해서 작성함...
+    		
     		String realImgStr = "https://movie.naver.com/movie/bi/mi/photoViewPopup.nhn?movieCode="+movieCode;
     		
     		
