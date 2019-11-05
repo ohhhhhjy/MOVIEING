@@ -108,7 +108,7 @@
 }
 
 .rating:not (:checked ) >label:hover, .rating:not (:checked ) >label:hover 
-	~ label {
+	 ~ label {
 	color: #f7e411;
 }
 
@@ -134,6 +134,14 @@
 
 
 
+
+
+
+
+
+
+
+
  
 
 
@@ -143,7 +151,31 @@
 
 
 
+
+
+
+
+
+
+
+
 input
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -181,7 +213,39 @@ text
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :focus
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -207,7 +271,23 @@ text
 
 
 
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
 
 
 
@@ -228,7 +308,23 @@ readonly
 
 
 
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
 
 
 
@@ -256,6 +352,22 @@ border-bottom
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :
 
 
@@ -265,7 +377,23 @@ border-bottom
 
 
 
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
 
 
 
@@ -284,7 +412,23 @@ px
 
 
 
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
 
 
 
@@ -302,6 +446,14 @@ solid
 
 
 
+
+
+
+
+
+
+
+
  
 
 
@@ -311,7 +463,31 @@ solid
 
 
 
+
+
+
+
+
+
+
+
 #f48fb1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -346,6 +522,22 @@ box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :
 
 
@@ -355,7 +547,23 @@ box-shadow
 
 
 
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
 
 
 
@@ -375,7 +583,23 @@ px
 
 
 
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
 
 
 
@@ -387,6 +611,22 @@ px
 0
 0
 #f48fb1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -419,6 +659,14 @@ px
 
 
 
+
+
+
+
+
+
+
+
  
 
 
@@ -428,7 +676,31 @@ px
 
 
 
+
+
+
+
+
+
+
+
 input
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -466,7 +738,39 @@ text
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :focus
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -492,7 +796,23 @@ text
 
 
 
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
 
 
 
@@ -513,7 +833,23 @@ readonly
 
 
 
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
 
 
 
@@ -541,6 +877,22 @@ border-bottom
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :
 
 
@@ -550,7 +902,23 @@ border-bottom
 
 
 
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
 
 
 
@@ -569,7 +937,23 @@ px
 
 
 
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
 
 
 
@@ -587,6 +971,14 @@ solid
 
 
 
+
+
+
+
+
+
+
+
  
 
 
@@ -596,7 +988,31 @@ solid
 
 
 
+
+
+
+
+
+
+
+
 #ce93d8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -631,6 +1047,22 @@ box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :
 
 
@@ -640,7 +1072,23 @@ box-shadow
 
 
 
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
 
 
 
@@ -660,7 +1108,23 @@ px
 
 
 
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
 
 
 
@@ -672,6 +1136,22 @@ px
 0
 0
 #ce93d8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -704,6 +1184,14 @@ px
 
 
 
+
+
+
+
+
+
+
+
  
 
 
@@ -713,7 +1201,31 @@ px
 
 
 
+
+
+
+
+
+
+
+
 input
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -751,7 +1263,39 @@ text
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :focus
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -777,7 +1321,23 @@ text
 
 
 
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
 
 
 
@@ -798,7 +1358,23 @@ readonly
 
 
 
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
 
 
 
@@ -826,6 +1402,22 @@ border-bottom
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :
 
 
@@ -835,7 +1427,23 @@ border-bottom
 
 
 
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
 
 
 
@@ -854,7 +1462,23 @@ px
 
 
 
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
 
 
 
@@ -872,6 +1496,14 @@ solid
 
 
 
+
+
+
+
+
+
+
+
  
 
 
@@ -881,7 +1513,31 @@ solid
 
 
 
+
+
+
+
+
+
+
+
 #4dd0e1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -916,6 +1572,22 @@ box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :
 
 
@@ -925,7 +1597,23 @@ box-shadow
 
 
 
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
 
 
 
@@ -945,7 +1633,23 @@ px
 
 
 
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
 
 
 
@@ -957,6 +1661,22 @@ px
 0
 0
 #4dd0e1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1073,14 +1793,14 @@ px
 										<td>조커</td>
 										<td>스릴러</td>
 										<td align="center">
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input"
-													id="defaultUnchecked"> <label
-													class="custom-control-label" for="defaultUnchecked"></label>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input"
+													id="defaultGroupExample1" name="groupOfDefaultRadios">
+												<label class="custom-control-label"
+													for="defaultGroupExample1"></label>
 											</div>
 										</td>
 									</tr>
-
 
 
 
@@ -1089,10 +1809,11 @@ px
 										<td>알라딘</td>
 										<td>판타지</td>
 										<td align="center">
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input"
-													id="defaultUnchecked"> <label
-													class="custom-control-label" for="defaultUnchecked"></label>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input"
+													id="defaultGroupExample2" name="groupOfDefaultRadios">
+												<label class="custom-control-label"
+													for="defaultGroupExample2"></label>
 											</div>
 										</td>
 									</tr>
@@ -1101,10 +1822,11 @@ px
 										<td>겨울왕국</td>
 										<td>판타지</td>
 										<td align="center">
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input"
-													id="defaultUnchecked"> <label
-													class="custom-control-label" for="defaultUnchecked"></label>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input"
+													id="defaultGroupExample3" name="groupOfDefaultRadios">
+												<label class="custom-control-label"
+													for="defaultGroupExample2"></label>
 											</div>
 										</td>
 									</tr>
@@ -1113,10 +1835,11 @@ px
 										<td>82년생 김지영</td>
 										<td>드라마</td>
 										<td align="center">
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input"
-													id="defaultUnchecked"> <label
-													class="custom-control-label" for="defaultUnchecked"></label>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input"
+													id="defaultGroupExample4" name="groupOfDefaultRadios">
+												<label class="custom-control-label"
+													for="defaultGroupExample3"></label>
 											</div>
 										</td>
 									</tr>
@@ -1125,10 +1848,11 @@ px
 										<td>예스터데이</td>
 										<td>드라마</td>
 										<td align="center">
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input"
-													id="defaultUnchecked"> <label
-													class="custom-control-label" for="defaultUnchecked"></label>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input"
+													id="defaultGroupExample5" name="groupOfDefaultRadios">
+												<label class="custom-control-label"
+													for="defaultGroupExample3"></label>
 											</div>
 										</td>
 									</tr>
@@ -1137,10 +1861,11 @@ px
 										<td>예스터데이</td>
 										<td>드라마</td>
 										<td align="center">
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input"
-													id="defaultUnchecked"> <label
-													class="custom-control-label" for="defaultUnchecked"></label>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input"
+													id="defaultGroupExample3" name="groupOfDefaultRadios">
+												<label class="custom-control-label"
+													for="defaultGroupExample3"></label>
 											</div>
 										</td>
 									</tr>
@@ -1149,10 +1874,11 @@ px
 										<td>예스터데이</td>
 										<td>드라마</td>
 										<td align="center">
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input"
-													id="defaultUnchecked"> <label
-													class="custom-control-label" for="defaultUnchecked"></label>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input"
+													id="defaultGroupExample6" name="groupOfDefaultRadios">
+												<label class="custom-control-label"
+													for="defaultGroupExample3"></label>
 											</div>
 										</td>
 									</tr>
@@ -1161,10 +1887,11 @@ px
 										<td>예스터데이</td>
 										<td>드라마</td>
 										<td align="center">
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input"
-													id="defaultUnchecked"> <label
-													class="custom-control-label" for="defaultUnchecked"></label>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input"
+													id="defaultGroupExample7" name="groupOfDefaultRadios">
+												<label class="custom-control-label"
+													for="defaultGroupExample3"></label>
 											</div>
 										</td>
 									</tr>
@@ -1173,10 +1900,11 @@ px
 										<td>예스터데이</td>
 										<td>드라마</td>
 										<td align="center">
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input"
-													id="defaultUnchecked"> <label
-													class="custom-control-label" for="defaultUnchecked"></label>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input"
+													id="defaultGroupExample8" name="groupOfDefaultRadios">
+												<label class="custom-control-label"
+													for="defaultGroupExample3"></label>
 											</div>
 										</td>
 									</tr>
@@ -1185,10 +1913,11 @@ px
 										<td>예스터데이</td>
 										<td>드라마</td>
 										<td align="center">
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input"
-													id="defaultUnchecked"> <label
-													class="custom-control-label" for="defaultUnchecked"></label>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input"
+													id="defaultGroupExample9" name="groupOfDefaultRadios">
+												<label class="custom-control-label"
+													for="defaultGroupExample3"></label>
 											</div>
 										</td>
 									</tr>
@@ -1197,10 +1926,11 @@ px
 										<td>예스터데이</td>
 										<td>드라마</td>
 										<td align="center">
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input"
-													id="defaultUnchecked"> <label
-													class="custom-control-label" for="defaultUnchecked"></label>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input"
+													id="defaultGroupExample10" name="groupOfDefaultRadios">
+												<label class="custom-control-label"
+													for="defaultGroupExample3"></label>
 											</div>
 										</td>
 									</tr>
@@ -1209,10 +1939,11 @@ px
 										<td>예스터데이</td>
 										<td>드라마</td>
 										<td align="center">
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input"
-													id="defaultUnchecked"> <label
-													class="custom-control-label" for="defaultUnchecked"></label>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input"
+													id="defaultGroupExample11" name="groupOfDefaultRadios">
+												<label class="custom-control-label"
+													for="defaultGroupExample3"></label>
 											</div>
 										</td>
 									</tr>
@@ -1221,10 +1952,11 @@ px
 										<td>예스터데이</td>
 										<td>드라마</td>
 										<td align="center">
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input"
-													id="defaultUnchecked"> <label
-													class="custom-control-label" for="defaultUnchecked"></label>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input"
+													id="defaultGroupExample12" name="groupOfDefaultRadios">
+												<label class="custom-control-label"
+													for="defaultGroupExample3"></label>
 											</div>
 										</td>
 									</tr>
@@ -1233,13 +1965,16 @@ px
 										<td>예스터데이</td>
 										<td>드라마</td>
 										<td align="center">
-											<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input"
-													id="defaultUnchecked"> <label
-													class="custom-control-label" for="defaultUnchecked"></label>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input"
+													id="defaultGroupExample13" name="groupOfDefaultRadios">
+												<label class="custom-control-label"
+													for="defaultGroupExample3"></label>
 											</div>
 										</td>
 									</tr>
+
+
 
 
 								</tbody>
@@ -1310,15 +2045,32 @@ px
 
 
 
-			<!-- Copy -->
-			<!--  
+
 			<div class="custom-control custom-checkbox mb-4">
-				<input type="checkbox" class="custom-control-input"
-					id="defaultContactFormCopy"> <label
-					class="custom-control-label" for="defaultContactFormCopy">Send
-					me a copy of this message</label>
+				<div class="row col-md-12">
+					<div class="col-md-4" align="right">
+						<label style="font-weight: bold;">이 글에 스포일러가 포함되어 있나요?</label>
+					</div>
+					<div class="col-md-8" align="left">
+						<!-- Default inline 1-->
+						<div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" class="custom-control-input"
+								id="defaultInline1" name="inlineDefaultRadiosExample"> <label
+								class="custom-control-label" for="defaultInline1">있음</label>
+						</div>
+
+						<!-- Default inline 2-->
+						<div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" class="custom-control-input"
+								id="defaultInline2" name="inlineDefaultRadiosExample"> <label
+								class="custom-control-label" for="defaultInline2">없음</label>
+						</div>
+
+					</div>
+				</div>
 			</div>
--->
+
+
 
 			<!-- Send button -->
 			<div class="mb-4">
