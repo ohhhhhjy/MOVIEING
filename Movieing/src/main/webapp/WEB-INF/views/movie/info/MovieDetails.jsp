@@ -253,7 +253,7 @@ $(document).ready(function() {
 			<!-- 포스터 -->
 			<div class="col-md-3 ">
 				<a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"><img
-					class="movieImage" src="${movieImgMap}"
+					class="movieImage" src="${movieImgUrl}"
 					alt="포스터" /></a>
 			</div>
 			<!-- 기본정보+별점 -->
@@ -341,7 +341,7 @@ $(document).ready(function() {
 		<!-- 리뷰남기기 (남긴 리뷰가 없을때만 나타나도록)-->
 		<div class="card   bg-ligh mb-3" style="max-width: 200rem;"><!-- border-secondary -->
 			<div class="card-body">
-			<button type="button" id="btnWish" class="btn btn-outline-danger waves-effect" ><i class="far fa-edit"></i>&nbsp;리뷰남기기</button>
+			<button type="button" id="btnWish" class="btn btn-outline-danger waves-effect" onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov"/>'"><i class="far fa-edit"></i>&nbsp;리뷰남기기</button>
 			<span style="font-weight: bold">&nbsp;유저이름님의 평가를 글로 남겨보는건 어떨까요?</span>
 			</div>
 		</div>

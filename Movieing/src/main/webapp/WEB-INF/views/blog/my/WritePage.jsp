@@ -72,6 +72,7 @@
 	});
 </script>
 
+
 <style>
 /* 별점 */
 .rating {
@@ -2252,6 +2253,11 @@ px
 	color: #f48fb1;
 }
 </style>
+=======
+<!-- css파일 -->
+<link href="<c:url value='/resources/css/wirtepage.css'/>"
+	rel="stylesheet" type="text/css">
+>>>>>>> branch 'master' of https://github.com/ohhhhhjy/MOVIEING.git
 
 
 

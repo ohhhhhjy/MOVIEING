@@ -42,5 +42,28 @@
 			value="/WEB-INF/views/{1}/{2}/{3}/{4}.jsp" />
 
 	</definition>
-	-->
+
+	<!-- 관리자 페이지용 layout -->
+        <definition name="admin_layouts" template="/WEB-INF/views/templates/AdminLayouts.jsp">
+            <put-attribute name="Top" value="/WEB-INF/views/templates/AdminTop.jsp"/>
+            
+            <!-- 내용은 동적으로 변하기때문에 value에 ""지정-->
+            <put-attribute name="Body" value=""/>
+            <put-attribute name="Footer" value="/WEB-INF/views/templates/AdminFooter.jsp"/>
+        </definition>
+        <definition name="*.admin" extends="admin_layouts">
+            <put-attribute name="Body" value="/WEB-INF/views/{1}.jsp"/>
+
+        </definition>
+        
+        <definition name="*/*.admin" extends="admin_layouts">
+            <put-attribute name="Body" value="/WEB-INF/views/{1}/{2}.jsp"/>
+
+        </definition>
+       
+        <definition name="*/*/*.admin" extends="admin_layouts">
+            <put-attribute name="Body" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
+
+        </definition>
+>>>>>>> branch 'master' of https://github.com/ohhhhhjy/MOVIEING.git
 </tiles-definitions>
