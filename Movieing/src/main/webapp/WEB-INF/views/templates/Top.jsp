@@ -94,7 +94,7 @@
 									href="<c:url value='/Movieing/Blog/BlogMain.mov'/>"
 									style="color: white"><i class="fas fa-history"
 									style="padding-right: 5px"></i>나의 피드</a> <a class="dropItem"
-									href="<c:url value='/Movieing/Blog/MyActivity.mov?page=a'/>"
+									href="<c:url value='/Movieing/Blog/MyActivity.mov'/>"
 									style="color: white"><i class="far fa-heart"
 									style="padding-right: 5px"></i>나의 활동</a> <a class="dropItem"
 									href="<c:url value='/Movieing/Blog/MovieingFriends.mov'/>"

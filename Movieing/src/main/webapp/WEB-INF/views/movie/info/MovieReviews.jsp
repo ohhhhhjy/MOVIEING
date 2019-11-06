@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
 body{
- padding-top: 130px
+ padding-top: 150px
 }
 
 /* 리뷰유저이름 */
@@ -52,11 +52,11 @@ border-radius: 6px;
 	 </div>
 
 
-<!-- 아코디언 -->	
-<div class="accordion" id="reviewAccordion">
+
+<div ><!-- class="accordion" id="reviewAccordion" -->
 	<!-- 리뷰카드 -->
 	<c:forEach begin="1" end="10" var="i">
-	<div class="card border-secondary " style="max-width: 200rem;">
+	<div class="card border-secondary row py-2" style="max-width: 200rem;">
 		<div class="card-header" >
 			<a href="#">
 				<img class="radiusImg" alt="유저사진" src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" align="left"/>
@@ -70,17 +70,18 @@ border-radius: 6px;
 			<a href="#"><span
 				style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
 					25 </span></a>&nbsp;&nbsp;&nbsp; 
-			<a href="#" data-toggle="collapse" data-target="#commentWindow${i}"  aria-expanded="true" aria-controls="commentWindow${i}"><span
+			<a href="#" data-toggle="collapse"  href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" data-target="#commentWindow${i}"  aria-expanded="true" aria-controls="commentWindow${i}"><span
 				style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
 					4 </span></a>
 		</div>
 		
 		<!-- 펼쳐질 댓글창 -->
-		<div id="commentWindow${i}" class="collapse commentDiv" aria-labelledby="headingOne2"
-		      data-parent="#reviewAccordion">
+		<%-- <div id="commentWindow${i}" class="collapse commentDiv" aria-labelledby="headingOne2"
+		      data-parent="#reviewAccordion"> --%>
+		<div id="commentWindow${i}" class="collapse commentDiv" >
 		    <hr class="my-1">
 		    <c:forEach begin="1" end="5">
-				<div class="card-body row comment  px-3">
+				<div class="card-body row comment  px-3 ">
 				 	<div class="col-md-1 d-flex justify-content-end">
 						<img class="radiusImg" alt="댓글유저사진" src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" align="left"/>
 					</div>
@@ -92,7 +93,7 @@ border-radius: 6px;
 				<hr class="my-1">
 			</c:forEach>
 			<!-- 댓글쓰기 -->
-			<div class="card-body row comment  px-3">
+			<div class="card-body row comment  px-1">
 				 	<div class="col-md-1 d-flex justify-content-end">
 						<img class="radiusImg" alt="댓글유저사진" src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" align="left"/>
 					</div>

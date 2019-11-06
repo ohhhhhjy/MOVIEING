@@ -1,6 +1,5 @@
-@charset "UTF-8";
 body {
-	padding-top: 100px;
+	padding-top: 125px;
 }
 .profileImage{
 	width: 100px;
@@ -92,5 +91,3 @@ padding-left: 50px;padding-right: 30px;
 	transform-origin: center bottom;
 	/* transform: translate(132px, 62px) rotate(0deg);  */
 }
-
-

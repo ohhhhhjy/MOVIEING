@@ -3,10 +3,105 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"> -->
 
+<style>
+body {
+	padding-top: 125px;
+}
+.profileImage{
+	width: 100px;
+	height: 100px;
+	/* background-image:url("배경이미지경로"); */
+	border-radius: 150px; /* 레이어 반크기만큼 반경을 잡기*/
+	display: table-cell;
+	vertical-align: middle;
+	color: #ffffff;
+	font-weight: bold;
+	text-align: center;
+}
+	
+.movieImage {
+	width: 120px;
+	height: 180px;
+}
+/* 원형이미지들 */
+.radiusImg {
+	width: 65px;
+	height: 65px;
+	/* background-image:url("배경이미지경로"); */
+	border-radius: 150px; /* 레이어 반크기만큼 반경을 잡기*/
+	display: table-cell;
+	vertical-align: middle;
+	color: #ffffff;
+	font-weight: bold;
+	text-align: center;
+}
+/* 배우감독이름 스팬 */
+.actorSpan {
+	font-size: 1.2em;
+	font-weight: bold;
+	line-height: 65px;
+}
+
+/* 필모그램 스팬 */
+.filmoSpan {
+	line-height: 65px;
+}
+
+/* 배우 스팬 */
+.actorForm {
+	padding-bottom: 20px;
+}
+
+/* 장르스팬 */
+.genreSpan {
+	color: #37C2AD;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+/* 스위치스타일 */
+.custom-switch {
+	align-content: center;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 45px;
+}
+
+/* 팔로우팔로잉 평가코멘트갯수 스팬 */
+.followSpan{
+	font-size: 0.8em;
+	color:#a8a5a5
+}
+
+.followForm{
+padding-left: 50px;padding-right: 30px;
+}
+
+/* 선호태그 스팬 */
+.mySpan{
+	color:#db147b;
+}
+
+.tagSpan {
+	color: #db147b;
+	position: absolute;
+	/* font-size: 17px; */
+	font-weight: bold;
+	/* line-height: 23px; */
+	font-style: normal;
+	width: 64px;
+	text-align: center;
+	white-space: nowrap;
+	transform-origin: center bottom;
+	/* transform: translate(132px, 62px) rotate(0deg);  */
+}
+</style>
 
 <!-- css파일 -->
-<link href="<c:url value='/resources/css/blogMainLayout.css'/>"
-	rel="stylesheet" type="text/css">
+<%-- <link href="<c:url value='/resources/css/blogMainLayout.css'/>"
+	rel="stylesheet" type="text/css"> --%>
 
 
 <script type="text/javascript"
@@ -34,6 +129,19 @@
 		// Convert the Classic options to Material options...
 		chart.draw(data, google.charts.Bar.convertOptions(options));
 	};
+	
+	/* a태그 post방식으로 값전달하기 */
+    function goPage(page) {
+        // name이 paging인 태그
+        var f = document.paging;
+        // form 태그의 하위 태그 값 매개 변수로 대입
+        f.page.value = page;
+        // input태그의 값들을 전송하는 주소
+        f.action = "/movieing/Movieing/Blog/MyActivity.mov"
+        // 전송 방식 : post
+        f.method = "post"
+        f.submit();
+      };
 </script>
 
 
@@ -78,28 +186,33 @@
 							<a class="btn btn-dark btn-sm"
 								href="<c:url value='/Movieing/Blog/MyPage.mov'/>" role="button">마이페이지</a>
 						</p>
+						<!-- a태그 post방식 페이지 전송 폼 -->
+					    <form name="paging">
+					    	<input type="hidden" name="page"/>
+					    	<input type="hidden" name="id"/>
+					    </form>
 						<div class="row"
 							style="padding-top: 20px; padding-bottom: 20px; background-color: white; border-radius: 10px 10px 10px 10px;">
 							<div class="col-sm-3" align="center">
-								<a href="<c:url value='/Movieing/Blog/MyActivity.mov?page=a'/>"><span
+								<a href="javascript:goPage('a');"><span
 									style="font-weight: bold">별점<br> 451
 								</span></a>
 							</div>
 							<div class="col-sm-3" align="center"
 								style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
-								<a href="<c:url value='/Movieing/Blog/MyActivity.mov?page=b'/>"><span
+								<a href="javascript:goPage('b');"><span
 									style="font-weight: bold">리뷰<br> 47
 								</span></a>
 							</div>
 							<div class="col-sm-3" align="center"
 								style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
-								<a href="<c:url value='/Movieing/Blog/MyActivity.mov?page=c'/>"><span
+								<a href="javascript:goPage('c');"><span
 									style="font-weight: bold">좋아요<br> 25
 								</span></a>
 							</div>
 							<div class="col-sm-3" align="center"
 								style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
-								<a href="<c:url value='/Movieing/Blog/MyActivity.mov?page=d'/>"><span
+								<a href="javascript:goPage('d');"><span
 									style="font-weight: bold">보고싶어요<br> 91
 								</span></a>
 							</div>
