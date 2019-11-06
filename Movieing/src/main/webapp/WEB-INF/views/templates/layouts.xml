@@ -35,13 +35,6 @@
 			value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
 
 	</definition>
-	<!--  
-	<definition name="*/*/*/*.tiles" extends="layouts">
-
-		<put-attribute name="Body"
-			value="/WEB-INF/views/{1}/{2}/{3}/{4}.jsp" />
-
-	</definition>
 
 	<!-- 관리자 페이지용 layout -->
         <definition name="admin_layouts" template="/WEB-INF/views/templates/AdminLayouts.jsp">
@@ -65,5 +58,5 @@
             <put-attribute name="Body" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
 
         </definition>
->>>>>>> branch 'master' of https://github.com/ohhhhhjy/MOVIEING.git
+
 </tiles-definitions>
