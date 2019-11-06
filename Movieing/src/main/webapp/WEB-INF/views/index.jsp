@@ -43,7 +43,7 @@ font-family: 'Roboto Condensed', sans-serif;
 				<hr style="border: thick; border: 1px solid gray ;width: 100px;opacity: 0.5">
 				<div style="margin-bottom:  40px"></div>
 
-				<h5 style="font-weight: lighter;">당신의 영화 취향을 골라주세요? </h5>
+				<h5 style="font-weight: lighter;">당신의 영화 취향을 골라주세요! </h5>
 				<div style="padding-bottom: 30px"></div>
 				
 

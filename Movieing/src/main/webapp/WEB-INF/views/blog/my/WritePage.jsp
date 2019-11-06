@@ -142,6 +142,12 @@
 
 
 
+
+
+
+
+
+
  
 
 
@@ -159,7 +165,25 @@
 
 
 
+
+
+
+
+
+
 input
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -229,7 +253,31 @@ text
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 :focus
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -279,7 +327,19 @@ text
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -316,7 +376,19 @@ readonly
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -368,6 +440,18 @@ border-bottom
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 :
 
 
@@ -385,7 +469,19 @@ border-bottom
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -420,7 +516,19 @@ px
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -454,6 +562,12 @@ solid
 
 
 
+
+
+
+
+
+
  
 
 
@@ -471,7 +585,25 @@ solid
 
 
 
+
+
+
+
+
+
 #f48fb1
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -538,6 +670,18 @@ box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 :
 
 
@@ -555,7 +699,19 @@ box-shadow
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -591,7 +747,19 @@ px
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -611,6 +779,18 @@ px
 0
 0
 #f48fb1
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -667,6 +847,12 @@ px
 
 
 
+
+
+
+
+
+
  
 
 
@@ -684,7 +870,25 @@ px
 
 
 
+
+
+
+
+
+
 input
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -754,7 +958,31 @@ text
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 :focus
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -804,7 +1032,19 @@ text
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -841,7 +1081,19 @@ readonly
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -893,6 +1145,18 @@ border-bottom
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 :
 
 
@@ -910,7 +1174,19 @@ border-bottom
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -945,7 +1221,19 @@ px
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -979,6 +1267,12 @@ solid
 
 
 
+
+
+
+
+
+
  
 
 
@@ -996,7 +1290,25 @@ solid
 
 
 
+
+
+
+
+
+
 #ce93d8
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1063,6 +1375,18 @@ box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 :
 
 
@@ -1080,7 +1404,19 @@ box-shadow
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -1116,7 +1452,19 @@ px
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -1136,6 +1484,18 @@ px
 0
 0
 #ce93d8
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1192,6 +1552,12 @@ px
 
 
 
+
+
+
+
+
+
  
 
 
@@ -1209,7 +1575,25 @@ px
 
 
 
+
+
+
+
+
+
 input
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1279,7 +1663,31 @@ text
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 :focus
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1329,7 +1737,19 @@ text
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -1366,7 +1786,19 @@ readonly
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -1418,6 +1850,18 @@ border-bottom
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 :
 
 
@@ -1435,7 +1879,19 @@ border-bottom
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -1470,7 +1926,19 @@ px
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -1504,6 +1972,12 @@ solid
 
 
 
+
+
+
+
+
+
  
 
 
@@ -1521,7 +1995,25 @@ solid
 
 
 
+
+
+
+
+
+
 #4dd0e1
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1588,6 +2080,18 @@ box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 :
 
 
@@ -1605,7 +2109,19 @@ box-shadow
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -1641,7 +2157,19 @@ px
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -1661,6 +2189,18 @@ px
 0
 0
 #4dd0e1
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1737,11 +2277,27 @@ px
 			<h5>영화명</h5>
 
 
+
+			<div class="md-form input-group mb-3">
+				<div class="input-group-prepend">
+					<button class="btn btn-md btn-primary m-0 px-3" type="button"
+						id="MaterialButton-addon1" data-toggle="modal"
+						data-target="#modalCart">영화선택</button>
+				</div>
+				<div style="padding-bottom: 10px"></div>
+				<input type="text" class="form-control"
+					placeholder="여기에 선택한 영화이름이 뿌려짐"
+					aria-label="Example text with button addon"
+					aria-describedby="MaterialButton-addon1">
+			</div>
+
+			<!--  
 			<button type="button" class="btn btn-primary" data-toggle="modal"
 				data-target="#modalCart">영화선택</button>
 			<div style="padding-bottom: 10px"></div>
 			<input type="text" id="defaultContactFormName"
 				class="form-control mb-4" placeholder="영화명">
+				-->
 
 			<!-- 영화선택 시 모달 -->
 
@@ -2017,6 +2573,8 @@ px
 
 			<!-- Subject -->
 			<h5>공개여부</h5>
+
+
 			<select class="browser-default custom-select mb-4">
 				<option value="" disabled>선택</option>
 				<option value="1" selected="selected">나만보기</option>
@@ -2032,7 +2590,7 @@ px
 				<input type="text" class="form-control"
 					aria-label="Sizing example input"
 					aria-describedby="inputGroupMaterial-sizing-default"
-					placeholder="#재밌음 #유익한 #추천영회">
+					placeholder="#재밌음 #유익한 #추천영화">
 
 			</div>
 
@@ -2046,27 +2604,27 @@ px
 
 
 
+
 			<div class="custom-control custom-checkbox mb-4">
-				<div class="row col-md-12">
-					<div class="col-md-4" align="right">
+				<div class="row">
+					<div>
 						<label style="font-weight: bold;">이 글에 스포일러가 포함되어 있나요?</label>
 					</div>
-					<div class="col-md-8" align="left">
-						<!-- Default inline 1-->
-						<div class="custom-control custom-radio custom-control-inline">
-							<input type="radio" class="custom-control-input"
-								id="defaultInline1" name="inlineDefaultRadiosExample"> <label
-								class="custom-control-label" for="defaultInline1">있음</label>
+					<div style="padding-right: 50px"></div>
+					<div class="row">
+						<div class="form-check mb-3">
+							<input class="form-check-input" type="radio" id="radio1"
+								name="cmethod" value="phone" checked> <label
+								class="form-check-label" for="radio1">있음</label>
 						</div>
-
-						<!-- Default inline 2-->
-						<div class="custom-control custom-radio custom-control-inline">
-							<input type="radio" class="custom-control-input"
-								id="defaultInline2" name="inlineDefaultRadiosExample"> <label
-								class="custom-control-label" for="defaultInline2">없음</label>
+						<div style="padding-right: 10px"></div>
+						<div class="form-check mb-3">
+							<input class="form-check-input" type="radio" id="radio2"
+								name="cmethod" value="mail"> <label
+								class="form-check-label" for="radio2">없음</label>
 						</div>
-
 					</div>
+
 				</div>
 			</div>
 

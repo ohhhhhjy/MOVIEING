@@ -11,8 +11,10 @@
 
 		<!-- 내용은 동적으로 변하기때문에 value에 ""지정 -->
 		<put-attribute name="Body" value="" />
+		<!-- 
 		<put-attribute name="Aside"
 			value="/WEB-INF/views/templates/Aside.jsp" />
+			 -->
 		<put-attribute name="Footer"
 			value="/WEB-INF/views/templates/Footer.jsp" />
 	</definition>
@@ -33,10 +35,12 @@
 			value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
 
 	</definition>
+	<!--  
 	<definition name="*/*/*/*.tiles" extends="layouts">
 
 		<put-attribute name="Body"
 			value="/WEB-INF/views/{1}/{2}/{3}/{4}.jsp" />
 
 	</definition>
+	-->
 </tiles-definitions>
