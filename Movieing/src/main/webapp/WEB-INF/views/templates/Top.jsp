@@ -87,14 +87,14 @@
 						href="<c:url value='/Movieing/Movie/Recommend.mov'/>">추천</a></li>
 					<li class="nav-item">
 						<div class="dropdown">
-							<a class="nav-link js-scroll-trigger dropdown-button"
+							<a class="nav-link js-scroll-trigger dropdown-button" href="<c:url value='/Movieing/Blog/BlogMain.mov'/>"
 								>블로그</a>
 							<div class="dropdown-content">
 								<a class="dropItem"
 									href="<c:url value='/Movieing/Blog/BlogMain.mov'/>"
 									style="color: white"><i class="fas fa-history"
 									style="padding-right: 5px"></i>나의 피드</a> <a class="dropItem"
-									href="<c:url value='/Movieing/Blog/MyActivity.mov?page=a'/>"
+									href="<c:url value='/Movieing/Blog/MyActivity.mov'/>"
 									style="color: white"><i class="far fa-heart"
 									style="padding-right: 5px"></i>나의 활동</a> <a class="dropItem"
 									href="<c:url value='/Movieing/Blog/MovieingFriends.mov'/>"
@@ -108,7 +108,7 @@
 					</li>
 					<li class="nav-item">
 						<div class="dropdown">
-							<a class="nav-link js-scroll-trigger "
+							<a class="nav-link js-scroll-trigger " href="<c:url value ='/Movieing/News/News.mov'/>"
 								>소식</a>
 							<div class="dropdown-content">
 								<a class="dropItem"
@@ -124,12 +124,12 @@
 					</li>
 					<li class="nav-item">
 						<div class="dropdown">
-							<a class="nav-link js-scroll-trigger "
+							<a class="nav-link js-scroll-trigger " href="<c:url value ='#'/>"
 								>영화관</a>
 							<div class="dropdown-content">
 								<a class="dropItem"
 									href="<c:url value ='#'/>"
-									style="color: white"><i class="fas fa-hotel"
+									style="color: white"><i class="fas fa-building"
 									style="padding-right: 5px"></i>상영관</a> 
 									<a class="dropItem"
 									href="<c:url value ='#'/>"
@@ -183,87 +183,35 @@
 				</ul>
 
 
-
-
-				<ul style="list-style: none; padding-top: 10px">
+				<ul style="list-style: none;">
 					<!-- 프로필 드롭다운 -->
 					<li class="nav-item">
 						<div class="dropdown">
-							<a class="nav-link js-scroll-trigger dropdown-button"><img
+							<a class="nav-link js-scroll-trigger dropdown-button" href="<c:url value='/Movieing/Blog/MyPage.mov'/>" ><img 
 								alt="user" src="<c:url value='/resources/img/user.png'/>"
-								style="width: 40px; height: 40px" /></a>
+								style="width: 50px; height: 50px" /></a>
 							<div class="dropdown-content" style="width: 120px">
 
-								<!-- 프사 -->
-								<!-- 
-								<div style="text-align: center">
-									<img src="<c:url value='/resources/img/friends/dahee.jpg'/>"
-										class="radiusImg img-thumbnail" alt="프로필 사진"
-										style="display: block; margin: 0px auto; width: 180px; height: 180px">
-								</div>
-							
 
 
-								<div class="text-center">
-									<div>
-										<h2
-											style="padding-bottom: 10px; text-align: center; padding-top: 10px; color: white;">이다희
-											님</h2>
-									</div>
-								</div>
-
-							
-								<hr style="border: thick; border: 1px solid white; margin-top: 0em;margin-bottom: 0em;">
-
-
-								<h5 align="center" style="margin-bottom: 0em;">
-									<a class="dropItem"
-										href="<c:url value='/Movieing/Blog/BlogMain.mov'/>"
-										style="color: white">마이페이지</a>
-								</h5>
-
-
-
-								<hr style=" border: 1px solid white;margin-top: 0em;margin-bottom: 0em;">
-								<h5 align="center" style="margin-bottom: 0em;">
-									<a class="dropItem"
-										href="<c:url value='/Movieing/Blog/MyActivity.mov?page=a'/>"
-										style="color: white">알림</a>
-								</h5>
-
-
-								<hr style=" border: 1px solid white;margin-top: 0em;margin-bottom: 0em;">
-								<h5 align="center" style="margin-bottom: 0em;">
-									<a class="dropItem"
-										href="<c:url value='/Movieing/Blog/MovieingFriends.mov'/>"
-										style="color: white">로그아웃</a>
-								</h5>
-
-								<hr style=" border: 1px solid white;margin-top: 0em;margin-bottom: 0em;">
-								
-								
-
-
-								<h5 align="center" style="margin-bottom: 0em;">
-									<a class="dropItem"
-										href="<c:url value='/Movieing/admin/admin_main.mov'/>"
-										style="color: white">관리자</a>
-								</h5>
-									- -->
 								<a class="dropItem"
 									href="<c:url value='/Movieing/Blog/MyPage.mov'/>"
-									style="color: white"><i class="far fa-user-circle"
-									style="padding-right: 5px"></i>마이페이지</a> <a class="dropItem"
-									href="<c:url value='/Movieing/Blog/MyActivity.mov?page=a'/>"
+									style="color: white">
+									<i class="far fa-user-circle"
+									style="padding-right: 5px"></i>마이페이지</a> 
+								<a class="dropItem"
+									href="<c:url value='/Movieing/my/Notice.mov'/>"
 									style="color: white"><i class="far fa-bell"
-									style="padding-right: 5px"></i>알림</a> <a class="dropItem"
+									style="padding-right: 5px"></i>알림</a>
+								 <a class="dropItem"
 									href="<c:url value='/Movieing/Member/Logout.mov'/>"
 									style="color: white"><i class="fas fa-sign-out-alt"
-									style="padding-right: 5px"></i>로그아웃</a> <a class="dropItem"
+									style="padding-right: 5px"></i>로그아웃</a> 
+								<a class="dropItem"
 									href="<c:url value='/Movieing/admin/admin_main.mov'/>"
 									style="color: white">관리자</a>
-									<a class="dropItem"
-									href="<c:url value='/Movieing/admin/admin_main.mov'/>"
+								<a class="dropItem"
+									href="<c:url value='/Movieing/my/Customer.mov'/>"
 									style="color: white"><i class="far fa-question-circle" style="padding-right: 5px"></i>고객센터</a>
 
 							</div>

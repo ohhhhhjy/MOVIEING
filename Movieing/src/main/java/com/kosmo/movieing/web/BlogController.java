@@ -1,12 +1,23 @@
 package com.kosmo.movieing.web;
 
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kosmo.movieing.service.ReviewDto;
+import com.kosmo.movieing.service.ReviewService;
+
 @Controller
 public class BlogController {
+
+	@Resource(name="reviewService")
+	private ReviewService reviewService;
 
 	// 블로그메인
 	@RequestMapping("/Movieing/Blog/BlogMain.mov")
@@ -16,8 +27,18 @@ public class BlogController {
 
 	// 블로그-내 활동
 	@RequestMapping("/Movieing/Blog/MyActivity.mov")
-	public String myActiviy(@RequestParam String page, Model model) {
+	public String myActiviy(@RequestParam Map map, Model model) {
+		String id= "KIM";//임시
+
+		map.put("id", id);
+
+		String page = map.get("page")==null?"a":map.get("page").toString();
 		model.addAttribute("page", page);
+
+		List<ReviewDto> reviewList = reviewService.selectList(map);
+		model.addAttribute("reviewList", reviewList);
+
+
 		return "blog/my/MyActivity.tiles";
 	}
 
@@ -74,7 +95,7 @@ public class BlogController {
 	public String myPage_Help() {
 		return "blog/my/MyPage_Help.tiles";
 	}
-	
+
 	//글쓰기 페이지]
 	@RequestMapping("/Movieing/Blog/WritePage.mov")
 	public String write() {
