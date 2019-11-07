@@ -1,25 +1,35 @@
 package com.kosmo.movieing.service;
-
+//리뷰 테이블
 import java.sql.Date;
 //dto의 멤버변수명은 반드시 테이블의 칼럼명과 동일하게 써야하고, 카멜표기법으로 바꾸어 써야한다. 그래야 마이바티스가 읽을 수 있다. 예)review_content >> reviewContent
 public class ReviewDto {
 
-	String reviewNo;
-	String userId;
-	String movieNo;
-	String reviewContent;
-	Date reviewPostdate;
-	String publicPrivate;
+	private String reviewNo;
+	private String userId;
+	private String movieNo;
+	private String reviewContent;
+	private Date reviewPostdate;
+	private String publicPrivate;
 
 	//프로그램 효율성을 위한 속성 추가]
 	//별점
-	String grade;//테이블 칼럼속성 변경 필요(문자->숫자로!)
+	private String grade;//테이블 칼럼속성 변경 필요(문자->숫자로!)
 	//좋아요 수
-	String likeCount;
+	private String likeCount;
 	//댓글 수
-	String commentCount;
+	private String commentCount;
 	//영화제목
-	String movieTitle;
+	private String movieTitle;
+	//영화이미지url
+	private String imgUrl;
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
 
 	public String getGrade() {
 		return grade;

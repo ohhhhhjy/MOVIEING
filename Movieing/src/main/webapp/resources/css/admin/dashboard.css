@@ -164,3 +164,26 @@ body {
         padding-right: 15px !important;
     }
 }
+#calendar1 {
+	display: inline-block;
+	width:400px;
+	height:auto;
+}
+.sui-calendar .sui-footer,
+.sui-calendar .sui-week-header th,
+.sui-calendar .sui-date,
+.sui-calendar .sui-month,
+.sui-calendar .sui-year,
+.sui-calendar .sui-years {
+    line-height: 37px;
+	text-align: center;
+}
+
+.sui-calendar {
+	margin-top:40px;
+    border: 0;
+    font-family: Lucida Console;
+    font-size: 17px;
+    font-weight: 700;
+    
+}

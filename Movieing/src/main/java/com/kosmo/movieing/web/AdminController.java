@@ -24,10 +24,14 @@ public class AdminController {
 		return "admin/admin_qna.admin";
 	}
 
-	// 관리자페이지2]
-	@RequestMapping("/Movieing/admin/admin2.mov")
-	public String admin2() {
-		return "admin/admin2.admin";
+	@RequestMapping("/Movieing/admin/admin_announce.mov")
+	public String admin_announce() {
+		return "admin/admin_announce.admin";
+	}
+	
+	@RequestMapping("/Movieing/admin/admin_goods.mov")
+	public String admin_goods() {
+		return "admin/admin_goods.admin";
 	}
 
 

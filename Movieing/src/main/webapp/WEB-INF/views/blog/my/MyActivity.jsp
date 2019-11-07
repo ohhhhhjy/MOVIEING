@@ -211,11 +211,11 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
                  <!--컨텐츠a:별점 -->
                  <div class="tab-pane fade " id="nav-star" role="tabpanel" aria-labelledby="nav-star-tab">
                    		<div class="row" style="">
-                   			<c:forEach begin="1" end="3">
+                   			<c:forEach items="${evaluationList }" var="item">
 							<div class="col-md-2 col-sm-6 movie-poster" style="">
-								<img  class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt=""/>
-								<span class="movieTitle">말레피센트</span><br>
-								<Span class="movieStar">★4.5</Span>
+								<img  class="movieImg" src=${item.imgUrl } alt=""/>
+								<span class="movieTitle">${item.movieTitle }</span><br>
+								<Span class="movieStar">★ ${item.evaluationGrade }</Span>
 							</div>
 							</c:forEach>
 							
@@ -224,32 +224,34 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
                  
                  <!-- 컨텐츠b:리뷰 -->
                  <div class="tab-pane fade" id="nav-review" role="tabpanel" aria-labelledby="nav-review-tab">
-                 <%-- 	<c:if test="${empty list }">
-                 		작성한 리뷰가 없어
-                 	</c:if> --%>
-                 	<!-- 리뷰카드 -->
-                 	<c:forEach items="${reviewList }" var="item">
-						<div class="card border-secondary mb-3" style="max-width: 200rem;">
-							<div class="card-body">
-								<div class="row">
-									<div class="col-sm-3" align="center">
-										<img class="movieImg"
-											src="../../resources/img/movie/toystoryMain.jpg" alt="포스터" />
-									</div>
-									<div class="col-sm-9">
-										<h4 class="card-title">${item.movieTitle }</h4><!-- 영화제목 -->
-										<span class="badge badge-pill badge-danger">★ ${item.grade}</span><!-- 별점-->
-										<p class="card-text">${item.reviewContent }</p><!-- 리뷰내용 -->
-										<a href="#"><span
-											style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
-												${item.likeCount } </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
-											style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
-												${item.commentCount }</span></a>
+                 	<c:if test="${empty reviewList }" var="isEmpty">
+                 		아직 작성하신 리뷰가 없네요... 리뷰를 작성하러 가볼까요?
+                 	</c:if>
+                 	<c:if test="${!isEmpty }">
+                 		<!-- 리뷰카드 -->
+	                 	<c:forEach items="${reviewList }" var="item">
+							<div class="card border-secondary mb-3" style="max-width: 200rem;">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-sm-3" align="center">
+											<img class="movieImg"
+												src="${item.imgUrl }" alt="포스터" />
+										</div>
+										<div class="col-sm-9">
+											<h4 class="card-title">${item.movieTitle }</h4><!-- 영화제목 -->
+											<span class="badge badge-pill badge-danger">★ ${item.grade}</span><!-- 별점-->
+											<p class="card-text" style="height: 100px">${item.reviewContent }</p><!-- 리뷰내용 -->
+											<a href="#"><span
+												style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
+													${item.likeCount } </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
+												style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
+													${item.commentCount }</span></a>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</c:forEach>
+						</c:forEach>
+					</c:if>
 				</div>
                  
                  <!-- 컨텐츠c:좋아요 -->
@@ -272,7 +274,7 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
 								<div class="col-sm-9">
 									<h4 class="card-title">토이스토리4</h4>
 									<span class="badge badge-pill badge-danger">★4.5</span>
-									<p class="card-text">토이스토리를 봤다. 너무 재밌었다. 너무 재밌었고, 너무 재밌어서 너무
+									<p class="card-text" style="height: 100px">토이스토리를 봤다. 너무 재밌었다. 너무 재밌었고, 너무 재밌어서 너무
 										재밌을 뻔했다. 너무 재밌는 영화였다.</p>
 									<a href="#"><span
 										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
