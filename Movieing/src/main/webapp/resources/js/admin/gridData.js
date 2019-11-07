@@ -3,6 +3,7 @@ var gridData =
     {
         "id": 0,
         "guid": "56e05974-4184-47c6-b035-a7139ea80a5f",
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',
         "isActive": false,
         "balance": 2013,
         "picture": "//placehold.it/32x32",
@@ -59,7 +60,7 @@ var gridData =
     {
         "id": 1,
         "guid": "757ba20d-c025-4303-89e5-955fb4be4361",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1363,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -115,7 +116,7 @@ var gridData =
     {
         "id": 2,
         "guid": "1fc78d11-83e4-4179-b795-241fd5529205",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1669,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -171,7 +172,7 @@ var gridData =
     {
         "id": 3,
         "guid": "0e870730-176d-47ec-8167-ed5cbb3d81a1",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2787,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -227,7 +228,7 @@ var gridData =
     {
         "id": 4,
         "guid": "bba93bab-c3d2-4cfa-b583-49a668c38edc",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2943,
         "picture": "//placehold.it/32x32",
         "age": 36,
@@ -283,7 +284,7 @@ var gridData =
     {
         "id": 5,
         "guid": "4ffce452-1da1-4e81-adf2-0cbf83e90159",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2678,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -339,7 +340,7 @@ var gridData =
     {
         "id": 6,
         "guid": "b7948be2-be93-4e84-a68e-94b22598b410",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1148,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -395,7 +396,7 @@ var gridData =
     {
         "id": 7,
         "guid": "445de5ba-f953-42dd-9620-38f6a18a2952",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1132,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -451,7 +452,7 @@ var gridData =
     {
         "id": 8,
         "guid": "d5bc6510-457a-48c6-a2be-898201000cde",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3140,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -507,7 +508,7 @@ var gridData =
     {
         "id": 9,
         "guid": "5ddce43f-61ee-4ad0-8f07-c0ad8317332c",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1870,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -563,7 +564,7 @@ var gridData =
     {
         "id": 10,
         "guid": "b719a71a-e632-4002-9e97-9d3455ca75a8",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2385,
         "picture": "//placehold.it/32x32",
         "age": 36,
@@ -619,7 +620,7 @@ var gridData =
     {
         "id": 11,
         "guid": "f196545a-c484-40f0-9ec0-d82f7ded412f",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2611,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -675,7 +676,7 @@ var gridData =
     {
         "id": 12,
         "guid": "d1619b19-ee41-4e7e-a91e-5e9cdcd1090d",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2970,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -731,7 +732,7 @@ var gridData =
     {
         "id": 13,
         "guid": "4abc52d0-1846-4667-8d18-c22958bfd502",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2805,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -787,7 +788,7 @@ var gridData =
     {
         "id": 14,
         "guid": "3d60e63b-e40a-4c36-85b9-2c41e93d4efe",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2091,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -843,7 +844,7 @@ var gridData =
     {
         "id": 15,
         "guid": "19a57196-1a52-40d4-8080-f1e03304292f",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2853,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -899,7 +900,7 @@ var gridData =
     {
         "id": 16,
         "guid": "d316604e-5ae0-4ab8-b325-9d74f0c7c72c",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1063,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -955,7 +956,7 @@ var gridData =
     {
         "id": 17,
         "guid": "9d2dcde4-9596-4fe2-8a62-95428e576de7",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3768,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -1011,7 +1012,7 @@ var gridData =
     {
         "id": 18,
         "guid": "70a0567d-8869-4ff8-a5cd-033515a798ac",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1502,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -1067,7 +1068,7 @@ var gridData =
     {
         "id": 19,
         "guid": "eb862aeb-c59c-46de-956a-94027e7d3c38",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2032,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -1123,7 +1124,7 @@ var gridData =
     {
         "id": 20,
         "guid": "b617cf7b-e5d4-489e-8699-cb17df984278",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1668,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -1179,7 +1180,7 @@ var gridData =
     {
         "id": 21,
         "guid": "c4d4c3e7-9691-444f-ab4c-dd0645ea2be8",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1735,
         "picture": "//placehold.it/32x32",
         "age": 33,
@@ -1235,7 +1236,7 @@ var gridData =
     {
         "id": 22,
         "guid": "58cb2411-bf1c-4c64-8085-1834a4560d7a",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2071,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -1291,7 +1292,7 @@ var gridData =
     {
         "id": 23,
         "guid": "286d957c-605b-4fbf-841a-6e47bf34bf87",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2612,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -1347,7 +1348,7 @@ var gridData =
     {
         "id": 24,
         "guid": "ad477803-17b9-4a3f-a0be-dfe3d910dcc0",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3381,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -1403,7 +1404,7 @@ var gridData =
     {
         "id": 25,
         "guid": "051b6632-c93f-440b-b3d8-babe0f950e7c",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2253,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -1459,7 +1460,7 @@ var gridData =
     {
         "id": 26,
         "guid": "5e7fc9da-4a0e-4d91-b880-c57f126acb09",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2748,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -1515,7 +1516,7 @@ var gridData =
     {
         "id": 27,
         "guid": "1fe507bb-9ba3-4209-88de-76f84bc85eb0",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3787,
         "picture": "//placehold.it/32x32",
         "age": 33,
@@ -1571,7 +1572,7 @@ var gridData =
     {
         "id": 28,
         "guid": "43f1473d-c297-48fc-83b2-69282d8ec3d8",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1589,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -1627,7 +1628,7 @@ var gridData =
     {
         "id": 29,
         "guid": "44c52ed4-cd48-46b9-a469-7ea94bd80f04",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2271,
         "picture": "//placehold.it/32x32",
         "age": 36,
@@ -1683,7 +1684,7 @@ var gridData =
     {
         "id": 30,
         "guid": "115c27aa-22d9-426d-98e0-f7ef1471e87a",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1219,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -1739,7 +1740,7 @@ var gridData =
     {
         "id": 31,
         "guid": "42c073d7-9f79-48d6-8130-f1564391b5e3",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2011,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -1795,7 +1796,7 @@ var gridData =
     {
         "id": 32,
         "guid": "01b1c8a0-d927-43d7-bfd2-e474e2bc9853",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1628,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -1851,7 +1852,7 @@ var gridData =
     {
         "id": 33,
         "guid": "af594b6c-4097-4577-9126-19791177f0f8",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2343,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -1907,7 +1908,7 @@ var gridData =
     {
         "id": 34,
         "guid": "61175966-a16c-4261-81b6-c1749bb6d256",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1956,
         "picture": "//placehold.it/32x32",
         "age": 33,
@@ -1963,7 +1964,7 @@ var gridData =
     {
         "id": 35,
         "guid": "61fc7efd-fa39-4194-9c46-24199e790081",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2499,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -2019,7 +2020,7 @@ var gridData =
     {
         "id": 36,
         "guid": "64b762cf-36e3-481b-bd9a-606802f0fa4e",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1165,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -2075,7 +2076,7 @@ var gridData =
     {
         "id": 37,
         "guid": "1fe50b64-b106-4f37-b8fc-f5a297d75d07",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2826,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -2131,7 +2132,7 @@ var gridData =
     {
         "id": 38,
         "guid": "7f4e97c3-104f-4f06-84f3-529110fa5026",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3651,
         "picture": "//placehold.it/32x32",
         "age": 32,
@@ -2187,7 +2188,7 @@ var gridData =
     {
         "id": 39,
         "guid": "10a5c742-6e14-4e35-8bfb-03f99c8917cd",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2448,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -2243,7 +2244,7 @@ var gridData =
     {
         "id": 40,
         "guid": "0b73266e-f21a-474c-87b7-56903db1558f",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1125,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -2299,7 +2300,7 @@ var gridData =
     {
         "id": 41,
         "guid": "f9e830b7-fb67-4df6-8bab-3676089b0982",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3232,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -2355,7 +2356,7 @@ var gridData =
     {
         "id": 42,
         "guid": "46bf9582-ecab-405e-8184-24bf948526ed",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1114,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -2411,7 +2412,7 @@ var gridData =
     {
         "id": 43,
         "guid": "6e212a97-967c-4d6b-91e3-a5b843734038",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2374,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -2467,7 +2468,7 @@ var gridData =
     {
         "id": 44,
         "guid": "3c6d00a0-c0ac-45c2-831c-1826095a12f7",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2682,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -2523,7 +2524,7 @@ var gridData =
     {
         "id": 45,
         "guid": "ae1f9935-c06e-47cc-a2cc-2f8ce1f81686",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1704,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -2579,7 +2580,7 @@ var gridData =
     {
         "id": 46,
         "guid": "9d4ca88d-b1fb-4877-afd8-7e456cdb877a",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1955,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -2635,7 +2636,7 @@ var gridData =
     {
         "id": 47,
         "guid": "3c5ee22a-e5ee-400b-85ff-81d77945f962",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2758,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -2691,7 +2692,7 @@ var gridData =
     {
         "id": 48,
         "guid": "3cc20ee3-1c27-4f6a-a350-f167d91b4404",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2692,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -2747,7 +2748,7 @@ var gridData =
     {
         "id": 49,
         "guid": "96dde00c-b605-43b5-954f-2f9050b77f69",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2549,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -2803,7 +2804,7 @@ var gridData =
     {
         "id": 50,
         "guid": "44aa4c26-f4b7-4546-8cf8-2c1c72087f00",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3028,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -2859,7 +2860,7 @@ var gridData =
     {
         "id": 51,
         "guid": "1c6914ed-5c5d-4f64-be25-3171cf008e86",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2787,
         "picture": "//placehold.it/32x32",
         "age": 38,
@@ -2915,7 +2916,7 @@ var gridData =
     {
         "id": 52,
         "guid": "ea2dc795-b3bc-4fdb-85af-b922df0a0b75",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3740,
         "picture": "//placehold.it/32x32",
         "age": 38,
@@ -2971,7 +2972,7 @@ var gridData =
     {
         "id": 53,
         "guid": "7916af5e-4217-419d-94ca-27f42a0e15f9",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1683,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -3027,7 +3028,7 @@ var gridData =
     {
         "id": 54,
         "guid": "fb8cdc0d-67a2-48b1-b645-ff93632671ae",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1331,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -3083,7 +3084,7 @@ var gridData =
     {
         "id": 55,
         "guid": "aec4ba5a-24c3-47bb-ba5a-20c4ea37bfe5",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3044,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -3139,7 +3140,7 @@ var gridData =
     {
         "id": 56,
         "guid": "fad394ce-c1b5-4dfe-945a-cd03ee125b20",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3898,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -3195,7 +3196,7 @@ var gridData =
     {
         "id": 57,
         "guid": "50a08b5f-4ee9-4d89-9eb2-fb735b72fb9f",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2056,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -3251,7 +3252,7 @@ var gridData =
     {
         "id": 58,
         "guid": "af6a488c-ef44-4349-88fc-779fb7be987b",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1647,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -3307,7 +3308,7 @@ var gridData =
     {
         "id": 59,
         "guid": "093033a9-0dc9-4bf8-a3e3-880708a188b2",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2576,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -3363,7 +3364,7 @@ var gridData =
     {
         "id": 60,
         "guid": "ec3c1657-5cc8-4cdb-a9d1-9baa08c0a75f",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1480,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -3419,7 +3420,7 @@ var gridData =
     {
         "id": 61,
         "guid": "b04e3165-2607-486a-b91b-000da91b3947",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1200,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -3475,7 +3476,7 @@ var gridData =
     {
         "id": 62,
         "guid": "51a7d4c3-952d-4ecd-82b2-82ba9a3ce2cf",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3926,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -3531,7 +3532,7 @@ var gridData =
     {
         "id": 63,
         "guid": "1a6be954-c0b7-461b-abd0-9dd766d2e82d",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1219,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -3587,7 +3588,7 @@ var gridData =
     {
         "id": 64,
         "guid": "f5e297cc-5e72-4b2e-8ca0-190bc4064d31",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3939,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -3643,7 +3644,7 @@ var gridData =
     {
         "id": 65,
         "guid": "e312179a-1c09-436a-8926-66cc0a986491",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2720,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -3699,7 +3700,7 @@ var gridData =
     {
         "id": 66,
         "guid": "4bd14b51-73a4-44b5-8ebf-827e09f80d94",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3996,
         "picture": "//placehold.it/32x32",
         "age": 36,
@@ -3755,7 +3756,7 @@ var gridData =
     {
         "id": 67,
         "guid": "82b708b7-88f1-475f-884c-e626ba0fa59b",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2954,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -3811,7 +3812,7 @@ var gridData =
     {
         "id": 68,
         "guid": "2a563397-595b-443d-9f26-dd7f124c2229",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1448,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -3867,7 +3868,7 @@ var gridData =
     {
         "id": 69,
         "guid": "8bb6bb7e-5205-439d-ad4c-f996e45a142d",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2885,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -3923,7 +3924,7 @@ var gridData =
     {
         "id": 70,
         "guid": "2368ee92-4a7e-4601-b4e3-0c710d038aef",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2914,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -3979,7 +3980,7 @@ var gridData =
     {
         "id": 71,
         "guid": "7058942d-028d-4db2-9f55-f3f8a6d08693",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1513,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -4035,7 +4036,7 @@ var gridData =
     {
         "id": 72,
         "guid": "db1ef826-58cb-4494-bfc2-b881c260d1f5",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1372,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -4091,7 +4092,7 @@ var gridData =
     {
         "id": 73,
         "guid": "e3323f82-c150-4585-97b6-54e616bc99dd",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1688,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -4147,7 +4148,7 @@ var gridData =
     {
         "id": 74,
         "guid": "e3715ed2-fa66-467e-8213-3e2e2ec7f431",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2677,
         "picture": "//placehold.it/32x32",
         "age": 36,
@@ -4203,7 +4204,7 @@ var gridData =
     {
         "id": 75,
         "guid": "adf232b4-a6b9-4d27-a0a2-95ec11c3c05e",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1872,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -4259,7 +4260,7 @@ var gridData =
     {
         "id": 76,
         "guid": "95098e5b-bc0b-43c1-a3cc-eb46ecff07cd",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3298,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -4315,7 +4316,7 @@ var gridData =
     {
         "id": 77,
         "guid": "399b924f-eba0-40ae-aec0-589397019b15",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2377,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -4371,7 +4372,7 @@ var gridData =
     {
         "id": 78,
         "guid": "2fb90779-44d0-4123-9fcf-85a26dac97e5",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3686,
         "picture": "//placehold.it/32x32",
         "age": 20,
@@ -4427,7 +4428,7 @@ var gridData =
     {
         "id": 79,
         "guid": "b90e5632-5af6-440f-973d-5592f87842b6",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1372,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -4483,7 +4484,7 @@ var gridData =
     {
         "id": 80,
         "guid": "7c147b73-17ad-4972-903b-9f9ffb468c43",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1247,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -4539,7 +4540,7 @@ var gridData =
     {
         "id": 81,
         "guid": "5d967743-8d31-475d-b6e8-a54880d9c7df",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1923,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -4595,7 +4596,7 @@ var gridData =
     {
         "id": 82,
         "guid": "5b54373a-5cd0-47a6-a544-96d862a92bed",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2025,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -4651,7 +4652,7 @@ var gridData =
     {
         "id": 83,
         "guid": "7de1ec68-5dd2-4e62-b08b-fe4af59c75a9",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3322,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -4707,7 +4708,7 @@ var gridData =
     {
         "id": 84,
         "guid": "c1fedfe8-963a-428d-bee3-080f44fc6c24",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3910,
         "picture": "//placehold.it/32x32",
         "age": 20,
@@ -4763,7 +4764,7 @@ var gridData =
     {
         "id": 85,
         "guid": "98a14394-3376-4756-9e4c-d40419696c81",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2180,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -4819,7 +4820,7 @@ var gridData =
     {
         "id": 86,
         "guid": "d5686a4b-43f1-4444-b85e-e8dccd45e273",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2692,
         "picture": "//placehold.it/32x32",
         "age": 38,
@@ -4875,7 +4876,7 @@ var gridData =
     {
         "id": 87,
         "guid": "05adbf10-dbd1-4369-9448-04cad52d64dc",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2917,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -4931,7 +4932,7 @@ var gridData =
     {
         "id": 88,
         "guid": "551b69f7-3942-41eb-970e-6a74effafff9",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2628,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -4987,7 +4988,7 @@ var gridData =
     {
         "id": 89,
         "guid": "0dc89a7e-e8bc-4f79-8dda-24d0158bfebe",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1217,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -5043,7 +5044,7 @@ var gridData =
     {
         "id": 90,
         "guid": "2d654f79-2d8c-4fba-ab20-be1e4b2e0944",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1447,
         "picture": "//placehold.it/32x32",
         "age": 32,
@@ -5099,7 +5100,7 @@ var gridData =
     {
         "id": 91,
         "guid": "119d5682-9c66-4a58-b220-ff6b9c4738b0",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3685,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -5155,7 +5156,7 @@ var gridData =
     {
         "id": 92,
         "guid": "e1f35f5d-7c07-4842-b7d5-f47478342059",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1909,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -5211,7 +5212,7 @@ var gridData =
     {
         "id": 93,
         "guid": "40f4e268-f851-4762-bac6-956e8c793970",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1416,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -5267,7 +5268,7 @@ var gridData =
     {
         "id": 94,
         "guid": "eac6dc6d-edfa-421e-8d0c-439969c7682b",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2913,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -5323,7 +5324,7 @@ var gridData =
     {
         "id": 95,
         "guid": "9f8a5bef-07e4-4666-b0b8-12055160a662",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3145,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -5379,7 +5380,7 @@ var gridData =
     {
         "id": 96,
         "guid": "90ad8666-8ed3-415d-a852-c11166e41bd5",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1675,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -5435,7 +5436,7 @@ var gridData =
     {
         "id": 97,
         "guid": "aa889586-1cdd-4fa2-bc6b-0f676be8f280",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3434,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -5491,7 +5492,7 @@ var gridData =
     {
         "id": 98,
         "guid": "22e05f05-6e19-4f3e-9696-fa0bc5b962a4",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1282,
         "picture": "//placehold.it/32x32",
         "age": 38,
@@ -5547,7 +5548,7 @@ var gridData =
     {
         "id": 99,
         "guid": "75b75771-12ed-4625-848f-ec48670304f5",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3991,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -5603,7 +5604,7 @@ var gridData =
     {
         "id": 100,
         "guid": "e454e979-0ed2-4471-bbec-c9266e9aeed7",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2920,
         "picture": "//placehold.it/32x32",
         "age": 33,
@@ -5659,7 +5660,7 @@ var gridData =
     {
         "id": 101,
         "guid": "3b116df9-117b-4f56-b916-31aa7d1c0873",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3928,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -5715,7 +5716,7 @@ var gridData =
     {
         "id": 102,
         "guid": "5f320f1e-9696-4543-a097-35e06780b12b",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2931,
         "picture": "//placehold.it/32x32",
         "age": 36,
@@ -5771,7 +5772,7 @@ var gridData =
     {
         "id": 103,
         "guid": "24d5bdd3-140f-475f-9eaf-ffad400ee18f",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3815,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -5827,7 +5828,7 @@ var gridData =
     {
         "id": 104,
         "guid": "0802caf5-2318-42c7-922a-c0bba5b78f68",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3087,
         "picture": "//placehold.it/32x32",
         "age": 33,
@@ -5883,7 +5884,7 @@ var gridData =
     {
         "id": 105,
         "guid": "07561989-d901-4c65-97d0-359b76f7fb95",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3515,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -5939,7 +5940,7 @@ var gridData =
     {
         "id": 106,
         "guid": "b228962c-3304-4ad4-8d22-270e483be58e",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3687,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -5995,7 +5996,7 @@ var gridData =
     {
         "id": 107,
         "guid": "1279b012-9107-4f94-bfdd-c12a043de730",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2428,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -6051,7 +6052,7 @@ var gridData =
     {
         "id": 108,
         "guid": "68ac32b4-f98c-424c-84b4-6931824dff18",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1305,
         "picture": "//placehold.it/32x32",
         "age": 32,
@@ -6107,7 +6108,7 @@ var gridData =
     {
         "id": 109,
         "guid": "677390d4-9133-4dd0-97e4-3019d94b6368",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2474,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -6163,7 +6164,7 @@ var gridData =
     {
         "id": 110,
         "guid": "415c1243-866c-46c1-914c-02c558e51882",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1609,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -6219,7 +6220,7 @@ var gridData =
     {
         "id": 111,
         "guid": "25499c3a-4b82-4e14-a2e5-87b97d26d59c",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3390,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -6275,7 +6276,7 @@ var gridData =
     {
         "id": 112,
         "guid": "e7feccf7-572d-4b1c-b162-215e924b9d9d",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1889,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -6331,7 +6332,7 @@ var gridData =
     {
         "id": 113,
         "guid": "4904bb57-e668-47be-8123-ca4a0a0ce033",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1127,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -6387,7 +6388,7 @@ var gridData =
     {
         "id": 114,
         "guid": "26d450ff-d8ee-4281-8121-12924a115473",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1372,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -6443,7 +6444,7 @@ var gridData =
     {
         "id": 115,
         "guid": "40e44f69-be6b-41e2-a2de-3062dd8235e4",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1641,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -6499,7 +6500,7 @@ var gridData =
     {
         "id": 116,
         "guid": "e1dc9f0f-6b2b-4540-aeaf-c05e10f60f77",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2533,
         "picture": "//placehold.it/32x32",
         "age": 20,
@@ -6555,7 +6556,7 @@ var gridData =
     {
         "id": 117,
         "guid": "18d82f14-8fb5-4047-974f-780f21728737",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3643,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -6611,7 +6612,7 @@ var gridData =
     {
         "id": 118,
         "guid": "ca6ea3ad-1a73-4e3f-839e-bbfa3dac1077",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3700,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -6667,7 +6668,7 @@ var gridData =
     {
         "id": 119,
         "guid": "59d59405-5fe9-4cb9-a257-586d1d4522ed",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2598,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -6723,7 +6724,7 @@ var gridData =
     {
         "id": 120,
         "guid": "a80e078f-27b4-4a30-b8a7-f1311c731be8",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2742,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -6779,7 +6780,7 @@ var gridData =
     {
         "id": 121,
         "guid": "aa2eab04-8691-41eb-8b6e-7f78fbe55019",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3758,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -6835,7 +6836,7 @@ var gridData =
     {
         "id": 122,
         "guid": "2ca49319-5bd9-48df-bc54-6b9210d5cfb9",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3703,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -6891,7 +6892,7 @@ var gridData =
     {
         "id": 123,
         "guid": "9b3aca6b-b331-4d09-b651-74b431f515da",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3159,
         "picture": "//placehold.it/32x32",
         "age": 36,
@@ -6947,7 +6948,7 @@ var gridData =
     {
         "id": 124,
         "guid": "18e56bea-1a20-4b00-8557-687f3389ae06",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1313,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -7003,7 +7004,7 @@ var gridData =
     {
         "id": 125,
         "guid": "049c083b-7f0f-459a-b63a-4bd75a782663",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1115,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -7059,7 +7060,7 @@ var gridData =
     {
         "id": 126,
         "guid": "5b0f97fa-a65a-4e14-b25a-3a0e23c21a9b",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1651,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -7115,7 +7116,7 @@ var gridData =
     {
         "id": 127,
         "guid": "9edb43fb-3cc8-4005-93ea-5e6fda79d31e",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2392,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -7171,7 +7172,7 @@ var gridData =
     {
         "id": 128,
         "guid": "d2ea60c1-5c71-4d9d-b9f6-d1722aa065c9",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3983,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -7227,7 +7228,7 @@ var gridData =
     {
         "id": 129,
         "guid": "fe2c50a7-0d9f-4cbf-8710-d480b6814449",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2228,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -7283,7 +7284,7 @@ var gridData =
     {
         "id": 130,
         "guid": "4d357b65-aa31-4836-95cd-dd3b9bfdbac4",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1826,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -7339,7 +7340,7 @@ var gridData =
     {
         "id": 131,
         "guid": "f2566556-26fe-4a92-b08d-794969039e35",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2226,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -7395,7 +7396,7 @@ var gridData =
     {
         "id": 132,
         "guid": "d3b0b52d-481e-472d-a075-104fb9883381",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2968,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -7451,7 +7452,7 @@ var gridData =
     {
         "id": 133,
         "guid": "a27aa44c-9df3-40ce-9fa5-ba0d055af98d",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1927,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -7507,7 +7508,7 @@ var gridData =
     {
         "id": 134,
         "guid": "8baaf237-ad87-4667-b255-72b2bc8fab0f",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1270,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -7563,7 +7564,7 @@ var gridData =
     {
         "id": 135,
         "guid": "4c0e9154-dcbf-46ea-8cbc-0e19a6893afb",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3986,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -7619,7 +7620,7 @@ var gridData =
     {
         "id": 136,
         "guid": "254c6f73-0e84-4740-8858-440ac62e9e13",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3443,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -7675,7 +7676,7 @@ var gridData =
     {
         "id": 137,
         "guid": "1e1299e7-8bf4-46fa-8020-ca38741f50af",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3214,
         "picture": "//placehold.it/32x32",
         "age": 38,
@@ -7731,7 +7732,7 @@ var gridData =
     {
         "id": 138,
         "guid": "61f28881-759b-4c89-b850-94a672676f18",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1124,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -7787,7 +7788,7 @@ var gridData =
     {
         "id": 139,
         "guid": "5403b041-856a-4cea-85fa-bef9ab297a81",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2770,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -7843,7 +7844,7 @@ var gridData =
     {
         "id": 140,
         "guid": "4a33cdcb-024f-4566-8423-34c359d21495",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3103,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -7899,7 +7900,7 @@ var gridData =
     {
         "id": 141,
         "guid": "4a45ee9b-e1cd-4f51-a886-28d2f0775e01",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1471,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -7955,7 +7956,7 @@ var gridData =
     {
         "id": 142,
         "guid": "f126f6fa-a59a-4bfc-896d-36ee347f8f4d",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2230,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -8011,7 +8012,7 @@ var gridData =
     {
         "id": 143,
         "guid": "14132beb-57d3-4630-9906-9df4fe68b0ed",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1527,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -8067,7 +8068,7 @@ var gridData =
     {
         "id": 144,
         "guid": "3e75100a-9f3e-42d9-abde-714b5cf0dae8",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1640,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -8123,7 +8124,7 @@ var gridData =
     {
         "id": 145,
         "guid": "c683a17a-c2db-42df-9b3b-aded500585b5",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2659,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -8179,7 +8180,7 @@ var gridData =
     {
         "id": 146,
         "guid": "0fbd9809-9247-46ce-af43-6d5c536316cc",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1103,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -8235,7 +8236,7 @@ var gridData =
     {
         "id": 147,
         "guid": "121b0dce-291a-41ef-be32-05355eda5fb9",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2670,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -8291,7 +8292,7 @@ var gridData =
     {
         "id": 148,
         "guid": "7a44f75b-2225-4f63-951c-d3aa82c8b18c",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3618,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -8347,7 +8348,7 @@ var gridData =
     {
         "id": 149,
         "guid": "b6d8b8ad-8d7c-46f1-b4cb-24fa13b73d62",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2492,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -8403,7 +8404,7 @@ var gridData =
     {
         "id": 150,
         "guid": "7f110d84-d437-4d5a-9ea4-43d1b8eb01cd",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3443,
         "picture": "//placehold.it/32x32",
         "age": 20,
@@ -8459,7 +8460,7 @@ var gridData =
     {
         "id": 151,
         "guid": "1e5ab390-f845-47c7-b6b0-076cc9a7abdc",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1604,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -8515,7 +8516,7 @@ var gridData =
     {
         "id": 152,
         "guid": "0b3a061d-421b-466c-ac8d-a4cfe293d450",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1535,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -8571,7 +8572,7 @@ var gridData =
     {
         "id": 153,
         "guid": "72321c77-e873-47e4-b9b8-9ee54de96c89",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2499,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -8627,7 +8628,7 @@ var gridData =
     {
         "id": 154,
         "guid": "b6326a2b-1b39-4f99-8cdd-2bfdb0efa9c8",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1845,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -8683,7 +8684,7 @@ var gridData =
     {
         "id": 155,
         "guid": "f19f1ffe-4bf7-4d9e-a9b4-ee0288a1bd85",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1407,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -8739,7 +8740,7 @@ var gridData =
     {
         "id": 156,
         "guid": "a9973417-cc1b-42aa-8713-139c69e53112",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1760,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -8795,7 +8796,7 @@ var gridData =
     {
         "id": 157,
         "guid": "fc012875-beaf-4f91-80f9-8e1d03670609",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3177,
         "picture": "//placehold.it/32x32",
         "age": 33,
@@ -8851,7 +8852,7 @@ var gridData =
     {
         "id": 158,
         "guid": "081cbba3-8cc4-4f6a-b867-509812bc6d6a",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2578,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -8907,7 +8908,7 @@ var gridData =
     {
         "id": 159,
         "guid": "a34fcff3-35dc-4eb6-a7b8-4b6790fbc272",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3355,
         "picture": "//placehold.it/32x32",
         "age": 32,
@@ -8963,7 +8964,7 @@ var gridData =
     {
         "id": 160,
         "guid": "26790cf4-6269-41f5-bb19-e4462b634a66",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1745,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -9019,7 +9020,7 @@ var gridData =
     {
         "id": 161,
         "guid": "544176dc-f004-4ea9-942a-56c7679550fa",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2492,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -9075,7 +9076,7 @@ var gridData =
     {
         "id": 162,
         "guid": "5c333d13-b3fa-4843-87a8-ad02d3963d32",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2959,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -9131,7 +9132,7 @@ var gridData =
     {
         "id": 163,
         "guid": "f79bae7e-ff51-42e0-abfb-62ae66266a25",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3981,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -9187,7 +9188,7 @@ var gridData =
     {
         "id": 164,
         "guid": "9cae2c77-054b-47ed-a4d4-b6e67e3b95cb",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2143,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -9243,7 +9244,7 @@ var gridData =
     {
         "id": 165,
         "guid": "559ffee4-a29c-4d39-b9a7-f0596fab91a9",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3002,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -9299,7 +9300,7 @@ var gridData =
     {
         "id": 166,
         "guid": "dd7ff61a-c050-415e-91de-a7addf0a1209",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1243,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -9355,7 +9356,7 @@ var gridData =
     {
         "id": 167,
         "guid": "5836e2b0-7a95-451e-945e-2c8d433d53f8",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3208,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -9411,7 +9412,7 @@ var gridData =
     {
         "id": 168,
         "guid": "068d299a-13bc-44eb-94c6-012c0c91d3ed",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2661,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -9467,7 +9468,7 @@ var gridData =
     {
         "id": 169,
         "guid": "9843dd5e-6f70-4f48-9dc5-a8303ce1839d",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2867,
         "picture": "//placehold.it/32x32",
         "age": 36,
@@ -9523,7 +9524,7 @@ var gridData =
     {
         "id": 170,
         "guid": "ec0a97d2-b74b-48d1-aac6-c7aed400de2d",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1922,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -9579,7 +9580,7 @@ var gridData =
     {
         "id": 171,
         "guid": "bcb6bcba-86c6-4423-8b0a-2cabde2ba2c4",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3955,
         "picture": "//placehold.it/32x32",
         "age": 38,
@@ -9635,7 +9636,7 @@ var gridData =
     {
         "id": 172,
         "guid": "a5c8a855-7b47-4f3c-86d5-3648a141f20f",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2366,
         "picture": "//placehold.it/32x32",
         "age": 32,
@@ -9691,7 +9692,7 @@ var gridData =
     {
         "id": 173,
         "guid": "8f107973-5360-406f-8f8d-dcc0d4482e03",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3002,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -9747,7 +9748,7 @@ var gridData =
     {
         "id": 174,
         "guid": "27adae6d-afcb-49ed-a5f5-cac0e8e9b4cb",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3081,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -9803,7 +9804,7 @@ var gridData =
     {
         "id": 175,
         "guid": "ea3dce02-ac12-4ff4-8ae5-6fe398facae7",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2761,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -9859,7 +9860,7 @@ var gridData =
     {
         "id": 176,
         "guid": "512b8aae-611a-4936-82be-bb6676862c34",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2303,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -9915,7 +9916,7 @@ var gridData =
     {
         "id": 177,
         "guid": "ae78d26e-1a66-4d19-96dd-4d4475dba3e6",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2926,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -9971,7 +9972,7 @@ var gridData =
     {
         "id": 178,
         "guid": "c80d8efb-4c23-4fb6-a6ef-008d0bbeadf9",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2480,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -10027,7 +10028,7 @@ var gridData =
     {
         "id": 179,
         "guid": "7e6e2760-2ad8-4cf6-8828-55168d85eace",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2369,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -10083,7 +10084,7 @@ var gridData =
     {
         "id": 180,
         "guid": "c559aca3-6046-4618-905a-c0f117eaf702",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3062,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -10139,7 +10140,7 @@ var gridData =
     {
         "id": 181,
         "guid": "1cf8f567-6d3e-41c4-8540-6367116a8d98",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2148,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -10195,7 +10196,7 @@ var gridData =
     {
         "id": 182,
         "guid": "3cdf8569-3667-44e6-ac0c-d6008fdd401a",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1922,
         "picture": "//placehold.it/32x32",
         "age": 36,
@@ -10251,7 +10252,7 @@ var gridData =
     {
         "id": 183,
         "guid": "f01fede6-dde9-4c47-b4cf-b2181fab27a1",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1651,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -10307,7 +10308,7 @@ var gridData =
     {
         "id": 184,
         "guid": "3e13cd4a-e8d1-4893-9c60-8f377ac95d0a",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1002,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -10363,7 +10364,7 @@ var gridData =
     {
         "id": 185,
         "guid": "65278ca7-48f2-46a8-96b7-66a54d61b03b",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2229,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -10419,7 +10420,7 @@ var gridData =
     {
         "id": 186,
         "guid": "a9574b7c-5382-4bc9-b0c0-2e649c54cadf",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2762,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -10475,7 +10476,7 @@ var gridData =
     {
         "id": 187,
         "guid": "5281da2c-5b83-42cb-bd1e-7370a49922d2",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3971,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -10531,7 +10532,7 @@ var gridData =
     {
         "id": 188,
         "guid": "7febdf38-9139-42be-be53-70edccf43788",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1036,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -10587,7 +10588,7 @@ var gridData =
     {
         "id": 189,
         "guid": "9a17be42-04a6-4157-baec-127c77596403",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2849,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -10643,7 +10644,7 @@ var gridData =
     {
         "id": 190,
         "guid": "50151d45-046e-4b69-a983-7394772edf57",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2033,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -10699,7 +10700,7 @@ var gridData =
     {
         "id": 191,
         "guid": "bf520f7f-bf21-4406-933a-7cdda0653c93",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1181,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -10755,7 +10756,7 @@ var gridData =
     {
         "id": 192,
         "guid": "5cc16f5d-5858-48ab-9d9c-79ffcaaa7a52",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3162,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -10811,7 +10812,7 @@ var gridData =
     {
         "id": 193,
         "guid": "533192dc-7fff-4890-ac79-039cba116e73",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2224,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -10867,7 +10868,7 @@ var gridData =
     {
         "id": 194,
         "guid": "33d04771-fc17-4295-bc63-3b4896489fdf",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3080,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -10923,7 +10924,7 @@ var gridData =
     {
         "id": 195,
         "guid": "06dc7750-d826-42d5-88af-fc2a75a31e84",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3934,
         "picture": "//placehold.it/32x32",
         "age": 36,
@@ -10979,7 +10980,7 @@ var gridData =
     {
         "id": 196,
         "guid": "3505506d-3d1b-4eb2-b370-2f2966d55e36",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2467,
         "picture": "//placehold.it/32x32",
         "age": 36,
@@ -11035,7 +11036,7 @@ var gridData =
     {
         "id": 197,
         "guid": "ab083e5a-2a0b-46f2-bad3-f39669bbb209",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1894,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -11091,7 +11092,7 @@ var gridData =
     {
         "id": 198,
         "guid": "2a971fc3-c7d9-4fba-bf53-96fc5d7d587f",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2501,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -11147,7 +11148,7 @@ var gridData =
     {
         "id": 199,
         "guid": "6b3a79bc-a4ae-4570-9b44-1eb2a6b65ca4",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1261,
         "picture": "//placehold.it/32x32",
         "age": 38,
@@ -11203,7 +11204,7 @@ var gridData =
     {
         "id": 200,
         "guid": "304093d6-e424-448a-b889-58066ec05900",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2796,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -11259,7 +11260,7 @@ var gridData =
     {
         "id": 201,
         "guid": "66496915-3eac-4783-9f2e-8ae8a91032ae",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3933,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -11315,7 +11316,7 @@ var gridData =
     {
         "id": 202,
         "guid": "137fcac5-2cdd-4b78-a34c-2fe3ace6072f",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2343,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -11371,7 +11372,7 @@ var gridData =
     {
         "id": 203,
         "guid": "45a5abc2-4ed3-4f65-a42c-63ef211dfcd1",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3838,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -11427,7 +11428,7 @@ var gridData =
     {
         "id": 204,
         "guid": "815931d2-1948-47c9-bdb7-802f52b85c3a",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3876,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -11483,7 +11484,7 @@ var gridData =
     {
         "id": 205,
         "guid": "46c237c9-2111-4688-85d5-6c3284d4cef2",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3866,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -11539,7 +11540,7 @@ var gridData =
     {
         "id": 206,
         "guid": "7288eafb-acc0-4f4b-ba67-e1cf3b50d55a",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2432,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -11595,7 +11596,7 @@ var gridData =
     {
         "id": 207,
         "guid": "a41798a1-f2cb-4efe-9c87-447215c330eb",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1141,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -11651,7 +11652,7 @@ var gridData =
     {
         "id": 208,
         "guid": "26543855-81d5-4a54-9749-d5c09d1f2fdb",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2615,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -11707,7 +11708,7 @@ var gridData =
     {
         "id": 209,
         "guid": "0c77309b-73e3-40a6-8529-0d151ad02536",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1773,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -11763,7 +11764,7 @@ var gridData =
     {
         "id": 210,
         "guid": "b265c7a1-8944-4263-9777-748751d3beda",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2070,
         "picture": "//placehold.it/32x32",
         "age": 33,
@@ -11819,7 +11820,7 @@ var gridData =
     {
         "id": 211,
         "guid": "6c78d11f-1dbb-4493-b8df-96516d0a1a8c",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2529,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -11875,7 +11876,7 @@ var gridData =
     {
         "id": 212,
         "guid": "6baf3199-6d93-4689-bf39-7aebeb7cccc4",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2558,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -11931,7 +11932,7 @@ var gridData =
     {
         "id": 213,
         "guid": "970b8354-70c0-4e69-8423-66a8e2c29109",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1680,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -11987,7 +11988,7 @@ var gridData =
     {
         "id": 214,
         "guid": "2e8edb67-5a23-4329-bd60-2924f6607e9b",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3025,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -12043,7 +12044,7 @@ var gridData =
     {
         "id": 215,
         "guid": "86bb0684-3c5c-4516-ae54-277612b09ef3",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2082,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -12099,7 +12100,7 @@ var gridData =
     {
         "id": 216,
         "guid": "537eb309-5ccb-4d63-a6f9-6e5e2369faa1",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3817,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -12155,7 +12156,7 @@ var gridData =
     {
         "id": 217,
         "guid": "745a58a9-1562-468c-8a74-f01e69b4c544",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2114,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -12211,7 +12212,7 @@ var gridData =
     {
         "id": 218,
         "guid": "8f585bbc-dbcc-4a0a-be05-c94a4e8c6af0",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3850,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -12267,7 +12268,7 @@ var gridData =
     {
         "id": 219,
         "guid": "f860b9cb-7884-4e39-9ecc-62b285374b63",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1248,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -12323,7 +12324,7 @@ var gridData =
     {
         "id": 220,
         "guid": "2b7ef8cd-52b4-4262-84ad-1810176f099d",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1059,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -12379,7 +12380,7 @@ var gridData =
     {
         "id": 221,
         "guid": "cc4a3a05-8a71-41ec-b4e3-a79840dd331f",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3782,
         "picture": "//placehold.it/32x32",
         "age": 33,
@@ -12435,7 +12436,7 @@ var gridData =
     {
         "id": 222,
         "guid": "32887da2-8837-4607-bc27-84ad336c6621",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3186,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -12491,7 +12492,7 @@ var gridData =
     {
         "id": 223,
         "guid": "e7539975-f0a1-4212-986c-eec6f00c5251",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3219,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -12547,7 +12548,7 @@ var gridData =
     {
         "id": 224,
         "guid": "d0956c51-e801-4e74-96d7-caefeeb5b2aa",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1759,
         "picture": "//placehold.it/32x32",
         "age": 32,
@@ -12603,7 +12604,7 @@ var gridData =
     {
         "id": 225,
         "guid": "a207246a-ab16-4464-ba5e-a5f367e6e434",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1900,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -12659,7 +12660,7 @@ var gridData =
     {
         "id": 226,
         "guid": "a6519aec-8ce9-4ea6-aacc-ac2e6de30907",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2118,
         "picture": "//placehold.it/32x32",
         "age": 20,
@@ -12715,7 +12716,7 @@ var gridData =
     {
         "id": 227,
         "guid": "42b0f353-f310-4fe8-8e42-f17241bc4f52",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2671,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -12771,7 +12772,7 @@ var gridData =
     {
         "id": 228,
         "guid": "2fc8466d-1970-4e4f-8af1-5368051fb4e6",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2073,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -12827,7 +12828,7 @@ var gridData =
     {
         "id": 229,
         "guid": "16ba3186-8731-47b9-942b-25961cacc4d2",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2465,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -12883,7 +12884,7 @@ var gridData =
     {
         "id": 230,
         "guid": "60cbef27-d037-466d-8d44-10e789a271c9",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2674,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -12939,7 +12940,7 @@ var gridData =
     {
         "id": 231,
         "guid": "f03b3340-5fe5-4572-a95c-72503cac8f93",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2929,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -12995,7 +12996,7 @@ var gridData =
     {
         "id": 232,
         "guid": "a27f1698-9892-4ae2-841c-b29984c21a8f",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1221,
         "picture": "//placehold.it/32x32",
         "age": 20,
@@ -13051,7 +13052,7 @@ var gridData =
     {
         "id": 233,
         "guid": "7793287f-2f03-4c3e-92b6-a6921a4a63a4",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3839,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -13107,7 +13108,7 @@ var gridData =
     {
         "id": 234,
         "guid": "ffd0db7d-9b7b-4885-aa81-e5e5683fccc3",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1622,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -13163,7 +13164,7 @@ var gridData =
     {
         "id": 235,
         "guid": "21d31eb2-d8d5-4972-8ba1-eea0aed40aa8",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2686,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -13219,7 +13220,7 @@ var gridData =
     {
         "id": 236,
         "guid": "c776e14f-8fcd-4304-ba0d-e84dd666e6e7",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2249,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -13275,7 +13276,7 @@ var gridData =
     {
         "id": 237,
         "guid": "8fcc8527-4247-4a9e-86ea-551b50b14f29",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1469,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -13331,7 +13332,7 @@ var gridData =
     {
         "id": 238,
         "guid": "c655074b-998b-4961-97ec-4104913d04be",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3334,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -13387,7 +13388,7 @@ var gridData =
     {
         "id": 239,
         "guid": "44c9adc4-cc21-4f8f-81f4-47f43d28adcd",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1222,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -13443,7 +13444,7 @@ var gridData =
     {
         "id": 240,
         "guid": "04cd1282-c8ab-4cca-9c68-6abd7067c306",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1290,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -13499,7 +13500,7 @@ var gridData =
     {
         "id": 241,
         "guid": "174c2c9f-2cb3-4689-8000-3e01966db64c",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2724,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -13555,7 +13556,7 @@ var gridData =
     {
         "id": 242,
         "guid": "ab364ec7-9180-473c-8f66-7e595c29d072",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1794,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -13611,7 +13612,7 @@ var gridData =
     {
         "id": 243,
         "guid": "10d6039f-43df-4c28-8553-ffbd9ff1693a",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2169,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -13667,7 +13668,7 @@ var gridData =
     {
         "id": 244,
         "guid": "54aaec99-1046-458a-a128-577f53cae8ed",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1208,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -13723,7 +13724,7 @@ var gridData =
     {
         "id": 245,
         "guid": "386c8111-dbac-4c67-9dbe-8c5eb6ead733",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3882,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -13779,7 +13780,7 @@ var gridData =
     {
         "id": 246,
         "guid": "d49df882-99da-49cb-882a-74a9d0503fcf",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1003,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -13835,7 +13836,7 @@ var gridData =
     {
         "id": 247,
         "guid": "9c7ad3ca-1b95-4ac6-b1d0-56199e6e74e8",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2248,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -13891,7 +13892,7 @@ var gridData =
     {
         "id": 248,
         "guid": "76b7c03c-36a8-4d35-928b-275135f38247",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2856,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -13947,7 +13948,7 @@ var gridData =
     {
         "id": 249,
         "guid": "0d4d4dce-7617-47d2-9587-7eb35abb80d2",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3510,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -14003,7 +14004,7 @@ var gridData =
     {
         "id": 250,
         "guid": "1a5f416d-a5d3-4dd3-a87e-2d5cd364fe51",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2649,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -14059,7 +14060,7 @@ var gridData =
     {
         "id": 251,
         "guid": "a5606050-2442-4685-b28e-96c3676dab1b",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3622,
         "picture": "//placehold.it/32x32",
         "age": 32,
@@ -14115,7 +14116,7 @@ var gridData =
     {
         "id": 252,
         "guid": "007ef57d-60d0-497d-b167-b0ac204aedfe",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2472,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -14171,7 +14172,7 @@ var gridData =
     {
         "id": 253,
         "guid": "7f2e896f-6167-4bc4-979c-176318199a92",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1600,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -14227,7 +14228,7 @@ var gridData =
     {
         "id": 254,
         "guid": "1fb83a76-6980-475d-b9b4-d5b65ee109ea",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3866,
         "picture": "//placehold.it/32x32",
         "age": 32,
@@ -14283,7 +14284,7 @@ var gridData =
     {
         "id": 255,
         "guid": "3cde9605-56bc-4c72-8f00-a4d98ea206d9",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3965,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -14339,7 +14340,7 @@ var gridData =
     {
         "id": 256,
         "guid": "2ea13091-a66b-437f-8b3e-2a1fe74fe0a2",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1625,
         "picture": "//placehold.it/32x32",
         "age": 38,
@@ -14395,7 +14396,7 @@ var gridData =
     {
         "id": 257,
         "guid": "80540ed8-ccd9-4a2f-8ca3-f3295a0eabc8",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1342,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -14451,7 +14452,7 @@ var gridData =
     {
         "id": 258,
         "guid": "c4fcf9de-a69b-4e57-8283-eb58b825c1ca",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3536,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -14507,7 +14508,7 @@ var gridData =
     {
         "id": 259,
         "guid": "6a0d8e16-4c6d-4749-9f84-26a40952166d",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2727,
         "picture": "//placehold.it/32x32",
         "age": 38,
@@ -14563,7 +14564,7 @@ var gridData =
     {
         "id": 260,
         "guid": "8c3f241c-158b-4cce-b619-a7837856dbf1",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1255,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -14619,7 +14620,7 @@ var gridData =
     {
         "id": 261,
         "guid": "55970d0f-75ab-4036-812f-7ddedfc7cbb4",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1075,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -14675,7 +14676,7 @@ var gridData =
     {
         "id": 262,
         "guid": "53e54df1-e76d-4577-8f2e-4278bb5616c7",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1445,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -14731,7 +14732,7 @@ var gridData =
     {
         "id": 263,
         "guid": "cb250427-0a2d-468c-8d02-102edfa4ff81",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2784,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -14787,7 +14788,7 @@ var gridData =
     {
         "id": 264,
         "guid": "7c79f0f3-923d-4dc6-9fd3-bb43f0351801",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1708,
         "picture": "//placehold.it/32x32",
         "age": 33,
@@ -14843,7 +14844,7 @@ var gridData =
     {
         "id": 265,
         "guid": "c98f5a63-cc55-422d-86c2-16472652678d",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2696,
         "picture": "//placehold.it/32x32",
         "age": 33,
@@ -14899,7 +14900,7 @@ var gridData =
     {
         "id": 266,
         "guid": "a796f5b3-f7e2-4cf0-b7b6-73e4ac324a3d",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3504,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -14955,7 +14956,7 @@ var gridData =
     {
         "id": 267,
         "guid": "62236598-f662-4f71-9bea-113976b85817",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2341,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -15011,7 +15012,7 @@ var gridData =
     {
         "id": 268,
         "guid": "b182c90d-8185-4818-bd4b-5432a87eb3d6",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3170,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -15067,7 +15068,7 @@ var gridData =
     {
         "id": 269,
         "guid": "556fc729-c0ae-4841-b726-2a769e074aa7",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1251,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -15123,7 +15124,7 @@ var gridData =
     {
         "id": 270,
         "guid": "3247c0e7-da65-430c-bed4-915ff7b010f7",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2690,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -15179,7 +15180,7 @@ var gridData =
     {
         "id": 271,
         "guid": "5a66ab47-a197-4cf1-b021-7629be0a5540",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1282,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -15235,7 +15236,7 @@ var gridData =
     {
         "id": 272,
         "guid": "6406d63d-c02c-4603-8b53-03f654fe46e0",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1753,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -15291,7 +15292,7 @@ var gridData =
     {
         "id": 273,
         "guid": "2b1c2139-4512-43f6-bebf-5fe0c3350ba3",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1172,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -15347,7 +15348,7 @@ var gridData =
     {
         "id": 274,
         "guid": "b532417c-4a9d-4ed0-aa4f-8482ac87a1b8",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1705,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -15403,7 +15404,7 @@ var gridData =
     {
         "id": 275,
         "guid": "d2208572-bccb-4b93-8e4a-6b3a024823bf",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2725,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -15459,7 +15460,7 @@ var gridData =
     {
         "id": 276,
         "guid": "814e682d-b0dc-4363-ac74-b0c307ed8567",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3916,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -15515,7 +15516,7 @@ var gridData =
     {
         "id": 277,
         "guid": "c3042fa2-c997-43fe-9795-f274cd4071af",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3016,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -15571,7 +15572,7 @@ var gridData =
     {
         "id": 278,
         "guid": "95fc6aa7-b3e1-4ac6-aba9-2f6b9fe8b011",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3750,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -15627,7 +15628,7 @@ var gridData =
     {
         "id": 279,
         "guid": "758d8e35-5466-4114-a856-0565cc05306c",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1406,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -15683,7 +15684,7 @@ var gridData =
     {
         "id": 280,
         "guid": "d138d453-9760-4265-aa0a-63d991be3355",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3833,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -15739,7 +15740,7 @@ var gridData =
     {
         "id": 281,
         "guid": "f83ee23a-afc2-4fe4-8323-3006862318d2",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1773,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -15795,7 +15796,7 @@ var gridData =
     {
         "id": 282,
         "guid": "867967eb-8342-4c8e-af9a-1dff770c1c47",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1336,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -15851,7 +15852,7 @@ var gridData =
     {
         "id": 283,
         "guid": "d6a88990-6a06-4e92-96e1-d6a80e297329",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3051,
         "picture": "//placehold.it/32x32",
         "age": 20,
@@ -15907,7 +15908,7 @@ var gridData =
     {
         "id": 284,
         "guid": "fdd76a9c-41f3-43a0-9c17-ab27d776cf90",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1685,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -15963,7 +15964,7 @@ var gridData =
     {
         "id": 285,
         "guid": "992355aa-c6a4-4d5b-bb52-6aecb3241079",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2483,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -16019,7 +16020,7 @@ var gridData =
     {
         "id": 286,
         "guid": "eed94b40-6b40-4851-96ea-5f994ae9bf50",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3140,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -16075,7 +16076,7 @@ var gridData =
     {
         "id": 287,
         "guid": "3e45dc68-213d-40ac-8a74-ac9db959ec6b",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1812,
         "picture": "//placehold.it/32x32",
         "age": 20,
@@ -16131,7 +16132,7 @@ var gridData =
     {
         "id": 288,
         "guid": "f62a574a-6cd5-4ae8-bdf1-5a8da13131c8",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2500,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -16187,7 +16188,7 @@ var gridData =
     {
         "id": 289,
         "guid": "a50b74e7-ec92-4895-bd77-deb4921a5100",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1229,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -16243,7 +16244,7 @@ var gridData =
     {
         "id": 290,
         "guid": "b1369a55-1780-4f07-aafb-c73958a6eefa",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2427,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -16299,7 +16300,7 @@ var gridData =
     {
         "id": 291,
         "guid": "8f2d6d3e-6821-4451-9ffe-c23fb17c33e3",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1368,
         "picture": "//placehold.it/32x32",
         "age": 36,
@@ -16355,7 +16356,7 @@ var gridData =
     {
         "id": 292,
         "guid": "7d28e4fd-b21d-495a-bbb9-446b8cb4a0f9",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2926,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -16411,7 +16412,7 @@ var gridData =
     {
         "id": 293,
         "guid": "a3dcb577-2f33-4702-8bea-cdb168914e7a",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1162,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -16467,7 +16468,7 @@ var gridData =
     {
         "id": 294,
         "guid": "79928854-3e1b-4400-80ff-b8eaf4c9e502",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3552,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -16523,7 +16524,7 @@ var gridData =
     {
         "id": 295,
         "guid": "a337a576-6a07-446b-a4d1-351fcadb6048",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2170,
         "picture": "//placehold.it/32x32",
         "age": 20,
@@ -16579,7 +16580,7 @@ var gridData =
     {
         "id": 296,
         "guid": "a32a26ec-bc2a-49da-983c-f1fc8e9df4a5",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1124,
         "picture": "//placehold.it/32x32",
         "age": 33,
@@ -16635,7 +16636,7 @@ var gridData =
     {
         "id": 297,
         "guid": "9076ba8c-6c66-4d32-99c7-71fbb35bb636",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2908,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -16691,7 +16692,7 @@ var gridData =
     {
         "id": 298,
         "guid": "ab832c88-7676-4b60-873e-1eccbd3da993",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1912,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -16747,7 +16748,7 @@ var gridData =
     {
         "id": 299,
         "guid": "3df8c27e-1e1d-45c9-9456-0b345ac31a41",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1577,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -16803,7 +16804,7 @@ var gridData =
     {
         "id": 300,
         "guid": "30a675d9-2d46-4308-9d88-205401810022",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3110,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -16859,7 +16860,7 @@ var gridData =
     {
         "id": 301,
         "guid": "70cdb248-349c-4ce7-a243-7f80fcb597f7",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2552,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -16915,7 +16916,7 @@ var gridData =
     {
         "id": 302,
         "guid": "da957725-c09b-43ea-b1a5-d36e0afb8e8d",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2038,
         "picture": "//placehold.it/32x32",
         "age": 33,
@@ -16971,7 +16972,7 @@ var gridData =
     {
         "id": 303,
         "guid": "146e67bf-d075-4105-8dbd-89e2d76b9368",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3553,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -17027,7 +17028,7 @@ var gridData =
     {
         "id": 304,
         "guid": "0de1d8d5-2fc6-45ef-88c5-e8b2a62ecbbf",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3315,
         "picture": "//placehold.it/32x32",
         "age": 32,
@@ -17083,7 +17084,7 @@ var gridData =
     {
         "id": 305,
         "guid": "f3ba5c37-a607-4ae5-88aa-6b22aa98545c",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3590,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -17139,7 +17140,7 @@ var gridData =
     {
         "id": 306,
         "guid": "2e2810fa-1b16-4317-8e7c-8652d72f0d5a",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2847,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -17195,7 +17196,7 @@ var gridData =
     {
         "id": 307,
         "guid": "03578f62-834e-4245-bfe6-cb51b3a0500e",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3586,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -17251,7 +17252,7 @@ var gridData =
     {
         "id": 308,
         "guid": "5651ad57-1131-4c53-9985-61cd00122458",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1252,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -17307,7 +17308,7 @@ var gridData =
     {
         "id": 309,
         "guid": "c8660f80-7b05-4c3f-ba28-731cc7354d43",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1926,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -17363,7 +17364,7 @@ var gridData =
     {
         "id": 310,
         "guid": "2fffdb90-905a-4868-8fbe-e42b7a023d58",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1615,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -17419,7 +17420,7 @@ var gridData =
     {
         "id": 311,
         "guid": "3dc5a4af-805a-4686-9348-c974ea22e085",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3090,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -17475,7 +17476,7 @@ var gridData =
     {
         "id": 312,
         "guid": "a8154808-1f90-4321-baaf-b9f3dba040a4",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1616,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -17531,7 +17532,7 @@ var gridData =
     {
         "id": 313,
         "guid": "bb76b92b-ecb6-4a4d-ae20-87ece77ec74d",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1667,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -17587,7 +17588,7 @@ var gridData =
     {
         "id": 314,
         "guid": "ad208912-e396-4353-aedd-1776d2e7877d",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3662,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -17643,7 +17644,7 @@ var gridData =
     {
         "id": 315,
         "guid": "6d7113b2-45ce-4a11-afa3-c5ffe662901e",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3810,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -17699,7 +17700,7 @@ var gridData =
     {
         "id": 316,
         "guid": "941b505d-6d40-4d5f-827a-50fcbdf3389c",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1278,
         "picture": "//placehold.it/32x32",
         "age": 32,
@@ -17755,7 +17756,7 @@ var gridData =
     {
         "id": 317,
         "guid": "4c8de3bf-0aee-45da-94a9-60489c4e7ddf",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1651,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -17811,7 +17812,7 @@ var gridData =
     {
         "id": 318,
         "guid": "12a3ca4d-1885-4e27-be60-4db25c18a316",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2830,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -17867,7 +17868,7 @@ var gridData =
     {
         "id": 319,
         "guid": "86e1d27c-344c-4418-a08a-ee5c3ae204b9",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2636,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -17923,7 +17924,7 @@ var gridData =
     {
         "id": 320,
         "guid": "f8db2c6e-c8c0-4b87-bbe4-18ce1242bfc4",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2093,
         "picture": "//placehold.it/32x32",
         "age": 38,
@@ -17979,7 +17980,7 @@ var gridData =
     {
         "id": 321,
         "guid": "555d2edb-b75b-40e4-97c7-37d191f424d1",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3278,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -18035,7 +18036,7 @@ var gridData =
     {
         "id": 322,
         "guid": "2b588dd5-5750-44e5-a6d8-e4f4815f6d76",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1698,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -18091,7 +18092,7 @@ var gridData =
     {
         "id": 323,
         "guid": "210048dd-4cb6-40ef-8fe2-6a3f18db33e0",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2137,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -18147,7 +18148,7 @@ var gridData =
     {
         "id": 324,
         "guid": "74a6bea1-7d86-40a8-af21-2fc9596f84ed",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3009,
         "picture": "//placehold.it/32x32",
         "age": 38,
@@ -18203,7 +18204,7 @@ var gridData =
     {
         "id": 325,
         "guid": "470a9347-a6af-47af-ac8b-de9bd3927e6d",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1460,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -18259,7 +18260,7 @@ var gridData =
     {
         "id": 326,
         "guid": "c9149ff5-1d7f-40b5-b299-de7b96e86ec5",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2398,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -18315,7 +18316,7 @@ var gridData =
     {
         "id": 327,
         "guid": "e26ad484-c7e7-49a8-97ba-ee8ba96e069d",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3531,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -18371,7 +18372,7 @@ var gridData =
     {
         "id": 328,
         "guid": "87eddbef-ed75-428a-a9dd-60843ab0744c",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3867,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -18427,7 +18428,7 @@ var gridData =
     {
         "id": 329,
         "guid": "838a5945-5f32-4a6d-a7a6-f253c7bf46c4",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3183,
         "picture": "//placehold.it/32x32",
         "age": 38,
@@ -18483,7 +18484,7 @@ var gridData =
     {
         "id": 330,
         "guid": "41f76fdd-be0f-44af-9ffd-ff1d78d6888d",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2986,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -18539,7 +18540,7 @@ var gridData =
     {
         "id": 331,
         "guid": "3494eb8d-db8d-4287-a6e1-5b6668796bba",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2948,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -18595,7 +18596,7 @@ var gridData =
     {
         "id": 332,
         "guid": "0939c3ab-7580-47eb-a3e4-e07b7c625f33",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2920,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -18651,7 +18652,7 @@ var gridData =
     {
         "id": 333,
         "guid": "2d71eda3-2311-4250-a5b2-f16b54f200bb",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2563,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -18707,7 +18708,7 @@ var gridData =
     {
         "id": 334,
         "guid": "fe6579e7-4e92-4ed3-82b5-0c53b42308ae",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3755,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -18763,7 +18764,7 @@ var gridData =
     {
         "id": 335,
         "guid": "38df3a08-89ce-4924-ab0e-80663cd044d5",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1080,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -18819,7 +18820,7 @@ var gridData =
     {
         "id": 336,
         "guid": "6511d898-4a61-44f3-b686-9df1c155ba45",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2803,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -18875,7 +18876,7 @@ var gridData =
     {
         "id": 337,
         "guid": "a7ee4963-3de8-4ee2-a442-000b8906b1d2",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1624,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -18931,7 +18932,7 @@ var gridData =
     {
         "id": 338,
         "guid": "bc768482-fee3-4657-834c-6a91aa4b4b56",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2625,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -18987,7 +18988,7 @@ var gridData =
     {
         "id": 339,
         "guid": "329ff268-f202-44a1-a7af-fe3fbccbfb52",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3484,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -19043,7 +19044,7 @@ var gridData =
     {
         "id": 340,
         "guid": "c8e8e082-8792-4c88-832e-a3efec4e690d",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1241,
         "picture": "//placehold.it/32x32",
         "age": 20,
@@ -19099,7 +19100,7 @@ var gridData =
     {
         "id": 341,
         "guid": "4fb259c3-525c-4ad6-8a33-608163c8b8ba",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1876,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -19155,7 +19156,7 @@ var gridData =
     {
         "id": 342,
         "guid": "9d657deb-b4ad-40a1-bfda-0736107170e2",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1723,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -19211,7 +19212,7 @@ var gridData =
     {
         "id": 343,
         "guid": "68832b79-b7c6-48b9-b8b4-81d9b000299e",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2967,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -19267,7 +19268,7 @@ var gridData =
     {
         "id": 344,
         "guid": "5b651a21-bd9e-4d9f-b7be-c7cbe73e5081",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2084,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -19323,7 +19324,7 @@ var gridData =
     {
         "id": 345,
         "guid": "1205c8d7-ca1c-45e5-b0c3-d02b4f9beedf",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3723,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -19379,7 +19380,7 @@ var gridData =
     {
         "id": 346,
         "guid": "df1a7b84-314c-4dbd-a033-0ac167dc0157",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3351,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -19435,7 +19436,7 @@ var gridData =
     {
         "id": 347,
         "guid": "d63ee7b9-8735-4753-a4d3-23ab4355af05",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2362,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -19491,7 +19492,7 @@ var gridData =
     {
         "id": 348,
         "guid": "33df22e0-eed5-4226-9237-7bfd4758a28a",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3983,
         "picture": "//placehold.it/32x32",
         "age": 32,
@@ -19547,7 +19548,7 @@ var gridData =
     {
         "id": 349,
         "guid": "885658f0-d8a6-432b-a6cf-c46877c81f8b",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2241,
         "picture": "//placehold.it/32x32",
         "age": 38,
@@ -19603,7 +19604,7 @@ var gridData =
     {
         "id": 350,
         "guid": "a5282d3b-7c70-4c54-ad8f-1b6512a4dc36",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2023,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -19659,7 +19660,7 @@ var gridData =
     {
         "id": 351,
         "guid": "636875a6-d082-4943-a827-edfc15309538",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1182,
         "picture": "//placehold.it/32x32",
         "age": 36,
@@ -19715,7 +19716,7 @@ var gridData =
     {
         "id": 352,
         "guid": "a2fbff24-b41c-4de2-b6ce-f37bbfa9d3ab",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3412,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -19771,7 +19772,7 @@ var gridData =
     {
         "id": 353,
         "guid": "ac995f54-7e28-4472-9faa-620914c1ec12",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3262,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -19827,7 +19828,7 @@ var gridData =
     {
         "id": 354,
         "guid": "02a9c9db-e0ad-4df5-8b48-c4db9135e1a5",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3062,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -19883,7 +19884,7 @@ var gridData =
     {
         "id": 355,
         "guid": "0f9be5de-5455-4115-961e-2faa090e079e",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3989,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -19939,7 +19940,7 @@ var gridData =
     {
         "id": 356,
         "guid": "b75767dc-e980-4edc-9362-63568a533be4",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2444,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -19995,7 +19996,7 @@ var gridData =
     {
         "id": 357,
         "guid": "1ae5540e-2ba3-41e9-8f85-fe9fb6bca9c7",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2539,
         "picture": "//placehold.it/32x32",
         "age": 33,
@@ -20051,7 +20052,7 @@ var gridData =
     {
         "id": 358,
         "guid": "84c0b2c8-d457-4f9d-ad99-52a4b99c0988",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3793,
         "picture": "//placehold.it/32x32",
         "age": 32,
@@ -20107,7 +20108,7 @@ var gridData =
     {
         "id": 359,
         "guid": "06aeeee3-c87b-4094-abf5-81064b4047a1",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2538,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -20163,7 +20164,7 @@ var gridData =
     {
         "id": 360,
         "guid": "2f7e1881-a778-43a5-b32a-ac5e8faff70a",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2595,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -20219,7 +20220,7 @@ var gridData =
     {
         "id": 361,
         "guid": "81300543-e72d-41a6-8613-5039d8802381",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2546,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -20275,7 +20276,7 @@ var gridData =
     {
         "id": 362,
         "guid": "c9787cb1-54f7-460e-95dc-e501a10bfe74",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3271,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -20331,7 +20332,7 @@ var gridData =
     {
         "id": 363,
         "guid": "ec06b324-e2a7-4abf-a642-023d831aeec5",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2004,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -20387,7 +20388,7 @@ var gridData =
     {
         "id": 364,
         "guid": "1edfbf61-10da-4b12-b8a6-70efb294998a",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1075,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -20443,7 +20444,7 @@ var gridData =
     {
         "id": 365,
         "guid": "81a5d55f-363e-447e-8cde-4f09adcef67f",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1194,
         "picture": "//placehold.it/32x32",
         "age": 38,
@@ -20499,7 +20500,7 @@ var gridData =
     {
         "id": 366,
         "guid": "53c5102b-15ad-43e3-a78a-19a178819420",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1289,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -20555,7 +20556,7 @@ var gridData =
     {
         "id": 367,
         "guid": "f4edceb7-56c8-4fee-85f7-73c95653488b",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3204,
         "picture": "//placehold.it/32x32",
         "age": 32,
@@ -20611,7 +20612,7 @@ var gridData =
     {
         "id": 368,
         "guid": "b9ea9bfe-9771-4203-809a-bcd2a19b09ed",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2291,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -20667,7 +20668,7 @@ var gridData =
     {
         "id": 369,
         "guid": "2b5a8137-a3cd-43c8-8d2e-f037d8f9d992",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3494,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -20723,7 +20724,7 @@ var gridData =
     {
         "id": 370,
         "guid": "fc01282e-4588-4ba3-b002-7ae4c71379cf",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2929,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -20779,7 +20780,7 @@ var gridData =
     {
         "id": 371,
         "guid": "8d17ceeb-8509-4f47-9821-93702a3b4370",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1302,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -20835,7 +20836,7 @@ var gridData =
     {
         "id": 372,
         "guid": "d3fb72f1-7e30-465d-a3ae-4d064f96574f",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2642,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -20891,7 +20892,7 @@ var gridData =
     {
         "id": 373,
         "guid": "932b1926-2c46-4fc2-8e08-0f748299bad3",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1687,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -20947,7 +20948,7 @@ var gridData =
     {
         "id": 374,
         "guid": "fa4d2d1f-d9d3-43d6-8615-c428986722ea",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1840,
         "picture": "//placehold.it/32x32",
         "age": 36,
@@ -21003,7 +21004,7 @@ var gridData =
     {
         "id": 375,
         "guid": "5a922154-936d-4453-8612-b9d33ee345d4",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1155,
         "picture": "//placehold.it/32x32",
         "age": 32,
@@ -21059,7 +21060,7 @@ var gridData =
     {
         "id": 376,
         "guid": "d850c6d0-09c3-40e7-ba73-f6dd78fb8fd3",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3378,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -21115,7 +21116,7 @@ var gridData =
     {
         "id": 377,
         "guid": "b013160d-5692-4d07-a745-c553a58909ab",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3599,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -21171,7 +21172,7 @@ var gridData =
     {
         "id": 378,
         "guid": "69c44413-7f5f-4e63-b481-0d07e677542f",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2162,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -21227,7 +21228,7 @@ var gridData =
     {
         "id": 379,
         "guid": "f6f1a2cd-f76e-4a9a-8801-352438d9396b",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1971,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -21283,7 +21284,7 @@ var gridData =
     {
         "id": 380,
         "guid": "ae3d5948-0497-4892-81be-d931d0192a28",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2336,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -21339,7 +21340,7 @@ var gridData =
     {
         "id": 381,
         "guid": "e2c54789-00b0-4ee7-abd0-bc55a94833bf",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2563,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -21395,7 +21396,7 @@ var gridData =
     {
         "id": 382,
         "guid": "5ea0c00a-45f3-450a-bad3-a333af87e25c",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2013,
         "picture": "//placehold.it/32x32",
         "age": 38,
@@ -21451,7 +21452,7 @@ var gridData =
     {
         "id": 383,
         "guid": "8b5577d0-cd1a-40ba-98bd-3d70c5112ba3",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3490,
         "picture": "//placehold.it/32x32",
         "age": 33,
@@ -21507,7 +21508,7 @@ var gridData =
     {
         "id": 384,
         "guid": "2233bdf9-cc31-41e7-8746-11d52a749c7a",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1309,
         "picture": "//placehold.it/32x32",
         "age": 36,
@@ -21563,7 +21564,7 @@ var gridData =
     {
         "id": 385,
         "guid": "ac164c02-c734-4d47-9fa2-19a3cd3d837d",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2419,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -21619,7 +21620,7 @@ var gridData =
     {
         "id": 386,
         "guid": "1dd9dcef-8fe2-41ec-ab3c-5cf9145506ca",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1963,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -21675,7 +21676,7 @@ var gridData =
     {
         "id": 387,
         "guid": "333734c8-329f-48a8-860f-577594709184",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3067,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -21731,7 +21732,7 @@ var gridData =
     {
         "id": 388,
         "guid": "8c85eca3-4f82-4ba7-b6d6-1af8ff46e68e",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1909,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -21787,7 +21788,7 @@ var gridData =
     {
         "id": 389,
         "guid": "221a5262-c7f5-4847-9729-f11559072ba2",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1028,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -21843,7 +21844,7 @@ var gridData =
     {
         "id": 390,
         "guid": "2a7406eb-00b5-4237-8749-8cceb7707dd4",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1564,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -21899,7 +21900,7 @@ var gridData =
     {
         "id": 391,
         "guid": "52ef32fb-06a8-4fd7-83f4-561b0bfbba8e",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1405,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -21955,7 +21956,7 @@ var gridData =
     {
         "id": 392,
         "guid": "3fe86a3e-cf29-4a54-8ffa-514613677457",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2217,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -22011,7 +22012,7 @@ var gridData =
     {
         "id": 393,
         "guid": "ec44791e-96b1-4d0d-bcd8-0f83ac001a5e",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2519,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -22067,7 +22068,7 @@ var gridData =
     {
         "id": 394,
         "guid": "c5599cdb-3215-4103-bcd5-94df7e25df06",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1972,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -22123,7 +22124,7 @@ var gridData =
     {
         "id": 395,
         "guid": "f8ba10cd-cb6e-45b6-84a5-4ad2db6f3aae",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1777,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -22179,7 +22180,7 @@ var gridData =
     {
         "id": 396,
         "guid": "5e3aa191-aac3-488a-82a3-3ae603e0d119",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1883,
         "picture": "//placehold.it/32x32",
         "age": 38,
@@ -22235,7 +22236,7 @@ var gridData =
     {
         "id": 397,
         "guid": "4a8fbe2b-8f27-48a0-9fc4-e52338fd23f2",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2597,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -22291,7 +22292,7 @@ var gridData =
     {
         "id": 398,
         "guid": "3ea721a2-194d-47ea-b268-956dc1ed4871",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3226,
         "picture": "//placehold.it/32x32",
         "age": 33,
@@ -22347,7 +22348,7 @@ var gridData =
     {
         "id": 399,
         "guid": "da23a5c9-4d8a-436f-a774-4f705667de38",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1729,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -22403,7 +22404,7 @@ var gridData =
     {
         "id": 400,
         "guid": "bf801737-7e33-4d76-adb3-cffa1259b714",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3851,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -22459,7 +22460,7 @@ var gridData =
     {
         "id": 401,
         "guid": "ac986221-6017-4c8c-bd20-3557ea7f242f",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2564,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -22515,7 +22516,7 @@ var gridData =
     {
         "id": 402,
         "guid": "a421ece4-2997-49c4-bc6e-a2631253ca92",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3661,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -22571,7 +22572,7 @@ var gridData =
     {
         "id": 403,
         "guid": "38558eff-a799-421e-948f-015b3516e22c",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2935,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -22627,7 +22628,7 @@ var gridData =
     {
         "id": 404,
         "guid": "812e3399-6fe6-471b-aeb9-29b62046d12e",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3491,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -22683,7 +22684,7 @@ var gridData =
     {
         "id": 405,
         "guid": "d148539a-2555-4d09-bea8-df6b9be57aad",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2577,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -22739,7 +22740,7 @@ var gridData =
     {
         "id": 406,
         "guid": "88420f74-bbf1-44a2-ba2a-7ef8bdf92608",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2170,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -22795,7 +22796,7 @@ var gridData =
     {
         "id": 407,
         "guid": "88895848-677e-46dc-aaa5-5cacbc919e09",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3588,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -22851,7 +22852,7 @@ var gridData =
     {
         "id": 408,
         "guid": "3cc17848-2e77-47cb-a7eb-9888c4e67b8c",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2722,
         "picture": "//placehold.it/32x32",
         "age": 32,
@@ -22907,7 +22908,7 @@ var gridData =
     {
         "id": 409,
         "guid": "d40ab423-ec88-483c-8cd7-5bdf9338c1f5",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1758,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -22963,7 +22964,7 @@ var gridData =
     {
         "id": 410,
         "guid": "06fad771-8a5d-4e53-89be-48651c02a40d",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2602,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -23019,7 +23020,7 @@ var gridData =
     {
         "id": 411,
         "guid": "ef1264ee-9af7-4196-8442-178bff695795",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3015,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -23075,7 +23076,7 @@ var gridData =
     {
         "id": 412,
         "guid": "6a59cc2b-1096-4606-a2be-876b1e285399",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1281,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -23131,7 +23132,7 @@ var gridData =
     {
         "id": 413,
         "guid": "e58cd48c-5ae5-4cf0-b5e4-4b5af81b1e89",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2623,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -23187,7 +23188,7 @@ var gridData =
     {
         "id": 414,
         "guid": "853e3fd1-17fd-4702-85c2-98a5ee4ef6ee",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2140,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -23243,7 +23244,7 @@ var gridData =
     {
         "id": 415,
         "guid": "7529611d-403e-4eac-a6ce-811a2931865a",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1239,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -23299,7 +23300,7 @@ var gridData =
     {
         "id": 416,
         "guid": "57776a24-95fd-493e-bc82-544397346352",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2845,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -23355,7 +23356,7 @@ var gridData =
     {
         "id": 417,
         "guid": "a354d231-881c-41a4-a45e-d2f3a123a6f8",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3774,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -23411,7 +23412,7 @@ var gridData =
     {
         "id": 418,
         "guid": "dba8e041-e7a5-47c6-9455-c26dd22e9f59",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3105,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -23467,7 +23468,7 @@ var gridData =
     {
         "id": 419,
         "guid": "edc1dff5-1358-4979-959f-298686669d64",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2956,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -23523,7 +23524,7 @@ var gridData =
     {
         "id": 420,
         "guid": "899d64d0-5b92-42f1-9217-07b835915d65",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3540,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -23579,7 +23580,7 @@ var gridData =
     {
         "id": 421,
         "guid": "7449ede2-d5b1-4965-ac4f-f2b9695e16e2",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1942,
         "picture": "//placehold.it/32x32",
         "age": 20,
@@ -23635,7 +23636,7 @@ var gridData =
     {
         "id": 422,
         "guid": "f565aff8-6cc4-44d9-aa6f-223e6121e3df",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1097,
         "picture": "//placehold.it/32x32",
         "age": 20,
@@ -23691,7 +23692,7 @@ var gridData =
     {
         "id": 423,
         "guid": "57532948-9325-4c27-9ba0-781e45f80ee7",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2485,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -23747,7 +23748,7 @@ var gridData =
     {
         "id": 424,
         "guid": "f5b6bb5d-4402-454b-88dd-8db36221a21e",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3467,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -23803,7 +23804,7 @@ var gridData =
     {
         "id": 425,
         "guid": "493e6797-be46-4c66-83b3-d6104a4b920f",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2571,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -23859,7 +23860,7 @@ var gridData =
     {
         "id": 426,
         "guid": "f215f3b3-0afe-400d-992c-7165ba95e2b9",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3234,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -23915,7 +23916,7 @@ var gridData =
     {
         "id": 427,
         "guid": "de57a766-5397-4970-aa2a-c126a7c635c5",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2671,
         "picture": "//placehold.it/32x32",
         "age": 38,
@@ -23971,7 +23972,7 @@ var gridData =
     {
         "id": 428,
         "guid": "8054fcc7-0eee-4e09-9750-1d16de2c8e44",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2428,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -24027,7 +24028,7 @@ var gridData =
     {
         "id": 429,
         "guid": "c0d56e56-0369-4876-8f40-2dc6638ebe6e",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1219,
         "picture": "//placehold.it/32x32",
         "age": 20,
@@ -24083,7 +24084,7 @@ var gridData =
     {
         "id": 430,
         "guid": "22ba1e5a-dcc3-4504-bd5a-f5ad880fa9b9",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3151,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -24139,7 +24140,7 @@ var gridData =
     {
         "id": 431,
         "guid": "47632035-91eb-41bb-8b4e-2b20836deb5e",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3395,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -24195,7 +24196,7 @@ var gridData =
     {
         "id": 432,
         "guid": "fd80547b-968a-442f-a8d3-6f57de2df9c0",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2742,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -24251,7 +24252,7 @@ var gridData =
     {
         "id": 433,
         "guid": "caa896ad-10ec-4935-8f96-5ba3f8a7495f",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1586,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -24307,7 +24308,7 @@ var gridData =
     {
         "id": 434,
         "guid": "c28401d3-0338-4098-be9e-3c6c2b666d8d",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1554,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -24363,7 +24364,7 @@ var gridData =
     {
         "id": 435,
         "guid": "081b4a83-0f61-497b-88f9-c7823846f9ed",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2031,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -24419,7 +24420,7 @@ var gridData =
     {
         "id": 436,
         "guid": "3221c768-2464-4f17-9f14-e704e758ca6f",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1097,
         "picture": "//placehold.it/32x32",
         "age": 25,
@@ -24475,7 +24476,7 @@ var gridData =
     {
         "id": 437,
         "guid": "54eaeff7-a989-497e-acef-577946c57ea6",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1024,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -24531,7 +24532,7 @@ var gridData =
     {
         "id": 438,
         "guid": "083687a6-76c8-496c-a615-d95720d62b32",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2927,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -24587,7 +24588,7 @@ var gridData =
     {
         "id": 439,
         "guid": "ff3cffee-a801-476d-9d24-e9591d7a5ab7",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2401,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -24643,7 +24644,7 @@ var gridData =
     {
         "id": 440,
         "guid": "7334a379-4db2-4e72-b16c-3756c9a2c344",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3859,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -24699,7 +24700,7 @@ var gridData =
     {
         "id": 441,
         "guid": "0379231e-0f82-43c3-ac66-6189145dcd57",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3617,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -24755,7 +24756,7 @@ var gridData =
     {
         "id": 442,
         "guid": "3cedded8-3888-4eb8-a283-41c985804e40",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2999,
         "picture": "//placehold.it/32x32",
         "age": 36,
@@ -24811,7 +24812,7 @@ var gridData =
     {
         "id": 443,
         "guid": "46db5de2-3576-4037-bdcd-3fc3932127be",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2354,
         "picture": "//placehold.it/32x32",
         "age": 38,
@@ -24867,7 +24868,7 @@ var gridData =
     {
         "id": 444,
         "guid": "6856a950-8b5c-4aac-96f9-dddbca64312c",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2694,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -24923,7 +24924,7 @@ var gridData =
     {
         "id": 445,
         "guid": "c8e491eb-25f0-4337-9823-a1099a538503",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2676,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -24979,7 +24980,7 @@ var gridData =
     {
         "id": 446,
         "guid": "c44f5521-5714-44f3-8d38-62b749786db6",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2178,
         "picture": "//placehold.it/32x32",
         "age": 22,
@@ -25035,7 +25036,7 @@ var gridData =
     {
         "id": 447,
         "guid": "f99affba-189b-49f2-a99f-bf5f24333428",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2491,
         "picture": "//placehold.it/32x32",
         "age": 23,
@@ -25091,7 +25092,7 @@ var gridData =
     {
         "id": 448,
         "guid": "87efda3c-2766-470a-aa93-6724d0ae4d21",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3199,
         "picture": "//placehold.it/32x32",
         "age": 33,
@@ -25147,7 +25148,7 @@ var gridData =
     {
         "id": 449,
         "guid": "bef18907-fc62-49b1-b45d-0bfbff105a8b",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2797,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -25203,7 +25204,7 @@ var gridData =
     {
         "id": 450,
         "guid": "2e598633-7efb-4fe4-a487-4cb7063d42c2",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3232,
         "picture": "//placehold.it/32x32",
         "age": 32,
@@ -25259,7 +25260,7 @@ var gridData =
     {
         "id": 451,
         "guid": "be78a79d-67c5-4555-af26-077d4ae2c521",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1034,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -25315,7 +25316,7 @@ var gridData =
     {
         "id": 452,
         "guid": "707dcdd5-1520-4c32-8214-8d4688ca3d2f",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3418,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -25371,7 +25372,7 @@ var gridData =
     {
         "id": 453,
         "guid": "575195a6-d066-40dd-9cbb-079f720e9028",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3115,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -25427,7 +25428,7 @@ var gridData =
     {
         "id": 454,
         "guid": "58f49033-082f-48e0-8019-621b7d7f5bee",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3339,
         "picture": "//placehold.it/32x32",
         "age": 33,
@@ -25483,7 +25484,7 @@ var gridData =
     {
         "id": 455,
         "guid": "9be6d75c-0e5a-4dae-bd29-06726b42fd83",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2688,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -25539,7 +25540,7 @@ var gridData =
     {
         "id": 456,
         "guid": "6e5da6e3-b94f-498f-a258-b4a81fabff19",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3823,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -25595,7 +25596,7 @@ var gridData =
     {
         "id": 457,
         "guid": "324a036b-40d1-4be0-bea5-20743c57bf42",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3722,
         "picture": "//placehold.it/32x32",
         "age": 37,
@@ -25651,7 +25652,7 @@ var gridData =
     {
         "id": 458,
         "guid": "4bbce3d5-51d2-4b9e-b4ba-35194f38416e",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1320,
         "picture": "//placehold.it/32x32",
         "age": 24,
@@ -25707,7 +25708,7 @@ var gridData =
     {
         "id": 459,
         "guid": "4914deb2-9c6b-4641-87bb-1666e0d7a86b",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3190,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -25763,7 +25764,7 @@ var gridData =
     {
         "id": 460,
         "guid": "8139b9ee-1dab-42e2-947f-dbe77d56de27",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1153,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -25819,7 +25820,7 @@ var gridData =
     {
         "id": 461,
         "guid": "f58d1c73-159c-4f06-8360-9e797a195537",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3726,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -25875,7 +25876,7 @@ var gridData =
     {
         "id": 462,
         "guid": "4cde3720-48d6-4350-93de-63f176574078",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3737,
         "picture": "//placehold.it/32x32",
         "age": 35,
@@ -25931,7 +25932,7 @@ var gridData =
     {
         "id": 463,
         "guid": "32b23662-4daa-4c92-91e8-2b02f5885e87",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3935,
         "picture": "//placehold.it/32x32",
         "age": 20,
@@ -25987,7 +25988,7 @@ var gridData =
     {
         "id": 464,
         "guid": "3c32a547-0dd2-4421-9397-1b08f5f83d59",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3476,
         "picture": "//placehold.it/32x32",
         "age": 34,
@@ -26043,7 +26044,7 @@ var gridData =
     {
         "id": 465,
         "guid": "51e193f8-04c1-4901-afd0-791fdab791a3",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1708,
         "picture": "//placehold.it/32x32",
         "age": 36,
@@ -26099,7 +26100,7 @@ var gridData =
     {
         "id": 466,
         "guid": "c9f93af4-5224-46ef-b304-97d22dc1490b",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3760,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -26155,7 +26156,7 @@ var gridData =
     {
         "id": 467,
         "guid": "96fe5e65-50b0-4009-ae24-49836c7efdcc",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2357,
         "picture": "//placehold.it/32x32",
         "age": 36,
@@ -26211,7 +26212,7 @@ var gridData =
     {
         "id": 468,
         "guid": "9fb60a31-b63f-42ba-9681-83b4b13875c5",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 3507,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -26267,7 +26268,7 @@ var gridData =
     {
         "id": 469,
         "guid": "8e1e3861-3a81-4239-9fbe-0ed2a4efd1f2",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 2331,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -26323,7 +26324,7 @@ var gridData =
     {
         "id": 470,
         "guid": "5934fa4a-652d-4c90-b96a-e04d249f7322",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1244,
         "picture": "//placehold.it/32x32",
         "age": 20,
@@ -26379,7 +26380,7 @@ var gridData =
     {
         "id": 471,
         "guid": "6637e1dd-8560-4423-ad4a-63d975dde05d",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2077,
         "picture": "//placehold.it/32x32",
         "age": 33,
@@ -26435,7 +26436,7 @@ var gridData =
     {
         "id": 472,
         "guid": "ed86107f-2bd2-4993-822a-3933a1e31ec6",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3299,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -26491,7 +26492,7 @@ var gridData =
     {
         "id": 473,
         "guid": "a7bace44-375d-4ee4-9e57-c317f1134547",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1567,
         "picture": "//placehold.it/32x32",
         "age": 21,
@@ -26547,7 +26548,7 @@ var gridData =
     {
         "id": 474,
         "guid": "91083174-553e-4db9-b05c-28f395074e0e",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1304,
         "picture": "//placehold.it/32x32",
         "age": 26,
@@ -26603,7 +26604,7 @@ var gridData =
     {
         "id": 475,
         "guid": "539585ca-578d-4033-a852-de126fbe6e44",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2228,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -26659,7 +26660,7 @@ var gridData =
     {
         "id": 476,
         "guid": "030edeef-7ad7-437b-91c5-c0ba12681956",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3495,
         "picture": "//placehold.it/32x32",
         "age": 30,
@@ -26715,7 +26716,7 @@ var gridData =
     {
         "id": 477,
         "guid": "ecec1271-c552-4581-9a38-66b8cfb6cca7",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2672,
         "picture": "//placehold.it/32x32",
         "age": 28,
@@ -26771,7 +26772,7 @@ var gridData =
     {
         "id": 478,
         "guid": "cc954b08-cf21-4709-a8e6-c32c747a084c",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1413,
         "picture": "//placehold.it/32x32",
         "age": 27,
@@ -26827,7 +26828,7 @@ var gridData =
     {
         "id": 479,
         "guid": "e0111e2d-f750-4ceb-b115-2e84de43c3e0",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 2659,
         "picture": "//placehold.it/32x32",
         "age": 31,
@@ -26883,7 +26884,7 @@ var gridData =
     {
         "id": 480,
         "guid": "1ddb9f8e-96c8-4a31-9988-00537ef0a7f9",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1218,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -26939,7 +26940,7 @@ var gridData =
     {
         "id": 481,
         "guid": "e247368a-b6f0-4b01-9dc8-1aef44b7d87e",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1010,
         "picture": "//placehold.it/32x32",
         "age": 40,
@@ -26995,7 +26996,7 @@ var gridData =
     {
         "id": 482,
         "guid": "4d266d1d-8dba-4f38-982c-28eb417ceb11",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 3768,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -27051,7 +27052,7 @@ var gridData =
     {
         "id": 483,
         "guid": "da129b64-c807-438f-ae14-2507d449855e",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1636,
         "picture": "//placehold.it/32x32",
         "age": 39,
@@ -27107,7 +27108,7 @@ var gridData =
     {
         "id": 484,
         "guid": "f6c6c240-e7b0-4a30-ad91-9976331f61c5",
-        "isActive": true,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": true,
         "balance": 1154,
         "picture": "//placehold.it/32x32",
         "age": 29,
@@ -27163,7 +27164,7 @@ var gridData =
     {
         "id": 485,
         "guid": "d60508b1-66d9-4f1a-9b69-3868631636c2",
-        "isActive": false,
+        "button1": '<button type="button" class="btn btn-info">보기</button>',"button2": '<button type="button" class="btn btn-info">탈퇴</button>',"isActive": false,
         "balance": 1465,
         "picture": "//placehold.it/32x32",
         "age": 31,
