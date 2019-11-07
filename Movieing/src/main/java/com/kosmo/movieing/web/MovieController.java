@@ -11,6 +11,7 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Vector;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -28,11 +29,7 @@ import kr.or.kobis.kobisopenapi.consumer.rest.KobisOpenAPIRestService;
 @Controller
 public class MovieController {
 
-	@RequestMapping("/Movieing/Movie/AllMovie.mov")
-	public String movieMain() {
-		return "movie/list/AllMovie.tiles";
-	}
-
+	
 	
 	/*
 	 * @RequestMapping("/Movieing/Movie/MovieDetails.mov") public String
@@ -77,20 +74,99 @@ public class MovieController {
 	
 	
 	
+	
+	@RequestMapping("/Movieing/Movie/AllMovie.mov")
+	public String movieMain(Model model) throws Exception {
+		
+		List mNames = new Vector();
+		List mlist = movieTrain();
+		
+		int max = 18;
+		/*
+		for(int j=0; j<3;j++) {
+			for(int i=j*6; i<j*6+6; i++) {
+				System.out.println(i);
+				System.out.println(mlist.get(i));
+				mNames.add(movieImgUrl((String) mlist.get(i)));
+			//System.out.println(mNames.get(i));
+			//System.out.println();
+			}
+		}
+		*/
+		try {
+		for(int i=0; i<18;i++) {
+			System.out.println("영화제목"+i+":"+mlist.get(i));
+			mNames.add(movieImgUrl((String) mlist.get(i)));
+			if(i==9) {
+				Thread.sleep(5000);
+			}
+			System.out.println("이미지소스"+i+":"+mNames.get(i));
+			
+		}
+		}
+		catch(Exception e) {e.printStackTrace();}
+		
+	
+		//영화이미지*/
+		
+		model.addAttribute("movieImgUrl", mNames);
+		model.addAttribute("movieName", mNames);
+		
+		return "movie/list/AllMovie.tiles";
+	}
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//영화 상세 페이지
 	@RequestMapping("/Movieing/Movie/MovieDetails.mov")
 	public String movieDetailsTest(@RequestParam  Map map, Model model)throws Exception {
 		//영화상세정보
 		model.addAttribute("movieInfoMap", movieInfoMap("20182669"));//아직 해당영화 코드 가져올 방법이 없으므로 하드코딩
 		//영화이미지
-		model.addAttribute("movieImgUrl", movieImgUrl("툴리"));
+		model.addAttribute("movieImgUrl", movieImgUrl("조커"));
 		return "movie/info/MovieDetails.tiles";
 	}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	@RequestMapping("/Movieing/Movie/MovieReviews.mov")
 	public String movieReviews() {
 		return "movie/info/MovieReviews.tiles";
 	}
+	
+	
+	//무비리스트 가져오기
+	public List movieTrain() throws Exception{
+		
+		List<String> movieList = new Vector(); // 무비 리스트
+
+		//최신영화
+		String base_url = "https://movie.naver.com/movie/running/current.nhn"; // 가져올 주소
+		try {
+
+			Document doc = Jsoup.connect(base_url).get(); // 웹페이지 연결
+			for (int i = 1; i <= 18; i++) {
+				String movieName = doc.select("#content > div.article > div:nth-child(1) > div.lst_wrap > ul > li:nth-child(" + i+ ")> dl > dt > a").html().trim();
+				// Element movieName = doc.selectFirst("#content > div.article >
+				// div:nth-child(1) > div.lst_wrap > ul > li:nth-child(1) > dl > dt");
+				// System.out.println("무비갯수 :"+movieName.size());
+				//System.out.println("영화 제목 가져오는 중 :" + movieNameㅇㅇ);
+				movieList.add(movieName);
+			}
+			//System.out.println("----------------------------");
+			//for (String movie : movieList) {
+			//	System.out.println(movie);
+			//}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}//catch
+		
+		return movieList;
+	}
+	
+	
+	
+	
+	
+	
 	
 	//영화진흥위원회에서 영화상세정보를 얻기위한 메소드(영화제목,원제목,제작년도,장르,감독,배우)
 	public HashMap<String,Object> movieInfoMap(String movieCd) throws Exception {
@@ -114,6 +190,7 @@ public class MovieController {
 	}//movieInfoMap
 	
 	//네이버의 고화질 영화포스터 이미지url을 얻기위한 메소드
+	//public String movieImgUrl(String movieNm) throws Exception {
 	public String movieImgUrl(String movieNm) throws Exception {
 		
         String clientId = "T1e73cqxyZeqqNbXbMLa";//애플리케이션 클라이언트 아이디값";
@@ -126,7 +203,7 @@ public class MovieController {
             con.setRequestMethod("GET");
             con.setRequestProperty("X-Naver-Client-Id", clientId);
             con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
-            int responseCode = con.getResponseCode();
+            int responseCode = con.getResponseCode();   
             BufferedReader br;
             if(responseCode==200) { // 정상 호출
                 br = new BufferedReader(new InputStreamReader(con.getInputStream()));
@@ -143,8 +220,13 @@ public class MovieController {
             //JSON
     		ObjectMapper mapper = new ObjectMapper();
     		HashMap<String,List<Map>> movieInfoMap = mapper.readValue(response.toString(), HashMap.class);
-    		String imgStr = movieInfoMap.get("items").get(0).get("link").toString();	
+    		
+    		System.out.println("제이슨:"+movieInfoMap);
+    		
+    		String imgStr = movieInfoMap.get("items").get(0).get("link").toString();
+    		//System.out.println(imgStr);
     		String movieCode = imgStr.substring(imgStr.indexOf('=')+1);
+    		//System.out.println("movieCode: " + movieCode);
     		//위의 모든 코드는 네이버의 영화코드를 얻기위해서 작성함...
     		
     		String realImgStr = "https://movie.naver.com/movie/bi/mi/photoViewPopup.nhn?movieCode="+movieCode;
@@ -154,7 +236,8 @@ public class MovieController {
     		Document doc = Jsoup.connect(realImgStr).get();
     		Elements descs = doc.select("#targetImage");
     		String realUrl =descs.get(0).attr("src");
-    		
+    		System.out.println("realImgStr : "+realImgStr);
+    		System.out.println("realUrl :"+realUrl);
     		return realUrl;
         
             
