@@ -7,7 +7,7 @@
 -->
 <style>
 body {
-	padding-top: 130px;
+	padding-top: 150px;
 }
 
 .project-tab {
@@ -158,7 +158,7 @@ function selectorSettingByTab(page){//탭메뉴 클릭에 따라 셀렉트 세�
 	case 'b': 
 		selects = ['작성 순','별점 순','가나다 순'];break;
 	case 'c': 
-		selects = ['추가 순','음..'];break;
+		selects = ['추가 순',"..."];break;
 	default: 
 		selects = ['추가 순','예상별점 순'];
 	}
@@ -170,7 +170,7 @@ function selectorSettingByTab(page){//탭메뉴 클릭에 따라 셀렉트 세�
 	$('#selector').html(selectorHTML);
 }
 
-function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠 변화시키기
+function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠 변화시키기(ajax)
 	
 }
 
@@ -211,63 +211,45 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
                  <!--컨텐츠a:별점 -->
                  <div class="tab-pane fade " id="nav-star" role="tabpanel" aria-labelledby="nav-star-tab">
                    		<div class="row" style="">
+                   			<c:forEach begin="1" end="3">
 							<div class="col-md-2 col-sm-6 movie-poster" style="">
 								<img  class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt=""/>
 								<span class="movieTitle">말레피센트</span><br>
 								<Span class="movieStar">★4.5</Span>
 							</div>
-							<div class="col-md-2 col-xs-6 movie-poster" style="">
-								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
-								<span class="movieTitle">말레피센트</span><br>
-								<Span class="movieStar">★4.5</Span>
-							</div>
-							<div class="col-md-2 col-sm-6 movie-poster">
-								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
-								<span class="movieTitle">말레피센트</span><br>
-								<Span class="movieStar">★4.5</Span>
-							</div>
-							<div class="col-md-2 col-sm-6 movie-poster">
-								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
-								<span class="movieTitle">말레피센트</span><br>
-								<Span class="movieStar">★4.5</Span>
-							</div>
-							<div class="col-md-2 col-sm-6 movie-poster">
-								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
-								<span class="movieTitle">말레피센트</span><br>
-								<Span class="movieStar">★4.5</Span>
-							</div>
-							<div class="col-md-2 col-sm-6 movie-poster">
-								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
-								<span class="movieTitle">말레피센트</span><br>
-								<Span class="movieStar">★4.5</Span>
-							</div>
+							</c:forEach>
+							
 						</div> 
                  </div>
                  
                  <!-- 컨텐츠b:리뷰 -->
                  <div class="tab-pane fade" id="nav-review" role="tabpanel" aria-labelledby="nav-review-tab">
+                 <%-- 	<c:if test="${empty list }">
+                 		작성한 리뷰가 없어
+                 	</c:if> --%>
                  	<!-- 리뷰카드 -->
-					<div class="card border-secondary mb-3" style="max-width: 200rem;">
-						<div class="card-body">
-							<div class="row">
-								<div class="col-sm-3" align="center">
-									<img class="movieImg"
-										src="../../resources/img/movie/toystoryMain.jpg" alt="포스터" />
-								</div>
-								<div class="col-sm-9">
-									<h4 class="card-title">토이스토리4</h4>
-									<span class="badge badge-pill badge-danger">★4.5</span>
-									<p class="card-text">토이스토리를 봤다. 너무 재밌었다. 너무 재밌었고, 너무 재밌어서
-										너무 재밌을 뻔했다. 너무 재밌는 영화였다.</p>
-									<a href="#"><span
-										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
-											25 </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
-										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
-											4 </span></a>
+                 	<c:forEach items="${reviewList }" var="item">
+						<div class="card border-secondary mb-3" style="max-width: 200rem;">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-sm-3" align="center">
+										<img class="movieImg"
+											src="../../resources/img/movie/toystoryMain.jpg" alt="포스터" />
+									</div>
+									<div class="col-sm-9">
+										<h4 class="card-title">${item.movieTitle }</h4><!-- 영화제목 -->
+										<span class="badge badge-pill badge-danger">★ ${item.grade}</span><!-- 별점-->
+										<p class="card-text">${item.reviewContent }</p><!-- 리뷰내용 -->
+										<a href="#"><span
+											style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
+												${item.likeCount } </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
+											style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
+												${item.commentCount }</span></a>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					</c:forEach>
 				</div>
                  
                  <!-- 컨텐츠c:좋아요 -->

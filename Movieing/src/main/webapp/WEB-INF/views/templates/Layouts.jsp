@@ -36,14 +36,17 @@
    
   </head>
 
-  
+  	<div style="padding-bottom: 20px"></div>
   <body>
   	<!-- 탑 부분 -->
   	<tiles:insertAttribute name="Top"/>
   	
+  	
   	<!--바디 부분 -->
   	<tiles:insertAttribute name="Body"/>
+ 
   	<div class="row">&nbsp;</div>
+
   	<!-- 푸터 부분 -->
   	<tiles:insertAttribute name="Footer"/>
   	

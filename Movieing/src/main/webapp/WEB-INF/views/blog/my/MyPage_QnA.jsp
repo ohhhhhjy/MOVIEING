@@ -84,7 +84,9 @@
 
 			<div class="text-center" style="padding-bottom: 50px">
 				<div>
-					<h1 style="padding-bottom: 10px;text-align: center;padding-top: 10px">이다희 님</h1>
+					<h1
+						style="padding-bottom: 10px; text-align: center; padding-top: 10px">이다희
+						님</h1>
 				</div>
 				<input type="file" class="text-center center-block file-upload">
 			</div>
@@ -149,8 +151,14 @@
 									</div>
 									<div class="col-md-11" style="text-align: left;">
 										<h5 style="font-weight: bold;">문의글 작성하기</h5>
+
 										<button class="btn btn-secondary btn-sm" type="button"
 											data-toggle="modal" data-target="#myModal">작성하기</button>
+
+										<button class="btn btn-secondary btn-sm" type="button"
+											onclick="location.href = '<c:url value='/Movieing/my/Customer.mov'/>'">내가
+											작성한 글보기</button>
+
 										<!-- 작성 모달 -->
 
 										<div class="modal fade" id="myModal" tabindex="-1"
@@ -182,21 +190,42 @@
 														</div>
 
 
-													</div>
 
-													<div class="modal-footer">
 
-														<button type="button" class="btn btn-default"
-															data-dismiss="modal">취소</button>
-														<button type="button" class="btn btn-primary">제출</button>
 
+
+														<div style="padding-left: 30px;padding-top: 10px" >
+
+															<div class="row">
+																<div class="form-check mb-3">
+																	<input class="form-check-input" type="radio"
+																		id="radio1" name="cmethod" value="phone" checked>
+																	<label class="form-check-label" for="radio1">전체공개</label>
+																</div>
+																<div style="padding-right: 10px"></div>
+																<div class="form-check mb-3">
+																	<input class="form-check-input" type="radio"
+																		id="radio2" name="cmethod" value="mail"> <label
+																		class="form-check-label" for="radio2">나만보기</label>
+																</div>
+															</div>
+														</div>
+
+
+
+														<div class="modal-footer">
+
+															<button type="button" class="btn btn-default"
+																data-dismiss="modal">취소</button>
+															<button type="button" class="btn btn-primary">제출</button>
+
+														</div>
 													</div>
 												</div>
 											</div>
+											<!-- 모달 끝 -->
+
 										</div>
-										<!-- 모달 끝 -->
-
-
 
 									</div>
 								</div>
