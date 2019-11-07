@@ -51,8 +51,8 @@
 
 				<div align="center">
 
-					<a style="padding-right: 10px" href="#"> <img
-						src="<c:url value='/resources/img/login/kakao.png'/>"
+					<a style="padding-right: 10px" href="<c:url value='/Movieing/member/GoogleLogin.mov'/>"> 
+					<img src="<c:url value='/resources/img/login/kakao.png'/>"
 						style="width: 50px; height: 50px" >
 					</a> <a style="padding-right: 10px" href="${url }"> <img
 						src="<c:url value='/resources/img/login/naver.jpg'/>"
