@@ -88,18 +88,18 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-							<form>
+							<form id="frm">
 							<div class="form-group row">
-									<label for="id" class="col-4 col-form-label">아이디*</label>
+									<label for="id" class="col-4 col-form-label">아이디 *</label>
 									<div class="col-8">
 										<div class="row">
 											<div class="col-md-6">
-												<input id="userid" name="username" placeholder="아이디"
+												<input id="userid" name="userid" placeholder="아이디"
 													class="form-control here" required="required" type="text">
 											</div>
 											<div class="col-md-2">
 												
-												<input class="btn btn-primary text-white" onclick="btnClick()" type="submit" value="중복확인"/>
+												<!-- <input class="btn btn-primary text-white" type="submit" value="중복확인"/> -->
 											</div>
 										</div>
 									</div>
@@ -198,12 +198,12 @@
 
 	</div>
 	<!-- row -->
-</div>
+
 
 
 <script>
 	
-	function btnClick() {
+	/* function btnClick() {
 		var userpass = document.getElementById('userpass').value;
 		var passcheck = document.getElementById('passcheck').value;
 		var pass1 = document.getElementById('pass1');
@@ -223,7 +223,30 @@
 		else{
 			pass1.innerHTML='(비밀번호는 8~12자, !@#$ 포함 )';
 		}
-	}
+	} */
+	
+	$(function() {
+		$('#userid').on("propertychange change keyup paste input",function() {
+			console.log('change');
+			 $.ajax({
+				url:"<c:url value='/Ajax/isMember.mov'/>",	
+				type:'post',
+			    data:$('#frm').serialize(),
+				dataType:'json',
+				success:function(data){
+					console.log(data['isMember']=='Y'?'이미 사용중인 아이디 입니다. ':'사용 가능한 아이디 입니다.');	
+					
+				},
+				error:function(data){
+					console.log("에러 : "+data);
+				}
+				
+				
+				
+			}); 
+		});
+	});
+		
 	
 
 
