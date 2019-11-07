@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.Evaluation">
+
+	<select id="evaluationSelectList" parameterType="java.util.Map" resultType="EvaluationDto">
+		select e.*,m.movie_title 
+		from evaluation e join movie m on m.movie_no=e.movie_no 
+		
+	</select>
+	
+	
+	
+	
+</mapper>
