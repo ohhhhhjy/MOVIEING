@@ -141,21 +141,20 @@ a {
 }
 
 /*더보기 ...조건*/
-/*
+
 .card-text {
-	white-space: nowrap;
-	word-wrap: normal;
-	height: 140px;
-	width: 578.63px;
-	text-overflow: ellipsis;
-	float: left;
 	overflow: hidden;
-	 display:-webkit-box;
-    -webkit-line-clamp:3;
-    -webkit-box-orient:vertical;
-    line-height:20px;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 6; /* 라인수 */
+	-webkit-box-orient: vertical;
+	word-wrap: break-word;
+	line-height: 1.8em;
+	height: 10.7em;
+	
 }
-*/
+
+
 </style>
 
 

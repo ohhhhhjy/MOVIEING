@@ -75,9 +75,15 @@ public class BlogController {
 		return "blog/my/MyActivity.tiles";
 	}
 
+	/////////////////////////////////////////////////////////////////////////////////////
+
 	// 무빙프렌즈1]
 	@RequestMapping("/Movieing/Blog/MovieingFriends.mov")
-	public String blogFriends() {
+	public String blogFriends(@RequestParam Map map,Model model) {
+
+		List<ReviewDto> reviewList=reviewService.selectList(map);//리스트전체조회
+		model.addAttribute("reviewList",reviewList);
+
 		return "blog/my/MovieingFriends.tiles";
 	}
 
@@ -138,6 +144,7 @@ public class BlogController {
 	//네이버가 제공하는 기본 영화포스터 이미지url을 얻기위한 메소드(고화질 아님.작은 이미지라 저화질이어도 괜찮음.)
 		public String naverDefaultMovieImgUrl(String movieNm) throws Exception {
 
+<<<<<<< HEAD
 	        String clientId = "T1e73cqxyZeqqNbXbMLa";//애플리케이션 클라이언트 아이디값";
 	        String clientSecret = "cqCUwiyR31";//애플리케이션 클라이언트 시크릿값";
 
@@ -182,4 +189,7 @@ public class BlogController {
 
 
 		}///movieImgMap
+=======
+
+>>>>>>> branch 'master' of https://github.com/ohhhhhjy/MOVIEING.git
 }//////// class
