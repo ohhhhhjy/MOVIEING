@@ -148,7 +148,7 @@ public class MovieController {
 				// Element movieName = doc.selectFirst("#content > div.article >
 				// div:nth-child(1) > div.lst_wrap > ul > li:nth-child(1) > dl > dt");
 				// System.out.println("무비갯수 :"+movieName.size());
-				//System.out.println("영화 제목 가져오는 중 :" + movieName);
+				//System.out.println("영화 제목 가져오는 중 :" + movieNameㅇㅇ);
 				movieList.add(movieName);
 			}
 			//System.out.println("----------------------------");
