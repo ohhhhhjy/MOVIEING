@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosmo.movieing.service.EvaluationDto;
-import com.kosmo.movieing.service.EvaluationService;
+import com.kosmo.movieing.service.EvalueWishService;
 import com.kosmo.movieing.service.ReviewDto;
 import com.kosmo.movieing.service.ReviewService;
 
@@ -28,8 +28,8 @@ public class BlogController {
 	@Resource(name="reviewService")
 	private ReviewService reviewService;
 
-	@Resource(name="evaluationService")
-	private EvaluationService evaluationService;
+	@Resource(name="evalueWishService")
+	private EvalueWishService evalueWishService;
 
 	// 블로그메인
 	@RequestMapping("/Movieing/Blog/BlogMain.mov")
@@ -48,27 +48,37 @@ public class BlogController {
 		model.addAttribute("page", page);
 
 		//1.별점
-		List<EvaluationDto> evaluationList = evaluationService.selectList(map);
-		System.out.println("뭐야"+evaluationList);
-//		System.out.println("야 나와:"+evaluationList.get(0).getMovieNo());
+		List<EvaluationDto> evaluationList = evalueWishService.selectEvalueList(map);
 		//가져온 리스트에 사진url담아주기
 		for(EvaluationDto record:evaluationList) {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
 		}
 		//2.리뷰
-		List<ReviewDto> reviewList = reviewService.selectList(map);
+		List<ReviewDto> reviewList = reviewService.reviewSelectMyList(map);
 		//가져온 리스트에 사진url담아주기
 		for(ReviewDto record:reviewList) {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
 		}
 
 		//3.좋아요
-
+		List<ReviewDto> reviewLikeList = reviewService.reviewSelectLikeList(map);
+		//가져온 리스트에 사진url담아주기
+		for(ReviewDto record:reviewLikeList) {
+			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
+		}
 
 		//4.보고싶어요
+		List<EvaluationDto> wishList = evalueWishService.selectWishList(map);
+		//가져온 리스트에 사진url담아주기
+		for(EvaluationDto record:wishList) {
+			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
+		}
+
 
 		model.addAttribute("evaluationList",evaluationList);
 		model.addAttribute("reviewList", reviewList);
+		model.addAttribute("reviewLikeList", reviewLikeList);
+		model.addAttribute("wishList", wishList);
 
 
 
@@ -81,7 +91,7 @@ public class BlogController {
 	@RequestMapping("/Movieing/Blog/MovieingFriends.mov")
 	public String blogFriends(@RequestParam Map map,Model model) {
 
-		List<ReviewDto> reviewList=reviewService.selectList(map);//리스트전체조회
+		List<ReviewDto> reviewList=reviewService.reviewSelectMyList(map);//리스트전체조회
 		model.addAttribute("reviewList",reviewList);
 
 		return "blog/my/MovieingFriends.tiles";
@@ -172,16 +182,7 @@ public class BlogController {
 	    		ObjectMapper mapper = new ObjectMapper();
 	    		HashMap<String,List<Map>> movieInfoMap = mapper.readValue(response.toString(), HashMap.class);
 	    		String imgStr = movieInfoMap.get("items").get(0).get("image").toString();
-//	    		String movieCode = imgStr.substring(imgStr.indexOf('=')+1);
-//	    		//위의 모든 코드는 네이버의 영화코드를 얻기위해서 작성함...
-//
-//	    		String realImgStr = "https://movie.naver.com/movie/bi/mi/photoViewPopup.nhn?movieCode="+movieCode;
-//
-//
-//	    		//크롤링
-//	    		Document doc = Jsoup.connect(realImgStr).get();
-//	    		Elements descs = doc.select("#targetImage");
-//	    		String realUrl =descs.get(0).attr("src");
+
 
 	    		return imgStr;
 

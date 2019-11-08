@@ -101,8 +101,8 @@ body {
    
 /* 원형이미지들 */
 .radiusImg {
-	width: 40px;
-	height: 40px;
+	width: 30px;
+	height: 30px;
 	/* background-image:url("배경이미지경로"); */
 	border-radius: 150px; /* 레이어 반크기만큼 반경을 잡기*/
 	display: table-cell;
@@ -151,7 +151,7 @@ body {
 
 /* 리뷰유저이름 */
 .reviewUserSpan{
-	font-size: 1.2em;
+	font-size: 1em;
 	color: black;
 	line-height: 40px;
 	font-weight: bold;
@@ -163,11 +163,11 @@ body {
 overflow: hidden;
 text-overflow: ellipsis;
 display: -webkit-box;
--webkit-line-clamp: 3; /* 라인수 */
+-webkit-line-clamp: 2; /* 라인수 */
 -webkit-box-orient: vertical;
 word-wrap:break-word; 
 line-height: 1.2em;
-height: 3.6em;
+height: 2.4em;
 }
 
 /* 더보기 스팬 */
@@ -395,26 +395,46 @@ $(document).ready(function() {
 			<hr class="my-3">
 			
 			<!-- 리뷰 -->
-			<div class="row">
-						<div class="col-md-8">
-							<h4>리뷰</h4>
-						</div>
-						<div class="col-md-4" align="right">
+			<h4>리뷰</h4>
+						<%-- <div class="col-md-4" align="right">
 							<a href="<c:url value='/Movieing/Movie/MovieReviews.mov'/>" class="moreContent">더보기</a>
-						</div>
-					</div>
+						</div> --%>
+					
 			
            		 <!-- 리뷰카드 -->
-            	<c:forEach var="i" begin="1" end="3" >
+            	<c:forEach var="i" begin="1" end="5" >
 						<div class="card border-secondary mb-3" style="max-width: 200rem;">
-							<div class="card-header" >
-								<a href="#">
-									<img class="radiusImg" alt="유저사진" src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" align="left"/>
-									<span class="reviewUserSpan" >유저이름</span>
-								</a>
-							</div>
+							<%-- <div class="card-header" >
+								<div class="row">
+									<div class="col-md-6">
+										<a href="#">
+											<img class="radiusImg" alt="유저사진" src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" align="left"/>
+											<span class="reviewUserSpan" >유저이름</span>
+										</a>
+									</div >
+									<div class="col-md-6" align="right">
+										<a class="btn btn-outline-danger waves-effect" href="<c:url value='/Movieing/Movie/MovieReviews.mov'/>">더보기</a>
+									</div>
+								</div>
+							</div> --%>
 							<div class="card-body">
-								<span class="badge badge-pill badge-danger">★4.5</span>
+							
+							<div class="row">
+									<div class="col-md-6">
+										<a href="#">
+											<img class="radiusImg" alt="유저사진" src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" align="left"/>
+											<span class="reviewUserSpan" >유저이름</span>
+											<span class="badge badge-pill badge-danger">★4.5</span>
+										</a>
+									</div >
+									<div class="col-md-6" align="right">
+										<a class="btn btn-outline-danger waves-effect" href="<c:url value='/Movieing/Movie/MovieReviews.mov'/>">더보기</a>
+									</div>
+								</div>
+							
+							
+							
+								
 								<p class="card-text">토이스토리를 봤다. 너무 재밌었다. 너무 재밌었고, 너무 재밌어서 너무
 									재밌을 뻔했다. 너무 재밌는 영화였다.신발 하나 제대로 못 찾는 첫째 딸, 남들과 조금 다른 둘째 아들, 갓 태어나서 밤낮없이 울어대는 막내, 그리고 자신에겐 아무 관심도 없이 매일 밤 게임에 빠져 사는 남편까지, 매일 같은 육아 전쟁에 지쳐가는 ‘마를로’(샤를리즈 테론). 몸이 스무 개라도 모자란 엄마 ‘마를로’를 위해 그녀의 오빠는 야간 보모 고용을 권유한다. 아이는 엄마가 돌봐야 한다고 철석같이 믿어 왔던 ‘마를로’는 고민 끝에 야간 보모 ‘툴리’(맥켄지 데이비스)를 부르게 된다. 홀로 삼 남매 육아를 도맡아 하면서 슈퍼 맘이 되어야만 했던 ‘마를로’ 곁에서 ‘툴리’는 마치 자신의 가족처럼 그녀와 아이들을 돌봐준다. 슈퍼 보모이자 때로는 인생 친구가 되어 주는 ‘툴리’로 인해 ‘마를로’의 삶은 조금씩 변화하게 되는데</p>
 								<a href="#"><span
@@ -425,8 +445,27 @@ $(document).ready(function() {
 							</div>
 						</div>
 				</c:forEach>	
-			
-			
+				<!-- 페이지네이션 -->
+				<div class="row d-flex justify-content-center">
+				<nav aria-label="Page navigation example">
+				  <ul class="pagination">
+				    <li class="page-item">
+				      <a class="page-link" href="#" aria-label="Previous">
+				        <span aria-hidden="true">&laquo;</span>
+				      </a>
+				    </li>
+				    <li class="page-item"><a class="page-link" href="#">1</a></li>
+				    <li class="page-item"><a class="page-link" href="#">2</a></li>
+				    <li class="page-item"><a class="page-link" href="#">3</a></li>
+				    <li class="page-item">
+				      <a class="page-link" href="#" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a>
+				    </li>
+				  </ul>
+				</nav>
+				</div>
+				
 			
 				<hr class="my-3">
 				
@@ -477,35 +516,6 @@ $(document).ready(function() {
 							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 							frameborder="0" allowfullscreen></iframe>
 				</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			
 			
 			

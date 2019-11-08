@@ -2,7 +2,7 @@ package com.kosmo.movieing.service;
 
 import java.sql.Date;
 
-//별점테이블(평가테이블)
+//별점테이블(평가테이블)+보고싶어요(위시)테이블
 public class EvaluationDto {
 
 	private String userId;

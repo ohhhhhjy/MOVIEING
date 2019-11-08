@@ -20,6 +20,7 @@
 	<!-- 매퍼파일(sql쿼리 결과와 자바빚 매핑) 정보 설정 -->
 	<mappers>
 		<mapper resource="mybatis/Review.xml" />
-		<mapper resource="mybatis/Evaluation.xml" />
+		<mapper resource="mybatis/EvalueWish.xml" />
 	</mappers>
+	
 </configuration>
