@@ -51,14 +51,14 @@
 
 				<div align="center">
 
-					<a style="padding-right: 10px" href="#"> <img
-						src="<c:url value='/resources/img/login/kakao.png'/>"
+					<a style="padding-right: 10px" href="<c:url value='/Movieing/member/GoogleLogin.mov'/>"> 
+					<img src="<c:url value='/resources/img/login/face.png'/>"
 						style="width: 50px; height: 50px" >
 					</a> <a style="padding-right: 10px" href="${url }"> <img
 						src="<c:url value='/resources/img/login/naver.jpg'/>"
 						style="width: 50px; height: 50px">
 
-					</a> <a href="#"> <img src="<c:url value='/resources/img/login/face.png'/>"
+					</a> <a href="#"> <img src="<c:url value='/resources/img/login/kakao.png'/>"
 						style="width: 50px; height: 50px">
 					</a>
 
@@ -98,6 +98,9 @@
 <!-- 네이버 로그인 창으로 이동 -->
 <div id="naver_id_login" style="text-align:center"><a href="${url}">
 <img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a></div>
+<div id="google_id_login" style="text-align: center">
+<a href="<c:url value='/Movieing/member/GoogleLogin.mov'/>"> <img width="230"
+src="${pageContext.request.contextPath}/resources/img/login/btn_google_signin_light_normal_web.png" /></a></div>
 <br>
 
 
