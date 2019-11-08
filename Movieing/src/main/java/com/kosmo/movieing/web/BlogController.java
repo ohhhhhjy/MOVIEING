@@ -16,7 +16,7 @@ import com.kosmo.movieing.service.ReviewService;
 @Controller
 public class BlogController {
 
-	@Resource(name="reviewService")
+	@Resource(name = "reviewService")
 	private ReviewService reviewService;
 
 	// 블로그메인
@@ -28,16 +28,15 @@ public class BlogController {
 	// 블로그-내 활동
 	@RequestMapping("/Movieing/Blog/MyActivity.mov")
 	public String myActiviy(@RequestParam Map map, Model model) {
-		String id= "KIM";//임시
+		String id = "KIM";// 임시
 
 		map.put("id", id);
 
-		String page = map.get("page")==null?"a":map.get("page").toString();
+		String page = map.get("page") == null ? "a" : map.get("page").toString();
 		model.addAttribute("page", page);
 
 		List<ReviewDto> reviewList = reviewService.selectList(map);
 		model.addAttribute("reviewList", reviewList);
-
 
 		return "blog/my/MyActivity.tiles";
 	}
@@ -46,13 +45,32 @@ public class BlogController {
 
 	// 무빙프렌즈1]
 	@RequestMapping("/Movieing/Blog/MovieingFriends.mov")
-	public String blogFriends(@RequestParam Map map,Model model) {
+	public String blogFriends(@RequestParam Map map, Model model) {
+		// 세션아이디
+		String id = "kim";// 임시
 
-		List<ReviewDto> reviewList=reviewService.selectList(map);//리스트전체조회
-		model.addAttribute("reviewList",reviewList);
+		map.put("id", id);
+
+		// 피드 글보이기]
+		List<ReviewDto> friendsReviewList = reviewService.selectList(map);// 리스트전체조회
+		model.addAttribute("friendsReviewList", friendsReviewList);
+
+		// 유저자기소개]
+		ReviewDto friendsSelf = reviewService.selectMovieingOne(map);// 1개
+		model.addAttribute("friendsSelf", friendsSelf);
+
+		// 리뷰 넘버 임시]
+		int reviewNum = 1;
+		map.put("reviewNum", reviewNum);
+
+		// 좋아요]
+		int friendsLike = reviewService.getTotalCount(map);// 1개
+		model.addAttribute("friendsLike", friendsLike);
+
+		// 시간차]
 
 		return "blog/my/MovieingFriends.tiles";
-	}
+	}///////////////////////////////////////////////////////////////////////////////
 
 	// 무빙프렌즈2]
 	@RequestMapping("/Movieing/Blog/MovieingFriends2.mov")
@@ -68,7 +86,17 @@ public class BlogController {
 
 	// 마이페이지]
 	@RequestMapping("/Movieing/Blog/MyPage.mov")
-	public String myPage() {
+	public String myPage(@RequestParam Map map, Model model) {
+
+		// 세션아이디
+		String id = "kim";// 임시
+
+		map.put("id", id);
+
+		// 내 정보뿌려주기
+		ReviewDto mypage = reviewService.selectMovieingOne(map);// 리스트전체조회
+		model.addAttribute("mypage", mypage);
+
 		return "blog/my/MyPage.tiles";
 	}
 
@@ -102,12 +130,12 @@ public class BlogController {
 		return "blog/my/MyPage_Help.tiles";
 	}
 
-	//글쓰기 페이지]
+	// 글쓰기 페이지]
 	@RequestMapping("/Movieing/Blog/WritePage.mov")
 	public String write() {
 		return "blog/my/WritePage.tiles";
 	}
 
-
+	// 테스트
 
 }//////// class

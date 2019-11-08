@@ -20,6 +20,49 @@ public class ReviewDto {
 	String commentCount;
 	//영화제목
 	String movieTitle;
+	//영화원제목
+	String movieOrgTitle;
+
+
+	public String getMovieOrgTitle() {
+		return movieOrgTitle;
+	}
+
+	public void setMovieOrgTitle(String movieOrgTitle) {
+		this.movieOrgTitle = movieOrgTitle;
+	}
+
+	//유저이름]
+	String userName;
+	//자기소개]
+	String userSelf;
+
+	//이메일
+	String userMail;
+
+	public String getUserMail() {
+		return userMail;
+	}
+
+	public void setUserMail(String userMail) {
+		this.userMail = userMail;
+	}
+
+	public String getUserSelf() {
+		return userSelf;
+	}
+
+	public void setUserSelf(String userSelf) {
+		this.userSelf = userSelf;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
 	public String getGrade() {
 		return grade;

@@ -14,9 +14,34 @@
 		join movie m on r.movie_no=m.movie_no 
 		WHERE USER_ID=#{id}
 	</select>
+	
+	<select id="friendsReviewList" parameterType="java.util.Map" resultType="ReviewDto">
+	
+		select USER_ID,REVIEW_CONTENT ,REVIEW_POSTDATE, 
+		(select MOVIE_TITLE from MOVIE) movieTitle,
+		(select EVALUATION_GRADE from EVALUATION) grade
+		 from review r
+		 join movie m on  r.MOVIE_NO =m.MOVIE_NO
+		 where USER_ID=#{id}
+	</select>
 
-
-
+	<select id="selectMovieingOne" parameterType="java.util.Map" resultType="ReviewDto">
+		select *  from USER_TABLE 
+		where USER_ID=#{id}
+		
+	</select>
+	
+	<select id="reviewTotal" parameterType="java.util.Map" resultType="int">
+		select count(*) from LIKE_REVIEW
+		where REVIEW_NO=#{reviewNum}
+	</select>
+	
+	<select id="selectMyPageList" parameterType="java.util.Map" resultType="ReviewDto">
+		select * from USER_TABLE
+		where USER_ID=#{id}
+	</select>
+	
+	
 
 
 

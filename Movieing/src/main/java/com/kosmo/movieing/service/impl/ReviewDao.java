@@ -42,6 +42,8 @@ public class ReviewDao implements ReviewService{
 		return template.selectOne("reviewSelectOne", map);
 	}
 
+
+
 	@Override
 	public int insert(Map map) {
 
@@ -59,6 +61,17 @@ public class ReviewDao implements ReviewService{
 
 		template.delete("commentDeleteByNo", map);
 		return template.delete("reviewDelete", map);
+	}
+
+	//무빙 셀프소개
+	@Override
+	public ReviewDto selectMovieingOne(Map map) {
+		return template.selectOne("selectMovieingOne",map);
+	}
+
+	@Override
+	public  List<ReviewDto> selectMyPageList(Map map) {
+		return template.selectList("selectMyPageList",map);
 	}
 
 }

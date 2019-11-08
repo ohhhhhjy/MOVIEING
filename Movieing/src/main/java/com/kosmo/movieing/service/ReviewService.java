@@ -13,9 +13,16 @@ public interface ReviewService {
 	int getTotalCount(Map map);
 	//상세보기 용
 	ReviewDto selectOne(Map map);
+
+	//무빙프렌즈 유저정보]
+	ReviewDto selectMovieingOne(Map map);
+
+	//마이페이지]
+	List<ReviewDto> selectMyPageList(Map map);
+
 	//입력/수정/삭제
 	int insert(Map map);
 	int update(Map map);
 	int delete(Map map);
-	
+
 }
