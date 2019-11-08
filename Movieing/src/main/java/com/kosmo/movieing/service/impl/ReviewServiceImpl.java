@@ -30,6 +30,12 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 
 	@Override
+	public List<ReviewDto> selectList(Map map) {
+
+		return dao.selectList(map);
+	}
+
+	@Override
 	public int getTotalCount(Map map) {
 
 		return dao.getTotalCount(map);
@@ -40,6 +46,14 @@ public class ReviewServiceImpl implements ReviewService{
 
 		return dao.selectOne(map);
 	}
+
+	//무빙프렌즈
+	@Override
+	public ReviewDto selectMovieingOne(Map map) {
+		return dao.selectMovieingOne(map);
+	}
+
+
 
 	@Override
 	public int insert(Map map) {
@@ -63,6 +77,11 @@ public class ReviewServiceImpl implements ReviewService{
 	public List<ReviewDto> reviewSelectLikeList(Map map) {
 
 		return dao.reviewSelectLikeList(map);
+	}
+
+	@Override
+	public List<ReviewDto> selectMyPageList(Map map) {
+		return dao.selectMyPageList(map);
 	}
 
 }
