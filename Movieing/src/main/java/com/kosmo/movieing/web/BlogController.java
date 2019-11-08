@@ -75,9 +75,15 @@ public class BlogController {
 		return "blog/my/MyActivity.tiles";
 	}
 
+	/////////////////////////////////////////////////////////////////////////////////////
+
 	// 무빙프렌즈1]
 	@RequestMapping("/Movieing/Blog/MovieingFriends.mov")
-	public String blogFriends() {
+	public String blogFriends(@RequestParam Map map,Model model) {
+
+		List<ReviewDto> reviewList=reviewService.selectList(map);//리스트전체조회
+		model.addAttribute("reviewList",reviewList);
+
 		return "blog/my/MovieingFriends.tiles";
 	}
 
@@ -182,4 +188,5 @@ public class BlogController {
 
 
 		}///movieImgMap
+
 }//////// class
