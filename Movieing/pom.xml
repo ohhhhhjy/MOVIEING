@@ -236,7 +236,7 @@
 			<artifactId>commons-lang</artifactId>
 			<version>2.3</version>
 		</dependency>
-<<<<<<< HEAD
+
 		
 		<!-- 지윤 -->
 	<dependency>
@@ -250,8 +250,7 @@
 	</dependency>
 
 
-		
-=======
+
 
 		<!-- google -->
 		<dependency>
@@ -259,8 +258,7 @@
 			<artifactId>spring-social-google</artifactId>
 			<version>1.0.0.RELEASE</version>
 		</dependency>
->>>>>>> branch 'master' of https://github.com/ohhhhhjy/MOVIEING.git
-	
+
 
 
 </dependencies>

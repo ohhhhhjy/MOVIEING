@@ -18,18 +18,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosmo.movieing.service.EvaluationDto;
-import com.kosmo.movieing.service.EvaluationService;
+import com.kosmo.movieing.service.EvalueWishService;
 import com.kosmo.movieing.service.ReviewDto;
 import com.kosmo.movieing.service.ReviewService;
 
 @Controller
 public class BlogController {
 
-	@Resource(name="reviewService")
+	@Resource(name = "reviewService")
 	private ReviewService reviewService;
 
-	@Resource(name="evaluationService")
-	private EvaluationService evaluationService;
+	@Resource(name="evalueWishService")
+	private EvalueWishService evalueWishService;
 
 	// 블로그메인
 	@RequestMapping("/Movieing/Blog/BlogMain.mov")
@@ -42,34 +42,44 @@ public class BlogController {
 	public String myActiviy(@RequestParam Map map, Model model) throws Exception {
 		String id= "KIM";//임시
 
+
 		map.put("id", id);
 
-		String page = map.get("page")==null?"a":map.get("page").toString();
+		String page = map.get("page") == null ? "a" : map.get("page").toString();
 		model.addAttribute("page", page);
 
 		//1.별점
-		List<EvaluationDto> evaluationList = evaluationService.selectList(map);
-		System.out.println("뭐야"+evaluationList);
-//		System.out.println("야 나와:"+evaluationList.get(0).getMovieNo());
+		List<EvaluationDto> evaluationList = evalueWishService.selectEvalueList(map);
 		//가져온 리스트에 사진url담아주기
 		for(EvaluationDto record:evaluationList) {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
 		}
 		//2.리뷰
-		List<ReviewDto> reviewList = reviewService.selectList(map);
+		List<ReviewDto> reviewList = reviewService.reviewSelectMyList(map);
 		//가져온 리스트에 사진url담아주기
 		for(ReviewDto record:reviewList) {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
 		}
 
 		//3.좋아요
-
+		List<ReviewDto> reviewLikeList = reviewService.reviewSelectLikeList(map);
+		//가져온 리스트에 사진url담아주기
+		for(ReviewDto record:reviewLikeList) {
+			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
+		}
 
 		//4.보고싶어요
+		List<EvaluationDto> wishList = evalueWishService.selectWishList(map);
+		//가져온 리스트에 사진url담아주기
+		for(EvaluationDto record:wishList) {
+			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
+		}
+
 
 		model.addAttribute("evaluationList",evaluationList);
 		model.addAttribute("reviewList", reviewList);
-
+		model.addAttribute("reviewLikeList", reviewLikeList);
+		model.addAttribute("wishList", wishList);
 
 
 		return "blog/my/MyActivity.tiles";
@@ -79,13 +89,34 @@ public class BlogController {
 
 	// 무빙프렌즈1]
 	@RequestMapping("/Movieing/Blog/MovieingFriends.mov")
-	public String blogFriends(@RequestParam Map map,Model model) {
+	public String blogFriends(@RequestParam Map map, Model model) {
+		// 세션아이디
+		String id = "kim";// 임시
 
-		List<ReviewDto> reviewList=reviewService.selectList(map);//리스트전체조회
+		List<ReviewDto> reviewList=reviewService.reviewSelectMyList(map);//리스트전체조회
 		model.addAttribute("reviewList",reviewList);
+		map.put("id", id);
+
+		// 피드 글보이기]
+		List<ReviewDto> friendsReviewList = reviewService.selectList(map);// 리스트전체조회
+		model.addAttribute("friendsReviewList", friendsReviewList);
+
+		// 유저자기소개]
+		ReviewDto friendsSelf = reviewService.selectMovieingOne(map);// 1개
+		model.addAttribute("friendsSelf", friendsSelf);
+
+		// 리뷰 넘버 임시]
+		int reviewNum = 1;
+		map.put("reviewNum", reviewNum);
+
+		// 좋아요]
+		int friendsLike = reviewService.getTotalCount(map);// 1개
+		model.addAttribute("friendsLike", friendsLike);
+
+		// 시간차]
 
 		return "blog/my/MovieingFriends.tiles";
-	}
+	}///////////////////////////////////////////////////////////////////////////////
 
 	// 무빙프렌즈2]
 	@RequestMapping("/Movieing/Blog/MovieingFriends2.mov")
@@ -101,7 +132,17 @@ public class BlogController {
 
 	// 마이페이지]
 	@RequestMapping("/Movieing/Blog/MyPage.mov")
-	public String myPage() {
+	public String myPage(@RequestParam Map map, Model model) {
+
+		// 세션아이디
+		String id = "kim";// 임시
+
+		map.put("id", id);
+
+		// 내 정보뿌려주기
+		ReviewDto mypage = reviewService.selectMovieingOne(map);// 리스트전체조회
+		model.addAttribute("mypage", mypage);
+
 		return "blog/my/MyPage.tiles";
 	}
 
@@ -135,7 +176,7 @@ public class BlogController {
 		return "blog/my/MyPage_Help.tiles";
 	}
 
-	//글쓰기 페이지]
+	// 글쓰기 페이지]
 	@RequestMapping("/Movieing/Blog/WritePage.mov")
 	public String write() {
 		return "blog/my/WritePage.tiles";
@@ -143,8 +184,6 @@ public class BlogController {
 
 	//네이버가 제공하는 기본 영화포스터 이미지url을 얻기위한 메소드(고화질 아님.작은 이미지라 저화질이어도 괜찮음.)
 		public String naverDefaultMovieImgUrl(String movieNm) throws Exception {
-
-<<<<<<< HEAD
 	        String clientId = "T1e73cqxyZeqqNbXbMLa";//애플리케이션 클라이언트 아이디값";
 	        String clientSecret = "cqCUwiyR31";//애플리케이션 클라이언트 시크릿값";
 
@@ -173,23 +212,11 @@ public class BlogController {
 	    		ObjectMapper mapper = new ObjectMapper();
 	    		HashMap<String,List<Map>> movieInfoMap = mapper.readValue(response.toString(), HashMap.class);
 	    		String imgStr = movieInfoMap.get("items").get(0).get("image").toString();
-//	    		String movieCode = imgStr.substring(imgStr.indexOf('=')+1);
-//	    		//위의 모든 코드는 네이버의 영화코드를 얻기위해서 작성함...
-//
-//	    		String realImgStr = "https://movie.naver.com/movie/bi/mi/photoViewPopup.nhn?movieCode="+movieCode;
-//
-//
-//	    		//크롤링
-//	    		Document doc = Jsoup.connect(realImgStr).get();
-//	    		Elements descs = doc.select("#targetImage");
-//	    		String realUrl =descs.get(0).attr("src");
+
 
 	    		return imgStr;
 
 
 
 		}///movieImgMap
-=======
-
->>>>>>> branch 'master' of https://github.com/ohhhhhjy/MOVIEING.git
 }//////// class

@@ -9,10 +9,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.kosmo.movieing.service.EvaluationDto;
-import com.kosmo.movieing.service.EvaluationService;
+import com.kosmo.movieing.service.EvalueWishService;
 
 @Repository
-public class EvaluationDao implements EvaluationService{
+public class EvalueWishDao implements EvalueWishService{
 
 	@Resource(name="template")
 	private SqlSessionTemplate template;
@@ -24,11 +24,6 @@ public class EvaluationDao implements EvaluationService{
 		return (Integer)template.selectOne("evaluationLogin",map)==1?true:false;
 	}
 
-	//전체목록
-	@Override
-	public List<EvaluationDto> selectList(Map map) {
-		return template.selectList("evaluationSelectList",map);
-	}
 
 	@Override
 	public int getTotalCount(Map map) {
@@ -59,6 +54,18 @@ public class EvaluationDao implements EvaluationService{
 
 //		template.delete("commentDeleteByNo", map);
 		return template.delete("evaluationDelete", map);
+	}
+
+	@Override
+	public List<EvaluationDto> selectEvalueList(Map map) {
+
+		return template.selectList("selectEvalueList",map);
+	}
+
+	@Override
+	public List<EvaluationDto> selectWishList(Map map) {
+
+		return template.selectList("selectWishList",map);
 	}
 
 }

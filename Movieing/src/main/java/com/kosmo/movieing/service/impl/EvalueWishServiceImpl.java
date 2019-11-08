@@ -8,14 +8,14 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.kosmo.movieing.service.EvaluationDto;
-import com.kosmo.movieing.service.EvaluationService;
+import com.kosmo.movieing.service.EvalueWishService;
 
-@Service("evaluationService")
-public class EvaluationServiceImpl implements EvaluationService{
+@Service("evalueWishService")
+public class EvalueWishServiceImpl implements EvalueWishService{
 
 	//ReviewDao 객체 주입
-	@Resource(name="evaluationDao")
-	private EvaluationDao dao;
+	@Resource(name="evalueWishDao")
+	private EvalueWishDao dao;
 
 	@Override
 	public boolean isLogin(Map map) {
@@ -23,11 +23,6 @@ public class EvaluationServiceImpl implements EvaluationService{
 		return dao.isLogin(map);
 	}
 
-	@Override
-	public List<EvaluationDto> selectList(Map map) {
-
-		return dao.selectList(map);
-	}
 
 	@Override
 	public int getTotalCount(Map map) {
@@ -57,6 +52,18 @@ public class EvaluationServiceImpl implements EvaluationService{
 	public int delete(Map map) {
 
 		return dao.delete(map);
+	}
+
+	@Override
+	public List<EvaluationDto> selectEvalueList(Map map) {
+
+		return dao.selectEvalueList(map);
+	}
+
+	@Override
+	public List<EvaluationDto> selectWishList(Map map) {
+
+		return dao.selectWishList(map);
 	}
 
 }

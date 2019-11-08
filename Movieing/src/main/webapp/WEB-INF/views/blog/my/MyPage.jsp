@@ -129,14 +129,14 @@
 								<div class="form-group row">
 									<label for="username" class="col-4 col-form-label">이름*</label>
 									<div class="col-8">
-										<input id="username" name="username" placeholder="이름"
+										<input id="username" name="username" placeholder="${mypage.userName }"
 											class="form-control here" required="required" type="text">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="name" class="col-4 col-form-label">닉네임*</label>
 									<div class="col-8">
-										<input id="name" name="name" placeholder="닉네임"
+										<input id="name" name="name" placeholder="${mypage.userId }"
 											class="form-control here" type="text">
 									</div>
 								</div>
@@ -162,7 +162,7 @@
 								<div class="form-group row">
 									<label for="email" class="col-4 col-form-label">이메일*</label>
 									<div class="col-8">
-										<input id="email" name="email" placeholder="Email"
+										<input id="email" name="email" placeholder="${mypage.userMail }"
 											class="form-control here" required="required" type="text">
 									</div>
 								</div>
@@ -171,7 +171,7 @@
 										소개</label>
 									<div class="col-8">
 										<textarea id="publicinfo" name="publicinfo" cols="40" rows="4"
-											class="form-control"></textarea>
+											class="form-control" placeholder="${mypage.userSelf }"></textarea>
 									</div>
 								</div>
 
