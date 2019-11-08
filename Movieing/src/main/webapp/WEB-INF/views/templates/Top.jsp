@@ -208,7 +208,7 @@
 									style="color: white"><i class="fas fa-sign-out-alt"
 									style="padding-right: 5px"></i>로그아웃</a> 
 								<a class="dropItem"
-									href="<c:url value='/Movieing/admin/admin_main.mov'/>"
+									href=""
 									style="color: white">관리자</a>
 								<a class="dropItem"
 									href="<c:url value='/Movieing/my/Customer.mov'/>"
