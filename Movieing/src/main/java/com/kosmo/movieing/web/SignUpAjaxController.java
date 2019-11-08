@@ -20,11 +20,14 @@ public class SignUpAjaxController {
 	private UserDao dao;
 	
 	@ResponseBody
-	@RequestMapping(value = "/Ajax/isMember.mov", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	@RequestMapping(value = "/Ajax/isMember.mov", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
 	public String ajaxText(@RequestParam Map map) {
-		boolean isMember = dao.isMember(map);
-		JSONObject json = new JSONObject();
-		json.put("isMember", isMember?"Y":"N");
-		return json.toJSONString();
+		System.out.println("aaaaaaaaaaaaaaa");
+		//boolean isMember = dao.isMember(map);
+//		JSONObject json = new JSONObject();
+//		json.put("isMember", isMember?"Y":"N");
+//		return json.toJSONString();	
+		//return isMember?"Y":"N";
+		return null;
 	}
 }

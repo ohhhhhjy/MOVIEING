@@ -21,7 +21,7 @@ public class UserDao implements UserService{
 	
 	@Override
 	public boolean isMember(Map map) {
-		
+		System.out.println("악"+((Integer)template.selectOne("isMember",map)==1));
 		return (Integer)template.selectOne("isMember",map)==1?true:false;
 	}
 
