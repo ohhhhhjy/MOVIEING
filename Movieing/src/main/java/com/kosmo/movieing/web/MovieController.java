@@ -13,6 +13,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -78,13 +82,17 @@ public class MovieController {
 	@RequestMapping("/Movieing/Movie/AllMovie.mov")
 	public String movieMain(Model model) throws Exception {
 		
-		List<Map> mData = new Vector<Map>();
-		Map mNameDate = new HashMap();
+		//List<Map> mData = new Vector<Map>();
+		//Map<K, V> mNameDate = new HashMap();
 		
 		List mNames = new Vector();
 		List mDate = new Vector();
 		List mList = movieTrain();
-		int max = 18;
+		
+		JSONObject json = new JSONObject();
+		JSONArray jArray = new JSONArray();
+		
+		
 		/*
 		for(int j=0; j<3;j++) {
 			for(int i=j*6; i<j*6+6; i++) {
@@ -99,36 +107,51 @@ public class MovieController {
 		try {
 		for(int i=0; i<18;i++) {
 			
-			//mNames.add(movieImgUrl((String) mList.get(i)).get("realUrl"));
-			//mDate.add(movieImgUrl((String) mList.get(i)).get("date"));
+			mNames.add(movieImgUrl((String) mList.get(i)).get("realUrl"));
+			mDate.add(movieImgUrl((String) mList.get(i)).get("date"));
+		
+			JSONObject obj = new JSONObject();
+			obj.put("realUrl",mNames.get(i));
+			obj.put("date",mDate.get(i));
+			obj.put("mname", mList.get(i));
+			
+			jArray.add(obj);
 			
 			//mNameDate.put((movieImgUrl((String) mList.get(i)).get("realUrl")),(movieImgUrl((String) mList.get(i)).get("date")));
 			
-			mNameDate.put("mImgUrl",movieImgUrl((String) mList.get(i)).get("realUrl"));
-			mNameDate.put("mPubDate", movieImgUrl((String) mList.get(i)).get("date"));
+			//mNameDate.put("mImgUrl",movieImgUrl((String) mList.get(i)).get("realUrl"));
+			//mNameDate.put("mPubDate", movieImgUrl((String) mList.get(i)).get("date"));
 			
-			mData.add(mNameDate);
+			//mData.add(mNameDate);
 			
 			
-			if(i%4==0) {
+			if(i%5==0) {
 				Thread.sleep(1000);
 			}
-			System.out.println("영화 제목 "+i+":"+mList.get(i));
-			System.out.println("이미지 소스 "+i+":"+mNameDate.get("mImgUrl"));
-			System.out.println("영화 제작 년도 "+i+":"+mNameDate.get("mPubDate"));
-			System.out.println("영화 ?? "+i+":"+mNameDate.get(i));
+			//System.out.println("영화 제목 "+i+":"+mList.get(i));
+			//System.out.println("이미지 소스 "+i+":"+mNameDate.get("mImgUrl"));
+			//System.out.println("영화 제작 년도 "+i+":"+mNameDate.get("mPubDate"));
+		//	System.out.println("영화 ?? "+i+":"+mNameDate.get(i));
+			//System.out.println("이미지 소스 "+i+":"+mNames.get(i));
+			//System.out.println("영화 제작 년도 "+i+":"+mDate.get(i));
 			
 		}
+		
 		}
 		catch(Exception e) {e.printStackTrace();}
 		
 	
 		//영화이미지*/
+		//System.out.println("이미지소스 리스트 :"+mNames);
+		//System.out.println("영화제작년도 리스트 :"+mDate);
+		//System.out.println("제이슨 객체 :"+jArray);
 		
 		//model.addAttribute("movieImgUrl", mNames);
 		//model.addAttribute("moviePubDate", mDate);
 		//model.addAttribute("movieName", mList);
-		model.addAttribute("movieImgDate", mNameDate);
+		//model.addAttribute("movieImgDate", mNameDate);
+		
+		model.addAttribute("movieImgDate",jArray);
 		
 		return "movie/list/AllMovie.tiles";
 	}
@@ -136,11 +159,21 @@ public class MovieController {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//영화 상세 페이지
 	@RequestMapping("/Movieing/Movie/MovieDetails.mov")
-	public String movieDetailsTest(@RequestParam  Map map, Model model)throws Exception {
+	public String movieDetailsTest(HttpServletRequest req, @RequestParam  Map map, Model model,@RequestParam String mname, @RequestParam String date)throws Exception {
+		
+		System.out.println("RequestMethod.GET");
+		System.out.println("name : "+mname);
+		System.out.println("date : "+date);
+		
+		String mcode = moviecdGet(mname);
+
+		String mImgSource = (String) movieImgUrl(mname).get("realUrl");
+		
 		//영화상세정보
-		model.addAttribute("movieInfoMap", movieInfoMap("20182669"));//아직 해당영화 코드 가져올 방법이 없으므로 하드코딩
+		model.addAttribute("movieInfoMap", movieInfoMap(mcode));//아직 해당영화 코드 가져올 방법이 없으므로 하드코딩
 		//영화이미지
-		model.addAttribute("movieImgUrl", movieImgUrl("조커"));
+		model.addAttribute("movieImgUrl", mImgSource);
+		System.out.println("movieImgUrl : "+movieImgUrl(mname));
 		return "movie/info/MovieDetails.tiles";
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -162,7 +195,7 @@ public class MovieController {
 
 			Document doc = Jsoup.connect(base_url).get(); // 웹페이지 연결
 			for (int i = 1; i <= 18; i++) {
-				String movieName = doc.select("#content > div.article > div:nth-child(1) > div.lst_wrap > ul > li:nth-child(" + i+ ")> dl > dt > a").html().trim();
+				String movieName = doc.select("#content > div.article > div:nth-child(1) > div.lst_wrap > ul > li:nth-child(" + i+ ")> dl > dt > a").html().trim().replaceAll(" ","");
 				// Element movieName = doc.selectFirst("#content > div.article >
 				// div:nth-child(1) > div.lst_wrap > ul > li:nth-child(1) > dl > dt");
 				// System.out.println("무비갯수 :"+movieName.size());
@@ -182,15 +215,14 @@ public class MovieController {
 	
 	
 	//영화진흥원에서 제목으로 코드 검색하기
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public String moviecdGet(String mname) throws Exception{
+		
+		SeleniumController seleniumController = new SeleniumController();
+		
+		String movieCode = seleniumController.crawl(mname);
+		
+		return movieCode;
+	}
 	
 	//영화진흥위원회에서 영화상세정보를 얻기위한 메소드(영화제목,원제목,제작년도,장르,감독,배우)
 	public HashMap<String,Object> movieInfoMap(String movieCd) throws Exception {
@@ -251,7 +283,7 @@ public class MovieController {
     		//System.out.println("제이슨:"+movieInfoMap);
     		
     		String imgStr = movieInfoMap.get("items").get(0).get("link").toString();
-    		String dateStr = movieInfoMap.get("items").get(0).get("pubDate").toString();
+    		String dateStr = movieInfoMap.get("items").get(0).get("pubDate").toString().trim().replaceAll(" ", "");
     		
     		
     		

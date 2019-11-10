@@ -237,17 +237,17 @@
 			<version>2.3</version>
 		</dependency>
 
-		
+
 		<!-- 지윤 -->
-	<dependency>
+		<dependency>
 
-		<groupId>org.codehaus.jackson</groupId>
+			<groupId>org.codehaus.jackson</groupId>
 
-		<artifactId>jackson-mapper-asl</artifactId>
+			<artifactId>jackson-mapper-asl</artifactId>
 
-		<version>1.9.13</version>
+			<version>1.9.13</version>
 
-	</dependency>
+		</dependency>
 
 
 
@@ -260,8 +260,17 @@
 		</dependency>
 
 
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.141.59</version>
+		</dependency>
 
-</dependencies>
+
+
+
+	</dependencies>
 
 
 	<build>
