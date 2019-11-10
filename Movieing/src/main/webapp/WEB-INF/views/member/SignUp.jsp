@@ -59,14 +59,14 @@
                                            </div>
                                       </div>
                                       <div  class="form-group row">
-                                           <label  for="username" class="col-4  col-form-label">비밀번호*<small id="pass1"  class="text-muted">&nbsp;(비밀번호는 8~12자, !@#$  포함)</small></label>
+                                           <label  for="userpass" class="col-4  col-form-label">비밀번호*<span id="pass1">&nbsp;비밀번호는 8~12자 !@#$ 포함</span></label>
                                            <div  class="col-8">
                                                 <input  id="userpass" name="userpass" placeholder="비밀번호"
                                                      class="form-control here" required="required"  type="password">
                                            </div>
                                       </div>
                                       <div  class="form-group row">
-                                           <label  for="username" class="col-4 col-form-label">비밀번호  확인*<small id="pass2"  class="text-muted">&nbsp;(비밀번호와 일치하지  않습니다.)</small></label>
+                                           <label  for="passcheck" class="col-4 col-form-label">비밀번호  확인*<span id="pass2">&nbsp;비밀번호와 일치하지  않습니다.</span></label>
                                            <div  class="col-8">
                                                 <input  id="passcheck" name="passcheck" placeholder="비밀번호  확인"
                                                      class="form-control here" required="required"  type="password">
@@ -146,6 +146,8 @@ $(function() {
 			
 		console.log('이상하다')
 		console.log($('#userid').attr('name'));
+		$('#pass1').css({'font-size':'.8em','color':'gray'});
+		$('#pass2').css({'font-size':'.8em','color':'gray'});
 		
 		/* var readURL = function(input) {
 			if (input.files && input.files[0]) {
@@ -194,6 +196,42 @@ $(function() {
 
 		});
 		console.log($('#userid').attr('name'))
+		
+		$('#userpass').on('change paste input',function(){
+				console.log($(this).val());
+				var value = $(this).val();
+				if ((value.length >= 8 && value.length <= 12) && 
+						(value.indexOf('!')>-1 || value.indexOf('@')>-1 || value.indexOf('#')>-1 || value.indexOf('$')>-1)){
+					console.log("dka");
+					console.log($('#pass1').html());
+					$('#pass1').css('color', 'green');
+					$('#pass1').text('비밀번호 사용 가능');
+					
+					
+					 
+				}
+				else{
+					$('#pass1').css('color', 'red');
+					$('#pass1').text('비밀번호는 8~12자 !@#$ 포함');
+				}
+									
+			});
+		$('#passcheck').on('change  paste input',function(){
+			
+			if($(this).val()==$('#userpass').val()){
+				$('#pass2').css('color', 'green');
+				$('#pass2').text('비밀번호와 일치합니다.');
+				}
+			else{
+				$('#pass2').css('color', 'red');
+				$('#pass2').text('비밀번호와 일치하지 않습니다.');
+				}
+			
+			
+			});
+		
+		
+		
 	});
 </script>
 
