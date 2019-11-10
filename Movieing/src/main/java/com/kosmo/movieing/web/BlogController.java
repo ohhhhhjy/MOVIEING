@@ -93,9 +93,9 @@ public class BlogController {
 		// 세션아이디
 		String id = "kim";// 임시
 
+		map.put("id", id);
 		List<ReviewDto> reviewList=reviewService.reviewSelectMyList(map);//리스트전체조회
 		model.addAttribute("reviewList",reviewList);
-		map.put("id", id);
 
 		// 피드 글보이기]
 		List<ReviewDto> friendsReviewList = reviewService.selectList(map);// 리스트전체조회
