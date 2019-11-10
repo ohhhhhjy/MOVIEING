@@ -7,14 +7,20 @@
 -->
 <!-- include libraries(jQuery, bootstrap) -->
 
-<!-- include summernote css/js-->
-<link href="<c:url value='/resources/css/summernote.css'/>"
-	rel="stylesheet">
-<script src="<c:url value='/resources/js/summernote.js'/>"></script>
-<script src="<c:url value='/resources/js/summernote-ko-KR.js'/>"></script>
+<!------ Include the above in your HEAD tag ---------->
 
+<style>
+/*별점*/
+	$(document).ready(function() {
+		$('.starRev span').click(function() {
+			$(this).parent().children('span').removeClass('on');
+			$(this).addClass('on').prevAll('span').addClass('on');
+			return false;
+		});
 
+	});
 
+</style>
 
 <script>
 	function validateForm() {
@@ -75,58 +81,51 @@
 
 <style>
 /* 별점 */
+
+
 .rating {
-	float: left;
+  display: flex;
+  justify-content: left;
+  overflow: hidden;
+  flex-direction: row-reverse;
+
 }
 
-/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
-      follow these rules. Every browser that supports :checked also supports :not(), so
-      it doesn’t make the test unnecessarily selective */
-.rating:not (:checked ) >input {
-	position: absolute;
-	top: -9999px;
-	clip: rect(0, 0, 0, 0);
+.rating-0 {
+  filter: grayscale(100%);
 }
 
-.rating:not (:checked ) >label {
-	float: right;
-	width: 1em;
-	/* padding:0 .1em; */
-	overflow: hidden;
-	white-space: nowrap;
-	cursor: pointer;
-	font-size: 300%;
-	/* line-height:1.2; */
-	color: #ddd;
+.rating > input {
+  display: none;
 }
 
-.rating:not (:checked ) >label:before {
-	content: '★ ';
+.rating > label {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  margin-top: auto;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23e3e3e3' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 76%;
+  transition: .3s;
 }
 
-.rating>input:checked ~ label {
-	color: #f7e411;
+.rating > input:checked ~ label,
+.rating > input:checked ~ label ~ label {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23fcd93a' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
 }
 
-.rating:not (:checked ) >label:hover, .rating:not (:checked ) >label:hover 
-	 ~ label {
-	color: #f7e411;
-}
 
-.rating>input:checked+label:hover, .rating>input:checked+label:hover ~
-	label, .rating>input:checked ~ label:hover, .rating>input:checked ~
-	label:hover ~ label, .rating>label:hover ~ input:checked ~ label {
-	color: #f7e411;
-}
-
-.rating>label:active {
-	position: relative;
-	top: 2px;
-	left: 2px;
+.rating > input:not(:checked) ~ label:hover,
+.rating > input:not(:checked) ~ label:hover ~ label {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23d8b11e' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
 }
 
 /*모달검색*/
 .active-pink-2
+
+
 
 
 
@@ -172,7 +171,13 @@
 
 
 
+
+
 input
+
+
+
+
 
 
 
@@ -266,7 +271,15 @@ text
 
 
 
+
+
+
+
 :focus
+
+
+
+
 
 
 
@@ -334,7 +347,11 @@ text
 
 
 
+
+
  
+
+
 
 
 
@@ -383,7 +400,11 @@ readonly
 
 
 
+
+
  
+
+
 
 
 
@@ -453,6 +474,10 @@ border-bottom
 
 
 
+
+
+
+
 :
 
 
@@ -476,7 +501,11 @@ border-bottom
 
 
 
+
+
  
+
+
 
 
 
@@ -523,7 +552,11 @@ px
 
 
 
+
+
  
+
+
 
 
 
@@ -569,6 +602,8 @@ solid
 
 
 
+
+
  
 
 
@@ -592,7 +627,13 @@ solid
 
 
 
+
+
 #f48fb1
+
+
+
+
 
 
 
@@ -683,6 +724,10 @@ box-shadow
 
 
 
+
+
+
+
 :
 
 
@@ -706,7 +751,11 @@ box-shadow
 
 
 
+
+
  
+
+
 
 
 
@@ -754,7 +803,11 @@ px
 
 
 
+
+
  
+
+
 
 
 
@@ -780,6 +833,10 @@ px
 0
 0
 #f48fb1
+
+
+
+
 
 
 
@@ -854,6 +911,8 @@ px
 
 
 
+
+
  
 
 
@@ -877,7 +936,13 @@ px
 
 
 
+
+
 input
+
+
+
+
 
 
 
@@ -971,7 +1036,15 @@ text
 
 
 
+
+
+
+
 :focus
+
+
+
+
 
 
 
@@ -1039,7 +1112,11 @@ text
 
 
 
+
+
  
+
+
 
 
 
@@ -1088,7 +1165,11 @@ readonly
 
 
 
+
+
  
+
+
 
 
 
@@ -1158,6 +1239,10 @@ border-bottom
 
 
 
+
+
+
+
 :
 
 
@@ -1181,7 +1266,11 @@ border-bottom
 
 
 
+
+
  
+
+
 
 
 
@@ -1228,7 +1317,11 @@ px
 
 
 
+
+
  
+
+
 
 
 
@@ -1274,6 +1367,8 @@ solid
 
 
 
+
+
  
 
 
@@ -1297,7 +1392,13 @@ solid
 
 
 
+
+
 #ce93d8
+
+
+
+
 
 
 
@@ -1388,6 +1489,10 @@ box-shadow
 
 
 
+
+
+
+
 :
 
 
@@ -1411,7 +1516,11 @@ box-shadow
 
 
 
+
+
  
+
+
 
 
 
@@ -1459,7 +1568,11 @@ px
 
 
 
+
+
  
+
+
 
 
 
@@ -1485,6 +1598,10 @@ px
 0
 0
 #ce93d8
+
+
+
+
 
 
 
@@ -1559,6 +1676,8 @@ px
 
 
 
+
+
  
 
 
@@ -1582,7 +1701,13 @@ px
 
 
 
+
+
 input
+
+
+
+
 
 
 
@@ -1676,7 +1801,15 @@ text
 
 
 
+
+
+
+
 :focus
+
+
+
+
 
 
 
@@ -1744,7 +1877,11 @@ text
 
 
 
+
+
  
+
+
 
 
 
@@ -1793,7 +1930,11 @@ readonly
 
 
 
+
+
  
+
+
 
 
 
@@ -1863,6 +2004,10 @@ border-bottom
 
 
 
+
+
+
+
 :
 
 
@@ -1886,7 +2031,11 @@ border-bottom
 
 
 
+
+
  
+
+
 
 
 
@@ -1933,7 +2082,11 @@ px
 
 
 
+
+
  
+
+
 
 
 
@@ -1979,6 +2132,8 @@ solid
 
 
 
+
+
  
 
 
@@ -2002,7 +2157,13 @@ solid
 
 
 
+
+
 #4dd0e1
+
+
+
+
 
 
 
@@ -2093,6 +2254,10 @@ box-shadow
 
 
 
+
+
+
+
 :
 
 
@@ -2116,7 +2281,11 @@ box-shadow
 
 
 
+
+
  
+
+
 
 
 
@@ -2164,7 +2333,11 @@ px
 
 
 
+
+
  
+
+
 
 
 
@@ -2234,6 +2407,10 @@ px
 
 
 
+
+
+
+
 ;
 }
 .active-cyan input[type=text] {
@@ -2253,11 +2430,11 @@ px
 	color: #f48fb1;
 }
 </style>
-=======
+
 <!-- css파일 -->
 <link href="<c:url value='/resources/css/wirtepage.css'/>"
 	rel="stylesheet" type="text/css">
->>>>>>> branch 'master' of https://github.com/ohhhhhjy/MOVIEING.git
+
 
 
 
@@ -2555,27 +2732,27 @@ px
 			<!-- Modal: modalCart모달 끝 -->
 
 
+
 			<!-- Email -->
+			
 			<h5>평점</h5>
-			<div class="mb-4">
-				<div class="row">
-					<!-- 별점 -->
-					<div class="rating px-3">
-						<input type="radio" id="star5" name="rating" value="5" /><label
-							for="star5" title="Meh">5 stars</label> <input type="radio"
-							id="star4" name="rating" value="4" /><label for="star4"
-							title="Kinda bad">4 stars</label> <input type="radio" id="star3"
-							name="rating" value="3" /><label for="star3" title="Kinda bad">3
-							stars</label> <input type="radio" id="star2" name="rating" value="2" /><label
-							for="star2" title="Sucks big tim">2 stars</label> <input
-							type="radio" id="star1" name="rating" value="1" /><label
-							for="star1" title="Sucks big time">1 star</label>
+			<div class="container">
+				<div class="feedback" >
+					<div class="rating col-md-3" align="left" style="margin-left: -70px">
+						<input type="radio" name="rating" id="rating-5"> <label
+							for="rating-5"></label> <input type="radio" name="rating"
+							id="rating-4"> <label for="rating-4"></label> <input
+							type="radio" name="rating" id="rating-3"> <label
+							for="rating-3"></label> <input type="radio" name="rating"
+							id="rating-2"> <label for="rating-2"></label> <input
+							type="radio" name="rating" id="rating-1"> <label
+							for="rating-1"></label>
+	
 					</div>
 				</div>
 			</div>
 
-
-
+		<div style="padding-bottom: 10px"></div>
 
 			<!-- Subject -->
 			<h5>공개여부</h5>

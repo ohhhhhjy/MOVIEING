@@ -25,3 +25,4 @@
 <div id="google_id_login" style="text-align:center"><a href="${google_url}"><img width="230" src="${pageContext.request.contextPath}/resources/img/btn_google_signin_dark_normal_web@2x.png"/></a></div>
 </body>
 </html>
+

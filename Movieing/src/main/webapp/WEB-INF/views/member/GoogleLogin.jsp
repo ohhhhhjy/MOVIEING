@@ -23,7 +23,7 @@ h3 {
 </head>
 <body>
 	<div style="margin-top: 300px;">
-		<p>구글로그인</p>
+		
 	</div>
 	<div
 		style="background-color: #15a181; width: 100%; height: 50px; text-align: center; color: white;">
@@ -34,7 +34,7 @@ h3 {
 	<!-- 구글 로그인 화면에서 ID, PW를 올바르게 입력하면 oauth2callback 메소드 실행 요청-->
 	<div id="google_id_login" style="text-align: center">
 		<a href="${google_url}"><img width="230"
-			src="${pageContext.request.contextPath}/resources/img/user1.png" />
+			src="${pageContext.request.contextPath}/resources/img/login/btn_google_signin_light_normal_web.png" />
 		</a>
 	</div>
 </body>

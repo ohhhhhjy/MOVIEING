@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
 <link
@@ -145,10 +146,10 @@ a {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
-	-webkit-line-clamp: 9; /* 라인수 */
+	-webkit-line-clamp: 6; /* 라인수 */
 	-webkit-box-orient: vertical;
 	word-wrap: break-word;
-	line-height: 1.2em;
+	line-height: 1.8em;
 	height: 10.7em;
 }
 </style>
@@ -178,8 +179,10 @@ a {
 
 
 	</div>
+	<div class="container">
 	<!-- 중간줄 -->
 	<hr class="my-3">
+	</div>
 </div>
 
 
@@ -194,29 +197,32 @@ a {
 
 			<div class="col-md-9" style="background-color: white">
 
+
 				<!--- \\\\\\\Post-->
-				<div class="card gedf-card">
-					<div class="card-header">
-						<div class="d-flex justify-content-between align-items-center">
+				<c:forEach items="${friendsReviewList }" var="item">
+					<div class="card gedf-card">
+						<div class="card-header">
 							<div class="d-flex justify-content-between align-items-center">
-								<div class="mr-2">
-									<img class="rounded-circle" width="45"
-										src="https://picsum.photos/50/50" alt="">
-								</div>
-								<div class="ml-2" style="padding-right: 570px">
-									<div class="h5 m-0" style="color: black;">@_mongjiee</div>
-									<div class="h7 text-muted">안양 CGV</div>
-								</div>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="mr-2">
+										<img class="rounded-circle" width="45"
+											src="https://picsum.photos/50/50" alt="">
+									</div>
+
+									<div class="ml-2" style="padding-right: 650px">
+										<div class="h5 m-0" style="color: black;">${item.userId }</div>
+									</div>
 
 
-								<!-- 모달 띄우기 -->
-								<div style="text-align: right;">
-									<button class="btn btn-link dropdown-toggle" type="button"
-										id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
-										aria-expanded="false" data-target="#myModal"
-										style="text-align: right;">
-										<i class="fa fa-ellipsis-h"></i>
-									</button>
+									<!-- 모달 띄우기 -->
+									<div>
+										<button class="btn btn-link dropdown-toggle" type="button"
+											id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
+											aria-expanded="false" data-target="#myModal"
+											style="text-align: right;">
+											<i class="fa fa-ellipsis-h"></i>
+										</button>
+									</div>
 									<div class="modal fade" id="myModal" tabindex="-1"
 										role="dialog" aria-labelledby="myModalLabel">
 										<div class="modal-dialog" role="document">
@@ -231,7 +237,8 @@ a {
 													style="border-bottom: thin; width: 500px; height: 60px; color: black;">게시물로
 													이동</button>
 												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: black;">퍼가기</button>
+													style="border-bottom: thin; width: 500px; height: 60px; color: black;">유저
+													블로그로 이동</button>
 												<button type="button" class="btn btn-outline-secondary"
 													style="border-bottom: thin; width: 500px; height: 60px; color: black;"
 													data-dismiss="modal">취소</button>
@@ -240,406 +247,119 @@ a {
 										</div>
 									</div>
 									<!-- 모달 끝 -->
-								</div>
-							</div>
 
+								</div>
+
+
+							</div>
 
 						</div>
-
-					</div>
-					<div class="card-body">
-						<div class="row">
-
-							<div class="col-sm-3" align="center" style="padding-left: 20px">
-								<img class="effect"
-									src="<c:url value="/resources/img/friends/pic1.jpg"/>"
-									alt="Image">
-							</div>
-							<div class="col-sm-9">
-
-								<div class="row" style="height: 30px">
-									<h4 class="card-title"
-										style="color: black; font-weight: bold; padding-left: 20px">조커(Joker)</h4>
-
-									<h4 style="padding-left: 350px">
-										<span class="badge badge-pill badge-danger"
-											style="text-align: center;">★4.5</span>
-									</h4>
-
-								</div>
-
-
-
-								<!-- 중간줄 -->
-								<hr class="my-3">
-
-
-
-								<p class="card-text" style="color: black;">조커를 봤다. 너무 재밌었다.
-									너무 재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다 더하기 재밌었고, 너무 재밌어서 너무 재밌을
-									뻔했다. 너무 재밌는 영화였다.
-									조커를 봤다. 너무 재밌었다.
-									너무 재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다 더하기 재밌었고, 너무 재밌어서 너무 재밌을
-									뻔했다. 너무 재밌는 영화였다.</p>
-								<h6
-									style="text-align: center; text-decoration: underline; padding-bottom: 10px">
-									<a href="">+더보기</a>
-								</h6>
-
-								<div style="padding-left: 30px" class="row">
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#조커</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#재밌음</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#요즘추천영화</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#스릴러</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#어두운영화</span>
-									</h6>
-									<h6>
-										<span class="badge badge-secondary">#호아킨피닉스</span>
-									</h6>
-								</div>
-
-
-
-							</div>
-							<!-- sm-9 -->
-
-						</div>
-
-						<div class="text-muted h7 mb-2" style="padding-top: 20px">
-							<i class="fa fa-clock-o"
-								style="padding-bottom: 10px; padding-left: 5px"></i>10분 전
+						<div class="card-body">
 							<div class="row">
 
-								<h6 style="padding-left: 20px">좋아요 788개</h6>
-								<h6 style="padding-left: 20px">댓글 599개</h6>
-							</div>
-
-						</div>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="card-link"><i class="fa fa-gittip"></i> 좋아요</a>
-						<a href="#" class="card-link"><i class="fa fa-comment"></i> 댓글</a>
-						<div class="input-group" style="padding-top: 10px">
-							<input type="text" class="form-control col-sm-12"
-								placeholder="댓글 달기.." aria-describedby="basic-addon2">
-							<button type="button" class="btn btn-secondary disabled"
-								style="padding-left: 10px">게시</button>
-
-						</div>
-
-					</div>
-				</div>
-				<!-- Post /////-->
-				<!-- 게시물 간격 주기 -->
-				<div style="padding-bottom: 50px"></div>
-
-				<!--- \\\\\\\Post-->
-				<div class="card gedf-card">
-					<div class="card-header">
-						<div class="d-flex justify-content-between align-items-center">
-							<div class="d-flex justify-content-between align-items-center">
-								<div class="mr-2">
-									<img class="rounded-circle" width="45"
-										src="https://picsum.photos/50/50" alt="">
+								<div class="col-sm-3" align="center" style="padding-left: 20px">
+									<img class="effect"
+										src="<c:url value="/resources/img/friends/pic1.jpg"/>"
+										alt="Image">
 								</div>
-								<div class="ml-2" style="padding-right: 570px">
-									<div class="h5 m-0" style="color: black;">@_mongjiee</div>
-									<div class="h7 text-muted">안양 CGV</div>
-								</div>
+								<div class="col-sm-9">
 
+									<div class="row" style="height: 30px">
+										<h4 class="card-title"
+											style="color: black; font-weight: bold; padding-left: 20px">${item.movieTitle }</h4>
+										<h4 style="padding-left: 350px">
+											<span class="badge badge-pill badge-danger"
+												style="text-align: center;">★${item.grade}</span>
 
-								<!-- 모달 띄우기 -->
-								<div style="text-align: right;">
-									<button class="btn btn-link dropdown-toggle" type="button"
-										id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
-										aria-expanded="false" data-target="#myModal"
-										style="text-align: right;">
-										<i class="fa fa-ellipsis-h"></i>
-									</button>
-									<div class="modal fade" id="myModal" tabindex="-1"
-										role="dialog" aria-labelledby="myModalLabel">
-										<div class="modal-dialog" role="document">
-											<div class="modal-content">
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: red">부적절한
-													콘텐츠로 신고</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: red">팔로우
-													취소</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: black;">게시물로
-													이동</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: black;">퍼가기</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: black;"
-													data-dismiss="modal">취소</button>
+										</h4>
 
-											</div>
-										</div>
 									</div>
-									<!-- 모달 끝 -->
-								</div>
-							</div>
-
-
-						</div>
-
-					</div>
-					<div class="card-body">
-						<div class="row">
-
-							<div class="col-sm-3" align="center" style="padding-left: 20px">
-								<img class="effect"
-									src="<c:url value="/resources/img/friends/pic1.jpg"/>"
-									alt="Image">
-							</div>
-							<div class="col-sm-9">
-
-								<div class="row" style="height: 30px">
-									<h4 class="card-title"
-										style="color: black; font-weight: bold; padding-left: 20px">조커(Joker)</h4>
-
-									<h4 style="padding-left: 350px">
-										<span class="badge badge-pill badge-danger"
-											style="text-align: center;">★4.5</span>
-									</h4>
-
-								</div>
 
 
 
-								<!-- 중간줄 -->
-								<hr class="my-3">
+									<!-- 중간줄 -->
+									<hr class="my-3">
+
+									<p class="card-text" style="color: black;">
 
 
-								<p class="card-text" style="color: black;">조커를 봤다. 너무 재밌었다.
-									너무 재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다 더하기 재밌었고, 너무 재밌어서 너무 재밌을
-									뻔했다. 너무 재밌는 영화였다.</p>
-								<h6
-									style="text-align: center; text-decoration: underline; padding-bottom: 10px">
-									<a href="">+더보기</a>
-								</h6>
+										<c:choose>
+											<c:when test="${fn:length(item.reviewContent) > 278}">
+												<c:out value="${item.reviewContent }"></c:out>
+												<h6
+													style="text-align: center; text-decoration: underline; padding-bottom: 10px">
+													<a href="">+더보기</a>
+												</h6>
+											</c:when>
+											<c:otherwise>
 
-								<div style="padding-left: 30px" class="row">
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#조커</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#재밌음</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#요즘추천영화</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#스릴러</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#어두운영화</span>
-									</h6>
-									<h6>
-										<span class="badge badge-secondary">#호아킨피닉스</span>
-									</h6>
-								</div>
+												<c:out value="${item.reviewContent }"></c:out>
 
+											</c:otherwise>
+										</c:choose>
 
+									</p>
 
-							</div>
-							<!-- sm-9 -->
-
-						</div>
-
-						<div class="text-muted h7 mb-2" style="padding-top: 20px">
-							<i class="fa fa-clock-o"
-								style="padding-bottom: 10px; padding-left: 5px"></i>10분 전
-							<div class="row">
-
-								<h6 style="padding-left: 20px">좋아요 788개</h6>
-								<h6 style="padding-left: 20px">댓글 599개</h6>
-							</div>
-
-						</div>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="card-link"><i class="fa fa-gittip"></i> 좋아요</a>
-						<a href="#" class="card-link"><i class="fa fa-comment"></i> 댓글</a>
-						<div class="input-group" style="padding-top: 10px">
-							<input type="text" class="form-control col-sm-12"
-								placeholder="댓글 달기.." aria-describedby="basic-addon2">
-							<button type="button" class="btn btn-secondary disabled"
-								style="padding-left: 10px">게시</button>
-
-						</div>
-
-					</div>
-				</div>
-				<!-- Post /////-->
-				<!-- 게시물 간격 주기 -->
-				<div style="padding-bottom: 50px"></div>
-
-
-				<!--- \\\\\\\Post-->
-				<div class="card gedf-card">
-					<div class="card-header">
-						<div class="d-flex justify-content-between align-items-center">
-							<div class="d-flex justify-content-between align-items-center">
-								<div class="mr-2">
-									<img class="rounded-circle" width="45"
-										src="https://picsum.photos/50/50" alt="">
-								</div>
-								<div class="ml-2" style="padding-right: 570px">
-									<div class="h5 m-0" style="color: black;">@_mongjiee</div>
-									<div class="h7 text-muted">안양 CGV</div>
-								</div>
-
-
-								<!-- 모달 띄우기 -->
-								<div style="text-align: right;">
-									<button class="btn btn-link dropdown-toggle" type="button"
-										id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
-										aria-expanded="false" data-target="#myModal"
-										style="text-align: right;">
-										<i class="fa fa-ellipsis-h"></i>
-									</button>
-									<div class="modal fade" id="myModal" tabindex="-1"
-										role="dialog" aria-labelledby="myModalLabel">
-										<div class="modal-dialog" role="document">
-											<div class="modal-content">
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: red">부적절한
-													콘텐츠로 신고</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: red">팔로우
-													취소</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: black;">게시물로
-													이동</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: black;">퍼가기</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: black;"
-													data-dismiss="modal">취소</button>
-
-											</div>
-										</div>
+									<div style="padding-left: 30px" class="row">
+										<h6 style="padding-right: 10px">
+											<span class="badge badge-secondary">#조커</span>
+										</h6>
+										<h6 style="padding-right: 10px">
+											<span class="badge badge-secondary">#재밌음</span>
+										</h6>
+										<h6 style="padding-right: 10px">
+											<span class="badge badge-secondary">#요즘추천영화</span>
+										</h6>
+										<h6 style="padding-right: 10px">
+											<span class="badge badge-secondary">#스릴러</span>
+										</h6>
+										<h6 style="padding-right: 10px">
+											<span class="badge badge-secondary">#어두운영화</span>
+										</h6>
+										<h6>
+											<span class="badge badge-secondary">#호아킨피닉스</span>
+										</h6>
 									</div>
-									<!-- 모달 끝 -->
+
+
+
 								</div>
+								<!-- sm-9 -->
+
 							</div>
 
+							<div class="text-muted h7 mb-2" style="padding-top: 20px">
+								<i class="fa fa-clock-o"
+									style="padding-bottom: 10px; padding-left: 5px"></i>${item.reviewPostdate }
+								<div class="row">
 
+									<h6 style="padding-left: 20px">좋아요 222개</h6>
+									<h6 style="padding-left: 20px">댓글 599개</h6>
+								</div>
+
+							</div>
 						</div>
+						<div class="card-footer">
+							<a href="#" class="card-link"><i class="fa fa-gittip"></i>
+								좋아요</a> <a href="#" class="card-link"><i class="fa fa-comment"></i>
+								댓글</a>
+							<div class="input-group" style="padding-top: 10px">
+								<input type="text" class="form-control col-sm-12"
+									placeholder="댓글 달기.." aria-describedby="basic-addon2">
+								<button type="button" class="btn btn-secondary disabled"
+									style="padding-left: 10px">게시</button>
 
-					</div>
-					<div class="card-body">
-						<div class="row">
-
-							<div class="col-sm-3" align="center" style="padding-left: 20px">
-								<img class="effect"
-									src="<c:url value="/resources/img/friends/pic1.jpg"/>"
-									alt="Image">
-							</div>
-							<div class="col-sm-9">
-
-								<div class="row" style="height: 30px">
-									<h4 class="card-title"
-										style="color: black; font-weight: bold; padding-left: 20px">조커(Joker)</h4>
-
-									<h4 style="padding-left: 350px">
-										<span class="badge badge-pill badge-danger"
-											style="text-align: center;">★4.5</span>
-									</h4>
-
-								</div>
-
-
-
-								<!-- 중간줄 -->
-								<hr class="my-3">
-
-
-								<p class="card-text" style="color: black;">조커를 봤다. 너무 재밌었다.
-									너무 재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다 더하기 재밌었고, 너무 재밌어서 너무 재밌을
-									뻔했다. 너무 재밌는 영화였다.</p>
-								<h6
-									style="text-align: center; text-decoration: underline; padding-bottom: 10px">
-									<a href="">+더보기</a>
-								</h6>
-
-								<div style="padding-left: 30px" class="row">
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#조커</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#재밌음</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#요즘추천영화</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#스릴러</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#어두운영화</span>
-									</h6>
-									<h6>
-										<span class="badge badge-secondary">#호아킨피닉스</span>
-									</h6>
-								</div>
-
-
-
-							</div>
-							<!-- sm-9 -->
-
-						</div>
-
-						<div class="text-muted h7 mb-2" style="padding-top: 20px">
-							<i class="fa fa-clock-o"
-								style="padding-bottom: 10px; padding-left: 5px"></i>10분 전
-							<div class="row">
-
-								<h6 style="padding-left: 20px">좋아요 788개</h6>
-								<h6 style="padding-left: 20px">댓글 599개</h6>
 							</div>
 
 						</div>
 					</div>
-					<div class="card-footer">
-						<a href="#" class="card-link"><i class="fa fa-gittip"></i> 좋아요</a>
-						<a href="#" class="card-link"><i class="fa fa-comment"></i> 댓글</a>
-						<div class="input-group" style="padding-top: 10px">
-							<input type="text" class="form-control col-sm-12"
-								placeholder="댓글 달기.." aria-describedby="basic-addon2">
-							<button type="button" class="btn btn-secondary disabled"
-								style="padding-left: 10px">게시</button>
-
-						</div>
-
-					</div>
-				</div>
+					<!-- 게시물 간격 주기 -->
+					<div style="padding-bottom: 50px"></div>
+				</c:forEach>
 				<!-- Post /////-->
+
+
+			
 			</div>
 
 
@@ -651,7 +371,7 @@ a {
 				<!-- 마이 프로필보이기 -->
 
 
-
+			
 				<div class="row" style="padding-bottom: 50px">
 					<h5></h5>
 
@@ -659,9 +379,11 @@ a {
 						<img class="radiusImg" alt="프사진"
 							src="<c:url value='/resources/img/friends/oubin.png'/>" />
 					</div>
-					<div style="padding-right: 15px">
-						<span class="actorSpan" style="font-size: 1.4em; color: black;">Road_dong</span>
-						<h6 class="actorSpan" style="font-size: 0.8em; color: black;">우빈이</h6>
+					<div style="padding-right: 60px">
+						
+						<span class="actorSpan" style="font-size: 1.4em; color: black;font-weight: bold;">${friendsSelf.userId }</span>
+						<h6 class="actorSpan" style="font-size: 0.8em; color: gray;font-weight: bold;">${friendsSelf.userName }</h6>
+						
 
 					</div>
 
@@ -683,7 +405,7 @@ a {
 
 
 				<div style="padding-bottom: 50px">
-					<select class="form-control" style="width: 130px">
+					<select class="form-control" style="text-align: center;">
 						<option>시간 순</option>
 						<option>좋아요 순</option>
 						<option>댓글 순</option>
@@ -696,9 +418,9 @@ a {
 				<div class="card">
 
 					<div class="card-body">
-						<div class="h5">@Road_dong</div>
-						<div class="h7 text-muted">우빈이</div>
-						<div class="h7">스릴러를 좋아하는 우빈이라고 합니다</div>
+						<div class="h5">@${friendsSelf.userId }</div>
+						<div class="h7 text-muted">${friendsSelf.userName }</div>
+						<div class="h7">${friendsSelf.userSelf }</div>
 					</div>
 					<ul class="list-group list-group-flush">
 						<li class="list-group-item">

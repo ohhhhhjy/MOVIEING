@@ -243,7 +243,7 @@ padding-left: 50px;padding-right: 30px;
 						<div class="col-sm-9">
 							<h4 class="card-title">토이스토리4</h4>
 							<span class="badge badge-pill badge-danger">★4.5</span>
-							<p class="card-text">토이스토리를 봤다. 너무 재밌었다. 너무 재밌었고, 너무 재밌어서 너무
+							<p class="card-text" style="height: 100px">토이스토리를 봤다. 너무 재밌었다. 너무 재밌었고, 너무 재밌어서 너무
 								재밌을 뻔했다. 너무 재밌는 영화였다.</p>
 							<a href="#"><span
 								style="font-weight: bold; color: #db147b; font-size: 0.9em"><i

@@ -13,11 +13,16 @@
 	
 	<typeAliases>
 		<typeAlias alias="ReviewDto" type="com.kosmo.movieing.service.ReviewDto"/>
+		<typeAlias alias="UserDto" type="com.kosmo.movieing.service.UserDto"/>
+		<typeAlias alias="EvaluationDto" type="com.kosmo.movieing.service.EvaluationDto"/>
 	</typeAliases>
 	
 	
 	<!-- 매퍼파일(sql쿼리 결과와 자바빚 매핑) 정보 설정 -->
 	<mappers>
 		<mapper resource="mybatis/Review.xml" />
+		<mapper resource="mybatis/User.xml" />
+		<mapper resource="mybatis/EvalueWish.xml" />
 	</mappers>
+	
 </configuration>
