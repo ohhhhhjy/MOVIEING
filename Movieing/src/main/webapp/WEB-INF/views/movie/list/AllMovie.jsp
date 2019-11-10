@@ -122,16 +122,28 @@
 					href="<c:url value='/Movieing/Movie/Genre.mov'/>">평균별점 순</a>
 			</div>
 			
-			
+			 <!-- 
 				<div class="row" style="margin-top: 20px">
-					<c:forEach items="${movieImgUrl}" var="item">
+					<c:forEach items="${movieImgDate}" var="map">
 						<div class="col-md-2 col-sm-6 movie-poster" style="margin-bottom: 5px">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>"> 
-								<img class="mvimg" src="${item}" alt="" />
-							</a>
+							<c:forEach items="${map}" var="list" >
+								<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?${item[mImgUrl][i]}&${item[mPubDate][i]}'/>">
+								 
+									<img class="mvimg" src="${list.mImgUrl}" alt="" />
+								</a>
+								</c:forEach>
+							
 						</div>	
 					</c:forEach>
-							
+			  -->
+			
+					<c:forEach items="${movieImgDate.mImgUrl}" var="item" varStatus="status" >								
+							<p>영화 제목 : <input type="text" name="name" value="${item}"></p>
+						</c:forEach>
+					<c:forEach items="${movieImgDate.mPubDate}" var="item" varStatus="status" >								
+							<p>영화 개봉년도 : <input type="text" name="name" value="${item}"></p>
+						</c:forEach>
+						
 				</div>
 			
 			
