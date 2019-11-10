@@ -16,7 +16,6 @@ public class EvaluationDto {
 	//이미지url
 	private String imgUrl;
 
-
 	public String getImgUrl() {
 		return imgUrl;
 	}
