@@ -14,6 +14,11 @@ public interface ReviewService {
 	List<ReviewDto> reviewSelectLikeList(Map map);
 
 
+	//리뷰안슨 영화 목록
+	List<ReviewDto> selectNotReviewList(Map map);
+
+
+
 	//전체 레코드 수
 	int getTotalCount(Map map);
 	//상세보기 용
@@ -26,7 +31,11 @@ public interface ReviewService {
 	List<ReviewDto> selectMyPageList(Map map);
 
 	//입력/수정/삭제
+
 	int insert(Map map);
+	//글쓰기 목록 추가]
+	int insertReview(Map map);
+
 	int update(Map map);
 	int delete(Map map);
 

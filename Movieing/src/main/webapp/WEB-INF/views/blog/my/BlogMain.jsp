@@ -239,6 +239,10 @@ padding-left: 50px;padding-right: 30px;
 					토이스토리4에 리뷰를 남겼어요!&nbsp;&nbsp;<span
 						style="color: #a8a5a5; font-size: 0.3em">1일 전</span>
 				</div>
+				
+				<!-- - 
+				<c:forEach items="${insertReview }" var="item">
+				-->
 				<div class="card-body">
 					<div class="row">
 						<div class="col-sm-3" align="center">
@@ -246,10 +250,9 @@ padding-left: 50px;padding-right: 30px;
 								src="../../resources/img/movie/toystoryMain.jpg" alt="포스터" /></a>
 						</div>
 						<div class="col-sm-9">
-							<h4 class="card-title">토이스토리4</h4>
-							<span class="badge badge-pill badge-danger">★4.5</span>
-							<p class="card-text" style="height: 100px">토이스토리를 봤다. 너무 재밌었다. 너무 재밌었고, 너무 재밌어서 너무
-								재밌을 뻔했다. 너무 재밌는 영화였다.</p>
+							<h4 class="card-title">영화</h4>
+							<span class="badge badge-pill badge-danger">★별점</span>
+							<p class="card-text" style="height: 100px">내용</p>
 							<a href="#"><span
 								style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
 									class="far fa-thumbs-up"></i> 25 </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
@@ -258,6 +261,9 @@ padding-left: 50px;padding-right: 30px;
 						</div>
 					</div>
 				</div>
+				<!-- 
+				</c:forEach>
+				-->
 			</div>
 		</div>
 		<!-- 왼쪽 마이피드끝-->

@@ -84,4 +84,16 @@ public class ReviewServiceImpl implements ReviewService{
 		return dao.selectMyPageList(map);
 	}
 
+	@Override
+	public List<ReviewDto> selectNotReviewList(Map map) {
+		return dao.selectNotReviewList(map);
+	}
+
+	//리뷰 insert
+	@Override
+	public int insertReview(Map map) {
+		return dao.insertReview(map);
+	}
+
+
 }

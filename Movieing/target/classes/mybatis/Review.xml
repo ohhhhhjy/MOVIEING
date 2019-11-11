@@ -67,6 +67,22 @@
 		where USER_ID=#{id}
 	</select>
 	
+	<!-- 리뷰 안쓴 -->
+	<select id="selectNotReviewList" parameterType="java.util.Map" resultType="ReviewDto">
+
+	   select m.MOVIE_TITLE,m.movie_genre,m.MOVIE_YEAR,m.MOVIE_COUNTRY  from MOVIE m
+        where MOVIE_NO in
+        (select e.MOVIE_NO from EVALUATION e,USER_TABLE u
+        where e.MOVIE_NO not in (select r.MOVIE_NO from REVIEW r)
+        and u.USER_ID=#{id})
+   
+	</select>
+	
+	<!-- 리뷰 값 넣기 
+	<insert id="insertReviewList" parameterType="java.util.Map">
+		insert into REVIEW 
+		values (#{REVIEW_NO},#{id},#{movieNo},#{REVIEW_CONTENT },#{REVIEW_POSTDATE },#{PUBLIC_PRIVATE })
+	</insert>-->
 	
 
 
