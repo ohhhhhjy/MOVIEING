@@ -11,9 +11,19 @@
 
 <!------ Include the above in your HEAD tag ---------->
 
-<style>
 
-/* 별점 */
+<link
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet"
+	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+	crossorigin="anonymous">
+<style>
+.rating-header {
+	margin-top: -10px;
+	margin-bottom: 10px;
+}
+
+/* 별점 
 .rating {
 	display: flex;
 	justify-content: left;
@@ -52,9 +62,13 @@
 	background-image:
 		url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23d8b11e' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
 }
-
+*/
 /*모달검색*/
 .active-pink-2
+
+
+
+
 
 
 
@@ -130,7 +144,19 @@
 
 
 
+
+
+
+
 input
+
+
+
+
+
+
+
+
 
 
 
@@ -284,7 +310,23 @@ text
 
 
 
+
+
+
+
+
+
+
+
 :focus
+
+
+
+
+
+
+
+
 
 
 
@@ -397,7 +439,15 @@ text
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -476,7 +526,15 @@ readonly
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -591,6 +649,14 @@ border-bottom
 
 
 
+
+
+
+
+
+
+
+
 :
 
 
@@ -629,7 +695,15 @@ border-bottom
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -706,7 +780,15 @@ px
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -782,6 +864,10 @@ solid
 
 
 
+
+
+
+
  
 
 
@@ -820,7 +906,19 @@ solid
 
 
 
+
+
+
+
 #f48fb1
+
+
+
+
+
+
+
+
 
 
 
@@ -971,6 +1069,14 @@ box-shadow
 
 
 
+
+
+
+
+
+
+
+
 :
 
 
@@ -1009,7 +1115,15 @@ box-shadow
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -1087,7 +1201,15 @@ px
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -1128,6 +1250,14 @@ px
 0
 0
 #f48fb1
+
+
+
+
+
+
+
+
 
 
 
@@ -1247,6 +1377,10 @@ px
 
 
 
+
+
+
+
  
 
 
@@ -1285,7 +1419,19 @@ px
 
 
 
+
+
+
+
 input
+
+
+
+
+
+
+
+
 
 
 
@@ -1439,7 +1585,23 @@ text
 
 
 
+
+
+
+
+
+
+
+
 :focus
+
+
+
+
+
+
+
+
 
 
 
@@ -1552,7 +1714,15 @@ text
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -1631,7 +1801,15 @@ readonly
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -1746,6 +1924,14 @@ border-bottom
 
 
 
+
+
+
+
+
+
+
+
 :
 
 
@@ -1784,7 +1970,15 @@ border-bottom
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -1861,7 +2055,15 @@ px
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -1937,6 +2139,10 @@ solid
 
 
 
+
+
+
+
  
 
 
@@ -1975,7 +2181,19 @@ solid
 
 
 
+
+
+
+
 #ce93d8
+
+
+
+
+
+
+
+
 
 
 
@@ -2126,6 +2344,14 @@ box-shadow
 
 
 
+
+
+
+
+
+
+
+
 :
 
 
@@ -2164,7 +2390,15 @@ box-shadow
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -2242,7 +2476,15 @@ px
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -2283,6 +2525,14 @@ px
 0
 0
 #ce93d8
+
+
+
+
+
+
+
+
 
 
 
@@ -2402,6 +2652,10 @@ px
 
 
 
+
+
+
+
  
 
 
@@ -2440,7 +2694,19 @@ px
 
 
 
+
+
+
+
 input
+
+
+
+
+
+
+
+
 
 
 
@@ -2594,7 +2860,23 @@ text
 
 
 
+
+
+
+
+
+
+
+
 :focus
+
+
+
+
+
+
+
+
 
 
 
@@ -2707,7 +2989,15 @@ text
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -2786,7 +3076,15 @@ readonly
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -2901,6 +3199,14 @@ border-bottom
 
 
 
+
+
+
+
+
+
+
+
 :
 
 
@@ -2939,7 +3245,15 @@ border-bottom
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -3016,7 +3330,15 @@ px
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -3092,6 +3414,10 @@ solid
 
 
 
+
+
+
+
  
 
 
@@ -3130,7 +3456,19 @@ solid
 
 
 
+
+
+
+
 #4dd0e1
+
+
+
+
+
+
+
+
 
 
 
@@ -3281,6 +3619,14 @@ box-shadow
 
 
 
+
+
+
+
+
+
+
+
 :
 
 
@@ -3319,7 +3665,15 @@ box-shadow
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -3397,7 +3751,15 @@ px
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -3438,6 +3800,14 @@ px
 0
 0
 #4dd0e1
+
+
+
+
+
+
+
+
 
 
 
@@ -3568,12 +3938,44 @@ px
 	/*ajax로 보내기*/
 
 	/*별점*/
-	$(document).ready(function() {
-		$('.starRev span').click(function() {
-			$(this).parent().children('span').removeClass('on');
-			$(this).addClass('on').prevAll('span').addClass('on');
-			return false;
-		});
+	/*
+	 $(document).ready(function() {
+
+	 //라디오버튼 값가져오기]
+	 var inputValue = $('input[name="rating"]').is("checked");
+	 alert(inputValue);
+	 //return false;
+
+	 });
+	 */
+
+	jQuery(document).ready(function($) {
+
+		$(".btnrating").on('click', (function(e) {
+
+			var previous_value = $("#selected_rating").val();
+
+			var selected_value = $(this).attr("data-attr");
+			$("#selected_rating").val(selected_value);
+
+			$(".selected-rating").empty();
+			$(".selected-rating").html(selected_value);
+
+			for (i = 1; i <= selected_value; ++i) {
+				$("#rating-star-" + i).toggleClass('btn-warning');
+				$("#rating-star-" + i).toggleClass('btn-default');
+			}
+
+			for (ix = 1; ix <= previous_value; ++ix) {
+				$("#rating-star-" + ix).toggleClass('btn-warning');
+				$("#rating-star-" + ix).toggleClass('btn-default');
+			}
+
+			/*별점 값 보내기*/
+			var star = $(".selected-rating").text();
+			document.write.grade.value = star;
+
+		}));
 
 	});
 	/*
@@ -3602,6 +4004,11 @@ px
 
 		});
 	});
+	/*입력완료 경고창*/
+	function success() {
+		alert("입력이 완료되었습니다!");
+
+	}
 </script>
 
 
@@ -3630,7 +4037,8 @@ px
 
 
 		<!-- Default form contact -->
-		<form class="border border-light" action="#!" name="write">
+		<form class="border border-light" method="post" id="form"
+			action="<c:url value='/Movieing/Blog/BlogMain.mov'/>" name="write">
 
 			<h5>영화명</h5>
 
@@ -3733,36 +4141,78 @@ px
 
 
 			<!-- Email -->
-
+			<div style="padding-bottom: 10px"></div>
 			<h5>평점</h5>
+			<!--  
 			<div class="container">
 				<div class="feedback">
 					<div class="rating col-md-3" align="left" name="grade"
 						style="margin-left: -70px" required="required">
-						<input type="radio" name="rating" id="rating-5"> <label
-							for="rating-5"></label> <input type="radio" name="rating"
-							id="rating-4"> <label for="rating-4"></label> <input
-							type="radio" name="rating" id="rating-3"> <label
-							for="rating-3"></label> <input type="radio" name="rating"
-							id="rating-2"> <label for="rating-2"></label> <input
-							type="radio" name="rating" id="rating-1"> <label
-							for="rating-1"></label>
-
+					
+							<input type="radio" name="rating" id="rating-5"> <label
+								for="rating-5"></label> <input type="radio" name="rating"
+								id="rating-4"> <label for="rating-4"></label> <input
+								type="radio" name="rating" id="rating-3"> <label
+								for="rating-3"></label> <input type="radio" name="rating"
+								id="rating-2"> <label for="rating-2"></label> <input
+								type="radio" name="rating" id="rating-1"> <label
+								for="rating-1"></label>
+					
 					</div>
 				</div>
+
+			</div>
+			
+			-->
+
+			<div class="form-group" id="rating-ability-wrapper">
+				<label class="control-label" for="rating"> <span
+					class="field-label-info"></span> <input type="hidden"
+					id="selected_rating" name="selected_rating" value=""
+					required="required">
+				</label>
+				<h2 class="bold rating-header" style="">
+					<!-- 
+					<span class="selected-rating" style="color: red" name="grade">0</span><small> / 5</small>
+					 -->
+					<input class="selected-rating col-md-1" style="color: red;border: none;font-weight: bold;text-align: right;" name="grade"></input><small>
+						/ 5</small>
+				</h2>
+				<button type="button" class="btnrating btn btn-default btn-lg"
+					data-attr="1" id="rating-star-1">
+					<i class="fa fa-star" aria-hidden="true"></i>
+				</button>
+				<button type="button" class="btnrating btn btn-default btn-lg"
+					data-attr="2" id="rating-star-2">
+					<i class="fa fa-star" aria-hidden="true"></i>
+				</button>
+				<button type="button" class="btnrating btn btn-default btn-lg"
+					data-attr="3" id="rating-star-3">
+					<i class="fa fa-star" aria-hidden="true"></i>
+				</button>
+				<button type="button" class="btnrating btn btn-default btn-lg"
+					data-attr="4" id="rating-star-4">
+					<i class="fa fa-star" aria-hidden="true"></i>
+				</button>
+				<button type="button" class="btnrating btn btn-default btn-lg"
+					data-attr="5" id="rating-star-5">
+					<i class="fa fa-star" aria-hidden="true"></i>
+				</button>
 			</div>
 
 			<div style="padding-bottom: 10px"></div>
+
+
 
 			<!-- Subject -->
 			<h5>공개여부</h5>
 
 
 			<select class="browser-default custom-select mb-4"
-				required="required" name="PUBLIC_PRIVATE" name="publicPrivate">
+				required="required" name="publicPrivate">
 				<option value="" disabled>선택</option>
-				<option value="1" selected="selected">나만보기</option>
-				<option value="2">전체 공개</option>
+				<option value="N" selected="selected">나만보기</option>
+				<option value="Y">전체 공개</option>
 
 			</select>
 
@@ -3813,16 +4263,15 @@ px
 			</div>
  -->
 
+			<!-- Send button -->
+			<div class="mb-4">
+				<button class="btn btn-info btn-block" type="submit"
+					onclick="success()">제출</button>
+			</div>
 
-<!-- -ddsa -->
+
 		</form>
 		<!-- Default form contact -->
-		<!-- Send button -->
-		<div class="mb-4">
-			<button class="btn btn-info btn-block" type="submit" method="post"
-				onclick="location.href = '<c:url value='/Movieing/Blog/BlogMain.mov'/>'">제출</button>
-		</div>
-
 
 
 

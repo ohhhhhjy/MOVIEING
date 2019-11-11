@@ -16,6 +16,7 @@
 		<typeAlias alias="UserDto" type="com.kosmo.movieing.service.UserDto"/>
 		<typeAlias alias="EvaluationDto" type="com.kosmo.movieing.service.EvaluationDto"/>
 		<typeAlias alias="LikeReviewDto" type="com.kosmo.movieing.service.LikeReviewDto"/>
+		<typeAlias alias="MovieDto" type="com.kosmo.movieing.service.MovieDto"/>
 	</typeAliases>
 	
 	
@@ -25,6 +26,7 @@
 		<mapper resource="mybatis/User.xml" />
 		<mapper resource="mybatis/EvalueWish.xml" />
 		<mapper resource="mybatis/LikeReview.xml" />
+		<mapper resource="mybatis/Movie.xml" />
 	</mappers>
 	
 </configuration>

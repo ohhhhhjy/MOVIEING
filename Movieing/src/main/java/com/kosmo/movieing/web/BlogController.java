@@ -14,6 +14,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -21,6 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosmo.movieing.service.EvaluationDto;
 import com.kosmo.movieing.service.EvalueWishService;
 import com.kosmo.movieing.service.LikeReviewService;
+import com.kosmo.movieing.service.MovieService;
 import com.kosmo.movieing.service.ReviewDto;
 import com.kosmo.movieing.service.ReviewService;
 
@@ -36,52 +38,95 @@ public class BlogController {
 	@Resource(name = "likeReviewService")
 	private LikeReviewService likeReviewService;
 
+	@Resource(name = "movieService")
+	private MovieService movieService;
+
 	// 블로그메인
-	@RequestMapping("/Movieing/Blog/BlogMain.mov")
-	public String blogMain(@RequestParam Map map,Model model) {
-		String id= "KIM";//임시
+	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov", method = RequestMethod.GET)
+	public String blogMain(@RequestParam Map map, Model model) {
+		String id = "kim";// 임시
 		map.put("id", id);
-		model.addAttribute("id",id);
+		model.addAttribute("id", id);
 
-		//[유저정보] count 별.리.좋.보. 팔로워.팔로잉.
-		//별점 카운트
+		// [유저정보] count 별.리.좋.보. 팔로워.팔로잉.
+		// 별점 카운트
 		int evalueCount = evalueWishService.getTotalEvalueCount(map);
-		model.addAttribute("evalueCount",evalueCount);
-		//리뷰 카운트
+		model.addAttribute("evalueCount", evalueCount);
+		// 리뷰 카운트
 		int reviewCount = reviewService.getTotalCount(map);
-		model.addAttribute("reviewCount",reviewCount);
-		//좋아요 카운트
+		model.addAttribute("reviewCount", reviewCount);
+		// 좋아요 카운트
 		int likeCount = likeReviewService.getTotalCountByMe(map);
-		model.addAttribute("likeCount",likeCount);
-		//보고싶어요 카운트
+		model.addAttribute("likeCount", likeCount);
+		// 보고싶어요 카운트
 		int wishCount = evalueWishService.getTotalWishCount(map);
-		model.addAttribute("wishCount",wishCount);
-		//팔로워 카운트
-		//팔로우 카운트
-
-
-
-
-
-		// 리뷰남김거 받기]
-		// map에 write으로 map형태로 받음
-		/*
-		String id = "KIM";// 임시
-		map.put("id", id);
-		map.put("REVIEW_NO",3);
-
-
-		//db에 insert하기]
-		int insertReview=reviewService.insertReview(map);
-		model.addAttribute("insertReview",insertReview);
+		model.addAttribute("wishCount", wishCount);
+		// 팔로워 카운트
+		// 팔로우 카운트
 
 		// 피드 글보이기]
 		List<ReviewDto> friendsReviewList = reviewService.selectList(map);// 리스트전체조회
 		model.addAttribute("friendsReviewList", friendsReviewList);
 
-	*/
+
+		//메인에 내가쓴 보이기]
+		List<ReviewDto> selectReviewList=reviewService.selectReviewList(map);// 쓴글 가져오기
+		model.addAttribute("selectReviewList", selectReviewList);
+
 		return "blog/my/BlogMain.tiles";
 	}/////////////////////////////////////////////
+
+
+	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov", method = RequestMethod.POST)
+	public String blogMain2(@RequestParam Map map, Model model) {
+		String id = "kim";// 임시
+		map.put("id", id);
+		model.addAttribute("id", id);
+
+		String reviewNo="4";//계속 바꿔야
+		map.put("reviewNo", reviewNo);
+		model.addAttribute("reviewNo", reviewNo);
+
+
+		// 리뷰남김거 받기]
+		// map에 write으로 map형태로 받음
+
+		String movieTitle = map.get("movieTitle").toString();
+		String grade = map.get("grade").toString();
+		String reviewContent = map.get("reviewContent").toString();
+		String publicPrivate = map.get("publicPrivate").toString();
+
+		String movieNo = movieService.selectMovieNo(map);
+		map.put("movieNo", movieNo);
+
+		model.addAttribute("movieTitle", movieTitle);
+		model.addAttribute("movieNo", movieNo);// 영화번호
+		model.addAttribute("grade", grade);// 평점
+		model.addAttribute("reviewContent", reviewContent);// 내용
+
+
+
+		System.out.println("영화제목:" + movieTitle);
+		System.out.println("영화번호:" + movieNo);
+		System.out.println("평점:" + grade);
+		System.out.println("리뷰내용:" + reviewContent);
+		System.out.println("공개여부:" + publicPrivate);
+
+		int insertReview = reviewService.insertReview(map);
+
+		// 공개여부
+		// publicPrivate=2?"Y":"N";//공개여부면 Y로 저장,나만보기는 N으로 저장
+
+		model.addAttribute("insertReview", insertReview);// 리뷰테이블에 insert
+
+		List<ReviewDto> selectReviewList=reviewService.selectReviewList(map);// 쓴글 가져오기
+		model.addAttribute("selectReviewList", selectReviewList);
+
+		// 해쉬태그 추가해야함
+
+		return "blog/my/BlogMain.tiles";
+
+	}////////////////////////////////
 
 	// 블로그-내 활동
 	@RequestMapping("/Movieing/Blog/MyActivity.mov")
@@ -89,7 +134,7 @@ public class BlogController {
 		String id = "KIM";// 임시
 
 		map.put("id", id);
-		model.addAttribute("id",id);
+		model.addAttribute("id", id);
 
 		String page = map.get("page") == null ? "a" : map.get("page").toString();
 		model.addAttribute("page", page);
@@ -121,18 +166,17 @@ public class BlogController {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
 		}
 
-
-		model.addAttribute("evaluationList",evaluationList);//별점
-		model.addAttribute("reviewList", reviewList);//리뷰
-		model.addAttribute("reviewLikeList", reviewLikeList);//좋아요
-		model.addAttribute("wishList", wishList);//보고싶어요
+		model.addAttribute("evaluationList", evaluationList);// 별점
+		model.addAttribute("reviewList", reviewList);// 리뷰
+		model.addAttribute("reviewLikeList", reviewLikeList);// 좋아요
+		model.addAttribute("wishList", wishList);// 보고싶어요
 
 		return "blog/my/MyActivity.tiles";
 	}
 
-	//좋아요 삭제
+	// 좋아요 삭제
 	@ResponseBody
-	@RequestMapping(value="/Movieing/Blog/LikeRemove.mov",produces = "application/json" )
+	@RequestMapping(value = "/Movieing/Blog/LikeRemove.mov", produces = "application/json")
 	public String likeRemove(@RequestParam Map map) {
 		System.out.println("뭐가문제야");
 		likeReviewService.delete(map);
@@ -140,15 +184,14 @@ public class BlogController {
 		return String.valueOf(count);
 	}
 
-	//좋아요 입력
+	// 좋아요 입력
 	@ResponseBody
-	@RequestMapping(value="/Movieing/Blog/LikeInsert.mov",produces = "application/json" )
+	@RequestMapping(value = "/Movieing/Blog/LikeInsert.mov", produces = "application/json")
 	public String likeInsert(@RequestParam Map map) {
 		likeReviewService.insert(map);
 		int count = likeReviewService.getTotalCount(map);
 		return String.valueOf(count);
 	}
-
 
 	/////////////////////////////////////////////////////////////////////////////////////
 
@@ -288,13 +331,6 @@ public class BlogController {
 
 		return imgStr;
 
-
-
-
-		}///movieImgMap
-
-
-
-
+	}/// movieImgMap
 
 }//////// class
