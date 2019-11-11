@@ -23,13 +23,6 @@ public class EvalueWishServiceImpl implements EvalueWishService{
 		return dao.isLogin(map);
 	}
 
-
-	@Override
-	public int getTotalCount(Map map) {
-
-		return dao.getTotalCount(map);
-	}
-
 	@Override
 	public EvaluationDto selectOne(Map map) {
 
@@ -64,6 +57,20 @@ public class EvalueWishServiceImpl implements EvalueWishService{
 	public List<EvaluationDto> selectWishList(Map map) {
 
 		return dao.selectWishList(map);
+	}
+
+
+	@Override
+	public int getTotalEvalueCount(Map map) {
+
+		return dao.getTotalEvalueCount(map);
+	}
+
+
+	@Override
+	public int getTotalWishCount(Map map) {
+
+		return dao.getTotalWishCount(map);
 	}
 
 }

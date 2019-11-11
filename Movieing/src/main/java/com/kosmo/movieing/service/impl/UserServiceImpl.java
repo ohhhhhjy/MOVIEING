@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.kosmo.movieing.service.UserDto;
 import com.kosmo.movieing.service.UserService;
 
-@Service("UserService")
+@Service("userService")
 public class UserServiceImpl implements UserService{
 
 	//UserDao 객체 주입

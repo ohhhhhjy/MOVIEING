@@ -24,13 +24,6 @@ public class EvalueWishDao implements EvalueWishService{
 		return (Integer)template.selectOne("evaluationLogin",map)==1?true:false;
 	}
 
-
-	@Override
-	public int getTotalCount(Map map) {
-
-		return template.selectOne("evaluationTotal",map);
-	}
-
 	@Override
 	public EvaluationDto selectOne(Map map) {
 
@@ -66,6 +59,20 @@ public class EvalueWishDao implements EvalueWishService{
 	public List<EvaluationDto> selectWishList(Map map) {
 
 		return template.selectList("selectWishList",map);
+	}
+
+
+	@Override
+	public int getTotalEvalueCount(Map map) {
+
+		return template.selectOne("getTotalEvalueCount",map);
+	}
+
+
+	@Override
+	public int getTotalWishCount(Map map) {
+
+		return template.selectOne("getTotalWishCount",map);
 	}
 
 }

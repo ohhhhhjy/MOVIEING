@@ -7,7 +7,7 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-  font-family: sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -105,7 +105,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace;
+  font-family: 'Noto Sans KR', sans-serif;
   font-size: 1em;
 }
 button,
@@ -1073,7 +1073,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #333333;
@@ -1522,7 +1522,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 code {
   padding: 2px 4px;
@@ -5962,7 +5962,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -6080,7 +6080,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -6348,7 +6348,7 @@ button.close {
   width: 20px;
   height: 20px;
   line-height: 1;
-  font-family: serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 .carousel-control .icon-prev:before {
   content: '\2039';
@@ -6722,4 +6722,22 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+
+.showdetail,
+.userout,
+.annoedit,
+.annodel {
+	color:white;
+	background-color:#363636;
+	border-color: #292929; 
+}
+
+.sui-headercell {
+	text-align:center !important;
+}
+
+#button {
+	margin:20px;
+	text-align: right;
 }

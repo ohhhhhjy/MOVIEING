@@ -113,9 +113,14 @@ padding-left: 50px;padding-right: 30px;
 	google.charts.setOnLoadCallback(drawStuff);
 	function drawStuff() {
 		var data = new google.visualization.arrayToDataTable([ [ '', '' ],
+				[ "1", 12 ],[ '2', 3 ],
+				 [ '3', 7 ], [ '4', 15 ],
+				[ '5', 2 ] ]);
+		/*([ [ '', '' ],
 				[ "0", 15 ], [ "", 1 ], [ "1", 12 ], [ "", 10 ], [ '2', 3 ],
 				[ '', 20 ], [ '3', 7 ], [ '', 3 ], [ '4', 15 ], [ '', 5 ],
-				[ '5', 2 ] ]);
+				[ '5', 2 ] ]);*/
+				
 		var options = {
 			width : 270,
 			legend : {
@@ -195,25 +200,25 @@ padding-left: 50px;padding-right: 30px;
 							style="padding-top: 20px; padding-bottom: 20px; background-color: white; border-radius: 10px 10px 10px 10px;">
 							<div class="col-sm-3" align="center">
 								<a href="javascript:goPage('a');"><span
-									style="font-weight: bold">별점<br> 451
+									style="font-weight: bold">별점<br> ${evalueCount }
 								</span></a>
 							</div>
 							<div class="col-sm-3" align="center"
 								style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
 								<a href="javascript:goPage('b');"><span
-									style="font-weight: bold">리뷰<br> 47
+									style="font-weight: bold">리뷰<br> ${reviewCount }
 								</span></a>
 							</div>
 							<div class="col-sm-3" align="center"
 								style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
 								<a href="javascript:goPage('c');"><span
-									style="font-weight: bold">좋아요<br> 25
+									style="font-weight: bold">좋아요<br> ${likeCount }
 								</span></a>
 							</div>
 							<div class="col-sm-3" align="center"
 								style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
 								<a href="javascript:goPage('d');"><span
-									style="font-weight: bold">보고싶어요<br> 91
+									style="font-weight: bold">보고싶어요<br> ${wishCount }
 								</span></a>
 							</div>
 						</div>
@@ -234,6 +239,10 @@ padding-left: 50px;padding-right: 30px;
 					토이스토리4에 리뷰를 남겼어요!&nbsp;&nbsp;<span
 						style="color: #a8a5a5; font-size: 0.3em">1일 전</span>
 				</div>
+				
+				<!-- - 
+				<c:forEach items="${insertReview }" var="item">
+				-->
 				<div class="card-body">
 					<div class="row">
 						<div class="col-sm-3" align="center">
@@ -241,10 +250,9 @@ padding-left: 50px;padding-right: 30px;
 								src="../../resources/img/movie/toystoryMain.jpg" alt="포스터" /></a>
 						</div>
 						<div class="col-sm-9">
-							<h4 class="card-title">토이스토리4</h4>
-							<span class="badge badge-pill badge-danger">★4.5</span>
-							<p class="card-text" style="height: 100px">토이스토리를 봤다. 너무 재밌었다. 너무 재밌었고, 너무 재밌어서 너무
-								재밌을 뻔했다. 너무 재밌는 영화였다.</p>
+							<h4 class="card-title">영화</h4>
+							<span class="badge badge-pill badge-danger">★별점</span>
+							<p class="card-text" style="height: 100px">내용</p>
 							<a href="#"><span
 								style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
 									class="far fa-thumbs-up"></i> 25 </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
@@ -253,6 +261,9 @@ padding-left: 50px;padding-right: 30px;
 						</div>
 					</div>
 				</div>
+				<!-- 
+				</c:forEach>
+				-->
 			</div>
 		</div>
 		<!-- 왼쪽 마이피드끝-->

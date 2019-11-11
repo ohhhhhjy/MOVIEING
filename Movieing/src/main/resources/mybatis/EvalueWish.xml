@@ -14,6 +14,14 @@
 		from wish w join movie m on m.movie_no=w.movie_no 
 		where user_id=#{id}
 	</select>	
+	<!-- 별점 카운트 -->
+	<select id="getTotalEvalueCount" parameterType="java.util.Map" resultType="int">
+		select count(*) from evaluation where user_id=#{id}
+	</select>
+	<!-- 보고싶어요 카운트 -->
+	<select id="getTotalWishCount" parameterType="java.util.Map" resultType="int">
+		select count(*) from wish where user_id=#{id}
+	</select>
 	
 	
 	

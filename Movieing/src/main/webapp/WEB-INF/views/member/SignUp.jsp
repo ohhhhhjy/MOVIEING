@@ -39,34 +39,29 @@
                         </div>
                         <div class="row">
                              <div class="col-md-12">
-                                  <form>
+                                  <form action="<c:url value='/Movieing/member/SignUp.mov'/> " method="post" id="frm">
                                   <div class="form-group  row">
-                                           <label  for="id" class="col-4 col-form-label">아이디 *</label>
+                                           <label  for="id" class="col-4 col-form-label">아이디 *<span id="idcheck">아이디를 입력하세요</span></label>
                                            <div  class="col-8">
-                                                <div  class="row">
-                                                     <div  class="col-md-6">
-                                                          <input id="userid" name="userid"  placeholder="아이디"
-                                                               class="form-control here" required="required"  type="text">
-                                                     </div>
-                                                </div>
+                                           	<input id="userid" name="userid"  placeholder="아이디" class="form-control here" required="required"  type="text">
                                            </div>
                                       </div>
                                       <div  class="form-group row">
-                                           <label  for="image" class="col-4 col-form-label">사진</label>
+                                           <label  for="image" class="col-4 col-form-label">프로필 사진</label>
                                            
                                            <div  class="col-4">
                                                 <input  type="file" class="text-center center-block file-upload">
                                            </div>
                                       </div>
                                       <div  class="form-group row">
-                                           <label  for="username" class="col-4  col-form-label">비밀번호*<small id="pass1"  class="text-muted">&nbsp;(비밀번호는 8~12자, !@#$  포함)</small></label>
+                                           <label  for="userpass" class="col-4  col-form-label">비밀번호*<span id="pass1">&nbsp;비밀번호는 8~12자 !@#$ 포함</span></label>
                                            <div  class="col-8">
                                                 <input  id="userpass" name="userpass" placeholder="비밀번호"
                                                      class="form-control here" required="required"  type="password">
                                            </div>
                                       </div>
                                       <div  class="form-group row">
-                                           <label  for="username" class="col-4 col-form-label">비밀번호  확인*<small id="pass2"  class="text-muted">&nbsp;(비밀번호와 일치하지  않습니다.)</small></label>
+                                           <label  for="passcheck" class="col-4 col-form-label">비밀번호  확인*<span id="pass2">&nbsp;비밀번호와 일치하지  않습니다.</span></label>
                                            <div  class="col-8">
                                                 <input  id="passcheck" name="passcheck" placeholder="비밀번호  확인"
                                                      class="form-control here" required="required"  type="password">
@@ -80,29 +75,17 @@
                                            </div>
                                       </div>
                                       <div  class="form-group row">
-                                           <label  for="nickname" class="col-4  col-form-label">닉네임*</label>
-                                           <div  class="col-6">
+                                           <label  for="nickname" class="col-4  col-form-label">닉네임*<span id="nickcheck">닉네임을 입력하세요</span></label>
+                                           <div  class="col-8">
                                                 <input  id="nickname" name="nickname" placeholder="닉네임"
                                                      class="form-control here" type="text">
                                            </div>
-                                           <div  class="col-md-2">
-                                                          
-                                                          <input class="btn btn-primary text-white"  onclick="btnClick()" type="submit" value="중복확인"/>
-                                                     </div>
                                       </div>
                                       <div  class="form-group row">
-                                           <label  for="select" class="col-4 col-form-label">성별</label>
+                                           <label  for="contact" class="col-4 col-form-label">휴대폰번호*</label>
                                            <div  class="col-8">
-                                                <div  class="row">
-                                                     <div  class="custom-control custom-radio col-md-2">
-                                                          <input type="radio" name="jb-radio" id="jb-radio-1"  class="custom-control-input">
-                                                          <label class="custom-control-label"  for="jb-radio-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;여자</label>
-                                                     </div>
-                                                     <div  class="custom-control custom-radio col-md-6">
-                                                          <input type="radio" name="jb-radio" id="jb-radio-2"  class="custom-control-input">
-                                                          <label class="custom-control-label"  for="jb-radio-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;남자</label>
-                                                     </div>
-                                                </div>
+                                                <input  id="contact" name="contact" placeholder="휴대폰번호"
+                                                     class="form-control here" required="required"  type="text">
                                            </div>
                                       </div>
                                       <div  class="form-group row">
@@ -138,14 +121,15 @@
 
 
 
-
 </div>
 
 <script>
 $(function() {
 			
-		console.log('이상하다')
-		console.log($('#userid').attr('name'));
+		$('#pass1').css({'font-size':'.8em','color':'gray'});
+		$('#pass2').css({'font-size':'.8em','color':'gray'});
+		$('#idcheck').css({'font-size':'.8em','color':'gray'});
+		$('#nickcheck').css({'font-size':'.8em','color':'gray'});
 		
 		/* var readURL = function(input) {
 			if (input.files && input.files[0]) {
@@ -162,38 +146,100 @@ $(function() {
 
 		//$('#userid').change(function() {
 			
-		$('#userid').on("change paste input",function() {
-			console.log('change');
-
+		
+		//아이디 중복 체크
+		$('#userid').on("propertychange change input",function() {
+			
 			$.ajax({
 				url : "<c:url  value='/Ajax/isMember.mov'/>",
 				type : 'post',
-				/* data : $('#frm').serialize(), */
+				data : $('#frm').serialize(), 
 				dataType : 'text',
 				success : function(data) {
-					//제이슨
-					//console.log(data['isMember']=='Y'?'이미 사용중인  아이디 입니다. ':'사용 가능한 아이디 입니다.');   
-					//텍스트
-					//console.log('서버ㄹ:', data);
-					for (var key in data){
-					    console.log("attr: " + key + ", value: " + data[key]);
+					if(data=='Y'){
+						$('#idcheck').css('color', 'red');						
+						$('#idcheck').text('이미 사용중인  아이디입니다. ');
 					}
-
-
-			
+					else{
+						$('#idcheck').css('color', 'green');					
+						$('#idcheck').text('사용 가능한 아이디입니다.');
+						if($('#userid').val().length==0){
+							$('#idcheck').css({'font-size':'.8em','color':'gray'});
+							$('#idcheck').text('아이디를 입력하세요');
+						}	
+					}
+					
 
 				},
 				error : function(data) {
 					console.log("에러 : " + data);
-					for (var key in data){
-					    console.log("attr: " + key + ", value: " + data[key]);
-					}
 				}
 
 			});
 
 		});
-		console.log($('#userid').attr('name'))
+		
+		//비밀번호 유효성
+		$('#userpass').on('propertychange change input',function(){
+				console.log($(this).val());
+				var value = $(this).val();
+				if ((value.length >= 8 && value.length <= 12) && 
+						(value.indexOf('!')>-1 || value.indexOf('@')>-1 || value.indexOf('#')>-1 || value.indexOf('$')>-1)){
+					console.log("dka");
+					console.log($('#pass1').html());
+					$('#pass1').css('color', 'green');
+					$('#pass1').text('비밀번호 사용 가능');
+					 
+				}
+				else{
+					$('#pass1').css('color', 'red');
+					$('#pass1').text('비밀번호는 8~12자 !@#$ 포함');
+				}
+									
+			});
+		$('#passcheck').on('propertychange change input',function(){
+			
+			if($(this).val()==$('#userpass').val()){
+				$('#pass2').css('color', 'green');
+				$('#pass2').text('비밀번호와 일치합니다.');
+				}
+			else{
+				$('#pass2').css('color', 'red');
+				$('#pass2').text('비밀번호와 일치하지 않습니다.');
+				}
+			});
+		
+		//닉네임 중복 체크
+		$('#nickname').on("propertychange change input",function() {
+			$.ajax({
+				url : "<c:url  value='/Ajax/isMember.mov'/>",
+				type : 'post',
+				data : $('#frm').serialize(), 
+				dataType : 'text',
+				success : function(data) {
+					if(data=='Y'){
+						$('#nickcheck').css('color', 'red');						
+						$('#nickcheck').text('이미 사용중인 닉네임입니다. ');
+					}
+					else{
+						$('#nickcheck').css('color', 'green');					
+						$('#nickcheck').text('사용 가능한 닉네임입니다.');
+						if($('#nickname').val().length==0){
+							$('#nickcheck').css({'font-size':'.8em','color':'gray'});
+							$('#nickcheck').text('닉네임을 입력하세요');
+						}	
+					}
+					
+
+				},
+				error : function(data) {
+					console.log("에러 : " + data);
+				}
+
+			});
+
+		});
+		
 	});
 </script>
 

@@ -48,7 +48,7 @@
    </beans:bean>
 
 
-
+<annotation-driven/>
 
    <context:component-scan
       base-package="com.kosmo.movieing" />
@@ -75,7 +75,6 @@
          value="http://localhost:8080/Movieing/oauth2callback" />
    </beans:bean>
 
-	<annotation-driven/>
 
 
 </beans:beans>

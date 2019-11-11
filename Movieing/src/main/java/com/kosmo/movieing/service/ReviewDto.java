@@ -30,6 +30,37 @@ public class ReviewDto {
 	private String userMail;
 
 
+	//장르
+	private String movieGenre ;
+	//개봉연도
+	private String movieYear;
+	//국가
+	private String movieCountry;
+
+
+	public String getMovieCountry() {
+		return movieCountry;
+	}
+
+	public void setMovieCountry(String movieCountry) {
+		this.movieCountry = movieCountry;
+	}
+
+	public String getMovieYear() {
+		return movieYear;
+	}
+
+	public void setMovieYear(String movieYear) {
+		this.movieYear = movieYear;
+	}
+
+	public String getMovieGenre() {
+		return movieGenre;
+	}
+
+	public void setMovieGenre(String movieGenre) {
+		this.movieGenre = movieGenre;
+	}
 
 	public String getImgUrl() {
 		return imgUrl;
@@ -38,7 +69,7 @@ public class ReviewDto {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
-	
+
 	public String getUserMail() {
 		return userMail;
 	}
