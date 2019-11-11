@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: kosmo_24
-=======
-Built-By: kosmo
->>>>>>> branch 'master' of https://github.com/ohhhhhjy/MOVIEING.git
 Build-Jdk: 1.8.0_211
 Created-By: Maven Integration for Eclipse
 

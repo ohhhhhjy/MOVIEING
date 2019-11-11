@@ -252,10 +252,9 @@
 
 			<version>1.9.13</version>
 
-<<<<<<< HEAD
+
 		</dependency>
-=======
-	</dependency>
+
 	<!-- ajax사용을 위해 추가 -->
 	<dependency> 
 		<groupId>com.fasterxml.jackson.core</groupId> 
@@ -264,7 +263,7 @@
 	</dependency>
 
 
->>>>>>> branch 'master' of https://github.com/ohhhhhjy/MOVIEING.git
+
 
 
 
