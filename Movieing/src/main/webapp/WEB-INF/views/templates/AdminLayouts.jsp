@@ -61,7 +61,40 @@
 	
 	<script type="text/javascript"
 		src="<c:url value='/resources/js/admin/theme.js'/>"></script>
-	
+	<script type="text/javascript" src="<c:url value='/resources/js/admin/gridData.js'/>"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#grid").shieldGrid({
+                dataSource: {
+                    data: gridData                 
+                },
+                sorting:{
+                    multiple: true
+                },
+                paging: {
+                    pageSize: 12,
+                    pageLinksCount: 10
+                },
+                selection:{
+                    type: "row",
+                    multiple: true,
+                    toggle: false
+                },
+                columns: [                
+                    { field: "id", width: "70px", title: "아이디" },
+                    { field: "name", title: "회원명", width: "230px" },
+                    { field: "company", title: "닉네임", width: "80px" },
+                    { field: "address", title: "주소" },
+                    { field: "phone", title: "연락처", width: "170px" },
+                    { field: "registered", title: "가입일", width: "230px" },
+                    { field: "email", title:"이메일", width: "270px" },
+                    { field: "button1", title:"구매내역", width: "80px" },
+                    { field: "button2", title:"탈퇴처리", width: "80px" },
+                    
+                ]
+            });
+        });
+    </script>
 	
 	<script type="text/javascript">
 		jQuery(function($) {
@@ -82,14 +115,14 @@
 								format : "{text:c}"
 							},
 							title : {
-								text : "Price (EUR per kWh)"
+								text : "사용자 수 (명)"
 							}
 						},
 						tooltipSettings : {
 							chartBound : true
 						},
 						primaryHeader : {
-							text : "Electricity prices"
+							text : "사용자 수 증감 추이"
 						},
 						dataSeries : [
 								{
@@ -260,7 +293,9 @@
 								hrefTemplate : "{url}"
 							});
 	
-			$("#calendar1").shieldCalendar();
+			$("#calendar1").shieldCalendar(
+				
+			);
 	
 			$("#switch1").shieldSwitch({
 				onText : "",

@@ -38,9 +38,9 @@ border-radius: 6px;
 </style>
 <div class="container">
 	<a href="javascript:window.history.back();"><i class="fas fa-arrow-left" style="color:#db147b;font-size: 1.4em"></i></a>
-	<h2 align="center" class="py-2">"영화제목"의 모든 리뷰</h2>
+	<h2 align="center" class="">유저이름님의 영화이름 리뷰</h2>
 	<!-- 드롭다운 -->
-	<div class="d-flex justify-content-end" style="padding-bottom: 20px">
+<!-- 	<div class="d-flex justify-content-end" style="padding-bottom: 20px">
 		 <div id="selector"   >
 			 <select class="browser-default custom-select" >
 				  <option >최신 순</option>
@@ -49,14 +49,13 @@ border-radius: 6px;
 				  <option >별점 낮은 순</option>
 			 </select>
 		 </div>
-	 </div>
+	 </div> -->
 
 
 
 <div ><!-- class="accordion" id="reviewAccordion" -->
 	<!-- 리뷰카드 -->
-	<c:forEach begin="1" end="10" var="i">
-	<div class="card border-secondary row py-2" style="max-width: 200rem;">
+	<div class="card border-secondary row " style="max-width: 200rem;">
 		<div class="card-header" >
 			<a href="#">
 				<img class="radiusImg" alt="유저사진" src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" align="left"/>
@@ -70,18 +69,17 @@ border-radius: 6px;
 			<a href="#"><span
 				style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
 					25 </span></a>&nbsp;&nbsp;&nbsp; 
-			<a href="#" data-toggle="collapse"  href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" data-target="#commentWindow${i}"  aria-expanded="true" aria-controls="commentWindow${i}"><span
+			<a href="#" ><span
 				style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
-					4 </span></a>
-		</div>
+					4 </span></a><!--콜랍스 설정 data-toggle="collapse"  href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" data-target="#commentWindow${i}"  aria-expanded="true" aria-controls="commentWindow${i}" -->
+		
 		
 		<!-- 펼쳐질 댓글창 -->
-		<%-- <div id="commentWindow${i}" class="collapse commentDiv" aria-labelledby="headingOne2"
-		      data-parent="#reviewAccordion"> --%>
-		<div id="commentWindow${i}" class="collapse commentDiv" >
+		
+		<!--콜랍스 설정 collapse commentDiv -->
 		    <hr class="my-1">
 		    <c:forEach begin="1" end="5">
-				<div class="card-body row comment  px-3 ">
+				<div class=" row comment  px-3 ">
 				 	<div class="col-md-1 d-flex justify-content-end">
 						<img class="radiusImg" alt="댓글유저사진" src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" align="left"/>
 					</div>
@@ -93,7 +91,7 @@ border-radius: 6px;
 				<hr class="my-1">
 			</c:forEach>
 			<!-- 댓글쓰기 -->
-			<div class="card-body row comment  px-1">
+			<div class=" row comment  px-1">
 				 	<div class="col-md-1 d-flex justify-content-end">
 						<img class="radiusImg" alt="댓글유저사진" src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" align="left"/>
 					</div>
@@ -102,20 +100,15 @@ border-radius: 6px;
 						<div style="padding-right: 40px">
 							<textarea class="form-control" id="exampleTextarea" rows="3" placeholder="댓글을 남겨보세요."></textarea>
 						</div>
-						<div class="d-flex justify-content-end py-2" style="padding-right: 40px">
+						<div class="d-flex justify-content-end " style="padding-right: 40px">
 							<button class="btn btn-danger">등록</button>
 						</div>
 					</div> 
-				</div>
-			<div>
-				
-				
-				
 			</div>
+			
 		</div>
 		
 	</div>	
-	</c:forEach>
 	
 	
 </div>

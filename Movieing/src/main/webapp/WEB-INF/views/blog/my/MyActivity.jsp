@@ -63,7 +63,7 @@ body {
 }
 
 .movieStar {
-	color: #ffa136;
+	color: white;
 	font-size: 0.8em
 }
 
@@ -101,6 +101,22 @@ body {
 width:135px;
 height: 200px;
 }
+
+
+
+
+.movieUl {
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.movieLi {
+    margin: 0 0 0 0;/* 위쪽여백 오른쪽여백 아래여백 왼쪽여백 */
+    padding: 0 0 10px 10px;
+    border : 0;
+    float: left;
+}
 </style>
 
 <!--1.컨트롤러에서 넘어오는 page값 이용해서 탭 선택시켜주기 https://stackoverflow.com/questions/39461076/how-to-change-active-bootstrap-tab-with-javascript-->
@@ -109,6 +125,7 @@ height: 200px;
 
 <script>
 $(function(){
+	//탭세팅
 	tabSettingByPage();
 	$('.nav-item').click(function(){
 		var page;
@@ -120,6 +137,57 @@ $(function(){
 		}
 		selectorSettingByTab(page); 
 		
+	});
+	
+	//좋아요 클릭 이벤트처리
+ 	$('.likeUnlike').click(function(){
+ 		var index = $(this).attr('id');
+ 		var reviewNo = 'revieNo'+index;
+ 		
+		//좋아요 off  > on
+ 		if($('#likeUnlikeIcon').prop('class')=='far fa-thumbs-up'){
+ 			
+ 			$('#likeUnlikeIcon').removeClass('far fa-thumbs-up').addClass('fas fa-thumbs-up');
+ 			
+ 			$.ajax({
+ 				url:"<c:url value='/Movieing/Blog/LikeInsert.mov'/>",
+ 				type:'post',
+ 				dataType:'text',
+ 				data:
+ 					{id:$('#idSpan').html(),reviewNo:$('#'+reviewNo).html()},
+ 					
+ 				success:function(data){//서버로 부터 정상적인 응답을 받았을 때(200번)
+ 					console.log(data);
+ 				
+ 				//$('#lblDisplay').html(data);
+ 				
+ 				},	
+ 				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+ 					console.log("에러:"+data.responseText);
+ 				}
+ 			});
+ 		}
+ 		
+ 		//좋아요 on  > off
+ 		else{
+ 			$('#likeUnlikeIcon').removeClass('fas fa-thumbs-up').addClass('far fa-thumbs-up'); 
+ 			
+ 			$.ajax({
+ 				url:"<c:url value='/Movieing/Blog/LikeRemove.mov'/>",
+ 				type:'post',
+ 				dataType:'text',
+ 				data:
+ 					{id:$('#idSpan').html(),reviewNo:$('#'+reviewNo).html()},
+ 				success:function(data){//서버로 부터 정상적인 응답을 받았을 때(200번)
+ 					console.log(data);
+ 				//$('#lblDisplay').html(data);
+ 				},	
+ 				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+ 					console.log("에러:"+data);
+ 				}
+ 			});
+ 		}
+ 			
 	});
 });
 
@@ -183,14 +251,8 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
 		<div class="col-sm-2">
 			<a class="btn btn-secondary" href="<c:url value='/Movieing/Blog/BlogMain.mov'/>" role="button">< 블로그 메인</a>
 			 <!-- 드롭다운 -->
-			 <div id="selector" style="padding-top:20px">
-				 <!-- <select class="browser-default custom-select" >
-					  <option >평가 순</option>
-					  <option >가나다 순</option>
-					  <option >별점 높은 순</option>
-					  <option >별점 낮은 순</option>
-				 </select> -->
-			 </div>
+			 <!-- <div id="selector" style="padding-top:20px">
+			 </div> -->
 		</div>
 		<!--오른쪽 끝  -->
 		
@@ -210,115 +272,133 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
 	         <div class="tab-content" id="nav-tabContent" style="padding-left: 10px;padding-right: 20px;margin-top: 20px;"><!--탭컨텐츠는 class에 show랑 active가 다 있어야 처음에 보여진다 -->
                  <!--컨텐츠a:별점 -->
                  <div class="tab-pane fade " id="nav-star" role="tabpanel" aria-labelledby="nav-star-tab">
-                   		<div class="row" style="">
-                   			<c:forEach begin="1" end="3">
-							<div class="col-md-2 col-sm-6 movie-poster" style="">
-								<img  class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt=""/>
-								<span class="movieTitle">말레피센트</span><br>
-								<Span class="movieStar">★4.5</Span>
-							</div>
-							</c:forEach>
-							
-						</div> 
+                   <c:if test="${empty evaluationList }" var="isEmpty">
+                 		<div class="py-3">
+	                 		<h5>아직 등록하신 별점이 없어요...<i class="far fa-sad-cry"></i></h5>
+	                 		<h5>별점을 등록하러 가볼까요?</h5>
+	                 		<button type="button" id="btnWish" class="btn btn-outline-danger waves-effect" onclick="location.href='<c:url value="/Movieing/Movie/screening/First_like.mov"/>'"><i class="far fa-star"></i>&nbsp;평가하기</button>
+                 		</div>
+                 	</c:if>
+                 	<c:if test="${!isEmpty }">
+                 		<ul class="movieUl">
+                 		<c:forEach items="${evaluationList }" var="item">
+                 			<li class="movieLi">
+                 				<img  class="movieImg" src=${item.imgUrl } alt="영화포스터"/><br>
+								<span class="movieTitle">${item.movieTitle }</span><br>
+								<span class="movieStar badge badge-pill badge-danger">★${item.evaluationGrade }</span>
+                 			</li>
+                 			</c:forEach>
+                 		</ul>
+                 	</c:if>
+                 		
+                 
+                   		
                  </div>
                  
                  <!-- 컨텐츠b:리뷰 -->
                  <div class="tab-pane fade" id="nav-review" role="tabpanel" aria-labelledby="nav-review-tab">
-                 <%-- 	<c:if test="${empty list }">
-                 		작성한 리뷰가 없어
-                 	</c:if> --%>
-                 	<!-- 리뷰카드 -->
-                 	<c:forEach items="${reviewList }" var="item">
-						<div class="card border-secondary mb-3" style="max-width: 200rem;">
-							<div class="card-body">
-								<div class="row">
-									<div class="col-sm-3" align="center">
-										<img class="movieImg"
-											src="../../resources/img/movie/toystoryMain.jpg" alt="포스터" />
-									</div>
-									<div class="col-sm-9">
-										<h4 class="card-title">${item.movieTitle }</h4><!-- 영화제목 -->
-										<span class="badge badge-pill badge-danger">★ ${item.grade}</span><!-- 별점-->
-										<p class="card-text">${item.reviewContent }</p><!-- 리뷰내용 -->
-										<a href="#"><span
-											style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
-												${item.likeCount } </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
-											style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
-												${item.commentCount }</span></a>
+                 	<c:if test="${empty reviewList }" var="isEmpty">
+                 		<div class="py-3">
+	                 		<h5>아직 작성하신 리뷰가 없어요...<i class="far fa-sad-cry"></i></h5>
+	                 		<h5>리뷰를 작성하러 가볼까요?</h5>
+	                 		<button type="button" id="btnWish" class="btn btn-outline-danger waves-effect" onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov"/>'"><i class="far fa-edit"></i>&nbsp;리뷰남기기</button>
+                 		</div>
+                 	</c:if>
+                 	<c:if test="${!isEmpty }">
+                 		<!-- 리뷰카드 -->
+	                 	<c:forEach items="${reviewList }" var="item">
+							<div class="card border-secondary mb-3" style="max-width: 200rem;">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-sm-3" align="center">
+											<img class="movieImg"
+												src="${item.imgUrl }" alt="포스터" />
+										</div>
+										<div class="col-sm-9">
+											<h4 class="card-title">${item.movieTitle }</h4><!-- 영화제목 -->
+											<span class="badge badge-pill badge-danger">★ ${item.grade}</span><!-- 별점-->
+											<p class="card-text" style="height: 100px">${item.reviewContent }</p><!-- 리뷰내용 -->
+											<a><span
+												style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
+													${item.likeCount } </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
+												style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
+													${item.commentCount }</span></a>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</c:forEach>
+						</c:forEach>
+					</c:if>
 				</div>
                  
                  <!-- 컨텐츠c:좋아요 -->
                  <div class="tab-pane fade" id="nav-like" role="tabpanel" aria-labelledby="nav-like-tab">
+                   <c:if test="${empty reviewLikeList }" var="isEmpty">
+                 		<div class="py-3">
+	                 		<h5>아직 좋아요에 추가하신 리뷰가 없어요...<i class="far fa-sad-cry"></i></h5>
+	                 		<h5>다른 친구들의 리뷰를 구경하러 가볼까요?</h5>
+	                 		<button type="button" id="btnWish" class="btn btn-outline-danger waves-effect" onclick="location.href='<c:url value="/Movieing/Blog/MovieingFriends.mov"/>'"><i class="fas fa-user-friends"></i>&nbsp;무빙프렌즈</button>
+                 		</div>
+                 	</c:if>
+                 	<c:if test="${!isEmpty }">
                    	<!-- 리뷰카드 -->
-					<div class="card border-secondary mb-3" style="max-width: 200rem;">
-						<div class="card-header" align="right">
-							<a href="#">
-								<img class="radiusImg" alt="배우사진" src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" align="right"/>
-								<span class="likeSpan" >평론가_정명지</span>
-							</a>
-							
-						</div>
-						<div class="card-body">
-							<div class="row">
-								<div class="col-sm-3" align="center">
-									<img class="movieImg"
-										src="../../resources/img/movie/toystoryMain.jpg" alt="포스터" />
-								</div>
-								<div class="col-sm-9">
-									<h4 class="card-title">토이스토리4</h4>
-									<span class="badge badge-pill badge-danger">★4.5</span>
-									<p class="card-text">토이스토리를 봤다. 너무 재밌었다. 너무 재밌었고, 너무 재밌어서 너무
-										재밌을 뻔했다. 너무 재밌는 영화였다.</p>
-									<a href="#"><span
-										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
-											25 </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
-										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
-											4 </span></a>
-								</div>
+                   	<c:forEach items="${reviewLikeList }" var="item" varStatus="status">
+						<div class="card border-secondary mb-3" style="max-width: 200rem;">
+							<div class="card-header" align="right">
+								<a href="#">
+									<img class="radiusImg" alt="배우사진" src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" align="right"/>
+									<span class="likeSpan" >${item.userId }</span>
+								</a>
+								
+							</div>
+							<div class="card-body">
+								<div class="row">
+									<div class="col-sm-3" align="center">
+										<img class="movieImg"
+											src="${item.imgUrl }" alt="포스터" />
+									</div>
+									<div class="col-sm-9">
+										<h4 class="card-title">${item.movieTitle }</h4>
+										<span class="badge badge-pill badge-danger">★${item.grade }</span>
+										<p class="card-text" style="height: 100px">${item.reviewContent }</p>
+										
+										<button type="button" class="btn btn-link likeUnlike" id="${status.index }" ><span
+											style="font-weight: bold; color: #db147b; font-size: 0.9em"><i id="likeUnlikeIcon" class="fas fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
+												${item.likeCount } </span></button>&nbsp;&nbsp;&nbsp; 
+										<button type="button" class="btn btn-link"><span style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
+												${item.commentCount } </span></button>
+										<span id="reviewNo${status.index }" style="color:white;font-size: 0.1em">${item.reviewNo }</span><br>
+									</div>
+								</div>	
 							</div>
 						</div>
-					</div>
+					</c:forEach>
+					</c:if>
                  </div>
                  
                  <!-- 컨텐츠d:보고싶어요 -->
                   <div class="tab-pane fade" id="nav-wish" role="tabpanel" aria-labelledby="nav-wish-tab">
-                  	  <div class="row" style="">
-							<div class="col-md-2 col-sm-6 movie-poster" style="">
-								<img  class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt=""/>
-								<span class="movieTitle">말레피센트</span><br>
-								<Span class="movieExpect">예상★4.5</Span>
-							</div>
-							<div class="col-md-2 col-xs-6 movie-poster" style="">
-								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
-								<span class="movieTitle">말레피센트</span><br>
-								<Span class="movieExpect">예상★4.5</Span>
-							</div>
-							<div class="col-md-2 col-sm-6 movie-poster">
-								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
-								<span class="movieTitle">말레피센트</span><br>
-								<Span class="movieExpect">예상★4.5</Span>
-							</div>
-							<div class="col-md-2 col-sm-6 movie-poster">
-								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
-								<span class="movieTitle">말레피센트</span><br>
-								<Span class="movieExpect">예상★4.5</Span>
-							</div>
-							<div class="col-md-2 col-sm-6 movie-poster">
-								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
-								<span class="movieTitle">말레피센트</span><br>
-								<Span class="movieExpect">예상★4.5</Span>
-							</div>
-							<div class="col-md-2 col-sm-6 movie-poster">
-								<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" />
-								<span class="movieTitle">말레피센트</span><br>
-								<Span class="movieExpect">예상★4.5</Span>
-							</div>
-						</div> 
+                   <c:if test="${empty wishList }" var="isEmpty">
+                 		<div class="py-3">
+	                 		<h5>아직 보고싶어요에 추가하신 영화가 없어요...<i class="far fa-sad-cry"></i></h5>
+	                 		<h5 ><span id="idSpan">${id }</span>님이 좋아하실 영화를 추천해드릴게요!</h5>
+	                 		<button type="button" id="btnWish" class="btn btn-outline-danger waves-effect" onclick="location.href='<c:url value="/Movieing/Movie/Recommend.mov"/>'"><i class="far fa-plus-square"></i>&nbsp;영화 추천받기</button>
+                 		</div>
+                 	</c:if>
+                 	<c:if test="${!isEmpty }">
+                	  <ul class="movieUl">
+                 		<c:forEach items="${wishList }" var="item">
+                 			<li class="movieLi">
+                 				<img  class="movieImg" src=${item.imgUrl } alt="영화포스터"/><br>
+								<span class="movieTitle">${item.movieTitle }</span><br>
+								<!-- <span class="movieStar badge badge-pill badge-danger">예상★ 별점로직이 필요해...</span> -->
+                 			</li>
+                 			</c:forEach>
+                 		</ul>
+                 	</c:if>
+             
+
+					</div> 
                  </div>
              </div>
 		</div>

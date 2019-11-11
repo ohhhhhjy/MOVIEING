@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.EvalueWish">
+	<!-- 별점목록 -->
+	<select id="selectEvalueList" parameterType="java.util.Map" resultType="EvaluationDto">
+		select e.*,m.movie_title 
+		from evaluation e join movie m on m.movie_no=e.movie_no 
+		where user_id=#{id}
+	</select>
+	<!-- 보고싶어요목록 -->
+	<select id="selectWishList" parameterType="java.util.Map" resultType="EvaluationDto">
+		select w.*,m.movie_title 
+		from wish w join movie m on m.movie_no=w.movie_no 
+		where user_id=#{id}
+	</select>	
+	<!-- 별점 카운트 -->
+	<select id="getTotalEvalueCount" parameterType="java.util.Map" resultType="int">
+		select count(*) from evaluation where user_id=#{id}
+	</select>
+	<!-- 보고싶어요 카운트 -->
+	<select id="getTotalWishCount" parameterType="java.util.Map" resultType="int">
+		select count(*) from wish where user_id=#{id}
+	</select>
+	
+	
+	
+	
+	
+</mapper>

@@ -26,8 +26,8 @@ public class ReviewDao implements ReviewService{
 
 	//전체목록
 	@Override
-	public List<ReviewDto> selectList(Map map) {
-		return template.selectList("reviewSelectList",map);
+	public List<ReviewDto> reviewSelectMyList(Map map) {
+		return template.selectList("reviewSelectMyList",map);
 	}
 
 	@Override
@@ -41,6 +41,8 @@ public class ReviewDao implements ReviewService{
 
 		return template.selectOne("reviewSelectOne", map);
 	}
+
+
 
 	@Override
 	public int insert(Map map) {
@@ -59,6 +61,39 @@ public class ReviewDao implements ReviewService{
 
 		template.delete("commentDeleteByNo", map);
 		return template.delete("reviewDelete", map);
+	}
+
+	@Override
+	public List<ReviewDto> reviewSelectLikeList(Map map) {
+
+		return template.selectList("reviewSelectLikeList",map);
+	}
+	//무빙 셀프소개
+	@Override
+	public ReviewDto selectMovieingOne(Map map) {
+		return template.selectOne("selectMovieingOne",map);
+	}
+
+	@Override
+	public  List<ReviewDto> selectMyPageList(Map map) {
+		return template.selectList("selectMyPageList",map);
+	}
+
+	@Override
+	public List<ReviewDto> selectList(Map map) {
+
+		return template.selectList("selectList",map);
+	}
+
+	@Override
+	public List<ReviewDto> selectNotReviewList(Map map) {
+		return template.selectList("selectNotReviewList",map);
+	}
+
+	//리뷰 insert
+	@Override
+	public int insertReview(Map map) {
+		return template.insert("insertReviewList",map);
 	}
 
 }
