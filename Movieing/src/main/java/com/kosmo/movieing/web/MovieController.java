@@ -44,10 +44,7 @@ public class MovieController {
 		return "movie/info/Filmography.tiles";
 	}
 	
-	@RequestMapping("/Movieing/Movie/screening/First_like.mov")
-	public String ratingMovie() {
-		return "movie/screening/First_like.tiles";
-	}
+	
 	/*
 	@RequestMapping("/Movieing/Movie/RatingMovie.mov")
 	public String ratingMovie() {
@@ -78,7 +75,7 @@ public class MovieController {
 	
 	
 	
-	
+	//전체영화 보여주기
 	@RequestMapping("/Movieing/Movie/AllMovie.mov")
 	public String movieMain(Model model) throws Exception {
 		
@@ -177,12 +174,60 @@ public class MovieController {
 		return "movie/info/MovieDetails.tiles";
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//영화 평가 보여주기
+	@RequestMapping("/Movieing/Movie/screening/First_like.mov")
+	public String ratingMovie(Model model) throws Exception {
+		
+		List movie40List = movie40Get();
+		
+		JSONObject json = new JSONObject();
+		JSONArray jArray = new JSONArray();
+		
+		List mImgUrl = new Vector();
+		List mDate = new Vector();
+		
+		for(int i=0; i<40; i++) {
+			System.out.println("리스트 "+i+"번째 제목 : "+movie40List.get(i));
+		}
+		try {
+			
+			for(int i=0; i<40; i++) {
+				
+				mImgUrl.add(movieImgUrl((String) movie40List.get(i)).get("realUrl"));
+				mDate.add(movieImgUrl((String) movie40List.get(i)).get("date"));
+				
+				
+				
+				JSONObject obj = new JSONObject();
+				obj.put("mname", movie40List.get(i));
+				obj.put("mImgUrl", mImgUrl.get(i));
+				obj.put("mdate", mDate.get(i));
+				jArray.add(obj);
+				
+				if(i%4==0) {
+					Thread.sleep(500);
+				}
+				
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("이미지소스 리스트 :"+movie40List);
+		System.out.println("영화제작년도 리스트 :"+mDate);
+		System.out.println("json 객체 :"+jArray);
+		model.addAttribute("movieImgName",jArray);
+		
+		return "movie/screening/First_like.tiles";
+	}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	@RequestMapping("/Movieing/Movie/MovieReviews.mov")
 	public String movieReviews() {
 		return "movie/info/MovieReviews.tiles";
 	}
-	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	//무비리스트 가져오기
 	public List movieTrain() throws Exception{
@@ -219,7 +264,16 @@ public class MovieController {
 		
 		SeleniumController seleniumController = new SeleniumController();
 		
-		String movieCode = seleniumController.crawl(mname);
+		String movieCode = seleniumController.infoCrawl(mname);
+			
+		return movieCode;
+	}
+	
+	//네이버 영화 40개 긁어오기
+	public List movie40Get() throws Exception{
+		SeleniumController seleniumController = new SeleniumController(2);
+		
+		List movieCode = seleniumController.listCrawl();
 		
 		return movieCode;
 	}

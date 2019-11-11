@@ -121,26 +121,28 @@
 					class="btn btn-default"
 					href="<c:url value='/Movieing/Movie/Genre.mov'/>">평균별점 순</a>
 			</div>
+
+
+			<div class="row" style="margin-top: 20px">
 			
-			 
-				<div class="row" style="margin-top: 20px">
-					<c:forEach items="${movieImgDate}" var="json">
-					
-						<div class="col-md-2 col-sm-6 movie-poster" style="margin-bottom: 5px">
-								<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?mname=${json.mname }&date=${json.date }'/>">								 
-									<img class="mvimg" src="${json.realUrl}" alt="" />
-								</a>
-								
-								
-								
-						</div>	
-					 
-					 
-					</c:forEach>
-			  </div>
-			
-			
-			
+				<c:forEach items="${movieImgDate}" var="json">
+
+					<div class="col-md-2 col-sm-6 movie-poster"style="margin-bottom: 5px">
+						<a
+							href="<c:url value='/Movieing/Movie/MovieDetails.mov?mname=${json.mname }&date=${json.date }'/>">
+							<img class="mvimg" src="${json.realUrl}" alt="" />
+						</a>
+
+
+
+					</div>
+
+
+				</c:forEach>
+			</div>
+
+
+
 
 
 
