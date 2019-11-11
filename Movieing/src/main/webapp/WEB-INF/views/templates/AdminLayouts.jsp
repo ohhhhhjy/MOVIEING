@@ -22,6 +22,7 @@
 	href="<c:url value='/resources/css/admin/theme.css'/>" />
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/resources/css/admin/dashboard.css'/>" />
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
   </head>
 
@@ -62,6 +63,32 @@
 	<script type="text/javascript"
 		src="<c:url value='/resources/js/admin/theme.js'/>"></script>
 	<script type="text/javascript" src="<c:url value='/resources/js/admin/gridData.js'/>"></script>
+	<script id="detailTemplate1" type="text/x-shield-template">
+        <table> 
+            <tr>             
+               <td>
+                    <b>Personal Contact Information</b></br>
+                    </br>
+                    <b>Email Address:</b>{email}</br>                    
+                    <b>Phone Number :</b>{phone}</br>       
+                    <b>Address      :</b>{address}</br>       
+               </td>
+            </tr>
+        </table>
+	</script>
+	<script id="detailTemplate2" type="text/x-shield-template">
+        <table> 
+            <tr>             
+               <td>
+                    <b>Personal Contact Information</b></br>
+                    </br>
+                    <b>Email Address:</b>{email}</br>                    
+                    <b>Phone Number :</b>{phone}</br>       
+                    <b>Address      :</b>{address}</br>       
+               </td>
+            </tr>
+        </table>
+	</script>
     <script type="text/javascript">
         jQuery(function ($) {
             $("#grid").shieldGrid({
@@ -88,9 +115,125 @@
                     { field: "phone", title: "연락처", width: "170px" },
                     { field: "registered", title: "가입일", width: "230px" },
                     { field: "email", title:"이메일", width: "270px" },
-                    { field: "button1", title:"구매내역", width: "80px" },
-                    { field: "button2", title:"탈퇴처리", width: "80px" },
+                    {
+                        title: "구매내역",
+                        width: "80px",
+                        buttons: [
+    		            {
+    		                cls: "showdetail",
+    		                caption: "<div class='showdetail'></div>보기",
+    		                commandName: "showdetail",
+    		                click: function (rowIndex) {
+    		                	
+    		                }
+    		            }]
+                    },
+                    {
+                        title: "탈퇴처리",
+                        width: "80px",
+                        buttons: [
+    		            {
+    		                cls: "userout",
+    		                caption: "<div class='userout'></div>탈퇴",
+    		                commandName: "userout",
+    		                click: function (rowIndex) {
+    		                    
+    		                }
+    		            }]
+                    }
                     
+                ]
+            });
+        });
+        $(document).ready(function () {
+        	$("#grid-announce").shieldGrid({
+                dataSource: {
+                    data: gridData
+                },
+                sorting: {
+                    multiple: true
+                },
+                paging: {
+                    pageSize: 12,
+                    pageLinksCount: 10
+                },
+                detailTemplate: $("#detailTemplate1").html(),
+                
+                columns: [
+                    { field: "id", width: "70px", title: "글 번호" },
+                    { field: "name", title: "글 제목" },
+                    { field: "registered", title: "작성일자", width:"230px" },
+                    {
+                        title: "수정",
+                        width: "80px",
+                        buttons: [
+    		            {
+    		                cls: "annoedit",
+    		                caption: "<div class='annoedit'></div>수정",
+    		                commandName: "annoedit",
+    		                click: function (rowIndex) {
+    		                	
+    		                }
+    		            }]
+                    },
+                    {
+                        title: "삭제",
+                        width: "80px",
+                        buttons: [
+    		            {
+    		                cls: "annodel",
+    		                caption: "<div class='annodel'></div>삭제",
+    		                commandName: "annodel",
+    		                click: function (rowIndex) {
+    		                    
+    		                }
+    		            }]
+                    }
+                ]
+            });
+        	$("#grid-goods").shieldGrid({
+                dataSource: {
+                    data: gridData
+                },
+                sorting: {
+                    multiple: true
+                },
+                paging: {
+                    pageSize: 12,
+                    pageLinksCount: 10
+                },
+                detailTemplate: $("#detailTemplate2").html(),
+                
+                columns: [
+                    { field: "id", width: "70px", title: "글 번호" },
+                    { field: "name", title: "글 제목" },
+                    { field: "registered", title: "작성일자", width:"230px" },
+                    {
+                        title: "수정",
+                        width: "80px",
+                        buttons: [
+    		            {
+    		                cls: "annoedit",
+    		                caption: "<div class='annoedit'></div>수정",
+    		                commandName: "annoedit",
+    		                click: function (rowIndex) {
+    		                	
+    		                }
+    		            }]
+                    },
+                    {
+                        title: "삭제",
+                        width: "80px",
+                        buttons: [
+    		            {
+    		                cls: "annodel",
+    		                caption: "<div class='annodel'></div>삭제",
+    		                commandName: "annodel",
+    		                click: function (rowIndex) {
+    		                    
+    		                }
+    		            }]
+                    }
                 ]
             });
         });
