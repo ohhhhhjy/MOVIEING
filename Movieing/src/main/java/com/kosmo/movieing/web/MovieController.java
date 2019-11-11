@@ -145,6 +145,8 @@ public class MovieController {
 			Document doc = Jsoup.connect(base_url).get(); // 웹페이지 연결
 			for (int i = 1; i <= 18; i++) {
 				String movieName = doc.select("#content > div.article > div:nth-child(1) > div.lst_wrap > ul > li:nth-child(" + i+ ")> dl > dt > a").html().trim();
+				//*[@id="content"]/div[1]/div[1]/div[3]/ul/li[1]/dl/dt/a
+				//*[@id="content"]/div[1]/div[1]/div[3]/ul/li[2]/dl/dt
 				// Element movieName = doc.selectFirst("#content > div.article >
 				// div:nth-child(1) > div.lst_wrap > ul > li:nth-child(1) > dl > dt");
 				// System.out.println("무비갯수 :"+movieName.size());
