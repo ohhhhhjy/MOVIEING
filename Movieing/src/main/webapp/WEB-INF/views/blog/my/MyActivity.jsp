@@ -139,56 +139,60 @@ $(function(){
 		
 	});
 	
+	
+	var flag = false;
 	//좋아요 클릭 이벤트처리
+	console.log($('.likeUnlike'));
+	if(typeof $('.likeUnlike')!= 'undefined'){
  	$('.likeUnlike').click(function(){
  		var index = $(this).attr('id');
- 		var reviewNo = 'revieNo'+index;
+ 		
  		
 		//좋아요 off  > on
- 		if($('#likeUnlikeIcon').prop('class')=='far fa-thumbs-up'){
+ 		if(flag){
  			
- 			$('#likeUnlikeIcon').removeClass('far fa-thumbs-up').addClass('fas fa-thumbs-up');
+ 			//$('#likeUnlikeIcon').removeClass('far fa-thumbs-up').addClass('fas fa-thumbs-up');
  			
  			$.ajax({
  				url:"<c:url value='/Movieing/Blog/LikeInsert.mov'/>",
  				type:'post',
  				dataType:'text',
  				data:
- 					{id:$('#idSpan').html(),reviewNo:$('#'+reviewNo).html()},
+ 					{id:'${id}',reviewNo:'${reviewLikeList.get(index).reviewNo}'},
  					
  				success:function(data){//서버로 부터 정상적인 응답을 받았을 때(200번)
- 					console.log(data);
- 				
- 				//$('#lblDisplay').html(data);
- 				
+ 					$('#likeSpan'+index).html('<i class="fas fa-thumbs-up"></i>'+data);
  				},	
  				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
  					console.log("에러:"+data.responseText);
  				}
  			});
+ 			
+ 			flag = !flag;
  		}
  		
  		//좋아요 on  > off
  		else{
- 			$('#likeUnlikeIcon').removeClass('fas fa-thumbs-up').addClass('far fa-thumbs-up'); 
+ 			//$('#likeUnlikeIcon').removeClass('fas fa-thumbs-up').addClass('far fa-thumbs-up'); 
  			
  			$.ajax({
  				url:"<c:url value='/Movieing/Blog/LikeRemove.mov'/>",
  				type:'post',
  				dataType:'text',
  				data:
- 					{id:$('#idSpan').html(),reviewNo:$('#'+reviewNo).html()},
+ 				{id:'${id}',reviewNo:'${reviewLikeList.get(index).reviewNo}'},
  				success:function(data){//서버로 부터 정상적인 응답을 받았을 때(200번)
- 					console.log(data);
- 				//$('#lblDisplay').html(data);
+ 					$('#likeSpan'+index).html('<i class="far fa-thumbs-up"></i>'+data);
  				},	
  				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
  					console.log("에러:"+data);
  				}
  			});
+ 			flag = !flag;
  		}
  			
 	});
+	}
 });
 
 function tabSettingByPage(){//전 페이지에서 넘어온 페이지값에 따라 탭과 탭컨텐츠 세팅해주기
@@ -346,7 +350,7 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
 						<div class="card border-secondary mb-3" style="max-width: 200rem;">
 							<div class="card-header" align="right">
 								<a href="#">
-									<img class="radiusImg" alt="배우사진" src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" align="right"/>
+									<img class="radiusImg" alt="유저사진" src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" align="right"/>
 									<span class="likeSpan" >${item.userId }</span>
 								</a>
 								
@@ -363,7 +367,7 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
 										<p class="card-text" style="height: 100px">${item.reviewContent }</p>
 										
 										<button type="button" class="btn btn-link likeUnlike" id="${status.index }" ><span
-											style="font-weight: bold; color: #db147b; font-size: 0.9em"><i id="likeUnlikeIcon" class="fas fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
+											style="font-weight: bold; color: #db147b; font-size: 0.9em" id="likeSpan${status.index }"><i id="likeUnlikeIcon" class="fas fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
 												${item.likeCount } </span></button>&nbsp;&nbsp;&nbsp; 
 										<button type="button" class="btn btn-link"><span style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
 												${item.commentCount } </span></button>

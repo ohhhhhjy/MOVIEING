@@ -168,13 +168,13 @@ padding-left: 50px;padding-right: 30px;
 								<a href="#followModal" data-toggle="modal" id="followerModal"
 									class="followModal"><span
 									style="font-weight: bold; color: black; font-size: 0.9em">팔로워
-										25 </span></a>
+										${followerCount } </span></a>
 							</div>
 							<div class="col-sm-6">
 								<a href="#followModal" data-toggle="modal" id="followingModal"
 									class="followModal"><span
 									style="font-weight: bold; color: black; font-size: 0.9em">팔로잉
-										43 </span></a>
+										${followingCount } </span></a>
 							</div>
 						</div>
 						<br>
