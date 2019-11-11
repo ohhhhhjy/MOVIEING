@@ -58,8 +58,8 @@
 	</select>
 	
 	<select id="reviewTotal" parameterType="java.util.Map" resultType="int">
-		select count(*) from LIKE_REVIEW
-		where REVIEW_NO=#{reviewNum}
+		select count(*) from review
+		where USER_ID=#{id}
 	</select>
 	
 	<select id="selectMyPageList" parameterType="java.util.Map" resultType="ReviewDto">

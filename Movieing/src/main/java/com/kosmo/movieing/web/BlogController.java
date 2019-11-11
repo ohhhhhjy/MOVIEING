@@ -15,10 +15,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosmo.movieing.service.EvaluationDto;
 import com.kosmo.movieing.service.EvalueWishService;
+import com.kosmo.movieing.service.LikeReviewService;
 import com.kosmo.movieing.service.ReviewDto;
 import com.kosmo.movieing.service.ReviewService;
 
@@ -31,9 +33,36 @@ public class BlogController {
 	@Resource(name="evalueWishService")
 	private EvalueWishService evalueWishService;
 
+	@Resource(name = "likeReviewService")
+	private LikeReviewService likeReviewService;
+
 	// 블로그메인
 	@RequestMapping("/Movieing/Blog/BlogMain.mov")
-	public String blogMain() {
+	public String blogMain(@RequestParam Map map,Model model) {
+		String id= "KIM";//임시
+		map.put("id", id);
+		model.addAttribute("id",id);
+
+		//[유저정보] count 별.리.좋.보. 팔로워.팔로잉.
+		//별점 카운트
+		int evalueCount = evalueWishService.getTotalEvalueCount(map);
+		model.addAttribute("evalueCount",evalueCount);
+		//리뷰 카운트
+		int reviewCount = reviewService.getTotalCount(map);
+		model.addAttribute("reviewCount",reviewCount);
+		//좋아요 카운트
+		int likeCount = likeReviewService.getTotalCountByMe(map);
+		model.addAttribute("likeCount",likeCount);
+		//보고싶어요 카운트
+		int wishCount = evalueWishService.getTotalWishCount(map);
+		model.addAttribute("wishCount",wishCount);
+		//팔로워 카운트
+		//팔로우 카운트
+
+
+
+
+
 		return "blog/my/BlogMain.tiles";
 	}
 
@@ -42,8 +71,8 @@ public class BlogController {
 	public String myActiviy(@RequestParam Map map, Model model) throws Exception {
 		String id= "KIM";//임시
 
-
 		map.put("id", id);
+		model.addAttribute("id",id);
 
 		String page = map.get("page") == null ? "a" : map.get("page").toString();
 		model.addAttribute("page", page);
@@ -76,14 +105,34 @@ public class BlogController {
 		}
 
 
-		model.addAttribute("evaluationList",evaluationList);
-		model.addAttribute("reviewList", reviewList);
-		model.addAttribute("reviewLikeList", reviewLikeList);
-		model.addAttribute("wishList", wishList);
+		model.addAttribute("evaluationList",evaluationList);//별점
+		model.addAttribute("reviewList", reviewList);//리뷰
+		model.addAttribute("reviewLikeList", reviewLikeList);//좋아요
+		model.addAttribute("wishList", wishList);//보고싶어요
 
 
 		return "blog/my/MyActivity.tiles";
 	}
+
+	//좋아요 삭제
+	@ResponseBody
+	@RequestMapping(value="/Movieing/Blog/LikeRemove.mov",produces = "application/json" )
+	public String likeRemove(@RequestParam Map map) {
+		System.out.println("뭐가문제야");
+		likeReviewService.delete(map);
+		int count = likeReviewService.getTotalCount(map);
+		return String.valueOf(count);
+	}
+
+	//좋아요 입력
+	@ResponseBody
+	@RequestMapping(value="/Movieing/Blog/LikeInsert.mov",produces = "application/json" )
+	public String likeInsert(@RequestParam Map map) {
+		likeReviewService.insert(map);
+		int count = likeReviewService.getTotalCount(map);
+		return String.valueOf(count);
+	}
+
 
 	/////////////////////////////////////////////////////////////////////////////////////
 
@@ -110,7 +159,7 @@ public class BlogController {
 		map.put("reviewNum", reviewNum);
 
 		// 좋아요]
-		int friendsLike = reviewService.getTotalCount(map);// 1개
+		int friendsLike = likeReviewService.getTotalCountByAll(map);// 1개
 		model.addAttribute("friendsLike", friendsLike);
 
 		// 시간차]
@@ -219,4 +268,9 @@ public class BlogController {
 
 
 		}///movieImgMap
+
+
+
+
+
 }//////// class

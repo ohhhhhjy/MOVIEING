@@ -12,8 +12,12 @@ public interface EvalueWishService {
 	//보고싶어요 목록
 	List<EvaluationDto> selectWishList(Map map);
 
-	//전체 레코드 수
-	int getTotalCount(Map map);
+	//별점 전체 레코드 수
+	int getTotalEvalueCount(Map map);
+
+	//보고싶어요 전체 레코드 수
+	int getTotalWishCount(Map map);
+
 	//상세보기 용
 	EvaluationDto selectOne(Map map);
 	//입력/수정/삭제

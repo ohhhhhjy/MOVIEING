@@ -75,7 +75,6 @@
          value="http://localhost:8080/Movieing/oauth2callback" />
    </beans:bean>
 
-	<annotation-driven/>
 
 
 </beans:beans>
