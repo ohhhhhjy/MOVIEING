@@ -30,14 +30,14 @@
 	
 	<!-- 내가 좋아요 누른 리뷰 리스트 (타인의 리뷰)-->
 	<select id="reviewSelectLikeList" parameterType="java.util.Map" resultType="ReviewDto">
-		select r.*, 
+        select r.*, 
 		movie_title,
 		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
-		(select count(*) from LIKE_REVIEW  where user_id= r.user_id and review_no = r.review_no) likeCount,
-		(select count(*) from COMMENT_TABLE where user_id= r.user_id and review_no = r.review_no) commentCount
+		(select count(*) from LIKE_REVIEW  where  review_no = r.review_no) likeCount,
+		(select count(*) from COMMENT_TABLE where  review_no = r.review_no) commentCount
 		from review r  
 		join movie m on r.movie_no=m.movie_no 
-		where user_id=(select user_id from like_review where user_id=#{id})
+		where review_no in (select review_no from like_review where user_id=#{id})
 	</select>
 	
 	

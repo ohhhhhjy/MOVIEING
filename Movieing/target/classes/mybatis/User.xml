@@ -5,7 +5,7 @@
 	
 	
 	<select id="isMember"  parameterType="java.util.Map" resultType="int">
-		select count(*) from user_table where USER_ID=#{userId}
+		select count(*) from user_table where USER_ID=#{userid} OR USER_NICK=#{nickname}
 	</select>
 	
 	<select id="userList" parameterType="java.util.Map" resultType="UserDto">
@@ -21,7 +21,10 @@
 	</select>
 	
 	<insert id="userInsert" parameterType="java.util.Map">
-	
+		INSERT INTO user_table 
+		(USER_ID, USER_PWD,USER_NAME,USER_NICK,USER_CONTACT,USER_MAIL,USER_SELF, USER_PROFILE) 
+		VALUES 
+		(#{userid},#{userpass},#{username},#{nickname},#{contact},#{email},#{publicinfo}, null)
 	</insert>
 	
 	<update id="userUpdate" parameterType="java.util.Map">

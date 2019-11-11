@@ -13,6 +13,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -40,10 +44,7 @@ public class MovieController {
 		return "movie/info/Filmography.tiles";
 	}
 	
-	@RequestMapping("/Movieing/Movie/screening/First_like.mov")
-	public String ratingMovie() {
-		return "movie/screening/First_like.tiles";
-	}
+	
 	/*
 	@RequestMapping("/Movieing/Movie/RatingMovie.mov")
 	public String ratingMovie() {
@@ -54,17 +55,101 @@ public class MovieController {
 	///////////////////////////////////////////////////////
 	
 	@RequestMapping("/Movieing/Movie/Genre.mov")
-	public String movieGenre() {
+	public String movieGenre(Model model) throws Exception {
+		List mNames = new Vector();
+		List mlist = movieTrain3();
+		int max = 18;
+		
+		try {
+			for(int i=0; i<18;i++) {
+				System.out.println("영화제목"+i+":"+mlist.get(i));
+				mNames.add(movieImgUrl((String) mlist.get(i)));
+				if(i==9) {
+					Thread.sleep(5000);
+				}
+				System.out.println("이미지소스"+i+":"+mNames.get(i));
+				
+			}
+			}
+			catch(Exception e) {e.printStackTrace();}
+			
+		
+			//영화이미지*/
+			
+			model.addAttribute("movieImgUrl", mNames);
+			model.addAttribute("movieName", mNames);
+		
+		
 		return "movie/list/Genre.tiles";
-	}
+	}/////////////////movieGenre
+	
 	@RequestMapping("/Movieing/Movie/NewMovie.mov")
-	public String movieNew() {
-		return "movie/list/NewMovie.tiles";
-	}
+	public String movieNew(Model model) throws Exception{
+		
+			List mNames = new Vector();
+			List mlist = movieTrain();
+			
+			int max = 18;
+			/*
+			for(int j=0; j<3;j++) {
+				for(int i=j*6; i<j*6+6; i++) {
+					System.out.println(i);
+					System.out.println(mlist.get(i));
+					mNames.add(movieImgUrl((String) mlist.get(i)));
+				//System.out.println(mNames.get(i));
+				//System.out.println();
+				}
+			}
+			*/
+			try {
+			for(int i=0; i<18;i++) {
+				System.out.println("영화제목"+i+":"+mlist.get(i));
+				mNames.add(movieImgUrl((String) mlist.get(i)));
+				if(i==9) {
+					Thread.sleep(5000);
+				}
+				System.out.println("이미지소스"+i+":"+mNames.get(i));
+				
+			}
+			}
+			catch(Exception e) {e.printStackTrace();}
+			
+		
+			//영화이미지*/
+			
+			model.addAttribute("movieImgUrl", mNames);
+			model.addAttribute("movieName", mNames);
+		
+		return "movie/list/AllMovie.tiles";
+	}/////////////////
 	@RequestMapping("/Movieing/Movie/Popular.mov")
-	public String moviePopular() {
+	public String moviePopular(Model model) throws Exception {
+		List mNames = new Vector();
+		List mlist = movieTrain2();
+		
+		int max = 18;
+		
+		try {
+			for(int i=0; i<18;i++) {
+				System.out.println("영화제목"+i+":"+mlist.get(i));
+				mNames.add(movieImgUrl((String) mlist.get(i)));
+				if(i==9) {
+					Thread.sleep(5000);
+				}
+				System.out.println("이미지소스"+i+":"+mNames.get(i));
+				
+			}
+			}
+			catch(Exception e) {e.printStackTrace();}
+			
+		
+			//영화이미지*/
+			
+			model.addAttribute("movieImgUrl", mNames);
+			model.addAttribute("movieName", mNames);
+			
 		return "movie/list/Popular.tiles";
-	}
+	}////////////////////////moviePopular
 	
 	
 	@RequestMapping("/Movieing/Movie/SearchResult.mov")
@@ -74,14 +159,21 @@ public class MovieController {
 	
 	
 	
-	
+	//전체영화 보여주기
 	@RequestMapping("/Movieing/Movie/AllMovie.mov")
 	public String movieMain(Model model) throws Exception {
 		
-		List mNames = new Vector();
-		List mlist = movieTrain();
+		//List<Map> mData = new Vector<Map>();
+		//Map<K, V> mNameDate = new HashMap();
 		
-		int max = 18;
+		List mNames = new Vector();
+		List mDate = new Vector();
+		List mList = movieTrain();
+		
+		JSONObject json = new JSONObject();
+		JSONArray jArray = new JSONArray();
+		
+		
 		/*
 		for(int j=0; j<3;j++) {
 			for(int i=j*6; i<j*6+6; i++) {
@@ -95,43 +187,132 @@ public class MovieController {
 		*/
 		try {
 		for(int i=0; i<18;i++) {
-			System.out.println("영화제목"+i+":"+mlist.get(i));
-			mNames.add(movieImgUrl((String) mlist.get(i)));
-			if(i==9) {
-				Thread.sleep(5000);
+			
+			mNames.add(movieImgUrl((String) mList.get(i)).get("realUrl"));
+			mDate.add(movieImgUrl((String) mList.get(i)).get("date"));
+		
+			JSONObject obj = new JSONObject();
+			obj.put("realUrl",mNames.get(i));
+			obj.put("date",mDate.get(i));
+			obj.put("mname", mList.get(i));
+			
+			jArray.add(obj);
+			
+			//mNameDate.put((movieImgUrl((String) mList.get(i)).get("realUrl")),(movieImgUrl((String) mList.get(i)).get("date")));
+			
+			//mNameDate.put("mImgUrl",movieImgUrl((String) mList.get(i)).get("realUrl"));
+			//mNameDate.put("mPubDate", movieImgUrl((String) mList.get(i)).get("date"));
+			
+			//mData.add(mNameDate);
+			
+			
+			if(i%5==0) {
+				Thread.sleep(1000);
 			}
-			System.out.println("이미지소스"+i+":"+mNames.get(i));
+			//System.out.println("영화 제목 "+i+":"+mList.get(i));
+			//System.out.println("이미지 소스 "+i+":"+mNameDate.get("mImgUrl"));
+			//System.out.println("영화 제작 년도 "+i+":"+mNameDate.get("mPubDate"));
+		//	System.out.println("영화 ?? "+i+":"+mNameDate.get(i));
+			//System.out.println("이미지 소스 "+i+":"+mNames.get(i));
+			//System.out.println("영화 제작 년도 "+i+":"+mDate.get(i));
 			
 		}
+		
 		}
 		catch(Exception e) {e.printStackTrace();}
 		
 	
 		//영화이미지*/
+		//System.out.println("이미지소스 리스트 :"+mNames);
+		//System.out.println("영화제작년도 리스트 :"+mDate);
+		//System.out.println("제이슨 객체 :"+jArray);
 		
-		model.addAttribute("movieImgUrl", mNames);
-		model.addAttribute("movieName", mNames);
+		//model.addAttribute("movieImgUrl", mNames);
+		//model.addAttribute("moviePubDate", mDate);
+		//model.addAttribute("movieName", mList);
+		//model.addAttribute("movieImgDate", mNameDate);
+		
+		model.addAttribute("movieImgDate",jArray);
 		
 		return "movie/list/AllMovie.tiles";
-	}
+	}//////////////////movieMain
+	
 	
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//영화 상세 페이지
 	@RequestMapping("/Movieing/Movie/MovieDetails.mov")
-	public String movieDetailsTest(@RequestParam  Map map, Model model)throws Exception {
+	public String movieDetailsTest(HttpServletRequest req, @RequestParam  Map map, Model model,@RequestParam String mname, @RequestParam String date)throws Exception {
+		
+		System.out.println("RequestMethod.GET");
+		System.out.println("name : "+mname);
+		System.out.println("date : "+date);
+		
+		String mcode = moviecdGet(mname);
+
+		String mImgSource = (String) movieImgUrl(mname).get("realUrl");
+		
 		//영화상세정보
-		model.addAttribute("movieInfoMap", movieInfoMap("20182669"));//아직 해당영화 코드 가져올 방법이 없으므로 하드코딩
+		model.addAttribute("movieInfoMap", movieInfoMap(mcode));//아직 해당영화 코드 가져올 방법이 없으므로 하드코딩
 		//영화이미지
-		model.addAttribute("movieImgUrl", movieImgUrl("조커"));
+		model.addAttribute("movieImgUrl", mImgSource);
+		System.out.println("movieImgUrl : "+movieImgUrl(mname));
 		return "movie/info/MovieDetails.tiles";
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//영화 평가 보여주기
+	@RequestMapping("/Movieing/Movie/screening/First_like.mov")
+	public String ratingMovie(Model model) throws Exception {
+		
+		List movie40List = movie40Get();
+		
+		JSONObject json = new JSONObject();
+		JSONArray jArray = new JSONArray();
+		
+		List mImgUrl = new Vector();
+		List mDate = new Vector();
+		
+		for(int i=0; i<40; i++) {
+			System.out.println("리스트 "+i+"번째 제목 : "+movie40List.get(i));
+		}
+		try {
+			
+			for(int i=0; i<40; i++) {
+				
+				mImgUrl.add(movieImgUrl((String) movie40List.get(i)).get("realUrl"));
+				mDate.add(movieImgUrl((String) movie40List.get(i)).get("date"));
+				
+				
+				
+				JSONObject obj = new JSONObject();
+				obj.put("mname", movie40List.get(i));
+				obj.put("mImgUrl", mImgUrl.get(i));
+				obj.put("mdate", mDate.get(i));
+				jArray.add(obj);
+				
+				if(i%4==0) {
+					Thread.sleep(500);
+				}
+				
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("이미지소스 리스트 :"+movie40List);
+		System.out.println("영화제작년도 리스트 :"+mDate);
+		System.out.println("json 객체 :"+jArray);
+		model.addAttribute("movieImgName",jArray);
+		
+		return "movie/screening/First_like.tiles";
+	}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	@RequestMapping("/Movieing/Movie/MovieReviews.mov")
 	public String movieReviews() {
 		return "movie/info/MovieReviews.tiles";
 	}
-	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	//무비리스트 가져오기
 	public List movieTrain() throws Exception{
@@ -144,7 +325,13 @@ public class MovieController {
 
 			Document doc = Jsoup.connect(base_url).get(); // 웹페이지 연결
 			for (int i = 1; i <= 18; i++) {
-				String movieName = doc.select("#content > div.article > div:nth-child(1) > div.lst_wrap > ul > li:nth-child(" + i+ ")> dl > dt > a").html().trim();
+
+				String movieName = doc.select("#content > div.article > div:nth-child(1) > div.lst_wrap > ul > li:nth-child(" + i+ ")> dl > dt > a").html().trim().replaceAll(" ","");
+
+//				String movieName = doc.select("#content > div.article > div:nth-child(1) > div.lst_wrap > ul > li:nth-child(" + i+ ")> dl > dt > a").html().trim();
+				//*[@id="content"]/div[1]/div[1]/div[3]/ul/li[1]/dl/dt/a
+				//*[@id="content"]/div[1]/div[1]/div[3]/ul/li[2]/dl/dt
+
 				// Element movieName = doc.selectFirst("#content > div.article >
 				// div:nth-child(1) > div.lst_wrap > ul > li:nth-child(1) > dl > dt");
 				// System.out.println("무비갯수 :"+movieName.size());
@@ -160,13 +347,97 @@ public class MovieController {
 		}//catch
 		
 		return movieList;
+	}/////////////////////////////////movieTrain
+	
+	
+	//무비리스트 인기영화 가져오기2
+	public List movieTrain2() throws Exception{
+		
+		List<String> movieList = new Vector(); // 무비 리스트
+
+		//인기영화
+		String base_url = "https://movie.naver.com/movie/running/current.nhn?view=list&tab=normal&order=likeCount"; // 가져올 주소
+		try {
+
+			Document doc = Jsoup.connect(base_url).get(); // 웹페이지 연결
+			for (int i = 1; i <= 18; i++) {
+				String movieName = doc.select("#content > div.article > div:nth-child(1) > div.lst_wrap > ul > li:nth-child(" + i+ ")> dl > dt > a").html().trim();
+				
+				//*[@id="content"]/div[1]/div[1]/div[3]/ul/li[1]/div/a/img
+				//*[@id="content"]/div[1]/div[1]/div[3]/ul/li[1]/dl/dt/a
+				//*[@id="content"]/div[1]/div[1]/div[3]/ul/li[2]/dl/dt
+				// Element movieName = doc.selectFirst("#content > div.article >
+				// div:nth-child(1) > div.lst_wrap > ul > li:nth-child(1) > dl > dt");
+				// System.out.println("무비갯수 :"+movieName.size());
+				//System.out.println("영화 제목 가져오는 중 :" + movieNameㅇㅇ);
+				movieList.add(movieName);
+			}
+			//System.out.println("----------------------------");
+			//for (String movie : movieList) {
+			//	System.out.println(movie);
+			//}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}//catch
+		
+		return movieList;
+	}//////////////////////////////movieTrain2
+
+	//영화진흥원에서 제목으로 코드 검색하기
+	public String moviecdGet(String mname) throws Exception{
+		
+		SeleniumController seleniumController = new SeleniumController();
+		
+		String movieCode = seleniumController.infoCrawl(mname);
+			
+		return movieCode;
 	}
+
+	//무비리스트 평가영화 가져오기3
+		public List movieTrain3() throws Exception{
+			
+			List<String> movieList = new Vector(); // 무비 리스트
+
+			//인기영화
+			String base_url = "https://movie.naver.com/movie/running/current.nhn?view=list&tab=normal&order=point"; // 가져올 주소
+			try {
+
+				Document doc = Jsoup.connect(base_url).get(); // 웹페이지 연결
+				for (int i = 1; i <= 18; i++) {
+					String movieName = doc.select("#content > div.article > div:nth-child(1) > div.lst_wrap > ul > li:nth-child(" + i+ ")> dl > dt > a").html().trim();
+					
+					//*[@id="content"]/div[1]/div[1]/div[3]/ul/li[1]/div/a/img
+					//*[@id="content"]/div[1]/div[1]/div[3]/ul/li[1]/dl/dt/a
+					//*[@id="content"]/div[1]/div[1]/div[3]/ul/li[2]/dl/dt
+					// Element movieName = doc.selectFirst("#content > div.article >
+					// div:nth-child(1) > div.lst_wrap > ul > li:nth-child(1) > dl > dt");
+					// System.out.println("무비갯수 :"+movieName.size());
+					//System.out.println("영화 제목 가져오는 중 :" + movieNameㅇㅇ);
+					movieList.add(movieName);
+				}
+				//System.out.println("----------------------------");
+				//for (String movie : movieList) {
+				//	System.out.println(movie);
+				//}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}//catch
+			
+			return movieList;
+		}
 	
 	
 	
-	
-	
-	
+
+	//네이버 영화 40개 긁어오기
+	public List movie40Get() throws Exception{
+		SeleniumController seleniumController = new SeleniumController(2);
+		
+		List movieCode = seleniumController.listCrawl();
+		
+		return movieCode;
+	}
+
 	
 	//영화진흥위원회에서 영화상세정보를 얻기위한 메소드(영화제목,원제목,제작년도,장르,감독,배우)
 	public HashMap<String,Object> movieInfoMap(String movieCd) throws Exception {
@@ -191,11 +462,14 @@ public class MovieController {
 	
 	//네이버의 고화질 영화포스터 이미지url을 얻기위한 메소드
 	//public String movieImgUrl(String movieNm) throws Exception {
-	public String movieImgUrl(String movieNm) throws Exception {
+	public Map movieImgUrl(String movieNm) throws Exception {
 		
         String clientId = "T1e73cqxyZeqqNbXbMLa";//애플리케이션 클라이언트 아이디값";
         String clientSecret = "cqCUwiyR31";//애플리케이션 클라이언트 시크릿값";
-       
+        
+        Map dataMap = new HashMap();
+        
+        
             String text = URLEncoder.encode(movieNm, "UTF-8");
             String apiURL = "https://openapi.naver.com/v1/search/movie?query="+ text; // json 결과
             URL url = new URL(apiURL);
@@ -221,9 +495,14 @@ public class MovieController {
     		ObjectMapper mapper = new ObjectMapper();
     		HashMap<String,List<Map>> movieInfoMap = mapper.readValue(response.toString(), HashMap.class);
     		
-    		System.out.println("제이슨:"+movieInfoMap);
+    		//System.out.println("제이슨:"+movieInfoMap);
     		
     		String imgStr = movieInfoMap.get("items").get(0).get("link").toString();
+    		String dateStr = movieInfoMap.get("items").get(0).get("pubDate").toString().trim().replaceAll(" ", "");
+    		
+    		
+    		
+    		//System.out.println("dateStr:"+dateStr);
     		//System.out.println(imgStr);
     		String movieCode = imgStr.substring(imgStr.indexOf('=')+1);
     		//System.out.println("movieCode: " + movieCode);
@@ -236,10 +515,13 @@ public class MovieController {
     		Document doc = Jsoup.connect(realImgStr).get();
     		Elements descs = doc.select("#targetImage");
     		String realUrl =descs.get(0).attr("src");
-    		System.out.println("realImgStr : "+realImgStr);
-    		System.out.println("realUrl :"+realUrl);
-    		return realUrl;
-        
+    		//System.out.println("realImgStr : "+realImgStr);
+    		//System.out.println("realUrl :"+realUrl);
+    		
+    		dataMap.put("realUrl",realUrl);
+    		dataMap.put("date",dateStr);
+    		//return realUrl;
+    		return dataMap;
             
         
 	}///movieImgMap

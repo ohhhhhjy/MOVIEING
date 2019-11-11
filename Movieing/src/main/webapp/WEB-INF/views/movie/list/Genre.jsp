@@ -77,29 +77,27 @@ $(function() {
       <li class="sidebar-brand">
         <span style="font-weight: bold;color:white;" >영화</span>
       </li>
-      <li><a href="#" class="genreTag">랜덤 영화</a></li>
-      <li><a href="#" class="genreTag">역대 100만관객돌파 영화</a></li>
-      <li><a href="#" class="genreTag">전세계흥행 TOP 영화</a></li>
-      <li><a href="#" class="genreTag">국내누적관객수 TOP 영화</a></li>
-      <li><a href="#" class="genreTag">전문가 고평점 영화</a></li>
-      <li><a href="#" class="genreTag">고전 영화</a></li>
-      <li><a href="#" class="genreTag">느와르 영화</a></li>
-      <li><a href="#" class="genreTag">슈퍼 히어로 영화</a></li>
-       <li><a href="#" class="genreTag">스포츠 영화</a></li>
-       <li><a href="#" class="genreTag">범죄</a></li>
-       <li><a href="#" class="genreTag">드라마</a></li>
-       <li><a href="#" class="genreTag">코미디</a></li>
-       <li><a href="#" class="genreTag">로맨스/멜로</a></li>
-       <li><a href="#" class="genreTag">공포/스릴러</a></li>
-       <li><a href="#" class="genreTag">로맨틱코미디</a></li>
-       <li><a href="#" class="genreTag">전쟁</a></li>
-       <li><a href="#" class="genreTag">가족</a></li>
-       <li><a href="#" class="genreTag">판타지</a></li>
-       <li><a href="#" class="genreTag">액션</a></li>
-       <li><a href="#" class="genreTag">SF</a></li>
-       <li><a href="#" class="genreTag">애니메이션</a></li>
-       <li><a href="#" class="genreTag">다큐멘터리</a></li>
-
+      		<li><a href="#" class="genreTag">역대 100만관객돌파 영화</a></li>
+			<li><a href="#" class="genreTag">전세계흥행 TOP 영화</a></li>
+			<li><a href="#" class="genreTag">국내누적관객수 TOP 영화</a></li>
+			<li><a href="#" class="genreTag">전문가 고평점 영화</a></li>
+			<li><a href="#" class="genreTag">슈퍼 히어로 영화</a></li>
+			<li><a href="#" class="genreTag">스포츠 영화</a></li>
+			<li><a href="#" class="genreTag">범죄</a></li>
+			<li><a href="#" class="genreTag">드라마</a></li>
+			<li><a href="#" class="genreTag">코미디</a></li>
+			<li><a href="#" class="genreTag">로맨스/멜로</a></li>
+			<li><a href="#" class="genreTag">공포/스릴러</a></li>
+			<li><a href="#" class="genreTag">SF</a></li>
+			<li><a href="#" class="genreTag">애니메이션</a></li>
+			<li><a href="#" class="genreTag">액션</a></li>
+			<li><a href="#" class="genreTag">전쟁</a></li>
+			<li><a href="#" class="genreTag">판타지</a></li>
+			<li><a href="#" class="genreTag">로맨틱코미디</a></li>
+			<li><a href="#" class="genreTag">고전 영화</a></li>
+			<li><a href="#" class="genreTag">느와르 영화</a></li>
+			<li><a href="#" class="genreTag">랜덤 영화</a></li>	
+			<li><a href="#" class="genreTag">가족</a></li>
 
       
        
@@ -120,90 +118,16 @@ $(function() {
 		
 		
 	</div>
-    	  	<div class="row" style="margin-top: 20px" >
-		<div class="col-md-2 col-sm-6 movie-poster" >
-		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
-		 
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div> 
-  	</div>
-  	
-  	<div class="row" style="margin-top: 20px" >
-		<div class="col-md-2 col-sm-6 movie-poster">
-		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div>
-    	<div class="col-md-2 col-sm-6 movie-poster">
-		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div>  
-    	<div class="col-md-2 col-sm-6 movie-poster">
-			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div> 
-    
-  	</div>
-  	
-  	<div class="row" style="margin-top: 20px" >
-		<div class="col-md-2 col-sm-6 movie-poster">
-		 	<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div>
-    	<div class="col-md-2 col-sm-6 movie-poster">
-			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
-    	</div>  
-    	<div class="col-md-2 col-sm-6 movie-poster">
-			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-		 <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
-    	</div> 
-    
-  	</div>
-  	
+    		<div class="row" style="margin-top: 20px">
+					<c:forEach items="${movieImgUrl}" var="item">
+						<div class="col-md-2 col-sm-6 movie-poster" style="margin-bottom: 5px">
+							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>"> 
+								<img class="mvimg" src="${item}" alt="" />
+							</a>
+						</div>	
+					</c:forEach>
+							
+				</div>
   	
   
   
