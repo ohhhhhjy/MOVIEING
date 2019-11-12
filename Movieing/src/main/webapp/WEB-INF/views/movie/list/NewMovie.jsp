@@ -75,7 +75,7 @@ $(function() {
 <div id="page-wrapper">
 
   <!-- 사이드바 -->
-  <div id="sidebar-wrapper">
+  <div id="sidebar-wrapper" class="">
   
     <ul class="sidebar-nav">
       <li class="sidebar-brand">
@@ -126,18 +126,24 @@ $(function() {
 		
 	</div>
     	
-    	<div class="row" style="margin-top: 20px">
-					<c:forEach items="${movieImgUrl}" var="item">
-						<div class="col-md-2 col-sm-6 movie-poster" style="margin-bottom: 5px">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>"> 
-								<img class="mvimg" src="${item}" alt="" />
-							</a>
-						</div>	
-					</c:forEach>
-							
-				</div>
-  
-  
+    	
+			<div class="row" style="margin-top: 20px">
+			
+				<c:forEach items="${movieImgDate}" var="json">
+
+					<div class="col-md-2 col-sm-6 movie-poster"style="margin-bottom: 5px">
+						<a
+							href="<c:url value='/Movieing/Movie/MovieDetails.mov?mname=${json.mname }&date=${json.date }'/>">
+							<img class="mvimg" src="${json.realUrl}" alt="" />
+						</a>
+
+
+
+					</div>
+
+
+				</c:forEach>
+			</div>
   
  	
  	</div>
