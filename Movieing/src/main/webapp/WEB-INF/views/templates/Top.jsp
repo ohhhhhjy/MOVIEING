@@ -166,7 +166,6 @@
           
            -->
 					<li>
-
 						<div id="custom-search-input">
 							<div class="input-group col-md-12">
 								<input type="text" class="form-control input-lg"
@@ -208,7 +207,7 @@
 									style="color: white"><i class="fas fa-sign-out-alt"
 									style="padding-right: 5px"></i>로그아웃</a> 
 								<a class="dropItem"
-									href=""
+									href="<c:url value ='/Movieing/admin/admin_main.mov'/>"
 									style="color: white">관리자</a>
 								<a class="dropItem"
 									href="<c:url value='/Movieing/my/Customer.mov'/>"

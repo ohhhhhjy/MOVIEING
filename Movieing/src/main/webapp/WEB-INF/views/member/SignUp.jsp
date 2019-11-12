@@ -158,7 +158,8 @@ $(function() {
 				success : function(data) {
 					if(data=='Y'){
 						$('#idcheck').css('color', 'red');						
-						$('#idcheck').text('이미 사용중인  아이디입니다. ');
+						$('#idcheck').text('이미 사용 중인  아이디입니다. ');
+						console.log($('#idcheck').html());
 					}
 					else{
 						$('#idcheck').css('color', 'green');					
@@ -176,7 +177,7 @@ $(function() {
 				}
 
 			});
-
+			
 		});
 		
 		//비밀번호 유효성

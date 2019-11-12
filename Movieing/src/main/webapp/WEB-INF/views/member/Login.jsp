@@ -52,7 +52,7 @@
 				<button class="btn btn-info btn-block my-4" type="submit">
 					Sign in</button>
 
-				<div align="center">
+				<%-- <div align="center">
 
 					<a style="padding-right: 10px" href="<c:url value='/Movieing/member/GoogleLogin.mov'/>"> 
 					<img src="<c:url value='/resources/img/login/face.png'/>"
@@ -66,7 +66,7 @@
 					</a>
 
 				</div>
-
+ --%>
 
 
 
@@ -85,12 +85,6 @@
 
 				</div>
 
-
-
-
-
-
-
 			</form>
 			<!-- Default form login -->
 		</div>
@@ -99,6 +93,16 @@
 
 </div>
 <!-- 네이버 로그인 창으로 이동 -->
+<div class="row">
+	<div class="col-8">
+		<div id="naver_id_login" style="text-align:center"><a href="${url}">
+		<img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a></div>
+		<div id="google_id_login" style="text-align: center">
+		<a href="<c:url value='/Movieing/member/GoogleLogin.mov'/>"> <img width="230"
+		src="${pageContext.request.contextPath}/resources/img/login/btn_google_signin_light_normal_web.png" /></a></div>
+		<br>
+	</div>
+</div>
 
 <div class="row d-flex justify-content-center" >
 <div id="naver_id_login" style="text-align:center"><a href="${url}">
@@ -113,10 +117,6 @@
 	</div>
 	
 </div>
-
-
-
-
 
 
 <%-- <a href="<c:url value='/Movieing/member/GoogleLogin.mov'/>"> <img width="230"
