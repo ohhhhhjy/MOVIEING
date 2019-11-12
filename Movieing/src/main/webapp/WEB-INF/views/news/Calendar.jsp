@@ -189,22 +189,50 @@ tbody>tr {
 	</div>
 </div>
 
-<!-- 전시회 --------------------------------------------------------------------------->
+<!-- 영화제 --------------------------------------------------------------------------->
 <div class="container" style="padding-top: 30px">
 
 
 
 
-	<h1>전시회</h1>
+	<h2>영화제</h2>
 	<div class="row">
 		<div class="col-md-3 text" data-toggle="modal"
 			data-target=".bd-example-modal-lg">
-			<img class="" src="<c:url value='/resources/img/news/j1.PNG'/>"
-				alt="Pineapple">
+			<img class="" src="<c:url value='/resources/img/news/j1.jpg'/>"
+				alt="서울독립영화제">
 			<div class="middle">
-				<div class="text">부산 국제 영화제</div>
+				<div class="text">제 45회 <br>서울독립영화제 (2019)</div>
 			</div>
 		</div>
+
+		<div class="col-md-3 text">
+			<img class="img-responsive"
+				src="<c:url value='/resources/img/news/j2.PNG'/>" alt="Pineapple">
+			<div class="middle">
+				<div class="text">전주 국제 영화제</div>
+			</div>
+		</div>
+		<div class="col-md-3 text">
+			<img class="img-responsive"
+				src="<c:url value='/resources/img/news/j3.PNG'/>" alt="Pineapple">
+			<div class="middle">
+				<div class="text">부천국제판타스틱영화제</div>
+			</div>
+		</div>
+		<div class="col-md-3 text">
+			<img class="img-responsive"
+				src="<c:url value='/resources/img/news/j4.PNG'/>" alt="Pineapple">
+			<div class="middle">
+				<div class="text">서울독립영화제(구 금관상영화제, 한국청소년영화제, 한국독립단편영화제)</div>
+			</div>
+		</div>
+	</div>
+
+	
+
+
+</div>
 
 
 
@@ -218,7 +246,7 @@ tbody>tr {
 					<div class="well">
 						<div class="row">
 							<div class="col-md-12" style="padding-top: 10px;padding-left: 10px;padding-right: 10px">
-								<h1 class="hidden-xs hidden-sm">부산국제영화제</h1>
+								<h1 class="hidden-xs hidden-sm">서울독립영화제</h1>
 								<i style="color: gray">Busan International Film Festival</i>
 
 								<hr>
@@ -258,134 +286,25 @@ tbody>tr {
 		<!-- 모달 끝 -->
 
 
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j2.PNG'/>" alt="Pineapple">
-			<div class="middle">
-				<div class="text">전주 국제 영화제</div>
-			</div>
-		</div>
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j3.PNG'/>" alt="Pineapple">
-			<div class="middle">
-				<div class="text">부천국제판타스틱영화제</div>
-			</div>
-		</div>
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j4.PNG'/>" alt="Pineapple">
-			<div class="middle">
-				<div class="text">서울독립영화제(구 금관상영화제, 한국청소년영화제, 한국독립단편영화제)</div>
-			</div>
-		</div>
-	</div>
 
-	<div style="padding-bottom: 70px"></div>
-	<div class="row">
-		<div class="col-md-3 text">
-			<img class="" src="<c:url value='/resources/img/news/j1.PNG'/>"
-				alt="Pineapple">
-			<div class="middle">
-				<div class="text">부산 국제 영화제</div>
-			</div>
-		</div>
-
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j2.PNG'/>" alt="Pineapple">
-			<div class="middle">
-				<div class="text">전주 국제 영화제</div>
-			</div>
-		</div>
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j3.PNG'/>" alt="Pineapple">
-			<div class="middle">
-				<div class="text">부천국제판타스틱영화제</div>
-			</div>
-		</div>
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j4.PNG'/>" alt="Pineapple">
-			<div class="middle">
-				<div class="text">서울독립영화제(구 금관상영화제, 한국청소년영화제, 한국독립단편영화제)</div>
-			</div>
-		</div>
-	</div>
-	<div style="padding-bottom: 70px"></div>
-	<div class="row">
-		<div class="col-md-3 text">
-			<img class="" src="<c:url value='/resources/img/news/j1.PNG'/>"
-				alt="Pineapple">
-			<div class="middle">
-				<div class="text">부산 국제 영화제</div>
-			</div>
-		</div>
-
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j2.PNG'/>" alt="Pineapple">
-			<div class="middle">
-				<div class="text">전주 국제 영화제</div>
-			</div>
-		</div>
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j3.PNG'/>" alt="Pineapple">
-			<div class="middle">
-				<div class="text">부천국제판타스틱영화제</div>
-			</div>
-		</div>
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j4.PNG'/>" alt="Pineapple">
-			<div class="middle">
-				<div class="text">서울독립영화제(구 금관상영화제, 한국청소년영화제, 한국독립단편영화제)</div>
-			</div>
-		</div>
-	</div>
-	<div style="padding-bottom: 70px"></div>
-	<div class="row">
-		<div class="col-md-3 text">
-			<img class="" src="<c:url value='/resources/img/news/j1.PNG'/>"
-				alt="Pineapple">
-			<div class="middle">
-				<div class="text">부산 국제 영화제</div>
-			</div>
-		</div>
-
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j2.PNG'/>" alt="Pineapple">
-			<div class="middle">
-				<div class="text">전주 국제 영화제</div>
-			</div>
-		</div>
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j3.PNG'/>" alt="Pineapple">
-			<div class="middle">
-				<div class="text">부천국제판타스틱영화제</div>
-			</div>
-		</div>
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j4.PNG'/>" alt="Pineapple">
-			<div class="middle">
-				<div class="text">서울독립영화제(구 금관상영화제, 한국청소년영화제, 한국독립단편영화제)</div>
-			</div>
-		</div>
-	</div>
-
-
-
-
-</div>
 
 
 
 <script>
+	var event;
+	
+   		$.ajax({
+   			url: "<c:url  value='/Ajax/Calendar.mov'/>", 
+   			dataType: 'text', 
+   			async: false,
+   			success: function(data) {
+   				console.log(data);
+   				event=data;
+   				
+   				} 
+   		});
+   		console.log(event);
+	
 	$('#calendar').fullCalendar({
 		header : {
 			left : 'prev,next today',
@@ -393,19 +312,13 @@ tbody>tr {
 			//right: 'month,agendaWeek,agendaDay,listWeek'
 			right : ' , , '
 		},
-		defaultDate : '2019-10-25',
+		defaultDate : '2019-12-05',
 		navLinks : true,
 		eventLimit : true,
-		events : [ {
-			title : '부산 국제 영화제',
-			start : '2019-10-03',
-			end : '2019-10-13'
-		}, {
-			title : '부천 국제 애니메이션 페스티벌',
-			start : '2019-10-18',
-			end : '2019-10-23'
-		},
-
-		]
+		events : event
+	   		
+   		
 	});
+	
+	
 </script>

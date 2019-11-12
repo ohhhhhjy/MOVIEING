@@ -23,6 +23,16 @@ DROP TABLE USER_TABLE CASCADE CONSTRAINTS;
 
 /* Create Tables */
 
+CREATE TABLE BUY
+(
+	-- 상품번호
+	-- 
+	TICKET_NO number(10) NOT NULL,
+	-- 유저아이디
+	USER_ID nvarchar2(10) NOT NULL
+);
+
+
 CREATE TABLE CALENDAR
 (
 	-- 이벤트이름
@@ -237,6 +247,17 @@ CREATE TABLE STILLCUT
 );
 
 
+CREATE TABLE TICKET
+(
+	-- 상품번호
+	-- 
+	TICKET_NO number(10) NOT NULL,
+	TICKET_NAME nvarchar2(20) NOT NULL,
+	PRICE number(10) NOT NULL,
+	PRIMARY KEY (TICKET_NO)
+);
+
+
 CREATE TABLE USER_TABLE
 (
 	-- 유저아이디
@@ -331,6 +352,18 @@ ALTER TABLE LIKE_REVIEW
 ;
 
 
+ALTER TABLE BUY
+	ADD FOREIGN KEY (TICKET_NO)
+	REFERENCES TICKET (TICKET_NO)
+;
+
+
+ALTER TABLE BUY
+	ADD FOREIGN KEY (USER_ID)
+	REFERENCES USER_TABLE (USER_ID)
+;
+
+
 ALTER TABLE COMMENT_TABLE
 	ADD FOREIGN KEY (USER_ID)
 	REFERENCES USER_TABLE (USER_ID)
@@ -344,13 +377,13 @@ ALTER TABLE EVALUATION
 
 
 ALTER TABLE FOLLOW
-	ADD FOREIGN KEY (FOLLOWING)
+	ADD FOREIGN KEY (FOLLOWER)
 	REFERENCES USER_TABLE (USER_ID)
 ;
 
 
 ALTER TABLE FOLLOW
-	ADD FOREIGN KEY (FOLLOWER)
+	ADD FOREIGN KEY (FOLLOWING)
 	REFERENCES USER_TABLE (USER_ID)
 ;
 
@@ -381,7 +414,10 @@ ALTER TABLE WISH
 
 
 /* Comments */
-
+/*
+COMMENT ON COLUMN BUY.TICKET_NO IS '상품번호
+';
+COMMENT ON COLUMN BUY.USER_ID IS '유저아이디';
 COMMENT ON COLUMN CALENDAR.EVENT_NAME IS '이벤트이름';
 COMMENT ON COLUMN CALENDAR.EVENT_CONTENT IS '이벤트 내용';
 COMMENT ON COLUMN CALENDAR.EVENT_START IS '이벤트 시작 날짜';
@@ -453,6 +489,8 @@ COMMENT ON COLUMN STILLCUT.STILLCUT_NO IS '스틸컷 번호';
 COMMENT ON COLUMN STILLCUT.STILLCUT_IMAGE IS '이미지';
 COMMENT ON COLUMN STILLCUT.MOVIE_NO IS '영화진흥원 코드
 ';
+COMMENT ON COLUMN TICKET.TICKET_NO IS '상품번호
+';
 COMMENT ON COLUMN USER_TABLE.USER_ID IS '유저아이디';
 COMMENT ON COLUMN USER_TABLE.USER_PWD IS '사용자 비밀번호';
 COMMENT ON COLUMN USER_TABLE.USER_NAME IS '유저 이름';
@@ -466,6 +504,30 @@ COMMENT ON COLUMN WISH.USER_ID IS '유저아이디';
 COMMENT ON COLUMN WISH.MOVIE_NO IS '영화진흥원 코드
 ';
 COMMENT ON COLUMN WISH.WISH_DATE IS '보고싶어요 한 날짜';
+*/
 
+--시퀀스 
+create sequence seq_review nocache nocycle;
+create sequence seq_qna nocache nocycle;
+--유저정보
+insert into user_table values( 'KIM','1234','김길동','Road_dong','01055557777','email',sysdate,null,'하이'  );
+
+insert into user_table values( 'LEE','1234','이길동','LEELEE','01034243447','email',sysdate,null,'오오'  );
+insert into user_table values( 'PARK','1234','박길동','박수무당','01012345678','email',sysdate,null,'아아아아'  );
+
+--영화정보
+insert into movie values('20182669','툴리',null,null,null,null,null,null,'154653');
+
+--보고싶어요
+insert into wish values('KIM','20182669',SYSDATE);
+
+--평가
+insert into EVALUATION values('KIM','20182669',4,SYSDATE);
+
+--리뷰
+insert into review values(seq_review.nextval,'KIM','20182669','재밌었다',SYSDATE,'Y');
+
+--qna
+insert into qna(qna_no, qna_title, qna_content, user_id) values(seq_qna.nextval, '제목1','내용1', 'LEE');
 
 
