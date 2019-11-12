@@ -195,6 +195,7 @@ body {
 						</p>
 						<!-- a태그 post방식 페이지 전송 폼 -->
 						<form name="paging">
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 							<input type="hidden" name="page" /> <input type="hidden"
 								name="id" />
 						</form>

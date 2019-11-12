@@ -17,7 +17,7 @@ DROP TABLE NOTICE CASCADE CONSTRAINTS;
 DROP TABLE QNA CASCADE CONSTRAINTS;
 DROP TABLE REALTIME_SEARCH CASCADE CONSTRAINTS;
 DROP TABLE USER_TABLE CASCADE CONSTRAINTS;
-
+--DROP TABLE auth_security CASCADE CONSTRAINTS;
 
 
 
@@ -488,7 +488,13 @@ insert into EVALUATION values('KIM','20182669',4,SYSDATE);
 --리뷰
 insert into review values(seq_review.nextval,'KIM','20182669','재밌었다',SYSDATE,'Y');
 
+--시큐리티를 위한 테이블
+ CREATE TABLE auth_security(
+	 USER_ID nvarchar2(10) not null REFERENCES USER_TABLE (USER_ID),
+	ENABLED number DEFAULT 1,
+	AUTHORITY varchar2(20) DEFAULT 'ROLE_USER'
+);
 
-
-
+--시큐리티 사용을 위한 권한 추가
+insert into auth_security values('KIM',default,default);
 

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <style>
 /* 드롭다운 css */
 .dropdown-content {
@@ -56,16 +57,15 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav"
 	style="background-color: #002941">
 	<div class="container">
-		<c:if test="${! empty sessionScope.id || ! empty sessionId}"
-			var="isLogin">
+		<sec:authorize access="isAuthenticated()">
 			<a class="navbar-brand js-scroll-trigger"
 				href="<c:url value='/Movieing/Movie/Home.mov'/>"><img alt="logo"
 				src="<c:url value='/resources/img/logos/logo.png'/>" /></a>
-		</c:if>
-		<c:if test="${!isLogin }">
+		</sec:authorize>
+		<sec:authorize access="isAnonymous()">
 			<a class="navbar-brand js-scroll-trigger" href="<c:url value='/'/>"><img
 				alt="logo" src="<c:url value='/resources/img/logos/logo.png'/>" /></a>
-		</c:if>
+		</sec:authorize>
 		<button class="navbar-toggler navbar-toggler-right" type="button"
 			data-toggle="collapse" data-target="#navbarResponsive"
 			aria-controls="navbarResponsive" aria-expanded="false"
@@ -76,7 +76,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<%-- <c:if test="" > 여기는 로그인시에만 보이는 메뉴들--%>
-			<c:if test="${isLogin}">
+			<sec:authorize access="isAuthenticated()">
 				<ul class="navbar-nav text-uppercase ml-auto">
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="<c:url value='/Movieing/Movie/AllMovie.mov'/>">전체영화</a></li>
@@ -203,7 +203,7 @@
 									style="color: white"><i class="far fa-bell"
 									style="padding-right: 5px"></i>알림</a>
 								 <a class="dropItem"
-									href="<c:url value='/Movieing/Member/Logout.mov'/>"
+									href="javascript:logout()"
 									style="color: white"><i class="fas fa-sign-out-alt"
 									style="padding-right: 5px"></i>로그아웃</a> 
 								<a class="dropItem"
@@ -223,19 +223,31 @@
 				</ul>
 
 
-			</c:if>
+			</sec:authorize>
 
 
 
-			<c:if test="${!isLogin }">
+			<sec:authorize access="isAnonymous()">
 				<%--  </c:if> --%>
 				<ul class="navbar-nav text-uppercase ml-auto">
 					<li class="nav-item"><a class="nav-link portfolio-link"
 						href="<c:url value='/Movieing/Member/Login.mov'/>">로그인</a></li>
 				</ul>
-			</c:if>
+			</sec:authorize>
 		</div>
 
 	</div>
 </nav>
 <div></div>
+
+<!--action은 스프링 씨큐리티의 디폴트 로그아웃 URL지정 -->
+<form id="logoutForm" method="post" action="<c:url value='/logout'/>">
+   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+</form>
+
+<script>
+   function logout(){
+      $('#logoutForm').submit();
+   }
+
+</script>

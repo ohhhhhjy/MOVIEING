@@ -4039,7 +4039,7 @@ px
 		<!-- Default form contact -->
 		<form class="border border-light" method="post" id="form"
 			action="<c:url value='/Movieing/Blog/BlogMain.mov'/>" name="write">
-
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			<h5>영화명</h5>
 
 
