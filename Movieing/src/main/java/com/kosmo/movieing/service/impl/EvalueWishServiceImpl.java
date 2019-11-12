@@ -73,4 +73,10 @@ public class EvalueWishServiceImpl implements EvalueWishService{
 		return dao.getTotalWishCount(map);
 	}
 
+	@Override
+	public int getEachEvalue(Map map) {
+
+		return dao.getEachEvalue(map);
+	}
+
 }

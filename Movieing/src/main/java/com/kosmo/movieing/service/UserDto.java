@@ -1,9 +1,10 @@
 package com.kosmo.movieing.service;
 
+import java.sql.Blob;
 import java.sql.Date;
 
 public class UserDto {
-	
+
 	String userId;
 	String userPwd;
 	String userName;
@@ -11,9 +12,21 @@ public class UserDto {
 	String userContact;
 	String userMail;
 	Date userSignupDate;
-	String userProfile;
+	Blob userProfile;
 	String userSelf;
-	
+
+	//효율성을 위해 추가.
+	boolean isFollow;
+
+	public boolean getIsFollow() {
+		return isFollow;
+	}
+	public void setIsFollow(boolean isFollow) {
+		this.isFollow = isFollow;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 	public String getUserId() {
 		return userId;
 	}
@@ -23,6 +36,7 @@ public class UserDto {
 	public String getUserPwd() {
 		return userPwd;
 	}
+
 	public void setUserPwd(String userPwd) {
 		this.userPwd = userPwd;
 	}
@@ -56,10 +70,10 @@ public class UserDto {
 	public void setUserSignupDate(Date userSignupDate) {
 		this.userSignupDate = userSignupDate;
 	}
-	public String getUserProfile() {
+	public Blob getUserProfile() {
 		return userProfile;
 	}
-	public void setUserProfile(String userProfile) {
+	public void setUserProfile(Blob userProfile) {
 		this.userProfile = userProfile;
 	}
 	public String getUserSelf() {
@@ -69,6 +83,6 @@ public class UserDto {
 		this.userSelf = userSelf;
 	}
 
-	
+
 
 }

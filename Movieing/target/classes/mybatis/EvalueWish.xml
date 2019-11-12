@@ -23,7 +23,11 @@
 		select count(*) from wish where user_id=#{id}
 	</select>
 	
-	
+	<!-- 각 별점 카운트 -->
+	<select id="getEachEvalue" parameterType="java.util.Map" resultType="int">
+        select count(*) from evaluation where evaluation_grade=#{number} and user_id=#{id} 
+	</select>
+
 	
 	
 	
