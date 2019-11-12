@@ -5,11 +5,11 @@
 
 	<!-- 좋아요 삭제 -->
 	<delete id="deleteLike" parameterType="java.util.Map">
-		delete * from  like_review where user_id=#{id} and review_no=#{reviewNo}
+		delete  LIKE_REVIEW where user_id=#{id} and review_no=#{reviewNo}
 	</delete>
 	<!-- 좋아요 추가 -->
 	<insert id="insertLike" parameterType="java.util.Map">
-		insert into like_review values(#{id},#{reviewNo})
+		insert into LIKE_REVIEW values(#{id},#{reviewNo},SYSDATE)
 	</insert>
 	<!-- 내가 특정리뷰에 누른 좋아요 갯수 -->
 	<select id="LikeOneReviewTotalCount" parameterType="java.util.Map" resultType="int">
@@ -23,7 +23,7 @@
 	<!-- 모든유저가 특정리뷰에 누른 좋아요 갯수 -->
 	<select id="AllLikeOneReviewTotalCount" parameterType="java.util.Map" resultType="int">
 		select count(*) from LIKE_REVIEW
-		where REVIEW_NO=#{reviewNum}
+		where REVIEW_NO=#{reviewNo}
 	</select>
 	
 	

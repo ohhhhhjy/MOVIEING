@@ -95,5 +95,10 @@ public class ReviewServiceImpl implements ReviewService{
 		return dao.insertReview(map);
 	}
 
+	@Override
+	public List<ReviewDto> selectReviewList(Map map) {
+		return dao.selectReviewList(map);
+	}
+
 
 }

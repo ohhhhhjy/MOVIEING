@@ -7,7 +7,8 @@
 body {
 	padding-top: 125px;
 }
-.profileImage{
+
+.profileImage {
 	width: 100px;
 	height: 100px;
 	/* background-image:url("배경이미지경로"); */
@@ -18,7 +19,7 @@ body {
 	font-weight: bold;
 	text-align: center;
 }
-	
+
 .movieImage {
 	width: 120px;
 	height: 180px;
@@ -70,18 +71,19 @@ body {
 }
 
 /* 팔로우팔로잉 평가코멘트갯수 스팬 */
-.followSpan{
+.followSpan {
 	font-size: 0.8em;
-	color:#a8a5a5
+	color: #a8a5a5
 }
 
-.followForm{
-padding-left: 50px;padding-right: 30px;
+.followForm {
+	padding-left: 50px;
+	padding-right: 30px;
 }
 
 /* 선호태그 스팬 */
-.mySpan{
-	color:#db147b;
+.mySpan {
+	color: #db147b;
 }
 
 .tagSpan {
@@ -113,14 +115,12 @@ padding-left: 50px;padding-right: 30px;
 	google.charts.setOnLoadCallback(drawStuff);
 	function drawStuff() {
 		var data = new google.visualization.arrayToDataTable([ [ '', '' ],
-				[ "1", 12 ],[ '2', 3 ],
-				 [ '3', 7 ], [ '4', 15 ],
-				[ '5', 2 ] ]);
+				[ "1", 12 ], [ '2', 3 ], [ '3', 7 ], [ '4', 15 ], [ '5', 2 ] ]);
 		/*([ [ '', '' ],
 				[ "0", 15 ], [ "", 1 ], [ "1", 12 ], [ "", 10 ], [ '2', 3 ],
 				[ '', 20 ], [ '3', 7 ], [ '', 3 ], [ '4', 15 ], [ '', 5 ],
 				[ '5', 2 ] ]);*/
-				
+
 		var options = {
 			width : 270,
 			legend : {
@@ -134,19 +134,19 @@ padding-left: 50px;padding-right: 30px;
 		// Convert the Classic options to Material options...
 		chart.draw(data, google.charts.Bar.convertOptions(options));
 	};
-	
+
 	/* a태그 post방식으로 값전달하기 */
-    function goPage(page) {
-        // name이 paging인 태그
-        var f = document.paging;
-        // form 태그의 하위 태그 값 매개 변수로 대입
-        f.page.value = page;
-        // input태그의 값들을 전송하는 주소
-        f.action = "/movieing/Movieing/Blog/MyActivity.mov"
-        // 전송 방식 : post
-        f.method = "post"
-        f.submit();
-      };
+	function goPage(page) {
+		// name이 paging인 태그
+		var f = document.paging;
+		// form 태그의 하위 태그 값 매개 변수로 대입
+		f.page.value = page;
+		// input태그의 값들을 전송하는 주소
+		f.action = "/movieing/Movieing/Blog/MyActivity.mov"
+		// 전송 방식 : post
+		f.method = "post"
+		f.submit();
+	};
 </script>
 
 
@@ -168,13 +168,13 @@ padding-left: 50px;padding-right: 30px;
 								<a href="#followModal" data-toggle="modal" id="followerModal"
 									class="followModal"><span
 									style="font-weight: bold; color: black; font-size: 0.9em">팔로워
-										25 </span></a>
+										${followerCount } </span></a>
 							</div>
 							<div class="col-sm-6">
 								<a href="#followModal" data-toggle="modal" id="followingModal"
 									class="followModal"><span
 									style="font-weight: bold; color: black; font-size: 0.9em">팔로잉
-										43 </span></a>
+										${followingCount } </span></a>
 							</div>
 						</div>
 						<br>
@@ -192,10 +192,10 @@ padding-left: 50px;padding-right: 30px;
 								href="<c:url value='/Movieing/Blog/MyPage.mov'/>" role="button">마이페이지</a>
 						</p>
 						<!-- a태그 post방식 페이지 전송 폼 -->
-					    <form name="paging">
-					    	<input type="hidden" name="page"/>
-					    	<input type="hidden" name="id"/>
-					    </form>
+						<form name="paging">
+							<input type="hidden" name="page" /> <input type="hidden"
+								name="id" />
+						</form>
 						<div class="row"
 							style="padding-top: 20px; padding-bottom: 20px; background-color: white; border-radius: 10px 10px 10px 10px;">
 							<div class="col-sm-3" align="center">
@@ -233,38 +233,42 @@ padding-left: 50px;padding-right: 30px;
 						style="color: #a8a5a5; font-size: 0.3em">2시간 전</span>
 				</div>
 			</div>
-			<!-- 2.여러줄컨텐츠(리뷰) -->
-			<div class="card border-secondary mb-3" style="max-width: 200rem;">
-				<div class="card-header">
-					토이스토리4에 리뷰를 남겼어요!&nbsp;&nbsp;<span
-						style="color: #a8a5a5; font-size: 0.3em">1일 전</span>
-				</div>
-				
-				<!-- - 
-				<c:forEach items="${insertReview }" var="item">
-				-->
-				<div class="card-body">
-					<div class="row">
-						<div class="col-sm-3" align="center">
-							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>"><img class="movieImage"
-								src="../../resources/img/movie/toystoryMain.jpg" alt="포스터" /></a>
-						</div>
-						<div class="col-sm-9">
-							<h4 class="card-title">영화</h4>
-							<span class="badge badge-pill badge-danger">★별점</span>
-							<p class="card-text" style="height: 100px">내용</p>
-							<a href="#"><span
-								style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
-									class="far fa-thumbs-up"></i> 25 </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
-								style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
-									class="far fa-comments"></i> 4 </span></a>
+
+			<c:forEach items="${selectReviewList }" var="item">
+				<!-- 2.여러줄컨텐츠(리뷰) -->
+				<div class="card border-secondary mb-3" style="max-width: 200rem;">
+					<div class="card-header">
+						토이스토리4에 리뷰를 남겼어요!&nbsp;&nbsp;<span
+							style="color: #a8a5a5; font-size: 0.3em">1일 전</span>
+					</div>
+
+
+
+					<div class="card-body">
+						<div class="row">
+							<div class="col-sm-3" align="center">
+								<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>"><img
+									class="movieImage"
+									src="../../resources/img/movie/toystoryMain.jpg" alt="포스터" /></a>
+							</div>
+							<div class="col-sm-9">
+								<h4 class="card-title">${item.movieTitle }</h4>
+								<span class="badge badge-pill badge-danger">★${item.grade }</span>
+								<p class="card-text" style="height: 100px">${item.reviewContent }</p>
+								<a href="#"><span
+									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
+										class="far fa-thumbs-up"></i> 25 </span></a>&nbsp;&nbsp;&nbsp; <a
+									href="#"><span
+									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
+										class="far fa-comments"></i> 4 </span></a>
+							</div>
 						</div>
 					</div>
+
+
+
 				</div>
-				<!-- 
-				</c:forEach>
-				-->
-			</div>
+			</c:forEach>
 		</div>
 		<!-- 왼쪽 마이피드끝-->
 
@@ -279,7 +283,8 @@ padding-left: 50px;padding-right: 30px;
 				style="padding-top: 60px">
 				<h3 align="center">홍길동님의 취향은?</h3>
 				<p align="right">
-					<a href="<c:url value='/Movieing/Movie/RatingMovie.mov'/>" style="color: #a8a5a5">더 평가하러 가기</a>
+					<a href="<c:url value='/Movieing/Movie/RatingMovie.mov'/>"
+						style="color: #a8a5a5">더 평가하러 가기</a>
 				</p>
 				<hr class="my-3">
 				<p align="center" style="font-size: 1em">무빙과 함께한지 164일째!</p>
@@ -290,21 +295,32 @@ padding-left: 50px;padding-right: 30px;
 				</p>
 				<div id="chart"
 					style="width: 500px; height: 170px; padding-left: 50px"></div>
-					
+
 				<hr class="my-3">
-				
+
 				<h5>선호태그</h5>
-				<div class="card border-secondary mb-3 justify-content-center" style="max-width: 200rem;padding-left: 10px">
-					<div style="color: rgba(0, 0, 0, 1); width: 280px; height: 172px;padding-left: 20px;padding-top: 20px" >
-						<span style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(98px, 61px) rotate(0deg);font-weight: bold">웃기는</span>
-						<span style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(160px, 73px) rotate(0deg);font-weight: bold">발랄한</span>
-						<span style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(80px, 32px) rotate(0deg);font-weight: bold">따뜻한</span>
-						<span style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(179px, 43px) rotate(0deg);font-weight: bold">사랑</span>
-						<span style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(79px, 90px) rotate(0deg);font-weight: bold">슬픈</span>
-						<span style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(156px, 19px) rotate(0deg);font-weight: bold">귀여운</span>
-						<span style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(28px, 30px) rotate(0deg);font-weight: bold">재밌는</span>
-						<span style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(39px, 62px) rotate(0deg);font-weight: bold">뭉클한</span>
-						<span style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(27px, 85px) rotate(0deg);font-weight: bold">감동적인</span>
+				<div class="card border-secondary mb-3 justify-content-center"
+					style="max-width: 200rem; padding-left: 10px">
+					<div
+						style="color: rgba(0, 0, 0, 1); width: 280px; height: 172px; padding-left: 20px; padding-top: 20px">
+						<span
+							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(98px, 61px) rotate(0deg); font-weight: bold">웃기는</span>
+						<span
+							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(160px, 73px) rotate(0deg); font-weight: bold">발랄한</span>
+						<span
+							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(80px, 32px) rotate(0deg); font-weight: bold">따뜻한</span>
+						<span
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(179px, 43px) rotate(0deg); font-weight: bold">사랑</span>
+						<span
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(79px, 90px) rotate(0deg); font-weight: bold">슬픈</span>
+						<span
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(156px, 19px) rotate(0deg); font-weight: bold">귀여운</span>
+						<span
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(28px, 30px) rotate(0deg); font-weight: bold">재밌는</span>
+						<span
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(39px, 62px) rotate(0deg); font-weight: bold">뭉클한</span>
+						<span
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(27px, 85px) rotate(0deg); font-weight: bold">감동적인</span>
 					</div>
 				</div>
 				<hr class="my-3">
@@ -432,10 +448,9 @@ padding-left: 50px;padding-right: 30px;
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			
+
 			<!-- 모달 헤더 -->
-			<ul class="nav nav-pills nav-justified " role="tablist"
-				style="">
+			<ul class="nav nav-pills nav-justified " role="tablist" style="">
 				<li class="nav-item"><a class="nav-link " href="#follower"
 					data-toggle="pill" aria-controls="pills-follower"
 					id="pills-follower-tab">팔로워</a></li>
@@ -446,10 +461,10 @@ padding-left: 50px;padding-right: 30px;
 
 			<!-- 모달컨텐츠 -->
 			<div class="tab-content " id="myTabContent"
-				style="height: 477px; overflow-y: scroll; overflow-x: hidden;background-color: #f2f0f0;padding-top: 20px">
+				style="height: 477px; overflow-y: scroll; overflow-x: hidden; background-color: #f2f0f0; padding-top: 20px">
 				<!-- 모달컨텐츠1.팔로워 -->
 				<div class="tab-pane fade " id="follower" role="tabpanel"
-					aria-labelledby="pills-follower-tab" >
+					aria-labelledby="pills-follower-tab">
 					<div class="row followForm">
 						<div class="col-sm-3">
 							<img class="radiusImg" alt="감독사진"
@@ -534,23 +549,20 @@ padding-left: 50px;padding-right: 30px;
 
 
 <script>
-	$(function(){
-		$('.followModal').click(function(){//내 프로필에서 '팔로우','팔로잉' 각각 클릭시, 모달의 선택상태 세팅해주기.
-			if($(this).get(0).id=='followerModal'){
+	$(function() {
+		$('.followModal').click(function() {//내 프로필에서 '팔로우','팔로잉' 각각 클릭시, 모달의 선택상태 세팅해주기.
+			if ($(this).get(0).id == 'followerModal') {
 				$('#pills-following-tab').removeClass('active');
 				$('#pills-follower-tab').addClass('active');
 				$('#following').removeClass('show active');
 				$('#follower').addClass('show active');
-			}
-			else{
+			} else {
 				$('#pills-follower-tab').removeClass('active');
 				$('#pills-following-tab').addClass('active');
 				$('#follower').removeClass('show active');
 				$('#following').addClass('show active');
 			}
 		});
-		
-	
+
 	});
-	
 </script>
