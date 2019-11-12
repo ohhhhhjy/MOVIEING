@@ -41,6 +41,7 @@ body {
 	font-size: 1.2em;
 	font-weight: bold;
 	line-height: 65px;
+	color:black;
 }
 
 /* 필모그램 스팬 */
@@ -114,8 +115,9 @@ body {
 	});
 	google.charts.setOnLoadCallback(drawStuff);
 	function drawStuff() {
+		console.log();
 		var data = new google.visualization.arrayToDataTable([ [ '', '' ],
-				[ "1", 12 ], [ '2', 3 ], [ '3', 7 ], [ '4', 15 ], [ '5', 2 ] ]);
+				[ "1", ${evalue1} ], [ '2', ${evalue2}], [ '3', ${evalue3} ], [ '4', ${evalue4} ], [ '5', ${evalue5} ] ]);
 		/*([ [ '', '' ],
 				[ "0", 15 ], [ "", 1 ], [ "1", 12 ], [ "", 10 ], [ '2', 3 ],
 				[ '', 20 ], [ '3', 7 ], [ '', 3 ], [ '4', 15 ], [ '', 5 ],
@@ -161,8 +163,8 @@ body {
 					<!-- 프로필 사진 -->
 					<div class="col-sm-3" align="center">
 						<img class="profileImage" alt="프로필사진"
-							src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1676/167613_P09_182225.jpg" />
-						<h5 style="padding-top: 20px">Road-dong</h5>
+							src="${userInfo.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': userInfo.userProfile}" />
+						<h5 style="padding-top: 20px">${userInfo.userNick}</h5>
 						<div class="row">
 							<div class="col-sm-6">
 								<a href="#followModal" data-toggle="modal" id="followerModal"
@@ -238,7 +240,7 @@ body {
 				<!-- 2.여러줄컨텐츠(리뷰) -->
 				<div class="card border-secondary mb-3" style="max-width: 200rem;">
 					<div class="card-header">
-						토이스토리4에 리뷰를 남겼어요!&nbsp;&nbsp;<span
+						토이스토리4의 리뷰를 남겼어요!&nbsp;&nbsp;<span
 							style="color: #a8a5a5; font-size: 0.3em">1일 전</span>
 					</div>
 
@@ -281,13 +283,13 @@ body {
 
 			<div class="sidebar-module sidebar-module-inset"
 				style="padding-top: 60px">
-				<h3 align="center">홍길동님의 취향은?</h3>
+				<h3 align="center">${userInfo.userId}님의 취향은?</h3>
 				<p align="right">
 					<a href="<c:url value='/Movieing/Movie/RatingMovie.mov'/>"
 						style="color: #a8a5a5">더 평가하러 가기</a>
 				</p>
 				<hr class="my-3">
-				<p align="center" style="font-size: 1em">무빙과 함께한지 164일째!</p>
+				<p align="center" style="font-size: 1em">무빙과 함께한지 ${signUpDays }일째!</p>
 				<hr class="my-3">
 				<h5>별점분포</h5>
 				<p align="center" style="font-size: 0.8em">
@@ -421,7 +423,7 @@ body {
 
 				<hr class="my-3">
 				<h5>영화감상시간</h5>
-				<h6 align="center" style="color: #db147b">1046시간</h6>
+				<h6 align="center" style="color: #db147b">${evalueCount*2 }시간</h6>
 				<p align="center" style="font-size: 0.8em">
 					<em>영화를 정말 사랑하시네요!</em>
 				</p>
@@ -438,9 +440,9 @@ body {
 
 <!-- 모달시작 -->
 <div class="modal" id="followModal">
-	<div class="modal-dialog" role="document">
+	<div class="modal-dialog" role="document" >
 
-		<div class="modal-content" style="padding-bottom: 20px">
+		<div class="modal-content" style="padding-bottom: 20px;width: 380px" >
 			<!-- 모달 클로즈 버튼 -->
 			<div align="right" style="padding: 10px">
 				<button type="button" class="close" data-dismiss="modal"
@@ -448,6 +450,7 @@ body {
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
+			
 
 			<!-- 모달 헤더 -->
 			<ul class="nav nav-pills nav-justified " role="tablist" style="">
@@ -465,80 +468,65 @@ body {
 				<!-- 모달컨텐츠1.팔로워 -->
 				<div class="tab-pane fade " id="follower" role="tabpanel"
 					aria-labelledby="pills-follower-tab">
-					<div class="row followForm">
-						<div class="col-sm-3">
-							<img class="radiusImg" alt="감독사진"
-								src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+					<c:if test="${empty followerList }" var="isEmpty">
+					 <h5>아직 팔로워가 없어요</h5>
+					</c:if>
+					<c:if test="${!isEmpty }">
+						<c:forEach items="${followerList }" var="user" varStatus="status">
+						<div class="row followForm">
+							<div class="col-sm-4">
+								<img class="radiusImg" alt="감독사진"
+									src="${user.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': user.userProfile}" />
+							</div>
+							<div class="col-sm-5">
+								<a href="<c:url value='/Movieing/Blog/BlogMain.mov'/>" ><span class="actorSpan" >${user.userNick }</span> </a>
+							</div>
+	
+							<!-- 스위치 : 스위치의 input-id와 label-for값이 같아야 스위치가 작동한다-->
+							<div class="custom-control custom-switch col-sm-3">
+								<c:if test="${user.isFollow }" var="isFollow">
+								<input type="checkbox" class="custom-control-input" id="aSwitch${status.index }" checked="checked">
+								</c:if>
+								<c:if test="${!isFollow }">
+								<input type="checkbox" class="custom-control-input" id="aSwitch${status.index }">
+								</c:if>
+								
+								<label class="custom-control-label" for="aSwitch${status.index }" style=""></label>
+							</div>
+	
 						</div>
-						<div class="col-sm-7">
-							<span class="actorSpan">손예진</span> <span class="followSpan">&nbsp;평가
-								2566</span> <span class="followSpan">&nbsp;코멘트 457</span>
-						</div>
-
-						<!-- 스위치 : 스위치의 input-id와 label-for값이 같아야 스위치가 작동한다-->
-						<div class="custom-control custom-switch col-sm-2">
-							<input type="checkbox" class="custom-control-input" id="aSwitch1">
-							<label class="custom-control-label" for="aSwitch1" style=""></label>
-						</div>
-
-					</div>
-					<hr class="my-3" style="width: 450px">
-					<div class="row followForm">
-						<div class="col-sm-3">
-							<img class="radiusImg" alt="감독사진"
-								src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-						</div>
-						<div class="col-sm-7">
-							<span class="actorSpan">임수정</span> <span class="followSpan">&nbsp;평가
-								2566</span> <span class="followSpan">&nbsp;코멘트 457</span>
-						</div>
-
-						<!-- 스위치 -->
-						<div class="custom-control custom-switch col-sm-2">
-							<input type="checkbox" class="custom-control-input" id="aSwitch2">
-							<label class="custom-control-label" for="aSwitch2" style=""></label>
-						</div>
-					</div>
-					<hr class="my-3" style="width: 450px">
-					<div class="row followForm">
-						<div class="col-sm-3">
-							<img class="radiusImg" alt="감독사진"
-								src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-						</div>
-						<div class="col-sm-7">
-							<span class="actorSpan">김민정</span> <span class="followSpan">&nbsp;평가
-								2566</span> <span class="followSpan">&nbsp;코멘트 457</span>
-						</div>
-
-						<!-- 스위치 : 스위치의 input-id와 label-for값이 같아야 스위치가 작동한다-->
-						<div class="custom-control custom-switch col-sm-2">
-							<input type="checkbox" class="custom-control-input" id="aSwitch3">
-							<label class="custom-control-label" for="aSwitch3" style=""></label>
-						</div>
-
-					</div>
-
+						<hr class="my-3" style="width: 450px">
+						</c:forEach>
+					</c:if>
 				</div>
 
 				<!-- 모달컨텐츠2:팔로잉 -->
 				<div class="tab-pane fade" id="following" role="tabpanel"
 					aria-labelledby="pills-following-tab">
-					<div class="row followForm">
-						<div class="col-sm-3">
-							<img class="radiusImg" alt="감독사진"
-								src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-						</div>
-						<div class="col-sm-7">
-							<span class="actorSpan">김남주</span> <span class="followSpan">&nbsp;평가
-								2566</span> <span class="followSpan">&nbsp;코멘트 457</span>
-						</div>
-
-						<!-- 스위치 -->
-						<div class="custom-control custom-switch col-sm-2">
-							<input type="checkbox" class="custom-control-input" id="bSwitch1">
-							<label class="custom-control-label" for="bSwitch1" style=""></label>
-						</div>
-					</div>
+					<c:if test="${empty followingList }" var="isEmpty">
+					 <h5>아직 팔로잉한 친구들이 없어요</h5>
+					</c:if>
+					<c:if test="${!isEmpty }">
+						<c:forEach items="${followingList }" var="user" varStatus="status">
+							<div class="row followForm">
+								<div class="col-sm-4">
+									<img class="radiusImg" alt="감독사진"
+										src="${user.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': user.userProfile}"  />
+								</div>
+								<div class="col-sm-5">
+									<a href="<c:url value='/Movieing/Blog/BlogMain.mov'/>" ><span class="actorSpan" >${user.userNick }</span> </a>
+								</div>
+		
+								<!-- 스위치 -->
+								<div class="custom-control custom-switch col-sm-3">
+									<input type="checkbox" class="custom-control-input" id="bSwitch${status.index }" checked="checked">
+									<label class="custom-control-label" for="bSwitch${status.index }" style=""></label>
+								</div>
+								
+							</div>
+							<hr class="my-3" style="width: 450px">
+						</c:forEach>
+					</c:if>		
 				</div>
 			</div>
 
