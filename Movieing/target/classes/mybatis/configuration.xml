@@ -18,6 +18,7 @@
 		<typeAlias alias="LikeReviewDto" type="com.kosmo.movieing.service.LikeReviewDto"/>
 		<typeAlias alias="MovieDto" type="com.kosmo.movieing.service.MovieDto"/>
 		<typeAlias alias="FollowDto" type="com.kosmo.movieing.service.FollowDto"/>
+		<typeAlias alias="CommentDto" type="com.kosmo.movieing.service.CommentDto"/>
 
 	</typeAliases>
 	
@@ -30,6 +31,7 @@
 		<mapper resource="mybatis/LikeReview.xml" />
 		<mapper resource="mybatis/Movie.xml" />
 		<mapper resource="mybatis/Follow.xml" />
+		<mapper resource="mybatis/Comment.xml" />
 	</mappers>
 	
 </configuration>

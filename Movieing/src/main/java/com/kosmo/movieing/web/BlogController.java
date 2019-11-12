@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kosmo.movieing.service.CommentDto;
+import com.kosmo.movieing.service.CommentService;
 import com.kosmo.movieing.service.EvaluationDto;
 import com.kosmo.movieing.service.EvalueWishService;
 import com.kosmo.movieing.service.FollowService;
@@ -45,6 +47,9 @@ public class BlogController {
 
 	@Resource(name = "followService")
 	private FollowService followService;
+
+	@Resource(name="commentService")
+	private CommentService commentService;
 
 
 
@@ -79,14 +84,14 @@ public class BlogController {
 		model.addAttribute("followerCount",followerCount);
 
 
-		List<ReviewDto> selectReviewList=reviewService.selectReviewList(map);// 쓴글 가져오기
-		model.addAttribute("selectReviewList", selectReviewList);
+		List<ReviewDto> selectList=reviewService.selectList(map);// 쓴글 가져오기
+		model.addAttribute("selectList", selectList);
 
 		return "blog/my/BlogMain.tiles";
 	}/////////////////////////////////////////////
 
 
-
+	//리뷰작성 후 메인으로
 	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov", method = RequestMethod.POST)
 	public String blogMain2(@RequestParam Map map, Model model) {
 		String id = "kim";// 임시
@@ -129,8 +134,8 @@ public class BlogController {
 
 		model.addAttribute("insertReview", insertReview);// 리뷰테이블에 insert
 
-		List<ReviewDto> selectReviewList=reviewService.selectReviewList(map);// 쓴글 가져오기
-		model.addAttribute("selectReviewList", selectReviewList);
+		List<ReviewDto> selectList=reviewService.selectList(map);// 쓴글 가져오기
+		model.addAttribute("selectList", selectList);
 
 		// 해쉬태그 추가해야함
 
@@ -189,29 +194,61 @@ public class BlogController {
 	@ResponseBody
 	@RequestMapping(value="/Movieing/Blog/LikeRemove.mov", method = RequestMethod.POST)
 	public String likeRemove(@RequestParam Map map) {
-		String id = "KIM";// 임시
+		String id = "kim";// 임시
 		int reviewNo = Integer.parseInt(map.get("reviewNo").toString());
 		map.put("reviewNo", reviewNo);
 		map.put("id", id);
 		likeReviewService.delete(map);
 		int count = likeReviewService.getTotalCountByAll(map);
 		return String.valueOf(count);
-	}
+	}//////////////////////////////////////////////////
 
 	// 좋아요 입력
 	@ResponseBody
 	@RequestMapping(value="/Movieing/Blog/LikeInsert.mov", method = RequestMethod.POST)
 	public String likeInsert(@RequestParam Map map) {
-		String id = "KIM";// 임시
+		String id = "kim";// 임시
+		System.out.println("뭐냐이게 되냐고"+map.get("reviewNo").toString());
 		int reviewNo = Integer.parseInt(map.get("reviewNo").toString());
+
 		map.put("reviewNo", reviewNo);
 		map.put("id", id);
 		likeReviewService.insert(map);
 		int count = likeReviewService.getTotalCountByAll(map);
+
 		return String.valueOf(count);
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////
+
+	//댓글 입력]
+	@ResponseBody
+	@RequestMapping(value="/Movieing/Blog/CommentInsert.mov",method = RequestMethod.POST)
+	public void commentInsert(@RequestParam Map map) {
+	   //int commentNo=Integer.parseInt(map.get("commentNo").toString());
+		 int commentNo=5;
+		String commentContent=map.get("commentContent").toString();
+
+		String id="kim";
+		int reviewNo=1;//임시
+		map.put("id", id);
+		map.put("commentNo", commentNo);
+		map.put("reviewNo", reviewNo);
+
+
+		System.out.println("댓글내용:"+commentContent);
+		System.out.println("댓글번호:"+commentNo);
+		System.out.println("아이디:"+id);
+		System.out.println("리뷰번호:"+reviewNo);
+
+		int insert=commentService.insert(map);//댓글insert
+		System.out.println("입력이 됫나?"+insert);
+
+
+	}///////////////////////////////
+
+
+
 
 	// 무빙프렌즈1]
 	@RequestMapping("/Movieing/Blog/MovieingFriends.mov")
@@ -232,12 +269,27 @@ public class BlogController {
 		model.addAttribute("friendsSelf", friendsSelf);
 
 		// 리뷰 넘버 임시]
-		int reviewNo = 1;
+		//int reviewNo = 1;
+		int reviewNo = 4;
 		map.put("reviewNo", reviewNo);
 
-		// 좋아요]
+		//좋아요 ]
 		int friendsLike = likeReviewService.getTotalCountByAll(map);// 1개
 		model.addAttribute("friendsLike", friendsLike);
+
+		//좋아요 카운트]
+		int LikeOneReviewTotalCount= likeReviewService.getTotalCount(map);
+		model.addAttribute("LikeOneReviewTotalCount", LikeOneReviewTotalCount);
+
+		//댓글 카운트]
+		int getCommentCount=commentService.getCommentCount(map);
+		model.addAttribute("getCommentCount", getCommentCount);
+
+
+		//댓글가져오기]
+		List<CommentDto> commentList= commentService.selectList(map);
+		model.addAttribute("commentList", commentList);
+
 
 		return "blog/my/MovieingFriends.tiles";
 	}///////////////////////////////////////////////////////////////////////////////

@@ -99,6 +99,20 @@ body {
 	transform-origin: center bottom;
 	/* transform: translate(132px, 62px) rotate(0deg);  */
 }
+
+/*더보기 ...조건*/
+.card-text {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 4; /* 라인수 */
+	-webkit-box-orient: vertical;
+	word-wrap: break-word;
+	line-height: 1 .8em;
+	height: 10 .8em;
+}
+
+
 </style>
 
 <!-- css파일 -->
@@ -234,11 +248,11 @@ body {
 				</div>
 			</div>
 
-			<c:forEach items="${selectReviewList }" var="item">
+			<c:forEach items="${selectList }" var="item">
 				<!-- 2.여러줄컨텐츠(리뷰) -->
 				<div class="card border-secondary mb-3" style="max-width: 200rem;">
 					<div class="card-header">
-						토이스토리4에 리뷰를 남겼어요!&nbsp;&nbsp;<span
+						${item.movieTitle }에 리뷰를 남겼어요!&nbsp;&nbsp;<span
 							style="color: #a8a5a5; font-size: 0.3em">1일 전</span>
 					</div>
 
@@ -254,7 +268,7 @@ body {
 							<div class="col-sm-9">
 								<h4 class="card-title">${item.movieTitle }</h4>
 								<span class="badge badge-pill badge-danger">★${item.grade }</span>
-								<p class="card-text" style="height: 100px">${item.reviewContent }</p>
+								<p class="card-text" style="height: 110px">${item.reviewContent }</p>
 								<a href="#"><span
 									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
 										class="far fa-thumbs-up"></i> 25 </span></a>&nbsp;&nbsp;&nbsp; <a
