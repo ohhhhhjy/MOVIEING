@@ -16,47 +16,59 @@ public class UserServiceImpl implements UserService{
 	//UserDao 객체 주입
 	@Resource(name="userDao")
 	private UserDao dao;
-	
+
 	@Override
 	public boolean isMember(Map map) {
-		
+
 		return dao.isMember(map);
 	}
 
 	@Override
 	public List<UserDto> selectList(Map map) {
-		
+
 		return dao.selectList(map);
 	}
 
 	@Override
 	public int getTotalCount(Map map) {
-		
+
 		return dao.getTotalCount(map);
 	}
 
 	@Override
 	public UserDto selectOne(Map map) {
-		
+
 		return dao.selectOne(map);
 	}
 
 	@Override
 	public int insert(Map map) {
-		
+
 		return dao.insert(map);
 	}
 
 	@Override
 	public int update(Map map) {
-		
+
 		return dao.update(map);
 	}
 
 	@Override
 	public int delete(Map map) {
-		
+
 		return dao.delete(map);
+	}
+
+	@Override
+	public List<UserDto> selectFollowerList(Map map) {
+
+		return dao.selectFollowerList(map);
+	}
+
+	@Override
+	public List<UserDto> selectFollowingList(Map map) {
+
+		return dao.selectFollowingList(map);
 	}
 
 }
