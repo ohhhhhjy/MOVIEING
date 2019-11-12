@@ -17,6 +17,9 @@ public interface ReviewService {
 	//리뷰안슨 영화 목록
 	List<ReviewDto> selectNotReviewList(Map map);
 
+	//리뷰쓴것 피드에 뿌리기
+	List<ReviewDto>  selectReviewList(Map map);
+
 
 
 	//전체 레코드 수

@@ -14,65 +14,65 @@ import com.kosmo.movieing.service.EvalueWishService;
 @Repository
 public class EvalueWishDao implements EvalueWishService{
 
-	@Resource(name="template")
-	private SqlSessionTemplate template;
+   @Resource(name="template")
+   private SqlSessionTemplate template;
 
-	//로그인용
-	@Override
-	public boolean isLogin(Map map) {
+   //로그인용
+   @Override
+   public boolean isLogin(Map map) {
 
-		return (Integer)template.selectOne("evaluationLogin",map)==1?true:false;
-	}
+      return (Integer)template.selectOne("evaluationLogin",map)==1?true:false;
+   }
 
-	@Override
-	public EvaluationDto selectOne(Map map) {
+   @Override
+   public EvaluationDto selectOne(Map map) {
 
-		return template.selectOne("evaluationSelectOne", map);
-	}
+      return template.selectOne("evaluationSelectOne", map);
+   }
 
-	@Override
-	public int insert(Map map) {
+   @Override
+   public int insert(Map map) {
 
-		return template.insert("evaluationInsert", map);
-	}
+      return template.insert("evaluationInsert", map);
+   }
 
-	@Override
-	public int update(Map map) {
+   @Override
+   public int update(Map map) {
 
-		return template.update("evaluationUpdate", map);
-	}
+      return template.update("evaluationUpdate", map);
+   }
 
-	@Override
-	public int delete(Map map) {
+   @Override
+   public int delete(Map map) {
 
-//		template.delete("commentDeleteByNo", map);
-		return template.delete("evaluationDelete", map);
-	}
+//      template.delete("commentDeleteByNo", map);
+      return template.delete("evaluationDelete", map);
+   }
 
-	@Override
-	public List<EvaluationDto> selectEvalueList(Map map) {
+   @Override
+   public List<EvaluationDto> selectEvalueList(Map map) {
 
-		return template.selectList("selectEvalueList",map);
-	}
+      return template.selectList("selectEvalueList",map);
+   }
 
-	@Override
-	public List<EvaluationDto> selectWishList(Map map) {
+   @Override
+   public List<EvaluationDto> selectWishList(Map map) {
 
-		return template.selectList("selectWishList",map);
-	}
-
-
-	@Override
-	public int getTotalEvalueCount(Map map) {
-
-		return template.selectOne("getTotalEvalueCount",map);
-	}
+      return template.selectList("selectWishList",map);
+   }
 
 
-	@Override
-	public int getTotalWishCount(Map map) {
+   @Override
+   public int getTotalEvalueCount(Map map) {
 
-		return template.selectOne("getTotalWishCount",map);
-	}
+      return template.selectOne("getTotalEvalueCount",map);
+   }
+
+
+   @Override
+   public int getTotalWishCount(Map map) {
+
+      return template.selectOne("getTotalWishCount",map);
+   }
 
 }

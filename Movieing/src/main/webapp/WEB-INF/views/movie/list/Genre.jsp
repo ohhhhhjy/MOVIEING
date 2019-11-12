@@ -118,90 +118,16 @@ $(function() {
 		
 		
 	</div>
-    	  	<div class="row" style="margin-top: 20px" >
-		<div class="col-md-2 col-sm-6 movie-poster" >
-		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
-		 
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div> 
-  	</div>
-  	
-  	<div class="row" style="margin-top: 20px" >
-		<div class="col-md-2 col-sm-6 movie-poster">
-		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div>
-    	<div class="col-md-2 col-sm-6 movie-poster">
-		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div>  
-    	<div class="col-md-2 col-sm-6 movie-poster">
-			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div> 
-    
-  	</div>
-  	
-  	<div class="row" style="margin-top: 20px" >
-		<div class="col-md-2 col-sm-6 movie-poster">
-		 	<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"  alt=""/></a>
-    	</div>
-    	<div class="col-md-2 col-sm-6 movie-poster">
-			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
-    	</div>  
-    	<div class="col-md-2 col-sm-6 movie-poster">
-			<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg"  src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-		 <a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
-    	</div> 
-    	<div class="col-md-2 col-sm-6 movie-poster">
-		<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>">
-		 <img class="mvimg" src="<c:url value='/resources/img/movie/aladdin.jpg'/>"   alt=""/></a>
-    	</div> 
-    
-  	</div>
-  	
+    		<div class="row" style="margin-top: 20px">
+					<c:forEach items="${movieImgUrl}" var="item">
+						<div class="col-md-2 col-sm-6 movie-poster" style="margin-bottom: 5px">
+							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>"> 
+								<img class="mvimg" src="${item}" alt="" />
+							</a>
+						</div>	
+					</c:forEach>
+							
+				</div>
   	
   
   

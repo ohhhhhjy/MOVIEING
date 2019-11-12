@@ -2,7 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
+<!-- 구글 로그인에 필요한 소스 시작 -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="39236105074-b52uaeq079dn5uovhl9u9fr2m47ka1jr.apps.googleusercontent.com">
+<!-- 구글 로그인에 필요한 소스 끝 -->
 
 <!------ Include the above in your HEAD tag ---------->
 
@@ -100,4 +103,34 @@
 		<br>
 	</div>
 </div>
+
+<div class="row d-flex justify-content-center" >
+<div id="naver_id_login" style="text-align:center"><a href="${url}">
+<img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a>
+
+	<div id="google_id_login"
+		style="text-align: center; ">
+		<div class="g-signin2" data-onsuccess="onSignIn"></div>
+		<!-- data-onsucess: 로그인 성공시 onSignIn함수실행  -->
+
+	</div>
+	</div>
+	
+</div>
+
+
+<%-- <a href="<c:url value='/Movieing/member/GoogleLogin.mov'/>"> <img width="230"
+src="${pageContext.request.contextPath}/resources/img/login/btn_google_signin_light_normal_web.png" /></a></div>
+<br> --%>
+<script>
+//구글 로그인 후, 호출되는 함수
+
+function onSignIn(googleUser) {
+   var profile = googleUser.getBasicProfile();
+   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+   console.log('Name: ' + profile.getName());
+   console.log('Image URL: ' + profile.getImageUrl());
+   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+</script>
 
