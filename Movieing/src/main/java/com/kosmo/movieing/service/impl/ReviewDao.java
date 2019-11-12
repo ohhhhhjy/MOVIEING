@@ -93,7 +93,13 @@ public class ReviewDao implements ReviewService{
 	//리뷰 insert
 	@Override
 	public int insertReview(Map map) {
-		return template.insert("insertReviewList",map);
+		return template.insert("insertReview",map);
+	}
+
+	//내글 가져오기 보기
+	@Override
+	public List<ReviewDto> selectReviewList(Map map) {
+		return template.selectList("selectReviewList", map);
 	}
 
 }

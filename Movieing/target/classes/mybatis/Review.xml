@@ -78,12 +78,16 @@
    
 	</select>
 	
-	<!-- 리뷰 값 넣기 
-	<insert id="insertReviewList" parameterType="java.util.Map">
+	<!-- 리뷰 값 넣기 -->
+	<insert id="insertReview" parameterType="java.util.Map">
 		insert into REVIEW 
-		values (#{REVIEW_NO},#{id},#{movieNo},#{REVIEW_CONTENT },#{REVIEW_POSTDATE },#{PUBLIC_PRIVATE })
-	</insert>-->
-	
+		values (#{reviewNo},#{id},#{movieNo},#{reviewContent },SYSDATE,#{publicPrivate })
+	</insert>
+
+	<select id="selectReviewList" parameterType="java.util.Map" resultType="ReviewDto">
+	select * from review
+	where USER_ID=#{id}
+	</select>
 
 
 
