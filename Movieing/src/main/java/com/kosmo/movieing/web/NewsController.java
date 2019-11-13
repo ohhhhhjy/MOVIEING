@@ -11,5 +11,10 @@ public class NewsController {
 		
 		return "news/Calendar.tiles";
 	}
+	
+	@RequestMapping("/Movieing/Ticket/Buy.mov")
+	public String buyTicket() {
+		return "news/Buy.tiles";
+	}
 
 }

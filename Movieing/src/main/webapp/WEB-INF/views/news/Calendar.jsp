@@ -256,7 +256,7 @@ tbody>tr {
 								<div class="row" style="padding-left: 10px;padding-right: 10px;padding-bottom: 10px">
 									<div class="col-md-4">
 										<img class="center-block img-responsive"
-											src='<c:url value='/resources/img/news/j1.PNG'/>' />
+											src='<c:url value='/resources/img/news/j1.jpg'/>' />
 									</div>
 									<div class="col-md-8">
 										<small>장소: 부산</small><br> <small><strong>개체월
@@ -266,8 +266,22 @@ tbody>tr {
 										고장으로 발전시키고자 기획된 영화제이다. 1996년 제1회를 시작으로 2003년 제8회를 맞이한 부산국제영화제는
 										5년이라는 짧은 역사에도 불구하고 서구에 억눌려 있던 아시아 영화인의 연대를 실현했다는 평가를 받고 있다.<br>
 										<br>
+										<br>
+										<br>
+										<br>
+										<div class="row">
+											<div class="col">
+												<div class="clearfix">
+													<div class="float-right">
+														<button class="btn btn-outline-info"><a href="<c:url value ='/Movieing/Ticket/Buy.mov'/>">티켓 구매</a></button>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
+									
 								</div>
+								
 							</div>
 
 
@@ -291,7 +305,12 @@ tbody>tr {
 
 
 <script>
+
+		
+		
 	var event;
+	
+	
 	
    		$.ajax({
    			url: "<c:url  value='/Ajax/Calendar.mov'/>", 
@@ -300,10 +319,16 @@ tbody>tr {
    			success: function(data) {
    				console.log(data);
    				event=data;
-   				
    				} 
    		});
    		console.log(event);
+		 
+		
+		
+
+		
+	
+	
 	
 	$('#calendar').fullCalendar({
 		header : {
@@ -316,9 +341,9 @@ tbody>tr {
 		navLinks : true,
 		eventLimit : true,
 		events : event
-	   		
-   		
+			
 	});
+	
 	
 	
 </script>

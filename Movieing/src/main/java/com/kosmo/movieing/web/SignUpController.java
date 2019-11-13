@@ -20,7 +20,6 @@ public class SignUpController {
 	@RequestMapping(value = "/Movieing/member/SignUp.mov" , method = RequestMethod.POST)
 	public String SingUp(@RequestParam Map map) {
 		userService.insert(map);
-		System.out.println("악");
 		
 		return "";
 	}

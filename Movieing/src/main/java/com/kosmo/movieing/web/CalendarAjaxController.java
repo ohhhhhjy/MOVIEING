@@ -34,6 +34,17 @@ public class CalendarAjaxController {
 		array+="]";
 		System.out.println(array);		
 		return array;
+//		List<Map> collections = new Vector<Map>();
+//		for(CalendarDto dto : list) {
+//			Map record = new HashMap();
+//			record.put("title", dto.getEventName());
+//			record.put("start", dto.getEventStart());
+//			record.put("end", dto.getEventEnd());
+//			
+//			collections.add(record);
+//		}
+//		
+//		return JSONArray.toJSONString(collections);
 		
 	}	
 	
