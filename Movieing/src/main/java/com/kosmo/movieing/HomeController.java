@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String index(Authentication auth) {
-		if(auth.getAuthorities()!=null)
-			return "forward:/Movieing/Movie/Home.mov";
+	public String index() {
+//		if(auth.getAuthorities()!=null)
+//			return "forward:/Movieing/Movie/Home.mov";
 		return "index.tiles";
 	}
 
