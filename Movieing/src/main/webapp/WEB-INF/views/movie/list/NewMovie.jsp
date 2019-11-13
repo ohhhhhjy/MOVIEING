@@ -72,12 +72,16 @@ $(function() {
 });
 </script>
 
-<div id="page-wrapper">
+<div id="page-wrapper" >
+
 
   <!-- 사이드바 -->
-  <div id="sidebar-wrapper" class="">
-  
+
+  <div id="sidebar-wrapper" >
+ 
+
     <ul class="sidebar-nav">
+   
       <li class="sidebar-brand">
         <span style="font-weight: bold;color:white;" >영화</span>
       </li>
@@ -108,6 +112,7 @@ $(function() {
        
     </ul>
   </div>
+  </nav>
   <!-- /사이드바 -->
 
   <!-- 본문 -->

@@ -1,12 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!-- 타일즈 설정되어 있어서  바디부분만 작성하면 됨. 
 근데 타일즈라 그냥 만들기만 한다고 되는게 아님.
 컨트롤러가서 RequestMapping해줘야됨.
 
 -->
 
+<script>
+
+$('.starRev span').click(function(){
+	  $(this).parent().children('span').removeClass('on');
+	  $(this).addClass('on').prevAll('span').addClass('on');
+	  return false;
+	});
+	
+	
+	
+</script>
 
 
 <style>
@@ -46,7 +58,30 @@ img:hover {
 	color: white;
 	font-size: 16px;
 	color: black;
+	
 }
+.starR1{
+    background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat -52px 0;
+    background-size: auto 100%;
+    width: 15px;
+    height: 30px;
+    float:left;
+    text-indent: -9999px;
+    cursor: pointer;
+}
+.starR2{
+    background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+    background-size: auto 100%;
+    width: 15px;
+    height: 30px;
+    float:left;
+    text-indent: -9999px;
+    cursor: pointer;
+}
+.starR1.on{background-position:0 0;}
+.starR2.on{background-position:-15px 0;}
+
+
 /*마우스오버*/
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,500,700)
 	;
@@ -176,14 +211,19 @@ img:hover {
 	opacity: 0.1;
 }
 
+
+
+
+    
 /*별*/
 </style>
+
 <script>
 	/* Demo purposes only */
 	$(".hover").mouseleave(function() {
 		$(this).removeClass("hover");
 	});
-</script>
+</script> 
 
 
 <div class="container-fluid"
@@ -197,6 +237,18 @@ img:hover {
 		<div class="col-md-3" style="padding-top: 40px">
 			<button type="button" class="btn btn-outline-primary waves-effect">
 				< 선택완료</button>
+			<div class="starRev">
+  <span class="starR1 ">별1_왼쪽</span>
+  <span class="starR2">별1_오른쪽</span>
+  <span class="starR1">별2_왼쪽</span>
+  <span class="starR2">별2_오른쪽</span>
+  <span class="starR1">별3_왼쪽</span>
+  <span class="starR2">별3_오른쪽</span>
+  <span class="starR1">별4_왼쪽</span>
+  <span class="starR2">별4_오른쪽</span>
+  <span class="starR1">별5_왼쪽</span>
+  <span class="starR2">별5_오른쪽</span>
+</div>
 
 		</div>
 		<div class="col-md-6">
@@ -235,6 +287,7 @@ img:hover {
 										<h6>${json.mdate }</h6>
 									</div>
 									<!-- 별점 -->
+							
 								</div>
 							</figcaption>
 							<a href="#"></a>
@@ -253,6 +306,8 @@ img:hover {
 
 
 </div>
+
+
 
 
 

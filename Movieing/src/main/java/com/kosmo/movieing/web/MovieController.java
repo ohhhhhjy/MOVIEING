@@ -527,7 +527,7 @@ public class MovieController {
 				
 				List<String> movieList = new Vector(); // 무비 리스트
 
-				//인기영화
+				//평가별영화
 				String base_url = "https://movie.naver.com/movie/running/current.nhn?view=list&tab=normal&order=point"; // 가져올 주소
 				try {
 

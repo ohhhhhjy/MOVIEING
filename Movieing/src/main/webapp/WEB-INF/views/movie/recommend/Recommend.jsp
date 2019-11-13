@@ -15,6 +15,11 @@ $('.carousel').carousel({
 
 </script>
 <style>
+
+.mvimg{
+  	width:230px;
+  	height:300px
+  }
 @import
 	url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800')
 	;
@@ -107,194 +112,21 @@ img.border-shadow{
 
 
 		<!-- 캐러셀 시작  -->
+	
+		<div class="row" style="margin-top: 20px">
+		
+				<c:forEach items="${movieImgDate}" var="json">
 
-		<div class="row blog">
-			<div class="col-md-12">
-				<div id="blogCarousel" class="carousel slide" data-ride="carousel">
-
-					<ol class="carousel-indicators">
-						<li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
-						<li data-target="#blogCarousel" data-slide-to="1"></li>
-						<li data-target="#blogCarousel" data-slide-to="2"></li>
-					</ol>
-
-					<!-- Carousel items -->
-					<div class="carousel-inner">
+					<div class="col-md-2 col-sm-6 movie-poster"style="margin-bottom: 5px">
+						<a
+							href="<c:url value='/Movieing/Movie/MovieDetails.mov?mname=${json.mname }&date=${json.date }'/>">
+							<img class="mvimg" src="${json.realUrl}" alt="" />
+						</a>
+					</div> 	
 
 
-						<div class="carousel-item active">
-							<div class="row">
-								<div class="col-md-2" >
-									<a href="#"> <img class= "border-shadow" 
-										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
-										alt="Image" style="width: 310px; height: 400px">
-									</a>
-
-								</div>
-								<div class="col-sm-2">
-									<a href="#"> <img class="border-shadow"
-										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
-										alt="Image" style="width: 310px; height: 400px">
-									</a>
-
-								</div>
-								<div class="col-sm-2">
-									<a href="#"> <img class="border-shadow"
-										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
-										alt="Image" style="width: 310px; height: 400px">
-
-									</a>
-
-								</div>
-								<div class="col-sm-2">
-									<a href="#"> <img class="border-shadow"
-										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
-										alt="Image" style="width: 310px; height: 400px">
-									</a>
-
-								</div>
-
-								<div class="col-sm-2">
-									<a href="#"> <img class="border-shadow"
-										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
-										alt="Image" style="width: 310px; height: 400px">
-									</a>
-
-								</div>
-								<div class="col-sm-2">
-									<a href="#"> <img class="border-shadow"
-										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
-										alt="Image" style="width: 310px; height: 400px">
-									</a>
-
-								</div>
-
-
-							</div>
-
-						</div>
-
-
-
-
-
-
-						<div class="carousel-item">
-							<div class="row">
-								<div class="col-md-2">
-									<a href="#"> <img
-										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
-										alt="Image" style="width: 310px; height: 400px">
-									</a>
-
-								</div>
-								<div class="col-sm-2">
-									<a href="#"> <img
-										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
-										alt="Image" style="width: 310px; height: 400px">
-									</a>
-
-								</div>
-								<div class="col-sm-2">
-									<a href="#"> <img
-										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
-										alt="Image" style="width: 310px; height: 400px">
-
-									</a>
-
-								</div>
-								<div class="col-sm-2">
-									<a href="#"> <img
-										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
-										alt="Image" style="width: 310px; height: 400px">
-									</a>
-
-								</div>
-
-								<div class="col-sm-2">
-									<a href="#"> <img
-										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
-										alt="Image" style="width: 310px; height: 400px">
-									</a>
-
-								</div>
-								<div class="col-sm-2">
-									<a href="#"> <img
-										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
-										alt="Image" style="width: 310px; height: 400px">
-									</a>
-
-								</div>
-
-
-							</div>
-						</div>
-						<!--.item-->
-
-
-						<div class="carousel-item">
-							<div class="row">
-								<div class="col-md-2">
-									<a href="#"> <img
-										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
-										alt="Image" style="width: 310px; height: 400px">
-									</a>
-
-								</div>
-								<div class="col-sm-2">
-									<a href="#"> <img
-										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
-										alt="Image" style="width: 310px; height: 400px">
-									</a>
-
-								</div>
-								<div class="col-sm-2">
-									<a href="#"> <img
-										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
-										alt="Image" style="width: 310px; height: 400px">
-
-									</a>
-
-								</div>
-								<div class="col-sm-2">
-									<a href="#"> <img
-										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
-										alt="Image" style="width: 310px; height: 400px">
-									</a>
-
-								</div>
-
-								<div class="col-sm-2">
-									<a href="#"> <img
-										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
-										alt="Image" style="width: 310px; height: 400px">
-									</a>
-
-								</div>
-								<div class="col-sm-2">
-									<a href="#"> <img
-										src="<c:url value='/resources/img/movie/movie10.jpg'/>"
-										alt="Image" style="width: 310px; height: 400px">
-									</a>
-
-								</div>
-
-
-							</div>
-						</div>
-
-
-					</div>
-					<!--.carousel-inner-->
-
-					<a class="carousel-control-prev" href="#blogCarousel" role="button"
-						data-slide="prev"> <span class="carousel-control-prev-icon"
-						aria-hidden="true"></span> <span class="sr-only">Previous</span>
-					</a> <a class="carousel-control-next" href="#blogCarousel"
-						role="button" data-slide="next"> <span
-						class="carousel-control-next-icon" aria-hidden="true"></span> <span
-						class="sr-only">Next</span>
-					</a>
+				</c:forEach>
+			</div>
 
 				</div>
 				<!--.Carousel-->
@@ -302,19 +134,6 @@ img.border-shadow{
 
 
 
-
-			</div>
-
-		</div>
-
-
-
-	</div>
-	<!-- 캐러셀 다이브  -->
-
-
-
-<!-- 한 장르 끝 -->
 
 
 
@@ -330,10 +149,11 @@ img.border-shadow{
 				</div>
 			</div>
 		</div>
+		
 
 
 
-		<!-- 캐러셀 시작  -->
+	<%-- 	<!-- 캐러셀 시작  -->
 
 		<div class="row blog">
 			<div class="col-md-12">
@@ -543,7 +363,7 @@ img.border-shadow{
 
 
 <!-- 한 장르 끝 -->
-
+ --%>
 <!-- 한 장르 시작 -->
 	<div style="margin-top: 60px">
 		<div class="col-xl-12">

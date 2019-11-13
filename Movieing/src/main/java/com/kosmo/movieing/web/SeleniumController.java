@@ -108,7 +108,7 @@ public class SeleniumController {
 			// System.out.println("버튼 클릭 성공");
 
 			// wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"content\"]/div[4]/div[1]/span")));
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			// System.out.println("조회결과 가져올떄가지 대기 성공");
 //			elementName.findElement(By.xpath("//*[@id=\"content\"]/div[4]/table/tbody/tr/td[3]"));
 			WebElement elementName2 = driver
