@@ -158,7 +158,7 @@ $(function(){
  				type:'post',
  				dataType:'text',
  				data:
- 					{id:'${id}',reviewNo:'${reviewLikeList.get(index).reviewNo}'},
+ 					{id:'${id}',reviewNo:'${reviewLikeList.get(index).reviewNo}',${_csrf.parameterName}:'${_csrf.token}'},
  					
  				success:function(data){//서버로 부터 정상적인 응답을 받았을 때(200번)
  					$('#likeSpan'+index).html('<i class="fas fa-thumbs-up"></i>'+data);
@@ -180,7 +180,7 @@ $(function(){
  				type:'post',
  				dataType:'text',
  				data:
- 				{id:'${id}',reviewNo:'${reviewLikeList.get(index).reviewNo}'},
+ 				{id:'${id}',reviewNo:'${reviewLikeList.get(index).reviewNo}',${_csrf.parameterName}:'${_csrf.token}'},
  				success:function(data){//서버로 부터 정상적인 응답을 받았을 때(200번)
  					$('#likeSpan'+index).html('<i class="far fa-thumbs-up"></i>'+data);
  				},	
@@ -294,8 +294,6 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
                  			</c:forEach>
                  		</ul>
                  	</c:if>
-                 		
-                 
                    		
                  </div>
                  

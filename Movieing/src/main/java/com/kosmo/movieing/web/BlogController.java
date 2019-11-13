@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kosmo.movieing.service.CommentDto;
+import com.kosmo.movieing.service.CommentService;
 import com.kosmo.movieing.service.EvaluationDto;
 import com.kosmo.movieing.service.EvalueWishService;
 import com.kosmo.movieing.service.FollowService;
@@ -26,6 +29,8 @@ import com.kosmo.movieing.service.LikeReviewService;
 import com.kosmo.movieing.service.MovieService;
 import com.kosmo.movieing.service.ReviewDto;
 import com.kosmo.movieing.service.ReviewService;
+import com.kosmo.movieing.service.UserDto;
+import com.kosmo.movieing.service.UserService;
 
 @Controller
 public class BlogController {
@@ -46,17 +51,60 @@ public class BlogController {
 	@Resource(name = "followService")
 	private FollowService followService;
 
+	@Resource(name="commentService")
+	private CommentService commentService;
+
+	@Resource(name = "userService")
+	private UserService userService;
+
+
 
 
 	// 블로그메인
 	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov", method = RequestMethod.GET)
 	public String blogMain(@RequestParam Map map, Model model) {
-		String id = "kim";// 임시
+		String id = "KIM";// 임시
 
 		map.put("id", id);
 		model.addAttribute("id", id);
 
+
+
+
+
 		// [유저정보] count 별.리.좋.보. 팔로워.팔로잉.
+		//유저 정보
+		UserDto userInfo = userService.selectOne(map);
+		model.addAttribute("userInfo", userInfo);
+
+		//유저의 가입일수 구하기(뫄뫄님이 가입하신지 며칠째)..
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+		java.util.Date today = new java.util.Date();
+		long diff = (today.getTime()-userInfo.getUserSignupDate().getTime())/1000/(60 * 60 * 24)+1;
+		model.addAttribute("signUpDays",diff);
+
+		//각 별점 카운트 리스트
+		//1
+		map.put("number",1);
+		int evalue1 = evalueWishService.getEachEvalue(map);
+		model.addAttribute("evalue1",evalue1);
+		//2
+		map.put("number",2);
+		int evalue2 = evalueWishService.getEachEvalue(map);
+		model.addAttribute("evalue2",evalue2);
+		//3
+		map.put("number",3);
+		int evalue3 = evalueWishService.getEachEvalue(map);
+		model.addAttribute("evalue3",evalue3);
+		//4
+		map.put("number",4);
+		int evalue4 = evalueWishService.getEachEvalue(map);
+		model.addAttribute("evalue4",evalue4);
+		//5
+		map.put("number",5);
+		int evalue5 = evalueWishService.getEachEvalue(map);
+		model.addAttribute("evalue5",evalue5);
+
 		// 별점 카운트
 		int evalueCount = evalueWishService.getTotalEvalueCount(map);
 		model.addAttribute("evalueCount", evalueCount);
@@ -74,19 +122,33 @@ public class BlogController {
 		//팔로잉 카운트
 		int followingCount = followService.getTotalFollowingCount(map);
 		model.addAttribute("followingCount",followingCount);
-		//팔로우 카운트
+		//팔로잉 유저 리스트
+		List<UserDto> followingList = userService.selectFollowingList(map);
+		model.addAttribute("followingList",followingList);
+		//팔로워 카운트
 		int followerCount = followService.getTotalFollowerCount(map);
 		model.addAttribute("followerCount",followerCount);
+		//팔로워 유저 리스트
+		List<UserDto> followerList = userService.selectFollowerList(map);
+
+		//팔로워리스트 중 팔로잉된 사람 확인하기(맞팔여부)
+		for(UserDto followerUser: followerList) {
+			followerUser.setIsFollow(false);
+			for(UserDto followingUser: followingList) {
+				if(followerUser.getUserId().equals(followingUser.getUserId())) followerUser.setIsFollow(true);
+			}
+		}
+		model.addAttribute("followerList",followerList);
 
 
-		List<ReviewDto> selectReviewList=reviewService.selectReviewList(map);// 쓴글 가져오기
-		model.addAttribute("selectReviewList", selectReviewList);
+		List<ReviewDto> selectList=reviewService.selectList(map);// 쓴글 가져오기
+		model.addAttribute("selectList", selectList);
 
 		return "blog/my/BlogMain.tiles";
 	}/////////////////////////////////////////////
 
 
-
+	//리뷰작성 후 메인으로
 	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov", method = RequestMethod.POST)
 	public String blogMain2(@RequestParam Map map, Model model) {
 		String id = "kim";// 임시
@@ -129,8 +191,8 @@ public class BlogController {
 
 		model.addAttribute("insertReview", insertReview);// 리뷰테이블에 insert
 
-		List<ReviewDto> selectReviewList=reviewService.selectReviewList(map);// 쓴글 가져오기
-		model.addAttribute("selectReviewList", selectReviewList);
+		List<ReviewDto> selectList=reviewService.selectList(map);// 쓴글 가져오기
+		model.addAttribute("selectList", selectList);
 
 		// 해쉬태그 추가해야함
 
@@ -189,29 +251,61 @@ public class BlogController {
 	@ResponseBody
 	@RequestMapping(value="/Movieing/Blog/LikeRemove.mov", method = RequestMethod.POST)
 	public String likeRemove(@RequestParam Map map) {
-		String id = "KIM";// 임시
+		String id = "kim";// 임시
 		int reviewNo = Integer.parseInt(map.get("reviewNo").toString());
 		map.put("reviewNo", reviewNo);
 		map.put("id", id);
 		likeReviewService.delete(map);
 		int count = likeReviewService.getTotalCountByAll(map);
 		return String.valueOf(count);
-	}
+	}//////////////////////////////////////////////////
 
 	// 좋아요 입력
 	@ResponseBody
 	@RequestMapping(value="/Movieing/Blog/LikeInsert.mov", method = RequestMethod.POST)
 	public String likeInsert(@RequestParam Map map) {
-		String id = "KIM";// 임시
+		String id = "kim";// 임시
+		System.out.println("뭐냐이게 되냐고"+map.get("reviewNo").toString());
 		int reviewNo = Integer.parseInt(map.get("reviewNo").toString());
+
 		map.put("reviewNo", reviewNo);
 		map.put("id", id);
 		likeReviewService.insert(map);
 		int count = likeReviewService.getTotalCountByAll(map);
+
 		return String.valueOf(count);
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////
+
+	//댓글 입력]
+	@ResponseBody
+	@RequestMapping(value="/Movieing/Blog/CommentInsert.mov",method = RequestMethod.POST)
+	public void commentInsert(@RequestParam Map map) {
+	   //int commentNo=Integer.parseInt(map.get("commentNo").toString());
+		 int commentNo=5;
+		String commentContent=map.get("commentContent").toString();
+
+		String id="kim";
+		int reviewNo=1;//임시
+		map.put("id", id);
+		map.put("commentNo", commentNo);
+		map.put("reviewNo", reviewNo);
+
+
+		System.out.println("댓글내용:"+commentContent);
+		System.out.println("댓글번호:"+commentNo);
+		System.out.println("아이디:"+id);
+		System.out.println("리뷰번호:"+reviewNo);
+
+		int insert=commentService.insert(map);//댓글insert
+		System.out.println("입력이 됫나?"+insert);
+
+
+	}///////////////////////////////
+
+
+
 
 	// 무빙프렌즈1]
 	@RequestMapping("/Movieing/Blog/MovieingFriends.mov")
@@ -232,12 +326,27 @@ public class BlogController {
 		model.addAttribute("friendsSelf", friendsSelf);
 
 		// 리뷰 넘버 임시]
-		int reviewNo = 1;
+		//int reviewNo = 1;
+		int reviewNo = 4;
 		map.put("reviewNo", reviewNo);
 
-		// 좋아요]
+		//좋아요 ]
 		int friendsLike = likeReviewService.getTotalCountByAll(map);// 1개
 		model.addAttribute("friendsLike", friendsLike);
+
+		//좋아요 카운트]
+		int LikeOneReviewTotalCount= likeReviewService.getTotalCount(map);
+		model.addAttribute("LikeOneReviewTotalCount", LikeOneReviewTotalCount);
+
+		//댓글 카운트]
+		int getCommentCount=commentService.getCommentCount(map);
+		model.addAttribute("getCommentCount", getCommentCount);
+
+
+		//댓글가져오기]
+		List<CommentDto> commentList= commentService.selectList(map);
+		model.addAttribute("commentList", commentList);
+
 
 		return "blog/my/MovieingFriends.tiles";
 	}///////////////////////////////////////////////////////////////////////////////

@@ -10,6 +10,9 @@
 <!-- include libraries(jQuery, bootstrap) -->
 
 <!------ Include the above in your HEAD tag ---------->
+<link id="themecss" rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 
 
 <link
@@ -106,6 +109,7 @@
 
 
 
+
  
 
 
@@ -148,7 +152,10 @@
 
 
 
+
 input
+
+
 
 
 
@@ -318,7 +325,11 @@ text
 
 
 
+
+
 :focus
+
+
 
 
 
@@ -443,7 +454,9 @@ text
 
 
 
+
  
+
 
 
 
@@ -530,7 +543,9 @@ readonly
 
 
 
+
  
+
 
 
 
@@ -657,6 +672,8 @@ border-bottom
 
 
 
+
+
 :
 
 
@@ -699,7 +716,9 @@ border-bottom
 
 
 
+
  
+
 
 
 
@@ -784,7 +803,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -868,6 +889,7 @@ solid
 
 
 
+
  
 
 
@@ -910,7 +932,10 @@ solid
 
 
 
+
 #f48fb1
+
+
 
 
 
@@ -1077,6 +1102,8 @@ box-shadow
 
 
 
+
+
 :
 
 
@@ -1119,7 +1146,9 @@ box-shadow
 
 
 
+
  
+
 
 
 
@@ -1205,7 +1234,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -1250,6 +1281,8 @@ px
 0
 0
 #f48fb1
+
+
 
 
 
@@ -1381,6 +1414,7 @@ px
 
 
 
+
  
 
 
@@ -1423,7 +1457,10 @@ px
 
 
 
+
 input
+
+
 
 
 
@@ -1593,7 +1630,11 @@ text
 
 
 
+
+
 :focus
+
+
 
 
 
@@ -1718,7 +1759,9 @@ text
 
 
 
+
  
+
 
 
 
@@ -1805,7 +1848,9 @@ readonly
 
 
 
+
  
+
 
 
 
@@ -1932,6 +1977,8 @@ border-bottom
 
 
 
+
+
 :
 
 
@@ -1974,7 +2021,9 @@ border-bottom
 
 
 
+
  
+
 
 
 
@@ -2059,7 +2108,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -2143,6 +2194,7 @@ solid
 
 
 
+
  
 
 
@@ -2185,7 +2237,10 @@ solid
 
 
 
+
 #ce93d8
+
+
 
 
 
@@ -2352,6 +2407,8 @@ box-shadow
 
 
 
+
+
 :
 
 
@@ -2394,7 +2451,9 @@ box-shadow
 
 
 
+
  
+
 
 
 
@@ -2480,7 +2539,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -2525,6 +2586,8 @@ px
 0
 0
 #ce93d8
+
+
 
 
 
@@ -2656,6 +2719,7 @@ px
 
 
 
+
  
 
 
@@ -2698,7 +2762,10 @@ px
 
 
 
+
 input
+
+
 
 
 
@@ -2868,7 +2935,11 @@ text
 
 
 
+
+
 :focus
+
+
 
 
 
@@ -2993,7 +3064,9 @@ text
 
 
 
+
  
+
 
 
 
@@ -3080,7 +3153,9 @@ readonly
 
 
 
+
  
+
 
 
 
@@ -3207,6 +3282,8 @@ border-bottom
 
 
 
+
+
 :
 
 
@@ -3249,7 +3326,9 @@ border-bottom
 
 
 
+
  
+
 
 
 
@@ -3334,7 +3413,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -3418,6 +3499,7 @@ solid
 
 
 
+
  
 
 
@@ -3460,7 +3542,10 @@ solid
 
 
 
+
 #4dd0e1
+
+
 
 
 
@@ -3627,6 +3712,8 @@ box-shadow
 
 
 
+
+
 :
 
 
@@ -3669,7 +3756,9 @@ box-shadow
 
 
 
+
  
+
 
 
 
@@ -3755,7 +3844,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -3800,6 +3891,8 @@ px
 0
 0
 #4dd0e1
+
+
 
 
 
@@ -4005,10 +4098,27 @@ px
 		});
 	});
 	/*입력완료 경고창*/
-	function success() {
-		alert("입력이 완료되었습니다!");
+	$(document).ready(function() {
+		function success() {
+			if (movieTitle.value = "") {
+				return false;
+			} else if (("#publicPrivate option:selected").val() == "") {
+				return false;
+			} else if (hashtag.value = "") {
+				return false;
+			} else if (reviewContent.value = "") {
+				return false;
+			} else if ($(".selected-rating").text() == "") {
+				return false;
+			} else {
+				alert("입력이 완료되었습니다!");
+			}
 
-	}
+		}
+	});
+	
+	
+
 </script>
 
 
@@ -4039,7 +4149,7 @@ px
 		<!-- Default form contact -->
 		<form class="border border-light" method="post" id="form"
 			action="<c:url value='/Movieing/Blog/BlogMain.mov'/>" name="write">
-
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 			<h5>영화명</h5>
 
 
@@ -4175,8 +4285,9 @@ px
 					<!-- 
 					<span class="selected-rating" style="color: red" name="grade">0</span><small> / 5</small>
 					 -->
-					<input class="selected-rating col-md-1" style="color: red;border: none;font-weight: bold;text-align: right;" name="grade"></input><small>
-						/ 5</small>
+					<input class="selected-rating col-md-1"
+						style="color: red; border: none; font-weight: bold; text-align: right;"
+						name="grade" id="grade"></input><small> / 5</small>
 				</h2>
 				<button type="button" class="btnrating btn btn-default btn-lg"
 					data-attr="1" id="rating-star-1">
@@ -4209,9 +4320,9 @@ px
 
 
 			<select class="browser-default custom-select mb-4"
-				required="required" name="publicPrivate">
-				<option value="" disabled>선택</option>
-				<option value="N" selected="selected">나만보기</option>
+				required="required" name="publicPrivate" id="publicPrivate">
+				<option value="" selected>선택</option>
+				<option value="N">나만보기</option>
 				<option value="Y">전체 공개</option>
 
 			</select>
@@ -4221,7 +4332,7 @@ px
 			<h5>해쉬태그</h5>
 			<div class="mb-4" style="padding-bottom: 10px">
 				<input type="text" class="form-control" required="required"
-					aria-label="Sizing example input"
+					aria-label="Sizing example input" name="hashtag"
 					aria-describedby="inputGroupMaterial-sizing-default"
 					placeholder="#해쉬태그 방식으로 작성해주세요">
 

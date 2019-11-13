@@ -75,4 +75,10 @@ public class EvalueWishDao implements EvalueWishService{
       return template.selectOne("getTotalWishCount",map);
    }
 
+@Override
+public int getEachEvalue(Map map) {
+
+	return template.selectOne("getEachEvalue",map);
+}
+
 }

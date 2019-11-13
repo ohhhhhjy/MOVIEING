@@ -17,7 +17,7 @@
 	</select>
 	
 	<select id="userSelectOne" parameterType="java.util.Map" resultType="UserDto">
-	
+		select * from user_table where user_id=#{id}
 	</select>
 	
 	<insert id="userInsert" parameterType="java.util.Map">
@@ -35,7 +35,15 @@
 	
 	</delete>
 	
-
+	<!-- 팔로워 유저 목록 -->
+	<select id="selectFollowerList" parameterType="java.util.Map" resultType="UserDto">
+		select * from user_table where user_id in ( select follower from follow where following=#{id})
+	</select>
+	
+	<!-- 팔로잉 유저 목록 -->
+	<select id="selectFollowingList" parameterType="java.util.Map" resultType="UserDto">
+		 select * from user_table where user_id in ( select following from follow where follower=#{id})
+	</select>
 
 
 
