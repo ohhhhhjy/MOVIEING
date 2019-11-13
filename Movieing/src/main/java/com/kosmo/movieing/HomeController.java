@@ -1,7 +1,6 @@
 package com.kosmo.movieing;
 
-import javax.servlet.http.HttpServletRequest;
-
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String index(HttpServletRequest request) {
-
+	public String index(Authentication auth) {
+		if(auth.getAuthorities()!=null)
+			return "forward:/Movieing/Movie/Home.mov";
 		return "index.tiles";
 	}
 
