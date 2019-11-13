@@ -56,6 +56,14 @@
 	width: 230px;
 	height: 300px
 }
+
+  @media ( max-width: 480px ) {
+      
+        #sidebar-wrapper{
+          float: none;
+          width: auto;
+        }
+      }
 </style>
 
 <script>
@@ -69,9 +77,11 @@
 <div id="page-wrapper">
 
 	<!-- 사이드바 -->
-	<div id="sidebar-wrapper">
+	<div id="sidebar-wrapper" class="sidebar col-md-3">
 
 		<ul class="sidebar-nav">
+
+			
 			<li class="sidebar-brand"><span
 				style="font-weight: bold; color: white;">영화</span></li>
 			
