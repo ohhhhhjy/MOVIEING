@@ -102,4 +102,14 @@ public class ReviewDao implements ReviewService{
 		return template.selectList("selectReviewList", map);
 	}
 
+	@Override
+	public List<ReviewDto> selectFriendsList(Map map) {
+		return template.selectList("selectFriendsList", map);
+	}
+
+	@Override
+	public List<ReviewDto> selectReviewNos(Map map) {
+		return template.selectList("selectReviewNos", map);
+	}
+
 }

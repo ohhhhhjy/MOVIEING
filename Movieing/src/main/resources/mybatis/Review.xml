@@ -5,7 +5,7 @@
 	
 	<!-- 내가 쓴 리뷰 리스트 -->
 	<select id="reviewSelectMyList"  parameterType="java.util.Map" resultType="ReviewDto">
-		select r.*, 
+		select r.USER_ID,r.REVIEW_CONTENT ,r.REVIEW_POSTDATE,r.REVIEW_NO,r.MOVIE_NO, 
 		movie_title,
 		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
 		(select count(*) from LIKE_REVIEW  where user_id= r.user_id and review_no = r.review_no) likeCount,
@@ -15,7 +15,7 @@
 		WHERE USER_ID=#{id}
 		
 	</select>
-	
+	<!-- 전체 리스트 가져오기 -->
 	<select id="selectList"  parameterType="java.util.Map" resultType="ReviewDto">
 		select r.*, 
 		movie_title,
@@ -23,8 +23,20 @@
 		(select count(*) from LIKE_REVIEW  where user_id= r.user_id and review_no = r.review_no) likeCount,
 		(select count(*) from COMMENT_TABLE where user_id= r.user_id and review_no = r.review_no) commentCount
 		from review r  
+		join movie m on r.movie_no=m.movie_no
+		WHERE USER_ID=#{id}	
+	</select>
+	
+	<!-- 전체공개한 리스트만 가져오기 -->
+	<select id="selectFriendsList"  parameterType="java.util.Map" resultType="ReviewDto">
+		select r.USER_ID,r.REVIEW_CONTENT ,r.REVIEW_POSTDATE,r.REVIEW_NO,r.MOVIE_NO, 
+		movie_title,
+		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
+		(select count(*) from LIKE_REVIEW  where user_id= r.user_id and review_no = r.review_no) likeCount,
+		(select count(*) from COMMENT_TABLE where user_id= r.user_id and review_no = r.review_no) commentCount
+		from review r  
 		join movie m on r.movie_no=m.movie_no 
-		WHERE USER_ID=#{id}
+		WHERE USER_ID=#{id} and PUBLIC_PRIVATE='Y'
 		
 	</select>
 	
@@ -40,11 +52,12 @@
 		where review_no in (select review_no from like_review where user_id=#{id})
 	</select>
 	
-	
+	<!-- 무빙프렌즈 리뷰 뿌리기 -->
 	<select id="friendsReviewList" parameterType="java.util.Map" resultType="ReviewDto">
 	
-		select USER_ID,REVIEW_CONTENT ,REVIEW_POSTDATE, 
+		select USER_ID,REVIEW_CONTENT ,REVIEW_POSTDATE,REVIEW_NO,MOVIE_NO
 		(select MOVIE_TITLE from MOVIE) movieTitle,
+		(select MOVIE_ORG_TITLE from MOVIE) movieOrgTitle,		
 		(select EVALUATION_GRADE from EVALUATION) grade
 		 from review r
 		 join movie m on  r.MOVIE_NO =m.MOVIE_NO
@@ -87,6 +100,11 @@
 	<select id="selectReviewList" parameterType="java.util.Map" resultType="ReviewDto">
 	select * from review
 	where USER_ID=#{id}
+	</select>
+	
+	<!-- 모든 리뷰넘버들만 가져오기 -->
+	<select id="selectReviewNos" parameterType="java.util.Map" resultType="ReviewDto">
+		select REVIEW_NO from review
 	</select>
 
 

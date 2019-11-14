@@ -11,7 +11,7 @@
 	<!-- 댓글 삽입 -->
 	 
 	<insert id="commentInsert" parameterType="java.util.Map">
-		    insert into COMMENT_TABLE  values (#{commentNo},#{commentContent},SYSDATE,#{id},#{reviewNo})
+		    insert into COMMENT_TABLE  values (seq_commentNo.nextval,#{commentContent},SYSDATE,#{id},#{reviewNo})
 	</insert>
 	
 	<!-- 댓글가져오기 -->

@@ -261,12 +261,13 @@ body {
 
 
 
+
 					<div class="card-body">
 						<div class="row">
 							<div class="col-sm-3" align="center">
 								<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>"><img
 									class="movieImage"
-									src="../../resources/img/movie/toystoryMain.jpg" alt="포스터" /></a>
+									src="${item.imgUrl }" alt="포스터" /></a>
 							</div>
 							<div class="col-sm-9">
 								<h4 class="card-title">${item.movieTitle }</h4>

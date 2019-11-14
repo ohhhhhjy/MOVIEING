@@ -37,6 +37,18 @@ public class ReviewDto {
 	//국가
 	private String movieCountry;
 
+	//원제목
+	private String movieOrgTitle;
+
+
+
+	public String getMovieOrgTitle() {
+		return movieOrgTitle;
+	}
+
+	public void setMovieOrgTitle(String movieOrgTitle) {
+		this.movieOrgTitle = movieOrgTitle;
+	}
 
 	public String getMovieCountry() {
 		return movieCountry;
