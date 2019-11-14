@@ -9,14 +9,13 @@
 	</select>
 	
 	<!-- 댓글 삽입 -->
-	 
 	<insert id="commentInsert" parameterType="java.util.Map">
-		    insert into COMMENT_TABLE  values (seq_commentNo.nextval,#{commentContent},SYSDATE,#{id},#{reviewNo})
+		insert into COMMENT_TABLE  values (seq_comment.nextval,#{commentContent},SYSDATE,#{id},#{reviewNo})
 	</insert>
 	
 	<!-- 댓글가져오기 -->
 	<select id="selectCommentList" parameterType="java.util.Map" resultType="CommentDto">
-		select * from COMMENT_TABLE where REVIEW_NO =#{reviewNo}
+		select c.*,user_nick,user_profile from comment_table c join user_table u on c.user_id=u.user_id where REVIEW_NO =#{reviewNo} order by comment_date asc
 	</select>
 
 

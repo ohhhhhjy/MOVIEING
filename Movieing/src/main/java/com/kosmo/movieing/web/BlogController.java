@@ -15,6 +15,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,13 +60,13 @@ public class BlogController {
 	private UserService userService;
 
 	// 블로그메인
+
 	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov", method = RequestMethod.GET)
-	public String blogMain(@RequestParam Map map, Model model,Principal principal) throws Exception {
-		String id=principal.getName();
+	public String blogMain(@RequestParam Map map, Model model,Authentication auth) throws Exception {
+		String id = map.get("otherUserId")==null?auth.getName():map.get("otherUserId").toString();
 
 		map.put("id", id);
 		model.addAttribute("id", id);
-
 		// [유저정보] count 별.리.좋.보. 팔로워.팔로잉.
 		// 유저 정보
 		UserDto userInfo = userService.selectOne(map);
@@ -185,8 +186,9 @@ public class BlogController {
 
 	// 리뷰작성 후 메인으로
 	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov", method = RequestMethod.POST)
-	public String blogMain2(@RequestParam Map map, Model model,Principal principal) throws Exception {
-		String id = principal.getName();
+	public String blogMain2(@RequestParam Map map, Model model,Authentication auth) throws Exception {
+		String id = map.get("otherUserId")==null?auth.getName():map.get("otherUserId").toString();
+
 		map.put("id", id);
 		model.addAttribute("id", id);
 
@@ -210,11 +212,11 @@ public class BlogController {
 		model.addAttribute("grade", grade);// 평점
 		model.addAttribute("reviewContent", reviewContent);// 내용
 
-		System.out.println("영화제목:" + movieTitle);
-		System.out.println("영화번호:" + movieNo);
-		System.out.println("평점:" + grade);
-		System.out.println("리뷰내용:" + reviewContent);
-		System.out.println("공개여부:" + publicPrivate);
+//		System.out.println("영화제목:" + movieTitle);
+//		System.out.println("영화번호:" + movieNo);
+//		System.out.println("평점:" + grade);
+//		System.out.println("리뷰내용:" + reviewContent);
+//		System.out.println("공개여부:" + publicPrivate);
 
 		int insertReview = reviewService.insertReview(map);//작성한 리뷰 insert 리뷰넘버있음
 		//평가 테이블에 평점 넣기]
@@ -280,8 +282,8 @@ public class BlogController {
 
 	// 블로그-내 활동
 	@RequestMapping("/Movieing/Blog/MyActivity.mov")
-	public String myActiviy(@RequestParam Map map, Model model,Principal principal) throws Exception {
-		String id = principal.getName();
+	public String myActiviy(@RequestParam Map map, Model model,Authentication auth) throws Exception {
+		String id = auth.getName();
 
 		map.put("id", id);
 		model.addAttribute("id", id);
@@ -316,10 +318,10 @@ public class BlogController {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
 		}
 
-		model.addAttribute("evaluationList", evaluationList);// 별점
-		model.addAttribute("reviewList", reviewList);// 리뷰
-		model.addAttribute("reviewLikeList", reviewLikeList);// 좋아요
-		model.addAttribute("wishList", wishList);// 보고싶어요
+		model.addAttribute("evaluationList", evaluationList.isEmpty()?null:evaluationList);// 별점
+		model.addAttribute("reviewList", reviewList.isEmpty()?null:reviewList);// 리뷰
+		model.addAttribute("reviewLikeList", reviewLikeList.isEmpty()?null:reviewLikeList);// 좋아요
+		model.addAttribute("wishList", wishList.isEmpty()?null:wishList);// 보고싶어요
 
 		return "blog/my/MyActivity.tiles";
 	}
@@ -327,14 +329,12 @@ public class BlogController {
 	// 좋아요 삭제
 	@ResponseBody
 	@RequestMapping(value = "/Movieing/Blog/LikeRemove.mov", method = RequestMethod.POST)
-	public String likeRemove(@RequestParam Map map,Principal principal) {
-		String id = principal.getName();
-		System.out.println("삭제가 잘되는걸까..");
+	public String likeRemove(@RequestParam Map map ,Authentication auth) {
+		String id = auth.getName();
 		int reviewNo = Integer.parseInt(map.get("reviewNo").toString());
 		map.put("reviewNo", reviewNo);
 		map.put("id", id);
 		likeReviewService.delete(map);
-		System.out.println("삭제가 됫음!!");
 		int count = likeReviewService.getTotalCountByAll(map);
 		return String.valueOf(count);
 	}//////////////////////////////////////////////////
@@ -342,8 +342,9 @@ public class BlogController {
 	// 좋아요 입력
 	@ResponseBody
 	@RequestMapping(value = "/Movieing/Blog/LikeInsert.mov", method = RequestMethod.POST)
-	public String likeInsert(@RequestParam Map map,Principal principal) {
-		String id = principal.getName();
+	public String likeInsert(@RequestParam Map map,Authentication auth) {
+		String id =auth.getName();
+
 		System.out.println("뭐냐이게 되냐고" + map.get("reviewNo").toString());
 		int reviewNo = Integer.parseInt(map.get("reviewNo").toString());
 
@@ -360,12 +361,12 @@ public class BlogController {
 	// 댓글 입력]
 	@ResponseBody
 	@RequestMapping(value = "/Movieing/Blog/CommentInsert.mov", method = RequestMethod.POST)
-	public void commentInsert(@RequestParam Map map,Principal principal) {
-
+	public void commentInsert(@RequestParam Map map,Authentication auth) {
 		// int commentNo=Integer.parseInt(map.get("commentNo").toString());
 		String commentContent = map.get("commentContent").toString();
 
-		String id = principal.getName();// 댓남긴 아이디
+
+		String id =auth.getName();
 		map.put("id", id);
 
 		String reviewNo = map.get("reviewNo").toString();
@@ -380,10 +381,9 @@ public class BlogController {
 
 	// 무빙프렌즈1]
 	@RequestMapping("/Movieing/Blog/MovieingFriends.mov")
-	public String blogFriends(@RequestParam Map map, Model model,Principal principal) throws Exception {
-
-		//세션에 로그인된 아이디 가져오기]
-		String id = principal.getName();
+	public String blogFriends(@RequestParam Map map, Model model,Authentication auth) throws Exception {
+		// 세션아이디
+		String id =auth.getName();
 		System.out.println("로그인된 아이디:"+id);
 		map.put("id", id);
 		model.addAttribute("id", id);
@@ -456,7 +456,7 @@ public class BlogController {
 
 		String reviewPostdate;
 
-		for(ReviewDto times:friendsReviewList) {
+		for(ReviewDto times:friendsReviewList1) {
 			//현재시각
 			Date now=new Date();
 			Calendar cal1=Calendar.getInstance();

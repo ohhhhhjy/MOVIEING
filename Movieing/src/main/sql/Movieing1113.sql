@@ -11,7 +11,6 @@ DROP TABLE FOLLOW CASCADE CONSTRAINTS;
 DROP TABLE GOODS CASCADE CONSTRAINTS;
 DROP TABLE LIKE_REVIEW CASCADE CONSTRAINTS;
 DROP TABLE MOVIE_PRICE CASCADE CONSTRAINTS;
-DROP TABLE REVIEW CASCADE CONSTRAINTS;
 DROP TABLE STILLCUT CASCADE CONSTRAINTS;
 DROP TABLE WISH CASCADE CONSTRAINTS;
 DROP TABLE MOVIE CASCADE CONSTRAINTS;
@@ -24,6 +23,7 @@ DROP TABLE USER_TABLE CASCADE CONSTRAINTS;
 
 drop sequence seq_review;
 drop sequence seq_qna;
+drop sequence seq_comment;
 
 
 
@@ -530,6 +530,7 @@ ALTER TABLE WISH
 --시퀀스 
 create sequence seq_review nocache nocycle;
 create sequence seq_qna nocache nocycle;
+create sequence seq_comment nocache nocycle;
 --유저정보
 insert into user_table values( 'KIM','1234','김길동','Road_dong','01055557777','email',sysdate,null,'하이'  );
 
@@ -553,3 +554,6 @@ insert into qna(qna_no, qna_title, qna_content, user_id) values(seq_qna.nextval,
 --시큐리티 사용을 위한 권한 추가
 insert into auth_security values('KIM',default,default);
 
+ALTER TABLE BUY  ADD QUANTITY NUMBER(10) NOT NULL;
+ALTER TABLE USER_TABLE DROP COLUMN USER_PROFILE;
+ALTER TABLE USER_TABLE  ADD USER_PROFILE NVARCHAR2(1000);
