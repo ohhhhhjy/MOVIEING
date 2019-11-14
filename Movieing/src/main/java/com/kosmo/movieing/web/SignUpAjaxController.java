@@ -23,7 +23,6 @@ public class SignUpAjaxController {
 	@ResponseBody
 	@RequestMapping(value = "/Ajax/isMember.mov",method = RequestMethod.POST)
 	public String ajaxText(@RequestParam Map map) {
-		System.out.println("들어왔다");
 		System.out.println(map.get("userid"));
 		boolean isMember = userService.isMember(map);
 //		JSONObject json = new JSONObject();
