@@ -79,10 +79,9 @@
 	border: 1px solid #888888;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
 		rgba(0, 0, 0, 0.19);
-	width: 190px;
-	height: 300px;
+	width: 200px;
+	height: 270px;
 }
-
 
 /*스크롤바*/
 header {
@@ -200,6 +199,7 @@ a {
 	height: auto;
 }
 
+
 .comment-box .media-body p {
 	border: 1px solid #ddd;
 	padding: 10px;
@@ -243,7 +243,6 @@ a {
 								.click(
 										function() {
 
-											
 											//좋아요 클릭 이벤트처리
 											console.log($('.likebutton'));
 
@@ -254,27 +253,18 @@ a {
 											console.log($(this).value);
 
 											//좋아요 클릭시 색바꾸기]
-
-											if ($(this).attr('value') == 'click') {//좋아요클릭
-												$(this).css('color', 'red')
-														.css('font-weight',
-																'bold').css(
-																'font-size',
-																'large');
-												$(this)
-														.attr("value",
-																"unclick");
-												console
-														.log('클릭한후 값'
-																+ $(this)
-																		.attr(
-																				'value'));
+											/*
+												if ($(this).attr('value') == 'click') {//좋아요클릭
+														$(this).css('color', 'red').css('font-weight','bold').css('font-size','large');
+														$(this).attr("value","unclick");
+														console.log('클릭한후 값'+ $(this).attr('value'));
 
 											} else {//좋아요해제
-												$(this).removeAttr('style');//스타일제거
-												$(this).attr("value", "click");
+													$(this).removeAttr('style');//스타일제거
+													$(this).attr("value", "click");
 
 											}
+											 */
 											console.log('잘찍히냐고'
 													+ $('.likeNumber')
 															.text('2'));
@@ -288,27 +278,40 @@ a {
 															type : 'post',
 															dataType : 'text',
 															data : {
-																id : '${id}',
-																reviewNo : '${reviewNo}'
+																reviewNo : '${friendsReviewList.get(index).reviewNo}'
+															},/*, ${_csrf.parameterName}:'${_csrf.token}'*/
+															beforeSend : function(
+																	xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+																xhr
+																		.setRequestHeader(
+																				"${_csrf.headerName}",
+																				"${_csrf.token}");
 															},
 															success : function(
 																	data) {//서버로 부터 정상적인 응답을 받았을 때(200번)
+																console
+																		.log("-1된 좋아요개수"
+																				+ data);
 																$('.likeNumber')
 																		.text(
 																				data);
 																//likeNumber=data;//-1된 좋아요개수 저장
-																console
-																		.log("-1된 좋아요개수"
-																				+ data);
+
+																$("#likebutton")
+																		.removeAttr(
+																				'style');//스타일제거
+																flag = !flag;
+
 															},
 															error : function(
 																	data) {//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
 																console
 																		.log("에러:"
 																				+ data);
+																flag = !flag;
 															}
 														});
-												flag = !flag;
+
 											}
 
 											//좋아요 on  > off
@@ -321,28 +324,51 @@ a {
 															type : 'post',
 															dataType : 'text',
 															data : {
-																id : '${id}',
-																reviewNo : '${reviewNo}'
+																reviewNo : '${friendsReviewList.get(index).reviewNo}'
 															},
-
+															beforeSend : function(
+																	xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+																xhr
+																		.setRequestHeader(
+																				"${_csrf.headerName}",
+																				"${_csrf.token}");
+															},
 															success : function(
 																	data) {//서버로 부터 정상적인 응답을 받았을 때(200번)
+																console
+																		.log('클릭한후 값'
+																				+ $(
+																						this)
+																						.attr(
+																								'value'));
 																$('.likeNumber')
 																		.text(
 																				data);
 																//likeNumber=data;//+1된 좋아요개수 저장
+																$("#likebutton")
+																		.css(
+																				'color',
+																				'red')
+																		.css(
+																				'font-weight',
+																				'bold')
+																		.css(
+																				'font-size',
+																				'large');
+																flag = !flag;
+
 															},
 															error : function(
 																	data) {//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
 																console
 																		.log("에러:"
 																				+ data.responseText);
+																flag = !flag;
 															}
 														});
 
 												console.log("+1된 좋아요개수" + data);
 
-												flag = !flag;
 											}
 
 										});////////////////////////////////////
@@ -350,32 +376,53 @@ a {
 					});//////////////////////////
 
 	//댓글 insert
-	$(document).ready(function() {
-		$("#commentInsert").click(function() {
 
-			console.log($('#comment').val());//댓글
+	$(document)
+			.ready(
+					function() {
+						$("#commentInsert")
+								.click(
+										function() {
 
-			$.ajax({
-				url : "<c:url value='/Movieing/Blog/CommentInsert.mov'/>",
-				type : 'post',
-				dataType : 'text',
-				data : {
-					commentNo : '${commentNo}',
-					commentContent : $('#comment').val(),
-					id : '${id}'
-				},
-				success : function(data) {
-					$('#comment').val("");//공백처리
-				},
-				error : function(data) {
-					console.log("에러:" + data.responseText);
-				}
+											console.log($('#comment').val());//댓글
 
-			})
+											$
+													.ajax({
+														url : "<c:url value='/Movieing/Blog/CommentInsert.mov'/>",
+														type : 'post',
+														dataType : 'text',
+														data : {
+															commentContent : $(
+																	'#comment')
+																	.val(),
+															reviewNo : '${friendsReviewList.get(index).reviewNo}'
+														},
+														beforeSend : function(
+																xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+															xhr
+																	.setRequestHeader(
+																			"${_csrf.headerName}",
+																			"${_csrf.token}");
+														},
+														success : function(data) {
+															$('#comment').val(
+																	"");//공백처리
+															alert('댓글이 입력되었습니다!');
+															location.reload();
+														},
+														error : function(data) {
+															console
+																	.log("에러:"
+																			+ data.responseText);
+														}
 
-		});
+													})
 
-	});
+										});
+
+					});
+	
+
 </script>
 
 <!-- 위에 패딩주기 -->
@@ -422,7 +469,8 @@ a {
 
 
 				<!--- \\\\\\\Post-->
-				<c:forEach items="${friendsReviewList }" var="item" varStatus="status">
+				<c:forEach items="${friendsReviewList }" var="item"
+					varStatus="status">
 					<div class="card gedf-card">
 						<div class="card-header">
 							<div class="d-flex justify-content-between align-items-center">
@@ -477,20 +525,20 @@ a {
 							</div>
 
 						</div>
+
 						<div class="card-body">
 							<div class="row">
 
-								<div class="col-sm-3" align="center" style="padding-left: 15px">
-									<img class="effect"
-										src="<c:url value="/resources/img/friends/pic1.jpg"/>"
-										alt="Image">
+								<div class="col-sm-4" align="center"
+									style="margin-bottom: -20px; margin-left: -20px">
+									<img class="effect" src="${item.imgUrl }" alt="Image">
 								</div>
-								<div class="col-sm-9">
+								<div class="col-sm-8" style="margin-bottom: -40px">
 
 									<div class="row" style="height: 30px">
 										<div class="col-md-10">
 											<h4 class="card-title"
-												style="color: black; font-weight: bold;">${item.movieTitle }</h4>
+												style="color: black; font-weight: bold;">${item.movieTitle }${item.movieOrgTitle}</h4>
 										</div>
 										<div class="col-md-2">
 											<h4>
@@ -507,25 +555,25 @@ a {
 
 
 									<div class="scrollbar scrollbar-lady-lips"
-										style="width: 580px; height: 230px; margin-left: -3px; background-color: white; overflow-y: scroll;">
-								
-											<c:choose>
-												<c:when test="${fn:length(item.reviewContent) > 278}">
-													<c:out value="${item.reviewContent }"></c:out>
-													<!--  
+										style="width: 520px; height: 230px; margin-left: -3px; background-color: white; overflow-y: scroll; line-height: 1 .8em; height: 10 .7em;">
+
+										<c:choose>
+											<c:when test="${fn:length(item.reviewContent) > 278}">
+												<c:out value="${item.reviewContent }"></c:out>
+												<!--  
 													<h6 id="add"
 														style="text-align: center; text-decoration: underline; padding-bottom: 10px">
 														<a href="#">+더보기</a>
 													</h6>
 													-->
-												</c:when>
-												<c:otherwise>
+											</c:when>
+											<c:otherwise>
 
-													<c:out value="${item.reviewContent }"></c:out>
+												<c:out value="${item.reviewContent }"></c:out>
 
-												</c:otherwise>
-											</c:choose>
-											<div class="force-overflow"></div>
+											</c:otherwise>
+										</c:choose>
+										<div class="force-overflow"></div>
 
 
 									</div>
@@ -545,6 +593,7 @@ a {
 
 									<h6 style="padding-left: 20px">댓글 ${getCommentCount }개</h6>
 
+									<!-- 
 									<div style="padding-left: 100px" class="row">
 										<h6 style="padding-right: 10px">
 											<span class="badge badge-secondary">#조커</span>
@@ -565,6 +614,7 @@ a {
 											<span class="badge badge-secondary">#호아킨피닉스</span>
 										</h6>
 									</div>
+									 -->
 
 								</div>
 
@@ -575,9 +625,10 @@ a {
 						<div class="card-footer">
 
 							<a href="#" class="card-link" id="likebutton" name="likebutton"
-								value="click"><i class="fa fa-gittip"></i> 좋아요</a> <a
-								href="#collapse${status.index }" data-toggle="collapse" data-parent="#accordion"
-								class="card-link"><i class="fa fa-comment"></i> 댓글</a>
+								value="unclick"><i class="fa fa-gittip"></i> 좋아요</a> <a
+								href="#collapse${status.index }" data-toggle="collapse"
+								data-parent="#accordion" class="card-link"><i
+								class="fa fa-comment"></i> 댓글</a>
 
 							<div class="input-group" style="padding-top: 10px">
 								<input type="text" class="form-control col-sm-12" id="comment"
@@ -600,8 +651,10 @@ a {
 												</a>
 											</div>
 											<div class="media-body">
-												<h4 class="media-heading">${item.userId }</h4>
-												<p style="background-color: white;">${item.commentContent }</p>
+													<h4 class="media-heading">${item.userId }</h4>
+													<p style="background-color: white;">${item.commentContent }</p>
+										
+										
 											</div>
 										</div>
 									</div>
@@ -612,209 +665,210 @@ a {
 
 						</div>
 					</div>
-		
-			<!-- 게시물 간격 주기 -->
-			<div style="padding-bottom: 50px"></div>
-			</c:forEach>
-			<!-- Post /////-->
+
+					<!-- 게시물 간격 주기 -->
+					<div style="padding-bottom: 50px"></div>
+				</c:forEach>
+				<!-- Post /////-->
 
 
-
-		</div>
-
-
-
-
-
-		<div class="col-md-3" style="position: sticky">
-			<!-- 마이 프로필보이기 -->
-
-
-			<div class="row" style="padding-bottom: 50px">
-				<h5></h5>
-
-				<div style="padding-right: 10px">
-					<img class="radiusImg" alt="프사진"
-						src="<c:url value='/resources/img/friends/oubin.png'/>" />
-				</div>
-				<div style="padding-right: 60px">
-
-					<span class="actorSpan"
-						style="font-size: 1.4em; color: black; font-weight: bold;">${friendsSelf.userId }</span>
-					<h6 class="actorSpan"
-						style="font-size: 0.8em; color: gray; font-weight: bold;">${friendsSelf.userName }</h6>
-
-
-				</div>
-
-				<div style="padding-top: 10px">
-
-					<button type="button" class="btn btn-primary"
-						style="width: 80px; height: 35px"
-						onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov"/>'">글쓰기</button>
-
-				</div>
 
 			</div>
 
 
 
 
-			<!-- 버튼: 시간순/인기순 -->
+
+			<div class="col-md-3" style="position: sticky">
+				<!-- 마이 프로필보이기 -->
 
 
+				<div class="row" style="padding-bottom: 50px">
+					<h5></h5>
 
-			<div style="padding-bottom: 50px">
-				<select class="form-control" style="text-align: center;">
-					<option>시간 순</option>
-					<option>좋아요 순</option>
-					<option>댓글 순</option>
+					<div style="padding-right: 10px">
+						<img class="radiusImg" alt="프사진"
+							src="<c:url value='/resources/img/friends/oubin.png'/>" />
+					</div>
+					<div style="padding-right: 60px">
 
-				</select>
-			</div>
+						<span class="actorSpan"
+							style="font-size: 1.4em; color: black; font-weight: bold;">${friendsSelf.userId }</span>
+						<h6 class="actorSpan"
+							style="font-size: 0.8em; color: gray; font-weight: bold;">${friendsSelf.userName }</h6>
 
 
+					</div>
 
-			<div class="card">
+					<div style="padding-top: 10px">
 
-				<div class="card-body">
-					<div class="h5">@${friendsSelf.userId }</div>
-					<div class="h7 text-muted">${friendsSelf.userName }</div>
-					<div class="h7">${friendsSelf.userSelf }</div>
+						<button type="button" class="btn btn-primary"
+							style="width: 80px; height: 35px"
+							onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov"/>'">글쓰기</button>
+
+					</div>
+
 				</div>
-				<ul class="list-group list-group-flush">
-					<li class="list-group-item">
-						<div class="h6 text-muted">Followers</div>
-						<div class="h5">325</div>
-					</li>
-					<li class="list-group-item">
-						<div class="h6 text-muted">Following</div>
-						<div class="h5">278</div>
-					</li>
-				</ul>
-			</div>
 
 
 
 
+				<!-- 버튼: 시간순/인기순 -->
 
 
-			<div style="padding-bottom: 50px"></div>
 
-			<!-- 타임라인 -->
+				<div style="padding-bottom: 50px">
+					<select class="form-control" style="text-align: center;">
+						<option>시간 순</option>
+						<option>좋아요 순</option>
+						<option>댓글 순</option>
 
-			<div class="card gedf-card">
+					</select>
+				</div>
 
-				<div class="card bg-light text-dark">
+
+
+				<div class="card">
+
 					<div class="card-body">
-						<div class="row" style="padding-left: 10px; height: 15px">
-							<img
-								src="<c:url value='/resources/img/friends/passage-of-time.png'/>"
-								alt="타임라인 로고" style="width: 25px; height: 25px" />
-							<h6 class="card-title;"
-								style="padding-left: 5px; font-weight: bold; padding-right: 40px">타임
-								라인</h6>
-							<a style="text-decoration: underline;"
-								href="<c:url value='/Movieing/Blog/MF_Timeline.mov'/>">모두 보기</a>
-
-						</div>
-
-
-
-
-
-						<div>
-							<!-- 중간줄 -->
-							<hr class="my-3">
-						</div>
-
-						<!-- 팔로우 프사 보이기(시간순) -->
-						<div>
+						<div class="h5">@${friendsSelf.userId }</div>
+						<div class="h7 text-muted">${friendsSelf.userName }</div>
+						<div class="h7">${friendsSelf.userSelf }</div>
+					</div>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">
+							<div class="h6 text-muted">Followers</div>
+							<div class="h5">325</div>
+						</li>
+						<li class="list-group-item">
+							<div class="h6 text-muted">Following</div>
+							<div class="h5">278</div>
+						</li>
+					</ul>
+				</div>
 
 
-							<!-- 제일큰 바디 다이브 -->
-							<div
-								style="overflow: auto; overflow-x: hidden; width: 220px; height: 300px;">
 
-								<!-- 한 사람 시작 -->
-								<div class="row profileForm" style="padding-left: 10px">
-									<div style="padding-left: 10px">
-										<img class="radiusSmallImg" alt="배우사진"
-											src="<c:url value='/resources/img/friends/boy.png'/>" />
-									</div>
-									<div style="padding-left: 10px">
-										<span class="timeLineText"
-											style="font-size: 1.0em; color: black;">__mongjiee</span>
-										<h6 class="actorSpan" style="font-size: 0.5em; color: black;">1시간전</h6>
 
-									</div>
 
-								</div>
-								<!-- 한 사람 끝 -->
 
-								<div class="row profileForm" style="padding-left: 10px">
-									<div style="padding-left: 10px">
-										<img class="radiusSmallImg" alt="배우사진"
-											src="<c:url value='/resources/img/friends/boy(1).png'/>" />
-									</div>
-									<div style="padding-left: 10px">
-										<span class="timeLineText"
-											style="font-size: 1.0em; color: black;">ohhhhhjy_</span>
+				<div style="padding-bottom: 50px"></div>
 
-										<h6 class="actorSpan" style="font-size: 0.5em; color: black;">2시간전</h6>
+				<!-- 타임라인 -->
 
-									</div>
-								</div>
+				<div class="card gedf-card">
 
-								<div class="row profileForm" style="padding-left: 10px">
-									<div style="padding-left: 10px">
-										<img class="radiusSmallImg" alt="배우사진"
-											src="<c:url value='/resources/img/friends/girl.png'/>" />
-									</div>
-									<div style="padding-left: 10px">
-										<span class="timeLineText"
-											style="font-size: 1.0em; color: black;">light_hj</span>
-										<h6 class="actorSpan" style="font-size: 0.5em; color: black;">3시간전</h6>
+					<div class="card bg-light text-dark">
+						<div class="card-body">
+							<div class="row" style="padding-left: 10px; height: 15px">
+								<img
+									src="<c:url value='/resources/img/friends/passage-of-time.png'/>"
+									alt="타임라인 로고" style="width: 25px; height: 25px" />
+								<h6 class="card-title;"
+									style="padding-left: 5px; font-weight: bold; padding-right: 40px">타임
+									라인</h6>
+								<a style="text-decoration: underline;"
+									href="<c:url value='/Movieing/Blog/MF_Timeline.mov'/>">모두
+									보기</a>
 
-									</div>
-								</div>
-
-								<div class="row profileForm" style="padding-left: 10px">
-									<div style="padding-left: 10px">
-										<img class="radiusSmallImg" alt="배우사진"
-											src="<c:url value='/resources/img/friends/man.png'/>" />
-									</div>
-
-									<div style="padding-left: 10px">
-										<span class="timeLineText"
-											style="font-size: 1.0em; color: black;">dragon_stone</span>
-										<h6 class="actorSpan" style="font-size: 0.5em; color: black;">4시간전</h6>
-
-									</div>
-								</div>
-
-								<div class="row profileForm" style="padding-left: 10px">
-									<div style="padding-left: 10px">
-
-										<img class="radiusSmallImg" alt="배우사진"
-											src="<c:url value='/resources/img/friends/man(1).png'/>" />
-									</div>
-
-									<div style="padding-left: 10px">
-										<span class="timeLineText"
-											style="font-size: 1.0em; color: black;">ssuminxx_</span>
-										<h6 class="actorSpan" style="font-size: 0.5em; color: black;">5시간전</h6>
-
-									</div>
-								</div>
 							</div>
-							<!-- 카드 레이아웃 팔로우 유저보이기 div끝 -->
 
 
 
-							<!-- 팔로우 끝 -->
 
-							<!--  
+
+							<div>
+								<!-- 중간줄 -->
+								<hr class="my-3">
+							</div>
+
+							<!-- 팔로우 프사 보이기(시간순) -->
+							<div>
+
+
+								<!-- 제일큰 바디 다이브 -->
+								<div
+									style="overflow: auto; overflow-x: hidden; width: 220px; height: 300px;">
+
+									<!-- 한 사람 시작 -->
+									<div class="row profileForm" style="padding-left: 10px">
+										<div style="padding-left: 10px">
+											<img class="radiusSmallImg" alt="배우사진"
+												src="<c:url value='/resources/img/friends/boy.png'/>" />
+										</div>
+										<div style="padding-left: 10px">
+											<span class="timeLineText"
+												style="font-size: 1.0em; color: black;">__mongjiee</span>
+											<h6 class="actorSpan" style="font-size: 0.5em; color: black;">1시간전</h6>
+
+										</div>
+
+									</div>
+									<!-- 한 사람 끝 -->
+
+									<div class="row profileForm" style="padding-left: 10px">
+										<div style="padding-left: 10px">
+											<img class="radiusSmallImg" alt="배우사진"
+												src="<c:url value='/resources/img/friends/boy(1).png'/>" />
+										</div>
+										<div style="padding-left: 10px">
+											<span class="timeLineText"
+												style="font-size: 1.0em; color: black;">ohhhhhjy_</span>
+
+											<h6 class="actorSpan" style="font-size: 0.5em; color: black;">2시간전</h6>
+
+										</div>
+									</div>
+
+									<div class="row profileForm" style="padding-left: 10px">
+										<div style="padding-left: 10px">
+											<img class="radiusSmallImg" alt="배우사진"
+												src="<c:url value='/resources/img/friends/girl.png'/>" />
+										</div>
+										<div style="padding-left: 10px">
+											<span class="timeLineText"
+												style="font-size: 1.0em; color: black;">light_hj</span>
+											<h6 class="actorSpan" style="font-size: 0.5em; color: black;">3시간전</h6>
+
+										</div>
+									</div>
+
+									<div class="row profileForm" style="padding-left: 10px">
+										<div style="padding-left: 10px">
+											<img class="radiusSmallImg" alt="배우사진"
+												src="<c:url value='/resources/img/friends/man.png'/>" />
+										</div>
+
+										<div style="padding-left: 10px">
+											<span class="timeLineText"
+												style="font-size: 1.0em; color: black;">dragon_stone</span>
+											<h6 class="actorSpan" style="font-size: 0.5em; color: black;">4시간전</h6>
+
+										</div>
+									</div>
+
+									<div class="row profileForm" style="padding-left: 10px">
+										<div style="padding-left: 10px">
+
+											<img class="radiusSmallImg" alt="배우사진"
+												src="<c:url value='/resources/img/friends/man(1).png'/>" />
+										</div>
+
+										<div style="padding-left: 10px">
+											<span class="timeLineText"
+												style="font-size: 1.0em; color: black;">ssuminxx_</span>
+											<h6 class="actorSpan" style="font-size: 0.5em; color: black;">5시간전</h6>
+
+										</div>
+									</div>
+								</div>
+								<!-- 카드 레이아웃 팔로우 유저보이기 div끝 -->
+
+
+
+								<!-- 팔로우 끝 -->
+
+								<!--  
 						<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
 						
 						<p class="card-text">Some quick example text to build on the
@@ -823,13 +877,13 @@ a {
 							class="card-link">Another link</a>
 							-->
 
+							</div>
+							<!-- 제일 큰 바디 다이브끝 -->
 						</div>
-						<!-- 제일 큰 바디 다이브끝 -->
+
 					</div>
 
-				</div>
-
-				<!-- 
+					<!-- 
 					<div class="card gedf-card">
 						<div class="card-body">
 							<h5 class="card-title">Card title</h5>
@@ -843,13 +897,13 @@ a {
 
 -->
 
+				</div>
+
+
+
 			</div>
-
-
-
 		</div>
 	</div>
-</div>
 </div>
 
 

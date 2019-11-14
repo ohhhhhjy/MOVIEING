@@ -8,6 +8,10 @@ public interface ReviewService {
 	//로그인
 	boolean isLogin(Map map);
 	List<ReviewDto> selectList(Map map);
+
+	//전체공개한 목록
+	List<ReviewDto> selectFriendsList(Map map);
+
 	//나의 리뷰 목록
 	List<ReviewDto> reviewSelectMyList(Map map);
 	//내가 좋아요한 리뷰 목록
@@ -23,6 +27,8 @@ public interface ReviewService {
 	//한 영화의 리뷰 리스트
 	List<ReviewDto> selectMovieReviewList(Map map);
 
+	//모든 리뷰 넘버만 가져오기
+	List<ReviewDto> selectReviewNos(Map map);
 
 	//내가 작성한 전체 리뷰 레코드 수
 	int getTotalCount(Map map);
@@ -32,6 +38,7 @@ public interface ReviewService {
 
 	//상세보기 용
 	ReviewDto selectOne(Map map);
+
 
 	//무빙프렌즈 유저정보]
 	ReviewDto selectMovieingOne(Map map);

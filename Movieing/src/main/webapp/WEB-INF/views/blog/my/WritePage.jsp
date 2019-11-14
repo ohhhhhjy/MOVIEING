@@ -3,16 +3,20 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!-- 타일즈 설정되어 있어서  바디부분만 작성하면 됨. 
-근데 타일즈라 그냥 만들기만 한다고 되는게 아님.
-컨트롤러가서 RequestMapping해줘야됨.
--->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
 <!-- include libraries(jQuery, bootstrap) -->
 
 <!------ Include the above in your HEAD tag ---------->
-<link id="themecss" rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
-    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+<link id="themecss" rel="stylesheet" type="text/css"
+	href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+<script type="text/javascript"
+	src="//www.shieldui.com/shared/components/latest/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript"
+	src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 
 
 <link
@@ -20,13 +24,21 @@
 	rel="stylesheet"
 	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
 	crossorigin="anonymous">
+
+
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+
+
 <style>
 .rating-header {
 	margin-top: -10px;
 	margin-bottom: 10px;
 }
 
-/* 별점 
+/* 별점 */
+/*
 .rating {
 	display: flex;
 	justify-content: left;
@@ -66,8 +78,12 @@
 		url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23d8b11e' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
 }
 */
+
 /*모달검색*/
 .active-pink-2
+
+
+
 
 
 
@@ -153,7 +169,16 @@
 
 
 
+
+
+
 input
+
+
+
+
+
+
 
 
 
@@ -327,7 +352,19 @@ text
 
 
 
+
+
+
+
+
+
 :focus
+
+
+
+
+
+
 
 
 
@@ -455,7 +492,13 @@ text
 
 
 
+
+
+
  
+
+
+
 
 
 
@@ -544,7 +587,13 @@ readonly
 
 
 
+
+
+
  
+
+
+
 
 
 
@@ -674,6 +723,12 @@ border-bottom
 
 
 
+
+
+
+
+
+
 :
 
 
@@ -717,7 +772,13 @@ border-bottom
 
 
 
+
+
+
  
+
+
+
 
 
 
@@ -804,7 +865,13 @@ px
 
 
 
+
+
+
  
+
+
+
 
 
 
@@ -890,6 +957,9 @@ solid
 
 
 
+
+
+
  
 
 
@@ -933,7 +1003,16 @@ solid
 
 
 
+
+
+
 #f48fb1
+
+
+
+
+
+
 
 
 
@@ -1104,6 +1183,12 @@ box-shadow
 
 
 
+
+
+
+
+
+
 :
 
 
@@ -1147,7 +1232,13 @@ box-shadow
 
 
 
+
+
+
  
+
+
+
 
 
 
@@ -1235,7 +1326,13 @@ px
 
 
 
+
+
+
  
+
+
+
 
 
 
@@ -1281,6 +1378,12 @@ px
 0
 0
 #f48fb1
+
+
+
+
+
+
 
 
 
@@ -1415,6 +1518,9 @@ px
 
 
 
+
+
+
  
 
 
@@ -1458,7 +1564,16 @@ px
 
 
 
+
+
+
 input
+
+
+
+
+
+
 
 
 
@@ -1632,7 +1747,19 @@ text
 
 
 
+
+
+
+
+
+
 :focus
+
+
+
+
+
+
 
 
 
@@ -1760,7 +1887,13 @@ text
 
 
 
+
+
+
  
+
+
+
 
 
 
@@ -1849,7 +1982,13 @@ readonly
 
 
 
+
+
+
  
+
+
+
 
 
 
@@ -1979,6 +2118,12 @@ border-bottom
 
 
 
+
+
+
+
+
+
 :
 
 
@@ -2022,7 +2167,13 @@ border-bottom
 
 
 
+
+
+
  
+
+
+
 
 
 
@@ -2109,7 +2260,13 @@ px
 
 
 
+
+
+
  
+
+
+
 
 
 
@@ -2195,6 +2352,9 @@ solid
 
 
 
+
+
+
  
 
 
@@ -2238,7 +2398,16 @@ solid
 
 
 
+
+
+
 #ce93d8
+
+
+
+
+
+
 
 
 
@@ -2409,6 +2578,12 @@ box-shadow
 
 
 
+
+
+
+
+
+
 :
 
 
@@ -2452,7 +2627,13 @@ box-shadow
 
 
 
+
+
+
  
+
+
+
 
 
 
@@ -2540,7 +2721,13 @@ px
 
 
 
+
+
+
  
+
+
+
 
 
 
@@ -2586,6 +2773,12 @@ px
 0
 0
 #ce93d8
+
+
+
+
+
+
 
 
 
@@ -2720,6 +2913,9 @@ px
 
 
 
+
+
+
  
 
 
@@ -2763,7 +2959,16 @@ px
 
 
 
+
+
+
 input
+
+
+
+
+
+
 
 
 
@@ -2937,7 +3142,19 @@ text
 
 
 
+
+
+
+
+
+
 :focus
+
+
+
+
+
+
 
 
 
@@ -3065,7 +3282,13 @@ text
 
 
 
+
+
+
  
+
+
+
 
 
 
@@ -3154,7 +3377,13 @@ readonly
 
 
 
+
+
+
  
+
+
+
 
 
 
@@ -3284,6 +3513,12 @@ border-bottom
 
 
 
+
+
+
+
+
+
 :
 
 
@@ -3327,7 +3562,13 @@ border-bottom
 
 
 
+
+
+
  
+
+
+
 
 
 
@@ -3414,7 +3655,13 @@ px
 
 
 
+
+
+
  
+
+
+
 
 
 
@@ -3500,6 +3747,9 @@ solid
 
 
 
+
+
+
  
 
 
@@ -3543,7 +3793,16 @@ solid
 
 
 
+
+
+
 #4dd0e1
+
+
+
+
+
+
 
 
 
@@ -3714,6 +3973,12 @@ box-shadow
 
 
 
+
+
+
+
+
+
 :
 
 
@@ -3757,7 +4022,13 @@ box-shadow
 
 
 
+
+
+
  
+
+
+
 
 
 
@@ -3845,7 +4116,13 @@ px
 
 
 
+
+
+
  
+
+
+
 
 
 
@@ -3891,6 +4168,12 @@ px
 0
 0
 #4dd0e1
+
+
+
+
+
+
 
 
 
@@ -4116,8 +4399,6 @@ px
 
 		}
 	});
-	
-	
 
 </script>
 
@@ -4126,48 +4407,51 @@ px
 <!-- css파일 -->
 <link href="<c:url value='/resources/css/wirtepage.css'/>"
 	rel="stylesheet" type="text/css">
+	
+
+</head>
 
 
 
 
+<body>
+	<div class="container">
+		<!--Section: Contact v.2-->
+		<section>
 
-
-<div class="container">
-	<!--Section: Contact v.2-->
-	<section>
-
-		<!--Section heading-->
-		<h2 class="h1-responsive font-weight-bold text-center my-4">영화 리뷰
-			남기기</h2>
-		<!--Section description-->
-		<p class="text-center w-responsive mx-auto mb-5">여기에 무빙에서 추천해 준
-			영화를 보고 난 후의 후기를 자유롭게 작성해주세요 :)</p>
-
-
-
-
-		<!-- Default form contact -->
-		<form class="border border-light" method="post" id="form"
-			action="<c:url value='/Movieing/Blog/BlogMain.mov'/>" name="write">
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-			<h5>영화명</h5>
+			<!--Section heading-->
+			<h2 class="h1-responsive font-weight-bold text-center my-4">영화
+				리뷰 남기기</h2>
+			<!--Section description-->
+			<p class="text-center w-responsive mx-auto mb-5">여기에 무빙에서 추천해 준
+				영화를 보고 난 후의 후기를 자유롭게 작성해주세요 :)</p>
 
 
 
-			<div class="md-form input-group mb-3">
-				<div class="input-group-prepend">
-					<button class="btn btn-md btn-primary m-0 px-3" type="button"
-						id="MaterialButton-addon1" data-toggle="modal"
-						data-target="#modalCart">영화선택</button>
+
+			<!-- Default form contact -->
+			<form class="border border-light" method="post" id="form"
+				action="<c:url value='/Movieing/Blog/BlogMain.mov'/>" name="write">
+				<input type="hidden" name="${_csrf.parameterName}"
+					value="${_csrf.token}">
+				<h5>영화명</h5>
+
+
+
+				<div class="md-form input-group mb-3">
+					<div class="input-group-prepend">
+						<button class="btn btn-md btn-primary m-0 px-3" type="button"
+							id="MaterialButton-addon1" data-toggle="modal"
+							data-target="#modalCart">영화선택</button>
+					</div>
+					<div style="padding-bottom: 10px"></div>
+					<input type="text" class="form-control movie" name="movieTitle"
+						placeholder="영화를 선택해주세요"
+						aria-label="Example text with button addon"
+						aria-describedby="MaterialButton-addon1" required="required">
 				</div>
-				<div style="padding-bottom: 10px"></div>
-				<input type="text" class="form-control movie" name="movieTitle"
-					placeholder="영화를 선택해주세요"
-					aria-label="Example text with button addon"
-					aria-describedby="MaterialButton-addon1" required="required">
-			</div>
 
-			<!--  
+				<!--  
 			<button type="button" class="btn btn-primary" data-toggle="modal"
 				data-target="#modalCart">영화선택</button>
 			<div style="padding-bottom: 10px"></div>
@@ -4175,27 +4459,27 @@ px
 				class="form-control mb-4" placeholder="영화명">
 				-->
 
-			<!-- 영화선택 시 모달 -->
+				<!-- 영화선택 시 모달 -->
 
 
-			<!-- Modal: modalCart -->
-			<div class="modal fade" id="modalCart" tabindex="-1" role="dialog"
-				aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<!--Header-->
-						<div class="modal-header">
+				<!-- Modal: modalCart -->
+				<div class="modal fade" id="modalCart" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<!--Header-->
+							<div class="modal-header">
 
-							<h4 class="modal-title" id="myModalLabel">내가 본 영화</h4>
+								<h4 class="modal-title" id="myModalLabel">내가 본 영화</h4>
 
-							<button type="button" class="close" data-dismiss="modal"
-								name="MOVIE_TITLE" aria-label="Close">
-								<span aria-hidden="true">×</span>
-							</button>
+								<button type="button" class="close" data-dismiss="modal"
+									name="MOVIE_TITLE" aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
 
-						</div>
+							</div>
 
-						<!-- 검색바.
+							<!-- 검색바.
 <div style="width: 200px; height: 30px" class="row">
 										<form class="form-inline md-form form-sm mt-0">
 											<i class="fas fa-search" aria-hidden="true"></i> <input
@@ -4206,54 +4490,54 @@ px
 
 
 
-						<!--Body-->
-						<div class="modal-body"
-							style="overflow: scroll; overflow-x: hidden; width: 490px; height: 430px; text-align: center;">
-							<table class="table table-striped table-bordered table-sm"
-								id="dtDynamicVerticalScrollExample" cellspacing="0">
-								<thead>
-									<tr>
-										<th class="th-sm">영화명</th>
-										<th class="th-sm">장르</th>
-										<th class="th-sm">개봉년도</th>
-										<th class="th-sm">국가</th>
-									</tr>
-								</thead>
-								<tbody id="trOne">
-									<c:forEach items="${write}" var="item">
+							<!--Body-->
+							<div class="modal-body"
+								style="overflow: scroll; overflow-x: hidden; width: 490px; height: 430px; text-align: center;">
+								<table class="table table-striped table-bordered table-sm"
+									id="dtDynamicVerticalScrollExample" cellspacing="0">
+									<thead>
 										<tr>
-											<td style="font-weight: bold;">${item.movieTitle }</td>
-											<td>${item.movieGenre }</td>
-											<td>${item.movieYear }</td>
-											<td>${item.movieCountry }</td>
+											<th class="th-sm">영화명</th>
+											<th class="th-sm">장르</th>
+											<th class="th-sm">개봉년도</th>
+											<th class="th-sm">국가</th>
 										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
+									</thead>
+									<tbody id="trOne">
+										<c:forEach items="${write}" var="item">
+											<tr>
+												<td style="font-weight: bold;">${item.movieTitle }</td>
+												<td>${item.movieGenre }</td>
+												<td>${item.movieYear }</td>
+												<td>${item.movieCountry }</td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
 
-						</div>
+							</div>
 
-						<!--Footer-->
-						<div class="modal-footer">
+							<!--Footer-->
+							<div class="modal-footer">
 
-							<h5>선택한 영화:</h5>
-							<input placeholder="영화를 선택해주세요" type="text"
-								id="inputPlaceholderEx" class="form-control movie"
-								style="width: 240px; height: 30px">
-							<div style="padding-right: 80px"></div>
+								<h5>선택한 영화:</h5>
+								<input placeholder="영화를 선택해주세요" type="text"
+									id="inputPlaceholderEx" class="form-control movie"
+									style="width: 240px; height: 30px">
+								<div style="padding-right: 80px"></div>
 
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!-- Modal: modalCart모달 끝 -->
+				<!-- Modal: modalCart모달 끝 -->
 
 
 
-			<!-- Email -->
-			<div style="padding-bottom: 10px"></div>
-			<h5>평점</h5>
-			<!--  
+				<!-- Email -->
+				<div style="padding-bottom: 10px"></div>
+				<h5>평점</h5>
+				<!--  
 			<div class="container">
 				<div class="feedback">
 					<div class="rating col-md-3" align="left" name="grade"
@@ -4275,59 +4559,60 @@ px
 			
 			-->
 
-			<div class="form-group" id="rating-ability-wrapper">
-				<label class="control-label" for="rating"> <span
-					class="field-label-info"></span> <input type="hidden"
-					id="selected_rating" name="selected_rating" value=""
-					required="required">
-				</label>
-				<h2 class="bold rating-header" style="">
-					<!-- 
+				<div class="form-group" id="rating-ability-wrapper">
+					<label class="control-label" for="rating"> <span
+						class="field-label-info"></span> <input type="hidden"
+						id="selected_rating" name="selected_rating" value=""
+						required="required">
+					</label>
+					<h2 class="bold rating-header" style="">
+						<!-- 
 					<span class="selected-rating" style="color: red" name="grade">0</span><small> / 5</small>
 					 -->
-					<input class="selected-rating col-md-1"
-						style="color: red; border: none; font-weight: bold; text-align: right;"
-						name="grade" id="grade"></input><small> / 5</small>
-				</h2>
-				<button type="button" class="btnrating btn btn-default btn-lg"
-					data-attr="1" id="rating-star-1">
-					<i class="fa fa-star" aria-hidden="true"></i>
-				</button>
-				<button type="button" class="btnrating btn btn-default btn-lg"
-					data-attr="2" id="rating-star-2">
-					<i class="fa fa-star" aria-hidden="true"></i>
-				</button>
-				<button type="button" class="btnrating btn btn-default btn-lg"
-					data-attr="3" id="rating-star-3">
-					<i class="fa fa-star" aria-hidden="true"></i>
-				</button>
-				<button type="button" class="btnrating btn btn-default btn-lg"
-					data-attr="4" id="rating-star-4">
-					<i class="fa fa-star" aria-hidden="true"></i>
-				</button>
-				<button type="button" class="btnrating btn btn-default btn-lg"
-					data-attr="5" id="rating-star-5">
-					<i class="fa fa-star" aria-hidden="true"></i>
-				</button>
-			</div>
+						<input class="selected-rating col-md-1"
+							style="color: red; border: none; font-weight: bold; text-align: right;"
+							name="grade" id="grade"></input><small> / 5</small>
+					</h2>
+					<button type="button" class="btnrating btn btn-default btn-lg"
+						data-attr="1" id="rating-star-1">
+						<i class="fa fa-star" aria-hidden="true"></i>
+					</button>
+					<button type="button" class="btnrating btn btn-default btn-lg"
+						data-attr="2" id="rating-star-2">
+						<i class="fa fa-star" aria-hidden="true"></i>
+					</button>
+					<button type="button" class="btnrating btn btn-default btn-lg"
+						data-attr="3" id="rating-star-3">
+						<i class="fa fa-star" aria-hidden="true"></i>
+					</button>
+					<button type="button" class="btnrating btn btn-default btn-lg"
+						data-attr="4" id="rating-star-4">
+						<i class="fa fa-star" aria-hidden="true"></i>
+					</button>
+					<button type="button" class="btnrating btn btn-default btn-lg"
+						data-attr="5" id="rating-star-5">
+						<i class="fa fa-star" aria-hidden="true"></i>
+					</button>
+				</div>
 
-			<div style="padding-bottom: 10px"></div>
-
-
-
-			<!-- Subject -->
-			<h5>공개여부</h5>
+				<div style="padding-bottom: 10px"></div>
 
 
-			<select class="browser-default custom-select mb-4"
-				required="required" name="publicPrivate" id="publicPrivate">
-				<option value="" selected>선택</option>
-				<option value="N">나만보기</option>
-				<option value="Y">전체 공개</option>
 
-			</select>
+				<!-- Subject -->
+				<h5>공개여부</h5>
 
 
+				<select class="browser-default custom-select mb-4"
+					required="required" name="publicPrivate" id="publicPrivate">
+					<option value="" selected>선택</option>
+					<option value="N">나만보기</option>
+					<option value="Y">전체 공개</option>
+
+				</select>
+
+
+				<!--  
 
 			<h5>해쉬태그</h5>
 			<div class="mb-4" style="padding-bottom: 10px">
@@ -4337,8 +4622,11 @@ px
 					placeholder="#해쉬태그 방식으로 작성해주세요">
 
 			</div>
+			-->
 
-			<!-- Message -->
+
+				<!-- Message -->
+				
 			<h5>내용</h5>
 			<div class="form-group">
 				<textarea class="form-control rounded-0" required="required"
@@ -4347,9 +4635,7 @@ px
 			</div>
 
 
-
-
-			<!-- 
+				<!-- 
 			<div class="custom-control custom-checkbox mb-4">
 				<div class="row">
 					<div>
@@ -4374,24 +4660,26 @@ px
 			</div>
  -->
 
-			<!-- Send button -->
-			<div class="mb-4">
-				<button class="btn btn-info btn-block" type="submit"
-					onclick="success()">제출</button>
-			</div>
+				<!-- Send button -->
+				<div class="mb-4">
+					<button class="btn btn-info btn-block" type="submit"
+						onclick="success()">제출</button>
+				</div>
 
 
-		</form>
-		<!-- Default form contact -->
-
-
-
-
-	</section>
-	<!--Section: Contact v.2-->
+			</form>
+			<!-- Default form contact -->
 
 
 
 
+		</section>
+		<!--Section: Contact v.2-->
 
-</div>
+
+
+
+
+	</div>
+</body>
+</html>

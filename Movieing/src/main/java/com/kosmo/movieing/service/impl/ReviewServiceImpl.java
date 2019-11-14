@@ -113,4 +113,15 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 
 
+	@Override
+	public List<ReviewDto> selectFriendsList(Map map) {
+		return dao.selectFriendsList(map);
+	}
+
+	@Override
+	public List<ReviewDto> selectReviewNos(Map map) {
+		return dao.selectReviewNos(map);
+	}
+
+
 }
