@@ -100,5 +100,17 @@ public class ReviewServiceImpl implements ReviewService{
 		return dao.selectReviewList(map);
 	}
 
+	@Override
+	public int getTotalMovieReviewCount(Map map) {
+
+		return dao.getTotalMovieReviewCount(map);
+	}
+
+	@Override
+	public List<ReviewDto> selectMovieReviewList(Map map) {
+
+		return dao.selectMovieReviewList(map);
+	}
+
 
 }

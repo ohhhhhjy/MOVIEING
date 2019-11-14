@@ -1,5 +1,6 @@
 package com.kosmo.movieing.service;
 
+import java.sql.Blob;
 import java.util.Date;
 
 public class CommentDto {
@@ -11,7 +12,23 @@ public class CommentDto {
 	private String userId;
 	private int reviewNo;
 
+	//효율성을 위해 따로 추가
+	private String userNick;
+	private Blob userProfile;
 
+
+	public Blob getUserProfile() {
+		return userProfile;
+	}
+	public void setUserProfile(Blob userProfile) {
+		this.userProfile = userProfile;
+	}
+	public String getUserNick() {
+		return userNick;
+	}
+	public void setUserNick(String userNick) {
+		this.userNick = userNick;
+	}
 	public int getCommentNo() {
 		return commentNo;
 	}

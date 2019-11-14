@@ -20,10 +20,16 @@ public interface ReviewService {
 	//리뷰쓴것 피드에 뿌리기
 	List<ReviewDto>  selectReviewList(Map map);
 
+	//한 영화의 리뷰 리스트
+	List<ReviewDto> selectMovieReviewList(Map map);
 
 
-	//전체 레코드 수
+	//내가 작성한 전체 리뷰 레코드 수
 	int getTotalCount(Map map);
+
+	//특정영화의 전체 리뷰 레코드 수
+	int getTotalMovieReviewCount(Map map);
+
 	//상세보기 용
 	ReviewDto selectOne(Map map);
 

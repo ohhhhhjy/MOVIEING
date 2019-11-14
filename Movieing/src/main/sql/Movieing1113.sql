@@ -24,6 +24,7 @@ DROP TABLE USER_TABLE CASCADE CONSTRAINTS;
 
 drop sequence seq_review;
 drop sequence seq_qna;
+drop sequence seq_comment;
 
 
 
@@ -530,6 +531,7 @@ ALTER TABLE WISH
 --시퀀스 
 create sequence seq_review nocache nocycle;
 create sequence seq_qna nocache nocycle;
+create sequence seq_comment nocache nocycle;
 --유저정보
 insert into user_table values( 'KIM','1234','김길동','Road_dong','01055557777','email',sysdate,null,'하이'  );
 

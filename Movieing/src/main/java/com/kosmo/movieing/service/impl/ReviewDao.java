@@ -102,4 +102,16 @@ public class ReviewDao implements ReviewService{
 		return template.selectList("selectReviewList", map);
 	}
 
+	@Override
+	public int getTotalMovieReviewCount(Map map) {
+
+		return template.selectOne("getTotalMovieReviewCount",map);
+	}
+
+	@Override
+	public List<ReviewDto> selectMovieReviewList(Map map) {
+
+		return template.selectList("selectMovieReviewList",map);
+	}
+
 }

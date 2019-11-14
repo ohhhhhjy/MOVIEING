@@ -251,6 +251,7 @@ public class BlogController {
 	@ResponseBody
 	@RequestMapping(value="/Movieing/Blog/LikeRemove.mov", method = RequestMethod.POST)
 	public String likeRemove(@RequestParam Map map) {
+
 		String id = "kim";// 임시
 		int reviewNo = Integer.parseInt(map.get("reviewNo").toString());
 		map.put("reviewNo", reviewNo);
