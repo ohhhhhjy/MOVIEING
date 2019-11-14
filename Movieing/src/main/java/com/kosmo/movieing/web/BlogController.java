@@ -58,13 +58,13 @@ public class BlogController {
 	private UserService userService;
 
 	// 블로그메인
-	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov", method = RequestMethod.GET)
-	public String blogMain(@RequestParam Map map, Model model) throws Exception {
-		String id = "KIM";// 임시
+	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov")
+	public String blogMain(@RequestParam Map map, Model model,Authentication auth) throws Exception {
+		String id = map.get("otherUserId")==null?auth.getName():map.get("otherUserId").toString();
+
 
 		map.put("id", id);
 		model.addAttribute("id", id);
-
 		// [유저정보] count 별.리.좋.보. 팔로워.팔로잉.
 		// 유저 정보
 		UserDto userInfo = userService.selectOne(map);
@@ -142,13 +142,16 @@ public class BlogController {
 		}
 		model.addAttribute("selectList", selectList);
 
+
+
 		return "blog/my/BlogMain.tiles";
 	}/////////////////////////////////////////////
 
 	// 리뷰작성 후 메인으로
 	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov", method = RequestMethod.POST)
-	public String blogMain2(@RequestParam Map map, Model model) throws Exception {
-		String id = "KIM";// 임시
+	public String blogMain2(@RequestParam Map map, Model model,Authentication auth) throws Exception {
+		String id = map.get("otherUserId")==null?auth.getName():map.get("otherUserId").toString();
+
 		map.put("id", id);
 		model.addAttribute("id", id);
 
@@ -172,11 +175,11 @@ public class BlogController {
 		model.addAttribute("grade", grade);// 평점
 		model.addAttribute("reviewContent", reviewContent);// 내용
 
-		System.out.println("영화제목:" + movieTitle);
-		System.out.println("영화번호:" + movieNo);
-		System.out.println("평점:" + grade);
-		System.out.println("리뷰내용:" + reviewContent);
-		System.out.println("공개여부:" + publicPrivate);
+//		System.out.println("영화제목:" + movieTitle);
+//		System.out.println("영화번호:" + movieNo);
+//		System.out.println("평점:" + grade);
+//		System.out.println("리뷰내용:" + reviewContent);
+//		System.out.println("공개여부:" + publicPrivate);
 
 		int insertReview = reviewService.insertReview(map);
 
@@ -201,8 +204,8 @@ public class BlogController {
 
 	// 블로그-내 활동
 	@RequestMapping("/Movieing/Blog/MyActivity.mov")
-	public String myActiviy(@RequestParam Map map, Model model) throws Exception {
-		String id = "KIM";// 임시
+	public String myActiviy(@RequestParam Map map, Model model,Authentication auth) throws Exception {
+		String id = auth.getName();
 
 		map.put("id", id);
 		model.addAttribute("id", id);
@@ -237,10 +240,10 @@ public class BlogController {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
 		}
 
-		model.addAttribute("evaluationList", evaluationList);// 별점
-		model.addAttribute("reviewList", reviewList);// 리뷰
-		model.addAttribute("reviewLikeList", reviewLikeList);// 좋아요
-		model.addAttribute("wishList", wishList);// 보고싶어요
+		model.addAttribute("evaluationList", evaluationList.isEmpty()?null:evaluationList);// 별점
+		model.addAttribute("reviewList", reviewList.isEmpty()?null:reviewList);// 리뷰
+		model.addAttribute("reviewLikeList", reviewLikeList.isEmpty()?null:reviewLikeList);// 좋아요
+		model.addAttribute("wishList", wishList.isEmpty()?null:wishList);// 보고싶어요
 
 		return "blog/my/MyActivity.tiles";
 	}

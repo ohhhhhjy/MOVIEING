@@ -142,7 +142,6 @@ $(function(){
 	
 	var flag = false;
 	//좋아요 클릭 이벤트처리
-	console.log($('.likeUnlike'));
 	if(typeof $('.likeUnlike')!= 'undefined'){
  	$('.likeUnlike').click(function(){
  		var index = $(this).attr('id');
@@ -253,6 +252,17 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
 	
 }
 
+function goToBlogFeed(otherUserId){
+	var f = document.paging;
+	// form 태그의 하위 태그 값 매개 변수로 대입
+	f.otherUserId.value = otherUserId;
+	// input태그의 값들을 전송하는 주소
+	f.action = "/movieing/Movieing/Blog/BlogMain.mov"
+	// 전송 방식 : post
+	f.method = "post"
+	f.submit();
+}
+
 </script>
 
 <!-- 컨테이너 시작 -->
@@ -329,7 +339,7 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
 											<p class="card-text" style="height: 100px">${item.reviewContent }</p><!-- 리뷰내용 -->
 											<a><span
 												style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
-													${item.likeCount } </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
+													${item.likeCount } </span></a>&nbsp;&nbsp;&nbsp; <a href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>"><span
 												style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
 													${item.commentCount }</span></a>
 										</div>
@@ -349,14 +359,22 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
 	                 		<button type="button" id="btnWish" class="btn btn-outline-danger waves-effect" onclick="location.href='<c:url value="/Movieing/Blog/MovieingFriends.mov"/>'"><i class="fas fa-user-friends"></i>&nbsp;무빙프렌즈</button>
                  		</div>
                  	</c:if>
+                 	
+                 		<form name="paging">
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+							<input type="hidden" name="otherUserId" />
+						</form>
+                 	
                  	<c:if test="${!isEmpty }">
                    	<!-- 리뷰카드 -->
                    	<c:forEach items="${reviewLikeList }" var="item" varStatus="status">
+                  	 	<!-- a태그 post방식 페이지 전송 폼 -->
+				
 						<div class="card border-secondary mb-3" style="max-width: 200rem;">
 							<div class="card-header" align="right">
-								<a href="#">
-									<img class="radiusImg" alt="유저사진" src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" align="right"/>
-									<span class="likeSpan" >${item.userId }</span>
+								<a href="javascript:goToBlogFeed('${item.userId}');">
+									<img class="radiusImg" alt="유저사진" src="${item.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': item.userProfile}" align="right"/>
+									<span class="likeSpan" >${item.userNick }</span>
 								</a>
 								
 							</div>
@@ -374,9 +392,9 @@ function tabContentSettingBySelector(){//셀렉트 클릭에 따라 탭컨텐츠
 										<button type="button" class="btn btn-link likeUnlike" id="${status.index }" ><span
 											style="font-weight: bold; color: #db147b; font-size: 0.9em" id="likeSpan${status.index }"><i id="likeUnlikeIcon" class="fas fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
 												${item.likeCount } </span></button>&nbsp;&nbsp;&nbsp; 
-										<button type="button" class="btn btn-link"><span style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
+										<button type="button" class="btn btn-link" onclick="location.href='movieing/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'"><span style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
 												${item.commentCount } </span></button>
-										<span id="reviewNo${status.index }" style="color:white;font-size: 0.1em">${item.reviewNo }</span><br>
+										<span id="reviewNo${status.index }" style="color:white;font-size: 0.1em">${item.reviewNo }</span>
 									</div>
 								</div>	
 							</div>

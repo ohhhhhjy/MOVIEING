@@ -43,11 +43,14 @@
 	<select id="reviewSelectLikeList" parameterType="java.util.Map" resultType="ReviewDto">
         select r.*, 
 		movie_title,
+		user_nick,
+		user_profile,
 		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
 		(select count(*) from LIKE_REVIEW  where  review_no = r.review_no) likeCount,
 		(select count(*) from COMMENT_TABLE where  review_no = r.review_no) commentCount
 		from review r  
 		join movie m on r.movie_no=m.movie_no 
+		join user_table u on u.user_id=r.user_id
 		where review_no in (select review_no from like_review where user_id=#{id})
 	</select>
 	

@@ -426,12 +426,16 @@ public class MovieController {
 
 		//영화 리뷰 다 뿌려주자
 		List<ReviewDto> reviewList = reviewService.selectMovieReviewList(map);
+		for(ReviewDto record : reviewList) {
+			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
+		}
 		model.addAttribute("reviewList",reviewList);
 
 
 		return "movie/info/MovieDetails.tiles";
 	}
 
+	//영화상세페이지의 리뷰 뿌리기
 	@ResponseBody//produces="text/html; charset=UTF-8" ,produces="application/json;charset=UTF-8"   , consumes = {"application/json;charset=UTF-8"}
 	@RequestMapping(value="/Movieing/Movie/ReviewAjax.mov", method = RequestMethod.POST)
 	public String reviewAjax(@RequestParam Map map) throws UnsupportedEncodingException {
@@ -440,7 +444,6 @@ public class MovieController {
 		//넘겨받은 영화코드 : movieNo. 임시로 넣어줌
 		String movieNo = "20182669";
 		map.put("movieNo", movieNo);
-		System.out.println("ajax들어오긴하니?");
 
 
 		int nowPage = Integer.parseInt(map.get("nowPage").toString());
@@ -537,6 +540,7 @@ public class MovieController {
 	}
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+	//리뷰상세페이지
 	@RequestMapping("/Movieing/Movie/MovieReviews.mov")
 	public String movieReviews(@RequestParam Map map,Model model,Authentication auth) {
 		map.put("id", auth.getName());

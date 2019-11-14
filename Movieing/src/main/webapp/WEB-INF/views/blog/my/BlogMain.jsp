@@ -265,18 +265,18 @@ body {
 					<div class="card-body">
 						<div class="row">
 							<div class="col-sm-3" align="center">
-								<a href="<c:url value='/Movieing/Movie/MovieDetails.mov'/>"><img
+								<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?moviveNo=${item.movieNo }'/>"><img
 									class="movieImage"
 									src="${item.imgUrl }" alt="포스터" /></a>
 							</div>
 							<div class="col-sm-9">
-								<h4 class="card-title">${item.movieTitle }</h4>
+								<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?moviveNo=${item.movieNo }'/>"><h4 class="card-title" style="color:black">${item.movieTitle }</h4></a>
 								<span class="badge badge-pill badge-danger">★${item.grade }</span>
 								<p class="card-text" style="height: 110px">${item.reviewContent }</p>
 								<a href="#"><span
 									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
 										class="far fa-thumbs-up"></i> 25 </span></a>&nbsp;&nbsp;&nbsp; <a
-									href="#"><span
+									href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>"><span
 									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
 										class="far fa-comments"></i> 4 </span></a>
 							</div>
