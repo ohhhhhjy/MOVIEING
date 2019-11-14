@@ -28,6 +28,13 @@ public interface ReviewService {
 	//모든 리뷰 넘버만 가져오기
 	List<ReviewDto> selectReviewNos(Map map);
 
+	//무빙프렌즈 전체공개 글(시간순)
+	List<ReviewDto> friendsReviewList1(Map map);
+	//(좋아요순)
+	List<ReviewDto> friendsReviewList2(Map map);
+	//(시간순)
+	List<ReviewDto> friendsReviewList3(Map map);
+
 	//전체 레코드 수
 	int getTotalCount(Map map);
 	//상세보기 용

@@ -23,10 +23,11 @@ public class FollowDao implements FollowService{
 		return false;
 	}
 
+	//팔로우 리스트
 	@Override
 	public List<FollowDto> selectList(Map map) {
 
-		return null;
+		return template.selectList("followList", map);
 	}
 
 	@Override

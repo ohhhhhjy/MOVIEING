@@ -53,175 +53,73 @@
 .profileForm {
 	padding-bottom: 20px;
 }
+
+/*라인 줄*/
+.my-3 {
+	border: 0;
+	height: 2px;
+	background: #ccc;
+}
 </style>
 
+<!--  
+<body style="background-color: #faf9e6">
+-->
 
-<body style="background-color: #fafaf0">
-	<div class="container" style="padding-top: 200px;padding-bottom: 100px">
 
-		<div class="row">
-			<div class="col-md-3"></div>
-			<div class="col-md-6">
-				<h6 style="font-weight: bold;">팔로우한 유저들</h6>
-			</div>
-			<div class="col-md-3"></div>
-		</div>
-	
-	
+<div class="container"
+	style="padding-top: 200px; padding-bottom: 100px; background-color: white;">
+
+
 
 	<div class="row">
 		<div class="col-md-3"></div>
-		<div class="col-md-6" style="background-color: white;padding-bottom: 10px">
-			<!-- 한 유저시작 -->
-			<div class="row" style="padding-bottom: 10px;padding-top: 10px">
-				<div class="col-md-2" style="padding-left: 10px;text-align: right;">
-					<img class="radiusSmallImg" alt="배우사진"
-						src="<c:url value='/resources/img/friends/boy.png'/>" />
-				</div>
-				<div class="col-md-7" style="padding-left: 10px">
-					<span class="timeLineText" style="font-size: 1.0em; color: black;">__mongjiee</span>
-					<h6 class="actorSpan" style="font-size: 0.5em; color: black;">1시간전</h6>
-				</div>
-				<div class="col-md-3">
-					<button type="button" class="btn btn-primary btn-sm">팔로우
-						해제</button>
-				</div>
-			</div>
-			<!-- 한 유저끝 -->
-			<!-- 한 유저시작 -->
-			<div class="row" style="padding-bottom: 10px">
-				<div class="col-md-2" style="padding-left: 10px;text-align: right;">
-					<img class="radiusSmallImg" alt="배우사진"
-						src="<c:url value='/resources/img/friends/boy.png'/>" />
-				</div>
-				<div class="col-md-7" style="padding-left: 10px">
-					<span class="timeLineText" style="font-size: 1.0em; color: black;">__mongjiee</span>
-					<h6 class="actorSpan" style="font-size: 0.5em; color: black;">1시간전</h6>
-				</div>
-				<div class="col-md-3">
-					<button type="button" class="btn btn-primary btn-sm">팔로우
-						해제</button>
-				</div>
-			</div>
-			<!-- 한 유저끝 -->
-			<!-- 한 유저시작 -->
-			<div class="row" style="padding-bottom: 10px">
-				<div class="col-md-2" style="padding-left: 10px;text-align: right;">
-					<img class="radiusSmallImg" alt="배우사진"
-						src="<c:url value='/resources/img/friends/boy.png'/>" />
-				</div>
-				<div class="col-md-7" style="padding-left: 10px">
-					<span class="timeLineText" style="font-size: 1.0em; color: black;">__mongjiee</span>
-					<h6 class="actorSpan" style="font-size: 0.5em; color: black;">1시간전</h6>
-				</div>
-				<div class="col-md-3">
-					<button type="button" class="btn btn-primary btn-sm">팔로우
-						해제</button>
-				</div>
-			</div>
-			<!-- 한 유저끝 -->
-			<!-- 한 유저시작 -->
-			<div class="row" style="padding-bottom: 10px">
-				<div class="col-md-2" style="padding-left: 10px;text-align: right;">
-					<img class="radiusSmallImg" alt="배우사진"
-						src="<c:url value='/resources/img/friends/boy.png'/>" />
-				</div>
-				<div class="col-md-7" style="padding-left: 10px">
-					<span class="timeLineText" style="font-size: 1.0em; color: black;">__mongjiee</span>
-					<h6 class="actorSpan" style="font-size: 0.5em; color: black;">1시간전</h6>
-				</div>
-				<div class="col-md-3">
-					<button type="button" class="btn btn-primary btn-sm">팔로우
-						해제</button>
-				</div>
-			</div>
-			<!-- 한 유저끝 -->
-			<!-- 한 유저시작 -->
-			<div class="row" style="padding-bottom: 10px">
-				<div class="col-md-2" style="padding-left: 10px;text-align: right;">
-					<img class="radiusSmallImg" alt="배우사진"
-						src="<c:url value='/resources/img/friends/boy.png'/>" />
-				</div>
-				<div class="col-md-7" style="padding-left: 10px">
-					<span class="timeLineText" style="font-size: 1.0em; color: black;">__mongjiee</span>
-					<h6 class="actorSpan" style="font-size: 0.5em; color: black;">1시간전</h6>
-				</div>
-				<div class="col-md-3">
-					<button type="button" class="btn btn-primary btn-sm">팔로우
-						해제</button>
-				</div>
-			</div>
-			<!-- 한 유저끝 -->
-			<!-- 한 유저시작 -->
-			<div class="row" style="padding-bottom: 10px">
-				<div class="col-md-2" style="padding-left: 10px;text-align: right;">
-					<img class="radiusSmallImg" alt="배우사진"
-						src="<c:url value='/resources/img/friends/boy.png'/>" />
-				</div>
-				<div class="col-md-7" style="padding-left: 10px">
-					<span class="timeLineText" style="font-size: 1.0em; color: black;">__mongjiee</span>
-					<h6 class="actorSpan" style="font-size: 0.5em; color: black;">1시간전</h6>
-				</div>
-				<div class="col-md-3">
-					<button type="button" class="btn btn-primary btn-sm">팔로우
-						해제</button>
-				</div>
-			</div>
-			<!-- 한 유저끝 -->
-			<!-- 한 유저시작 -->
-			<div class="row" style="padding-bottom: 10px">
-				<div class="col-md-2" style="padding-left: 10px;text-align: right;">
-					<img class="radiusSmallImg" alt="배우사진"
-						src="<c:url value='/resources/img/friends/boy.png'/>" />
-				</div>
-				<div class="col-md-7" style="padding-left: 10px">
-					<span class="timeLineText" style="font-size: 1.0em; color: black;">__mongjiee</span>
-					<h6 class="actorSpan" style="font-size: 0.5em; color: black;">1시간전</h6>
-				</div>
-				<div class="col-md-3">
-					<button type="button" class="btn btn-primary btn-sm">팔로우
-						해제</button>
-				</div>
-			</div>
-			<!-- 한 유저끝 -->
-			<!-- 한 유저시작 -->
-			<div class="row" style="padding-bottom: 10px">
-				<div class="col-md-2" style="padding-left: 10px;text-align: right;">
-					<img class="radiusSmallImg" alt="배우사진"
-						src="<c:url value='/resources/img/friends/boy.png'/>" />
-				</div>
-				<div class="col-md-7" style="padding-left: 10px">
-					<span class="timeLineText" style="font-size: 1.0em; color: black;">__mongjiee</span>
-					<h6 class="actorSpan" style="font-size: 0.5em; color: black;">1시간전</h6>
-				</div>
-				<div class="col-md-3">
-					<button type="button" class="btn btn-primary btn-sm">팔로우
-						해제</button>
-				</div>
-			</div>
-			<!-- 한 유저끝 -->
-			<!-- 한 유저시작 -->
-			<div class="row" style="padding-bottom: 10px">
-				<div class="col-md-2" style="padding-left: 10px;text-align: right;">
-					<img class="radiusSmallImg" alt="배우사진"
-						src="<c:url value='/resources/img/friends/boy.png'/>" />
-				</div>
-				<div class="col-md-7" style="padding-left: 10px">
-					<span class="timeLineText" style="font-size: 1.0em; color: black;">__mongjiee</span>
-					<h6 class="actorSpan" style="font-size: 0.5em; color: black;">1시간전</h6>
-				</div>
-				<div class="col-md-3">
-					<button type="button" class="btn btn-primary btn-sm">팔로우
-						해제</button>
-				</div>
-			</div>
-			<!-- 한 유저끝 -->
-			
-			
-			
-			
-			
 
+
+		<div class="col-md-6">
+			<div class="card gedf-card">
+				<div class="card bg-light text-dark">
+					<div class="card card-body">
+						<div class="row" style="padding-left: 10px; height: 15px">
+							<img
+								src="<c:url value='/resources/img/friends/passage-of-time.png'/>"
+								alt="타임라인 로고" style="width: 25px; height: 25px" />
+							<h6 class="card-title;"
+								style="padding-left: 5px; font-weight: bold; padding-right: 40px">타임
+								라인</h6>
+
+						</div>
+
+
+						<div>
+							<!-- 중간줄 -->
+							<hr class="my-3" style="height: 3px; font-weight: bold;">
+						</div>
+
+						<!-- 한 유저시작 -->
+						<c:forEach items="${allUser }" var="item">
+							<div class="row" style="padding-bottom: 10px; padding-top: 10px">
+								<div class="col-md-2"
+									style="padding-left: 10px; text-align: right;">
+									<img class="radiusSmallImg" alt="배우사진"
+										src="<c:url value='/resources/img/friends/boy.png'/>" />
+								</div>
+								<div class="col-md-7" style="padding-left: 10px">
+									<span class="timeLineText"
+										style="font-size: 1.0em; color: black;">${item.userId}</span>
+									<h6 class="actorSpan" style="font-size: 0.5em; color: black;">1시간전</h6>
+								</div>
+								<div class="col-md-3">
+									<button type="button" class="btn btn-primary btn-sm">팔로우
+										해제</button>
+								</div>
+							</div>
+						</c:forEach>
+						<!-- 한 유저끝 -->
+
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="col-md-3"></div>
 
@@ -231,6 +129,8 @@
 
 	</div>
 
-	</div>
+</div>
 
+<!--  
 </body>
+-->

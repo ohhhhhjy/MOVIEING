@@ -126,6 +126,7 @@
 
 
 
+
  
 
 
@@ -172,7 +173,10 @@
 
 
 
+
 input
+
+
 
 
 
@@ -358,7 +362,11 @@ text
 
 
 
+
+
 :focus
+
+
 
 
 
@@ -495,7 +503,9 @@ text
 
 
 
+
  
+
 
 
 
@@ -590,7 +600,9 @@ readonly
 
 
 
+
  
+
 
 
 
@@ -729,6 +741,8 @@ border-bottom
 
 
 
+
+
 :
 
 
@@ -775,7 +789,9 @@ border-bottom
 
 
 
+
  
+
 
 
 
@@ -868,7 +884,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -960,6 +978,7 @@ solid
 
 
 
+
  
 
 
@@ -1006,7 +1025,10 @@ solid
 
 
 
+
 #f48fb1
+
+
 
 
 
@@ -1189,6 +1211,8 @@ box-shadow
 
 
 
+
+
 :
 
 
@@ -1235,7 +1259,9 @@ box-shadow
 
 
 
+
  
+
 
 
 
@@ -1329,7 +1355,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -1378,6 +1406,8 @@ px
 0
 0
 #f48fb1
+
+
 
 
 
@@ -1521,6 +1551,7 @@ px
 
 
 
+
  
 
 
@@ -1567,7 +1598,10 @@ px
 
 
 
+
 input
+
+
 
 
 
@@ -1753,7 +1787,11 @@ text
 
 
 
+
+
 :focus
+
+
 
 
 
@@ -1890,7 +1928,9 @@ text
 
 
 
+
  
+
 
 
 
@@ -1985,7 +2025,9 @@ readonly
 
 
 
+
  
+
 
 
 
@@ -2124,6 +2166,8 @@ border-bottom
 
 
 
+
+
 :
 
 
@@ -2170,7 +2214,9 @@ border-bottom
 
 
 
+
  
+
 
 
 
@@ -2263,7 +2309,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -2355,6 +2403,7 @@ solid
 
 
 
+
  
 
 
@@ -2401,7 +2450,10 @@ solid
 
 
 
+
 #ce93d8
+
+
 
 
 
@@ -2584,6 +2636,8 @@ box-shadow
 
 
 
+
+
 :
 
 
@@ -2630,7 +2684,9 @@ box-shadow
 
 
 
+
  
+
 
 
 
@@ -2724,7 +2780,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -2773,6 +2831,8 @@ px
 0
 0
 #ce93d8
+
+
 
 
 
@@ -2916,6 +2976,7 @@ px
 
 
 
+
  
 
 
@@ -2962,7 +3023,10 @@ px
 
 
 
+
 input
+
+
 
 
 
@@ -3148,7 +3212,11 @@ text
 
 
 
+
+
 :focus
+
+
 
 
 
@@ -3285,7 +3353,9 @@ text
 
 
 
+
  
+
 
 
 
@@ -3380,7 +3450,9 @@ readonly
 
 
 
+
  
+
 
 
 
@@ -3519,6 +3591,8 @@ border-bottom
 
 
 
+
+
 :
 
 
@@ -3565,7 +3639,9 @@ border-bottom
 
 
 
+
  
+
 
 
 
@@ -3658,7 +3734,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -3750,6 +3828,7 @@ solid
 
 
 
+
  
 
 
@@ -3796,7 +3875,10 @@ solid
 
 
 
+
 #4dd0e1
+
+
 
 
 
@@ -3979,6 +4061,8 @@ box-shadow
 
 
 
+
+
 :
 
 
@@ -4025,7 +4109,9 @@ box-shadow
 
 
 
+
  
+
 
 
 
@@ -4119,7 +4205,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -4168,6 +4256,8 @@ px
 0
 0
 #4dd0e1
+
+
 
 
 
@@ -4349,6 +4439,7 @@ px
 
 			/*별점 값 보내기*/
 			var star = $(".selected-rating").text();
+			console.log('내가 준 별점:' + star);
 			document.write.grade.value = star;
 
 		}));
@@ -4387,8 +4478,6 @@ px
 				return false;
 			} else if (("#publicPrivate option:selected").val() == "") {
 				return false;
-			} else if (hashtag.value = "") {
-				return false;
 			} else if (reviewContent.value = "") {
 				return false;
 			} else if ($(".selected-rating").text() == "") {
@@ -4399,7 +4488,6 @@ px
 
 		}
 	});
-
 </script>
 
 
@@ -4407,7 +4495,7 @@ px
 <!-- css파일 -->
 <link href="<c:url value='/resources/css/wirtepage.css'/>"
 	rel="stylesheet" type="text/css">
-	
+
 
 </head>
 
@@ -4434,6 +4522,7 @@ px
 				action="<c:url value='/Movieing/Blog/BlogMain.mov'/>" name="write">
 				<input type="hidden" name="${_csrf.parameterName}"
 					value="${_csrf.token}">
+
 				<h5>영화명</h5>
 
 
@@ -4491,42 +4580,57 @@ px
 
 
 							<!--Body-->
-							<div class="modal-body"
-								style="overflow: scroll; overflow-x: hidden; width: 490px; height: 430px; text-align: center;">
-								<table class="table table-striped table-bordered table-sm"
-									id="dtDynamicVerticalScrollExample" cellspacing="0">
-									<thead>
-										<tr>
-											<th class="th-sm">영화명</th>
-											<th class="th-sm">장르</th>
-											<th class="th-sm">개봉년도</th>
-											<th class="th-sm">국가</th>
-										</tr>
-									</thead>
-									<tbody id="trOne">
-										<c:forEach items="${write}" var="item">
+							<c:if test="${empty write}" var="isEmpty">
+								<div class="modal-body">
+									<h5>
+										리뷰를 쓸 영화가 없어요...<br>평가메뉴에서 본 영화의 평점을 매겨주세요! :)
+									</h5>
+								</div>
+								<div class="modal-footer">
+									<a href ="<c:url value='/Movieing/Movie/screening/First_like.mov'/>"><button type="button"
+										class="btn btn-outline-primary waves-effect" ><i class="fas fa-star"></i> 더 평가하러가기</button></a>
+
+								</div>
+							</c:if>
+							<c:if test="${!isEmpty }">
+								<div class="modal-body"
+									style="overflow: scroll; overflow-x: hidden; width: 490px; height: 430px; text-align: center;">
+									<table class="table table-striped table-bordered table-sm"
+										id="dtDynamicVerticalScrollExample" cellspacing="0">
+										<thead>
 											<tr>
-												<td style="font-weight: bold;">${item.movieTitle }</td>
-												<td>${item.movieGenre }</td>
-												<td>${item.movieYear }</td>
-												<td>${item.movieCountry }</td>
+												<th class="th-sm">영화명</th>
+												<th class="th-sm">장르</th>
+												<th class="th-sm">개봉년도</th>
+												<th class="th-sm">국가</th>
 											</tr>
-										</c:forEach>
-									</tbody>
-								</table>
+										</thead>
+										<tbody id="trOne">
+											<c:forEach items="${write}" var="item">
+												<tr>
+													<td style="font-weight: bold;">${item.movieTitle }</td>
+													<td>${item.movieGenre }</td>
+													<td>${item.movieYear }</td>
+													<td>${item.movieCountry }</td>
+												</tr>
+											</c:forEach>
+										</tbody>
+									</table>
 
-							</div>
+								</div>
 
-							<!--Footer-->
-							<div class="modal-footer">
 
-								<h5>선택한 영화:</h5>
-								<input placeholder="영화를 선택해주세요" type="text"
-									id="inputPlaceholderEx" class="form-control movie"
-									style="width: 240px; height: 30px">
-								<div style="padding-right: 80px"></div>
+								<!--Footer-->
+								<div class="modal-footer">
 
-							</div>
+									<h5>선택한 영화:</h5>
+									<input placeholder="영화를 선택해주세요" type="text"
+										id="inputPlaceholderEx" class="form-control movie"
+										style="width: 240px; height: 30px">
+									<div style="padding-right: 80px"></div>
+
+								</div>
+							</c:if>
 						</div>
 					</div>
 				</div>
@@ -4572,6 +4676,7 @@ px
 						<input class="selected-rating col-md-1"
 							style="color: red; border: none; font-weight: bold; text-align: right;"
 							name="grade" id="grade"></input><small> / 5</small>
+
 					</h2>
 					<button type="button" class="btnrating btn btn-default btn-lg"
 						data-attr="1" id="rating-star-1">
@@ -4626,13 +4731,13 @@ px
 
 
 				<!-- Message -->
-				
-			<h5>내용</h5>
-			<div class="form-group">
-				<textarea class="form-control rounded-0" required="required"
-					name="reviewContent" id="exampleFormControlTextarea2" rows="3"
-					placeholder=""></textarea>
-			</div>
+
+				<h5>내용</h5>
+				<div class="form-group">
+					<textarea class="form-control rounded-0" required="required"
+						name="reviewContent" id="exampleFormControlTextarea2" rows="3"
+						placeholder=""></textarea>
+				</div>
 
 
 				<!-- 

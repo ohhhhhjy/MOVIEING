@@ -1,3 +1,6 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Calendar"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -163,6 +166,8 @@ body {
 		f.method = "post"
 		f.submit();
 	};
+	
+
 </script>
 
 
@@ -255,8 +260,14 @@ body {
 				<!-- 2.여러줄컨텐츠(리뷰) -->
 				<div class="card border-secondary mb-3" style="max-width: 200rem;">
 					<div class="card-header">
-						${item.movieTitle }에 리뷰를 남겼어요!&nbsp;&nbsp;<span
-							style="color: #a8a5a5; font-size: 0.3em">1일 전</span>
+						${item.movieTitle }에 리뷰를 남겼어요!&nbsp;&nbsp;
+						
+						<span
+							style="color: #a8a5a5; font-size: 0.3em">
+								${reviewPostdate}
+			
+						</span>
+								
 					</div>
 
 
@@ -271,7 +282,7 @@ body {
 							</div>
 							<div class="col-sm-9">
 								<h4 class="card-title">${item.movieTitle }</h4>
-								<span class="badge badge-pill badge-danger">★${item.grade }</span>
+								<span class="badge badge-pill badge-danger">★ ${item.grade }</span>
 								<p class="card-text" style="height: 110px">${item.reviewContent }</p>
 								<a href="#"><span
 									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i

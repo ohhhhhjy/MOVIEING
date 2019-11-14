@@ -15,7 +15,7 @@
 		WHERE USER_ID=#{id}
 		
 	</select>
-	<!-- 전체 리스트 가져오기 -->
+	<!-- 내가 쓴 전체 리스트 가져오기(시간순으로) -->
 	<select id="selectList"  parameterType="java.util.Map" resultType="ReviewDto">
 		select r.*, 
 		movie_title,
@@ -25,9 +25,10 @@
 		from review r  
 		join movie m on r.movie_no=m.movie_no
 		WHERE USER_ID=#{id}	
+		Order by REVIEW_POSTDATE desc
 	</select>
 	
-	<!-- 전체공개한 리스트만 가져오기 -->
+	<!-- 쓰지마-->
 	<select id="selectFriendsList"  parameterType="java.util.Map" resultType="ReviewDto">
 		select r.USER_ID,r.REVIEW_CONTENT ,r.REVIEW_POSTDATE,r.REVIEW_NO,r.MOVIE_NO, 
 		movie_title,
@@ -36,7 +37,7 @@
 		(select count(*) from COMMENT_TABLE where user_id= r.user_id and review_no = r.review_no) commentCount
 		from review r  
 		join movie m on r.movie_no=m.movie_no 
-		WHERE USER_ID=#{id} and PUBLIC_PRIVATE='Y'
+		WHERE PUBLIC_PRIVATE='Y'
 		
 	</select>
 	
@@ -52,17 +53,64 @@
 		where review_no in (select review_no from like_review where user_id=#{id})
 	</select>
 	
-	<!-- 무빙프렌즈 리뷰 뿌리기 -->
-	<select id="friendsReviewList" parameterType="java.util.Map" resultType="ReviewDto">
+	<!-- 전체공개한 리스트만 가져오기 (모두 남에꺼 내꺼포함)(시간순으로)-->
+	<select id="friendsReviewList1" parameterType="java.util.Map" resultType="ReviewDto">
 	
-		select USER_ID,REVIEW_CONTENT ,REVIEW_POSTDATE,REVIEW_NO,MOVIE_NO
-		(select MOVIE_TITLE from MOVIE) movieTitle,
-		(select MOVIE_ORG_TITLE from MOVIE) movieOrgTitle,		
-		(select EVALUATION_GRADE from EVALUATION) grade
-		 from review r
-		 join movie m on  r.MOVIE_NO =m.MOVIE_NO
-		 where USER_ID=#{id}
+	     select r.*, 
+		MOVIE_TITLE ,
+		MOVIE_ORG_TITLE ,
+		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
+		(select count(*) from LIKE_REVIEW  where  review_no = r.review_no) likeCount,
+		(select count(*) from COMMENT_TABLE where  review_no = r.review_no) commentCount
+		from review r
+		join movie m on r.movie_no=m.movie_no 
+		WHERE PUBLIC_PRIVATE='Y'
+		Order by REVIEW_POSTDATE desc
 	</select>
+	
+	
+		<!-- 전체공개한 리스트만 가져오기 (모두 남에꺼 내꺼포함)(종아료순으로)-->
+	<select id="friendsReviewList2" parameterType="java.util.Map" resultType="ReviewDto">
+	
+	     select r.*, 
+		MOVIE_TITLE ,
+		MOVIE_ORG_TITLE ,
+		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
+		(select count(*) from LIKE_REVIEW  where  review_no = r.review_no) likeCount,
+		(select count(*) from COMMENT_TABLE where  review_no = r.review_no) commentCount
+		from review r
+		join movie m on r.movie_no=m.movie_no 
+		WHERE PUBLIC_PRIVATE='Y'
+		Order by likeCount desc
+	</select>
+	
+	
+	
+		<!-- 전체공개한 리스트만 가져오기 (모두 남에꺼 내꺼포함)(댓글순으로)-->
+	<select id="friendsReviewList3" parameterType="java.util.Map" resultType="ReviewDto">
+	
+	     select r.*, 
+		MOVIE_TITLE ,
+		MOVIE_ORG_TITLE ,
+		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
+		(select count(*) from LIKE_REVIEW  where  review_no = r.review_no) likeCount,
+		(select count(*) from COMMENT_TABLE where  review_no = r.review_no) commentCount
+		from review r
+		join movie m on r.movie_no=m.movie_no 
+		WHERE PUBLIC_PRIVATE='Y'
+		Order by commentCount desc
+	</select>
+	
+	
+	
+	<!-- 댓글 -->
+	<!-- 
+	
+		(select COMMENT_CONTENT from COMMENT_TABLE where review_no = r.review_no) commentContent,
+		(select COMMENT_DATE  from COMMENT_TABLE where review_no = r.review_no) commentDate,
+		(select USER_ID from COMMENT_TABLE where review_no = r.review_no ) as commentId
+	 -->
+	
 
 	<select id="selectMovieingOne" parameterType="java.util.Map" resultType="ReviewDto">
 		select *  from USER_TABLE 
@@ -94,7 +142,7 @@
 	<!-- 리뷰 값 넣기 -->
 	<insert id="insertReview" parameterType="java.util.Map">
 		insert into REVIEW 
-		values (#{reviewNo},#{id},#{movieNo},#{reviewContent },SYSDATE,#{publicPrivate })
+		values (seq_review.nextval,#{id},#{movieNo},#{reviewContent },SYSDATE,#{publicPrivate })
 	</insert>
 
 	<select id="selectReviewList" parameterType="java.util.Map" resultType="ReviewDto">
