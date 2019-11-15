@@ -103,6 +103,227 @@ public class MovieController {
 		 */
 		return "movie/list/AllMovie.tiles";
 	}////////////////// movieMain
+	
+	
+	@RequestMapping("/Movieing/Movie/NewMovie.mov")
+	public String movieNew(Model model, @RequestParam Map map) throws Exception {
+
+		System.out.println("NewMovie 1 - DB 받아오기 전");
+			List<MovieDto> newMovieList = movieService.selectListNewRandom(map);
+		System.out.println("NewMovie 2 - newMoveList 생성 완료");
+			model.addAttribute("newMovieList", newMovieList);
+		System.out.println("NewMovie 3 - movieList 전달 완료");
+		
+		return "movie/list/NewMovie.tiles";
+		/*
+		// List<Map> mData = new Vector<Map>();
+		// Map<K, V> mNameDate = new HashMap();
+		List mNames = new Vector();
+		List mDate = new Vector();
+		List mList = movieTrain();
+		JSONObject json = new JSONObject();
+		JSONArray jArray = new JSONArray();
+		/*
+		 * for(int j=0; j<3;j++) { for(int i=j*6; i<j*6+6; i++) { System.out.println(i);
+		 * System.out.println(mlist.get(i)); mNames.add(movieImgUrl((String)
+		 * mlist.get(i))); //System.out.println(mNames.get(i)); //System.out.println();
+		 * } }
+		try {
+			for (int i = 0; i < 18; i++) {
+				mNames.add(movieImgUrl((String) mList.get(i)).get("realUrl"));
+				mDate.add(movieImgUrl((String) mList.get(i)).get("date"));
+				JSONObject obj = new JSONObject();
+				obj.put("realUrl", mNames.get(i));
+				obj.put("date", mDate.get(i));
+				obj.put("mname", mList.get(i));
+				jArray.add(obj);
+				// mNameDate.put((movieImgUrl((String)
+				// mList.get(i)).get("realUrl")),(movieImgUrl((String)
+				// mList.get(i)).get("date")));
+				// mNameDate.put("mImgUrl",movieImgUrl((String) mList.get(i)).get("realUrl"));
+				// mNameDate.put("mPubDate", movieImgUrl((String) mList.get(i)).get("date"));
+				// mData.add(mNameDate);
+				if (i % 5 == 0) {
+					Thread.sleep(1000);
+				}
+				// System.out.println("영화 제목 "+i+":"+mList.get(i));
+				// System.out.println("이미지 소스 "+i+":"+mNameDate.get("mImgUrl"));
+				// System.out.println("영화 제작 년도 "+i+":"+mNameDate.get("mPubDate"));
+				// System.out.println("영화 ?? "+i+":"+mNameDate.get(i));
+				// System.out.println("이미지 소스 "+i+":"+mNames.get(i));
+				// System.out.println("영화 제작 년도 "+i+":"+mDate.get(i));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// 영화이미지*/
+		// System.out.println("이미지소스 리스트 :"+mNames);
+		// System.out.println("영화제작년도 리스트 :"+mDate);
+		// System.out.println("제이슨 객체 :"+jArray);
+		// model.addAttribute("movieImgUrl", mNames);
+		// model.addAttribute("moviePubDate", mDate);
+		// model.addAttribute("movieName", mList);
+		// model.addAttribute("movieImgDate", mNameDate);
+		//model.addAttribute("movieImgDate", jArray);
+	}/////////////////
+	//NewMovie.jsp
+	//////////////////////////////////////////////////////////////////////////////////////////////
+	@RequestMapping("/Movieing/Movie/Popular.mov")
+	public String moviePopular(Model model, @RequestParam Map map) throws Exception {
+		
+		System.out.println("popMovie 1 - DB 받아오기 전");
+		List<MovieDto> popMovieList = movieService.selectListRandom(map);
+	System.out.println("popMovie 2 - popMovieList 생성 완료");
+		model.addAttribute("popMovieList", popMovieList);
+	System.out.println("popMovie 3 - popMovieList 전달 완료");
+		
+		return "movie/list/Popular.tiles";
+		/*
+		// List<Map> mData = new Vector<Map>();
+		// Map<K, V> mNameDate = new HashMap();
+		List mNames = new Vector();
+		List mDate = new Vector();
+		List mList = movieTrain2();
+		JSONObject json = new JSONObject();
+		JSONArray jArray = new JSONArray();
+		/*
+		 * for(int j=0; j<3;j++) { for(int i=j*6; i<j*6+6; i++) { System.out.println(i);
+		 * System.out.println(mlist.get(i)); mNames.add(movieImgUrl((String)
+		 * mlist.get(i))); //System.out.println(mNames.get(i)); //System.out.println();
+		 * } }
+		try {
+			for (int i = 0; i < 18; i++) {
+				mNames.add(movieImgUrl((String) mList.get(i)).get("realUrl"));
+				mDate.add(movieImgUrl((String) mList.get(i)).get("date"));
+				JSONObject obj = new JSONObject();
+				obj.put("realUrl", mNames.get(i));
+				obj.put("date", mDate.get(i));
+				obj.put("mname", mList.get(i));
+				jArray.add(obj);
+				// mNameDate.put((movieImgUrl((String)
+				// mList.get(i)).get("realUrl")),(movieImgUrl((String)
+				// mList.get(i)).get("date")));
+				// mNameDate.put("mImgUrl",movieImgUrl((String) mList.get(i)).get("realUrl"));
+				// mNameDate.put("mPubDate", movieImgUrl((String) mList.get(i)).get("date"));
+				// mData.add(mNameDate);
+				if (i % 5 == 0) {
+					Thread.sleep(1000);
+				}
+				// System.out.println("영화 제목 "+i+":"+mList.get(i));
+				// System.out.println("이미지 소스 "+i+":"+mNameDate.get("mImgUrl"));
+				// System.out.println("영화 제작 년도 "+i+":"+mNameDate.get("mPubDate"));
+				// System.out.println("영화 ?? "+i+":"+mNameDate.get(i));
+				// System.out.println("이미지 소스 "+i+":"+mNames.get(i));
+				// System.out.println("영화 제작 년도 "+i+":"+mDate.get(i));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// 영화이미지
+		// System.out.println("이미지소스 리스트 :"+mNames);
+		// System.out.println("영화제작년도 리스트 :"+mDate);
+		// System.out.println("제이슨 객체 :"+jArray);
+		// model.addAttribute("movieImgUrl", mNames);
+		// model.addAttribute("moviePubDate", mDate);
+		// model.addAttribute("movieName", mList);
+		// model.addAttribute("movieImgDate", mNameDate);
+		model.addAttribute("movieImgDate", jArray);
+		return "movie/list/Popular.tiles";
+		*/
+	}//////////////////////// moviePopular
+	
+	@RequestMapping("/Movieing/Movie/Genre.mov")
+	public String movieGenre(Model model, @RequestParam Map map) throws Exception {
+		
+		System.out.println("GradeMovie 1 - DB 받아오기 전");
+			List<MovieDto> StarMovieList = movieService.selectListRandom(map);
+		System.out.println("GradeMovie 2 - popMovieList 생성 완료");
+			model.addAttribute("StarMovieList", StarMovieList);
+		System.out.println("GradeMovie 3 - popMovieList 전달 완료");
+		
+		
+		return "movie/list/Genre.tiles";
+		/*
+		// List<Map> mData = new Vector<Map>();
+		// Map<K, V> mNameDate = new HashMap();
+		List mNames = new Vector();
+		List mDate = new Vector();
+		List mList = movieTrain3();
+
+		JSONObject json = new JSONObject();
+		JSONArray jArray = new JSONArray();
+
+		/*
+		 * for(int j=0; j<3;j++) { for(int i=j*6; i<j*6+6; i++) { System.out.println(i);
+		 * System.out.println(mlist.get(i)); mNames.add(movieImgUrl((String)
+		 * mlist.get(i))); //System.out.println(mNames.get(i)); //System.out.println();
+		 * } }
+		
+		try {
+			for (int i = 0; i < 18; i++) {
+
+				mNames.add(movieImgUrl((String) mList.get(i)).get("realUrl"));
+				mDate.add(movieImgUrl((String) mList.get(i)).get("date"));
+
+				JSONObject obj = new JSONObject();
+				obj.put("realUrl", mNames.get(i));
+				obj.put("date", mDate.get(i));
+				obj.put("mname", mList.get(i));
+
+				jArray.add(obj);
+
+				// mNameDate.put((movieImgUrl((String)
+				// mList.get(i)).get("realUrl")),(movieImgUrl((String)
+				// mList.get(i)).get("date")));
+
+				// mNameDate.put("mImgUrl",movieImgUrl((String) mList.get(i)).get("realUrl"));
+				// mNameDate.put("mPubDate", movieImgUrl((String) mList.get(i)).get("date"));
+
+				// mData.add(mNameDate);
+
+				if (i % 5 == 0) {
+					Thread.sleep(1000);
+				}
+				// System.out.println("영화 제목 "+i+":"+mList.get(i));
+				// System.out.println("이미지 소스 "+i+":"+mNameDate.get("mImgUrl"));
+				// System.out.println("영화 제작 년도 "+i+":"+mNameDate.get("mPubDate"));
+				// System.out.println("영화 ?? "+i+":"+mNameDate.get(i));
+				// System.out.println("이미지 소스 "+i+":"+mNames.get(i));
+				// System.out.println("영화 제작 년도 "+i+":"+mDate.get(i));
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// 영화이미지
+		// System.out.println("이미지소스 리스트 :"+mNames);
+		// System.out.println("영화제작년도 리스트 :"+mDate);
+		// System.out.println("제이슨 객체 :"+jArray);
+
+		// model.addAttribute("movieImgUrl", mNames);
+		// model.addAttribute("moviePubDate", mDate);
+		// model.addAttribute("movieName", mList);
+		// model.addAttribute("movieImgDate", mNameDate);
+		model.addAttribute("movieImgDate", jArray);
+		return "movie/list/Genre.tiles";
+	///////////////// movieGenre
+		*/
+	}
+
+	
+
+	
+
+	@RequestMapping("/Movieing/Movie/SearchResult.mov")
+	public String searchResult() {
+		return "movie/list/SearchResult.tiles";
+	}
+
+	
 
 	// 영화 상세 페이지
 		@RequestMapping("/Movieing/Movie/MovieDetails.mov")
@@ -228,223 +449,7 @@ public class MovieController {
 
 	///////////////////////////////////////////////////////
 
-	@RequestMapping("/Movieing/Movie/Genre.mov")
-	public String movieGenre(Model model) throws Exception {
-		// List<Map> mData = new Vector<Map>();
-		// Map<K, V> mNameDate = new HashMap();
-
-		List mNames = new Vector();
-		List mDate = new Vector();
-		List mList = movieTrain3();
-
-		JSONObject json = new JSONObject();
-		JSONArray jArray = new JSONArray();
-
-		/*
-		 * for(int j=0; j<3;j++) { for(int i=j*6; i<j*6+6; i++) { System.out.println(i);
-		 * System.out.println(mlist.get(i)); mNames.add(movieImgUrl((String)
-		 * mlist.get(i))); //System.out.println(mNames.get(i)); //System.out.println();
-		 * } }
-		 */
-		try {
-			for (int i = 0; i < 18; i++) {
-
-				mNames.add(movieImgUrl((String) mList.get(i)).get("realUrl"));
-				mDate.add(movieImgUrl((String) mList.get(i)).get("date"));
-
-				JSONObject obj = new JSONObject();
-				obj.put("realUrl", mNames.get(i));
-				obj.put("date", mDate.get(i));
-				obj.put("mname", mList.get(i));
-
-				jArray.add(obj);
-
-				// mNameDate.put((movieImgUrl((String)
-				// mList.get(i)).get("realUrl")),(movieImgUrl((String)
-				// mList.get(i)).get("date")));
-
-				// mNameDate.put("mImgUrl",movieImgUrl((String) mList.get(i)).get("realUrl"));
-				// mNameDate.put("mPubDate", movieImgUrl((String) mList.get(i)).get("date"));
-
-				// mData.add(mNameDate);
-
-				if (i % 5 == 0) {
-					Thread.sleep(1000);
-				}
-				// System.out.println("영화 제목 "+i+":"+mList.get(i));
-				// System.out.println("이미지 소스 "+i+":"+mNameDate.get("mImgUrl"));
-				// System.out.println("영화 제작 년도 "+i+":"+mNameDate.get("mPubDate"));
-				// System.out.println("영화 ?? "+i+":"+mNameDate.get(i));
-				// System.out.println("이미지 소스 "+i+":"+mNames.get(i));
-				// System.out.println("영화 제작 년도 "+i+":"+mDate.get(i));
-
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		// 영화이미지*/
-		// System.out.println("이미지소스 리스트 :"+mNames);
-		// System.out.println("영화제작년도 리스트 :"+mDate);
-		// System.out.println("제이슨 객체 :"+jArray);
-
-		// model.addAttribute("movieImgUrl", mNames);
-		// model.addAttribute("moviePubDate", mDate);
-		// model.addAttribute("movieName", mList);
-		// model.addAttribute("movieImgDate", mNameDate);
-
-		model.addAttribute("movieImgDate", jArray);
-		return "movie/list/Genre.tiles";
-	}///////////////// movieGenre
-
-	@RequestMapping("/Movieing/Movie/NewMovie.mov")
-	public String movieNew(Model model) throws Exception {
-
-		// List<Map> mData = new Vector<Map>();
-		// Map<K, V> mNameDate = new HashMap();
-
-		List mNames = new Vector();
-		List mDate = new Vector();
-		List mList = movieTrain();
-
-		JSONObject json = new JSONObject();
-		JSONArray jArray = new JSONArray();
-
-		/*
-		 * for(int j=0; j<3;j++) { for(int i=j*6; i<j*6+6; i++) { System.out.println(i);
-		 * System.out.println(mlist.get(i)); mNames.add(movieImgUrl((String)
-		 * mlist.get(i))); //System.out.println(mNames.get(i)); //System.out.println();
-		 * } }
-		 */
-		try {
-			for (int i = 0; i < 18; i++) {
-
-				mNames.add(movieImgUrl((String) mList.get(i)).get("realUrl"));
-				mDate.add(movieImgUrl((String) mList.get(i)).get("date"));
-
-				JSONObject obj = new JSONObject();
-				obj.put("realUrl", mNames.get(i));
-				obj.put("date", mDate.get(i));
-				obj.put("mname", mList.get(i));
-
-				jArray.add(obj);
-
-				// mNameDate.put((movieImgUrl((String)
-				// mList.get(i)).get("realUrl")),(movieImgUrl((String)
-				// mList.get(i)).get("date")));
-
-				// mNameDate.put("mImgUrl",movieImgUrl((String) mList.get(i)).get("realUrl"));
-				// mNameDate.put("mPubDate", movieImgUrl((String) mList.get(i)).get("date"));
-
-				// mData.add(mNameDate);
-
-				if (i % 5 == 0) {
-					Thread.sleep(1000);
-				}
-				// System.out.println("영화 제목 "+i+":"+mList.get(i));
-				// System.out.println("이미지 소스 "+i+":"+mNameDate.get("mImgUrl"));
-				// System.out.println("영화 제작 년도 "+i+":"+mNameDate.get("mPubDate"));
-				// System.out.println("영화 ?? "+i+":"+mNameDate.get(i));
-				// System.out.println("이미지 소스 "+i+":"+mNames.get(i));
-				// System.out.println("영화 제작 년도 "+i+":"+mDate.get(i));
-
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		// 영화이미지*/
-		// System.out.println("이미지소스 리스트 :"+mNames);
-		// System.out.println("영화제작년도 리스트 :"+mDate);
-		// System.out.println("제이슨 객체 :"+jArray);
-
-		// model.addAttribute("movieImgUrl", mNames);
-		// model.addAttribute("moviePubDate", mDate);
-		// model.addAttribute("movieName", mList);
-		// model.addAttribute("movieImgDate", mNameDate);
-
-		model.addAttribute("movieImgDate", jArray);
-
-		return "movie/list/AllMovie.tiles";
-	}/////////////////
-
-	@RequestMapping("/Movieing/Movie/Popular.mov")
-	public String moviePopular(Model model) throws Exception {
-		// List<Map> mData = new Vector<Map>();
-		// Map<K, V> mNameDate = new HashMap();
-
-		List mNames = new Vector();
-		List mDate = new Vector();
-		List mList = movieTrain2();
-
-		JSONObject json = new JSONObject();
-		JSONArray jArray = new JSONArray();
-
-		/*
-		 * for(int j=0; j<3;j++) { for(int i=j*6; i<j*6+6; i++) { System.out.println(i);
-		 * System.out.println(mlist.get(i)); mNames.add(movieImgUrl((String)
-		 * mlist.get(i))); //System.out.println(mNames.get(i)); //System.out.println();
-		 * } }
-		 */
-		try {
-			for (int i = 0; i < 18; i++) {
-
-				mNames.add(movieImgUrl((String) mList.get(i)).get("realUrl"));
-				mDate.add(movieImgUrl((String) mList.get(i)).get("date"));
-
-				JSONObject obj = new JSONObject();
-				obj.put("realUrl", mNames.get(i));
-				obj.put("date", mDate.get(i));
-				obj.put("mname", mList.get(i));
-
-				jArray.add(obj);
-
-				// mNameDate.put((movieImgUrl((String)
-				// mList.get(i)).get("realUrl")),(movieImgUrl((String)
-				// mList.get(i)).get("date")));
-
-				// mNameDate.put("mImgUrl",movieImgUrl((String) mList.get(i)).get("realUrl"));
-				// mNameDate.put("mPubDate", movieImgUrl((String) mList.get(i)).get("date"));
-
-				// mData.add(mNameDate);
-
-				if (i % 5 == 0) {
-					Thread.sleep(1000);
-				}
-				// System.out.println("영화 제목 "+i+":"+mList.get(i));
-				// System.out.println("이미지 소스 "+i+":"+mNameDate.get("mImgUrl"));
-				// System.out.println("영화 제작 년도 "+i+":"+mNameDate.get("mPubDate"));
-				// System.out.println("영화 ?? "+i+":"+mNameDate.get(i));
-				// System.out.println("이미지 소스 "+i+":"+mNames.get(i));
-				// System.out.println("영화 제작 년도 "+i+":"+mDate.get(i));
-
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		// 영화이미지*/
-		// System.out.println("이미지소스 리스트 :"+mNames);
-		// System.out.println("영화제작년도 리스트 :"+mDate);
-		// System.out.println("제이슨 객체 :"+jArray);
-
-		// model.addAttribute("movieImgUrl", mNames);
-		// model.addAttribute("moviePubDate", mDate);
-		// model.addAttribute("movieName", mList);
-		// model.addAttribute("movieImgDate", mNameDate);
-
-		model.addAttribute("movieImgDate", jArray);
-		return "movie/list/Popular.tiles";
-	}//////////////////////// moviePopular
-
-	@RequestMapping("/Movieing/Movie/SearchResult.mov")
-	public String searchResult() {
-		return "movie/list/SearchResult.tiles";
-	}
-
+	
 	// 전체영화 보여주기
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////

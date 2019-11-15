@@ -125,12 +125,12 @@ $(function() {
       
 			<div class="row" style="margin-top: 20px">
 			
-				<c:forEach items="${movieImgDate}" var="json">
+				<c:forEach items="${popMovieList}" var="movie" begin="0" end="29">
 
 					<div class="col-md-2 col-sm-6 movie-poster"style="margin-bottom: 5px">
 						<a
-							href="<c:url value='/Movieing/Movie/MovieDetails.mov?mname=${json.mname }&date=${json.date }'/>">
-							<img class="mvimg" src="${json.realUrl}" alt="" />
+							href="<c:url value='/Movieing/Movie/MovieDetails.mov?mcode=${movie.movieNo}'/>">
+							<img class="mvimg" src="${movie.movieImg}" alt="" />
 						</a>
 
 
