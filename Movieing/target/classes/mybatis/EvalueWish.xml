@@ -30,9 +30,37 @@
 
 	<!-- 별점준것 다시 새로 반영 -->
 	<update id="evaluationUpdate" parameterType="java.util.Map">
-	update EVALUATION set EVALUATION_GRADE =#{grade}, EVALUATION_DATE =SYSDATE
-	where USER_ID =#{id} and MOVIE_NO =#{movieNo}
+	update EVALUATION set EVALUATION_GRADE = #{grade}, EVALUATION_DATE = SYSDATE
+	where USER_ID = #{id} and MOVIE_NO = #{movieNo}
 	</update>
+	
+	<!-- a라는 유저가 b라는 영화에 별점을 남겼는지 확인하기 -->
+	<select id="isEvalue" parameterType="java.util.Map" resultType="int">
+		select count(*) from evaluation where user_id=#{id} and movie_no=#{movieNo}
+	</select>
+	
+	<!-- 별점 입력하기 -->
+	<insert id="evaluationInsert" parameterType="java.util.Map">
+		insert into evaluation values(#{id},#{movieNo},#{grade},SYSDATE)
+	</insert>
+	
+	<!-- 보고싶어요 추가하기 -->
+	<insert id="insertWish" parameterType="java.util.Map">
+		insert into wish values(#{id},#{movieNo},SYSDATE)
+	</insert>
+	
+	<!-- 보고싶어요 삭제하기 -->
+	<delete id="deleteWish" parameterType="java.util.Map">
+		delete wish where user_id=#{id} and movie_no=#{movieNo}
+	</delete>
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 </mapper>

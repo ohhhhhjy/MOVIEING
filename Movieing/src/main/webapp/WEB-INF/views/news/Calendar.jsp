@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!-- 타일즈 설정되어 있어서  바디부분만 작성하면 됨. 
 근데 타일즈라 그냥 만들기만 한다고 되는게 아님.
 컨트롤러가서 RequestMapping해줘야됨.
@@ -306,25 +307,28 @@ tbody>tr {
 
 <script>
 
-		
-		
 	var event;
+	$(function(){	
 	
+		
 	
 	
    		$.ajax({
    			url: "<c:url  value='/Ajax/Calendar.mov'/>", 
    			dataType: 'text', 
+   			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
    			async: false,
    			success: function(data) {
-   				console.log(data);
-   				event=data;
+   				var decode = decodeURIComponent(data);
+   				console.log(decode);
+   				event=decode;
    				} 
    		});
    		console.log(event);
 		 
+	});
 		
-		
+	
 
 		
 	
@@ -343,7 +347,5 @@ tbody>tr {
 		events : event
 			
 	});
-	
-	
 	
 </script>

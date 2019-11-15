@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
+import javax.annotation.Resource;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.jsoup.Jsoup;
@@ -18,50 +20,60 @@ import org.jsoup.select.Elements;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kosmo.movieing.service.MovieDto;
+import com.kosmo.movieing.service.MovieService;
+import com.kosmo.movieing.service.impl.MovieDao;
 //
 @Controller
 public class RecommendController {
+	
+	@Resource(name = "movieService")
+	private MovieService movieService;
+	
+	
+	
 	@RequestMapping("/Movieing/Movie/Recommend.mov")
-	public String recommend(Model model) throws Exception {
+	public String recommend(Model model, @RequestParam Map map) throws Exception {
+		
+		List<MovieDto> movieList = movieService.selectListMovie(map);
+		List<MovieDto> movieRomanceList = movieService.selectListRomance(map);
+		List<MovieDto> movieHorrorList = movieService.selectListHorror(map);
+		List<MovieDto> movieRamdomList = movieService.selectListRandom(map);
+		List<MovieDto> movieComedyList = movieService.selectListComedy(map);
+		
+		model.addAttribute("movieList", movieList);
+		model.addAttribute("movieRandomList", movieRamdomList);
+		model.addAttribute("movieRomanceList", movieRomanceList);
+		model.addAttribute("movieHorrorList", movieHorrorList);
+		model.addAttribute("movieComedyList", movieComedyList);
+		
+		return "movie/recommend/Recommend.tiles";
+		/*
 		List mNames = new Vector();
 		List mDate = new Vector();
 		List mList = movieTrain();
-		
 		JSONObject json = new JSONObject();
 		JSONArray jArray = new JSONArray();
-		
-		
-	
 		try {
 		for(int i=0; i<6;i++) {
-			
 			mNames.add(movieImgUrl((String) mList.get(i)).get("realUrl"));
 			mDate.add(movieImgUrl((String) mList.get(i)).get("date"));
-		
 			JSONObject obj = new JSONObject();
 			obj.put("realUrl",mNames.get(i));
 			obj.put("date",mDate.get(i));
 			obj.put("mname", mList.get(i));
-			
 			jArray.add(obj);
-			
-		
-			
 			if(i%5==0) {
 				Thread.sleep(1000);
 			}
-			
 		}
-		
 		}
 		catch(Exception e) {e.printStackTrace();}
-		
-	
-		
 		model.addAttribute("movieImgDate",jArray);
-		return "movie/recommend/Recommend.tiles";
+		*/
 	}
 	
 	@RequestMapping("/Movieing/Movie/test.mov")

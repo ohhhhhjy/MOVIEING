@@ -1,5 +1,7 @@
 package com.kosmo.movieing.web;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +25,7 @@ public class CalendarAjaxController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/Ajax/Calendar.mov")
-	public String ajaxJsonArray() {
+	public String ajaxJsonArray() throws Exception {
 		Map map = new HashMap();
 		//calendarService.selectList(map);
 		List<CalendarDto> list = calendarService.selectList(map);
@@ -32,8 +34,9 @@ public class CalendarAjaxController {
 			array+="{title:'"+ dto.getEventName()+"',start:'"+dto.getEventStart().toString()+"',end:'"+dto.getEventEnd().toString()+"'},";
 		}
 		array+="]";
-		System.out.println(array);		
-		return array;
+		String array2 = URLEncoder.encode(array,"UTF-8");
+		System.out.println(array2);		
+		return array2;
 //		List<Map> collections = new Vector<Map>();
 //		for(CalendarDto dto : list) {
 //			Map record = new HashMap();

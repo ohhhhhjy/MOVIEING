@@ -220,18 +220,74 @@ height: 100%;
 
 <script>
 $(document).ready(function() {
-	$('.starRev span').click(function() {
+	
+	
+ 	$('.starRev span').click(function() {
 		$(this).parent().children('span').removeClass('on');
 		$(this).addClass('on').prevAll('span').addClass('on');
 		return false;
 	});
 	
+	//보고싶어요 클릭시 ajax 메소드..
  	$('#btnWish').click(function(){
- 		if($('#wishBtnIcon').prop('class')=='fas fa-plus')
+ 		var movieNo = ${movieNo};
+ 		var isInsert = true;
+ 		//보고싶어요 x > 보고싶어요 o(insert)
+ 		if($('#wishBtnIcon').prop('class')=='fas fa-plus'){
  			$('#wishBtnIcon').removeClass('fa-plus').addClass('fa-bookmark');
- 		else
+ 			
+ 		}
+ 		//보고싶어요 o > 보고싶어요 x(delete)
+ 		else{
  			$('#wishBtnIcon').removeClass('fa-bookmark').addClass('fa-plus'); 
+ 			isInsert = false;
+ 		}
+ 		
+ 		$.ajax({
+			url:"<c:url value='/Movieing/Movie/wishAjax.mov'/>",
+				type:'post',
+				data:
+					{movieNo:movieNo,isInsert:isInsert},
+		    beforeSend : function(xhr)
+              {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+                  xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+              },	
+				success:function(){//서버로 부터 정상적인 응답을 받았을 때(200번)
+				},	
+				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+					console.log("에러:"+data.responseText);
+				} 			
+		});
 	});
+ 	
+ 	
+ 	//별점 클릭시 insert와 update를 실행시키기위한 ajax메소드..
+ 	$('.starRadio').click(function(){
+ 		var movieNo = ${movieNo};//이전페이지에서 넘어오는 영화번호
+ 		var starNo = $(this).val();//방금클릭한 grade.
+		$('.starRadio').prop('checked', false);
+		$(this).prop('checked', true);
+ 		var starString = $(this).attr('name');
+ 		
+ 		
+ 		$.ajax({
+				url:"<c:url value='/Movieing/Movie/starAjax.mov'/>",
+ 				type:'post',
+ 				data:
+ 					{movieNo:movieNo,grade:starNo},
+			    beforeSend : function(xhr)
+                  {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+                      xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+                  },	
+ 				success:function(){//서버로 부터 정상적인 응답을 받았을 때(200번)
+ 					//아래의 메소드는 별점클릭시 span을 추가해주기 위함이므로, 평가메뉴에서 사용할거라면 빼는걸 추천..
+ 					$('#starSpan').html('<span  class="px-2" style="color:#db147b;font-weight: bold">'+starString+'</span>');
+ 				},	
+ 				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+ 					console.log("에러:"+data.responseText);
+ 				} 			
+ 		});
+ 	});
  	
 
 
@@ -316,28 +372,29 @@ $(document).ready(function() {
 			<!-- 포스터 -->
 			<div class="col-md-3 ">
 				<a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"><img
-					class="movieImage" src="${movieImgUrl}"
+					class="movieImage" src="${movieInfo.movieImg}"
 					alt="포스터" /></a>
 			</div>
 			<!-- 기본정보+별점 -->
 			<div class="col-md-6  ">
-					<h1>${movieInfoMap.movieInfoResult.movieInfo.movieNm}<span class="text-muted px-2" >${movieInfoMap.movieInfoResult.movieInfo.prdtYear}</span></h1>
-					<h6 class="px-2">${movieInfoMap.movieInfoResult.movieInfo.movieNmEn}</h6>
+					<h1>${movieInfo.movieTitle}<span class="text-muted px-2" >${movieInfo.movieYear}</span></h1>
+					<h6 class="px-2">${movieInfo.movieOrgTitle}</h6>
 					<hr class="my-3">
-					<span class="px-2">${movieInfoMap.movieInfoResult.movieInfo.audits[0].watchGradeNm} ・ ${movieInfoMap.movieInfoResult.movieInfo.genres[0].genreNm} ・ ${movieInfoMap.movieInfoResult.movieInfo.nations[0].nationNm}</span>
+					<span class="px-2">${movieInfo.movieGrade} ・ ${movieInfo.movieGenre} ・ ${movieInfo.movieCountry}</span>
 					<hr class="my-3">
 					<span class="px-2" style="font-weight: bold">평점★3.8</span>
-					<span> ・</span>
-					<span class="px-2" style="color:#db147b;font-weight: bold">예상★4.0</span>
+					<!-- <span> ・</span>
+					<span class="px-2" style="color:#db147b;font-weight: bold">예상★4.0</span> -->
 					<hr class="my-3">
+					<div id="starSpan"></div>
 					<div class="row">
 						<!-- 별점 -->
 					<div class="rating px-3" >
-				      <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="최고예요">5 stars</label>
-				      <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="재미있어요">4 stars</label>
-				      <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="보통이에요">3 stars</label>
-				      <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="별로예요">2 stars</label>
-				      <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="싫어요">1 star</label>
+				      <input class="starRadio" type="radio" id="star5" name="최고예요" value="5" /><label for="star5" title="최고예요">5 stars</label>
+				      <input class="starRadio" type="radio" id="star4" name="재미있어요" value="4" /><label for="star4" title="재미있어요">4 stars</label>
+				      <input class="starRadio" type="radio" id="star3" name="보통이에요" value="3" /><label for="star3" title="보통이에요">3 stars</label>
+				      <input class="starRadio" type="radio" id="star2" name="별로예요" value="2" /><label for="star2" title="별로예요">2 stars</label>
+				      <input class="starRadio" type="radio" id="star1" name="싫어요" value="1" /><label for="star1" title="싫어요">1 star</label>
 				    </div> 
 								<!-- 별점 반개 실험 <span class="star-icon full">☆</span>
 								<span class="star-icon full">☆</span>
@@ -368,7 +425,7 @@ $(document).ready(function() {
 									alt="Naver Store" title="Naver Store"
 									src="<c:url value='/resources/img/movie/naver.png'/>">
 								</a>
-								<div class="priceText" >7000원</div>
+								<div class="priceText" >${movieInfo.naverPrice}</div>
 							</div>
 							<div class="price-comparison_grid_row_element_icon col-md-4">
 								<a href="#"> <img
@@ -376,22 +433,18 @@ $(document).ready(function() {
 									alt="Naver Store" title="Naver Store"
 									src="<c:url value='/resources/img/movie/pooq.jpg'/>">
 								</a>
-								<div class="priceText">6000원</div>
+								<div class="priceText">${movieInfo.wavvePrice }</div>
 							</div>
-						</div>
-						<!-- 대여 -->
-				  	     <span class="badge badge-dark" style="font-size:0.9em">대여</span>
-						 <div class="price-comparison_grid_row row py-1">
 							<div class="price-comparison_grid_row_element_icon col-md-4">
 								<a href="#"> <img
 									class="jw-provider-icon price-comparison_grid_row_icon"
 									alt="Naver Store" title="Naver Store"
-									src="<c:url value='/resources/img/movie/naver.png'/>">
+									src="<c:url value='/resources/img/movie/pooq.jpg'/>">
 								</a>
-								<div class="priceText" >7000원</div>
+								<div class="priceText">${movieInfo.googlePrice }</div>
 							</div>
-							
 						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -415,19 +468,14 @@ $(document).ready(function() {
 			
 			<!-- 줄거리 -->
 			<h4>줄거리</h4>
-			<p>전 여친에 상처받은 ‘재훈’(김래원). 여느
-						때처럼 숙취로 시작한 아침, 모르는 번호의 누군가와 밤새 2시간이나 통화한 기록을 발견하게 되고 그 상대가 바로!
-						통성명한 지 24시간도 채 되지 않은 직장 동료 ‘선영’임을 알게 된다. 남친과 뒤끝 있는 이별 중인
-						‘선영’(공효진). 새로운 회사로 출근한 첫날, 할 말 못 할 말 쏟아내며 남친과 헤어지던 현장에서 하필이면! 같은
-						직장의 ‘재훈’을 마주친다. 만난 지 하루 만에 일보다 서로의 연애사를 더 잘 알게 된 두 사람. 하지만 미묘한 긴장과
-						어색함도 잠시 ‘한심하다’, ‘어이없다’ 부딪히면서도 마음이 쓰이는 건 왜 그럴까?</p>
+			<p>${movieInfo.movieContent }</p>
 						
 			<hr class="my-3">
 			
 			<!-- 감독 -->
 			<div class="row">
 				<div class="col-md-1"><h4>감독</h4></div>
-				<a class="moviePersonName"  href="#">${movieInfoMap.movieInfoResult.movieInfo.directors[0].peopleNm}</a>
+				<a class="moviePersonName"  href="#">${movieInfo.movieDirector }</a>
 			</div>
 			
 			<hr class="my-3">
@@ -436,7 +484,7 @@ $(document).ready(function() {
 			<div class="row">
 				<div class="col-md-1"><h4>배우</h4></div>
 				<c:forEach items="${movieInfoMap.movieInfoResult.movieInfo.actors}" var="actors">
-					<a class="moviePersonName" href="#">${actors.peopleNm }</a>
+					<a class="moviePersonName" href="#"></a>
 				</c:forEach>
 			</div>
 			

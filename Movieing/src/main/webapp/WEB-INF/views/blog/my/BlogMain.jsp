@@ -371,15 +371,14 @@ body {
 					<div class="card-body">
 						<div class="row">
 							<div class="col-sm-3" align="center">
-								<a
-									href="<c:url value='/Movieing/Movie/MovieDetails.mov?moviveNo=${item.movieNo }'/>"><img
-									class="movieImage" src="${item.imgUrl }" alt="포스터" /></a>
+								<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><img
+									class="movieImage"
+									src="${item.imgUrl }" alt="포스터" /></a>
 							</div>
 							<div class="col-sm-9">
 
-								<a
-									href="<c:url value='/Movieing/Movie/MovieDetails.mov?moviveNo=${item.movieNo }'/>">
-									<h4 class="card-title" style="color: black">${item.movieTitle }</h4></a>
+
+								<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><h4 class="card-title" style="color:black">${item.movieTitle }</h4></a>
 								<span class="badge badge-pill badge-danger">★${item.grade }</span>
 								<p class="card-text" style="height: 110px">${item.reviewContent }</p>
 								<a href="#"><span

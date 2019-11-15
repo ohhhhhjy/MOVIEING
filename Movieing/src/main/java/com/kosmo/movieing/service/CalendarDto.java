@@ -9,6 +9,7 @@ public class CalendarDto {
 	Date eventStart;
 	Date eventEnd;
 	String eventPlace;
+	
 	public String getEventName() {
 		return eventName;
 	}
@@ -24,6 +25,23 @@ public class CalendarDto {
 	public String getEventPlace() {
 		return eventPlace;
 	}
+	public void setEventName(String eventName) {
+		this.eventName = eventName;
+	}
+	public void setEventContent(String eventContent) {
+		this.eventContent = eventContent;
+	}
+	public void setEventStart(Date eventStart) {
+		this.eventStart = eventStart;
+	}
+	public void setEventEnd(Date eventEnd) {
+		this.eventEnd = eventEnd;
+	}
+	public void setEventPlace(String eventPlace) {
+		this.eventPlace = eventPlace;
+	}
+	
+	
 	
 	
 

@@ -60,7 +60,6 @@ public class BlogController {
 	private UserService userService;
 
 	// 블로그메인
-
 	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov", method = RequestMethod.GET)
 	public String blogMain(@RequestParam Map map, Model model, Authentication auth) throws Exception {
 		String id = map.get("otherUserId") == null ? auth.getName() : map.get("otherUserId").toString();
@@ -176,6 +175,13 @@ public class BlogController {
 			times.setReviewContent(times.getReviewContent().replace("\r\n", "<br>"));
 		}
 
+
+		// 영화포스터 + 리뷰 줄바꿈 처리
+		for (ReviewDto record : selectList) {
+			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
+			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
+		}
+
 		model.addAttribute("selectList", selectList);
 
 		return "blog/my/BlogMain.tiles";
@@ -256,6 +262,13 @@ public class BlogController {
 			times.setReviewContent(times.getReviewContent().replace("\r\n", "<br>"));
 		}
 
+
+		// 영화포스터 + 리뷰 줄바꿈 처리
+		for (ReviewDto record : selectList) {
+			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
+			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
+		}
+
 		model.addAttribute("selectList", selectList);
 
 		// 해쉬태그 추가해야함
@@ -286,6 +299,7 @@ public class BlogController {
 		// 가져온 리스트에 사진url담아주기
 		for (ReviewDto record : reviewList) {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
+			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
 		}
 
 		// 3.좋아요
@@ -293,6 +307,7 @@ public class BlogController {
 		// 가져온 리스트에 사진url담아주기
 		for (ReviewDto record : reviewLikeList) {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
+			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
 		}
 
 		// 4.보고싶어요
@@ -358,7 +373,6 @@ public class BlogController {
 		System.out.println("리뷰번호:" + reviewNo);
 
 		int insert = commentService.insert(map);// 댓글insert
-		System.out.println("입력이 됫나?" + insert);
 
 	}///////////////////////////////
 
@@ -376,16 +390,20 @@ public class BlogController {
 
 
 		System.out.println("닉네임:" + friendsReviewList1.get(0).getUserNick());
+
 		model.addAttribute("friendsReviewList1", friendsReviewList1);
+
 
 		// 유저자기소개]
 		ReviewDto friendsSelf = reviewService.selectMovieingOne(map);// 1개
 		model.addAttribute("friendsSelf", friendsSelf);
+
 		System.out.println("자기소개 가져오기완료");
 		//팔로우수]
 		int follower=followService.getTotalFollowerCount(map);
 		//팔로잉수]
 		int following=followService.getTotalFollowingCount(map);
+
 
 		model.addAttribute("follower", follower);
 		model.addAttribute("following", following);

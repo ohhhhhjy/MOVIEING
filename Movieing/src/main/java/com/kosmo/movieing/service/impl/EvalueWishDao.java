@@ -75,10 +75,34 @@ public class EvalueWishDao implements EvalueWishService{
       return template.selectOne("getTotalWishCount",map);
    }
 
-@Override
-public int getEachEvalue(Map map) {
+	@Override
+	public int getEachEvalue(Map map) {
 
-	return template.selectOne("getEachEvalue",map);
-}
+		return template.selectOne("getEachEvalue",map);
+	}
 
-}
+	@Override
+	public boolean isEvalue(Map map) {
+
+		return (Integer)template.selectOne("isEvalue",map)==1?true:false;
+	}
+
+	@Override
+	public int insertWish(Map map) {
+
+		return template.insert("insertWish",map);
+	}
+
+	@Override
+	public int updateWish(Map map) {
+
+		return 0;
+	}
+
+	@Override
+	public int deleteWish(Map map) {
+
+		return template.delete("deleteWish",map);
+	}
+
+	}
