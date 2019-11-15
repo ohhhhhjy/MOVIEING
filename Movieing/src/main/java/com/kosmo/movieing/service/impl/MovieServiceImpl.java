@@ -55,4 +55,35 @@ public class MovieServiceImpl implements MovieService{
 		return dao.selectMovieNo(map);
 	}
 
+	@Override
+	public List<MovieDto> selectListHorror(Map map) {
+		return dao.selectListHorror(map);
+	}
+
+	@Override
+	public List<MovieDto> selectListRomance(Map map) {
+		return dao.selectListRomance(map);
+	}
+
+	@Override
+	public List<MovieDto> selectListComedy(Map map) {
+		return dao.selectListComedy(map);
+	}
+
+	@Override
+	public List<MovieDto> selectListRandom(Map map) {
+		return dao.selectListRandom(map);
+	}
+
+	@Override
+	public List<MovieDto> selectListMovie(Map map) {
+		return dao.selectListMovie(map);
+	}
+
+	@Override
+	public MovieDto selectOneMovie(Map map) {
+		// TODO Auto-generated method stub
+		return dao.selectOne(map);
+	}
+
 }

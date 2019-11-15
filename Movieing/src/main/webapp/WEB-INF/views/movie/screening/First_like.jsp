@@ -274,17 +274,17 @@ img:hover {
 
 		<div class="col-xl-12">
 			<div class="row">
-				<c:forEach items="${movieImgName}" var="json">
+				<c:forEach items="${movieList}" var="movie">
 
 					<div class="col-md-2">
 						<figure class="snip1273">
-							<img src="${json.mImgUrl}" alt="Pineapple" alt="Image" style="width: 228px; height: 321px">
+							<img src="${movie.movieImg}" alt="Pineapple" alt="Image" style="width: 228px; height: 321px">
 							<!-- 안에 내용 -->
 							<figcaption>
 								<div align="left" style="padding-top: 100px">
-									<h4>${json.mname}</h4>
+									<h4>${movie.movieTitle}</h4>
 									<div style="padding-left: 80px">
-										<h6>${json.mdate }</h6>
+										<h6>${movie.movieYear }</h6>
 									</div>
 									<!-- 별점 -->
 							

@@ -103,6 +103,17 @@ public class ReviewDao implements ReviewService{
 	}
 
 	@Override
+	public int getTotalMovieReviewCount(Map map) {
+
+		return template.selectOne("getTotalMovieReviewCount",map);
+	}
+
+	@Override
+	public List<ReviewDto> selectMovieReviewList(Map map) {
+
+		return template.selectList("selectMovieReviewList",map);
+	}
+	
 	public List<ReviewDto> selectFriendsList(Map map) {
 		return template.selectList("selectFriendsList", map);
 	}
@@ -111,5 +122,21 @@ public class ReviewDao implements ReviewService{
 	public List<ReviewDto> selectReviewNos(Map map) {
 		return template.selectList("selectReviewNos", map);
 	}
+
+	@Override
+	public List<ReviewDto> friendsReviewList1(Map map) {
+		return template.selectList("friendsReviewList1", map);
+	}
+
+	@Override
+	public List<ReviewDto> friendsReviewList2(Map map) {
+		return template.selectList("friendsReviewList2", map);
+	}
+
+	@Override
+	public List<ReviewDto> friendsReviewList3(Map map) {
+		return template.selectList("friendsReviewList3", map);
+	}
+
 
 }

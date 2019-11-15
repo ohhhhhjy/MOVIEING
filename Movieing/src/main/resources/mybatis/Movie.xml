@@ -9,6 +9,42 @@
 		select MOVIE_NO from movie
 		where MOVIE_TITLE  =#{movieTitle}
 	</select>
-
+	
+	<!-- 영화 리스트 가져오기 -->
+	<select id="selectListMovie" parameterType="java.util.Map" resultType="MovieDto">
+		select * from movie
+	</select>
+	
+	<!-- 영화 한개 DTO 가져오기 -->
+	<select id="selectOneMovie" parameterType="java.util.Map" resultType="MovieDto">
+		select * from movie
+		where MOVIE_TITLE = #{movieTitle}
+	</select>
+	<!-- 특정 영화 DTO 가져오기 -->
+	<select id="selectOne" parameterType="java.util.Map" resultType="MovieDto">
+		select * from movie
+		where MOVIE_NO = #{movieNo}
+	</select>
+	
+	<!-- 공포 영화 가져오기 -->
+	<select id="selectListHorror" parameterType="java.util.Map" resultType="MovieDto">
+		select * from movie
+		where MOVIE_GENRE = '공포'
+	</select>
+	<!-- 로맨스 영화 가져오기 -->
+	<select id="selectListRomance" parameterType="java.util.Map" resultType="MovieDto">
+		select * from movie
+		where MOVIE_GENRE = '멜로/로맨스'
+	</select>
+	<!-- 코디미 영화 가져오기 -->
+	<select id="selectListComedy" parameterType="java.util.Map" resultType="MovieDto">
+		select * from movie
+		where MOVIE_GENRE = '코미디'
+	</select>
+	<!-- 무빙인기영화 랜덤 가져오기 -->
+	<select id="selectListRandom" parameterType="java.util.Map" resultType="MovieDto">
+		select * from movie 
+		order by dbms_random.value
+	</select>
 
 </mapper>

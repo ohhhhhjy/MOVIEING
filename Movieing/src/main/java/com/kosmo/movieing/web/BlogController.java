@@ -5,13 +5,17 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.security.Principal;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +24,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kosmo.movieing.service.CommentDto;
 import com.kosmo.movieing.service.CommentService;
 import com.kosmo.movieing.service.EvaluationDto;
 import com.kosmo.movieing.service.EvalueWishService;
@@ -57,13 +60,13 @@ public class BlogController {
 	private UserService userService;
 
 	// 블로그메인
+
 	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov", method = RequestMethod.GET)
-	public String blogMain(@RequestParam Map map, Model model) throws Exception {
-		String id = "KIM";// 임시
+	public String blogMain(@RequestParam Map map, Model model,Authentication auth) throws Exception {
+		String id = map.get("otherUserId")==null?auth.getName():map.get("otherUserId").toString();
 
 		map.put("id", id);
 		model.addAttribute("id", id);
-
 		// [유저정보] count 별.리.좋.보. 팔로워.팔로잉.
 		// 유저 정보
 		UserDto userInfo = userService.selectOne(map);
@@ -135,25 +138,63 @@ public class BlogController {
 
 		// 내가 작성한 글]
 		List<ReviewDto> selectList = reviewService.selectList(map);// 쓴글 가져오기
+
+		for(ReviewDto times:selectList) {
+			//현재시각
+			Date now=new Date();
+			Calendar cal1=Calendar.getInstance();
+			Calendar cal2=Calendar.getInstance();
+
+			System.out.println("현재시각"+now);
+			SimpleDateFormat formatter=new SimpleDateFormat("MM월 dd일");
+			String nowFormat=formatter.format(now);//현재시간 형식
+			System.out.println("현재시간 형식:"+nowFormat);
+			Date time=times.getReviewPostdate();//게시 일자
+
+			cal2.setTime(time);
+			String postDateFormat=formatter.format(time);//게시시간 형식
+			System.out.println("현재시간 형식:"+postDateFormat);
+
+			String reviewPostdate;
+			if(nowFormat.equals(postDateFormat)) {
+				reviewPostdate="오늘";
+			}else{//날짜 다르면
+				long diffSec=(cal1.getTimeInMillis()-cal2.getTimeInMillis())/1000;//초
+				long diffDay=diffSec/(60*60*24);
+				System.out.println("두 날짜의 일 차이:"+ diffDay);
+				if(diffDay==1.0) {
+					reviewPostdate="어제";
+				} else {
+					reviewPostdate=postDateFormat;
+				}
+
+			}
+			map.put("reviewPostdate", reviewPostdate);
+			model.addAttribute("reviewPostdate", reviewPostdate);
+		}
+
+
 		// 영화포스터
 		for (ReviewDto record : selectList) {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
 		}
 		model.addAttribute("selectList", selectList);
 
+
 		return "blog/my/BlogMain.tiles";
 	}/////////////////////////////////////////////
 
 	// 리뷰작성 후 메인으로
 	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov", method = RequestMethod.POST)
-	public String blogMain2(@RequestParam Map map, Model model) throws Exception {
-		String id = "KIM";// 임시
+	public String blogMain2(@RequestParam Map map, Model model,Authentication auth) throws Exception {
+		String id = map.get("otherUserId")==null?auth.getName():map.get("otherUserId").toString();
+
 		map.put("id", id);
 		model.addAttribute("id", id);
 
-		String reviewNo = "5";// 계속 바꿔야
-		map.put("reviewNo", reviewNo);
-		model.addAttribute("reviewNo", reviewNo);
+		//String reviewNo = "5";// 계속 바꿔야
+		//map.put("reviewNo", reviewNo);
+		//model.addAttribute("reviewNo", reviewNo);
 
 		// 리뷰남김거 받기]
 		// map에 write으로 map형태로 받음
@@ -171,21 +212,62 @@ public class BlogController {
 		model.addAttribute("grade", grade);// 평점
 		model.addAttribute("reviewContent", reviewContent);// 내용
 
-		System.out.println("영화제목:" + movieTitle);
-		System.out.println("영화번호:" + movieNo);
-		System.out.println("평점:" + grade);
-		System.out.println("리뷰내용:" + reviewContent);
-		System.out.println("공개여부:" + publicPrivate);
+//		System.out.println("영화제목:" + movieTitle);
+//		System.out.println("영화번호:" + movieNo);
+//		System.out.println("평점:" + grade);
+//		System.out.println("리뷰내용:" + reviewContent);
+//		System.out.println("공개여부:" + publicPrivate);
 
-		int insertReview = reviewService.insertReview(map);
+		int insertReview = reviewService.insertReview(map);//작성한 리뷰 insert 리뷰넘버있음
+		//평가 테이블에 평점 넣기]
+		int updateGrade=evalueWishService.update(map);//업데이트
+
 
 		// 공개여부
 		// publicPrivate=2?"Y":"N";//공개여부면 Y로 저장,나만보기는 N으로 저장
 
 		model.addAttribute("insertReview", insertReview);// 리뷰테이블에 insert
 
+
 		// 내가 작성한 글
 		List<ReviewDto> selectList = reviewService.selectList(map);// 쓴글 가져오기
+
+		Date time=selectList.get(0).getReviewPostdate();//게시 일자
+
+		for(ReviewDto times:selectList) {
+			//현재시각
+			Date now=new Date();
+			Calendar cal1=Calendar.getInstance();
+			Calendar cal2=Calendar.getInstance();
+
+			System.out.println("현재시각"+now);
+			SimpleDateFormat formatter=new SimpleDateFormat("MM월 dd일");
+			String nowFormat=formatter.format(now);//현재시간 형식
+			System.out.println("현재시간 형식:"+nowFormat);
+
+
+			cal2.setTime(time);
+			String postDateFormat=formatter.format(time);//게시시간 형식
+			System.out.println("현재시간 형식:"+postDateFormat);
+
+			String reviewPostdate;
+			if(nowFormat.equals(postDateFormat)) {
+				reviewPostdate="오늘";
+			}else{//날짜 다르면
+				long diffSec=(cal1.getTimeInMillis()-cal2.getTimeInMillis())/1000;//초
+				long diffDay=diffSec/(60*60*24);
+				System.out.println("두 날짜의 일 차이:"+ diffDay);
+				if(diffDay==1.0) {
+					reviewPostdate="어제";
+				} else {
+					reviewPostdate=postDateFormat;
+				}
+
+			}
+			map.put("reviewPostdate", reviewPostdate);
+			model.addAttribute("reviewPostdate", reviewPostdate);
+		}
+
 		// 영화포스터
 		for (ReviewDto record : selectList) {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
@@ -200,8 +282,8 @@ public class BlogController {
 
 	// 블로그-내 활동
 	@RequestMapping("/Movieing/Blog/MyActivity.mov")
-	public String myActiviy(@RequestParam Map map, Model model) throws Exception {
-		String id = "KIM";// 임시
+	public String myActiviy(@RequestParam Map map, Model model,Authentication auth) throws Exception {
+		String id = auth.getName();
 
 		map.put("id", id);
 		model.addAttribute("id", id);
@@ -236,10 +318,10 @@ public class BlogController {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
 		}
 
-		model.addAttribute("evaluationList", evaluationList);// 별점
-		model.addAttribute("reviewList", reviewList);// 리뷰
-		model.addAttribute("reviewLikeList", reviewLikeList);// 좋아요
-		model.addAttribute("wishList", wishList);// 보고싶어요
+		model.addAttribute("evaluationList", evaluationList.isEmpty()?null:evaluationList);// 별점
+		model.addAttribute("reviewList", reviewList.isEmpty()?null:reviewList);// 리뷰
+		model.addAttribute("reviewLikeList", reviewLikeList.isEmpty()?null:reviewLikeList);// 좋아요
+		model.addAttribute("wishList", wishList.isEmpty()?null:wishList);// 보고싶어요
 
 		return "blog/my/MyActivity.tiles";
 	}
@@ -247,14 +329,12 @@ public class BlogController {
 	// 좋아요 삭제
 	@ResponseBody
 	@RequestMapping(value = "/Movieing/Blog/LikeRemove.mov", method = RequestMethod.POST)
-	public String likeRemove(@RequestParam Map map) {
-		String id = "PARK";// 임시
-		System.out.println("삭제가 잘되는걸까..");
+	public String likeRemove(@RequestParam Map map ,Authentication auth) {
+		String id = auth.getName();
 		int reviewNo = Integer.parseInt(map.get("reviewNo").toString());
 		map.put("reviewNo", reviewNo);
 		map.put("id", id);
 		likeReviewService.delete(map);
-		System.out.println("삭제가 됫음!!");
 		int count = likeReviewService.getTotalCountByAll(map);
 		return String.valueOf(count);
 	}//////////////////////////////////////////////////
@@ -262,8 +342,9 @@ public class BlogController {
 	// 좋아요 입력
 	@ResponseBody
 	@RequestMapping(value = "/Movieing/Blog/LikeInsert.mov", method = RequestMethod.POST)
-	public String likeInsert(@RequestParam Map map) {
-		String id = "PARK";// 임시
+	public String likeInsert(@RequestParam Map map,Authentication auth) {
+		String id =auth.getName();
+
 		System.out.println("뭐냐이게 되냐고" + map.get("reviewNo").toString());
 		int reviewNo = Integer.parseInt(map.get("reviewNo").toString());
 
@@ -280,12 +361,12 @@ public class BlogController {
 	// 댓글 입력]
 	@ResponseBody
 	@RequestMapping(value = "/Movieing/Blog/CommentInsert.mov", method = RequestMethod.POST)
-	public void commentInsert(@RequestParam Map map) {
-
+	public void commentInsert(@RequestParam Map map,Authentication auth) {
 		// int commentNo=Integer.parseInt(map.get("commentNo").toString());
 		String commentContent = map.get("commentContent").toString();
 
-		String id = "KIM";// 댓남긴 아이디
+
+		String id =auth.getName();
 		map.put("id", id);
 
 		String reviewNo = map.get("reviewNo").toString();
@@ -300,10 +381,10 @@ public class BlogController {
 
 	// 무빙프렌즈1]
 	@RequestMapping("/Movieing/Blog/MovieingFriends.mov")
-	public String blogFriends(@RequestParam Map map, Model model) throws Exception {
+	public String blogFriends(@RequestParam Map map, Model model,Authentication auth) throws Exception {
 		// 세션아이디
-		String id = "KIM";// 임시
-
+		String id =auth.getName();
+		System.out.println("로그인된 아이디:"+id);
 		map.put("id", id);
 		model.addAttribute("id", id);
 
@@ -316,39 +397,102 @@ public class BlogController {
 		//model.addAttribute("reviewNo", selectReviewNos);
 
 
-		List<ReviewDto> reviewList = reviewService.reviewSelectMyList(map);// 리스트전체조회
-		model.addAttribute("reviewList", reviewList);
+		//List<ReviewDto> reviewList = reviewService.reviewSelectMyList(map);// 리스트전체조회
+		//model.addAttribute("reviewList", reviewList);
 
-		// 무빙프렌즈에서 피드 글보이기(전체공개면)]-리뷰넘버도 가지고옴?
-		List<ReviewDto> friendsReviewList = reviewService.selectFriendsList(map);// 리스트전체조회
-
+		// 무빙프렌즈에서 피드 글보이기(전체공개면)]-모든 정보있음
+		List<ReviewDto> friendsReviewList1 = reviewService.friendsReviewList1(map);// 리스트전체조회
 
 		// 가져온 리스트에 사진url담아주기
-		for (ReviewDto record : friendsReviewList) {
+		for (ReviewDto record : friendsReviewList1) {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
 			System.out.println("리뷰넘버니?"+record.getReviewNo());
 		}
-		model.addAttribute("friendsReviewList", friendsReviewList);
+		model.addAttribute("friendsReviewList1", friendsReviewList1);
+
+		// 무빙프렌즈에서 피드 글보이기((종아료순으로))]-모든 정보있음
+		List<ReviewDto> friendsReviewList2 = reviewService.friendsReviewList2(map);// 리스트전체조회
+
+		// 가져온 리스트에 사진url담아주기
+		for (ReviewDto record : friendsReviewList2) {
+			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
+			System.out.println("리뷰넘버니?"+record.getReviewNo());
+		}
+		model.addAttribute("friendsReviewList2", friendsReviewList2);
+
+
+		// 무빙프렌즈에서 피드 글보이기(댓글순)]-모든 정보있음
+		List<ReviewDto> friendsReviewList3 = reviewService.friendsReviewList3(map);// 리스트전체조회
+
+		// 가져온 리스트에 사진url담아주기
+		for (ReviewDto record : friendsReviewList3) {
+			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
+			System.out.println("리뷰넘버니?"+record.getReviewNo());
+		}
+		model.addAttribute("friendsReviewList3", friendsReviewList3);
+
 
 		// 유저자기소개]
 		ReviewDto friendsSelf = reviewService.selectMovieingOne(map);// 1개
 		model.addAttribute("friendsSelf", friendsSelf);
+		System.out.println("자기소개 가져오기완료");
 
 		// 좋아요 ]
-		int friendsLike = likeReviewService.getTotalCountByAll(map);// 1개
-		model.addAttribute("friendsLike", friendsLike);
+		//int friendsLike = likeReviewService.getTotalCountByAll(map);// 1개
+		//model.addAttribute("friendsLike", friendsLike);
 
 		// 좋아요 카운트]
-		int LikeOneReviewTotalCount = likeReviewService.getTotalCount(map);
-		model.addAttribute("LikeOneReviewTotalCount", LikeOneReviewTotalCount);
+		//int LikeOneReviewTotalCount = likeReviewService.getTotalCount(map);
+		//model.addAttribute("LikeOneReviewTotalCount", LikeOneReviewTotalCount);
 
 		// 댓글 카운트]
-		int getCommentCount = commentService.getCommentCount(map);
-		model.addAttribute("getCommentCount", getCommentCount);
+		//int getCommentCount = commentService.getCommentCount(map);
+		//model.addAttribute("getCommentCount", getCommentCount);
 
 		// 댓글가져오기]
-		List<CommentDto> commentList = commentService.selectList(map);
-		model.addAttribute("commentList", commentList);
+		//List<CommentDto> commentList = commentService.selectList(map);
+		//model.addAttribute("commentList", commentList);
+
+
+		String reviewPostdate;
+
+		for(ReviewDto times:friendsReviewList1) {
+			//현재시각
+			Date now=new Date();
+			Calendar cal1=Calendar.getInstance();
+			Calendar cal2=Calendar.getInstance();
+
+			System.out.println("현재시각"+now);
+			SimpleDateFormat formatter=new SimpleDateFormat("MM월 dd일");
+			String nowFormat=formatter.format(now);//현재시간 형식
+			System.out.println("현재시간 형식:"+nowFormat);
+			Date time=times.getReviewPostdate();//게시 일자
+
+			cal2.setTime(time);
+			String postDateFormat=formatter.format(time);//게시시간 형식
+			System.out.println("현재시간 형식:"+postDateFormat);
+
+			if(nowFormat.equals(postDateFormat)) {
+				reviewPostdate="오늘";
+			}else{//날짜 다르면
+				long diffSec=(cal1.getTimeInMillis()-cal2.getTimeInMillis())/1000;//초
+				long diffDay=diffSec/(60*60*24);
+				System.out.println("두 날짜의 일 차이:"+ diffDay);
+				if(diffDay==1.0) {
+					reviewPostdate="어제";
+				} else {
+					reviewPostdate=postDateFormat;
+				}
+
+			}
+			map.put("reviewPostdate", reviewPostdate);
+			model.addAttribute("reviewPostdate", reviewPostdate);
+		}
+
+		//모든 아이디 리스트
+		List<UserDto> allUser=userService.selectList(map);
+		model.addAttribute("allUser", allUser);
+
 
 		return "blog/my/MovieingFriends.tiles";
 	}///////////////////////////////////////////////////////////////////////////////
@@ -361,16 +505,50 @@ public class BlogController {
 
 	// 무빙프렌즈-타임라인]
 	@RequestMapping("/Movieing/Blog/MF_Timeline.mov")
-	public String mf_Timeline() {
+	public String mf_Timeline(@RequestParam Map map,Model model,Principal principal) {
+
+		//아이디
+		String id = principal.getName();
+		map.put("id", id);
+		model.addAttribute("id", id);
+
+
+		//모든 아이디 리스트
+		List<UserDto> allUser=userService.selectList(map);
+		model.addAttribute("allUser", allUser);
+
+
+
 		return "blog/my/MF_Timeline.tiles";
 	}
 
+
+	//무빙프렌즈-댓글]
+	@RequestMapping("/Movieing/Blog/MovieingFriendsComment.mov")
+	public String movieingFriendsComment(@RequestParam Map map,Model model,Principal principal) {
+
+		//아이디
+		String id = principal.getName();
+		map.put("id", id);
+		model.addAttribute("id", id);
+
+
+		//모든 아이디 리스트
+		List<UserDto> allUser=userService.selectList(map);
+		model.addAttribute("allUser", allUser);
+
+
+
+		return "blog/my/MovieingFriendsComment.tiles";
+	}
+
+
 	// 마이페이지]
 	@RequestMapping("/Movieing/Blog/MyPage.mov")
-	public String myPage(@RequestParam Map map, Model model) {
+	public String myPage(@RequestParam Map map, Model model,Principal principal) {
 
 		// 세션아이디
-		String id = "KIM";// 임시
+		String id = principal.getName();
 
 		map.put("id", id);
 
@@ -413,11 +591,10 @@ public class BlogController {
 
 	// 글쓰기 페이지]
 	@RequestMapping("/Movieing/Blog/WritePage.mov")
-	public String write(@RequestParam Map map, Model model) {
+	public String write(@RequestParam Map map, Model model,Principal principal) {
 
 		// 세션아이디
-		String id = "KIM";// 임시
-
+		String id = principal.getName();
 		map.put("id", id);
 
 		// 내 정보뿌려주기

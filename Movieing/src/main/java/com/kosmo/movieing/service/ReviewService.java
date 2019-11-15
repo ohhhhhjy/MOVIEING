@@ -24,12 +24,28 @@ public interface ReviewService {
 	//리뷰쓴것 피드에 뿌리기
 	List<ReviewDto>  selectReviewList(Map map);
 
+	//한 영화의 리뷰 리스트
+	List<ReviewDto> selectMovieReviewList(Map map);
 
 	//모든 리뷰 넘버만 가져오기
 	List<ReviewDto> selectReviewNos(Map map);
 
+
+	//무빙프렌즈 전체공개 글(시간순)
+	List<ReviewDto> friendsReviewList1(Map map);
+	//(좋아요순)
+	List<ReviewDto> friendsReviewList2(Map map);
+	//(시간순)
+	List<ReviewDto> friendsReviewList3(Map map);
+
 	//전체 레코드 수
+	//내가 작성한 전체 리뷰 레코드 수
+
 	int getTotalCount(Map map);
+
+	//특정영화의 전체 리뷰 레코드 수
+	int getTotalMovieReviewCount(Map map);
+
 	//상세보기 용
 	ReviewDto selectOne(Map map);
 

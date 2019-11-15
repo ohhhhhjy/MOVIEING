@@ -12,8 +12,6 @@
 		select count(*) from follow  where following = #{id}
 	</select>
 	
-	
-	
-	
+
 	
 </mapper>

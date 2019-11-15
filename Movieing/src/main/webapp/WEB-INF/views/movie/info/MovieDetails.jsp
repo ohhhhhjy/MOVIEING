@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("utf-8"); %>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- 타일즈 설정되어 있어서  바디부분만 작성하면 됨. 
@@ -233,7 +234,69 @@ $(document).ready(function() {
 	});
  	
 
+
 });
+
+	//페이징 클릭시 ajax처리
+	var paging = function(intTemp){
+		$.ajax({
+			url:'<c:url value="/Movieing/Movie/ReviewAjax.mov"/>',
+			type:'post',
+			//contentType : 'application/json',
+	        dataType : 'json',
+			data:
+				({nowPage:intTemp }),
+			beforeSend : function(xhr)
+              {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+                  xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+              },
+			success:function(data){//서버로 부터 정상적인 응답을 받았을 때(200번)
+				 //var ajdata = decodeURIComponent( data );
+			
+				 $.each(data,function(index,element){
+					 element['userNick'] = decodeURIComponent(element['userNick']);
+					 element['reviewContent'] = decodeURIComponent(element['reviewContent']);
+				 });
+				
+				 
+				console.log(data);
+				reviewListMaking(data);
+			},	
+			error:function(request,status,error){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+
+			});
+		};
+	
+	
+	
+	
+	function reviewListMaking(data){
+		var imgUrl = '';
+		console.log("데이타 받기 성공:",data);
+		var reviewString = "";
+		 $.each(data,function(index,element){
+			 imgUrl = element['userProfile']==null?"https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png":element['userProfile'];
+			reviewString+="<div class='card border-secondary mb-3' style='max-width: 200rem;'><div class='card-body'><div class='row'><div class='col-md-6'><a href='#'>";
+			reviewString+="<img class='radiusImg' alt='유저사진' src='"+imgUrl+"' align='left'/>";			
+			reviewString+="<span class='reviewUserSpan' >"+element['userNick']+"</span>";
+			reviewString+="<span class='badge badge-pill badge-danger'>★"+element['grade']+"</span>";
+			reviewString+="</a></div ><div class='col-md-6' align='right'>";
+			reviewString+="<a class='btn btn-outline-danger waves-effect' href='/movieing/Movieing/Movie/MovieReviews.mov?reviewNo="+element['reviewNo']+"'>더보기</a></div></div>";
+			reviewString+="<p class='card-text'>"+element['reviewContent']+"</p>";
+			reviewString+="<a href='#'><span style='font-weight: bold; color: #db147b; font-size: 0.9em'><i class='far fa-thumbs-up'></i>";
+			reviewString+=element['likeCount']+"</span></a>&nbsp;&nbsp;&nbsp;";
+			reviewString+="<a href='#'><span style='font-weight: bold; color: #db147b; font-size: 0.9em'><i class='far fa-comments'></i>";
+			reviewString+=element['commentCount']+"</span></a></div></div>";
+			
+		}); 
+		
+		$('#AllReview').html(reviewString);
+		
+		 var pagingString = data[0]['pagingString'];
+		 $('#pagingString').html(pagingString);
+	}///reviewListMaking
 
 
 </script>
@@ -253,15 +316,15 @@ $(document).ready(function() {
 			<!-- 포스터 -->
 			<div class="col-md-3 ">
 				<a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"><img
-					class="movieImage" src="${movieImgUrl}"
+					class="movieImage" src="${movieInfo.movieImg}"
 					alt="포스터" /></a>
 			</div>
 			<!-- 기본정보+별점 -->
 			<div class="col-md-6  ">
-					<h1>${movieInfoMap.movieInfoResult.movieInfo.movieNm}<span class="text-muted px-2" >${movieInfoMap.movieInfoResult.movieInfo.prdtYear}</span></h1>
-					<h6 class="px-2">${movieInfoMap.movieInfoResult.movieInfo.movieNmEn}</h6>
+					<h1>${movieInfo.movieTitle}<span class="text-muted px-2" >${movieInfo.movieYear}</span></h1>
+					<h6 class="px-2">${movieInfo.movieOrgTitle}</h6>
 					<hr class="my-3">
-					<span class="px-2">${movieInfoMap.movieInfoResult.movieInfo.audits[0].watchGradeNm} ・ ${movieInfoMap.movieInfoResult.movieInfo.genres[0].genreNm} ・ ${movieInfoMap.movieInfoResult.movieInfo.nations[0].nationNm}</span>
+					<span class="px-2">${movieInfo.movieGrade} ・ ${movieInfo.movieGenre} ・ ${movieInfo.movieCountry}</span>
 					<hr class="my-3">
 					<span class="px-2" style="font-weight: bold">평점★3.8</span>
 					<span> ・</span>
@@ -305,7 +368,7 @@ $(document).ready(function() {
 									alt="Naver Store" title="Naver Store"
 									src="<c:url value='/resources/img/movie/naver.png'/>">
 								</a>
-								<div class="priceText" >7000원</div>
+								<div class="priceText" >${movieInfo.naverPrice}</div>
 							</div>
 							<div class="price-comparison_grid_row_element_icon col-md-4">
 								<a href="#"> <img
@@ -313,22 +376,18 @@ $(document).ready(function() {
 									alt="Naver Store" title="Naver Store"
 									src="<c:url value='/resources/img/movie/pooq.jpg'/>">
 								</a>
-								<div class="priceText">6000원</div>
+								<div class="priceText">${movieInfo.wavvePrice }</div>
 							</div>
-						</div>
-						<!-- 대여 -->
-				  	     <span class="badge badge-dark" style="font-size:0.9em">대여</span>
-						 <div class="price-comparison_grid_row row py-1">
 							<div class="price-comparison_grid_row_element_icon col-md-4">
 								<a href="#"> <img
 									class="jw-provider-icon price-comparison_grid_row_icon"
 									alt="Naver Store" title="Naver Store"
-									src="<c:url value='/resources/img/movie/naver.png'/>">
+									src="<c:url value='/resources/img/movie/pooq.jpg'/>">
 								</a>
-								<div class="priceText" >7000원</div>
+								<div class="priceText">${movieInfo.googlePrice }</div>
 							</div>
-							
 						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -352,19 +411,14 @@ $(document).ready(function() {
 			
 			<!-- 줄거리 -->
 			<h4>줄거리</h4>
-			<p>전 여친에 상처받은 ‘재훈’(김래원). 여느
-						때처럼 숙취로 시작한 아침, 모르는 번호의 누군가와 밤새 2시간이나 통화한 기록을 발견하게 되고 그 상대가 바로!
-						통성명한 지 24시간도 채 되지 않은 직장 동료 ‘선영’임을 알게 된다. 남친과 뒤끝 있는 이별 중인
-						‘선영’(공효진). 새로운 회사로 출근한 첫날, 할 말 못 할 말 쏟아내며 남친과 헤어지던 현장에서 하필이면! 같은
-						직장의 ‘재훈’을 마주친다. 만난 지 하루 만에 일보다 서로의 연애사를 더 잘 알게 된 두 사람. 하지만 미묘한 긴장과
-						어색함도 잠시 ‘한심하다’, ‘어이없다’ 부딪히면서도 마음이 쓰이는 건 왜 그럴까?</p>
+			<p>${movieInfo.movieContent }</p>
 						
 			<hr class="my-3">
 			
 			<!-- 감독 -->
 			<div class="row">
 				<div class="col-md-1"><h4>감독</h4></div>
-				<a class="moviePersonName"  href="#">${movieInfoMap.movieInfoResult.movieInfo.directors[0].peopleNm}</a>
+				<a class="moviePersonName"  href="#">${movieInfo.movieDirector }</a>
 			</div>
 			
 			<hr class="my-3">
@@ -373,7 +427,7 @@ $(document).ready(function() {
 			<div class="row">
 				<div class="col-md-1"><h4>배우</h4></div>
 				<c:forEach items="${movieInfoMap.movieInfoResult.movieInfo.actors}" var="actors">
-					<a class="moviePersonName" href="#">${actors.peopleNm }</a>
+					<a class="moviePersonName" href="#"></a>
 				</c:forEach>
 			</div>
 			
@@ -399,73 +453,51 @@ $(document).ready(function() {
 						<%-- <div class="col-md-4" align="right">
 							<a href="<c:url value='/Movieing/Movie/MovieReviews.mov'/>" class="moreContent">더보기</a>
 						</div> --%>
-					
-			
+			<c:if test="${empty reviewList }" var="isEmpty">
+				<h5>등록된 게시물이 없습니다</h5>
+			</c:if>
+			<c:if test="${not isEmpty }">
            		 <!-- 리뷰카드 -->
-            	<c:forEach var="i" begin="1" end="5" >
+           	<div id="AllReview">
+            	<c:forEach items="${reviewList }" var="review" >
 						<div class="card border-secondary mb-3" style="max-width: 200rem;">
-							<%-- <div class="card-header" >
-								<div class="row">
-									<div class="col-md-6">
-										<a href="#">
-											<img class="radiusImg" alt="유저사진" src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" align="left"/>
-											<span class="reviewUserSpan" >유저이름</span>
-										</a>
-									</div >
-									<div class="col-md-6" align="right">
-										<a class="btn btn-outline-danger waves-effect" href="<c:url value='/Movieing/Movie/MovieReviews.mov'/>">더보기</a>
-									</div>
-								</div>
-							</div> --%>
+							
 							<div class="card-body">
 							
 							<div class="row">
 									<div class="col-md-6">
 										<a href="#">
-											<img class="radiusImg" alt="유저사진" src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" align="left"/>
-											<span class="reviewUserSpan" >유저이름</span>
-											<span class="badge badge-pill badge-danger">★4.5</span>
+											<img class="radiusImg" alt="유저사진" src="${review.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': review.userProfile }" align="left"/>
+											<span class="reviewUserSpan" >${review.userNick }</span>
+											<span class="badge badge-pill badge-danger">★${review.grade }</span>
 										</a>
 									</div >
 									<div class="col-md-6" align="right">
-										<a class="btn btn-outline-danger waves-effect" href="<c:url value='/Movieing/Movie/MovieReviews.mov'/>">더보기</a>
+										<a class="btn btn-outline-danger waves-effect" href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${review.reviewNo }'/>">더보기</a>
 									</div>
 								</div>
 							
 							
 							
 								
-								<p class="card-text">토이스토리를 봤다. 너무 재밌었다. 너무 재밌었고, 너무 재밌어서 너무
-									재밌을 뻔했다. 너무 재밌는 영화였다.신발 하나 제대로 못 찾는 첫째 딸, 남들과 조금 다른 둘째 아들, 갓 태어나서 밤낮없이 울어대는 막내, 그리고 자신에겐 아무 관심도 없이 매일 밤 게임에 빠져 사는 남편까지, 매일 같은 육아 전쟁에 지쳐가는 ‘마를로’(샤를리즈 테론). 몸이 스무 개라도 모자란 엄마 ‘마를로’를 위해 그녀의 오빠는 야간 보모 고용을 권유한다. 아이는 엄마가 돌봐야 한다고 철석같이 믿어 왔던 ‘마를로’는 고민 끝에 야간 보모 ‘툴리’(맥켄지 데이비스)를 부르게 된다. 홀로 삼 남매 육아를 도맡아 하면서 슈퍼 맘이 되어야만 했던 ‘마를로’ 곁에서 ‘툴리’는 마치 자신의 가족처럼 그녀와 아이들을 돌봐준다. 슈퍼 보모이자 때로는 인생 친구가 되어 주는 ‘툴리’로 인해 ‘마를로’의 삶은 조금씩 변화하게 되는데</p>
+								<p class="card-text">${review.reviewContent }</p>
 								<a href="#"><span
 									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
-										25 </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
+										${review.likeCount } </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
 									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
-										4 </span></a>
+										${review.commentCount } </span></a>
 							</div>
 						</div>
-				</c:forEach>	
+				</c:forEach>
+			</div>	 
 				<!-- 페이지네이션 -->
-				<div class="row d-flex justify-content-center">
-				<nav aria-label="Page navigation example">
-				  <ul class="pagination">
-				    <li class="page-item">
-				      <a class="page-link" href="#" aria-label="Previous">
-				        <span aria-hidden="true">&laquo;</span>
-				      </a>
-				    </li>
-				    <li class="page-item"><a class="page-link" href="#">1</a></li>
-				    <li class="page-item"><a class="page-link" href="#">2</a></li>
-				    <li class="page-item"><a class="page-link" href="#">3</a></li>
-				    <li class="page-item">
-				      <a class="page-link" href="#" aria-label="Next">
-				        <span aria-hidden="true">&raquo;</span>
-				      </a>
-				    </li>
-				  </ul>
-				</nav>
+				<div id="pagingString" class="row d-flex justify-content-center ">
+				<!-- 원래 페이지네이션
+
+					 -->
+					${pagingString }
 				</div>
-				
+				</c:if>	
 			
 				<hr class="my-3">
 				

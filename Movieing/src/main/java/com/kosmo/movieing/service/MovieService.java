@@ -17,12 +17,25 @@ public interface MovieService {
 	MovieDto selectOne(Map map);
 	//영화번호
 	String selectMovieNo(Map map);
-
 	// 입력/수정/삭제
 	int insert(Map map);
 
 	int update(Map map);
 
 	int delete(Map map);
+	
+	//영화이미지
+	//전체영화리스트 가져오기
+	List<MovieDto> selectListMovie(Map map);
+	//영화 한개만 가져오기
+	MovieDto selectOneMovie(Map map);
+	//호러영화찾기
+	List<MovieDto> selectListHorror(Map map);
+	//로맨스영화찾기
+	List<MovieDto> selectListRomance(Map map);
+	//코미디영화찾기
+	List<MovieDto> selectListComedy(Map map);
+	//무빙의인기영화 랜덤 찾기
+	List<MovieDto> selectListRandom(Map map);
 
 }

@@ -28,7 +28,11 @@
         select count(*) from evaluation where evaluation_grade=#{number} and user_id=#{id} 
 	</select>
 
-	
+	<!-- 별점준것 다시 새로 반영 -->
+	<update id="evaluationUpdate" parameterType="java.util.Map">
+	update EVALUATION set EVALUATION_GRADE =#{grade}, EVALUATION_DATE =SYSDATE
+	where USER_ID =#{id} and MOVIE_NO =#{movieNo}
+	</update>
 	
 	
 </mapper>

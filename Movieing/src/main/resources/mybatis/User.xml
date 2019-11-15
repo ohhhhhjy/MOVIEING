@@ -8,8 +8,11 @@
 		select count(*) from user_table where USER_ID=#{userid} OR USER_NICK=#{nickname}
 	</select>
 	
+		<!-- 모든 아이디 리스트 나를 제외한,팔로우 여부  -->
 	<select id="userList" parameterType="java.util.Map" resultType="UserDto">
-	
+
+	select USER_ID from user_table where USER_ID not in #{id}
+
 	</select>
 	
 	<select id="userTotal" parameterType="java.util.Map" resultType="int">
@@ -19,7 +22,7 @@
 	<select id="userSelectOne" parameterType="java.util.Map" resultType="UserDto">
 		select * from user_table where user_id=#{id}
 	</select>
-	
+
 	<insert id="userInsert" parameterType="java.util.Map">
 		INSERT INTO user_table 
 		(USER_ID, USER_PWD,USER_NAME,USER_NICK,USER_CONTACT,USER_MAIL,USER_SELF, USER_PROFILE) 
