@@ -11,6 +11,7 @@ DROP TABLE FOLLOW CASCADE CONSTRAINTS;
 DROP TABLE GOODS CASCADE CONSTRAINTS;
 DROP TABLE LIKE_REVIEW CASCADE CONSTRAINTS;
 DROP TABLE MOVIE_PRICE CASCADE CONSTRAINTS;
+DROP TABLE REVIEW CASCADE CONSTRAINTS;
 DROP TABLE STILLCUT CASCADE CONSTRAINTS;
 DROP TABLE WISH CASCADE CONSTRAINTS;
 DROP TABLE MOVIE CASCADE CONSTRAINTS;
@@ -23,7 +24,6 @@ DROP TABLE USER_TABLE CASCADE CONSTRAINTS;
 
 drop sequence seq_review;
 drop sequence seq_qna;
-drop sequence seq_comment;
 
 
 
@@ -78,7 +78,7 @@ CREATE TABLE EVALUATION
    -- 유저아이디
    USER_ID nvarchar2(10) NOT NULL,
    -- 영화진흥원 코드
-   -- 
+   --
    MOVIE_NO nvarchar2(15) NOT NULL,
    -- 사용자가 영화를 평가한 점수
    EVALUATION_GRADE number(3,0) NOT NULL,
@@ -91,7 +91,7 @@ CREATE TABLE EVALUATION
 CREATE TABLE FILMOGRAPHY
 (
    -- 영화진흥원 코드
-   -- 
+   --
    MOVIE_NO nvarchar2(15) NOT NULL,
    -- 영화인번호
    MOVIE_PEOPLE_NO nvarchar2(10) NOT NULL,
@@ -126,7 +126,7 @@ CREATE TABLE LIKE_REVIEW
    -- 리뷰 고유번호
    REVIEW_NO number(10) NOT NULL,
    -- 좋아요 한 날짜
-   -- 
+   --
    LIKE_DATE date DEFAULT SYSDATE NOT NULL,
    PRIMARY KEY (USER_ID, REVIEW_NO)
 );
@@ -135,7 +135,7 @@ CREATE TABLE LIKE_REVIEW
 CREATE TABLE MOVIE
 (
    -- 영화진흥원 코드
-   -- 
+   --
    -- 영화진흥원 코드
    MOVIE_NO nvarchar2(100) NOT NULL,
    -- 영화 제목
@@ -190,7 +190,7 @@ CREATE TABLE MOVIE_PRICE
    -- VOD제공처
    PROVIDER nvarchar2(50) NOT NULL,
    -- 영화진흥원 코드
-   -- 
+   --
    MOVIE_NO nvarchar2(15) NOT NULL,
    -- VOD가격
    PRICE number(10) NOT NULL,
@@ -201,7 +201,7 @@ CREATE TABLE MOVIE_PRICE
 CREATE TABLE NOTICE
 (
    -- 공지사항 번호
-   -- 
+   --
    NOTI_NO number(10) NOT NULL,
    -- 공지사항 제목
    NOTI_TITLE nvarchar2(50) NOT NULL,
@@ -216,7 +216,7 @@ CREATE TABLE NOTICE
 CREATE TABLE QNA
 (
    -- 문의번호
-   -- 
+   --
    QNA_NO number(10) NOT NULL,
    -- 문의제목
    QNA_TITLE nvarchar2(50) NOT NULL,
@@ -237,7 +237,7 @@ CREATE TABLE REALTIME_SEARCH
 (
    -- 키워드 명
    KEYWORD nvarchar2(50) NOT NULL,
-   -- 검색 된 수 
+   -- 검색 된 수
    COUNT number(30) NOT NULL,
    PRIMARY KEY (KEYWORD)
 );
@@ -250,7 +250,7 @@ CREATE TABLE REVIEW
    -- 유저아이디
    USER_ID nvarchar2(10) NOT NULL,
    -- 영화진흥원 코드
-   -- 
+   --
    MOVIE_NO nvarchar2(15) NOT NULL,
    -- 리뷰 내용
    REVIEW_CONTENT nvarchar2(2000) NOT NULL,
@@ -270,7 +270,7 @@ CREATE TABLE STILLCUT
    -- 이미지
    STILLCUT_IMAGE blob NOT NULL,
    -- 영화진흥원 코드
-   -- 
+   --
    MOVIE_NO nvarchar2(15) NOT NULL,
    PRIMARY KEY (STILLCUT_NO)
 );
@@ -313,7 +313,7 @@ CREATE TABLE WISH
    -- 유저아이디
    USER_ID nvarchar2(10) NOT NULL,
    -- 영화진흥원 코드
-   -- 
+   --
    MOVIE_NO nvarchar2(15) NOT NULL,
    -- 보고싶어요 한 날짜
    WISH_DATE date DEFAULT SYSDATE,
@@ -321,7 +321,7 @@ CREATE TABLE WISH
 );
 
 --시큐리티를 위한 테이블
- CREATE TABLE auth_security(
+CREATE TABLE auth_security(
     USER_ID nvarchar2(10) not null REFERENCES USER_TABLE (USER_ID),
    ENABLED number DEFAULT 1,
    AUTHORITY varchar2(20) DEFAULT 'ROLE_USER'
@@ -542,15 +542,10 @@ ALTER TABLE MOVIE_PEOPLE  ADD MOVIE_PEOPLE_IMG NVARCHAR2(1000);
 --COMMENT ON COLUMN WISH.WISH_DATE IS '보고싶어요 한 날짜';
 
 
---시퀀스 
+--시퀀스
 create sequence seq_review nocache nocycle;
 create sequence seq_qna nocache nocycle;
-<<<<<<< HEAD
-=======
 create sequence seq_comment nocache nocycle;
---유저정보
-insert into user_table values( 'KIM','1234','김길동','Road_dong','01055557777','email',sysdate,null,'하이'  );
->>>>>>> branch 'master' of https://github.com/ohhhhhjy/MOVIEING.git
 
 --유저정보
 insert into user_table values( 'KIM','1234','김길동','Road_dong','01055557777','email',sysdate,'하이',null  );
@@ -559,8 +554,18 @@ insert into user_table values( 'LEE','1234','이길동','LEELEE','01034243447','
 insert into user_table values( 'PARK','1234','박길동','박수무당','01012345678','email',sysdate,'아아아아',null );
 
 --영화정보
-insert into movie values('20182669','툴리',null,null,null,null,null,null,null,null,null,null,null);
+insert into movie values('20198182','아내를 죽였다','"친구와 술을 마신 후 곯아떨어진 ‘정호’는 숙취로 눈을 뜬 다음 날 아침,
+별거 중이던 아내 ‘미영’이 살해당했다는 충격적인 소식을 듣게 된다.
 
+그 순간, 자신의 옷에 묻은 핏자국과 피 묻은 칼을 발견한 ‘정호’.
+가장 강력한 용의자로 지목된 그는 경찰의 눈을 피해 도망친다.
+
+알리바이를 입증하고 싶지만 간밤의 기억은 모두 사라진 상태.
+스스로를 믿을 수 없는 최악의 상황에서
+‘정호’는 어젯밤의 행적을 따라가기 시작하는데…
+
+끊어진 기억과 기억 사이,
+사라진 모든 것을 의심하라."','15세이상관람가',2019,'Killed My Wife','한국','스릴러','https://movie-phinf.pstatic.net/20191113_200/1573606889920v3T1B_JPEG/movie_image.jpg','김하라',' ',' ',' ');
 --보고싶어요
 insert into wish values('KIM','20182669',SYSDATE);
 
@@ -573,10 +578,4 @@ insert into review values(seq_review.nextval,'KIM','20182669','재밌었다',SYS
 --qna
 insert into qna(qna_no, qna_title, qna_content, user_id) values(seq_qna.nextval, '제목1','내용1', 'LEE');
 --시큐리티 사용을 위한 권한 추가
-
 insert into auth_security values('KIM',default,default);
-
-ALTER TABLE BUY  ADD QUANTITY NUMBER(10) NOT NULL;
-ALTER TABLE USER_TABLE DROP COLUMN USER_PROFILE;
-ALTER TABLE USER_TABLE  ADD USER_PROFILE NVARCHAR2(1000);
-
