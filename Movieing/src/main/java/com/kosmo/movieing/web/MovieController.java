@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosmo.movieing.service.CommentDto;
 import com.kosmo.movieing.service.CommentService;
+import com.kosmo.movieing.service.EvalueWishService;
 import com.kosmo.movieing.service.PagingUtil;
 import com.kosmo.movieing.service.ReviewDto;
 import com.kosmo.movieing.service.ReviewService;
@@ -49,6 +50,9 @@ public class MovieController {
 
 	@Resource(name="commentService")
 	private CommentService commentService;
+
+	@Resource(name="evalueWishService")
+	private EvalueWishService evalueWishService;
 
 	/*
 	 * @RequestMapping("/Movieing/Movie/MovieDetails.mov") public String
@@ -402,7 +406,7 @@ public class MovieController {
 		System.out.println("movieImgUrl : "+movieImgUrl(mname));
 
 		//넘겨받은 영화코드 : movieNo. 임시로 넣어줌
-		String movieNo = "20182669";
+		String movieNo = "1";
 		map.put("movieNo", movieNo);
 
 		//페이징을 위한 로직]
@@ -435,6 +439,36 @@ public class MovieController {
 		return "movie/info/MovieDetails.tiles";
 	}
 
+	//영화상세 페이지의 별점ajax
+	@ResponseBody
+	@RequestMapping(value="/Movieing/Movie/starAjax.mov")
+	public void starAjax(@RequestParam Map map,Authentication auth) {
+		String userId = auth.getName();
+		map.put("id",userId.toString());
+
+		if(evalueWishService.isEvalue(map)) {//이미 남긴 별점이 있다면,
+			evalueWishService.update(map);
+		}
+		else {//별점을 새로 입력하는 경우라면,
+			evalueWishService.insert(map);
+		}
+	}
+
+	//영화상세 페이지의 보고싶어요ajax
+	@ResponseBody
+	@RequestMapping(value="/Movieing/Movie/wishAjax.mov")
+	public void wishAjax(@RequestParam Map map,Authentication auth) {
+		String userId = auth.getName();
+		map.put("id",userId.toString());
+
+		if(map.get("isInsert").equals("true")) {//보고싶어요에 추가하는 경우
+			evalueWishService.insertWish(map);
+		}
+		else {//보고싶어요에서 삭제하는 경우
+			evalueWishService.deleteWish(map);
+		}
+	}
+
 	//영화상세페이지의 리뷰 뿌리기
 	@ResponseBody//produces="text/html; charset=UTF-8" ,produces="application/json;charset=UTF-8"   , consumes = {"application/json;charset=UTF-8"}
 	@RequestMapping(value="/Movieing/Movie/ReviewAjax.mov", method = RequestMethod.POST)
@@ -442,7 +476,7 @@ public class MovieController {
 //		req.setCharacterEncoding("UTF-8");
 
 		//넘겨받은 영화코드 : movieNo. 임시로 넣어줌
-		String movieNo = "20182669";
+		String movieNo = "1";
 		map.put("movieNo", movieNo);
 
 
@@ -547,6 +581,7 @@ public class MovieController {
 		UserDto user = userService.selectOne(map);
 		model.addAttribute("user",user);
 		ReviewDto review = reviewService.selectOne(map);
+		review.setReviewContent(review.getReviewContent().replace("\r\n", "<br>"));
 		model.addAttribute("review",review);
 
 		List<CommentDto> commentList = commentService.selectList(map);
@@ -561,6 +596,9 @@ public class MovieController {
 	public void commentAjax(@RequestParam Map map) {
 		commentService.insert(map);
 	}
+
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	//무비리스트 가져오기

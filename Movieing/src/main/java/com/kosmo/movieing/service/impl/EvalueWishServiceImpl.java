@@ -79,4 +79,28 @@ public class EvalueWishServiceImpl implements EvalueWishService{
 		return dao.getEachEvalue(map);
 	}
 
+	@Override
+	public boolean isEvalue(Map map) {
+
+		return dao.isEvalue(map);
+	}
+
+	@Override
+	public int insertWish(Map map) {
+
+		return dao.insertWish(map);
+	}
+
+	@Override
+	public int updateWish(Map map) {
+
+		return dao.updateWish(map);
+	}
+
+	@Override
+	public int deleteWish(Map map) {
+
+		return dao.deleteWish(map);
+	}
+
 }

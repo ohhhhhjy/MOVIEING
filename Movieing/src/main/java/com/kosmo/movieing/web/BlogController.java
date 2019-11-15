@@ -60,7 +60,6 @@ public class BlogController {
 	private UserService userService;
 
 	// 블로그메인
-
 	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov", method = RequestMethod.GET)
 	public String blogMain(@RequestParam Map map, Model model,Authentication auth) throws Exception {
 		String id = map.get("otherUserId")==null?auth.getName():map.get("otherUserId").toString();
@@ -173,10 +172,10 @@ public class BlogController {
 			model.addAttribute("reviewPostdate", reviewPostdate);
 		}
 
-
-		// 영화포스터
+		// 영화포스터 + 리뷰 줄바꿈 처리
 		for (ReviewDto record : selectList) {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
+			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
 		}
 		model.addAttribute("selectList", selectList);
 
@@ -268,9 +267,10 @@ public class BlogController {
 			model.addAttribute("reviewPostdate", reviewPostdate);
 		}
 
-		// 영화포스터
+		// 영화포스터 + 리뷰 줄바꿈 처리
 		for (ReviewDto record : selectList) {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
+			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
 		}
 		model.addAttribute("selectList", selectList);
 
@@ -302,6 +302,7 @@ public class BlogController {
 		// 가져온 리스트에 사진url담아주기
 		for (ReviewDto record : reviewList) {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
+			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
 		}
 
 		// 3.좋아요
@@ -309,6 +310,7 @@ public class BlogController {
 		// 가져온 리스트에 사진url담아주기
 		for (ReviewDto record : reviewLikeList) {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
+			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
 		}
 
 		// 4.보고싶어요
@@ -375,7 +377,6 @@ public class BlogController {
 		System.out.println("리뷰번호:" + reviewNo);
 
 		int insert = commentService.insert(map);// 댓글insert
-		System.out.println("입력이 됫나?" + insert);
 
 	}///////////////////////////////
 
@@ -406,7 +407,6 @@ public class BlogController {
 		// 가져온 리스트에 사진url담아주기
 		for (ReviewDto record : friendsReviewList1) {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
-			System.out.println("리뷰넘버니?"+record.getReviewNo());
 		}
 		model.addAttribute("friendsReviewList1", friendsReviewList1);
 
@@ -416,7 +416,6 @@ public class BlogController {
 		// 가져온 리스트에 사진url담아주기
 		for (ReviewDto record : friendsReviewList2) {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
-			System.out.println("리뷰넘버니?"+record.getReviewNo());
 		}
 		model.addAttribute("friendsReviewList2", friendsReviewList2);
 
@@ -427,7 +426,6 @@ public class BlogController {
 		// 가져온 리스트에 사진url담아주기
 		for (ReviewDto record : friendsReviewList3) {
 			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
-			System.out.println("리뷰넘버니?"+record.getReviewNo());
 		}
 		model.addAttribute("friendsReviewList3", friendsReviewList3);
 
@@ -435,7 +433,6 @@ public class BlogController {
 		// 유저자기소개]
 		ReviewDto friendsSelf = reviewService.selectMovieingOne(map);// 1개
 		model.addAttribute("friendsSelf", friendsSelf);
-		System.out.println("자기소개 가져오기완료");
 
 		// 좋아요 ]
 		//int friendsLike = likeReviewService.getTotalCountByAll(map);// 1개
