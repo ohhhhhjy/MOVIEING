@@ -316,15 +316,15 @@ $(document).ready(function() {
 			<!-- 포스터 -->
 			<div class="col-md-3 ">
 				<a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"><img
-					class="movieImage" src="${movieImgUrl}"
+					class="movieImage" src="${movieInfo.movieImg}"
 					alt="포스터" /></a>
 			</div>
 			<!-- 기본정보+별점 -->
 			<div class="col-md-6  ">
-					<h1>${movieInfoMap.movieInfoResult.movieInfo.movieNm}<span class="text-muted px-2" >${movieInfoMap.movieInfoResult.movieInfo.prdtYear}</span></h1>
-					<h6 class="px-2">${movieInfoMap.movieInfoResult.movieInfo.movieNmEn}</h6>
+					<h1>${movieInfo.movieTitle}<span class="text-muted px-2" >${movieInfo.movieYear}</span></h1>
+					<h6 class="px-2">${movieInfo.movieOrgTitle}</h6>
 					<hr class="my-3">
-					<span class="px-2">${movieInfoMap.movieInfoResult.movieInfo.audits[0].watchGradeNm} ・ ${movieInfoMap.movieInfoResult.movieInfo.genres[0].genreNm} ・ ${movieInfoMap.movieInfoResult.movieInfo.nations[0].nationNm}</span>
+					<span class="px-2">${movieInfo.movieGrade} ・ ${movieInfo.movieGenre} ・ ${movieInfo.movieCountry}</span>
 					<hr class="my-3">
 					<span class="px-2" style="font-weight: bold">평점★3.8</span>
 					<span> ・</span>
@@ -368,7 +368,7 @@ $(document).ready(function() {
 									alt="Naver Store" title="Naver Store"
 									src="<c:url value='/resources/img/movie/naver.png'/>">
 								</a>
-								<div class="priceText" >7000원</div>
+								<div class="priceText" >${movieInfo.naverPrice}</div>
 							</div>
 							<div class="price-comparison_grid_row_element_icon col-md-4">
 								<a href="#"> <img
@@ -376,22 +376,18 @@ $(document).ready(function() {
 									alt="Naver Store" title="Naver Store"
 									src="<c:url value='/resources/img/movie/pooq.jpg'/>">
 								</a>
-								<div class="priceText">6000원</div>
+								<div class="priceText">${movieInfo.wavvePrice }</div>
 							</div>
-						</div>
-						<!-- 대여 -->
-				  	     <span class="badge badge-dark" style="font-size:0.9em">대여</span>
-						 <div class="price-comparison_grid_row row py-1">
 							<div class="price-comparison_grid_row_element_icon col-md-4">
 								<a href="#"> <img
 									class="jw-provider-icon price-comparison_grid_row_icon"
 									alt="Naver Store" title="Naver Store"
-									src="<c:url value='/resources/img/movie/naver.png'/>">
+									src="<c:url value='/resources/img/movie/pooq.jpg'/>">
 								</a>
-								<div class="priceText" >7000원</div>
+								<div class="priceText">${movieInfo.googlePrice }</div>
 							</div>
-							
 						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -415,19 +411,14 @@ $(document).ready(function() {
 			
 			<!-- 줄거리 -->
 			<h4>줄거리</h4>
-			<p>전 여친에 상처받은 ‘재훈’(김래원). 여느
-						때처럼 숙취로 시작한 아침, 모르는 번호의 누군가와 밤새 2시간이나 통화한 기록을 발견하게 되고 그 상대가 바로!
-						통성명한 지 24시간도 채 되지 않은 직장 동료 ‘선영’임을 알게 된다. 남친과 뒤끝 있는 이별 중인
-						‘선영’(공효진). 새로운 회사로 출근한 첫날, 할 말 못 할 말 쏟아내며 남친과 헤어지던 현장에서 하필이면! 같은
-						직장의 ‘재훈’을 마주친다. 만난 지 하루 만에 일보다 서로의 연애사를 더 잘 알게 된 두 사람. 하지만 미묘한 긴장과
-						어색함도 잠시 ‘한심하다’, ‘어이없다’ 부딪히면서도 마음이 쓰이는 건 왜 그럴까?</p>
+			<p>${movieInfo.movieContent }</p>
 						
 			<hr class="my-3">
 			
 			<!-- 감독 -->
 			<div class="row">
 				<div class="col-md-1"><h4>감독</h4></div>
-				<a class="moviePersonName"  href="#">${movieInfoMap.movieInfoResult.movieInfo.directors[0].peopleNm}</a>
+				<a class="moviePersonName"  href="#">${movieInfo.movieDirector }</a>
 			</div>
 			
 			<hr class="my-3">
@@ -436,7 +427,7 @@ $(document).ready(function() {
 			<div class="row">
 				<div class="col-md-1"><h4>배우</h4></div>
 				<c:forEach items="${movieInfoMap.movieInfoResult.movieInfo.actors}" var="actors">
-					<a class="moviePersonName" href="#">${actors.peopleNm }</a>
+					<a class="moviePersonName" href="#"></a>
 				</c:forEach>
 			</div>
 			
