@@ -14,7 +14,21 @@ public class NewsController {
 	
 	@RequestMapping("/Movieing/Ticket/Buy.mov")
 	public String buyTicket() {
-		return "news/Buy.tiles";
+		return "news/buy/Buy.tiles";
+	}
+	
+	@RequestMapping("/Movieing/Ticket/Pay.mov")
+	public String payTicket() {
+		return "news/buy/Pay.tiles";
+	}
+	
+	@RequestMapping("/Movieing/Ticket/PaySuccess.mov")
+	public String paySuccess() {
+		return "news/buy/PayComplete.tiles";
+	}
+	@RequestMapping("/Movieing/Ticket/PayFail.mov")
+	public String payFail() {
+		return "news/buy/Buy.tiles";
 	}
 
 }
