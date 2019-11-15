@@ -222,15 +222,15 @@ height: 100%;
 $(document).ready(function() {
 	
 	
-/* 	$('.starRev span').click(function() {
+ 	$('.starRev span').click(function() {
 		$(this).parent().children('span').removeClass('on');
 		$(this).addClass('on').prevAll('span').addClass('on');
 		return false;
-	}); */
+	});
 	
 	//보고싶어요 클릭시 ajax 메소드..
  	$('#btnWish').click(function(){
- 		var movieNo = 2;
+ 		var movieNo = ${movieNo};
  		var isInsert = true;
  		//보고싶어요 x > 보고싶어요 o(insert)
  		if($('#wishBtnIcon').prop('class')=='fas fa-plus'){
@@ -253,7 +253,6 @@ $(document).ready(function() {
                   xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
               },	
 				success:function(){//서버로 부터 정상적인 응답을 받았을 때(200번)
-					console.log('성공입니다');
 				},	
 				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
 					console.log("에러:"+data.responseText);
@@ -264,9 +263,12 @@ $(document).ready(function() {
  	
  	//별점 클릭시 insert와 update를 실행시키기위한 ajax메소드..
  	$('.starRadio').click(function(){
- 		var movieNo = 2;//이전페이지에서 넘어오는 영화번호
+ 		var movieNo = ${movieNo};//이전페이지에서 넘어오는 영화번호
  		var starNo = $(this).val();//방금클릭한 grade.
+		$('.starRadio').prop('checked', false);
+		$(this).prop('checked', true);
  		var starString = $(this).attr('name');
+ 		
  		
  		$.ajax({
 				url:"<c:url value='/Movieing/Movie/starAjax.mov'/>",

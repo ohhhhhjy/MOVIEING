@@ -124,7 +124,7 @@ img.border-shadow {
 				<div class="col-md-2 col-sm-6 movie-poster"
 					style="margin-bottom: 5px">
 					<a
-						href="<c:url value='/Movieing/Movie/MovieDetails.mov?mcode=${movie.movieNo }'/>">
+						href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
 						<img class="mvimg" src="${movie.movieImg}" alt="" />
 					</a>
 				</div>
@@ -170,7 +170,7 @@ img.border-shadow {
 				<div class="col-md-2 col-sm-6 movie-poster"
 					style="margin-bottom: 5px">
 					<a
-						href="<c:url value='/Movieing/Movie/MovieDetails.mov?mcode=${movie.movieNo }'/>">
+						href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
 						<img class="mvimg" src="${movie.movieImg}" alt="" />
 					</a>
 				</div>
@@ -217,7 +217,7 @@ img.border-shadow {
 								<div class="col-md-2 col-sm-6 movie-poster"
 									style="margin-bottom: 5px">
 									<a
-										href="<c:url value='/Movieing/Movie/MovieDetails.mov?mcode=${movie.movieNo }'/>">
+										href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
 										<img class="mvimg" src="${movie.movieImg}" alt="" />
 									</a>
 								</div>
@@ -280,7 +280,7 @@ img.border-shadow {
 										<div class="col-md-2 col-sm-6 movie-poster"
 											style="margin-bottom: 5px">
 											<a
-												href="<c:url value='/Movieing/Movie/MovieDetails.mov?mcode=${movie.movieNo }'/>">
+												href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
 												<img class="mvimg" src="${movie.movieImg}" alt="" />
 											</a>
 										</div>
@@ -333,7 +333,7 @@ img.border-shadow {
 				<div class="col-md-2 col-sm-6 movie-poster"
 					style="margin-bottom: 5px">
 					<a
-						href="<c:url value='/Movieing/Movie/MovieDetails.mov?mcode=${movie.movieNo }'/>">
+						href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
 						<img class="mvimg" src="${movie.movieImg}" alt="" />
 					</a>
 				</div>

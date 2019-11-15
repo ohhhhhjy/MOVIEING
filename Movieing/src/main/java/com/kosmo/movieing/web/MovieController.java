@@ -329,66 +329,67 @@ public class MovieController {
 
 
 	// 영화 상세 페이지
-		@RequestMapping("/Movieing/Movie/MovieDetails.mov")
-		public String movieDetailsTest(HttpServletRequest req, @RequestParam Map map, Model model,
-				@RequestParam String mcode) throws Exception {
-
-			System.out.println("MovieDetails 1  - map에 mname, date 넣기 전 :");
-			map.put("movieNo", mcode);
-
-			System.out.println("MovieDetails 2 - map에 mname, date 넣기 성공");
-
-			System.out.println("MovieDetails 3 - 디비에서 가져오기 전");
-			MovieDto movieInfo = movieService.selectOneMovie(map);
-			System.out.println("MovieDetails 4 - movieInfo 값 :" + movieInfo);
-
-			model.addAttribute("movieInfo", movieInfo);
-			/*
-			System.out.println("RequestMethod.GET");
-			System.out.println("name : " + mname);
-			System.out.println("date : " + date);
-
-			String mcode = moviecdGet(mname);
-
-			String mImgSource = (String) movieImgUrl(mname).get("realUrl");
-
-			// 영화상세정보
-			model.addAttribute("movieInfoMap", movieInfoMap(mcode));// 아직 해당영화 코드 가져올 방법이 없으므로 하드코딩
-			// 영화이미지
-			model.addAttribute("movieImgUrl", mImgSource);
-			System.out.println("movieImgUrl : " + movieImgUrl(mname));
-			*/
-			// 넘겨받은 영화코드 : movieNo. 임시로 넣어줌
+	@RequestMapping("/Movieing/Movie/MovieDetails.mov")
+	public String movieDetailsTest(HttpServletRequest req, @RequestParam Map map, Model model) throws Exception {
 
 
-			// 페이징을 위한 로직]
-			int pageSize = 5;
-			int blockPage = 3;
+		System.out.println("MovieDetails 1  - map에 mname, date 넣기 전 :");
+		map.put("movieNo", map.get("movieNo"));
+		model.addAttribute("movieNo", map.get("movieNo"));
+
+		System.out.println("MovieDetails 2 - map에 mname, date 넣기 성공");
+
+		System.out.println("MovieDetails 3 - 디비에서 가져오기 전");
+		MovieDto movieInfo = movieService.selectOne(map);
+		System.out.println("MovieDetails 4 - movieInfo 값 :" + movieInfo);
+
+		model.addAttribute("movieInfo", movieInfo);
+		/*
+		System.out.println("RequestMethod.GET");
+		System.out.println("name : " + mname);
+		System.out.println("date : " + date);
+
+		String mcode = moviecdGet(mname);
+
+		String mImgSource = (String) movieImgUrl(mname).get("realUrl");
+
+		// 영화상세정보
+		model.addAttribute("movieInfoMap", movieInfoMap(mcode));// 아직 해당영화 코드 가져올 방법이 없으므로 하드코딩
+		// 영화이미지
+		model.addAttribute("movieImgUrl", mImgSource);
+		System.out.println("movieImgUrl : " + movieImgUrl(mname));
+		*/
+		// 넘겨받은 영화코드 : movieNo. 임시로 넣어줌
+
+
+		// 페이징을 위한 로직]
+		int pageSize = 5;
+		int blockPage = 3;
 //			int nowPage=map.get("nowPage")==null?1:(Integer)map.get("nowPage");//임시
-			int nowPage = 1;// 임시
-			// 전체 리뷰 레코드 수
-			int totalRecordCount = reviewService.getTotalMovieReviewCount(map);
-			// 전체페이지 수
-			int totalPage = (int) Math.ceil((double) totalRecordCount / pageSize);
-			// 시작 및 끝 rownum
-			int start = (nowPage - 1) * pageSize + 1;
-			int end = nowPage * pageSize;
-			// 페이징을 위한 로직 끝]
-			map.put("start", start);
-			map.put("end", end);
+		int nowPage = 1;// 임시
+		// 전체 리뷰 레코드 수
+		int totalRecordCount = reviewService.getTotalMovieReviewCount(map);
+		// 전체페이지 수
+		int totalPage = (int) Math.ceil((double) totalRecordCount / pageSize);
+		// 시작 및 끝 rownum
+		int start = (nowPage - 1) * pageSize + 1;
+		int end = nowPage * pageSize;
+		// 페이징을 위한 로직 끝]
+		map.put("start", start);
+		map.put("end", end);
 
-			String pagingString = PagingUtil.pagingBootStrapStyle(totalRecordCount, pageSize, blockPage, 1);
-			model.addAttribute("pagingString", pagingString);
+		String pagingString = PagingUtil.pagingBootStrapStyle(totalRecordCount, pageSize, blockPage, 1);
+		model.addAttribute("pagingString", pagingString);
 
-			// 영화 리뷰 다 뿌려주자
-			List<ReviewDto> reviewList = reviewService.selectMovieReviewList(map);
-			for (ReviewDto record : reviewList) {
-				record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
-			}
-			model.addAttribute("reviewList", reviewList);
-
-			return "movie/info/MovieDetails.tiles";
+		// 영화 리뷰 다 뿌려주자
+		List<ReviewDto> reviewList = reviewService.selectMovieReviewList(map);
+		for (ReviewDto record : reviewList) {
+			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
 		}
+		model.addAttribute("reviewList", reviewList);
+
+		return "movie/info/MovieDetails.tiles";
+	}
 	//////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -452,54 +453,54 @@ public class MovieController {
 	// 전체영화 보여주기
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		@RequestMapping("/Movieing/Movie/MovieDetails.mov")
-		public String movieDetail(@RequestParam Map map,Model model) throws Exception {
-
-		String mname = map.get("mname").toString();
-		String mcode = moviecdGet(map.get("mname").toString());
-
-		String mImgSource = (String) movieImgUrl(map.get("mname").toString()).get("realUrl");
-
-		//영화상세정보
-		model.addAttribute("movieInfoMap", movieInfoMap(mcode));//아직 해당영화 코드 가져올 방법이 없으므로 하드코딩
-		//영화이미지
-		model.addAttribute("movieImgUrl", mImgSource);
-		System.out.println("movieImgUrl : "+movieImgUrl(mname));
-
-		//넘겨받은 영화코드 : movieNo. 임시로 넣어줌
-		String movieNo = "1";
-		map.put("movieNo", movieNo);
-
-		//페이징을 위한 로직]
-		int pageSize = 5;
-		int blockPage = 3;
-//		int nowPage=map.get("nowPage")==null?1:(Integer)map.get("nowPage");//임시
-		int nowPage=1;//임시
-		//전체 리뷰 레코드 수
-		int totalRecordCount = reviewService.getTotalMovieReviewCount(map);
-		//전체페이지 수
-		int totalPage = (int)Math.ceil((double)totalRecordCount/pageSize);
-		//시작 및 끝 rownum
-		int start = (nowPage-1)*pageSize+1;
-	 	int end   = nowPage*pageSize;
-	 	//페이징을 위한 로직 끝]
-	 	map.put("start", start);
-	 	map.put("end", end);
-
-		String pagingString = PagingUtil.pagingBootStrapStyle(totalRecordCount, pageSize, blockPage, 1);
-		model.addAttribute("pagingString", pagingString);
-
-		//영화 리뷰 다 뿌려주자
-		List<ReviewDto> reviewList = reviewService.selectMovieReviewList(map);
-		for(ReviewDto record : reviewList) {
-			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
-		}
-		model.addAttribute("reviewList",reviewList);
-
-
-		return "movie/info/MovieDetails.tiles";
-	}
-
+//		@RequestMapping("/Movieing/Movie/MovieDetails.mov")
+//		public String movieDetail(@RequestParam Map map,Model model) throws Exception {
+//
+//		String mname = map.get("mname").toString();
+//		String mcode = moviecdGet(map.get("mname").toString());
+//
+//		String mImgSource = (String) movieImgUrl(map.get("mname").toString()).get("realUrl");
+//
+//		//영화상세정보
+//		model.addAttribute("movieInfoMap", movieInfoMap(mcode));//아직 해당영화 코드 가져올 방법이 없으므로 하드코딩
+//		//영화이미지
+//		model.addAttribute("movieImgUrl", mImgSource);
+//		System.out.println("movieImgUrl : "+movieImgUrl(mname));
+//
+//		//넘겨받은 영화코드 : movieNo. 임시로 넣어줌
+//		String movieNo = "1";
+//		map.put("movieNo", movieNo);
+//
+//		//페이징을 위한 로직]
+//		int pageSize = 5;
+//		int blockPage = 3;
+////		int nowPage=map.get("nowPage")==null?1:(Integer)map.get("nowPage");//임시
+//		int nowPage=1;//임시
+//		//전체 리뷰 레코드 수
+//		int totalRecordCount = reviewService.getTotalMovieReviewCount(map);
+//		//전체페이지 수
+//		int totalPage = (int)Math.ceil((double)totalRecordCount/pageSize);
+//		//시작 및 끝 rownum
+//		int start = (nowPage-1)*pageSize+1;
+//	 	int end   = nowPage*pageSize;
+//	 	//페이징을 위한 로직 끝]
+//	 	map.put("start", start);
+//	 	map.put("end", end);
+//
+//		String pagingString = PagingUtil.pagingBootStrapStyle(totalRecordCount, pageSize, blockPage, 1);
+//		model.addAttribute("pagingString", pagingString);
+//
+//		//영화 리뷰 다 뿌려주자
+//		List<ReviewDto> reviewList = reviewService.selectMovieReviewList(map);
+//		for(ReviewDto record : reviewList) {
+//			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
+//		}
+//		model.addAttribute("reviewList",reviewList);
+//
+//
+//		return "movie/info/MovieDetails.tiles";
+//	}
+//
 	//영화상세 페이지의 별점ajax
 	@ResponseBody
 	@RequestMapping(value="/Movieing/Movie/starAjax.mov")
