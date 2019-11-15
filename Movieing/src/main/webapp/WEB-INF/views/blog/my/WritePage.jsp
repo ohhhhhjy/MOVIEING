@@ -29,7 +29,12 @@
 <script
 	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 
-
+<!-- 스마트 에디터 -->
+<!--  
+<script type="text/javascript"
+	src="<c:url value='/webapp/smarteditor2-master/workspace/static/js/service/HuskyEZCreator.js'/>"
+	charset="utf-8"></script>
+-->
 
 <style>
 .rating-header {
@@ -127,6 +132,7 @@
 
 
 
+
  
 
 
@@ -174,7 +180,10 @@
 
 
 
+
 input
+
+
 
 
 
@@ -364,7 +373,11 @@ text
 
 
 
+
+
 :focus
+
+
 
 
 
@@ -504,7 +517,9 @@ text
 
 
 
+
  
+
 
 
 
@@ -601,7 +616,9 @@ readonly
 
 
 
+
  
+
 
 
 
@@ -743,6 +760,8 @@ border-bottom
 
 
 
+
+
 :
 
 
@@ -790,7 +809,9 @@ border-bottom
 
 
 
+
  
+
 
 
 
@@ -885,7 +906,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -979,6 +1002,7 @@ solid
 
 
 
+
  
 
 
@@ -1026,7 +1050,10 @@ solid
 
 
 
+
 #f48fb1
+
+
 
 
 
@@ -1213,6 +1240,8 @@ box-shadow
 
 
 
+
+
 :
 
 
@@ -1260,7 +1289,9 @@ box-shadow
 
 
 
+
  
+
 
 
 
@@ -1356,7 +1387,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -1406,6 +1439,8 @@ px
 0
 0
 #f48fb1
+
+
 
 
 
@@ -1552,6 +1587,7 @@ px
 
 
 
+
  
 
 
@@ -1599,7 +1635,10 @@ px
 
 
 
+
 input
+
+
 
 
 
@@ -1789,7 +1828,11 @@ text
 
 
 
+
+
 :focus
+
+
 
 
 
@@ -1929,7 +1972,9 @@ text
 
 
 
+
  
+
 
 
 
@@ -2026,7 +2071,9 @@ readonly
 
 
 
+
  
+
 
 
 
@@ -2168,6 +2215,8 @@ border-bottom
 
 
 
+
+
 :
 
 
@@ -2215,7 +2264,9 @@ border-bottom
 
 
 
+
  
+
 
 
 
@@ -2310,7 +2361,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -2404,6 +2457,7 @@ solid
 
 
 
+
  
 
 
@@ -2451,7 +2505,10 @@ solid
 
 
 
+
 #ce93d8
+
+
 
 
 
@@ -2638,6 +2695,8 @@ box-shadow
 
 
 
+
+
 :
 
 
@@ -2685,7 +2744,9 @@ box-shadow
 
 
 
+
  
+
 
 
 
@@ -2781,7 +2842,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -2831,6 +2894,8 @@ px
 0
 0
 #ce93d8
+
+
 
 
 
@@ -2977,6 +3042,7 @@ px
 
 
 
+
  
 
 
@@ -3024,7 +3090,10 @@ px
 
 
 
+
 input
+
+
 
 
 
@@ -3214,7 +3283,11 @@ text
 
 
 
+
+
 :focus
+
+
 
 
 
@@ -3354,7 +3427,9 @@ text
 
 
 
+
  
+
 
 
 
@@ -3451,7 +3526,9 @@ readonly
 
 
 
+
  
+
 
 
 
@@ -3593,6 +3670,8 @@ border-bottom
 
 
 
+
+
 :
 
 
@@ -3640,7 +3719,9 @@ border-bottom
 
 
 
+
  
+
 
 
 
@@ -3735,7 +3816,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -3829,6 +3912,7 @@ solid
 
 
 
+
  
 
 
@@ -3876,7 +3960,10 @@ solid
 
 
 
+
 #4dd0e1
+
+
 
 
 
@@ -4063,6 +4150,8 @@ box-shadow
 
 
 
+
+
 :
 
 
@@ -4110,7 +4199,9 @@ box-shadow
 
 
 
+
  
+
 
 
 
@@ -4206,7 +4297,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -4256,6 +4349,8 @@ px
 0
 0
 #4dd0e1
+
+
 
 
 
@@ -4488,6 +4583,19 @@ px
 
 		}
 	});
+
+	/*스마트 에디터*/
+	/*
+	$(function() {
+		var oEditors = [];
+		nhn.husky.EZCreator.createInIFrame({
+					oAppRef : oEditors,
+					elPlaceHolder : "weditor",
+					sSkinURI : "<c:url value='/webapp/smarteditor2-master/workspace/static/SmartEditor2Skin.html'/>",
+					fCreator : "createSEditor2"
+				});
+	});
+	*/
 </script>
 
 
@@ -4587,8 +4695,11 @@ px
 									</h5>
 								</div>
 								<div class="modal-footer">
-									<a href ="<c:url value='/Movieing/Movie/screening/First_like.mov'/>"><button type="button"
-										class="btn btn-outline-primary waves-effect" ><i class="fas fa-star"></i> 더 평가하러가기</button></a>
+									<a
+										href="<c:url value='/Movieing/Movie/screening/First_like.mov'/>"><button
+											type="button" class="btn btn-outline-primary waves-effect">
+											<i class="fas fa-star"></i> 더 평가하러가기
+										</button></a>
 
 								</div>
 							</c:if>
@@ -4734,9 +4845,14 @@ px
 
 				<h5>내용</h5>
 				<div class="form-group">
+
 					<textarea class="form-control rounded-0" required="required"
 						name="reviewContent" id="exampleFormControlTextarea2" rows="3"
 						placeholder=""></textarea>
+		
+						<!--  
+					<textarea name="weditor" id="weditor" rows="10" cols="100"></textarea>
+					-->
 				</div>
 
 

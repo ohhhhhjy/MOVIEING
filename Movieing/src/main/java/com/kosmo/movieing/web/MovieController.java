@@ -547,9 +547,15 @@ public class MovieController {
 		UserDto user = userService.selectOne(map);
 		model.addAttribute("user",user);
 		ReviewDto review = reviewService.selectOne(map);
+		review.setReviewContent(review.getReviewContent().replace("\r\n", "<br>"));
 		model.addAttribute("review",review);
 
+
 		List<CommentDto> commentList = commentService.selectList(map);
+		for(CommentDto record:commentList) {
+			record.setCommentContent(record.getCommentContent().replace("\r\n", "<br>"));
+		}
+
 		model.addAttribute("commentList",commentList);
 
 		return "movie/info/MovieReviews.tiles";
