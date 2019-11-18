@@ -90,7 +90,6 @@ button.qty-change{
     text-align: center;
 }
 
-
 </style>
 <div class="container" style="margin-top: 150px">
     <div class="content-wrapper">	
@@ -103,17 +102,23 @@ button.qty-change{
 						<div class="row">
 							<div class="product col-md-3 service-image-left">
 								<div>
-									<img id="item-display" src="http://placehold.it/230x321" alt=""></img>
+									<img class="img-responsive" src="<c:url value='/resources/img/news/j1.png'/>" alt="서울독립영화제" width="250px" height="320px"> 
 								</div>
 							</div>
 							<div class="col-md-9">
-								<div class="product-title">서울독립영화제</div>
-								<div class="product-desc">Seoul Independent Film Festival</div>
-								<hr>
+								<form method="post" action="<c:url value='/Movieing/News/News.mov'/>">
+								<div class="product-title"><input class="btn" type="submit" value="서울독립영화제" style="font-size: 25px"/></div>
+								<input type="hidden" name="seoulDR" value="서울독립영화제"/>
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+								</form>
+								<br>
+								<div class="product-desc" style="color: gray"><strong>&nbsp;Seoul Independent Film Festival</strong></div>
+								<br>
+								<br>
 								<br>
 								<table class="table">
 									<tr>
-										<td>서울독립영화제에에</td>
+										<td>서울독립영화제</td>
 										<td>
 											<div class="product-price" id="product-price">12,000원</div>
 										</td>
@@ -144,7 +149,42 @@ button.qty-change{
 								</table>
 							</div>
 						</div>
+						<br>
+					<hr>
+					<br>
+					<div class="row">
+						<div class="col-md-12">
+							<strong>- 국내 경쟁 독립 영화제</strong>
+							<br>
+							<p>극, 실험, 다큐멘터리, 애니메이션 등 다양한 독립영화를 주제, 형식, 길이 구분 없이 공모하여 시상한다. 또한 별도의 초청 섹션을 통해 독립영화의 다양한 경향을 소개한다.</p>
+							<br>
+							<strong>- 교류와 소통, 축제의 영화제</strong>
+							<br>
+							<p>동시대의 독립영화인들이 한자리에서 만남으로써 독립영화의 시대정신과 비전을 찾고자 하며,
+기성 영화의 대안이 될 새로운 독립영화를 발굴하고 있다.</p>
+							<br>
+							<strong>- 영화제 이후를 고민하는 영화제</strong>
+							<br>
+							<p>일회성으로 그치는 영화제의 한계를 극복하기 위해, 순회상영회 인디피크닉, 베스트 컬렉션 DVD 제작,
+온라인 상영회, 독립영화 인터뷰 매거진 NOW 등 다양한 활동을 실천하며 관객을 만나고 있다.
+</p>
+							<br>
+							<strong>- 독립영화의 실질적 제작 배급 활성화</strong>
+							<br>
+							<p>일상 사업을 통해 독립영화의 배급 경로를 꾸준히 확장해 왔으며 사전제작 지원과 배급,
+마케팅 지원 등 독립영화의 실질적 제작 유통 활성화에 기여하고자 한다.</p>
+							<br>
+							<strong>- 관객과 함께하는 영화제</strong>
+							<br>
+							<p>자원활동가와 함께 관객심사단 제도를 도입하여 관객 비평을 활성화하였다.
+공식 후원모임 인디당은 독립영화 관객의 다양한 활동을 지지하는 관객 커뮤니티이다.</p>
+							<br>
+													
+						</div>
+					
 					</div>
+					</div>
+					
 				</div>
 			</div>
 

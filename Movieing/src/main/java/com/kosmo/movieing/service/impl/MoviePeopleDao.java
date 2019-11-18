@@ -6,16 +6,15 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.stereotype.Repository;
 
 import com.kosmo.movieing.service.MoviePeopleDto;
 import com.kosmo.movieing.service.MoviePeopleService;
 
-@Repository
 public class MoviePeopleDao implements MoviePeopleService{
 
 	@Resource(name="template")
 	private SqlSessionTemplate template;
+
 
 	@Override
 	public boolean isMember(Map map) {
@@ -24,7 +23,7 @@ public class MoviePeopleDao implements MoviePeopleService{
 
 	@Override
 	public List<MoviePeopleDto> selectList(Map map) {
-		return template.selectList("selectPeople", map);
+		return null;
 	}
 
 	@Override
@@ -50,6 +49,12 @@ public class MoviePeopleDao implements MoviePeopleService{
 	@Override
 	public int delete(Map map) {
 		return 0;
+	}
+
+
+	@Override
+	public List<MoviePeopleDto> selectListPeople(Map map) {
+		return template.selectList("selectListPeople",map);
 	}
 
 }

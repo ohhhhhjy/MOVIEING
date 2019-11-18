@@ -12,43 +12,48 @@ import com.kosmo.movieing.service.MoviePeopleService;
 @Service("moviePeopleService")
 public class MoviePeopleServiceImpl implements MoviePeopleService {
 
-
 	@Resource(name="moviePeopleDao")
 	private MoviePeopleDao dao;
 
 	@Override
 	public boolean isMember(Map map) {
-		return dao.isMember(map);
+		return false;
 	}
 
 	@Override
 	public List<MoviePeopleDto> selectList(Map map) {
-		return dao.selectList(map);
+		return null;
 	}
 
 	@Override
 	public int getTotalCount(Map map) {
-		return dao.getTotalCount(map);
+		return 0;
 	}
 
 	@Override
 	public MoviePeopleDto selectOne(Map map) {
-		return dao.selectOne(map);
+		return null;
 	}
 
 	@Override
 	public int insert(Map map) {
-		return dao.insert(map);
+		return 0;
 	}
 
 	@Override
 	public int update(Map map) {
-		return dao.update(map);
+		return 0;
 	}
 
 	@Override
 	public int delete(Map map) {
-		return dao.delete(map);
+		return 0;
+	}
+
+
+	@Override
+	public List<MoviePeopleDto> selectListPeople(Map map) {
+		return dao.selectListPeople(map);
 	}
 
 }

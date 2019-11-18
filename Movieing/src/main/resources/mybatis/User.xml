@@ -34,6 +34,10 @@
 		(#{userid},#{userpass},#{username},#{nickname},#{contact},#{email},#{publicinfo}, null)
 	</insert>
 	
+	<insert id="insertSec" parameterType="java.util.Map">
+		insert into auth_security values(#{userid}, default, default)
+	</insert>
+	
 	<update id="userUpdate" parameterType="java.util.Map">
 	update user_table set user_nick=#{nick},user_name=#{username},user_contact=#{phone},user_mail=#{email},user_self=#{publicinfo}
 	where user_id=#{id}
@@ -53,6 +57,13 @@
 		 select * from user_table where user_id in ( select following from follow where follower=#{id})
 	</select>
 
+	<!--  검색용 -->
+	<select id="selectSearchList" parameterType="java.util.Map" resultType="UserDto">
+		select * from user_table
+		where USER_NICK LIKE #{%searchWord}
+		OR USER_NICK LIKE #{searchWord%}
+		OR USER_NICK LIKE #{%searchWord%}
+	</select>
 
 
 

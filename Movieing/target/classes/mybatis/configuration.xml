@@ -35,7 +35,7 @@
 		<mapper resource="mybatis/Follow.xml" />
 		<mapper resource="mybatis/Comment.xml" />
 		<mapper resource="mybatis/Calendar.xml" />
-		<mapper resource="mybatis/MoviePeople.xml" />
+		<mapper resource="mybatis/MoviePeople.xml"/>
 	</mappers>
 	
 </configuration>

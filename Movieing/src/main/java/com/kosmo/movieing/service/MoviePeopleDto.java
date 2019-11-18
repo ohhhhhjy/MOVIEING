@@ -2,6 +2,7 @@ package com.kosmo.movieing.service;
 
 public class MoviePeopleDto {
 
+
 	int moviePeopleNo;
 	String moviePeopleName;
 	String moviePeopleJob;

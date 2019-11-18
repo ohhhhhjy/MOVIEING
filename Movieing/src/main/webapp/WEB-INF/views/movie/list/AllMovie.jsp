@@ -148,7 +148,7 @@
 							<img class="mvimg" src="${movie.movieImg}" alt="" />
 						</a>
 
-
+	
 
 					</div>
 

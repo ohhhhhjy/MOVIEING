@@ -64,6 +64,7 @@ public class MovieController {
 	@Resource(name = "moviePeopleService")
 	private MoviePeopleService moviePeopleService;
 
+
 	// 전체영화
 	@RequestMapping("/Movieing/Movie/AllMovie.mov")
 	public String movieMain(Model model, @RequestParam Map map) throws Exception {
@@ -327,11 +328,13 @@ public class MovieController {
 
 
 
+
 	@RequestMapping("/Movieing/Movie/SearchResult.mov")
 	public String searchResult(@RequestParam Map map,Model model) {
 
 		return "movie/list/SearchResult.tiles";
 	}
+
 
 
 
@@ -634,6 +637,32 @@ public class MovieController {
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	@RequestMapping("/Movieing/Movie/SearchResult.mov")
+	public String searchResult(@RequestParam Map map, @RequestParam String searchWord, Model model ) {
+
+		map.put("searchWord%", searchWord+"%");
+		map.put("%searchWord", "%"+searchWord);
+		map.put("%searchWord%", "%"+searchWord+"%");
+
+		//map.put("searchPeople%", searchWord+"%");
+
+		System.out.println("searchReuslt - 1 searchWord 값 : "+searchWord);
+
+		List<MovieDto> searchMovieList = movieService.selectListSearchRadom(map);
+		List<MoviePeopleDto> searchPeopleList = moviePeopleService.selectListPeople(map);
+		List<UserDto> searchUserList = userService.selectSearchList(map);
+
+		System.out.println("searchResult -2 searchMovieList 값 : "+searchMovieList);
+		System.out.println("searchResult -3 searchPeopleList 값 : "+searchPeopleList);
+		System.out.println("searchResult -4 searchUserList 값 : "+searchUserList);
+
+		model.addAttribute("searchMovieList",searchMovieList);
+		model.addAttribute("searchPeopleList",searchPeopleList);
+		model.addAttribute("searchUserList",searchUserList);
+
+		return "movie/list/SearchResult.tiles";
+	}
 
 	// 무비리스트 가져오기
 	public List movieTrain() throws Exception {

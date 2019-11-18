@@ -67,5 +67,13 @@
 	select movie_title from movie where movie_director=#{movieDirector}
 	</select>
 	
-
+	<select id="selectListSearchRadom" parameterType="java.util.Map" resultType="MovieDto">
+		select * from movie
+		where MOVIE_COUNTRY = #{searchWord} 
+		OR MOVIE_TITLE LIKE #{%searchWord}
+		OR MOVIE_TITLE LIKE #{searchWord%}
+		OR MOVIE_TITLE LIKE #{%searchWord%}
+	</select>
+	
+	
 </mapper>

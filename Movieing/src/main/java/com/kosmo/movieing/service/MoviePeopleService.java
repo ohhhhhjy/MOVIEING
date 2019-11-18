@@ -18,4 +18,7 @@ public interface MoviePeopleService {
 	int update(Map map);
 	int delete(Map map);
 
+
+	List<MoviePeopleDto> selectListPeople(Map map);
+
 }
