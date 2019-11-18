@@ -201,13 +201,13 @@ height: 200px;
 						<c:forEach begin="0" end="2" items="${searchPeopleList}" var="people">
 							<div class="row actorForm">
 								<div class="col-sm-3">
-									<img class="radiusImg" alt="배우사진" src="${people.MOVIE_PEOPLE_IMG }"/>
+									<img class="radiusImg" alt="배우사진" src="${people.moviePeopleImg}"/>
 								</div>
 								<div class="col-sm-4">
-									<span class="actorSpan">${people.MOVIE_PEOPLE_NAME}</span>
+									<span class="actorSpan">${people.moviePeopleName}</span>
 								</div>
 								<div class="col-sm-3">
-									<span class="filmoSpan">작품 25편</span>
+									<span class="filmoSpan">${people.moviePeopleCountry}${people.moviePeopleJob }</span>
 								</div>
 							</div>
 						</c:forEach>
@@ -228,44 +228,19 @@ height: 200px;
 						</div>
 					</div>
 					<div style="padding-left: 20px;padding-top:10px">
+						<c:forEach  items="${searchUserList }" var="user">
 						<div class="row actorForm">
 							<div class="col-sm-3">
-								<img class="radiusImg" alt="배우사진"
-									src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+								<img class="radiusImg" alt="배우사진" src="${user.userProfile}" />
 							</div>
 							<div class="col-sm-4">
-								<span class="actorSpan">유저이름</span>
+								<span class="actorSpan">${user.userNick }</span>
 							</div>
 							<div class="col-sm-3">
-								<span class="filmoSpan">평가 25편</span>
+								<span class="filmoSpan"></span>
 							</div>
 						</div>
-
-						<div class="row actorForm">
-							<div class="col-sm-3">
-								<img class="radiusImg" alt="배우사진"
-									src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-							</div>
-							<div class="col-sm-4">
-								<span class="actorSpan">유저이름</span>
-							</div>
-							<div class="col-sm-3">
-								<span class="filmoSpan">평가 25편</span>
-							</div>
-						</div>
-
-						<div class="row actorForm">
-							<div class="col-sm-3">
-								<img class="radiusImg" alt="배우사진"
-									src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-							</div>
-							<div class="col-sm-4">
-								<span class="actorSpan">유저이름</span>
-							</div>
-							<div class="col-sm-3">
-								<span class="filmoSpan">평가 25편</span>
-							</div>
-						</div>
+						</c:forEach>
 					</div>
 				</div>
 			</div>

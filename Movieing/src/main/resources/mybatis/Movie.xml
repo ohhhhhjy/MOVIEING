@@ -71,8 +71,5 @@
 		OR MOVIE_TITLE LIKE #{%searchWord%}
 	</select>
 	
-	<select id="selectListSearchPeople" parameterType="java.util.Map" resultType="movieDto">
-		select * from MOVIE_PEOPLE
-		where MOVIE_PEOPLE_NAME = #{searchPeople}
-	</select>
+	
 </mapper>

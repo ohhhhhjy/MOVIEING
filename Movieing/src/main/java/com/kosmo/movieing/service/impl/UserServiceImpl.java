@@ -71,4 +71,9 @@ public class UserServiceImpl implements UserService{
 		return dao.selectFollowingList(map);
 	}
 
+	@Override
+	public List<UserDto> selectSearchList(Map map) {
+		return dao.selectSearchList(map);
+	}
+
 }

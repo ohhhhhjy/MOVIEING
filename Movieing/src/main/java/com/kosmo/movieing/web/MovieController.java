@@ -31,6 +31,8 @@ import com.kosmo.movieing.service.CommentDto;
 import com.kosmo.movieing.service.CommentService;
 import com.kosmo.movieing.service.EvalueWishService;
 import com.kosmo.movieing.service.MovieDto;
+import com.kosmo.movieing.service.MoviePeopleDto;
+import com.kosmo.movieing.service.MoviePeopleService;
 import com.kosmo.movieing.service.MovieService;
 import com.kosmo.movieing.service.PagingUtil;
 import com.kosmo.movieing.service.ReviewDto;
@@ -57,6 +59,9 @@ public class MovieController {
 
 	@Resource(name = "movieService")
 	private MovieService movieService;
+	
+	@Resource(name = "moviePeopleService")
+	private MoviePeopleService moviePeopleService;
 
 	// 전체영화
 	@RequestMapping("/Movieing/Movie/AllMovie.mov")
@@ -617,18 +622,22 @@ public class MovieController {
 		map.put("searchWord%", searchWord+"%");
 		map.put("%searchWord", "%"+searchWord);
 		map.put("%searchWord%", "%"+searchWord+"%");
-		map.put("searchPeople", searchWord);
+		
+		//map.put("searchPeople%", searchWord+"%");
 		
 		System.out.println("searchReuslt - 1 searchWord 값 : "+searchWord);
 		
 		List<MovieDto> searchMovieList = movieService.selectListSearchRadom(map);
-		List<MovieDto> searchPeopleList = movieService.selectListSearchPeople(map);
+		List<MoviePeopleDto> searchPeopleList = moviePeopleService.selectListPeople(map);
+		List<UserDto> searchUserList = userService.selectSearchList(map);
 		
 		System.out.println("searchResult -2 searchMovieList 값 : "+searchMovieList);
-		System.out.println("searchResult -2 searchPeopleList 값 : "+searchPeopleList);
+		System.out.println("searchResult -3 searchPeopleList 값 : "+searchPeopleList);
+		System.out.println("searchResult -4 searchUserList 값 : "+searchUserList);
 		
 		model.addAttribute("searchMovieList",searchMovieList);
 		model.addAttribute("searchPeopleList",searchPeopleList);
+		model.addAttribute("searchUserList",searchUserList);
 	
 		return "movie/list/SearchResult.tiles";
 	}

@@ -48,6 +48,13 @@
 		 select * from user_table where user_id in ( select following from follow where follower=#{id})
 	</select>
 
+	<!--  검색용 -->
+	<select id="selectSearchList" parameterType="java.util.Map" resultType="UserDto">
+		select * from user_table
+		where USER_NICK LIKE #{%searchWord}
+		OR USER_NICK LIKE #{searchWord%}
+		OR USER_NICK LIKE #{%searchWord%}
+	</select>
 
 
 
