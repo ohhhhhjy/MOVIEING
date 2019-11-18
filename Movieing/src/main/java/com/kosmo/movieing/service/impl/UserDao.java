@@ -73,8 +73,11 @@ public class UserDao implements UserService{
 
 	@Override
 	public int insertSec(Map map) {
-		
 		return template.insert("insertSec", map);
+	}
+
+	public List<UserDto> selectSearchList(Map map) {
+		return template.selectList("selectSearchList",map);
 	}
 
 

@@ -30,21 +30,46 @@
 	<select id="selectListHorror" parameterType="java.util.Map" resultType="MovieDto">
 		select * from movie
 		where MOVIE_GENRE = '공포'
+		order by dbms_random.value
 	</select>
 	<!-- 로맨스 영화 가져오기 -->
 	<select id="selectListRomance" parameterType="java.util.Map" resultType="MovieDto">
 		select * from movie
 		where MOVIE_GENRE = '멜로/로맨스'
+		order by dbms_random.value
 	</select>
 	<!-- 코디미 영화 가져오기 -->
 	<select id="selectListComedy" parameterType="java.util.Map" resultType="MovieDto">
 		select * from movie
 		where MOVIE_GENRE = '코미디'
+		order by dbms_random.value
 	</select>
 	<!-- 무빙인기영화 랜덤 가져오기 -->
 	<select id="selectListRandom" parameterType="java.util.Map" resultType="MovieDto">
 		select * from movie 
 		order by dbms_random.value
 	</select>
-
+	
+	<select id="selectListNewRandom" parameterType="java.util.Map" resultType="MovieDto">
+		<![CDATA[
+		select * from movie
+		where MOVIE_YEAR = 2019
+		order by dbms_random.value
+		
+		
+		]]>
+	</select>
+	<select id="selectListARandom" parameterType="java.util.Map" resultType="MovieDto">
+		select * from movie
+	</select>
+	
+	<select id="selectListSearchRadom" parameterType="java.util.Map" resultType="MovieDto">
+		select * from movie
+		where MOVIE_COUNTRY = #{searchWord} 
+		OR MOVIE_TITLE LIKE #{%searchWord}
+		OR MOVIE_TITLE LIKE #{searchWord%}
+		OR MOVIE_TITLE LIKE #{%searchWord%}
+	</select>
+	
+	
 </mapper>

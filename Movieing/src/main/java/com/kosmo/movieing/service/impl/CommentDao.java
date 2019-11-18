@@ -48,7 +48,7 @@ public class CommentDao implements CommentService{
 
 	@Override
 	public int delete(Map map) {
-		return 0;
+		return template.delete("commentDelete", map);
 	}
 
 	@Override

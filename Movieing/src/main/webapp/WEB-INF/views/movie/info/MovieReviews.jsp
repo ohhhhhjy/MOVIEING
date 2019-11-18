@@ -62,7 +62,7 @@ $(document).ready(function() {
 					
 				},	
 				error:function(request,status,error){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
-					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+					console.log("에러:"+data.responseText);
 				}
 
 			});

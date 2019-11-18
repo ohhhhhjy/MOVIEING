@@ -220,18 +220,74 @@ height: 100%;
 
 <script>
 $(document).ready(function() {
-	$('.starRev span').click(function() {
+	
+	
+ 	$('.starRev span').click(function() {
 		$(this).parent().children('span').removeClass('on');
 		$(this).addClass('on').prevAll('span').addClass('on');
 		return false;
 	});
 	
+	//보고싶어요 클릭시 ajax 메소드..
  	$('#btnWish').click(function(){
- 		if($('#wishBtnIcon').prop('class')=='fas fa-plus')
+ 		var movieNo = ${movieNo};
+ 		var isInsert = true;
+ 		//보고싶어요 x > 보고싶어요 o(insert)
+ 		if($('#wishBtnIcon').prop('class')=='fas fa-plus'){
  			$('#wishBtnIcon').removeClass('fa-plus').addClass('fa-bookmark');
- 		else
+ 			
+ 		}
+ 		//보고싶어요 o > 보고싶어요 x(delete)
+ 		else{
  			$('#wishBtnIcon').removeClass('fa-bookmark').addClass('fa-plus'); 
+ 			isInsert = false;
+ 		}
+ 		
+ 		$.ajax({
+			url:"<c:url value='/Movieing/Movie/wishAjax.mov'/>",
+				type:'post',
+				data:
+					{movieNo:movieNo,isInsert:isInsert},
+		    beforeSend : function(xhr)
+              {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+                  xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+              },	
+				success:function(){//서버로 부터 정상적인 응답을 받았을 때(200번)
+				},	
+				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+					console.log("에러:"+data.responseText);
+				} 			
+		});
 	});
+ 	
+ 	
+ 	//별점 클릭시 insert와 update를 실행시키기위한 ajax메소드..
+ 	$('.starRadio').click(function(){
+ 		var movieNo = ${movieNo};//이전페이지에서 넘어오는 영화번호
+ 		var starNo = $(this).val();//방금클릭한 grade.
+		$('.starRadio').prop('checked', false);
+		$(this).prop('checked', true);
+ 		var starString = $(this).attr('name');
+ 		
+ 		
+ 		$.ajax({
+				url:"<c:url value='/Movieing/Movie/starAjax.mov'/>",
+ 				type:'post',
+ 				data:
+ 					{movieNo:movieNo,grade:starNo},
+			    beforeSend : function(xhr)
+                  {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+                      xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+                  },	
+ 				success:function(){//서버로 부터 정상적인 응답을 받았을 때(200번)
+ 					//아래의 메소드는 별점클릭시 span을 추가해주기 위함이므로, 평가메뉴에서 사용할거라면 빼는걸 추천..
+ 					$('#starSpan').html('<span  class="px-2" style="color:#db147b;font-weight: bold">'+starString+'</span>');
+ 				},	
+ 				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+ 					console.log("에러:"+data.responseText);
+ 				} 			
+ 		});
+ 	});
  	
 
 
@@ -327,17 +383,18 @@ $(document).ready(function() {
 					<span class="px-2">${movieInfo.movieGrade} ・ ${movieInfo.movieGenre} ・ ${movieInfo.movieCountry}</span>
 					<hr class="my-3">
 					<span class="px-2" style="font-weight: bold">평점★3.8</span>
-					<span> ・</span>
-					<span class="px-2" style="color:#db147b;font-weight: bold">예상★4.0</span>
+					<!-- <span> ・</span>
+					<span class="px-2" style="color:#db147b;font-weight: bold">예상★4.0</span> -->
 					<hr class="my-3">
+					<div id="starSpan"></div>
 					<div class="row">
 						<!-- 별점 -->
 					<div class="rating px-3" >
-				      <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="최고예요">5 stars</label>
-				      <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="재미있어요">4 stars</label>
-				      <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="보통이에요">3 stars</label>
-				      <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="별로예요">2 stars</label>
-				      <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="싫어요">1 star</label>
+				      <input class="starRadio" type="radio" id="star5" name="최고예요" value="5" /><label for="star5" title="최고예요">5 stars</label>
+				      <input class="starRadio" type="radio" id="star4" name="재미있어요" value="4" /><label for="star4" title="재미있어요">4 stars</label>
+				      <input class="starRadio" type="radio" id="star3" name="보통이에요" value="3" /><label for="star3" title="보통이에요">3 stars</label>
+				      <input class="starRadio" type="radio" id="star2" name="별로예요" value="2" /><label for="star2" title="별로예요">2 stars</label>
+				      <input class="starRadio" type="radio" id="star1" name="싫어요" value="1" /><label for="star1" title="싫어요">1 star</label>
 				    </div> 
 								<!-- 별점 반개 실험 <span class="star-icon full">☆</span>
 								<span class="star-icon full">☆</span>

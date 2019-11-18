@@ -103,10 +103,12 @@ img.border-shadow {
 				<div class="col-xl-10">
 					<h3>#추천인기영화</h3>
 				</div>
-				<div class="col-xl-2" align="right">
+				<div class="col-xl-2" align="right" >
+					<a href="<c:url value='/Movieing/Movie/Popular.mov'/>" style="z-index: 1">
 					<button type="button" class="btn btn-light btn-lg">
-						<h5 style="color: gray;">모두 보기 ></h5>
+						모두 보기 >
 					</button>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -122,7 +124,7 @@ img.border-shadow {
 				<div class="col-md-2 col-sm-6 movie-poster"
 					style="margin-bottom: 5px">
 					<a
-						href="<c:url value='/Movieing/Movie/MovieDetails.mov?mname=${movie.movieTitle }&date=${movie.movieYear }'/>">
+						href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
 						<img class="mvimg" src="${movie.movieImg}" alt="" />
 					</a>
 				</div>
@@ -148,9 +150,11 @@ img.border-shadow {
 					<h3>무빙 최고 인기작</h3>
 				</div>
 				<div class="col-xl-2" align="right">
+				<a href="<c:url value='/Movieing/Movie/Genre.mov'/>" style="z-index: 1">
 					<button type="button" class="btn btn-light btn-lg">
 						<h5 style="color: gray;">모두 보기 ></h5>
 					</button>
+				</a>
 				</div>
 			</div>
 		</div>
@@ -166,7 +170,7 @@ img.border-shadow {
 				<div class="col-md-2 col-sm-6 movie-poster"
 					style="margin-bottom: 5px">
 					<a
-						href="<c:url value='/Movieing/Movie/MovieDetails.mov?mname=${movie.movieTitle }&date=${movie.movieYear }'/>">
+						href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
 						<img class="mvimg" src="${movie.movieImg}" alt="" />
 					</a>
 				</div>
@@ -213,7 +217,7 @@ img.border-shadow {
 								<div class="col-md-2 col-sm-6 movie-poster"
 									style="margin-bottom: 5px">
 									<a
-										href="<c:url value='/Movieing/Movie/MovieDetails.mov?mname=${movie.movieTitle }&date=${movie.movieYear }'/>">
+										href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
 										<img class="mvimg" src="${movie.movieImg}" alt="" />
 									</a>
 								</div>
@@ -276,7 +280,7 @@ img.border-shadow {
 										<div class="col-md-2 col-sm-6 movie-poster"
 											style="margin-bottom: 5px">
 											<a
-												href="<c:url value='/Movieing/Movie/MovieDetails.mov?mname=${movie.movieTitle }&date=${movie.movieYear }'/>">
+												href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
 												<img class="mvimg" src="${movie.movieImg}" alt="" />
 											</a>
 										</div>
@@ -329,7 +333,7 @@ img.border-shadow {
 				<div class="col-md-2 col-sm-6 movie-poster"
 					style="margin-bottom: 5px">
 					<a
-						href="<c:url value='/Movieing/Movie/MovieDetails.mov?mname=${movie.movieTitle }&date=${movie.movieYear }'/>">
+						href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
 						<img class="mvimg" src="${movie.movieImg}" alt="" />
 					</a>
 				</div>

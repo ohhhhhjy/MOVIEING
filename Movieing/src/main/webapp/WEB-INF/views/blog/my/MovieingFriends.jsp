@@ -253,18 +253,7 @@ a {
 											console.log($(this).value);
 
 											//좋아요 클릭시 색바꾸기]
-											/*
-												if ($(this).attr('value') == 'click') {//좋아요클릭
-														$(this).css('color', 'red').css('font-weight','bold').css('font-size','large');
-														$(this).attr("value","unclick");
-														console.log('클릭한후 값'+ $(this).attr('value'));
-
-											} else {//좋아요해제
-													$(this).removeAttr('style');//스타일제거
-													$(this).attr("value", "click");
-
-											}
-											 */
+								
 											console.log('잘찍히냐고'
 													+ $('.likeNumber')
 															.text('2'));
@@ -278,7 +267,7 @@ a {
 															type : 'post',
 															dataType : 'text',
 															data : {
-																reviewNo : '${friendsReviewList.get(index).reviewNo}'
+																reviewNo : '${friendsReviewList1.get(index).reviewNo}'
 															},/*, ${_csrf.parameterName}:'${_csrf.token}'*/
 															beforeSend : function(
 																	xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
@@ -300,6 +289,7 @@ a {
 																$("#likebutton")
 																		.removeAttr(
 																				'style');//스타일제거
+															
 																flag = !flag;
 
 															},
@@ -308,8 +298,9 @@ a {
 																console
 																		.log("에러:"
 																				+ data);
-																flag = !flag;
+															
 															}
+													
 														});
 
 											}
@@ -324,7 +315,7 @@ a {
 															type : 'post',
 															dataType : 'text',
 															data : {
-																reviewNo : '${friendsReviewList.get(index).reviewNo}'
+																reviewNo : '${friendsReviewList1.get(index).reviewNo}'
 															},
 															beforeSend : function(
 																	xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
@@ -355,18 +346,19 @@ a {
 																		.css(
 																				'font-size',
 																				'large');
+									
 																flag = !flag;
-
 															},
 															error : function(
 																	data) {//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
 																console
 																		.log("에러:"
 																				+ data.responseText);
-																flag = !flag;
+															
+																
 															}
 														});
-
+														
 												console.log("+1된 좋아요개수" + data);
 
 											}
@@ -377,17 +369,12 @@ a {
 
 	//댓글 insert
 
-	$(document)
-			.ready(
-					function() {
-						$("#commentInsert")
-								.click(
-										function() {
+	$(document).ready(function() {
+						$("#commentInsert").click(function() {
 
 											console.log($('#comment').val());//댓글
 
-											$
-													.ajax({
+											$.ajax({
 														url : "<c:url value='/Movieing/Blog/CommentInsert.mov'/>",
 														type : 'post',
 														dataType : 'text',
@@ -422,7 +409,95 @@ a {
 										});
 
 					});
+					
+		///////////////////////////////////////////////////////
+		/*			
+	$(document).ready(function() {
+			$('select[name=select]').change(function(){
+				console.log('선택:');
+				
+				if($(this).val()=="1"){
+					console.log('시간순');
+					
+					$.ajax({
+						url : "<c:url value='/Movieing/Blog/MovieingFriends.mov'/>",
+						type : 'post',
+						dataType : 'text',
+						data : {
+							reviewNo : '${friendsReviewList.get(index).reviewNo}'
+						},
+						beforeSend : function(
+								xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+							/*
+							xhr.setRequestHeader(
+											"${_csrf.headerName}",
+											"${_csrf.token}");
+						},
+						success : function(data) {
+							console.log('피드 가져오기 성공');
+							$('#contentpeed').children.
 	
+							
+						},
+						error : function(data) {
+							console
+									.log("에러:"
+											+ data.responseText);
+						}
+
+					})
+
+					
+					
+					
+				}else if($(this).val()=="2"){
+					console.log('좋아요');
+				}else{
+					console.log('댓글');
+				}
+				
+				
+			});
+		
+	});
+		*/
+	
+		$(document).ready(function() {
+			$('button[name=delete]').click(function(){
+				console.log('삭제버튼눌림');	
+				
+				$.ajax({
+					url : "<c:url value='/Movieing/Blog/reviewRemove.mov'/>",
+					type : 'post',
+					dataType : 'text',
+					data : {
+						reviewNo : '${friendsReviewList1.get(index).reviewNo}'
+						
+					},
+					beforeSend : function(
+							xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+						xhr
+								.setRequestHeader(
+										"${_csrf.headerName}",
+										"${_csrf.token}");
+					},
+					success : function(data) {
+						alert('글이 삭제되었습니다!');
+						location.reload();
+					},
+					error : function(data) {
+						console
+								.log("에러:"
+										+ data.responseText);
+					}
+
+				});
+				
+				
+			});
+			
+		});
+		
 
 </script>
 
@@ -467,7 +542,7 @@ a {
 
 		<div class="row">
 
-			<div class="col-md-9" style="background-color: white">
+			<div class="col-md-9" style="background-color: white" name="contentpeed">
 
 
 				<!--- \\\\\\\Post-->
@@ -484,13 +559,13 @@ a {
 											src="https://picsum.photos/50/50" alt="">
 									</div>
 
-									<div class="ml-2" style="padding-right: 650px">
-										<div class="h5 m-0" style="color: black;">${item.userId }</div>
+									<div class="ml-2" >
+										<div class="h5 m-0" style="color: black;"> ${item.userNick }</div>
 									</div>
 
 
 									<!-- 모달 띄우기 -->
-									<div>
+									<div align="right" style="padding-left: 550px">
 										<button class="btn btn-link dropdown-toggle" type="button"
 											id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
 											aria-expanded="false" data-target="#myModal"
@@ -502,6 +577,13 @@ a {
 										role="dialog" aria-labelledby="myModalLabel">
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
+											
+												<c:set var="userNick" value="${ item.userNick}"/>
+												<c:set var="myNick" value="${ friendsSelf.userNick }"/>
+											
+			
+											   <c:if test="${ userNick ne myNick}">
+											<!--  남의 게시물 볼때 버튼들-->
 												<button type="button" class="btn btn-outline-secondary"
 													style="border-bottom: thin; width: 500px; height: 60px; color: red">부적절한
 													콘텐츠로 신고</button>
@@ -514,7 +596,15 @@ a {
 												<button type="button" class="btn btn-outline-secondary"
 													style="border-bottom: thin; width: 500px; height: 60px; color: black;">유저
 													블로그로 이동</button>
-												<button type="button" class="btn btn-outline-secondary"
+												
+												</c:if>
+													
+													 <c:if test="${ userNick eq myNick}">
+													<!-- 내 글 볼경우 버튼들 -->
+													<button type="button" class="btn btn-outline-secondary" name="delete"
+													style="border-bottom: thin; width: 500px; height: 60px; color: red">삭제</button>
+													</c:if>
+																									<button type="button" class="btn btn-outline-secondary"
 													style="border-bottom: thin; width: 500px; height: 60px; color: black;"
 													data-dismiss="modal">취소</button>
 
@@ -562,22 +652,8 @@ a {
 									<div class="scrollbar scrollbar-lady-lips"
 										style="width: 520px; height: 230px; margin-left: -3px; background-color: white; overflow-y: scroll; line-height: 1 .8em; height: 10 .7em;">
 
-										<c:choose>
-											<c:when test="${fn:length(item.reviewContent) > 278}">
-												<c:out value="${item.reviewContent }"></c:out>
-												<!--  
-													<h6 id="add"
-														style="text-align: center; text-decoration: underline; padding-bottom: 10px">
-														<a href="#">+더보기</a>
-													</h6>
-													-->
-											</c:when>
-											<c:otherwise>
+											${item.reviewContent }
 
-												<c:out value="${item.reviewContent }"></c:out>
-
-											</c:otherwise>
-										</c:choose>
 										<div class="force-overflow"></div>
 
 
@@ -636,10 +712,10 @@ a {
 								href="#collapse${status.index }" data-toggle="collapse"
 								data-parent="#accordion" class="card-link">
 								-->
-								<a href="<c:url value='/Movieing/Blog/MovieingFriendsComment.mov'/>">
+								<a href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>" style="padding-left: 5px">
 								<i
 								class="fa fa-comment"></i> 댓글</a>
-
+							<!--  
 							<div class="input-group" style="padding-top: 10px">
 								<input type="text" class="form-control col-sm-12" id="comment"
 									placeholder="댓글 달기.." aria-describedby="basic-addon2">
@@ -647,7 +723,7 @@ a {
 									id="commentInsert" style="padding-left: 10px">게시</button>
 
 							</div>
-
+-->
 
 							<!-- 댓글 아코디언 -->
 							<div id="collapse${status.index }" class="collapse">
@@ -686,9 +762,6 @@ a {
 			</div>
 
 
-
-
-
 			<div class="col-md-3" style="position: sticky">
 				<!-- 마이 프로필보이기 -->
 
@@ -721,21 +794,17 @@ a {
 				</div>
 
 
-
-
-				<!-- 버튼: 시간순/인기순 -->
-
-
-
+			<!-- 버튼: 시간순/인기순 -->
+			<!--  
 				<div style="padding-bottom: 50px">
-					<select class="form-control" style="text-align: center;">
-						<option>시간 순</option>
-						<option>좋아요 순</option>
-						<option>댓글 순</option>
+					<select class="form-control" style="text-align: center;" name="select">
+						<option value="1">시간 순</option>
+						<option value="2">좋아요 순</option>
+						<option value="3">댓글 순</option>
 
 					</select>
 				</div>
-
+-->
 
 
 				<div class="card">
@@ -748,17 +817,14 @@ a {
 					<ul class="list-group list-group-flush">
 						<li class="list-group-item">
 							<div class="h6 text-muted">Followers</div>
-							<div class="h5">325</div>
+							<div class="h5">${follower }</div>
 						</li>
 						<li class="list-group-item">
 							<div class="h6 text-muted">Following</div>
-							<div class="h5">278</div>
+							<div class="h5">${following }</div>
 						</li>
 					</ul>
 				</div>
-
-
-
 
 
 

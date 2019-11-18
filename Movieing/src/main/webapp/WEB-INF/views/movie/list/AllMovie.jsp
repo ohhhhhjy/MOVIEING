@@ -140,15 +140,15 @@
 
 			<div class="row" style="margin-top: 20px">
 			
-				<c:forEach items="${movieList}" var="movie">
+				<c:forEach items="${movieList}" var="movie" begin="0" end="29">
 
 					<div class="col-md-2 col-sm-6 movie-poster"style="margin-bottom: 5px">
 						<a
-							href="<c:url value='/Movieing/Movie/MovieDetails.mov?mcode=${movie.movieNo}'/>">
+							href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo}'/>">
 							<img class="mvimg" src="${movie.movieImg}" alt="" />
 						</a>
 
-
+	
 
 					</div>
 

@@ -291,9 +291,12 @@ $('#blogCarousel').carousel({
 					<li data-target="#myCarousel" data-slide-to="3"></li>
 					<li data-target="#myCarousel" data-slide-to="4"></li>
 				</ol>
+				
+				
+				
 				<div class="carousel-inner" role="listbox">
 					<div class="carousel-item active">
-						<img class="first-slide" style="width: 100%; height: 770px"
+						<img class="first-slide" style="width: 100%; height: 860px"
 							src="<c:url value='/resources/img/main/movie3.jpg'/>"
 							alt="First slide">
 						<div class="container-fluid">
@@ -311,7 +314,7 @@ $('#blogCarousel').carousel({
 
 
 					<div class="carousel-item">
-						<img class="second-slide" style="width: 100%; height: 770px"
+						<img class="second-slide" style="width: 100%; height: 860px"
 							src="<c:url value='/resources/img/main/movie2.jpg'/>"
 							alt="Second slide">
 						<div class="container-fluid">
@@ -325,7 +328,7 @@ $('#blogCarousel').carousel({
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img class="third-slide" style="width: 100%; height: 770px"
+						<img class="third-slide" style="width: 100%; height: 860px"
 							src="<c:url value='/resources/img/main/movie7.jpg'/>"
 							alt="Third slide">
 						<div class="container-fluid">
@@ -339,7 +342,7 @@ $('#blogCarousel').carousel({
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img class="second-slide" style="width: 100%; height: 770px"
+						<img class="second-slide" style="width: 100%; height: 860px"
 							src="<c:url value='/resources/img/main/movie1.jpg'/>"
 							alt="Second slide">
 						<div class="container-fluid">
@@ -353,7 +356,7 @@ $('#blogCarousel').carousel({
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img class="third-slide" style="width: 100%; height: 770px"
+						<img class="third-slide" style="width: 100%; height: 860px"
 							src="<c:url value='/resources/img/main/movie6.jpg'/>"
 							alt="Third slide">
 						<div class="container-fluid">

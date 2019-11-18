@@ -76,5 +76,8 @@ public class UserServiceImpl implements UserService{
 		
 		return dao.insertSec(map);
 	}
+	public List<UserDto> selectSearchList(Map map) {
+		return dao.selectSearchList(map);
+	}
 
 }

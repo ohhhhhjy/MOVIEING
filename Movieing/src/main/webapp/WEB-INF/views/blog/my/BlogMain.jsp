@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"> -->
 
 <style>
@@ -44,7 +45,7 @@ body {
 	font-size: 1.2em;
 	font-weight: bold;
 	line-height: 65px;
-	color:black;
+	color: black;
 }
 
 /* 필모그램 스팬 */
@@ -116,6 +117,25 @@ body {
 	height: 10 .8em;
 }
 
+/*모달 위치*/
+.modal {
+	text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+	.modal:before {
+		display: inline-block;
+		vertical-align: middle;
+		content: " ";
+		height: 100%;
+	}
+}
+
+.modal-dialog {
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+}
 
 </style>
 
@@ -167,6 +187,43 @@ body {
 		f.submit();
 	};
 	
+	/*삭제모달*/
+	$(document).ready(function() {
+		$('button[name=delete]').click(function(){
+			console.log('삭제버튼눌림');	
+			
+			$.ajax({
+				url : "<c:url value='/Movieing/Blog/reviewRemove.mov'/>",
+				type : 'post',
+				dataType : 'text',
+				data : {
+					reviewNo : '${selectList.get(index).reviewNo}'
+					
+				},
+				beforeSend : function(
+						xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+					xhr
+							.setRequestHeader(
+									"${_csrf.headerName}",
+									"${_csrf.token}");
+				},
+				success : function(data) {
+					alert('글이 삭제되었습니다!');
+					location.reload();
+				},
+				error : function(data) {
+					console
+							.log("에러:"
+									+ data.responseText);
+				}
+
+			});
+			
+			
+		});
+		
+	});
+	
 
 </script>
 
@@ -214,9 +271,9 @@ body {
 						</p>
 						<!-- a태그 post방식 페이지 전송 폼 -->
 						<form name="paging">
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-							<input type="hidden" name="page" /> <input type="hidden"
-								name="id" />
+							<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}"> <input type="hidden" name="page" />
+							<input type="hidden" name="id" />
 						</form>
 						<div class="row"
 							style="padding-top: 20px; padding-bottom: 20px; background-color: white; border-radius: 10px 10px 10px 10px;">
@@ -261,13 +318,51 @@ body {
 				<div class="card border-secondary mb-3" style="max-width: 200rem;">
 					<div class="card-header">
 						${item.movieTitle }에 리뷰를 남겼어요!&nbsp;&nbsp;
-						
-						<span
-							style="color: #a8a5a5; font-size: 0.3em">
-								${reviewPostdate}
-			
-						</span>
+						 <span
+							style="color: #a8a5a5; font-size: 0.3em;padding-right: 250px">
+							${reviewPostdate} </span>
+							
+							<!-- 모달 띄우기 -->
 								
+										<button class="btn btn-link dropdown-toggle" type="button"
+											id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
+											aria-expanded="false" data-target="#myModal"
+											style="text-align: right;">
+											<i class="fa fa-ellipsis-h"></i>
+										</button>
+						
+									<div class="modal fade" id="myModal" tabindex="-1"
+										role="dialog" aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+											<!--  남의 게시물 볼때 버튼들
+												<button type="button" class="btn btn-outline-secondary"
+													style="border-bottom: thin; width: 500px; height: 60px; color: red">부적절한
+													콘텐츠로 신고</button>
+												<button type="button" class="btn btn-outline-secondary"
+													style="border-bottom: thin; width: 500px; height: 60px; color: red">팔로우
+													취소</button>
+												<button type="button" class="btn btn-outline-secondary"
+													style="border-bottom: thin; width: 500px; height: 60px; color: black;">게시물로
+													이동</button>
+												<button type="button" class="btn btn-outline-secondary"
+													style="border-bottom: thin; width: 500px; height: 60px; color: black;">유저
+													블로그로 이동</button>
+													-->
+													<!-- 내 글 볼경우 버튼들 -->
+													<button type="button" class="btn btn-outline-secondary" name="delete"
+													style="border-bottom: thin; width: 500px; height: 60px; color: red">삭제</button>
+													
+												<button type="button" class="btn btn-outline-secondary"
+													style="border-bottom: thin; width: 500px; height: 60px; color: black;"
+													data-dismiss="modal">취소</button>
+
+											</div>
+										</div>
+									</div>
+									<!-- 모달 끝 -->
+							
+
 					</div>
 
 
@@ -276,13 +371,14 @@ body {
 					<div class="card-body">
 						<div class="row">
 							<div class="col-sm-3" align="center">
-								<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?moviveNo=${item.movieNo }'/>"><img
+								<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><img
 									class="movieImage"
 									src="${item.imgUrl }" alt="포스터" /></a>
 							</div>
 							<div class="col-sm-9">
 
-								<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?moviveNo=${item.movieNo }'/>"><h4 class="card-title" style="color:black">${item.movieTitle }</h4></a>
+
+								<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><h4 class="card-title" style="color:black">${item.movieTitle }</h4></a>
 								<span class="badge badge-pill badge-danger">★${item.grade }</span>
 								<p class="card-text" style="height: 110px">${item.reviewContent }</p>
 								<a href="#"><span
@@ -311,7 +407,7 @@ body {
 
 			<div class="sidebar-module sidebar-module-inset"
 				style="padding-top: 60px">
-				<h3 align="center">${userInfo.userId}님의 취향은?</h3>
+				<h3 align="center">${userInfo.userId}님의취향은?</h3>
 				<p align="right">
 					<a href="<c:url value='/Movieing/Movie/RatingMovie.mov'/>"
 						style="color: #a8a5a5">더 평가하러 가기</a>
@@ -468,9 +564,9 @@ body {
 
 <!-- 모달시작 -->
 <div class="modal" id="followModal">
-	<div class="modal-dialog" role="document" >
+	<div class="modal-dialog" role="document">
 
-		<div class="modal-content" style="padding-bottom: 20px;width: 380px" >
+		<div class="modal-content" style="padding-bottom: 20px; width: 380px">
 			<!-- 모달 클로즈 버튼 -->
 			<div align="right" style="padding: 10px">
 				<button type="button" class="close" data-dismiss="modal"
@@ -478,7 +574,7 @@ body {
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			
+
 
 			<!-- 모달 헤더 -->
 			<ul class="nav nav-pills nav-justified " role="tablist" style="">
@@ -497,33 +593,37 @@ body {
 				<div class="tab-pane fade " id="follower" role="tabpanel"
 					aria-labelledby="pills-follower-tab">
 					<c:if test="${empty followerList }" var="isEmpty">
-					 <h5>아직 팔로워가 없어요</h5>
+						<h5>아직 팔로워가 없어요</h5>
 					</c:if>
 					<c:if test="${!isEmpty }">
 						<c:forEach items="${followerList }" var="user" varStatus="status">
-						<div class="row followForm">
-							<div class="col-sm-4">
-								<img class="radiusImg" alt="감독사진"
-									src="${user.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': user.userProfile}" />
+							<div class="row followForm">
+								<div class="col-sm-4">
+									<img class="radiusImg" alt="감독사진"
+										src="${user.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': user.userProfile}" />
+								</div>
+								<div class="col-sm-5">
+									<a href="<c:url value='/Movieing/Blog/BlogMain.mov'/>"><span
+										class="actorSpan">${user.userNick }</span> </a>
+								</div>
+
+								<!-- 스위치 : 스위치의 input-id와 label-for값이 같아야 스위치가 작동한다-->
+								<div class="custom-control custom-switch col-sm-3">
+									<c:if test="${user.isFollow }" var="isFollow">
+										<input type="checkbox" class="custom-control-input"
+											id="aSwitch${status.index }" checked="checked">
+									</c:if>
+									<c:if test="${!isFollow }">
+										<input type="checkbox" class="custom-control-input"
+											id="aSwitch${status.index }">
+									</c:if>
+
+									<label class="custom-control-label"
+										for="aSwitch${status.index }" style=""></label>
+								</div>
+
 							</div>
-							<div class="col-sm-5">
-								<a href="<c:url value='/Movieing/Blog/BlogMain.mov'/>" ><span class="actorSpan" >${user.userNick }</span> </a>
-							</div>
-	
-							<!-- 스위치 : 스위치의 input-id와 label-for값이 같아야 스위치가 작동한다-->
-							<div class="custom-control custom-switch col-sm-3">
-								<c:if test="${user.isFollow }" var="isFollow">
-								<input type="checkbox" class="custom-control-input" id="aSwitch${status.index }" checked="checked">
-								</c:if>
-								<c:if test="${!isFollow }">
-								<input type="checkbox" class="custom-control-input" id="aSwitch${status.index }">
-								</c:if>
-								
-								<label class="custom-control-label" for="aSwitch${status.index }" style=""></label>
-							</div>
-	
-						</div>
-						<hr class="my-3" style="width: 450px">
+							<hr class="my-3" style="width: 450px">
 						</c:forEach>
 					</c:if>
 				</div>
@@ -532,29 +632,32 @@ body {
 				<div class="tab-pane fade" id="following" role="tabpanel"
 					aria-labelledby="pills-following-tab">
 					<c:if test="${empty followingList }" var="isEmpty">
-					 <h5>아직 팔로잉한 친구들이 없어요</h5>
+						<h5>아직 팔로잉한 친구들이 없어요</h5>
 					</c:if>
 					<c:if test="${!isEmpty }">
 						<c:forEach items="${followingList }" var="user" varStatus="status">
 							<div class="row followForm">
 								<div class="col-sm-4">
 									<img class="radiusImg" alt="감독사진"
-										src="${user.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': user.userProfile}"  />
+										src="${user.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': user.userProfile}" />
 								</div>
 								<div class="col-sm-5">
-									<a href="<c:url value='/Movieing/Blog/BlogMain.mov'/>" ><span class="actorSpan" >${user.userNick }</span> </a>
+									<a href="<c:url value='/Movieing/Blog/BlogMain.mov'/>"><span
+										class="actorSpan">${user.userNick }</span> </a>
 								</div>
-		
+
 								<!-- 스위치 -->
 								<div class="custom-control custom-switch col-sm-3">
-									<input type="checkbox" class="custom-control-input" id="bSwitch${status.index }" checked="checked">
-									<label class="custom-control-label" for="bSwitch${status.index }" style=""></label>
+									<input type="checkbox" class="custom-control-input"
+										id="bSwitch${status.index }" checked="checked"> <label
+										class="custom-control-label" for="bSwitch${status.index }"
+										style=""></label>
 								</div>
-								
+
 							</div>
 							<hr class="my-3" style="width: 450px">
 						</c:forEach>
-					</c:if>		
+					</c:if>
 				</div>
 			</div>
 

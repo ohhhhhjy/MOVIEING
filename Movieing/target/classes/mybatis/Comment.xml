@@ -19,4 +19,10 @@
 	</select>
 
 
+		<!-- 내가 쓴 글 지우기 -->
+	<delete id="commentDelete" parameterType="java.util.Map">
+		delete comment_table
+		where user_id=#{id} and REVIEW_NO =#{reviewNo}	
+	</delete>
+
 </mapper>

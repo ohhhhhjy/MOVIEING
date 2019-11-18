@@ -25,4 +25,6 @@ public interface UserService {
 	List<UserDto> selectFollowerList(Map map);
 	//팔로잉 유저 목록
 	List<UserDto> selectFollowingList(Map map);
+	//검색 용
+	List<UserDto> selectSearchList(Map map);
 }

@@ -12,12 +12,20 @@ public class UserDto {
 	String userContact;
 	String userMail;
 	Date userSignupDate;
-	Blob userProfile;
+	String userProfile;
 	String userSelf;
-
+	
 	//효율성을 위해 추가.
 	boolean isFollow;
-
+	
+	
+	
+	public String getUserProfile() {
+		return userProfile;
+	}
+	public void setUserProfile(String userProfile) {
+		this.userProfile = userProfile;
+	}
 	public boolean getIsFollow() {
 		return isFollow;
 	}
@@ -69,18 +77,6 @@ public class UserDto {
 	}
 	public void setUserSignupDate(Date userSignupDate) {
 		this.userSignupDate = userSignupDate;
-	}
-	public Blob getUserProfile() {
-		return userProfile;
-	}
-	public void setUserProfile(Blob userProfile) {
-		this.userProfile = userProfile;
-	}
-	public String getUserSelf() {
-		return userSelf;
-	}
-	public void setUserSelf(String userSelf) {
-		this.userSelf = userSelf;
 	}
 
 

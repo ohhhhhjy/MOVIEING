@@ -87,6 +87,27 @@ public class MovieDao implements MovieService{
 	public MovieDto selectOneMovie(Map map) {
 		return template.selectOne("selectOneMovie", map);
 	}
+	@Override
+	public List<MovieDto> selectListNewRandom(Map map) {
+		return template.selectList("selectListNewRandom",map);
+	}
+
+	@Override
+	public List<MovieDto> selectListARandom(Map map) {
+		// TODO Auto-generated method stub
+		return template.selectList("selectListARandom",map);
+	}
+
+	@Override
+	public List<MovieDto> selectListSearchRadom(Map map) {
+		return template.selectList("selectListSearchRadom",map);
+	}
+
+	@Override
+	public List<MovieDto> selectListSearchPeople(Map map) {
+		return template.selectList("selectListSearchPeople",map);
+	}
+	
 
 
 }

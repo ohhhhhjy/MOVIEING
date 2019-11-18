@@ -36,6 +36,14 @@ public interface MovieService {
 	//코미디영화찾기
 	List<MovieDto> selectListComedy(Map map);
 	//무빙의인기영화 랜덤 찾기
-	List<MovieDto> selectListRandom(Map map);
+	List<MovieDto> selectListRandom(Map map); 
+	//전체영화 최신 랜덤 뿌리기
+	List<MovieDto> selectListNewRandom(Map map);
+	//랜덤용
+	List<MovieDto> selectListARandom(Map map);
+	//검색 영화 용
+	List<MovieDto> selectListSearchRadom(Map map);
+	//검색 사람 용
+	List<MovieDto> selectListSearchPeople(Map map);
 
 }

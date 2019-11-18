@@ -59,7 +59,7 @@ public class ReviewDao implements ReviewService{
 	@Override
 	public int delete(Map map) {
 
-		template.delete("commentDeleteByNo", map);
+		//template.delete("commentDeleteByNo", map);
 		return template.delete("reviewDelete", map);
 	}
 
@@ -113,7 +113,8 @@ public class ReviewDao implements ReviewService{
 
 		return template.selectList("selectMovieReviewList",map);
 	}
-	
+
+	@Override
 	public List<ReviewDto> selectFriendsList(Map map) {
 		return template.selectList("selectFriendsList", map);
 	}

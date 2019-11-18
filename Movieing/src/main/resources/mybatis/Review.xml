@@ -63,47 +63,33 @@
 		MOVIE_ORG_TITLE ,
 		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
 		(select count(*) from LIKE_REVIEW  where  review_no = r.review_no) likeCount,
-		(select count(*) from COMMENT_TABLE where  review_no = r.review_no) commentCount
+		(select count(*) from COMMENT_TABLE where  review_no = r.review_no) commentCount,
+		(select USER_NICK from user_table where review_no = r.review_no and user_id= r.user_id) userNick
 		from review r
 		join movie m on r.movie_no=m.movie_no 
 		WHERE PUBLIC_PRIVATE='Y'
 		Order by REVIEW_POSTDATE desc
 	</select>
 	
-	
-		<!-- 전체공개한 리스트만 가져오기 (모두 남에꺼 내꺼포함)(종아료순으로)-->
-	<select id="friendsReviewList2" parameterType="java.util.Map" resultType="ReviewDto">
-	
-	     select r.*, 
-		MOVIE_TITLE ,
-		MOVIE_ORG_TITLE ,
-		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
-		(select count(*) from LIKE_REVIEW  where  review_no = r.review_no) likeCount,
-		(select count(*) from COMMENT_TABLE where  review_no = r.review_no) commentCount
-		from review r
-		join movie m on r.movie_no=m.movie_no 
-		WHERE PUBLIC_PRIVATE='Y'
-		Order by likeCount desc
-	</select>
-	
-	
-	
-		<!-- 전체공개한 리스트만 가져오기 (모두 남에꺼 내꺼포함)(댓글순으로)-->
-	<select id="friendsReviewList3" parameterType="java.util.Map" resultType="ReviewDto">
+	<!-- 팔로우한 리스트만 가져오기 (남의꺼 내꺼제외)(시간순으로)-->
+	<!--  
+	<select id="friendsReviewListFollower" parameterType="java.util.Map" resultType="ReviewDto">
 	
 	     select r.*, 
 		MOVIE_TITLE ,
 		MOVIE_ORG_TITLE ,
 		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
 		(select count(*) from LIKE_REVIEW  where  review_no = r.review_no) likeCount,
-		(select count(*) from COMMENT_TABLE where  review_no = r.review_no) commentCount
-		from review r
+		(select count(*) from COMMENT_TABLE where  review_no = r.review_no) commentCount,
+		(select USER_NICK from user_table where review_no = r.review_no and user_id= r.user_id) userNick
+		from review r, follow f
 		join movie m on r.movie_no=m.movie_no 
-		WHERE PUBLIC_PRIVATE='Y'
-		Order by commentCount desc
+		WHERE PUBLIC_PRIVATE='Y' and f.pollower=#{id}
+		Order by REVIEW_POSTDATE desc
 	</select>
+-->
 	
-	
+
 	
 	<!-- 댓글 -->
 	<!-- 
@@ -192,5 +178,13 @@
 		join user_table u on u.user_id=r.user_id
 		WHERE r.review_no = #{reviewNo}
 	</select>
+	
+	<!-- 내가 쓴 글 지우기 -->
+	<delete id="reviewDelete" parameterType="java.util.Map">
+		delete review
+		where user_id=#{id} and REVIEW_NO =#{reviewNo}	
+	</delete>	
+
+
 	
 </mapper>

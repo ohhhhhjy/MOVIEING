@@ -111,8 +111,9 @@ public class ReviewServiceImpl implements ReviewService{
 
 		return dao.selectMovieReviewList(map);
 	}
-	
-	
+
+
+	@Override
 	public List<ReviewDto> selectFriendsList(Map map) {
 		return dao.selectFriendsList(map);
 	}
@@ -125,17 +126,17 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public List<ReviewDto> friendsReviewList1(Map map) {
-		return dao.selectList(map);
+		return dao.friendsReviewList1(map);
 	}
 
 	@Override
 	public List<ReviewDto> friendsReviewList2(Map map) {
-		return dao.selectList(map);
+		return dao.friendsReviewList2(map);
 	}
 
 	@Override
 	public List<ReviewDto> friendsReviewList3(Map map) {
-		return dao.selectList(map);
+		return dao.friendsReviewList3(map);
 	}
 
 

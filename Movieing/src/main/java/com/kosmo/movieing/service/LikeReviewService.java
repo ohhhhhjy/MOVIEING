@@ -21,6 +21,7 @@ public interface LikeReviewService {
 	//입력/수정/삭제
 	int insert(Map map);
 	int update(Map map);
+	//좋아요삭제
 	int delete(Map map);
 
 }

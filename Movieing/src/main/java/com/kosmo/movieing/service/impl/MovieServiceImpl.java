@@ -82,8 +82,27 @@ public class MovieServiceImpl implements MovieService{
 
 	@Override
 	public MovieDto selectOneMovie(Map map) {
-		// TODO Auto-generated method stub
 		return dao.selectOne(map);
+	}
+
+	@Override
+	public List<MovieDto> selectListNewRandom(Map map) {
+		return dao.selectListNewRandom(map);
+	}
+
+	@Override
+	public List<MovieDto> selectListARandom(Map map) {
+		return dao.selectListARandom(map);
+	}
+
+	@Override
+	public List<MovieDto> selectListSearchRadom(Map map) {
+		return dao.selectListSearchRadom(map);
+	}
+
+	@Override
+	public List<MovieDto> selectListSearchPeople(Map map) {
+		return dao.selectListSearchPeople(map);
 	}
 
 }

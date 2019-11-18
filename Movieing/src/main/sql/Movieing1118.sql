@@ -445,11 +445,12 @@ ALTER TABLE WISH
 ;
 
 ALTER TABLE BUY  ADD QUANTITY NUMBER(10) NOT NULL;
+/*
 ALTER TABLE USER_TABLE DROP COLUMN USER_PROFILE;
 ALTER TABLE USER_TABLE  ADD USER_PROFILE NVARCHAR2(1000);
 ALTER TABLE MOVIE_PEOPLE DROP COLUMN MOVIE_PEOPLE_BIRTH;
 ALTER TABLE MOVIE_PEOPLE  ADD MOVIE_PEOPLE_IMG NVARCHAR2(1000);
-
+*/
 /* Comments */
 --
 --COMMENT ON COLUMN auth_security.USER_ID IS '유저아이디';
@@ -548,11 +549,13 @@ create sequence seq_qna nocache nocycle;
 create sequence seq_comment nocache nocycle;
 
 --유저정보
-insert into user_table values( 'KIM','1234','김길동','Road_dong','01055557777','email',sysdate,'하이',null  );
+insert into user_table values( 'KIM','1234','김길동','Road_dong','01055557777','email',sysdate,'https://search.pstatic.net/common?type=a&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2F65%2F201701061716576861.jpg
+','하이'  );
 
-insert into user_table values( 'LEE','1234','이길동','LEELEE','01034243447','email',sysdate,'오오',null  );
-insert into user_table values( 'PARK','1234','박길동','박수무당','01012345678','email',sysdate,'아아아아',null );
-
+insert into user_table values( 'LEE','1234','이길동','LEELEE','01034243447','email',sysdate,'https://search.pstatic.net/common?type=a&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2F76%2F201706081735556361.jpg','
+오오'  );
+insert into user_table values( 'PARK','1234','박길동','박수무당','01012345678','email',sysdate,'https://search.pstatic.net/common?type=a&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2F80%2F201807101753055661.jpg','
+아아아아' );
 --영화정보
 insert into movie values('20198182','아내를 죽였다','"친구와 술을 마신 후 곯아떨어진 ‘정호’는 숙취로 눈을 뜬 다음 날 아침,
 별거 중이던 아내 ‘미영’이 살해당했다는 충격적인 소식을 듣게 된다.
@@ -574,7 +577,6 @@ insert into EVALUATION values('KIM','20182669',4,SYSDATE);
 
 --리뷰
 insert into review values(seq_review.nextval,'KIM','20182669','재밌었다',SYSDATE,'Y');
-
 --qna
 insert into qna(qna_no, qna_title, qna_content, user_id) values(seq_qna.nextval, '제목1','내용1', 'LEE');
 --시큐리티 사용을 위한 권한 추가

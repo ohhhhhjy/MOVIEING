@@ -61,8 +61,8 @@ public interface ReviewService {
 	int insert(Map map);
 	//글쓰기 목록 추가]
 	int insertReview(Map map);
-
 	int update(Map map);
+	//내 리뷰 삭제]
 	int delete(Map map);
 
 }
