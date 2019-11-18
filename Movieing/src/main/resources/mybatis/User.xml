@@ -30,6 +30,10 @@
 		(#{userid},#{userpass},#{username},#{nickname},#{contact},#{email},#{publicinfo}, null)
 	</insert>
 	
+	<insert id="insertSec" parameterType="java.util.Map">
+		insert into auth_security values(#{userid}, default, default)
+	</insert>
+	
 	<update id="userUpdate" parameterType="java.util.Map">
 	
 	</update>

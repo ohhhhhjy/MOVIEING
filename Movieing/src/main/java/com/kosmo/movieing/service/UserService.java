@@ -17,6 +17,9 @@ public interface UserService {
 	int insert(Map map);
 	int update(Map map);
 	int delete(Map map);
+	
+	//회원가입 시 시큐리티 권한주기
+	int insertSec(Map map);
 
 	//팔로워 유저 목록
 	List<UserDto> selectFollowerList(Map map);

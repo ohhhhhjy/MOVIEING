@@ -71,4 +71,10 @@ public class UserServiceImpl implements UserService{
 		return dao.selectFollowingList(map);
 	}
 
+	@Override
+	public int insertSec(Map map) {
+		
+		return dao.insertSec(map);
+	}
+
 }

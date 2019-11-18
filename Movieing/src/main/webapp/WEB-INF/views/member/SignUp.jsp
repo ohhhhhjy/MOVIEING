@@ -22,13 +22,13 @@
      font-weight: bold;
      text-align: center;
 }
+
+
 </style>
 <div class="container" style="padding-top: 150px">
      <div class="row">
           <div class="col-md-12">
               <!-- col-md-3시작 -->
-              
-              
               <div class="card">
                    <div class="card-body">
                         <div class="row">
@@ -39,7 +39,8 @@
                         </div>
                         <div class="row">
                              <div class="col-md-12">
-                                  <form action="<c:url value='/Movieing/member/SignUp.mov'/> " method="post" id="frm">
+                                  <form action="<c:url value='/Movieing/member/SignUp.mov?${_csrf.parameterName}=${_csrf.token}'/> " method="post" id="frm" enctype="multipart/form-data">
+                                  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"> 
                                   <div class="form-group  row">
                                            <label  for="id" class="col-4 col-form-label">아이디 *<span id="idcheck">아이디를 입력하세요</span></label>
                                            <div  class="col-8">
@@ -50,7 +51,7 @@
                                            <label  for="image" class="col-4 col-form-label">프로필 사진</label>
                                            
                                            <div  class="col-4">
-                                                <input  type="file" class="text-center center-block file-upload">
+                                                <input  type="file" name="image" class="text-center center-block file-upload">
                                            </div>
                                       </div>
                                       <div  class="form-group row">
@@ -153,6 +154,10 @@ $(function() {
 			$.ajax({
 				url : "<c:url  value='/Ajax/isMember.mov'/>",
 				type : 'post',
+				beforeSend : function(xhr)
+	              {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+	                  xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+	              },
 				data : $('#frm').serialize(), 
 				dataType : 'text',
 				success : function(data) {
@@ -215,6 +220,10 @@ $(function() {
 			$.ajax({
 				url : "<c:url  value='/Ajax/isMember.mov'/>",
 				type : 'post',
+				beforeSend : function(xhr)
+	              {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+	                  xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+	              },
 				data : $('#frm').serialize(), 
 				dataType : 'text',
 				success : function(data) {
