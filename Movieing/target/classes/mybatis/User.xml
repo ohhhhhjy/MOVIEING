@@ -14,6 +14,10 @@
 	select USER_ID from user_table where USER_ID not in #{id}
 
 	</select>
+	<!-- 내 정보 모두 -->
+	<select id="userSelectList" parameterType="java.util.Map" resultType="UserDto">
+		select * from user_table where user_id=#{id}
+	</select>
 	
 	<select id="userTotal" parameterType="java.util.Map" resultType="int">
 	
@@ -31,7 +35,8 @@
 	</insert>
 	
 	<update id="userUpdate" parameterType="java.util.Map">
-	
+	update user_table set user_nick=#{nick},user_name=#{username},user_contact=#{phone},user_mail=#{email},user_self=#{publicinfo}
+	where user_id=#{id}
 	</update>
 	
 	<delete id="userDelete" parameterType="java.util.Map">

@@ -9,6 +9,8 @@ public interface UserService {
 	boolean isMember(Map map);
 	//목록
 	List<UserDto> selectList(Map map);
+	//유저
+	List<UserDto> userSelectList(Map map);
 	//전체 레코드 수
 	int getTotalCount(Map map);
 	//상세보기 용

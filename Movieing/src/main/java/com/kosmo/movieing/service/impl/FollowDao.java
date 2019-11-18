@@ -25,9 +25,9 @@ public class FollowDao implements FollowService{
 
 	//팔로우 리스트
 	@Override
-	public List<FollowDto> selectList(Map map) {
+	public List<FollowDto> selectFollowList(Map map) {
 
-		return template.selectList("followList", map);
+		return template.selectList("selectFollowList", map);
 	}
 
 	@Override

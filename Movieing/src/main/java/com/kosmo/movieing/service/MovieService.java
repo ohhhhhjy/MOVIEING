@@ -23,7 +23,7 @@ public interface MovieService {
 	int update(Map map);
 
 	int delete(Map map);
-	
+
 	//영화이미지
 	//전체영화리스트 가져오기
 	List<MovieDto> selectListMovie(Map map);
@@ -36,10 +36,12 @@ public interface MovieService {
 	//코미디영화찾기
 	List<MovieDto> selectListComedy(Map map);
 	//무빙의인기영화 랜덤 찾기
-	List<MovieDto> selectListRandom(Map map); 
+	List<MovieDto> selectListRandom(Map map);
 	//전체영화 최신 랜덤 뿌리기
 	List<MovieDto> selectListNewRandom(Map map);
 	//랜덤용
 	List<MovieDto> selectListARandom(Map map);
+	//영화감독 리스트 가져오기
+	List<MovieDto> selectListDirector(Map map);
 
 }

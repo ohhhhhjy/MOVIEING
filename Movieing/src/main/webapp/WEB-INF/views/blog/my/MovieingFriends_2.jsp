@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
 <link
@@ -78,7 +79,7 @@
 	border: 1px solid #888888;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
 		rgba(0, 0, 0, 0.19);
-	width: 180px;
+	width: 200px;
 	height: 270px;
 }
 
@@ -141,31 +142,300 @@ a {
 }
 
 /*더보기 ...조건*/
-
+/*
 .card-text {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
-	-webkit-line-clamp: 6; /* 라인수 */
+	-webkit-line-clamp: 6; */
+/* 라인수 */
+/*
 	-webkit-box-orient: vertical;
 	word-wrap: break-word;
-	line-height: 1.8em;
-	height: 10.7em;
-	
+	line-height: 1 .8em;
+	height: 10 .7em;
+}
+*/
+
+/*글안에 스크롤바*/
+.scrollbar-lady-lips::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.1);
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+.scrollbar-lady-lips::-webkit-scrollbar {
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+.scrollbar-lady-lips::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.1);
+	background-image: -webkit-gradient(linear, left bottom, left top, from(#ff9a9e),
+		color-stop(99%, #fecfef), to(#fecfef));
+	background-image: -webkit-linear-gradient(bottom, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+	background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+}
+/*댓글*/
+/* CSS Test begin */
+.comment-box {
+	margin-top: 30px !important;
+}
+/* CSS Test end */
+.comment-box img {
+	width: 50px;
+	height: 50px;
+}
+
+.comment-box .media-left {
+	padding-right: 10px;
+	width: 65px;
+}
+
+/*댓글 칸 크기*/
+.media-body {
+	width: 700px;
+	height: auto;
 }
 
 
+.comment-box .media-body p {
+	border: 1px solid #ddd;
+	padding: 10px;
+}
+
+.comment-box .media-body .media p {
+	margin-bottom: 0;
+}
+
+.comment-box .media-heading {
+	background-color: #f5f5f5;
+	border: 1px solid #ddd;
+	padding: 7px 10px;
+	position: relative;
+	margin-bottom: -1px;
+}
+
+.comment-box .media-heading:before {
+	content: "";
+	width: 12px;
+	height: 12px;
+	background-color: #f5f5f5;
+	border: 1px solid #ddd;
+	border-width: 1px 0 0 1px;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	position: absolute;
+	top: 10px;
+	left: -6px;
+}
 </style>
 
+<script>
+	//좋아요 올리기
+$(function(){
 
+	var flag = false;
+	//좋아요 클릭 이벤트처리
+	if(typeof $('.likeUnlike')!= 'undefined'){
+ 	$('.likeUnlike').click(function(){
+ 		var index = $(this).attr('id');
+ 		
+ 		
+		//좋아요 off  > on
+ 		if(flag){
+ 			
+ 			//$('#likeUnlikeIcon').removeClass('far fa-thumbs-up').addClass('fas fa-thumbs-up');
+ 			
+ 			$.ajax({
+ 				url:"<c:url value='/Movieing/Blog/LikeInsert.mov'/>",
+ 				type:'post',
+ 				dataType:'text',
+ 				data:
+ 					{id:'${id}',reviewNo:'${friendsReviewList1.get(index).reviewNo}'},
+			    beforeSend : function(xhr)
+                  {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+                      xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+                  },	
+ 				success:function(data){//서버로 부터 정상적인 응답을 받았을 때(200번)
+ 					$('#likeSpan'+index).html('<a><i class="fas fa-thumbs-up"></i>좋아요</a>');
+ 					$('#likeNumber'+index).text(data);
+ 					
+ 				},	
+ 				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+ 					console.log("에러:"+data.responseText);
+ 				}
+ 			});
+ 			
+ 			flag = !flag;
+ 		}
+ 		
+ 		//좋아요 on  > off
+ 		else{
+ 			//$('#likeUnlikeIcon').removeClass('fas fa-thumbs-up').addClass('far fa-thumbs-up'); 
+ 			
+ 			$.ajax({
+ 				url:"<c:url value='/Movieing/Blog/LikeRemove.mov'/>",
+ 				type:'post',
+ 				dataType:'text',
+ 				data:
+ 				{id:'${id}',reviewNo:'${friendsReviewList1.get(index).reviewNo}'},
+ 				beforeSend : function(xhr)
+                {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+                    xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+                },
+ 				success:function(data){//서버로 부터 정상적인 응답을 받았을 때(200번)
+ 					$('#likeSpan'+index).html('<a><i class="far fa-thumbs-up"></i>좋아요</a>');
+ 					$('#likeNumber'+index).text(data);
+ 				},	
+ 				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+ 					console.log("에러:"+data);
+ 				}
+ 			});
+ 			flag = !flag;
+ 		}
+ 			
+	});
+	}
+});
+	
+	//댓글 insert
 
+	$(document).ready(function() {
+						$("#commentInsert").click(function() {
 
+											console.log($('#comment').val());//댓글
+
+											$.ajax({
+														url : "<c:url value='/Movieing/Blog/CommentInsert.mov'/>",
+														type : 'post',
+														dataType : 'text',
+														data : {
+															commentContent : $(
+																	'#comment')
+																	.val(),
+															reviewNo : '${friendsReviewList.get(index).reviewNo}'
+															
+														},
+														beforeSend : function(
+																xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+															xhr
+																	.setRequestHeader(
+																			"${_csrf.headerName}",
+																			"${_csrf.token}");
+														},
+														success : function(data) {
+															$('#comment').val(
+																	"");//공백처리
+															alert('댓글이 입력되었습니다!');
+															location.reload();
+														},
+														error : function(data) {
+															console
+																	.log("에러:"
+																			+ data.responseText);
+														}
+
+													})
+
+										});
+
+					});
+					
+		///////////////////////////////////////////////////////
+		/*			
+	$(document).ready(function() {
+			$('select[name=select]').change(function(){
+				console.log('선택:');
+				
+				if($(this).val()=="1"){
+					console.log('시간순');
+					
+					$.ajax({
+						url : "<c:url value='/Movieing/Blog/MovieingFriends.mov'/>",
+						type : 'post',
+						dataType : 'text',
+						data : {
+							reviewNo : '${friendsReviewList.get(index).reviewNo}'
+						},
+						beforeSend : function(
+								xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+							/*
+							xhr.setRequestHeader(
+											"${_csrf.headerName}",
+											"${_csrf.token}");
+						},
+						success : function(data) {
+							console.log('피드 가져오기 성공');
+							$('#contentpeed').children.
+	
+							
+						},
+						error : function(data) {
+							console
+									.log("에러:"
+											+ data.responseText);
+						}
+
+					})
+
+					
+					
+					
+				}else if($(this).val()=="2"){
+					console.log('좋아요');
+				}else{
+					console.log('댓글');
+				}
+				
+				
+			});
+		
+	});
+		*/
+	
+		$(document).ready(function() {
+			$('button[name=delete]').click(function(){
+				console.log('삭제버튼눌림');	
+				
+				$.ajax({
+					url : "<c:url value='/Movieing/Blog/reviewRemove.mov'/>",
+					type : 'post',
+					dataType : 'text',
+					data : {
+						reviewNo : '${friendsReviewList1.get(index).reviewNo}'
+						
+					},
+					beforeSend : function(
+							xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+						xhr
+								.setRequestHeader(
+										"${_csrf.headerName}",
+										"${_csrf.token}");
+					},
+					success : function(data) {
+						alert('글이 삭제되었습니다!');
+						location.reload();
+					},
+					error : function(data) {
+						console
+								.log("에러:"
+										+ data.responseText);
+					}
+
+				});
+				
+				
+			});
+			
+		});
+		
+
+</script>
 
 <!-- 위에 패딩주기 -->
 <div style="padding-top: 150px; background-color: white;"></div>
-
-
-
 
 
 <!-- 버튼 두개 만들기 -->
@@ -177,18 +447,22 @@ a {
 			style="text-align: center;">◁ 블로그 메인</a>
 
 		<div style="padding-left: 450px">
-			<h3 style="color: black;"><a href="<c:url value="/Movieing/Blog/MovieingFriends.mov"/>">팔로우 유저들의 활동로그</a></h3>
+			<h3 style="color: black"><a href="<c:url value="/Movieing/Blog/MovieingFriends.mov"/>">모든
+					활동 로그</a></h3>
 		</div>
 		<div style="padding-left: 200px;">
-			<h3 style="color: orange;font-weight: bold;">모든
+			<h3 style="color: orange; font-weight: bold;">
+				팔로우
 					활동 로그
 			</h3>
 		</div>
 
 
 	</div>
-	<!-- 중간줄 -->
-	<hr class="my-3">
+	<div class="container">
+		<!-- 중간줄 -->
+		<hr class="my-3">
+	</div>
 </div>
 
 
@@ -197,40 +471,48 @@ a {
 
 <div style="background-color: white; padding-top: 10px">
 
-	<div class="container gedf-wrapper"
-		style="background-color: white;">
+	<div class="container gedf-wrapper" style="background-color: white;">
 
 		<div class="row">
 
-			<div class="col-md-9" style="background-color: white">
+			<div class="col-md-9" style="background-color: white" name="contentpeed">
+
 
 				<!--- \\\\\\\Post-->
-				<div class="card gedf-card">
-					<div class="card-header">
-						<div class="d-flex justify-content-between align-items-center">
+				
+		
+				<c:forEach items="${friendsReviewList2 }" var="item"
+					varStatus="status">
+					<div class="card gedf-card">
+						<div class="card-header">
 							<div class="d-flex justify-content-between align-items-center">
-								<div class="mr-2">
-									<img class="rounded-circle" width="45"
-										src="https://picsum.photos/50/50" alt="">
-								</div>
-								<div class="ml-2" style="padding-right: 570px">
-									<div class="h5 m-0" style="color: black;">@_mongjiee</div>
-									<div class="h7 text-muted">안양 CGV</div>
-								</div>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="mr-2">
+										<img class="rounded-circle" width="45"
+											src="https://picsum.photos/50/50" alt="">
+									</div>
+
+									<div class="ml-2" >
+										<div class="h5 m-0" style="color: black;"> ${item.userNick }</div>
+									</div>
 
 
-								<!-- 모달 띄우기 -->
-								<div style="text-align: right;">
-									<button class="btn btn-link dropdown-toggle" type="button"
-										id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
-										aria-expanded="false" data-target="#myModal"
-										style="text-align: right;">
-										<i class="fa fa-ellipsis-h"></i>
-									</button>
-									<div class="modal fade" id="myModal" tabindex="-1"
+									<!-- 모달 띄우기 -->
+									<div align="right" style="padding-left: 550px">
+										<button class="btn btn-link dropdown-toggle" type="button"
+											id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
+											aria-expanded="false" data-target="#myModal${status.index }"
+											style="text-align: right;">
+											<i class="fa fa-ellipsis-h"></i>
+										</button>
+									</div>
+									<div class="modal fade" id="myModal${status.index }" tabindex="-1"
 										role="dialog" aria-labelledby="myModalLabel">
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
+											
+											
+											<!--  남의 게시물 볼때 버튼들-->
 												<button type="button" class="btn btn-outline-secondary"
 													style="border-bottom: thin; width: 500px; height: 60px; color: red">부적절한
 													콘텐츠로 신고</button>
@@ -241,7 +523,8 @@ a {
 													style="border-bottom: thin; width: 500px; height: 60px; color: black;">게시물로
 													이동</button>
 												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: black;">퍼가기</button>
+													style="border-bottom: thin; width: 500px; height: 60px; color: black;">유저
+													블로그로 이동</button>
 												<button type="button" class="btn btn-outline-secondary"
 													style="border-bottom: thin; width: 500px; height: 60px; color: black;"
 													data-dismiss="modal">취소</button>
@@ -250,409 +533,166 @@ a {
 										</div>
 									</div>
 									<!-- 모달 끝 -->
-								</div>
-							</div>
 
+								</div>
+
+
+							</div>
 
 						</div>
 
-					</div>
-					<div class="card-body">
-						<div class="row">
-
-							<div class="col-sm-3" align="center" style="padding-left: 20px">
-								<img class="effect"
-									src="<c:url value="/resources/img/friends/pic1.jpg"/>"
-									alt="Image">
-							</div>
-							<div class="col-sm-9">
-
-								<div class="row" style="height: 30px">
-									<h4 class="card-title"
-										style="color: black; font-weight: bold; padding-left: 20px">조커(Joker)</h4>
-
-									<h4 style="padding-left: 350px">
-										<span class="badge badge-pill badge-danger"
-											style="text-align: center;">★4.5</span>
-									</h4>
-
-								</div>
-
-
-
-								<!-- 중간줄 -->
-								<hr class="my-3">
-
-
-								<p class="card-text" style="color: black;">조커를 봤다. 너무 재밌었다.
-									너무 재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다 더하기 재밌었고, 너무 재밌어서 너무 재밌을
-									뻔했다. 너무 재밌는 영화였다.</p>
-								<h6
-									style="text-align: center; text-decoration: underline; padding-bottom: 10px">
-									<a href="">+더보기</a>
-								</h6>
-
-								<div style="padding-left: 30px" class="row">
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#조커</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#재밌음</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#요즘추천영화</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#스릴러</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#어두운영화</span>
-									</h6>
-									<h6>
-										<span class="badge badge-secondary">#호아킨피닉스</span>
-									</h6>
-								</div>
-
-
-
-							</div>
-							<!-- sm-9 -->
-
-						</div>
-
-						<div class="text-muted h7 mb-2" style="padding-top: 20px">
-							<i class="fa fa-clock-o"
-								style="padding-bottom: 10px; padding-left: 5px"></i>10분 전
+						<div class="card-body">
 							<div class="row">
 
-								<h6 style="padding-left: 20px">좋아요 788개</h6>
-								<h6 style="padding-left: 20px">댓글 599개</h6>
+								<div class="col-sm-4" align="center"
+									style="margin-bottom: -20px; margin-left: -20px">
+									<img class="effect" src="${item.imgUrl }" alt="Image">
+								</div>
+								<div class="col-sm-8" style="margin-bottom: -40px">
+
+									<div class="row" style="height: 30px">
+										<div class="col-md-10">
+											<h4 class="card-title"
+												style="color: black; font-weight: bold;">${item.movieTitle }</h4>
+										</div>
+										
+										<div class="col-md-2">
+											<h4>
+												<span class="badge badge-pill badge-danger"
+													style="text-align: center;">★ ${item.grade}</span>
+
+											</h4>
+										</div>
+
+									</div>
+
+									<!-- 중간줄 -->
+									<hr class="my-3">
+
+
+									<div class="scrollbar scrollbar-lady-lips"
+										style="width: 520px; height: 230px; margin-left: -3px; background-color: white; overflow-y: scroll; line-height: 1 .8em; height: 10 .7em;">
+
+											${item.reviewContent }
+
+										<div class="force-overflow"></div>
+
+
+									</div>
+								</div>
+								<!-- sm-9 -->
+
 							</div>
 
-						</div>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="card-link"><i class="fa fa-gittip"></i> 좋아요</a>
-						<a href="#" class="card-link"><i class="fa fa-comment"></i> 댓글</a>
-						<div class="input-group" style="padding-top: 10px">
-							<input type="text" class="form-control col-sm-12"
-								placeholder="댓글 달기.." aria-describedby="basic-addon2">
-							<button type="button" class="btn btn-secondary disabled"
-								style="padding-left: 10px">게시</button>
+							<div class="text-muted h7 mb-2" style="padding-top: 20px">
+								<i class="fa fa-clock-o"
+									style="padding-bottom: 10px; padding-left: 5px"></i>${reviewPostdate }
+								<div class="row">
 
-						</div>
+									<h6 style="padding-left: 20px">좋아요</h6>
+									<h6 class="likeNumber${status.index }" id="likeNumber${status.index }" name="${status.index }">${item.likeCount }</h6>
+									<h6>개</h6>
 
-					</div>
-				</div>
-				<!-- Post /////-->
-				<!-- 게시물 간격 주기 -->
-				<div style="padding-bottom: 50px"></div>
+									<h6 style="padding-left: 20px">댓글 ${item.commentCount }개</h6>
 
-				<!--- \\\\\\\Post-->
-				<div class="card gedf-card">
-					<div class="card-header">
-						<div class="d-flex justify-content-between align-items-center">
-							<div class="d-flex justify-content-between align-items-center">
-								<div class="mr-2">
-									<img class="rounded-circle" width="45"
-										src="https://picsum.photos/50/50" alt="">
+									<!-- 
+									<div style="padding-left: 100px" class="row">
+										<h6 style="padding-right: 10px">
+											<span class="badge badge-secondary">#조커</span>
+										</h6>
+										<h6 style="padding-right: 10px">
+											<span class="badge badge-secondary">#재밌음</span>
+										</h6>
+										<h6 style="padding-right: 10px">
+											<span class="badge badge-secondary">#요즘추천영화</span>
+										</h6>
+										<h6 style="padding-right: 10px">
+											<span class="badge badge-secondary">#스릴러</span>
+										</h6>
+										<h6 style="padding-right: 10px">
+											<span class="badge badge-secondary">#어두운영화</span>
+										</h6>
+										<h6>
+											<span class="badge badge-secondary">#호아킨피닉스</span>
+										</h6>
+									</div>
+									 -->
+
 								</div>
-								<div class="ml-2" style="padding-right: 570px">
-									<div class="h5 m-0" style="color: black;">@_mongjiee</div>
-									<div class="h7 text-muted">안양 CGV</div>
-								</div>
 
+							</div>
+						</div>
 
-								<!-- 모달 띄우기 -->
-								<div style="text-align: right;">
-									<button class="btn btn-link dropdown-toggle" type="button"
-										id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
-										aria-expanded="false" data-target="#myModal"
-										style="text-align: right;">
-										<i class="fa fa-ellipsis-h"></i>
-									</button>
-									<div class="modal fade" id="myModal" tabindex="-1"
-										role="dialog" aria-labelledby="myModalLabel">
-										<div class="modal-dialog" role="document">
-											<div class="modal-content">
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: red">부적절한
-													콘텐츠로 신고</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: red">팔로우
-													취소</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: black;">게시물로
-													이동</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: black;">퍼가기</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: black;"
-													data-dismiss="modal">취소</button>
+						
+						<div class="card-footer">
+										
+										<!-- 
+							<a href="#" class="likebutton" id="${status.index }" name="${status.index }"
+								value="unclick"><i class="fa fa-gittip"></i> 좋아요</a> 
+								-->
+								<button type="button" class="btn btn-link likeUnlike" id="${status.index }" ><span
+											style="font-weight: bold; color: #db147b; font-size: 0.9em" id="likeSpan${status.index }">
+											<a><i id="likeUnlikeIcon" class="fas fa-thumbs-up"></i>좋아요</a></span></button>
+											
+											<!-- 좋아요 아이콘 -->
+								
+								<!-- 
+								<a
+								href="#collapse${status.index }" data-toggle="collapse"
+								data-parent="#accordion" class="card-link">
+								-->
+								<a href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>" style="padding-left: 5px">
+								<i
+								class="fa fa-comment"></i> 댓글</a>
+							<!--  
+							<div class="input-group" style="padding-top: 10px">
+								<input type="text" class="form-control col-sm-12" id="comment"
+									placeholder="댓글 달기.." aria-describedby="basic-addon2">
+								<button type="button" class="btn btn-secondary"
+									id="commentInsert" style="padding-left: 10px">게시</button>
 
+							</div>
+-->
+
+							<!-- 댓글 아코디언 -->
+							<div id="collapse${status.index }" class="collapse">
+								
+									<div class="row">
+										<div class="media comment-box"
+											style="padding-left: 20px; padding-right: 20px">
+											<div class="media-left">
+												<a href="#"> <img class="img-responsive user-photo"
+													src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+												</a>
+											</div>
+											<div class="media-body">
+													<h4 class="media-heading"></h4>
+													<p style="background-color: white;"></p>
+
+										
 											</div>
 										</div>
 									</div>
-									<!-- 모달 끝 -->
-								</div>
+
+							
 							</div>
 
-
-						</div>
-
-					</div>
-					<div class="card-body">
-						<div class="row">
-
-							<div class="col-sm-3" align="center" style="padding-left: 20px">
-								<img class="effect"
-									src="<c:url value="/resources/img/friends/pic1.jpg"/>"
-									alt="Image">
-							</div>
-							<div class="col-sm-9">
-
-								<div class="row" style="height: 30px">
-									<h4 class="card-title"
-										style="color: black; font-weight: bold; padding-left: 20px">조커(Joker)</h4>
-
-									<h4 style="padding-left: 350px">
-										<span class="badge badge-pill badge-danger"
-											style="text-align: center;">★4.5</span>
-									</h4>
-
-								</div>
-
-
-
-								<!-- 중간줄 -->
-								<hr class="my-3">
-
-
-								<p class="card-text" style="color: black;">조커를 봤다. 너무 재밌었다.
-									너무 재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다 더하기 재밌었고, 너무 재밌어서 너무 재밌을
-									뻔했다. 너무 재밌는 영화였다.</p>
-								<h6
-									style="text-align: center; text-decoration: underline; padding-bottom: 10px">
-									<a href="">+더보기</a>
-								</h6>
-
-								<div style="padding-left: 30px" class="row">
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#조커</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#재밌음</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#요즘추천영화</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#스릴러</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#어두운영화</span>
-									</h6>
-									<h6>
-										<span class="badge badge-secondary">#호아킨피닉스</span>
-									</h6>
-								</div>
-
-
-
-							</div>
-							<!-- sm-9 -->
-
-						</div>
-
-						<div class="text-muted h7 mb-2" style="padding-top: 20px">
-							<i class="fa fa-clock-o"
-								style="padding-bottom: 10px; padding-left: 5px"></i>10분 전
-							<div class="row">
-
-								<h6 style="padding-left: 20px">좋아요 788개</h6>
-								<h6 style="padding-left: 20px">댓글 599개</h6>
-							</div>
 
 						</div>
 					</div>
-					<div class="card-footer">
-						<a href="#" class="card-link"><i class="fa fa-gittip"></i> 좋아요</a>
-						<a href="#" class="card-link"><i class="fa fa-comment"></i> 댓글</a>
-						<div class="input-group" style="padding-top: 10px">
-							<input type="text" class="form-control col-sm-12"
-								placeholder="댓글 달기.." aria-describedby="basic-addon2">
-							<button type="button" class="btn btn-secondary disabled"
-								style="padding-left: 10px">게시</button>
 
-						</div>
-
-					</div>
-				</div>
+					<!-- 게시물 간격 주기 -->
+					<div style="padding-bottom: 50px"></div>
+				</c:forEach>
 				<!-- Post /////-->
-				<!-- 게시물 간격 주기 -->
-				<div style="padding-bottom: 50px"></div>
-
-
-				<!--- \\\\\\\Post-->
-				<div class="card gedf-card">
-					<div class="card-header">
-						<div class="d-flex justify-content-between align-items-center">
-							<div class="d-flex justify-content-between align-items-center">
-								<div class="mr-2">
-									<img class="rounded-circle" width="45"
-										src="https://picsum.photos/50/50" alt="">
-								</div>
-								<div class="ml-2" style="padding-right: 570px">
-									<div class="h5 m-0" style="color: black;">@_mongjiee</div>
-									<div class="h7 text-muted">안양 CGV</div>
-								</div>
-
-
-								<!-- 모달 띄우기 -->
-								<div style="text-align: right;">
-									<button class="btn btn-link dropdown-toggle" type="button"
-										id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
-										aria-expanded="false" data-target="#myModal"
-										style="text-align: right;">
-										<i class="fa fa-ellipsis-h"></i>
-									</button>
-									<div class="modal fade" id="myModal" tabindex="-1"
-										role="dialog" aria-labelledby="myModalLabel">
-										<div class="modal-dialog" role="document">
-											<div class="modal-content">
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: red">부적절한
-													콘텐츠로 신고</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: red">팔로우
-													취소</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: black;">게시물로
-													이동</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: black;">퍼가기</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: black;"
-													data-dismiss="modal">취소</button>
-
-											</div>
-										</div>
-									</div>
-									<!-- 모달 끝 -->
-								</div>
-							</div>
-
-
-						</div>
-
-					</div>
-					<div class="card-body">
-						<div class="row">
-
-							<div class="col-sm-3" align="center" style="padding-left: 20px">
-								<img class="effect"
-									src="<c:url value="/resources/img/friends/pic1.jpg"/>"
-									alt="Image">
-							</div>
-							<div class="col-sm-9">
-
-								<div class="row" style="height: 30px">
-									<h4 class="card-title"
-										style="color: black; font-weight: bold; padding-left: 20px">조커(Joker)</h4>
-
-									<h4 style="padding-left: 350px">
-										<span class="badge badge-pill badge-danger"
-											style="text-align: center;">★4.5</span>
-									</h4>
-
-								</div>
 
 
 
-								<!-- 중간줄 -->
-								<hr class="my-3">
-
-
-								<p class="card-text" style="color: black;">조커를 봤다. 너무 재밌었다.
-									너무 재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다. 조커를 봤다. 너무 재밌었다. 너무
-									재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. 너무 재밌는 영화였다 더하기 재밌었고, 너무 재밌어서 너무 재밌을
-									뻔했다. 너무 재밌는 영화였다.</p>
-								<h6
-									style="text-align: center; text-decoration: underline; padding-bottom: 10px">
-									<a href="">+더보기</a>
-								</h6>
-
-								<div style="padding-left: 30px" class="row">
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#조커</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#재밌음</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#요즘추천영화</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#스릴러</span>
-									</h6>
-									<h6 style="padding-right: 10px">
-										<span class="badge badge-secondary">#어두운영화</span>
-									</h6>
-									<h6>
-										<span class="badge badge-secondary">#호아킨피닉스</span>
-									</h6>
-								</div>
-
-
-
-							</div>
-							<!-- sm-9 -->
-
-						</div>
-
-						<div class="text-muted h7 mb-2" style="padding-top: 20px">
-							<i class="fa fa-clock-o"
-								style="padding-bottom: 10px; padding-left: 5px"></i>10분 전
-							<div class="row">
-
-								<h6 style="padding-left: 20px">좋아요 788개</h6>
-								<h6 style="padding-left: 20px">댓글 599개</h6>
-							</div>
-
-						</div>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="card-link"><i class="fa fa-gittip"></i> 좋아요</a>
-						<a href="#" class="card-link"><i class="fa fa-comment"></i> 댓글</a>
-						<div class="input-group" style="padding-top: 10px">
-							<input type="text" class="form-control col-sm-12"
-								placeholder="댓글 달기.." aria-describedby="basic-addon2">
-							<button type="button" class="btn btn-secondary disabled"
-								style="padding-left: 10px">게시</button>
-
-						</div>
-
-					</div>
-				</div>
-				<!-- Post /////-->
 			</div>
 
 
-
-
-
-
-			<div class="col-md-3">
+			<div class="col-md-3" style="position: sticky">
 				<!-- 마이 프로필보이기 -->
-
 
 
 				<div class="row" style="padding-bottom: 50px">
@@ -662,9 +702,13 @@ a {
 						<img class="radiusImg" alt="프사진"
 							src="<c:url value='/resources/img/friends/oubin.png'/>" />
 					</div>
-					<div style="padding-right: 15px">
-						<span class="actorSpan" style="font-size: 1.4em; color: black;">Road_dong</span>
-						<h6 class="actorSpan" style="font-size: 0.8em; color: black;">우빈이</h6>
+					<div style="padding-right: 60px">
+
+						<span class="actorSpan"
+							style="font-size: 1.4em; color: black; font-weight: bold;">${friendsSelf.userId }</span>
+						<h6 class="actorSpan"
+							style="font-size: 0.8em; color: gray; font-weight: bold;">${friendsSelf.userName }</h6>
+
 
 					</div>
 
@@ -679,44 +723,37 @@ a {
 				</div>
 
 
+			<!-- 버튼: 시간순/인기순 -->
+			<!--  
+				<div style="padding-bottom: 50px">
+					<select class="form-control" style="text-align: center;" name="select">
+						<option value="1">시간 순</option>
+						<option value="2">좋아요 순</option>
+						<option value="3">댓글 순</option>
 
-			
-					<!-- 버튼: 시간순/인기순 -->
+					</select>
+				</div>
+-->
 
 
+				<div class="card">
 
-					<div style="padding-bottom: 50px">
-						<select class="form-control" style="width: 130px">
-							<option>시간 순</option>
-							<option>좋아요 순</option>
-							<option>댓글 순</option>
-
-						</select>
+					<div class="card-body">
+						<div class="h5">@${friendsSelf.userId }</div>
+						<div class="h7 text-muted">${friendsSelf.userName }</div>
+						<div class="h7">${friendsSelf.userSelf }</div>
 					</div>
-
-
-
-					<div class="card">
-
-						<div class="card-body">
-							<div class="h5">@Road_dong</div>
-							<div class="h7 text-muted">우빈이</div>
-							<div class="h7">스릴러를 좋아하는 우빈이라고 합니다</div>
-						</div>
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item">
-								<div class="h6 text-muted">Followers</div>
-								<div class="h5">325</div>
-							</li>
-							<li class="list-group-item">
-								<div class="h6 text-muted">Following</div>
-								<div class="h5">278</div>
-							</li>
-						</ul>
-					</div>
-		
-
-
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">
+							<div class="h6 text-muted">Followers</div>
+							<div class="h5">${follower }</div>
+						</li>
+						<li class="list-group-item">
+							<div class="h6 text-muted">Following</div>
+							<div class="h5">${following }</div>
+						</li>
+					</ul>
+				</div>
 
 
 
@@ -733,15 +770,9 @@ a {
 									src="<c:url value='/resources/img/friends/people.png'/>"
 									alt="타임라인 로고" style="width: 25px; height: 25px" />
 								<h6 class="card-title;"
-									style="padding-left: 5px; font-weight: bold;padding-right: 40px;">추천 유저</h6>
-								<a style="text-decoration: underline;"
-									href="<c:url value='/Movieing/Blog/MF_Timeline.mov'/>">모두
-									보기</a>
+									style="padding-left: 5px; font-weight: bold;padding-right: 40px;">팔로우 유저</h6>
 
 							</div>
-
-
-
 
 
 							<div>
@@ -755,9 +786,10 @@ a {
 
 								<!-- 제일큰 바디 다이브 -->
 								<div
-									style="overflow: auto; overflow-x: hidden; width: 220px;height: 300px; ">
+									style="overflow: auto; overflow-x: hidden; width: 220px; height: 300px;">
 
 									<!-- 한 사람 시작 -->
+									<c:forEach items="${selectFollowList }" var="item"> 
 									<div class="row profileForm" style="padding-left: 10px">
 										<div style="padding-left: 10px">
 											<img class="radiusSmallImg" alt="배우사진"
@@ -765,84 +797,14 @@ a {
 										</div>
 										<div style="padding-left: 10px">
 											<span class="timeLineText"
-												style="font-size: 1.0em; color: black;">__mongjiee</span>
+												style="font-size: 1.0em; color: black;">${item.following }</span>
 											<h6 class="actorSpan" style="font-size: 0.5em; color: black;">1시간전</h6>
 
 										</div>
 
 									</div>
+									</c:forEach>
 									<!-- 한 사람 끝 -->
-
-									<div class="row profileForm" style="padding-left: 10px">
-										<div style="padding-left: 10px">
-											<img class="radiusSmallImg" alt="배우사진"
-												src="<c:url value='/resources/img/friends/boy(1).png'/>" />
-										</div>
-										<div style="padding-left: 10px">
-											<span class="timeLineText"
-												style="font-size: 1.0em; color: black;">ohhhhhjy_</span>
-
-											<h6 class="actorSpan" style="font-size: 0.5em; color: black;">2시간전</h6>
-
-										</div>
-									</div>
-
-									<div class="row profileForm" style="padding-left: 10px">
-										<div style="padding-left: 10px">
-											<img class="radiusSmallImg" alt="배우사진"
-												src="<c:url value='/resources/img/friends/girl.png'/>" />
-										</div>
-										<div style="padding-left: 10px">
-											<span class="timeLineText"
-												style="font-size: 1.0em; color: black;">light_hj</span>
-											<h6 class="actorSpan" style="font-size: 0.5em; color: black;">3시간전</h6>
-
-										</div>
-									</div>
-
-									<div class="row profileForm" style="padding-left: 10px">
-										<div style="padding-left: 10px">
-											<img class="radiusSmallImg" alt="배우사진"
-												src="<c:url value='/resources/img/friends/man.png'/>" />
-										</div>
-
-										<div style="padding-left: 10px">
-											<span class="timeLineText"
-												style="font-size: 1.0em; color: black;">dragon_stone</span>
-											<h6 class="actorSpan" style="font-size: 0.5em; color: black;">4시간전</h6>
-
-										</div>
-									</div>
-
-									<div class="row profileForm" style="padding-left: 10px">
-										<div style="padding-left: 10px">
-
-											<img class="radiusSmallImg" alt="배우사진"
-												src="<c:url value='/resources/img/friends/man(1).png'/>" />
-										</div>
-
-										<div style="padding-left: 10px">
-											<span class="timeLineText"
-												style="font-size: 1.0em; color: black;">ssuminxx_</span>
-											<h6 class="actorSpan" style="font-size: 0.5em; color: black;">5시간전</h6>
-
-										</div>
-									</div>
-								</div>
-								<!-- 카드 레이아웃 팔로우 유저보이기 div끝 -->
-
-
-
-								<!-- 팔로우 끝 -->
-
-								<!--  
-						<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-						
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the ca..fsd.rd'ㄻㄴs content.</p>
-						<a href="#" class="card-link">Card link</a> <a href="#"
-							class="card-link">Another link</a>
-							-->
 
 							</div>
 							<!-- 제일 큰 바디 다이브끝 -->
@@ -850,19 +812,6 @@ a {
 
 					</div>
 
-					<!-- 
-					<div class="card gedf-card">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-							<p class="card-text">Some quick example text to build on the
-								card title and make up the bulk of the card's content.</p>
-							<a href="#" class="card-link">Card link</a> <a href="#"
-								class="card-link">Another link</a>
-						</div>
-					</div>
-
--->
 
 				</div>
 
@@ -872,7 +821,7 @@ a {
 		</div>
 	</div>
 </div>
-
+</div>
 
 
 

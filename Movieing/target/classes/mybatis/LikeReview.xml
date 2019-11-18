@@ -26,6 +26,10 @@
 		where REVIEW_NO=#{reviewNo}
 	</select>
 	
+	<!-- 내 글 좋아요 누른 유저들 리스트 -->
+	<select id="selectLikeList" parameterType="java.util.Map" resultType="LikeReviewDto">
+		select user_id from LIKE_REVIEW where review_No=#{reviewNo}
+	</select>
 	
 	
 </mapper>

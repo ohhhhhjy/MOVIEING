@@ -6,6 +6,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +32,8 @@ import com.kosmo.movieing.service.CommentDto;
 import com.kosmo.movieing.service.CommentService;
 import com.kosmo.movieing.service.EvalueWishService;
 import com.kosmo.movieing.service.MovieDto;
+import com.kosmo.movieing.service.MoviePeopleDto;
+import com.kosmo.movieing.service.MoviePeopleService;
 import com.kosmo.movieing.service.MovieService;
 import com.kosmo.movieing.service.PagingUtil;
 import com.kosmo.movieing.service.ReviewDto;
@@ -57,6 +60,9 @@ public class MovieController {
 
 	@Resource(name = "movieService")
 	private MovieService movieService;
+
+	@Resource(name = "moviePeopleService")
+	private MoviePeopleService moviePeopleService;
 
 	// 전체영화
 	@RequestMapping("/Movieing/Movie/AllMovie.mov")
@@ -322,7 +328,8 @@ public class MovieController {
 
 
 	@RequestMapping("/Movieing/Movie/SearchResult.mov")
-	public String searchResult() {
+	public String searchResult(@RequestParam Map map,Model model) {
+
 		return "movie/list/SearchResult.tiles";
 	}
 
@@ -443,7 +450,18 @@ public class MovieController {
 
 
 	@RequestMapping("/Movieing/Movie/Filmography.mov")
-	public String filmography() {
+	public String filmography(@RequestParam Map map,Model model) {
+		//사람 이름받기
+		String movieDirector=map.get("movieDirector").toString();
+		System.out.println("감독이름:"+movieDirector);
+
+		//이름에 맞는 정보가져오기
+		List<MoviePeopleDto> selectPeople=moviePeopleService.selectList(map);
+		model.addAttribute("selectPeople", selectPeople);
+		//감독 출현작
+		//List<MovieDto> selectListDirector=movieService.selectListDirector(map);
+		//model.addAttribute("selectListDirector", selectListDirector);
+
 		return "movie/info/Filmography.tiles";
 	}
 
@@ -586,6 +604,9 @@ public class MovieController {
 	@RequestMapping("/Movieing/Movie/MovieReviews.mov")
 	public String movieReviews(@RequestParam Map map, Model model, Authentication auth) {
 		map.put("id", auth.getName());
+		String reviewNo=map.get("reviewNo").toString();
+		System.out.println("리뷰 넘버:"+reviewNo);
+
 		UserDto user = userService.selectOne(map);
 		model.addAttribute("user", user);
 		ReviewDto review = reviewService.selectOne(map);
@@ -601,7 +622,7 @@ public class MovieController {
 		model.addAttribute("commentList",commentList);
 
 		return "movie/info/MovieReviews.tiles";
-	}
+	}//////////////////////////////////
 
 	// 리뷰댓글 ajax
 	@ResponseBody
@@ -826,5 +847,30 @@ public class MovieController {
 		return dataMap;
 
 	}/// movieImgMap
+
+
+	// 글쓰기 페이지]
+	@RequestMapping("/Movieing/Movie/MovieWrite.mov")
+	public String write(@RequestParam Map map, Model model, Principal principal) {
+
+		// 세션아이디
+		String id = principal.getName();
+		map.put("id", id);
+
+		//String movieNo=map.get("movieNo").toString();
+		String movieTitle=map.get("movieTitle").toString();
+		System.out.println("영화제목"+movieTitle);
+		//영화네임에 따른 영화넘버 가져오기
+		String movieNo =movieService.selectMovieNo(map);
+		System.out.println("영화넘버"+movieNo);
+		map.put("movieNo", movieNo);
+		//평가테이블에 insert
+		int insertEvalue=evalueWishService.insertEvalue(map);
+		System.out.println("평가테이블에 insert");
+
+		model.addAttribute("movieTitle", movieTitle);
+
+		return "/movie/info/MovieWrite.tiles";
+	}////////////////////////////////////////////
 
 }

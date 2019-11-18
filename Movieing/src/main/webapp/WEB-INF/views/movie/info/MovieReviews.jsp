@@ -83,6 +83,73 @@ $(document).ready(function() {
 		$('#textareaDiv').html('<textarea class="form-control" id="textarea" rows="3" placeholder="댓글을 남겨보세요."></textarea>');
 	};
 	
+	
+	//좋아요
+	$(function(){
+	
+	var flag = false;
+	//좋아요 클릭 이벤트처리
+	if(typeof $('.likeUnlike')!= 'undefined'){
+ 	$('.likeUnlike').click(function(){
+ 		console.log('좋아요버튼 누름');
+ 
+		//좋아요 off  > on
+ 		if(flag){
+ 			
+ 			//$('#likeUnlikeIcon').removeClass('far fa-thumbs-up').addClass('fas fa-thumbs-up');
+ 			
+ 			$.ajax({
+ 				url:"<c:url value='/Movieing/Blog/LikeInsert.mov'/>",
+ 				type:'post',
+ 				dataType:'text',
+ 				data:
+ 					{id:'${id}',reviewNo:'${review.reviewNo}'},
+			    beforeSend : function(xhr)
+                  {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+                      xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+                  },	
+ 				success:function(data){//서버로 부터 정상적인 응답을 받았을 때(200번)
+ 					console.log('좋아요 삽입');
+ 					$('.likeUnlike').html('<i class="fas fa-thumbs-up"></i>'+data);
+ 					
+ 				},	
+ 				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+ 					console.log("에러:"+data.responseText);
+ 				}
+ 			});
+ 			
+ 			flag = !flag;
+ 		}
+ 		
+ 		//좋아요 on  > off
+ 		else{
+ 			//$('#likeUnlikeIcon').removeClass('fas fa-thumbs-up').addClass('far fa-thumbs-up'); 
+ 			
+ 			$.ajax({
+ 				url:"<c:url value='/Movieing/Blog/LikeRemove.mov'/>",
+ 				type:'post',
+ 				dataType:'text',
+ 				data:
+ 				{id:'${id}',reviewNo:'${review.reviewNo}'},
+ 				beforeSend : function(xhr)
+                {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+                    xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+                },
+ 				success:function(data){//서버로 부터 정상적인 응답을 받았을 때(200번)
+ 					console.log('좋아요삭제');
+ 					$('.likeUnlike').html('<i class="far fa-thumbs-up"></i>'+data);
+ 				},	
+ 				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+ 					console.log("에러:"+data);
+ 				}
+ 			});
+ 			flag = !flag;
+ 		}
+ 			
+	});
+	}
+});
+
 
 </script>
 
@@ -103,7 +170,7 @@ $(document).ready(function() {
 			<span class="badge badge-pill badge-danger">★${review.grade }</span>
 			<p class="card-text">${review.reviewContent }</p>
 			<a href="#"><span
-				style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
+				style="font-weight: bold; color: #db147b; font-size: 0.9em" class="likeUnlike"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
 					${review.likeCount } </span></a>&nbsp;&nbsp;&nbsp; 
 			<a href="#" ><span
 				style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->

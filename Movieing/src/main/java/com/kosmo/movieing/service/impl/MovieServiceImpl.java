@@ -95,4 +95,9 @@ public class MovieServiceImpl implements MovieService{
 		return dao.selectListARandom(map);
 	}
 
+	@Override
+	public List<MovieDto> selectListDirector(Map map) {
+		return dao.selectListDirector(map);
+	}
+
 }

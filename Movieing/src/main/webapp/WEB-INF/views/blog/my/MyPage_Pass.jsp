@@ -138,10 +138,12 @@
 			</div>
 
 
+		
 			<div class="text-center" style="padding-bottom: 50px">
 				<div>
-					<h1 style="padding-bottom: 10px;text-align: center;padding-top: 10px">이다희 님</h1>
+					<h1 style="padding-bottom: 10px;text-align: center;padding-top: 10px">${mypage.userName } 님</h1>
 				</div>
+				<!-- 파일선택 -->
 				<input type="file" class="text-center center-block file-upload">
 			</div>
 

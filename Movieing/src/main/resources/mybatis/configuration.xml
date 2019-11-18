@@ -20,6 +20,7 @@
 		<typeAlias alias="FollowDto" type="com.kosmo.movieing.service.FollowDto"/>
 		<typeAlias alias="CommentDto" type="com.kosmo.movieing.service.CommentDto"/>
 		<typeAlias alias="CalendarDto" type="com.kosmo.movieing.service.CalendarDto"/>
+		<typeAlias alias="MoviePeopleDto" type="com.kosmo.movieing.service.MoviePeopleDto"/>
 
 	</typeAliases>
 	
@@ -34,6 +35,7 @@
 		<mapper resource="mybatis/Follow.xml" />
 		<mapper resource="mybatis/Comment.xml" />
 		<mapper resource="mybatis/Calendar.xml" />
+		<mapper resource="mybatis/MoviePeople.xml" />
 	</mappers>
 	
 </configuration>

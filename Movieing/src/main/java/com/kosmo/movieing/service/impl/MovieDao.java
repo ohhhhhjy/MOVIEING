@@ -98,5 +98,10 @@ public class MovieDao implements MovieService{
 		return template.selectList("selectListARandom",map);
 	}
 
+	@Override
+	public List<MovieDto> selectListDirector(Map map) {
+		return template.selectList("selectListDirector", map);
+	}
+
 
 }

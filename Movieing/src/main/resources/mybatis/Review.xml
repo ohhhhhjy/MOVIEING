@@ -72,22 +72,22 @@
 	</select>
 	
 	<!-- 팔로우한 리스트만 가져오기 (남의꺼 내꺼제외)(시간순으로)-->
-	<!--  
+
 	<select id="friendsReviewListFollower" parameterType="java.util.Map" resultType="ReviewDto">
 	
-	     select r.*, 
+	       select r.*, 
 		MOVIE_TITLE ,
 		MOVIE_ORG_TITLE ,
 		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
 		(select count(*) from LIKE_REVIEW  where  review_no = r.review_no) likeCount,
 		(select count(*) from COMMENT_TABLE where  review_no = r.review_no) commentCount,
 		(select USER_NICK from user_table where review_no = r.review_no and user_id= r.user_id) userNick
-		from review r, follow f
-		join movie m on r.movie_no=m.movie_no 
-		WHERE PUBLIC_PRIVATE='Y' and f.pollower=#{id}
+		from review r,movie m,follow f
+		WHERE PUBLIC_PRIVATE='Y' and f.following!=#{id} and r.movie_no=m.movie_no and f.following=r.user_id  
 		Order by REVIEW_POSTDATE desc
+
 	</select>
--->
+
 	
 
 	
@@ -184,6 +184,8 @@
 		delete review
 		where user_id=#{id} and REVIEW_NO =#{reviewNo}	
 	</delete>	
+	
+	
 
 
 	
