@@ -41,5 +41,9 @@ public interface MovieService {
 	List<MovieDto> selectListNewRandom(Map map);
 	//랜덤용
 	List<MovieDto> selectListARandom(Map map);
+	//검색 영화 용
+	List<MovieDto> selectListSearchRadom(Map map);
+	//검색 사람 용
+	List<MovieDto> selectListSearchPeople(Map map);
 
 }

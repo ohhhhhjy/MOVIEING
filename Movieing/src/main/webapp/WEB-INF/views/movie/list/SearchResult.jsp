@@ -173,31 +173,13 @@ height: 200px;
 
 				</div>
 				<div class="row d-flex justify-content-center" style="padding-bottom: 20px">
-					<div class="col-md-2 col-sm-6 movie-poster" style="">
-						<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" /><br>
-						<span class="movieTitle">영화제목</span>
-					</div>
-					<div class="col-md-2 col-sm-6 movie-poster" style="">
-						<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" /><br>
-						<span class="movieTitle">영화제목</span>
-					</div>
-					<div class="col-md-2 col-sm-6 movie-poster" style="">
-						<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" /><br>
-						<span class="movieTitle">영화제목</span>
-					</div>
-					<div class="col-md-2 col-sm-6 movie-poster" style="">
-						<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" /><br>
-						<span class="movieTitle">영화제목</span>
-					</div>
-					<div class="col-md-2 col-sm-6 movie-poster" style="">
-						<img class="movieImg" src="../../resources/img/movie/toystoryMain.jpg" alt="" /><br>
-						<span class="movieTitle">영화제목</span>
-					</div>
-					<!-- <div class="col-md-2 col-sm-6 movie-poster" style="">
-						<img class="movieImg" src="http://placehold.it/130x200" alt="" /><br>
-						<span class="movieTitle">영화제목</span>
-					</div> -->
-
+				
+					<c:forEach begin="0" end="4" items="${searchMovieList}" var="movie">
+						<div class="col-md-2 col-sm-6 movie-poster" style="">
+							<img class="movieImg" src="${movie.movieImg }" alt="" /><br>
+							<span class="movieTitle">${movie.movieTitle }</span>
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 
@@ -216,44 +198,19 @@ height: 200px;
 						</div>
 					</div>
 					<div style="padding-left: 20px;padding-top:10px">
-						<div class="row actorForm">
-							<div class="col-sm-3">
-								<img class="radiusImg" alt="배우사진"
-									src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+						<c:forEach begin="0" end="2" items="${searchPeopleList}" var="people">
+							<div class="row actorForm">
+								<div class="col-sm-3">
+									<img class="radiusImg" alt="배우사진" src="${people.MOVIE_PEOPLE_IMG }"/>
+								</div>
+								<div class="col-sm-4">
+									<span class="actorSpan">${people.MOVIE_PEOPLE_NAME}</span>
+								</div>
+								<div class="col-sm-3">
+									<span class="filmoSpan">작품 25편</span>
+								</div>
 							</div>
-							<div class="col-sm-4">
-								<span class="actorSpan">배우이름</span>
-							</div>
-							<div class="col-sm-3">
-								<span class="filmoSpan">작품 25편</span>
-							</div>
-						</div>
-
-						<div class="row actorForm">
-							<div class="col-sm-3">
-								<img class="radiusImg" alt="배우사진"
-									src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-							</div>
-							<div class="col-sm-4">
-								<span class="actorSpan">배우이름</span>
-							</div>
-							<div class="col-sm-3">
-								<span class="filmoSpan">작품 25편</span>
-							</div>
-						</div>
-
-						<div class="row actorForm">
-							<div class="col-sm-3">
-								<img class="radiusImg" alt="배우사진"
-									src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-							</div>
-							<div class="col-sm-4">
-								<span class="actorSpan">배우이름</span>
-							</div>
-							<div class="col-sm-3">
-								<span class="filmoSpan">작품 25편</span>
-							</div>
-						</div>
+						</c:forEach>
 					</div>
 				</div>
 

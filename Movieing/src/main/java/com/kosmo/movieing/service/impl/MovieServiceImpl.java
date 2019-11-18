@@ -95,4 +95,14 @@ public class MovieServiceImpl implements MovieService{
 		return dao.selectListARandom(map);
 	}
 
+	@Override
+	public List<MovieDto> selectListSearchRadom(Map map) {
+		return dao.selectListSearchRadom(map);
+	}
+
+	@Override
+	public List<MovieDto> selectListSearchPeople(Map map) {
+		return dao.selectListSearchPeople(map);
+	}
+
 }

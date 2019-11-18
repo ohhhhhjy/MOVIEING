@@ -321,10 +321,7 @@ public class MovieController {
 
 
 
-	@RequestMapping("/Movieing/Movie/SearchResult.mov")
-	public String searchResult() {
-		return "movie/list/SearchResult.tiles";
-	}
+
 
 
 
@@ -614,6 +611,28 @@ public class MovieController {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+	@RequestMapping("/Movieing/Movie/SearchResult.mov")
+	public String searchResult(@RequestParam Map map, @RequestParam String searchWord, Model model ) {
+		
+		map.put("searchWord%", searchWord+"%");
+		map.put("%searchWord", "%"+searchWord);
+		map.put("%searchWord%", "%"+searchWord+"%");
+		map.put("searchPeople", searchWord);
+		
+		System.out.println("searchReuslt - 1 searchWord 값 : "+searchWord);
+		
+		List<MovieDto> searchMovieList = movieService.selectListSearchRadom(map);
+		List<MovieDto> searchPeopleList = movieService.selectListSearchPeople(map);
+		
+		System.out.println("searchResult -2 searchMovieList 값 : "+searchMovieList);
+		System.out.println("searchResult -2 searchPeopleList 값 : "+searchPeopleList);
+		
+		model.addAttribute("searchMovieList",searchMovieList);
+		model.addAttribute("searchPeopleList",searchPeopleList);
+	
+		return "movie/list/SearchResult.tiles";
+	}
+	
 	// 무비리스트 가져오기
 	public List movieTrain() throws Exception {
 
