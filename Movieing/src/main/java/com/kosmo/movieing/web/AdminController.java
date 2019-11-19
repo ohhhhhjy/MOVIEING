@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kosmo.movieing.service.NoticeDto;
 import com.kosmo.movieing.service.NoticeService;
 import com.kosmo.movieing.service.QnaDto;
 import com.kosmo.movieing.service.QnaService;
@@ -72,11 +73,27 @@ public class AdminController {
 	@RequestMapping("/Movieing/admin/admin_announce.mov")
 	public String admin_announce(@RequestParam Map map, Model model) {
 		
+		List<NoticeDto> notiList = noticeService.selectList(map);
+		
+		JSONArray notiJson = new JSONArray();
+		for(int i=0;i<notiList.size();i++) {
+			
+			JSONObject json = new JSONObject();
+			json.put("notiNo",notiList.get(i).getNotiNo());
+			json.put("notiTitle",notiList.get(i).getNotiTitle());
+			json.put("notiContent",notiList.get(i).getNotiContent());
+			json.put("notiDate",notiList.get(i).getNotiDate().toString());
+			notiJson.add(i,json);
+			
+		}
+		
+		model.addAttribute("notiList", notiList);
+		model.addAttribute("notiJson",notiJson);
 		
 		return "admin/admin_announce.admin";
 	}
 	@RequestMapping("/Movieing/admin/admin_awrite.mov")
-	public String admin_announce_write() {
+	public String admin_announce_write(@RequestParam Map map, Model model) {
 		
 		
 		return "admin/admin_awrite.admin";

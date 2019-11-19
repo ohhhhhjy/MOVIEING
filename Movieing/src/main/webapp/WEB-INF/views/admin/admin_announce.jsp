@@ -9,6 +9,7 @@
          <div class="page-header">
              <h1>공지사항 관리 페이지</h1>
          </div>
+         <p hidden="hidden" >${notiJson}</p>
          <div id="button"><button id="write" class="btn btn-default">글 작성하기</button></div>
         
          <div id="grid-announce"></div>
@@ -16,37 +17,37 @@
     </div>
     <!-- /.row -->
     <script id="detailTemplate1" type="text/x-shield-template">
+	<div style="margin:30px;margin-left:80px">
         <table> 
             <tr>             
                <td>
-                    <b>Personal Contact Information</b></br>
-                    </br>
-                    <b>Email Address:</b>{email}</br>                    
-                    <b>Phone Number :</b>{phone}</br>       
-                    <b>Address      :</b>{address}</br>       
+                    <b>{notiContent}</b></br>
+                      
                </td>
             </tr>
         </table>
+	</div>
 	</script>
     <script>
+    var notiData = $("p").html();
     $(function(){
     	$("#grid-announce").shieldGrid({
             dataSource: {
-                data: gridData
+                data: notiData
             },
             sorting: {
                 multiple: true
             },
             paging: {
-                pageSize: 12,
+                pageSize: 10,
                 pageLinksCount: 10
             },
             detailTemplate: $("#detailTemplate1").html(),
             
             columns: [
-                { field: "id", width: "70px", title: "글 번호" },
-                { field: "name", title: "글 제목" },
-                { field: "registered", title: "작성일자", width:"130px" },
+                { field: "notiNo", width: "70px", title: "글 번호" },
+                { field: "notiTitle", title: "글 제목" },
+                { field: "notiDate", title: "작성일자", width:"130px" },
                 {
                     title: "수정",
                     width: "80px",

@@ -22,18 +22,8 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public int getTotalCount(Map map) {
-		return dao.getTotalCount(map);
-	}
-
-	@Override
 	public NoticeDto selectOne(Map map) {
 		return dao.selectOne(map);
-	}
-
-	@Override
-	public String selectNoticeNo(Map map) {
-		return dao.selectNoticeNo(map);
 	}
 
 	@Override

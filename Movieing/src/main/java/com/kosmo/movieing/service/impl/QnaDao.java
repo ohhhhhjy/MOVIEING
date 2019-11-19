@@ -23,21 +23,12 @@ public class QnaDao implements QnaService {
 		return template.selectList("selectQnaList",map);
 	}
 
-	@Override
-	public int getTotalCount(Map map) {
-		return 0;
-	}
 
 	@Override
 	public QnaDto selectOne(Map map) {
 		return template.selectOne("selectQnaOne",map);
 	}
 
-	@Override
-	public String selectQnaNo(Map map) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public int insert(Map map) {
