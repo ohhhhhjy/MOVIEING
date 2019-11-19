@@ -332,12 +332,12 @@ public class MovieController {
 
 	// 영화 상세 페이지
 	@RequestMapping("/Movieing/Movie/MovieDetails.mov")
-	public String movieDetailsTest(HttpServletRequest req, @RequestParam Map map, Model model) throws Exception {
+	public String movieDetailsTest(HttpServletRequest req, @RequestParam Map map, Model model, @RequestParam String movieNo) throws Exception {
 
 
 		System.out.println("MovieDetails 1  - map에 mname, date 넣기 전 :");
-		map.put("movieNo", map.get("movieNo"));
-		model.addAttribute("movieNo", map.get("movieNo"));
+		map.put("movieNo",movieNo);
+		System.out.println("MovieDetails 1-1 movieNo 값 : "+movieNo);
 
 		System.out.println("MovieDetails 2 - map에 mname, date 넣기 성공");
 
@@ -345,7 +345,9 @@ public class MovieController {
 		MovieDto movieInfo = movieService.selectOne(map);
 		System.out.println("MovieDetails 4 - movieInfo 값 :" + movieInfo);
 
+		model.addAttribute("movieNo", map.get("movieNo"));
 		model.addAttribute("movieInfo", movieInfo);
+		model.addAttribute("movieInfoMap",movieInfoMap(movieNo));
 		/*
 		System.out.println("RequestMethod.GET");
 		System.out.println("name : " + mname);
