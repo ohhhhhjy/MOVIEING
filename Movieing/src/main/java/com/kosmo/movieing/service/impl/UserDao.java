@@ -94,6 +94,12 @@ public class UserDao implements UserService{
 
 	}
 
+	@Override
+	public int updateImage(Map map) {
+		
+		return template.update("updateImage", map);
+	}
+
 
 
 }

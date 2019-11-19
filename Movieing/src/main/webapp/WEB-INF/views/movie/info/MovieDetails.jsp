@@ -360,7 +360,9 @@ $(document).ready(function() {
 					<hr class="my-3">
 					<div class="row">
 						<div class="col-md-6" style="font-weight: bold">이 영화를 본 친구</div>
-						<div class="col-md-6" align="right">유저이름 님 외 4명</div>
+						<c:forEach items="${reviewList}" var="review">
+						<div class="col-md-6" align="right"> ${review.userId}님 외 4명</div>
+						</c:forEach>
 					</div>
 			</div>
 			<!-- 가격비교 -->
@@ -411,7 +413,9 @@ $(document).ready(function() {
 		<div class="card   bg-ligh mb-3" style="max-width: 200rem;"><!-- border-secondary -->
 			<div class="card-body">
 			<button type="button" id="btnWish" class="btn btn-outline-danger waves-effect" onclick="location.href='<c:url value="/Movieing/Movie/MovieWrite.mov?movieTitle=${movieInfo.movieTitle}"/>'"><i class="far fa-edit"></i>&nbsp;리뷰남기기</button>
-			<span style="font-weight: bold">&nbsp;유저이름님의 평가를 글로 남겨보는건 어떨까요?</span>
+			<c:forEach items="${reviewList}" var="review">
+			<span style="font-weight: bold">&nbsp;${review.userId }님의 평가를 글로 남겨보는건 어떨까요?</span>
+			</c:forEach>
 			</div>
 		</div>
 		
@@ -437,7 +441,7 @@ $(document).ready(function() {
 			<div class="row">
 				<div class="col-md-1"><h4>배우</h4></div>
 				<c:forEach items="${movieInfoMap.movieInfoResult.movieInfo.actors}" var="actors">
-					<a class="moviePersonName" href="#"></a>
+					<a class="moviePersonName" href="#">${actors.peopleNm}</a>
 				</c:forEach>
 			</div>
 			

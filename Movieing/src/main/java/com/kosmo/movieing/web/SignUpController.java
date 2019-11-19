@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,25 +27,11 @@ public class SignUpController {
 	private UserService userService;
 
 	@RequestMapping(value = "/Movieing/member/SignUp.mov" , method = RequestMethod.POST)
-	public String SingUp(@RequestParam Map map, MultipartFile file) {
-		
-		String path = "D://upload";
-		String saveName = map.get("userid").toString();
-		File saveFile = new File(path, saveName);
-		try {
-			FileCopyUtils.copy(file.getBytes(),saveFile);
-			
-		}
-		catch (IOException e) {e.printStackTrace();}
-		//map.put("","");
+	public String SingUp(@RequestParam Map map, Model model) {
 		userService.insert(map);
 		userService.insertSec(map);
-
-		
-		
-		
-		
-		return "";
+		model.addAttribute("userid", map.get("userid"));
+		return "member/SignUpProfile.tiles";
 	}
 	
 }

@@ -39,9 +39,16 @@
 	</insert>
 	
 	<update id="userUpdate" parameterType="java.util.Map">
+
 	update user_table set user_nick=#{nick},user_name=#{username},user_contact=#{phone},user_mail=#{email},user_self=#{publicinfo}
 	where user_id=#{id}
+	
 	</update>
+	
+	<update id="updateImage" parameterType="java.util.Map">
+		update USER_TABLE set USER_PROFILE = #{file} where USER_ID = #{userid} 
+	</update>
+	
 	
 	<delete id="userDelete" parameterType="java.util.Map">
 	

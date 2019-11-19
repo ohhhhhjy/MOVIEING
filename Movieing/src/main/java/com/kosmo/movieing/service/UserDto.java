@@ -1,6 +1,5 @@
 package com.kosmo.movieing.service;
 
-import java.sql.Blob;
 import java.sql.Date;
 
 public class UserDto {
@@ -14,12 +13,12 @@ public class UserDto {
 	Date userSignupDate;
 	String userProfile;
 	String userSelf;
-	
+
 	//효율성을 위해 추가.
 	boolean isFollow;
-	
-	
-	
+
+
+
 	public String getUserProfile() {
 		return userProfile;
 	}
@@ -78,6 +77,16 @@ public class UserDto {
 	public void setUserSignupDate(Date userSignupDate) {
 		this.userSignupDate = userSignupDate;
 	}
+	public String getUserSelf() {
+		return userSelf;
+	}
+	public void setUserSelf(String userSelf) {
+		this.userSelf = userSelf;
+	}
+	public void setFollow(boolean isFollow) {
+		this.isFollow = isFollow;
+	}
+
 
 
 

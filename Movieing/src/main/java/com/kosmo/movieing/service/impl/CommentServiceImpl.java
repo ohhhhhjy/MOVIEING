@@ -56,5 +56,11 @@ public class CommentServiceImpl implements CommentService{
 	public int getCommentCount(Map map) {
 		return dao.getCommentCount(map);
 	}
+	@Override
+	public List<CommentDto> selectSearchCommentList(Map map) {
+		return dao.selectSearchCommentList(map);
+	}
+
+
 
 }

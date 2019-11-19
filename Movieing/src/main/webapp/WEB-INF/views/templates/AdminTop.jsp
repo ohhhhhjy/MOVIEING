@@ -18,13 +18,7 @@
              <li><a href="<c:url value='/Movieing/admin/admin_main.mov'/>"><i class="glyphicon glyphicon-th"></i> 통계 일람</a></li>
              <li><a href="<c:url value='/Movieing/admin/admin_usermanagement.mov'/>"><i class="fa fa-user"></i> 유저 관리</a></li>
              <li><a href="<c:url value='/Movieing/admin/admin_qna.mov'/>"><i class="glyphicon glyphicon-comment"></i> 문의사항 관리</a></li>
-             <li class="nav nav-list nav-list-expandable">
-                 <a><i class="fa fa-edit"></i> 게시글 관리 <span class="caret"></span></a>
-                 <ul class="nav navbar-nav">
-                     <li><a href="<c:url value='/Movieing/admin/admin_announce.mov'/>"><i class="fa fa-list-alt"></i> 공지사항 관리</a></li>
-                     <li><a href="<c:url value='/Movieing/admin/admin_goods.mov'/>"><i class="fa fa-krw"></i> 판매 상품 관리</a></li>
-                 </ul>
-             </li>
+             <li><a href="<c:url value='/Movieing/admin/admin_announce.mov'/>"><i class="fa fa-list-alt"></i> 공지사항 관리</a></li>
              <!-- 
              <li><a href="bootstrap.html"><i class="fa fa-magic"></i> Bootstrap Elements</a></li>
              <li class="nav nav-list nav-list-expandable">
