@@ -106,11 +106,14 @@ body {
 	width: 40px;
 	height: 40px;
 	margin: 0 auto;
-	font-size: 30px;
+	font-size: 25px;
 	text-align: center;
 	color: #01c0c8;
 	border-radius: 3px;
+	text-align: center;
+	align-content: center;
 }
+
 
 .box-cat>label {
 	text-align: center;
@@ -160,6 +163,10 @@ body {
 	margin-left: 5px;
 	margin-bottom: 5px;
 }
+
+#gray {
+	color: gray;
+}
 </style>
 <script>
 	$(document).ready(function() {
@@ -202,16 +209,49 @@ body {
 			});
 		});
 	});
-	
-	
-	$(function(){
-		$('.btn').click(function(){
-			console.log('버튼이 누렷어요');
-			if($(this).hasClass('btn-outline-secondary'){//지역버튼 누를경우
-				
-			}else {
-				
-			}
+
+	$(document).ready(
+			function() {
+				$('.btn').on(
+						'click',
+						function() {
+							console.log('버튼이 누렷어요');
+							if ($(this).hasClass('btn-outline-secondary')) {//지역버튼 누를경우
+								console.log('지역 버튼');
+								//체크표시
+								var selText = $(this).text();
+								console.log('값은?' + selText);
+								$(this).html(
+										'<i class="fas fa-check"></i>'
+												+ selText).css(
+										'background-color', 'black').css(
+										'color', 'white');
+							} else if ($(this).hasClass('btn-secondary')) {
+								console.log('영화관 버튼');
+								var selText = $(this).text();
+								$(this).html(
+										'<i class="fas fa-check"></i>'
+												+ selText).css(
+										'background-color', 'white').css(
+										'color', 'black');
+								$('#threater')
+										.attr('value', selText + ' 롯데시네마');
+
+							}
+							$(this).button('reset');//리셋
+						});
+			});
+
+	$(document).ready(function() {
+		$('.cat-preview').on('click', function() {
+			console.log('날짜선택');
+			var selText = $(this).text();
+			console.log('값은?' + selText);
+			$(this).css('background-color', '#01c0c8').css('color', 'white');
+
+			//뿌려주기
+			$('#date').attr('value', '2019년 12월 ' + selText + '일');
+
 		});
 	});
 </script>
@@ -225,9 +265,14 @@ body {
 		<div class="col-12">
 			<div class="card">
 				<div class="card-body p-0">
-					<div class="p-5" style="margin-bottom: -70px;">
-						<h1>영화관 상영 시간표</h1>
+					<div class="row p-5" style="margin-bottom: -70px;">
+						<div class="col-md-6">
+							<h1>영화관 상영 시간표</h1>
 
+						</div>
+						<div class="col-md-6 text-right">
+							<img src="<c:url value='/resources/img/movie/lotte.png'/>" style="width: 400px;height: 60px">
+						</div>
 					</div>
 
 					<!-- ----------------------------------------------------------------------------------------- -->
@@ -247,6 +292,7 @@ body {
 							<div class="slide-left">
 								<i class="fas fa-angle-left"></i>
 							</div>
+
 							<div class="slide-center">
 								<div class="list-cat">
 									<div class="box-cat">
@@ -298,12 +344,12 @@ body {
 										<div class="cat-preview">16</div>
 									</div>
 									<div class="box-cat">
-										<label>일</label>
-										<div class="cat-preview">16</div>
+										<label>월</label>
+										<div class="cat-preview">17</div>
 									</div>
 									<div class="box-cat">
-										<label>일</label>
-										<div class="cat-preview">16</div>
+										<label>화</label>
+										<div class="cat-preview">18</div>
 									</div>
 								</div>
 							</div>
@@ -370,11 +416,38 @@ body {
 						</div>
 					</div>
 
+
+
+
+
+					<div class="row p-5" style="margin-top: -50px;">
+						<div class="md-form input-group" style="padding-left: 20px">
+							<div class="input-group-prepend">
+								<span class="input-group-text md-addon"
+									style="font-weight: bold;">날짜</span>
+							</div>
+							<input type="text" aria-label="First name" class="form-control"
+								id="date" placeholder="날짜를 선택하세요">
+							<div class="input-group-prepend">
+								<span class="input-group-text md-addon"
+									style="font-weight: bold;">영화관</span>
+							</div>
+							<input type="text" aria-label="Last name" class="form-control"
+								id="threater" placeholder="영화관을 선택하세요">
+						</div>
+					</div>
+
+
+
 					<!-- ------------------------------------------------------------------ -->
 					<div class="row pb-5 p-5">
-						<div class="col-md-12">지도</div>
-						<h6>영화관:</h6>
-						<input></input>
+
+						<div class="col-md-12">
+							<h6>영화관 위치:</h6>
+							지도
+						</div>
+
+
 					</div>
 					<!-- ----------------------------------------------------------------------- -->
 
@@ -480,19 +553,43 @@ body {
 
 
 					<div class="d-flex flex-row-reverse bg-dark text-white p-4">
-						<div class="py-3 px-5 text-right">
-							<div class="mb-2">Grand Total</div>
-							<div class="h2 font-weight-light">$234,234</div>
-						</div>
 
-						<div class="py-3 px-5 text-right">
-							<div class="mb-2">Discount</div>
-							<div class="h2 font-weight-light">10%</div>
-						</div>
+						<div class="py-3 px-5 pull-left">
+							<div class="h2 font-weight-light">예매정보</div>
+							<div class="row">
+								<div class="mb-2" id="gray">상영일</div>
+								&nbsp&nbsp
+								<div class="mb-2">2019-11-19</div>
+							</div>
+							<div class="row">
+								<div class="mb-2" id="gray">상영시간</div>
+								&nbsp&nbsp
+								<div class="mb-2">23:00~1:00</div>
+							</div>
+							<div class="row">
+								<div class="mb-2" id="gray">상영관</div>
+								&nbsp&nbsp
+								<div class="mb-2">가산디지털 롯데시네마</div>
+								<div class="mb-2">3관</div>
+							</div>
 
-						<div class="py-3 px-5 text-right">
-							<div class="mb-2">Sub - Total amount</div>
-							<div class="h2 font-weight-light">$32,432</div>
+						</div>
+						
+						<div class="py-3 px-5 pull-left">
+							<div class="h2 font-weight-light">영화</div>
+							<div class="row">
+								<div class="mb-2" id="gray">영화명</div>
+								&nbsp&nbsp
+								<div class="mb-2">블랙머니</div>
+							</div>
+							<div class="row">
+								<div class="mb-2" id="gray">스크린</div>
+								&nbsp&nbsp
+								<div class="mb-2">2D</div>
+
+							</div>
+					
+							
 						</div>
 					</div>
 				</div>
