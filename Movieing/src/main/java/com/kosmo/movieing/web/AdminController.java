@@ -1,16 +1,34 @@
 package com.kosmo.movieing.web;
 
+import java.util.Map;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kosmo.movieing.service.NoticeService;
+import com.kosmo.movieing.service.QnaService;
+
 @Controller
 public class AdminController {
+	
+	@Resource(name="qnaService")
+	private QnaService qnaService;
+	
+	@Resource(name="noticeService")
+	private NoticeService noticeService;
+	
+	
 
 	// 관리자페이지]
 	@RequestMapping("/Movieing/admin/admin_main.mov")
-	public String admin_main() {
+	public String admin_main(@RequestParam Map map,Model model) {
+		
+		
+		
 		return "admin/admin_main.admin";
 	}
 	

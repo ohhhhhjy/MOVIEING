@@ -6,10 +6,12 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.kosmo.movieing.service.QnaDto;
 import com.kosmo.movieing.service.QnaService;
 
+@Repository
 public class QnaDao implements QnaService {
 	
 	@Resource(name="template")

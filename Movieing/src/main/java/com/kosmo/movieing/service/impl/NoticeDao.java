@@ -6,10 +6,12 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.kosmo.movieing.service.NoticeDto;
 import com.kosmo.movieing.service.NoticeService;
 
+@Repository
 public class NoticeDao implements NoticeService {
 	
 	@Resource(name="template")
