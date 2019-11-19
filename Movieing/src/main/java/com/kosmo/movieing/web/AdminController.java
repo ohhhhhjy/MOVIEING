@@ -28,10 +28,9 @@ public class AdminController {
 	public String admin_announce() {
 		return "admin/admin_announce.admin";
 	}
-	
-	@RequestMapping("/Movieing/admin/admin_goods.mov")
-	public String admin_goods() {
-		return "admin/admin_goods.admin";
+	@RequestMapping("/Movieing/admin/admin_awrite.mov")
+	public String admin_announce_write() {
+		return "admin/admin_awrite.admin";
 	}
 
 
