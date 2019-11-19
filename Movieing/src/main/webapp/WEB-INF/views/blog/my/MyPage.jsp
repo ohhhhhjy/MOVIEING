@@ -45,6 +45,26 @@
 			readURL(this);
 		});
 	});
+
+	/*입력완료 경고창*/
+	$(document).ready(function() {
+		function success() {
+			if (username.value = "") {
+				return false;
+			} else if (nick.value == "") {
+				return false;
+			} else if (phone.value = "") {
+				return false;
+			} else if (email.value == "") {
+				return false;
+			} else if (publicinfo.value == "") {
+				return false;
+			} else {
+				alert("성공적으로 수정되었습니다");
+			}
+
+		}
+	});
 </script>
 <style>
 
@@ -84,7 +104,9 @@
 
 			<div class="text-center" style="padding-bottom: 50px">
 				<div>
-					<h1 style="padding-bottom: 10px;text-align: center;padding-top: 10px">이다희 님</h1>
+					<h1
+						style="padding-bottom: 10px; text-align: center; padding-top: 10px">${mypage.userName }
+						님</h1>
 				</div>
 				<!-- 파일선택 -->
 				<input type="file" class="text-center center-block file-upload">
@@ -105,13 +127,11 @@
 					href="<c:url value='/Movieing/Blog/MyPage_QnA.mov'/>"
 					class="list-group-item list-group-item-action">문의글</a> <a
 					href="<c:url value='/Movieing/Blog/MyPage_Help.mov'/>"
-					class="list-group-item list-group-item-action">도움말</a> 
+					class="list-group-item list-group-item-action">도움말</a>
 
 			</div>
 		</div>
 		<!-- col-md-3끝 -->
-
-
 
 
 		<!-- 내용 상세보기 시작-->
@@ -126,45 +146,44 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-							<form>
+
+							<!-- 폼 시작 -->
+							<form class="border border-light" method="post" id="form"
+								action="<c:url value='/Movieing/Blog/MyPage2.mov'/>" name="write">
+								<input type="hidden" name="${_csrf.parameterName}"
+									value="${_csrf.token}">
 								<div class="form-group row">
 									<label for="username" class="col-4 col-form-label">이름*</label>
 									<div class="col-8">
-										<input id="username" name="username" placeholder="${mypage.userName }"
+										<input id="username" name="username"
+											value="${mypage.userName }" placeholder="이름을 입력하세요"
 											class="form-control here" required="required" type="text">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="name" class="col-4 col-form-label">닉네임*</label>
 									<div class="col-8">
-										<input id="name" name="name" placeholder="${mypage.userId }"
-											class="form-control here" type="text">
-									</div>
-								</div>
-
-								<div class="form-group row">
-									<label for="lastname" class="col-4 col-form-label">관심장르*</label>
-									<div class="col-8">
-										<input id="lastname" name="lastname"
-											placeholder="#로맨스 #코미디 #멜로 #가족 #범죄" class="form-control here"
+										<input id="nick" name="nick" placeholder="닉네임을 입력하세요"
+											value="${mypage.userId }" class="form-control here"
 											type="text">
 									</div>
 								</div>
 
+
 								<div class="form-group row">
-									<label for="select" class="col-4 col-form-label">성별</label>
+									<label for="select" class="col-4 col-form-label">휴대폰번호</label>
 									<div class="col-8">
-										<select id="select" name="select" class="custom-select">
-											<option value="admin">여자</option>
-											<option value="admin">남자</option>
-										</select>
+										<input id="phone" name="phone" placeholder="휴대폰번호를 입력하세요"
+											value="${mypage.userContact }" class="form-control here"
+											type="text">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="email" class="col-4 col-form-label">이메일*</label>
 									<div class="col-8">
-										<input id="email" name="email" placeholder="${mypage.userMail }"
-											class="form-control here" required="required" type="text">
+										<input id="email" name="email" value="${mypage.userMail }"
+											placeholder="이메일을 입력하세요" class="form-control here"
+											required="required" type="text">
 									</div>
 								</div>
 								<div class="form-group row">
@@ -172,7 +191,7 @@
 										소개</label>
 									<div class="col-8">
 										<textarea id="publicinfo" name="publicinfo" cols="40" rows="4"
-											class="form-control" placeholder="${mypage.userSelf }"></textarea>
+											class="form-control" placeholder="자기소개를 입력하세요">${mypage.userSelf }</textarea>
 									</div>
 								</div>
 
@@ -180,11 +199,12 @@
 
 								<div class="form-group row">
 									<div class="offset-4 col-8" style="text-align: right;">
-										<button name="submit" type="submit" class="btn btn-primary">수정
-											완료</button>
+										<button name="submit" type="submit" class="btn btn-primary"
+											onclick="success()">수정 완료</button>
 									</div>
 								</div>
 							</form>
+							<!-- 폼끝 -->
 						</div>
 					</div>
 

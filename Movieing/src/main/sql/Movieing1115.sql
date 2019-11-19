@@ -175,12 +175,12 @@ CREATE TABLE MOVIE_PEOPLE
    MOVIE_PEOPLE_NO nvarchar2(10) NOT NULL,
    -- 영화인 이름
    MOVIE_PEOPLE_NAME nvarchar2(50) NOT NULL,
-   -- 영화인 생년월일
-   MOVIE_PEOPLE_BIRTH nvarchar2(20),
-   -- 감독인지/배우인지 구분
+   -- 감독/배우 구분
    MOVIE_PEOPLE_JOB nvarchar2(10),
-   -- 영화인국적
+   -- 출신
    MOVIE_PEOPLE_COUNTRY nvarchar2(50),
+   -- 이미지
+   MOVIE_PEOPLE_IMG nvarchar2(1000),
    PRIMARY KEY (MOVIE_PEOPLE_NO)
 );
 
@@ -301,7 +301,7 @@ CREATE TABLE USER_TABLE
    -- 사용가 가입 날짜
    USER_SIGNUP_DATE date DEFAULT SYSDATE NOT NULL,
    -- 사용자 프로필 사진
-   USER_PROFILE blob,
+   USER_PROFILE nvarchar2(2000),
    -- 사용자 자기 소개
    USER_SELF nvarchar2(2000) NOT NULL,
    PRIMARY KEY (USER_ID)

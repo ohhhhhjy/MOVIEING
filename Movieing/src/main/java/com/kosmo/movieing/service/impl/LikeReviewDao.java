@@ -26,7 +26,7 @@ public class LikeReviewDao implements LikeReviewService{
 	@Override
 	public List<LikeReviewDto> selectList(Map map) {
 
-		return null;
+		return template.selectList("selectLikeList", map);
 	}
 
 	@Override

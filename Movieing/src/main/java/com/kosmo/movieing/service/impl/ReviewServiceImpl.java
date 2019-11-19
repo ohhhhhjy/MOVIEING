@@ -134,10 +134,6 @@ public class ReviewServiceImpl implements ReviewService{
 		return dao.friendsReviewList2(map);
 	}
 
-	@Override
-	public List<ReviewDto> friendsReviewList3(Map map) {
-		return dao.friendsReviewList3(map);
-	}
 
 
 }

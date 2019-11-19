@@ -131,13 +131,9 @@ public class ReviewDao implements ReviewService{
 
 	@Override
 	public List<ReviewDto> friendsReviewList2(Map map) {
-		return template.selectList("friendsReviewList2", map);
+		return template.selectList("friendsReviewListFollower", map);
 	}
 
-	@Override
-	public List<ReviewDto> friendsReviewList3(Map map) {
-		return template.selectList("friendsReviewList3", map);
-	}
 
 
 }

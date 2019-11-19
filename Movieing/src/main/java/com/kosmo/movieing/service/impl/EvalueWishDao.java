@@ -105,4 +105,9 @@ public class EvalueWishDao implements EvalueWishService{
 		return template.delete("deleteWish",map);
 	}
 
+	@Override
+	public int insertEvalue(Map map) {
+		return template.insert("insertEvalue", map);
+	}
+
 	}

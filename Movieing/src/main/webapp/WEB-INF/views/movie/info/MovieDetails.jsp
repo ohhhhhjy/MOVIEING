@@ -410,7 +410,7 @@ $(document).ready(function() {
 		<!-- 리뷰남기기 (남긴 리뷰가 없을때만 나타나도록)-->
 		<div class="card   bg-ligh mb-3" style="max-width: 200rem;"><!-- border-secondary -->
 			<div class="card-body">
-			<button type="button" id="btnWish" class="btn btn-outline-danger waves-effect" onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov"/>'"><i class="far fa-edit"></i>&nbsp;리뷰남기기</button>
+			<button type="button" id="btnWish" class="btn btn-outline-danger waves-effect" onclick="location.href='<c:url value="/Movieing/Movie/MovieWrite.mov?movieTitle=${movieInfo.movieTitle}"/>'"><i class="far fa-edit"></i>&nbsp;리뷰남기기</button>
 			<span style="font-weight: bold">&nbsp;유저이름님의 평가를 글로 남겨보는건 어떨까요?</span>
 			</div>
 		</div>
@@ -428,7 +428,7 @@ $(document).ready(function() {
 			<!-- 감독 -->
 			<div class="row">
 				<div class="col-md-1"><h4>감독</h4></div>
-				<a class="moviePersonName"  href="#">${movieInfo.movieDirector }</a>
+				<a class="moviePersonName"  href="<c:url value='/Movieing/Movie/Filmography.mov?movieDirector=${movieInfo.movieDirector }'/>">${movieInfo.movieDirector }</a>
 			</div>
 			
 			<hr class="my-3">

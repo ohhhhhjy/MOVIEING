@@ -12,6 +12,10 @@
 		select count(*) from follow  where following = #{id}
 	</select>
 	
+	<!-- 내가 팔로우한 유저들 -->
+	<select id="selectFollowList" parameterType="java.util.Map" resultType="FollowDto">
+		select following from follow  where follower = #{id}
+	</select>
 
 	
 </mapper>

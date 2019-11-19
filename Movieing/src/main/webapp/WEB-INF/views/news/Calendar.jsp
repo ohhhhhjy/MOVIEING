@@ -124,7 +124,7 @@ tbody>tr {
 			</thead>
 			<tbody>
 				<tr>
-					<td><a class="nav-link" href="#calendar-modal"
+					<td><a class="nav-link" href="#modal1"
 						data-toggle="modal">부산 국제 영화제</a></td>
 					<td>2019.10.03(목) ~ 2019.10.12(토)</td>
 					<td>부산</td>
@@ -147,48 +147,7 @@ tbody>tr {
 
 </div>
 
-<div class="calendar-modal modal fade" id="calendar-modal" tabindex="-1"
-	role="dialog" aria-hidden="true">
-	<div class="modal-dialog" role="document">
 
-		<div class="modal-content">
-
-
-			<div class="close-modal" data-dismiss="modal">
-				<div class="lr">
-					<div class="rl"></div>
-				</div>
-			</div>
-
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 mx-auto">
-						<div class="modal-body">
-							<!-- Project Details Go Here -->
-							<h5>부산국제영화제</h5>
-							<img alt="이미지"
-								src="<c:url value='/resources/img/news/busan.jpg'/>">
-							<p class="item-intro text-muted">
-							<ul>
-								<li>이름 : 부산국제영화제</li>
-								<li>일시 : 2019.10.03(목) ~ 2019.10.12(토)</li>
-								<li>장소 : 부산</li>
-								<li><p>
-										한국 영화의 발상지인 부산을, 영상문화의 중앙 집중에서 벗어나 지방 자치시대에 걸맞은 문화예술의 고장으로
-										발전시키고자 기획된 영화제이다. 1996년 제1회를 시작으로 2003년 제8회를 맞이한 부산국제영화제는
-										5년이라는 짧은 역사에도 불구하고 서구에 억눌려 있던 아시아 영화인의 연대를 실현했다는 평가를 받고 있다.<br>
-
-									</p></li>
-							</ul>
-							</p>
-							
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 
 <!-- 영화제 --------------------------------------------------------------------------->
 <div class="container" style="padding-top: 30px">
@@ -200,32 +159,31 @@ tbody>tr {
 	<div class="row">
 		<div class="col-md-3 text" data-toggle="modal"
 			data-target=".bd-example-modal-lg">
-			<img class="" src="<c:url value='/resources/img/news/j1.jpg'/>"
+			<img class="img-responsive" src="<c:url value='/resources/img/news/j1.png'/>"
 				alt="서울독립영화제">
 			<div class="middle">
 				<div class="text">제 45회 <br>서울독립영화제 (2019)</div>
 			</div>
 		</div>
-
 		<div class="col-md-3 text">
 			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j2.PNG'/>" alt="Pineapple">
+				src="<c:url value='/resources/img/news/j2.png'/>">
 			<div class="middle">
-				<div class="text">전주 국제 영화제</div>
+				<div class="text">최강애니전</div>
 			</div>
 		</div>
 		<div class="col-md-3 text">
 			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j3.PNG'/>" alt="Pineapple">
+				src="<c:url value='/resources/img/news/j3.jpg'/>">
 			<div class="middle">
-				<div class="text">부천국제판타스틱영화제</div>
+				<div class="text">아동권리영화제</div>
 			</div>
 		</div>
 		<div class="col-md-3 text">
 			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j4.PNG'/>" alt="Pineapple">
+				src="<c:url value='/resources/img/news/j4.jpg'/>">
 			<div class="middle">
-				<div class="text">서울독립영화제(구 금관상영화제, 한국청소년영화제, 한국독립단편영화제)</div>
+				<div class="text">제주영화제</div>
 			</div>
 		</div>
 	</div>
@@ -240,7 +198,7 @@ tbody>tr {
 
 		<!-- 모달 -->
 
-		<div class="modal fade bd-example-modal-lg" tabindex="-1"
+		<div class="modal fade bd-example-modal-lg" tabindex="-1" id="modal1"
 			role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content p-4">
@@ -257,15 +215,11 @@ tbody>tr {
 								<div class="row" style="padding-left: 10px;padding-right: 10px;padding-bottom: 10px">
 									<div class="col-md-4">
 										<img class="center-block img-responsive"
-											src='<c:url value='/resources/img/news/j1.jpg'/>' />
+											src='<c:url value='/resources/img/news/j1.png'/>' />
 									</div>
 									<div class="col-md-8">
-										<small>장소: 부산</small><br> <small><strong>개체월
-												: 10월</strong></small> <br></br>
-												
-												한국 영화의 발상지인 부산을, 영상문화의 중앙 집중에서 벗어나 지방 자치시대에 걸맞은 문화예술의
-										고장으로 발전시키고자 기획된 영화제이다. 1996년 제1회를 시작으로 2003년 제8회를 맞이한 부산국제영화제는
-										5년이라는 짧은 역사에도 불구하고 서구에 억눌려 있던 아시아 영화인의 연대를 실현했다는 평가를 받고 있다.<br>
+										<small>장소: 서울</small><br> <small><strong>일정 : 19.11.28 ~ 19.12.06</strong></small> <br></br>
+										극영화, 실험영화, 다큐멘터리, 애니메이션 등을 대상으로 하는 독립 단편 경쟁영화제<br>
 										<br>
 										<br>
 										<br>
@@ -307,12 +261,17 @@ tbody>tr {
 
 <script>
 
-	var event;
+	
 	$(function(){	
-	
+		var modal = '${seoulDR}';
 		
-	
-	
+		if(modal=="서울독립영화제"){
+			
+			$('#modal1').modal('show');
+		}
+		
+		
+		var event;
    		$.ajax({
    			url: "<c:url  value='/Ajax/Calendar.mov'/>", 
    			dataType: 'text', 
@@ -325,6 +284,8 @@ tbody>tr {
    				} 
    		});
    		console.log(event);
+   		
+   		
 		 
 	});
 		
@@ -344,7 +305,7 @@ tbody>tr {
 		defaultDate : '2019-12-05',
 		navLinks : true,
 		eventLimit : true,
-		events : event
+		events : [{title:'서울독립영화제',start:'2019-11-28',end:'2019-12-07'},{title:'아동권리영화제',start:'2019-11-22',end:'2019-12-02'},{title:'최강애니전',start:'2019-11-29',end:'2019-12-01'},{title:'제주영화제',start:'2019-11-02',end:'2019-12-01'},]
 			
 	});
 	

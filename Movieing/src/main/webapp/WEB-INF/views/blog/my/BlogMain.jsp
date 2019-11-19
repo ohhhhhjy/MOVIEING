@@ -136,7 +136,6 @@ body {
 	text-align: left;
 	vertical-align: middle;
 }
-
 </style>
 
 <!-- css파일 -->
@@ -313,27 +312,38 @@ body {
 				</div>
 			</div>
 
-			<c:forEach items="${selectList }" var="item">
-				<!-- 2.여러줄컨텐츠(리뷰) -->
-				<div class="card border-secondary mb-3" style="max-width: 200rem;">
-					<div class="card-header ">
-							${item.movieTitle }에 리뷰를 남겼어요!&nbsp;&nbsp;
-							 <span
-								style="color: #a8a5a5; font-size: 0.3em;padding-right:0px">
+			
+
+			<c:if test="${empty selectList }" var="isEmpty">
+				<h5>
+					아직 등록한 리뷰가 없어요...<br>리뷰를 등록해보세요
+				</h5>
+			</c:if>
+
+			<c:if test="${!isEmpty }">
+				<c:forEach items="${selectList }" var="item" varStatus="status">
+					<!-- 2.여러줄컨텐츠(리뷰) -->
+					<div class="card border-secondary mb-3" style="max-width: 200rem;">
+						<div class="card-header">
+							${item.movieTitle }에 리뷰를 남겼어요!&nbsp;&nbsp; 
+							<span
+								style="color: #a8a5a5; font-size: 0.3em;">
 								${reviewPostdate} </span>
-							<!-- 삭제/수정 모달 띄우기 -->
-									<button class="btn btn-link dropdown-toggle" type="button"
-										id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
-										aria-expanded="false" data-target="#myModal"
-										style="float: right;height: 10px;line-height: 0px">
-										<i class="fa fa-ellipsis-h"></i>
-									</button>
-						
-									<div class="modal fade" id="myModal" tabindex="-1"
-										role="dialog" aria-labelledby="myModalLabel">
-										<div class="modal-dialog" role="document">
-											<div class="modal-content">
-											<!--  남의 게시물 볼때 버튼들
+
+							<!-- 모달 띄우기 -->
+
+							<button class="btn btn-link dropdown-toggle" type="button"
+								id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
+								aria-expanded="false" data-target="#myModal${status.index }"
+								style="float:right; text-align: right; line-height: 0px">
+								<i class="fa fa-ellipsis-h"></i>
+							</button>
+
+							<div class="modal fade" id="myModal${status.index }"
+								tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<!--  남의 게시물 볼때 버튼들
 												<button type="button" class="btn btn-outline-secondary"
 													style="border-bottom: thin; width: 500px; height: 60px; color: red">부적절한
 													콘텐츠로 신고</button>
@@ -347,14 +357,13 @@ body {
 													style="border-bottom: thin; width: 500px; height: 60px; color: black;">유저
 													블로그로 이동</button>
 													-->
-													<!-- 내 글 볼경우 버튼들 -->
-													<button type="button" class="btn btn-outline-secondary" name="delete"
-													style="border-bottom: thin; width: 500px; height: 60px; color: red">삭제</button>
-													
-												<button type="button" class="btn btn-outline-secondary"
+										<!-- 내 글 볼경우 버튼들 -->
+										<button type="button" class="btn btn-outline-secondary"
+											name="delete"
+											style="border-bottom: thin; width: 500px; height: 60px; color: red">삭제</button>
+										<button type="button" class="btn btn-outline-secondary"
 													style="border-bottom: thin; width: 500px; height: 60px; color: black;"
 													data-dismiss="modal">취소</button>
-
 											</div>
 										</div>
 									<!-- 모달 끝 -->
@@ -364,31 +373,50 @@ body {
 
 
 
-					<div class="card-body">
-						<div class="row">
-							<div class="col-sm-3" align="center">
-								<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><img
-									class="movieImage"
-									src="${item.movieImg }" alt="포스터" /></a>
-							</div>
-							<div class="col-sm-9">
-								<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><h4 class="card-title" style="color:black">${item.movieTitle }</h4></a>
-								<span class="badge badge-pill badge-danger">★${item.grade }</span>
-								<p class="card-text" style="height: 110px">${item.reviewContent }</p>
-								<a href="#"><span
-									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
-										class="far fa-thumbs-up"></i> 25 </span></a>&nbsp;&nbsp;&nbsp; <a
-									href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>"><span
-									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
-										class="far fa-comments"></i> 4 </span></a>
+					
+
+
+
+
+						<div class="card-body">
+							<div class="row">
+								<div class="col-sm-3" align="center">
+									<a
+										href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><img
+										class="movieImage" src="${item.movieImg }" alt="포스터" /></a>
+								</div>
+								<div class="col-sm-9">
+
+
+									<a
+										href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>">
+										<h4 class="card-title" style="color: black">${item.movieTitle }</h4>
+									</a> 
+									<span class="badge badge-pill badge-danger">★${item.grade }</span>
+									<p class="card-text" style="height: 110px">${item.reviewContent }</p>
+									<a href="#"> <span data-toggle="modal"
+										data-target="#likeModal${status.index }"
+										style="font-weight: bold; color: #db147b; font-size: 0.9em">
+											<i class="far fa-thumbs-up"></i>${item.likeCount }
+									</span>
+									<!-- 좋아요수- -->
+
+									</a>&nbsp;&nbsp;&nbsp; <a
+										href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>">
+										<span
+										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
+											class="far fa-comments"></i> ${item.commentCount } </span>
+									</a>
+									<!-- 댓글수 -->
+								</div>
 							</div>
 						</div>
+
+
+
 					</div>
-
-
-
-				</div>
-			</c:forEach>
+				</c:forEach>
+			</c:if>
 		</div>
 		<!-- 왼쪽 마이피드끝-->
 

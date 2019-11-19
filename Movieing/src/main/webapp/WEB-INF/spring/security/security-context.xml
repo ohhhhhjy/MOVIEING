@@ -14,6 +14,8 @@
         <security:intercept-url pattern="/**" access="hasRole('USER')" /> -->
         <security:intercept-url pattern="/Movieing/Movie/Home.mov" access="hasRole('USER')" />
        <security:intercept-url pattern="/Movieing/Member/LoginProcess.mov" access="permitAll" />
+       <security:intercept-url pattern="/Movieing/member/SignUp.mov" access="permitAll" />
+       <security:intercept-url pattern="/Movieing/Member/SignUp.mov" access="permitAll" />
        <security:intercept-url pattern="/**" access="permitAll" />
           <!--
           <security:form-login/>요소로  로그인 설정:      

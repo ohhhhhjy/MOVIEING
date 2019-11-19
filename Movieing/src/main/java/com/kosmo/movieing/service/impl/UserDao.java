@@ -78,6 +78,22 @@ public class UserDao implements UserService{
 		return template.selectOne("selectUserId", userNick);
 	}
 
+	@Override
+	public List<UserDto> userSelectList(Map map) {
+		return template.selectList("userSelectList", map);
+	}
+
+	@Override
+	public int insertSec(Map map) {
+		return template.insert("insertSec", map);
+	}
+
+	@Override
+	public List<UserDto> selectSearchList(Map map) {
+		return template.selectList("selectSearchList",map);
+
+	}
+
 
 
 }

@@ -28,6 +28,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosmo.movieing.service.CommentService;
 import com.kosmo.movieing.service.EvaluationDto;
 import com.kosmo.movieing.service.EvalueWishService;
+import com.kosmo.movieing.service.FollowDto;
 import com.kosmo.movieing.service.FollowService;
 import com.kosmo.movieing.service.LikeReviewService;
 import com.kosmo.movieing.service.MovieService;
@@ -205,7 +206,6 @@ public class BlogController {
 			times.setReviewContent(times.getReviewContent().replace("\r\n", "<br>"));
 		}
 
-
 		// 영화포스터 + 리뷰 줄바꿈 처리
 		for (ReviewDto record : selectList) {
 //			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
@@ -217,7 +217,6 @@ public class BlogController {
 		// 리뷰 카운트
 		int reviewCount = reviewService.getTotalCount(map);
 		model.addAttribute("reviewCount", reviewCount);
-
 
 
 		return "blog/my/BlogMain.tiles";
@@ -312,6 +311,7 @@ public class BlogController {
 //		return "blog/my/BlogMain.tiles";
 //
 //	}////////////////////////////////
+
 
 	// 블로그-내 활동
 	@RequestMapping("/Movieing/Blog/MyActivity.mov")
@@ -408,18 +408,19 @@ public class BlogController {
 
 
 
+		System.out.println("닉네임:" + friendsReviewList1.get(0).getUserNick());
 
+		model.addAttribute("friendsReviewList1", friendsReviewList1);
 
 		// 유저자기소개]
 		ReviewDto friendsSelf = reviewService.selectMovieingOne(map);// 1개
 		model.addAttribute("friendsSelf", friendsSelf);
 
 		System.out.println("자기소개 가져오기완료");
-		//팔로우수]
-		int follower=followService.getTotalFollowerCount(map);
-		//팔로잉수]
-		int following=followService.getTotalFollowingCount(map);
-
+		// 팔로우수]
+		int follower = followService.getTotalFollowerCount(map);
+		// 팔로잉수]
+		int following = followService.getTotalFollowingCount(map);
 
 		model.addAttribute("follower", follower);
 		model.addAttribute("following", following);
@@ -456,14 +457,13 @@ public class BlogController {
 
 			}
 
-
 			times.setReviewContent(times.getReviewContent().replace("\r\n", "<br>"));
 			// 가져온 리스트에 사진url담아주기
 //			times.setImgUrl(naverDefaultMovieImgUrl(times.getMovieTitle()));
 
 			map.put("reviewPostdate", reviewPostdate);
 			model.addAttribute("reviewPostdate", reviewPostdate);
-		}////////////////////////////
+		} ////////////////////////////
 
 		model.addAttribute("friendsReviewList1", friendsReviewList1.isEmpty()?null:friendsReviewList1);
 		// 모든 아이디 리스트
@@ -479,18 +479,90 @@ public class BlogController {
 	public void reviewRemove(@RequestParam Map map, Authentication auth) {
 		String id = auth.getName();
 		int reviewNo = Integer.parseInt(map.get("reviewNo").toString());
-		System.out.println("삭제글번호"+reviewNo);
+		System.out.println("삭제글번호" + reviewNo);
 		map.put("reviewNo", reviewNo);
 		map.put("id", id);
-		likeReviewService.delete(map);//좋아요삭제
-		commentService.delete(map);//댓글삭제
-		reviewService.delete(map);//리뷰삭제
+		likeReviewService.delete(map);// 좋아요삭제
+		commentService.delete(map);// 댓글삭제
+		reviewService.delete(map);// 리뷰삭제
 		System.out.println("내 글이 삭제됨");
 	}//////////////////////////////////////////////////
 
 	// 무빙프렌즈2]
 	@RequestMapping("/Movieing/Blog/MovieingFriends2.mov")
-	public String blogFriends2() {
+	public String blogFriends2(@RequestParam Map map, Model model, Authentication auth) throws Exception {
+
+		// 세션아이디
+		String id = auth.getName();
+		System.out.println("로그인된 아이디:" + id);
+		map.put("id", id);
+		model.addAttribute("id", id);
+
+		// 무빙프렌즈에서 피드 글보이기(전체공개면)]-모든 정보있음
+		List<ReviewDto> friendsReviewList2 = reviewService.friendsReviewList2(map);// 리스트전체조회
+
+		System.out.println("닉네임:" + friendsReviewList2.get(0).getUserNick());
+
+		model.addAttribute("friendsReviewList1", friendsReviewList2);
+
+		// 유저자기소개]
+		ReviewDto friendsSelf = reviewService.selectMovieingOne(map);// 1개
+		model.addAttribute("friendsSelf", friendsSelf);
+
+		System.out.println("자기소개 가져오기완료");
+		// 팔로우수]
+		int follower = followService.getTotalFollowerCount(map);
+		// 팔로잉수]
+		int following = followService.getTotalFollowingCount(map);
+
+		model.addAttribute("follower", follower);
+		model.addAttribute("following", following);
+
+		String reviewPostdate;
+
+		for (ReviewDto times : friendsReviewList2) {
+			// 현재시각
+			Date now = new Date();
+			Calendar cal1 = Calendar.getInstance();
+			Calendar cal2 = Calendar.getInstance();
+
+			System.out.println("현재시각" + now);
+			SimpleDateFormat formatter = new SimpleDateFormat("MM월 dd일");
+			String nowFormat = formatter.format(now);// 현재시간 형식
+			System.out.println("현재시간 형식:" + nowFormat);
+			Date time = times.getReviewPostdate();// 게시 일자
+
+			cal2.setTime(time);
+			String postDateFormat = formatter.format(time);// 게시시간 형식
+			System.out.println("현재시간 형식:" + postDateFormat);
+
+			if (nowFormat.equals(postDateFormat)) {
+				reviewPostdate = "오늘";
+			} else {// 날짜 다르면
+				long diffSec = (cal1.getTimeInMillis() - cal2.getTimeInMillis()) / 1000;// 초
+				long diffDay = diffSec / (60 * 60 * 24);
+				System.out.println("두 날짜의 일 차이:" + diffDay);
+				if (diffDay == 1.0) {
+					reviewPostdate = "어제";
+				} else {
+					reviewPostdate = postDateFormat;
+				}
+
+			}
+
+			times.setReviewContent(times.getReviewContent().replace("\r\n", "<br>"));
+			// 가져온 리스트에 사진url담아주기
+			//times.setImgUrl(naverDefaultMovieImgUrl(times.getMovieTitle()));
+
+			map.put("reviewPostdate", reviewPostdate);
+			model.addAttribute("reviewPostdate", reviewPostdate);
+		} ////////////////////////////
+
+		model.addAttribute("friendsReviewList2", friendsReviewList2);
+		// 팔로우된 아이디 리스트
+		List<FollowDto> selectFollowList=followService.selectFollowList(map);
+		model.addAttribute("selectFollowList", selectFollowList);
+
 		return "blog/my/MovieingFriends_2.tiles";
 	}
 
@@ -526,51 +598,6 @@ public class BlogController {
 		return "blog/my/MovieingFriendsComment.tiles";
 	}
 
-	// 마이페이지]
-	@RequestMapping("/Movieing/Blog/MyPage.mov")
-	public String myPage(@RequestParam Map map, Model model, Principal principal) {
-
-		// 세션아이디
-		String id = principal.getName();
-
-		map.put("id", id);
-
-		// 내 정보뿌려주기
-		ReviewDto mypage = reviewService.selectMovieingOne(map);// 리스트전체조회
-		model.addAttribute("mypage", mypage);
-
-		return "blog/my/MyPage.tiles";
-	}
-
-	// 마이페이지_비밀번호]
-	@RequestMapping("/Movieing/Blog/MyPage_Pass.mov")
-	public String myPage_Pass() {
-		return "blog/my/MyPage_Pass.tiles";
-	}
-
-	// 마이페이지_허용범위]
-	@RequestMapping("/Movieing/Blog/MyPage_Permit.mov")
-	public String myPage_Permit() {
-		return "blog/my/MyPage_Permit.tiles";
-	}
-
-	// 마이페이지_알림]
-	@RequestMapping("/Movieing/Blog/MyPage_Notice.mov")
-	public String myPage_Notice() {
-		return "blog/my/MyPage_Notice.tiles";
-	}
-
-	// 마이페이지_문의]
-	@RequestMapping("/Movieing/Blog/MyPage_QnA.mov")
-	public String myPage_QnA() {
-		return "blog/my/MyPage_QnA.tiles";
-	}
-
-	// 마이페이지_도움말]
-	@RequestMapping("/Movieing/Blog/MyPage_Help.mov")
-	public String myPage_Help() {
-		return "blog/my/MyPage_Help.tiles";
-	}
 
 	// 글쓰기 페이지]
 	@RequestMapping("/Movieing/Blog/WritePage.mov")

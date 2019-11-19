@@ -71,6 +71,22 @@ public class UserServiceImpl implements UserService{
 		return dao.selectFollowingList(map);
 	}
 
+	@Override
+	public List<UserDto> userSelectList(Map map) {
+		return dao.userSelectList(map);
+	}
+
+	@Override
+	public int insertSec(Map map) {
+
+		return dao.insertSec(map);
+	}
+	@Override
+	public List<UserDto> selectSearchList(Map map) {
+		return dao.selectSearchList(map);
+
+	}
+
 	//유저닉네임으로 아이디 알아내기
 	@Override
 	public String selectUserId(String userNick) {

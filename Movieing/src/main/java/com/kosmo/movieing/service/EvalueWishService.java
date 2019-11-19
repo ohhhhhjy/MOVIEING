@@ -13,6 +13,7 @@ public interface EvalueWishService {
 	List<EvaluationDto> selectWishList(Map map);
 
 
+
 	//해당영화에 남긴 별점이 있는지 확인
 	boolean isEvalue(Map map);
 
@@ -37,5 +38,8 @@ public interface EvalueWishService {
 	int insertWish(Map map);
 	int updateWish(Map map);
 	int deleteWish(Map map);
+
+	//평가 리스트에 넣기
+	int insertEvalue(Map map);
 
 }
