@@ -303,6 +303,10 @@ body {
 					</div>
 				</div>
 			</div>
+			
+			<!-- 지도테스트 -->
+			<a href="<c:url value='/Movieing/Map'/>">지도 확인</a>
+			
 			<!-- 피드컨텐츠 시작 -->
 			<!-- 1.한줄컨텐츠(보고싶어요,별점,좋아요) -->
 			<div class="card border-secondary mb-3" style="max-width: 50rem;">
