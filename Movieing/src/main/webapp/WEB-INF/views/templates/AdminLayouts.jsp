@@ -10,6 +10,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
     <title>관리자 페이지</title>
+    
+	<script type="text/javascript"
+		src="<c:url value='/resources/js/jquery-1.10.2.min.js'/>"></script>
+	<script type="text/javascript"
+		src="<c:url value='/resources/bootstrap/js/bootstrap.min.js'/>"></script>
+		 <!-- Bootstrap core JavaScript -->
+	  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	  <script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
+		<!-- Plugin JavaScript -->
+	  <script src="<c:url value='/resources/vendor/jquery-easing/jquery.easing.min.js'/>"></script>
+	
+	  <!-- Contact form JavaScript -->
+	  <script src="<c:url value='/resources/js/jqBootstrapValidation.js'/>"></script>
+	  <script src="<c:url value='/resources/js/contact_me.js'/>"></script>
+	
  <link rel="stylesheet" type="text/css"
 	href="<c:url value='/resources/bootstrap/css/bootstrap.min.css'/>" />
 <link rel="stylesheet" type="text/css"
@@ -23,6 +38,8 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/resources/css/admin/dashboard.css'/>" />
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+	 
+	
 
   </head>
 
@@ -39,43 +56,18 @@
   	
   </div>
   	
-  	  <!-- Bootstrap core JavaScript -->
-	  <script src="<c:url value='/resources/vendor/jquery/jquery.min.js'/>"></script>
-	  <script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
+  	 
 	 
 	 
 	
-	  <!-- Plugin JavaScript -->
-	  <script src="<c:url value='/resources/vendor/jquery-easing/jquery.easing.min.js'/>"></script>
-	
-	  <!-- Contact form JavaScript -->
-	  <script src="<c:url value='/resources/js/jqBootstrapValidation.js'/>"></script>
-	  <script src="<c:url value='/resources/js/contact_me.js'/>"></script>
-	
-	<script type="text/javascript"
-		src="<c:url value='/resources/js/jquery-1.10.2.min.js'/>"></script>
-	<script type="text/javascript"
-		src="<c:url value='/resources/bootstrap/js/bootstrap.min.js'/>"></script>
-	
+	 
 	<script type="text/javascript"
 		src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 	
 	<script type="text/javascript"
 		src="<c:url value='/resources/js/admin/theme.js'/>"></script>
 	<script type="text/javascript" src="<c:url value='/resources/js/admin/gridData.js'/>"></script>
-	<script id="detailTemplate1" type="text/x-shield-template">
-        <table> 
-            <tr>             
-               <td>
-                    <b>Personal Contact Information</b></br>
-                    </br>
-                    <b>Email Address:</b>{email}</br>                    
-                    <b>Phone Number :</b>{phone}</br>       
-                    <b>Address      :</b>{address}</br>       
-               </td>
-            </tr>
-        </table>
-	</script>
+	
 	<script id="detailTemplate2" type="text/x-shield-template">
         <table> 
             <tr>             
@@ -89,6 +81,7 @@
             </tr>
         </table>
 	</script>
+	
     <script type="text/javascript">
         jQuery(function ($) {
             $("#grid").shieldGrid({
@@ -146,7 +139,8 @@
             });
         });
         $(document).ready(function () {
-        	$("#grid-announce").shieldGrid({
+        	
+        	$("#grid-goods").shieldGrid({
                 dataSource: {
                     data: gridData
                 },
@@ -157,11 +151,12 @@
                     pageSize: 12,
                     pageLinksCount: 10
                 },
-                detailTemplate: $("#detailTemplate1").html(),
+                detailTemplate: $("#detailTemplate2").html(),
                 
                 columns: [
                     { field: "id", width: "70px", title: "글 번호" },
                     { field: "name", title: "글 제목" },
+
                     { field: "registered", title: "작성일자", width:"230px" },
                     {
                         title: "수정",
@@ -172,6 +167,7 @@
     		                caption: "<div class='annoedit'></div>수정",
     		                commandName: "annoedit",
     		                click: function (rowIndex) {
+    		                	var item = $("#grid-announce").swidget().dataItem(rowIndex);
     		                	
     		                }
     		            }]
@@ -191,50 +187,9 @@
                     }
                 ]
             });
-        	$("#grid-goods").shieldGrid({
-                dataSource: {
-                    data: gridData
-                },
-                sorting: {
-                    multiple: true
-                },
-                paging: {
-                    pageSize: 12,
-                    pageLinksCount: 10
-                },
-                detailTemplate: $("#detailTemplate2").html(),
-                
-                columns: [
-                    { field: "id", width: "70px", title: "글 번호" },
-                    { field: "name", title: "글 제목" },
-                    { field: "registered", title: "작성일자", width:"230px" },
-                    {
-                        title: "수정",
-                        width: "80px",
-                        buttons: [
-    		            {
-    		                cls: "annoedit",
-    		                caption: "<div class='annoedit'></div>수정",
-    		                commandName: "annoedit",
-    		                click: function (rowIndex) {
-    		                	
-    		                }
-    		            }]
-                    },
-                    {
-                        title: "삭제",
-                        width: "80px",
-                        buttons: [
-    		            {
-    		                cls: "annodel",
-    		                caption: "<div class='annodel'></div>삭제",
-    		                commandName: "annodel",
-    		                click: function (rowIndex) {
-    		                    
-    		                }
-    		            }]
-                    }
-                ]
+        	
+        	$("#editor").shieldEditor({
+                height: 350
             });
         });
     </script>

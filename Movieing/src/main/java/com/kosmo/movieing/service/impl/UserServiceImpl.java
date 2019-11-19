@@ -87,4 +87,17 @@ public class UserServiceImpl implements UserService{
 
 	}
 
+	//유저닉네임으로 아이디 알아내기
+	@Override
+	public String selectUserId(String userNick) {
+
+		return dao.selectUserId(userNick);
+	}
+
+	@Override
+	public int updateImage(Map map) {
+		
+		return dao.updateImage(map);
+	}
+
 }

@@ -24,7 +24,7 @@ public class ReviewDto {
 	//영화제목
 	private String movieTitle;
 	//영화이미지url
-	private String imgUrl;
+	private String movieImg;
 	//유저이름]
 	private String userName;
 	//자기소개]
@@ -116,12 +116,12 @@ public class ReviewDto {
 		this.movieGenre = movieGenre;
 	}
 
-	public String getImgUrl() {
-		return imgUrl;
+	public String getMovieImg() {
+		return movieImg;
 	}
 
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
+	public void setMovieImg(String movieImg) {
+		this.movieImg = movieImg;
 	}
 
 	public String getUserMail() {

@@ -22,4 +22,7 @@ public interface CommentService {
 	int update(Map map);
 	int delete(Map map);
 
+	//댓글 검색 
+	List<CommentDto> selectSearchCommentList(Map map);
+
 }

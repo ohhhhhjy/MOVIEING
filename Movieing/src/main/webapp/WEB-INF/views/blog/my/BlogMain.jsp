@@ -312,6 +312,8 @@ body {
 				</div>
 			</div>
 
+			
+
 			<c:if test="${empty selectList }" var="isEmpty">
 				<h5>
 					아직 등록한 리뷰가 없어요...<br>리뷰를 등록해보세요
@@ -333,7 +335,7 @@ body {
 							<button class="btn btn-link dropdown-toggle" type="button"
 								id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
 								aria-expanded="false" data-target="#myModal${status.index }"
-								style="text-align: right;">
+								style="float:right; text-align: right; line-height: 0px">
 								<i class="fa fa-ellipsis-h"></i>
 							</button>
 
@@ -359,18 +361,19 @@ body {
 										<button type="button" class="btn btn-outline-secondary"
 											name="delete"
 											style="border-bottom: thin; width: 500px; height: 60px; color: red">삭제</button>
-
 										<button type="button" class="btn btn-outline-secondary"
-											style="border-bottom: thin; width: 500px; height: 60px; color: black;"
-											data-dismiss="modal">취소</button>
-
-									</div>
-								</div>
+													style="border-bottom: thin; width: 500px; height: 60px; color: black;"
+													data-dismiss="modal">취소</button>
+											</div>
+										</div>
+									<!-- 모달 끝 -->
 							</div>
-							<!-- 모달 끝 -->
+					</div>
 
 
-						</div>
+
+
+					
 
 
 
@@ -380,7 +383,7 @@ body {
 								<div class="col-sm-3" align="center">
 									<a
 										href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><img
-										class="movieImage" src="${item.imgUrl }" alt="포스터" /></a>
+										class="movieImage" src="${item.movieImg }" alt="포스터" /></a>
 								</div>
 								<div class="col-sm-9">
 
@@ -426,9 +429,9 @@ body {
 
 			<div class="sidebar-module sidebar-module-inset"
 				style="padding-top: 60px">
-				<h3 align="center">${userInfo.userId}님의취향은?</h3>
+				<h3 align="center">${userInfo.userNick}님의 취향은?</h3>
 				<p align="right">
-					<a href="<c:url value='/Movieing/Movie/RatingMovie.mov'/>"
+					<a href="<c:url value='/Movieing/Movie/screening/First_like.mov'/>"
 						style="color: #a8a5a5">더 평가하러 가기</a>
 				</p>
 				<hr class="my-3">
@@ -608,6 +611,7 @@ body {
 			<!-- 모달컨텐츠 -->
 			<div class="tab-content " id="myTabContent"
 				style="height: 477px; overflow-y: scroll; overflow-x: hidden; background-color: #f2f0f0; padding-top: 20px">
+				
 				<!-- 모달컨텐츠1.팔로워 -->
 				<div class="tab-pane fade " id="follower" role="tabpanel"
 					aria-labelledby="pills-follower-tab">
@@ -618,11 +622,11 @@ body {
 						<c:forEach items="${followerList }" var="user" varStatus="status">
 							<div class="row followForm">
 								<div class="col-sm-4">
-									<img class="radiusImg" alt="감독사진"
+									<img class="radiusImg" alt="팔로워사진"
 										src="${user.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': user.userProfile}" />
 								</div>
 								<div class="col-sm-5">
-									<a href="<c:url value='/Movieing/Blog/BlogMain.mov'/>"><span
+									<a href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${user.userNick }'/>"><span
 										class="actorSpan">${user.userNick }</span> </a>
 								</div>
 
@@ -657,11 +661,11 @@ body {
 						<c:forEach items="${followingList }" var="user" varStatus="status">
 							<div class="row followForm">
 								<div class="col-sm-4">
-									<img class="radiusImg" alt="감독사진"
+									<img class="radiusImg" alt="팔로잉사진"
 										src="${user.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': user.userProfile}" />
 								</div>
 								<div class="col-sm-5">
-									<a href="<c:url value='/Movieing/Blog/BlogMain.mov'/>"><span
+									<a href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${user.userNick }'/>"><span
 										class="actorSpan">${user.userNick }</span> </a>
 								</div>
 

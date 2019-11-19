@@ -47,13 +47,7 @@
                                            	<input id="userid" name="userid"  placeholder="아이디" class="form-control here" required="required"  type="text">
                                            </div>
                                       </div>
-                                      <div  class="form-group row">
-                                           <label  for="image" class="col-4 col-form-label">프로필 사진</label>
-                                           
-                                           <div  class="col-4">
-                                                <input  type="file" name="image" class="text-center center-block file-upload">
-                                           </div>
-                                      </div>
+                                     
                                       <div  class="form-group row">
                                            <label  for="userpass" class="col-4  col-form-label">비밀번호*<span id="pass1">&nbsp;비밀번호는 8~12자 !@#$ 포함</span></label>
                                            <div  class="col-8">
@@ -106,7 +100,7 @@
                                       </div>
                                       <div  class="form-group row">
                                            <div  class="offset-4 col-8" style="text-align: right;">
-                                                <button  name="submit" type="submit" class="btn  btn-primary">회원가입</button>
+                                                <button  name="submit" type="submit" class="btn  btn-primary">다음</button>
                                            </div>
                                       </div>
                                   </form>

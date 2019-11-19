@@ -168,9 +168,9 @@
 					<li>
 						<div id="custom-search-input">
 							<div class="input-group col-md-12">
-								<form action="<c:url value='/Movieing/Movie/SearchResult.mov'/>" method="get">
-									<input type="text" class="form-control input-lg" placeholder="검색어를 입력하세요" name="searchWord" /> 
-									<span class="input-group-btn">
+								<form action="<c:url value='/Movieing/Movie/SearchResult.mov'/>" method="get" style="display: inherit;" >
+									<input type="text" class="form-control input-lg" placeholder="검색어를 입력하세요" name="searchWord"  style="float:left; display: inline;"/> 
+									<span class="input-group-btn" style="display:inline; float: right;">
 										<button class="btn btn-info btn-lg" type="submit">
 										<img src="<c:url value='/resources/img/search.png'/>" alt="검색" />
 										</button>
@@ -187,7 +187,8 @@
 					<!-- 프로필 드롭다운 -->
 					<li class="nav-item">
 						<div class="dropdown">
-							<a class="nav-link js-scroll-trigger dropdown-button" href="<c:url value='/Movieing/Blog/MyPage.mov'/>" ><img 
+							<a class="nav-link js-scroll-trigger dropdown-button" href="<c:url value='/Movieing/Blog/MyPage.mov'/>" >
+							<img 
 								alt="user" src="<c:url value='/resources/img/user.png'/>"
 								style="width: 50px; height: 50px" /></a>
 							<div class="dropdown-content" style="width: 120px">
@@ -247,8 +248,17 @@
 </form>
 
 <script>
+   
+   $(function () {
+	
+	   
+	
+});
+   
    function logout(){
       $('#logoutForm').submit();
+      
    }
+   
 
 </script>

@@ -19,14 +19,21 @@ public interface UserService {
 	int insert(Map map);
 	int update(Map map);
 	int delete(Map map);
-	
+
 	//회원가입 시 시큐리티 권한주기
 	int insertSec(Map map);
+	
+	//회원가입 시 이미지 넣기
+	int updateImage(Map map);
 
 	//팔로워 유저 목록
 	List<UserDto> selectFollowerList(Map map);
 	//팔로잉 유저 목록
 	List<UserDto> selectFollowingList(Map map);
+
+	//유저닉네임으로 아이디 알아내기
+	String selectUserId(String userNick);
 	//검색 용
 	List<UserDto> selectSearchList(Map map);
+	
 }

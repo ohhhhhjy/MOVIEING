@@ -8,17 +8,7 @@
 
 -->
 
-<script>
 
-$('.starRev span').click(function(){
-	  $(this).parent().children('span').removeClass('on');
-	  $(this).addClass('on').prevAll('span').addClass('on');
-	  return false;
-	});
-	
-	
-	
-</script>
 
 
 <style>
@@ -215,16 +205,118 @@ img:hover {
 
 
     
-/*별*/
+/* 별점 */
+
+.rating {
+      float:left;
+    }
+
+    /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+      follow these rules. Every browser that supports :checked also supports :not(), so
+      it doesn’t make the test unnecessarily selective */
+    .rating:not(:checked) > input {
+        position:absolute;
+        top:-9999px;
+        clip:rect(0,0,0,0);
+    }
+
+    .rating:not(:checked) > label {
+        float:right;
+        width:1em;
+        /* padding:0 .1em; */
+        overflow:hidden;
+        white-space:nowrap;
+        cursor:pointer;
+        font-size:200%;/*300*/
+        /* line-height:1.2; */
+        color:#ddd;
+    }
+
+    .rating:not(:checked) > label:before {
+        content: '★ ';
+    }
+
+    .rating > input:checked ~ label {
+        color: #f7e411;
+                top: -9999px;
+        left: -9999px;
+        
+    }
+
+    .rating:not(:checked) > label:hover,
+    .rating:not(:checked) > label:hover ~ label {
+        color: #f7e411;
+        
+    }
+
+    .rating > input:checked + label:hover,
+    .rating > input:checked + label:hover ~ label,
+    .rating > input:checked ~ label:hover,
+    .rating > input:checked ~ label:hover ~ label,
+    .rating > label:hover ~ input:checked ~ label {
+        color: #f7e411;
+        
+    }
+
+    .rating > label:active {
+        position:relative;
+        top:2px;
+        left:2px;
+    }
 </style>
 
-<script>
-	/* Demo purposes only */
-	$(".hover").mouseleave(function() {
-		$(this).removeClass("hover");
-	});
-</script> 
 
+<script>
+$(document).ready(function() {
+	/* $(".hover").mouseleave(function() {
+		$(this).removeClass("hover");
+	}); */
+	
+ 	//별점 클릭시 insert와 update를 실행시키기위한 ajax메소드..
+ 	$('.starRadio').click(function(){
+	    var movieNo = $(this).attr('name');//영화번호
+        var starNo = $(this).val();//방금클릭한 grade.
+        $('.starRadio').prop('checked', '');
+        $(this).prop('checked', 'checked');
+        //상단 카운트 숫자 증가시키기
+        var evalueCount = parseInt($('#evalueCount').html())+1;
+        $('#evalueCount').html(evalueCount);
+        //프로그레스바 증가시키기
+        $('.progress-bar').css('width',evalueCount/30*100+'%');
+        
+        var parentDiv = $(this).closest('.parentDiv');
+        
+        $.ajax({
+                 url:"<c:url value='/Movieing/Movie/starAjax.mov'/>",
+                 type:'post',
+                 data:
+                      {movieNo:movieNo,grade:starNo},
+                beforeSend : function(xhr)
+                {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+                    xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+                },    
+                 success:function(){//서버로 부터 정상적인 응답을 받았을 때(200번)
+                	 parentDiv.remove();
+                 },   
+                 error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+                      console.log("에러:"+data.responseText);
+                 }             
+        });
+        
+        
+        
+   });
+   
+	
+	
+	
+});
+
+
+ 	
+	
+	
+</script>
 
 <div class="container-fluid"
 	style="padding-left: 120px; padding-right: 120px; padding-top: 150px">
@@ -237,26 +329,14 @@ img:hover {
 		<div class="col-md-3" style="padding-top: 40px">
 			<button type="button" class="btn btn-outline-primary waves-effect">
 				< 선택완료</button>
-			<div class="starRev">
-  <span class="starR1 ">별1_왼쪽</span>
-  <span class="starR2">별1_오른쪽</span>
-  <span class="starR1">별2_왼쪽</span>
-  <span class="starR2">별2_오른쪽</span>
-  <span class="starR1">별3_왼쪽</span>
-  <span class="starR2">별3_오른쪽</span>
-  <span class="starR1">별4_왼쪽</span>
-  <span class="starR2">별4_오른쪽</span>
-  <span class="starR1">별5_왼쪽</span>
-  <span class="starR2">별5_오른쪽</span>
-</div>
 
 		</div>
 		<div class="col-md-6">
-			<h4>41</h4>
-			<h6>기왕 이렇게 된거 50개 가보죠!</h6>
+			<h4 id="evalueCount">${evalueCount }</h4>
+			<h6>기왕 이렇게 된거 30개 가보죠!</h6>
 			<div class="progress">
-				<div class="progress-bar" role="progressbar" style="width: 75%"
-					aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+				<div class="progress-bar" role="progressbar" style="width: ${evalueCount/30*100}%"
+					aria-valuenow="${evalueCount}" aria-valuemin="0" aria-valuemax="30"></div>
 			</div>
 
 		</div>
@@ -274,24 +354,36 @@ img:hover {
 
 		<div class="col-xl-12">
 			<div class="row">
-				<c:forEach items="${movieList}" var="movie">
+				<c:forEach items="${movieList}" var="movie" varStatus="status">
 
-					<div class="col-md-2">
-						<figure class="snip1273">
-							<img src="${movie.movieImg}" alt="Pineapple" alt="Image" style="width: 228px; height: 321px">
-							<!-- 안에 내용 -->
-							<figcaption>
-								<div align="left" style="padding-top: 100px">
-									<h4>${movie.movieTitle}</h4>
-									<div style="padding-left: 80px">
+					<div class="col-md-2 parentDiv">
+						<div class="row">
+							<figure class="snip1273">
+								<img src="${movie.movieImg}" alt="Pineapple" alt="Image" style="width: 228px; height: 321px">
+								<!-- 안에 내용 -->
+								<figcaption>
+									<div align="center" style="padding-top: 100px">
+										<div style="padding-right: 50px">
+										<h4>${movie.movieTitle}</h4>
 										<h6>${movie.movieYear }</h6>
+										</div>
 									</div>
-									<!-- 별점 -->
+									<div class="row">
+										<!-- 별점이다 -->
+									   <div class="rating px-3" id="${status.index}">
+										      <input class="starRadio" type="radio" id="${status.index }_star5" name="${movie.movieNo }" value="5" /><label for="${status.index }_star5" title="최고예요">5 stars</label>
+										      <input class="starRadio" type="radio" id="${status.index }_star4" name="${movie.movieNo }" value="4" /><label for="${status.index }_star4" title="재미있어요">4 stars</label>
+										      <input class="starRadio" type="radio" id="${status.index }_star3" name="${movie.movieNo }" value="3" /><label for="${status.index }_star3" title="보통이에요">3 stars</label>
+										      <input class="starRadio" type="radio" id="${status.index }_star2" name="${movie.movieNo }" value="2" /><label for="${status.index }_star2" title="별로예요">2 stars</label>
+										      <input class="starRadio" type="radio" id="${status.index }_star1" name="${movie.movieNo }" value="1" /><label for="${status.index }_star1" title="싫어요">1 star</label>
+									    </div> 
+									 </div>
+								</figcaption>
 							
-								</div>
-							</figcaption>
-							<a href="#"></a>
-						</figure>
+								
+							</figure>
+						</div>
+						
 					</div>
 					
 				</c:forEach>

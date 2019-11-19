@@ -6,7 +6,7 @@
 	<!-- 내가 쓴 리뷰 리스트 -->
 	<select id="reviewSelectMyList"  parameterType="java.util.Map" resultType="ReviewDto">
 		select r.USER_ID,r.REVIEW_CONTENT ,r.REVIEW_POSTDATE,r.REVIEW_NO,r.MOVIE_NO, 
-		movie_title,
+		movie_title,movie_img,
 		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
 		(select count(*) from LIKE_REVIEW  where review_no = r.review_no) likeCount,
 		(select count(*) from COMMENT_TABLE where review_no = r.review_no) commentCount
@@ -17,7 +17,7 @@
 	<!-- 내가 쓴 전체 리스트 가져오기(시간순으로) -->
 	<select id="selectList"  parameterType="java.util.Map" resultType="ReviewDto">
 		select r.*, 
-		movie_title,
+		movie_title,movie_img,
 		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
 		(select count(*) from LIKE_REVIEW  where  review_no = r.review_no) likeCount,
 		(select count(*) from COMMENT_TABLE where  review_no = r.review_no) commentCount
@@ -30,7 +30,7 @@
 	<!-- 쓰지마-->
 	<select id="selectFriendsList"  parameterType="java.util.Map" resultType="ReviewDto">
 		select r.USER_ID,r.REVIEW_CONTENT ,r.REVIEW_POSTDATE,r.REVIEW_NO,r.MOVIE_NO, 
-		movie_title,
+		movie_title,movie_img,
 		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
 		(select count(*) from LIKE_REVIEW  where user_id= r.user_id and review_no = r.review_no) likeCount,
 		(select count(*) from COMMENT_TABLE where user_id= r.user_id and review_no = r.review_no) commentCount
@@ -43,7 +43,7 @@
 	<!-- 내가 좋아요 누른 리뷰 리스트 (타인의 리뷰)-->
 	<select id="reviewSelectLikeList" parameterType="java.util.Map" resultType="ReviewDto">
         select r.*, 
-		movie_title,
+		movie_title,movie_img,
 		user_nick,
 		user_profile,
 		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
@@ -59,7 +59,7 @@
 	<select id="friendsReviewList1" parameterType="java.util.Map" resultType="ReviewDto">
 	
 	     select r.*, 
-		MOVIE_TITLE ,
+		MOVIE_TITLE ,movie_img,
 		MOVIE_ORG_TITLE ,
 		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
 		(select count(*) from LIKE_REVIEW  where  review_no = r.review_no) likeCount,
@@ -118,13 +118,9 @@
 	
 	<!-- 리뷰 안쓴 -->
 	<select id="selectNotReviewList" parameterType="java.util.Map" resultType="ReviewDto">
-
-	   select m.MOVIE_TITLE,m.movie_genre,m.MOVIE_YEAR,m.MOVIE_COUNTRY  from MOVIE m
-        where MOVIE_NO in
-        (select e.MOVIE_NO from EVALUATION e,USER_TABLE u
-        where e.MOVIE_NO not in (select r.MOVIE_NO from REVIEW r)
-        and u.USER_ID=#{id})
-   
+	    select * from movie 
+        where movie_no in (select movie_no from evaluation where user_id=#{id}) 
+        and  movie_no  not in (select movie_no from review where user_id=#{id})
 	</select>
 	
 	<!-- 리뷰 값 넣기 -->
@@ -167,7 +163,7 @@
 	<!-- 리뷰상세페이지에 뿌릴 한개의 리뷰 셀렉트 -->
 	<select id="reviewSelectOne" parameterType="java.util.Map" resultType="ReviewDto">
 		select r.*, 
-		movie_title,
+		movie_title,movie_img,
 		user_nick,
         user_profile,
 		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
@@ -184,6 +180,14 @@
 		delete review
 		where user_id=#{id} and REVIEW_NO =#{reviewNo}	
 	</delete>	
+	
+		<!-- 리뷰검색 -->
+	<select id="selectSearchReviewList" parameterType="java.util.Map" resultType="ReviewDto">
+		select * from review
+		where REVIEW_CONTENT LIKE #{%searchWord}
+		OR REVIEW_CONTENT LIKE #{searchWord%}
+		OR REVIEW_CONTENT LIKE #{%searchWord%}
+	</select>
 	
 	
 
