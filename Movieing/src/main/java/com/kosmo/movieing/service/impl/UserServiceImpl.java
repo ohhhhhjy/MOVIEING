@@ -80,4 +80,10 @@ public class UserServiceImpl implements UserService{
 		return dao.selectSearchList(map);
 	}
 
+	@Override
+	public int updateImage(Map map) {
+		
+		return dao.updateImage(map);
+	}
+
 }

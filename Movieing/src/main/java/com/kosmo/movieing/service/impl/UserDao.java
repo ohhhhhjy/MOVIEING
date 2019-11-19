@@ -80,6 +80,12 @@ public class UserDao implements UserService{
 		return template.selectList("selectSearchList",map);
 	}
 
+	@Override
+	public int updateImage(Map map) {
+		
+		return template.update("updateImage", map);
+	}
+
 
 
 }

@@ -33,71 +33,23 @@
                    <div class="card-body">
                         <div class="row">
                              <div class="col-md-12">
-                                  <h4>회원가입</h4>
+                                  <h4>프로필 사진을 등록해주세요 :)</h4>
                                   <hr>
                              </div>
                         </div>
                         <div class="row">
                              <div class="col-md-12">
-                                  <form action="<c:url value='/Movieing/member/SignUp.mov?${_csrf.parameterName}=${_csrf.token}'/> " method="post" id="frm" enctype="multipart/form-data">
+                                  <form action="<c:url value='/Movieing/member/SignUpProfile.mov?${_csrf.parameterName}=${_csrf.token}'/> " method="post" id="frm" enctype="multipart/form-data">
                                   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"> 
-                                  <div class="form-group  row">
-                                           <label  for="id" class="col-4 col-form-label">아이디 *<span id="idcheck">아이디를 입력하세요</span></label>
-                                           <div  class="col-8">
-                                           	<input id="userid" name="userid"  placeholder="아이디" class="form-control here" required="required"  type="text">
-                                           </div>
-                                      </div>
-                                     
+                                  <input type="hidden" name="userid" value=${userid }>
                                       <div  class="form-group row">
-                                           <label  for="userpass" class="col-4  col-form-label">비밀번호*<span id="pass1">&nbsp;비밀번호는 8~12자 !@#$ 포함</span></label>
-                                           <div  class="col-8">
-                                                <input  id="userpass" name="userpass" placeholder="비밀번호"
-                                                     class="form-control here" required="required"  type="password">
+                                           <label  for="image" class="col-4 col-form-label">프로필 사진</label>
+                                           
+                                           <div  class="col-4">
+                                                <input  type="file" name="image" id="image" class="text-center center-block file-upload">
                                            </div>
                                       </div>
-                                      <div  class="form-group row">
-                                           <label  for="passcheck" class="col-4 col-form-label">비밀번호  확인*<span id="pass2">&nbsp;비밀번호와 일치하지  않습니다.</span></label>
-                                           <div  class="col-8">
-                                                <input  id="passcheck" name="passcheck" placeholder="비밀번호  확인"
-                                                     class="form-control here" required="required"  type="password">
-                                           </div>
-                                      </div>
-                                      <div  class="form-group row">
-                                           <label  for="userpass" class="col-4 col-form-label">이름*</label>
-                                           <div  class="col-8">
-                                                <input  id="username" name="username" placeholder="이름"
-                                                     class="form-control here" required="required"  type="text">
-                                           </div>
-                                      </div>
-                                      <div  class="form-group row">
-                                           <label  for="nickname" class="col-4  col-form-label">닉네임*<span id="nickcheck">닉네임을 입력하세요</span></label>
-                                           <div  class="col-8">
-                                                <input  id="nickname" name="nickname" placeholder="닉네임"
-                                                     class="form-control here" type="text">
-                                           </div>
-                                      </div>
-                                      <div  class="form-group row">
-                                           <label  for="contact" class="col-4 col-form-label">휴대폰번호*</label>
-                                           <div  class="col-8">
-                                                <input  id="contact" name="contact" placeholder="휴대폰번호"
-                                                     class="form-control here" required="required"  type="text">
-                                           </div>
-                                      </div>
-                                      <div  class="form-group row">
-                                           <label  for="email" class="col-4 col-form-label">이메일*</label>
-                                           <div  class="col-8">
-                                                <input  id="email" name="email" placeholder="Email"
-                                                     class="form-control here" required="required"  type="text">
-                                           </div>
-                                      </div>
-                                      <div  class="form-group row">
-                                           <label  for="publicinfo" class="col-4 col-form-label">자기
-                                                소개</label>
-                                           <div  class="col-8">
-                                                <textarea  id="publicinfo" name="publicinfo" cols="40" rows="4"
-                                                     class="form-control"></textarea>
-                                           </div>
-                                      </div>
+                                      
                                       <div  class="form-group row">
                                            <div  class="offset-4 col-8" style="text-align: right;">
                                                 <button  name="submit" type="submit" class="btn  btn-primary">다음</button>

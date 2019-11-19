@@ -20,6 +20,9 @@ public interface UserService {
 	
 	//회원가입 시 시큐리티 권한주기
 	int insertSec(Map map);
+	
+	//회원가입 시 이미지 넣기
+	int updateImage(Map map);
 
 	//팔로워 유저 목록
 	List<UserDto> selectFollowerList(Map map);
@@ -27,4 +30,5 @@ public interface UserService {
 	List<UserDto> selectFollowingList(Map map);
 	//검색 용
 	List<UserDto> selectSearchList(Map map);
+	
 }

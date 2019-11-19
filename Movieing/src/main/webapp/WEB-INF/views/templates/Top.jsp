@@ -187,7 +187,8 @@
 					<!-- 프로필 드롭다운 -->
 					<li class="nav-item">
 						<div class="dropdown">
-							<a class="nav-link js-scroll-trigger dropdown-button" href="<c:url value='/Movieing/Blog/MyPage.mov'/>" ><img 
+							<a class="nav-link js-scroll-trigger dropdown-button" href="<c:url value='/Movieing/Blog/MyPage.mov'/>" >
+							<img 
 								alt="user" src="<c:url value='/resources/img/user.png'/>"
 								style="width: 50px; height: 50px" /></a>
 							<div class="dropdown-content" style="width: 120px">
@@ -247,8 +248,17 @@
 </form>
 
 <script>
+   
+   $(function () {
+	
+	   
+	
+});
+   
    function logout(){
       $('#logoutForm').submit();
+      
    }
+   
 
 </script>
