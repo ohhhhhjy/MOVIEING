@@ -50,13 +50,13 @@ public class UserDao implements UserService{
 	@Override
 	public int update(Map map) {
 
-		return template.insert("userUpdate", map);
+		return template.update("userUpdate", map);
 	}
 
 	@Override
 	public int delete(Map map) {
 
-		return template.insert("userDelete", map);
+		return template.delete("userDelete", map);
 	}
 
 	@Override

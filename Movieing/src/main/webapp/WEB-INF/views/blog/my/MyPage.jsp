@@ -87,16 +87,14 @@
 
 <div class="container" style="padding-top: 150px">
 
-
-
-	<div class="row">
+	<div class="row">	
 
 		<div class="col-md-3">
 			<!-- col-md-3시작 -->
 
 			<!--프사 -->
 			<div style="text-align: center">
-				<img src="<c:url value='/resources/img/friends/dahee.jpg'/>"
+				<img src="<c:url value='${mypage.userProfile }'/>"
 					class="radiusImg img-thumbnail" alt="프로필 사진"
 					style="display: block; margin: 0px auto;">
 			</div>
@@ -109,7 +107,7 @@
 						님</h1>
 				</div>
 				<!-- 파일선택 -->
-				<input type="file" class="text-center center-block file-upload">
+				<input type="file" id="image" name="image" class="text-center center-block file-upload">
 			</div>
 
 
@@ -157,14 +155,14 @@
 									<div class="col-8">
 										<input id="username" name="username"
 											value="${mypage.userName }" placeholder="이름을 입력하세요"
-											class="form-control here" required="required" type="text">
+											class="form-control here" required="required" type="text" disabled="disabled">
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="name" class="col-4 col-form-label">닉네임*</label>
 									<div class="col-8">
 										<input id="nick" name="nick" placeholder="닉네임을 입력하세요"
-											value="${mypage.userId }" class="form-control here"
+											value="${mypage.userNick }" class="form-control here"
 											type="text">
 									</div>
 								</div>
@@ -191,7 +189,7 @@
 										소개</label>
 									<div class="col-8">
 										<textarea id="publicinfo" name="publicinfo" cols="40" rows="4"
-											class="form-control" placeholder="자기소개를 입력하세요">${mypage.userSelf }</textarea>
+											class="form-control" placeholder="자기소개를 입력하세요"></textarea>
 									</div>
 								</div>
 
@@ -220,3 +218,17 @@
 	</div>
 	<!-- row -->
 </div>
+
+<script>
+
+	var fileValue = $("#image").val().split("\\");
+	var fileName = fileValue[fileValue.length-1]; // 파일명
+	$(function () {
+		$(fileName).on('change',function(){
+			console.log(fileName);
+		});
+		
+	});
+
+
+</script>

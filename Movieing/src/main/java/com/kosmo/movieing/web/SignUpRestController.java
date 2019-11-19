@@ -27,15 +27,19 @@ public class SignUpRestController {
 		//확장자 찾기
 		String original = image.getOriginalFilename();
 		int index = original.lastIndexOf('.');
-		String extension = original.substring(index, original.length());
-		//File객체 생성
-		String filePath = "C:/Users/kosmo_16/git/MOVIEING/Movieing/src/main/webapp/Upload"+File.separator+map.get("userid")+extension;
-		File file =  new File(filePath);
-		System.out.println("filename : "+image.getOriginalFilename());
-		image.transferTo(file);
-		map.put("file", filePath);
-		System.out.println(filePath);
-		userService.updateImage(map);
+		if(index!=-1) {
+			String extension = original.substring(index, original.length());
+			//File객체 생성
+			String filePath = "/resources/Upload/"+map.get("userid")+extension;
+			File file =  new File(filePath);
+			System.out.println("filename : "+image.getOriginalFilename());
+			image.transferTo(file);
+			map.put("file", filePath);
+			userService.updateImage(map);
+		}
+			//System.out.println(filePath);
+		
+		
 		//return new UserDto(map.get("name").toString(),map.get("age").toString(),map.get("addr").toString());
 		return "";
 
