@@ -4,7 +4,7 @@
 
 <mapper namespace="mybatis.Movie">
 
-	<!-- 영화 제목만 가져오기 -->
+	<!-- 영화 넘버 가져오기 -->
 	<select id="selectMovieNo" parameterType="java.util.Map" resultType="String">
 		select MOVIE_NO from movie
 		where MOVIE_TITLE  =#{movieTitle}
@@ -61,6 +61,10 @@
 	</select>
 	<select id="selectListARandom" parameterType="java.util.Map" resultType="MovieDto">
 		select * from movie
+	</select>
+	<!-- 영화감독 출현작 -->
+	<select id="selectListDirector" parameterType="java.util.Map" resultType="MovieDto">
+	select movie_title from movie where movie_director=#{movieDirector}
 	</select>
 	
 	<select id="selectListSearchRadom" parameterType="java.util.Map" resultType="MovieDto">

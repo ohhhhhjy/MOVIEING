@@ -55,5 +55,11 @@ public class CommentDao implements CommentService{
 	public int getCommentCount(Map map) {
 		return template.selectOne("getCommentCount", map);
 	}
+	@Override
+	public List<CommentDto> selectSearchCommentList(Map map) {
+		return template.selectList("selectSearchCommentList",map);
+	}
+
+
 
 }

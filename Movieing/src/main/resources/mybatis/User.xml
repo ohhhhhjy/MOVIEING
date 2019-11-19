@@ -14,6 +14,10 @@
 	select USER_ID from user_table where USER_ID not in #{id}
 
 	</select>
+	<!-- 내 정보 모두 -->
+	<select id="userSelectList" parameterType="java.util.Map" resultType="UserDto">
+		select * from user_table where user_id=#{id}
+	</select>
 	
 	<select id="userTotal" parameterType="java.util.Map" resultType="int">
 	
@@ -35,7 +39,10 @@
 	</insert>
 	
 	<update id="userUpdate" parameterType="java.util.Map">
-		
+
+	update user_table set user_nick=#{nick},user_name=#{username},user_contact=#{phone},user_mail=#{email},user_self=#{publicinfo}
+	where user_id=#{id}
+	
 	</update>
 	
 	<update id="updateImage" parameterType="java.util.Map">
@@ -55,6 +62,10 @@
 	<!-- 팔로잉 유저 목록 -->
 	<select id="selectFollowingList" parameterType="java.util.Map" resultType="UserDto">
 		 select * from user_table where user_id in ( select following from follow where follower=#{id})
+	</select>
+
+	<select id="selectUserId" parameterType="String" resultType="String">
+		select user_id from user_table where user_nick =#{userNick}
 	</select>
 
 	<!--  검색용 -->

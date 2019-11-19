@@ -1,17 +1,18 @@
 package com.kosmo.movieing.service;
 
 public class MoviePeopleDto {
-	
-	private String moviePeopleNo;
-	private String moviePeopleName;
-	private String moviePeopleJob;
-	private String moviePeopleCountry;
-	private String moviePeopleImg;
-	
-	public String getMoviePeopleNo() {
+
+
+	int moviePeopleNo;
+	String moviePeopleName;
+	String moviePeopleJob;
+	String moviePeopleCountry;
+	String moviePeopleImg;
+
+	public int getMoviePeopleNo() {
 		return moviePeopleNo;
 	}
-	public void setMoviePeopleNo(String moviePeopleNo) {
+	public void setMoviePeopleNo(int moviePeopleNo) {
 		this.moviePeopleNo = moviePeopleNo;
 	}
 	public String getMoviePeopleName() {
@@ -38,8 +39,6 @@ public class MoviePeopleDto {
 	public void setMoviePeopleImg(String moviePeopleImg) {
 		this.moviePeopleImg = moviePeopleImg;
 	}
-	
-		
-	
-	
+
+
 }

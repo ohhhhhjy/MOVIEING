@@ -248,50 +248,55 @@ height: 200px;
 			<!-- "검색어"가 포함된 리뷰 -->
 			<div class="row" style="padding-bottom: 20px;padding-top: 10px">
 				<div class="col-md-8">
-					<h5>"검색어"가 포함된 리뷰</h5>
+					<h5>"${searchWord}"가 포함된 리뷰</h5>
 				</div>
 				<div class="col-md-4" align="right">
 					<a href="#" class="moreContent">더보기</a>
 				</div>
 			</div>
 			<!-- 리뷰카드 -->
-			<div class="card border-secondary mb-3" style="max-width: 200rem;">
-				<div class="card-header">
-					유저이름님의 리뷰
-				</div>
-				<div class="card-body">
-					<div class="row">
-						<p class="card-text" style="font-size: 0.8em;padding-left: 10px">토이스토리를 봤다. 너무
-							재밌었다. 너무 재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. "검색어"가 연기를 너무 잘했다. 너무 재밌는
-							영화였다.</p>
+			<c:forEach begin="0" end="2" items="${searchReviewList}" var="review">
+				<div class="card border-secondary mb-3" style="max-width: 200rem;">
+				
+					<div class="card-header">
+						${review.userId}님의 리뷰
+					</div>
+					<div class="card-body">
+						<div class="row">
+							<p class="card-text" style="font-size: 0.8em;padding-left: 10px">
+								${review.reviewContent}
+							</p>
+						</div>
 					</div>
 				</div>
-			</div>
+			</c:forEach>
 
 			<hr class="my-3">
 			
 			<!-- "검색어"가 포함된 댓글 -->
 			<div class="row" style="padding-bottom: 20px;padding-top: 10px">
 				<div class="col-md-8">
-					<h5>"검색어"가 포함된 댓글</h5>
+					<h5>"${searchWord}"가 포함된 댓글</h5>
 				</div>
 				<div class="col-md-4" align="right">
 					<a href="#" class="moreContent">더보기</a>
 				</div>
 			</div>
 			<!-- 리뷰카드 -->
+			<c:forEach begin="0" end="2" items="${searchCommentList}" var="comment">
 			<div class="card border-secondary mb-3" style="max-width: 200rem;">
 				<div class="card-header">
-					유저이름님의 댓글
+					${comment.userId }님의 댓글
 				</div>
 				<div class="card-body">
 					<div class="row">
-						<p class="card-text" style="font-size: 0.8em;padding-left: 10px">토이스토리를 봤다. 너무
-							재밌었다. 너무 재밌었고, 너무 재밌어서 너무 재밌을 뻔했다. "검색어"가 연기를 너무 잘했다. 너무 재밌는
-							영화였다.</p>
+						<p class="card-text" style="font-size: 0.8em;padding-left: 10px">
+							${comment.commentContent}
+						</p>
 					</div>
 				</div>
 			</div>
+			</c:forEach>
 		</div>
 
 

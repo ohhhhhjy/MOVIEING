@@ -133,11 +133,13 @@ public class ReviewServiceImpl implements ReviewService{
 	public List<ReviewDto> friendsReviewList2(Map map) {
 		return dao.friendsReviewList2(map);
 	}
-
 	@Override
-	public List<ReviewDto> friendsReviewList3(Map map) {
-		return dao.friendsReviewList3(map);
+	public List<ReviewDto> selectSearchReviewList(Map map) {
+		return dao.selectSearchReviewList(map);
 	}
+
+
+
 
 
 }

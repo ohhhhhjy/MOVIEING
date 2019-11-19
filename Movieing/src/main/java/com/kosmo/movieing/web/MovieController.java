@@ -6,6 +6,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -59,9 +60,10 @@ public class MovieController {
 
 	@Resource(name = "movieService")
 	private MovieService movieService;
-	
+
 	@Resource(name = "moviePeopleService")
 	private MoviePeopleService moviePeopleService;
+
 
 	// 전체영화
 	@RequestMapping("/Movieing/Movie/AllMovie.mov")
@@ -328,16 +330,14 @@ public class MovieController {
 
 
 
-
-
 	// 영화 상세 페이지
 	@RequestMapping("/Movieing/Movie/MovieDetails.mov")
-	public String movieDetailsTest(HttpServletRequest req, @RequestParam Map map, Model model) throws Exception {
+	public String movieDetailsTest(HttpServletRequest req, @RequestParam Map map, Model model, @RequestParam String movieNo) throws Exception {
 
 
 		System.out.println("MovieDetails 1  - map에 mname, date 넣기 전 :");
-		map.put("movieNo", map.get("movieNo"));
-		model.addAttribute("movieNo", map.get("movieNo"));
+		map.put("movieNo",movieNo);
+		System.out.println("MovieDetails 1-1 movieNo 값 : "+movieNo);
 
 		System.out.println("MovieDetails 2 - map에 mname, date 넣기 성공");
 
@@ -345,7 +345,9 @@ public class MovieController {
 		MovieDto movieInfo = movieService.selectOne(map);
 		System.out.println("MovieDetails 4 - movieInfo 값 :" + movieInfo);
 
+		model.addAttribute("movieNo", map.get("movieNo"));
 		model.addAttribute("movieInfo", movieInfo);
+		model.addAttribute("movieInfoMap",movieInfoMap(movieNo));
 		/*
 		System.out.println("RequestMethod.GET");
 		System.out.println("name : " + mname);
@@ -445,7 +447,18 @@ public class MovieController {
 
 
 	@RequestMapping("/Movieing/Movie/Filmography.mov")
-	public String filmography() {
+	public String filmography(@RequestParam Map map,Model model) {
+		//사람 이름받기
+		String movieDirector=map.get("movieDirector").toString();
+		System.out.println("감독이름:"+movieDirector);
+
+		//이름에 맞는 정보가져오기
+		List<MoviePeopleDto> selectPeople=moviePeopleService.selectList(map);
+		model.addAttribute("selectPeople", selectPeople);
+		//감독 출현작
+		//List<MovieDto> selectListDirector=movieService.selectListDirector(map);
+		//model.addAttribute("selectListDirector", selectListDirector);
+
 		return "movie/info/Filmography.tiles";
 	}
 
@@ -588,6 +601,9 @@ public class MovieController {
 	@RequestMapping("/Movieing/Movie/MovieReviews.mov")
 	public String movieReviews(@RequestParam Map map, Model model, Authentication auth) {
 		map.put("id", auth.getName());
+		String reviewNo=map.get("reviewNo").toString();
+		System.out.println("리뷰 넘버:"+reviewNo);
+
 		UserDto user = userService.selectOne(map);
 		model.addAttribute("user", user);
 		ReviewDto review = reviewService.selectOne(map);
@@ -603,7 +619,7 @@ public class MovieController {
 		model.addAttribute("commentList",commentList);
 
 		return "movie/info/MovieReviews.tiles";
-	}
+	}//////////////////////////////////
 
 	// 리뷰댓글 ajax
 	@ResponseBody
@@ -618,30 +634,37 @@ public class MovieController {
 
 	@RequestMapping("/Movieing/Movie/SearchResult.mov")
 	public String searchResult(@RequestParam Map map, @RequestParam String searchWord, Model model ) {
-		
+
 		map.put("searchWord%", searchWord+"%");
 		map.put("%searchWord", "%"+searchWord);
 		map.put("%searchWord%", "%"+searchWord+"%");
-		
+
 		//map.put("searchPeople%", searchWord+"%");
-		
+
 		System.out.println("searchReuslt - 1 searchWord 값 : "+searchWord);
-		
+
 		List<MovieDto> searchMovieList = movieService.selectListSearchRadom(map);
 		List<MoviePeopleDto> searchPeopleList = moviePeopleService.selectListPeople(map);
 		List<UserDto> searchUserList = userService.selectSearchList(map);
-		
+		List<ReviewDto> searchReviewList = reviewService.selectSearchReviewList(map);
+		List<CommentDto> searchCommentList = commentService.selectSearchCommentList(map);
+
 		System.out.println("searchResult -2 searchMovieList 값 : "+searchMovieList);
 		System.out.println("searchResult -3 searchPeopleList 값 : "+searchPeopleList);
 		System.out.println("searchResult -4 searchUserList 값 : "+searchUserList);
+		System.out.println("searchResult -5 searchReviewList 값 : "+searchReviewList);
 		
+		
+		model.addAttribute("searchWord", searchWord);
 		model.addAttribute("searchMovieList",searchMovieList);
 		model.addAttribute("searchPeopleList",searchPeopleList);
 		model.addAttribute("searchUserList",searchUserList);
-	
+		model.addAttribute("searchReviewList", searchReviewList);
+		model.addAttribute("searchCommentList", searchCommentList);
+		
 		return "movie/list/SearchResult.tiles";
 	}
-	
+
 	// 무비리스트 가져오기
 	public List movieTrain() throws Exception {
 
@@ -854,5 +877,30 @@ public class MovieController {
 		return dataMap;
 
 	}/// movieImgMap
+
+
+	// 글쓰기 페이지]
+	@RequestMapping("/Movieing/Movie/MovieWrite.mov")
+	public String write(@RequestParam Map map, Model model, Principal principal) {
+
+		// 세션아이디
+		String id = principal.getName();
+		map.put("id", id);
+
+		//String movieNo=map.get("movieNo").toString();
+		String movieTitle=map.get("movieTitle").toString();
+		System.out.println("영화제목"+movieTitle);
+		//영화네임에 따른 영화넘버 가져오기
+		String movieNo =movieService.selectMovieNo(map);
+		System.out.println("영화넘버"+movieNo);
+		map.put("movieNo", movieNo);
+		//평가테이블에 insert
+		int insertEvalue=evalueWishService.insertEvalue(map);
+		System.out.println("평가테이블에 insert");
+
+		model.addAttribute("movieTitle", movieTitle);
+
+		return "/movie/info/MovieWrite.tiles";
+	}////////////////////////////////////////////
 
 }

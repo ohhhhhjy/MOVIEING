@@ -99,6 +99,11 @@ public class MovieDao implements MovieService{
 	}
 
 	@Override
+	public List<MovieDto> selectListDirector(Map map) {
+		return template.selectList("selectListDirector", map);
+	}
+
+	@Override
 	public List<MovieDto> selectListSearchRadom(Map map) {
 		return template.selectList("selectListSearchRadom",map);
 	}
@@ -107,7 +112,7 @@ public class MovieDao implements MovieService{
 	public List<MovieDto> selectListSearchPeople(Map map) {
 		return template.selectList("selectListSearchPeople",map);
 	}
-	
+
 
 
 }

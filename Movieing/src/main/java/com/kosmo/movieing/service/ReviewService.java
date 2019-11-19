@@ -33,10 +33,8 @@ public interface ReviewService {
 
 	//무빙프렌즈 전체공개 글(시간순)
 	List<ReviewDto> friendsReviewList1(Map map);
-	//(좋아요순)
+
 	List<ReviewDto> friendsReviewList2(Map map);
-	//(시간순)
-	List<ReviewDto> friendsReviewList3(Map map);
 
 	//전체 레코드 수
 	//내가 작성한 전체 리뷰 레코드 수
@@ -64,5 +62,10 @@ public interface ReviewService {
 	int update(Map map);
 	//내 리뷰 삭제]
 	int delete(Map map);
+	
+	
+	//리뷰검색
+	List<ReviewDto> selectSearchReviewList(Map map);
+
 
 }

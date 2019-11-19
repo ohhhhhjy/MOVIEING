@@ -103,4 +103,9 @@ public class EvalueWishServiceImpl implements EvalueWishService{
 		return dao.deleteWish(map);
 	}
 
+	@Override
+	public int insertEvalue(Map map) {
+		return dao.insertEvalue(map);
+	}
+
 }

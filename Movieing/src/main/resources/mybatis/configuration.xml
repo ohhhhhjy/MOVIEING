@@ -21,6 +21,9 @@
 		<typeAlias alias="CommentDto" type="com.kosmo.movieing.service.CommentDto"/>
 		<typeAlias alias="CalendarDto" type="com.kosmo.movieing.service.CalendarDto"/>
 		<typeAlias alias="MoviePeopleDto" type="com.kosmo.movieing.service.MoviePeopleDto"/>
+		<typeAlias alias="QnaDto" type="com.kosmo.movieing.service.QnaDto"/>
+		<typeAlias alias="NoticeDto" type="com.kosmo.movieing.service.NoticeDto"/>
+
 
 	</typeAliases>
 	
@@ -36,6 +39,9 @@
 		<mapper resource="mybatis/Comment.xml" />
 		<mapper resource="mybatis/Calendar.xml" />
 		<mapper resource="mybatis/MoviePeople.xml"/>
+		<mapper resource="mybatis/Qna.xml" />
+		<mapper resource="mybatis/Notice.xml" />
+
 	</mappers>
 	
 </configuration>

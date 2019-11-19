@@ -8,7 +8,7 @@ public interface FollowService {
 	//기존에 있는 id/닉네임 인지 확인용
 	boolean isMember(Map map);
 	//목록
-	List<FollowDto> selectList(Map map);
+	List<FollowDto> selectFollowList(Map map);
 	//전체 팔로잉 수
 	int getTotalFollowingCount(Map map);
 	//전체 팔로워 수

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.Qna">
+
+	<select id="selectQnaList" parameterType="java.util.Map" resultType="QnaDto">
+		select * from qna
+	</select>
+	
+	<select id="selectNotiOne" parameterType="java.util.Map" resultType="QnaDto">
+		select * where qna_no=#{qnaNo}
+	</select>
+	
+	
+	<insert id="insertQna" parameterType="java.util.Map">
+		insert into qna values(seq_qna.nextval,#{qnaTitle},#{qnaContent},#{userId},default,null)
+	</insert>
+	
+	<update id="updateQna" parameterType="java.util.Map">
+		update qna set qna_title=#{qnaTitle},qna_content=#{qnaContent} where qna_no=#{qnaNo}
+	</update>
+	
+	<delete id="deleteQna" parameterType="java.util.Map">
+		delete qna where qna_no=#{qnaNo}
+	</delete>
+	
+	<update id="replyQna" parameterType="java.util.Map">
+		update qna set qna_answer=#{qnaAnswer} where qna_no=#{qnaNo}
+	</update>
+
+</mapper>

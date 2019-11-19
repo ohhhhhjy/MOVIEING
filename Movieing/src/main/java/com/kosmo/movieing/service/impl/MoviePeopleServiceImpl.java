@@ -7,10 +7,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.kosmo.movieing.service.MovieDto;
 import com.kosmo.movieing.service.MoviePeopleDto;
 import com.kosmo.movieing.service.MoviePeopleService;
-
 @Service("moviePeopleService")
 public class MoviePeopleServiceImpl implements MoviePeopleService {
 
@@ -18,11 +16,44 @@ public class MoviePeopleServiceImpl implements MoviePeopleService {
 	private MoviePeopleDao dao;
 
 	@Override
+	public boolean isMember(Map map) {
+		return false;
+	}
+
+	@Override
+	public List<MoviePeopleDto> selectList(Map map) {
+		return null;
+	}
+
+	@Override
+	public int getTotalCount(Map map) {
+		return 0;
+	}
+
+	@Override
+	public MoviePeopleDto selectOne(Map map) {
+		return null;
+	}
+
+	@Override
+	public int insert(Map map) {
+		return 0;
+	}
+
+	@Override
+	public int update(Map map) {
+		return 0;
+	}
+
+	@Override
+	public int delete(Map map) {
+		return 0;
+	}
+
+
+	@Override
 	public List<MoviePeopleDto> selectListPeople(Map map) {
 		return dao.selectListPeople(map);
 	}
 
-	
-	
-	
 }

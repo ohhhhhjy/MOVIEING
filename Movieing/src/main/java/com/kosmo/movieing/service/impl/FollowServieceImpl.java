@@ -23,9 +23,9 @@ public class FollowServieceImpl implements FollowService{
 	}
 
 	@Override
-	public List<FollowDto> selectList(Map map) {
+	public List<FollowDto> selectFollowList(Map map) {
 
-		return dao.selectList(map);
+		return dao.selectFollowList(map);
 	}
 
 	@Override

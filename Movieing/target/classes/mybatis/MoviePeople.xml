@@ -3,6 +3,12 @@
 <!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mybatis.MoviePeople">
+
+<!-- 필모그래피 영화인 정보가져오기 -->
+	<select id="selectPeople" parameterType="java.util.Map" resultType="MoviePeopleDto">
+		select * from movie_people where movie_people_name=#{movieDirector}
+	</select>
+
 	
 	<select id="selectListPeople" parameterType="java.util.Map" resultType="moviePeopleDto">
 		select * from MOVIE_PEOPLE
@@ -11,5 +17,6 @@
 		OR MOVIE_PEOPLE_NAME LIKE #{searchWord%}
 		OR MOVIE_PEOPLE_NAME LIKE #{%searchWord%}
 	</select>
+
 
 </mapper>

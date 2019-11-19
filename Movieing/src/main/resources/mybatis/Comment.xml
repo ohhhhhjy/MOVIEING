@@ -24,5 +24,14 @@
 		delete comment_table
 		where user_id=#{id} and REVIEW_NO =#{reviewNo}	
 	</delete>
+	
+		
+	<select id="selectSearchCommentList" parameterType="java.util.Map" resultType="CommentDto">
+		select * from comment_table
+		where COMMENT_CONTENT LIKE #{%searchWord}
+		OR COMMENT_CONTENT LIKE #{searchWord%}
+		OR COMMENT_CONTENT LIKE #{%searchWord%}
+	</select>
+		
 
 </mapper>

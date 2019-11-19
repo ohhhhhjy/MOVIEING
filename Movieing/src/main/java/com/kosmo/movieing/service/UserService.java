@@ -9,6 +9,8 @@ public interface UserService {
 	boolean isMember(Map map);
 	//목록
 	List<UserDto> selectList(Map map);
+	//유저
+	List<UserDto> userSelectList(Map map);
 	//전체 레코드 수
 	int getTotalCount(Map map);
 	//상세보기 용
@@ -17,7 +19,7 @@ public interface UserService {
 	int insert(Map map);
 	int update(Map map);
 	int delete(Map map);
-	
+
 	//회원가입 시 시큐리티 권한주기
 	int insertSec(Map map);
 	
@@ -28,6 +30,9 @@ public interface UserService {
 	List<UserDto> selectFollowerList(Map map);
 	//팔로잉 유저 목록
 	List<UserDto> selectFollowingList(Map map);
+
+	//유저닉네임으로 아이디 알아내기
+	String selectUserId(String userNick);
 	//검색 용
 	List<UserDto> selectSearchList(Map map);
 	

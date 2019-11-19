@@ -234,139 +234,72 @@ a {
 
 <script>
 	//좋아요 올리기
+$(function(){
 
-	$(document)
-			.ready(
-					function() {
-						var flag = false;
-						$("#likebutton")
-								.click(
-										function() {
-
-											//좋아요 클릭 이벤트처리
-											console.log($('.likebutton'));
-
-											//var index = $(this).attr('id');
-
-											//var reviewNo =${reviewNo};
-
-											console.log($(this).value);
-
-											//좋아요 클릭시 색바꾸기]
-								
-											console.log('잘찍히냐고'
-													+ $('.likeNumber')
-															.text('2'));
-
-											//좋아요 off  > on
-											if (flag) {
-
-												$
-														.ajax({
-															url : "<c:url value='/Movieing/Blog/LikeRemove.mov'/>",
-															type : 'post',
-															dataType : 'text',
-															data : {
-																reviewNo : '${friendsReviewList1.get(index).reviewNo}'
-															},/*, ${_csrf.parameterName}:'${_csrf.token}'*/
-															beforeSend : function(
-																	xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
-																xhr
-																		.setRequestHeader(
-																				"${_csrf.headerName}",
-																				"${_csrf.token}");
-															},
-															success : function(
-																	data) {//서버로 부터 정상적인 응답을 받았을 때(200번)
-																console
-																		.log("-1된 좋아요개수"
-																				+ data);
-																$('.likeNumber')
-																		.text(
-																				data);
-																//likeNumber=data;//-1된 좋아요개수 저장
-
-																$("#likebutton")
-																		.removeAttr(
-																				'style');//스타일제거
-															
-																flag = !flag;
-
-															},
-															error : function(
-																	data) {//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
-																console
-																		.log("에러:"
-																				+ data);
-															
-															}
-													
-														});
-
-											}
-
-											//좋아요 on  > off
-											else {
-												//$('#likeUnlikeIcon').removeClass('far fa-thumbs-up').addClass('fas fa-thumbs-up');
-
-												$
-														.ajax({
-															url : "<c:url value='/Movieing/Blog/LikeInsert.mov'/>",
-															type : 'post',
-															dataType : 'text',
-															data : {
-																reviewNo : '${friendsReviewList1.get(index).reviewNo}'
-															},
-															beforeSend : function(
-																	xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
-																xhr
-																		.setRequestHeader(
-																				"${_csrf.headerName}",
-																				"${_csrf.token}");
-															},
-															success : function(
-																	data) {//서버로 부터 정상적인 응답을 받았을 때(200번)
-																console
-																		.log('클릭한후 값'
-																				+ $(
-																						this)
-																						.attr(
-																								'value'));
-																$('.likeNumber')
-																		.text(
-																				data);
-																//likeNumber=data;//+1된 좋아요개수 저장
-																$("#likebutton")
-																		.css(
-																				'color',
-																				'red')
-																		.css(
-																				'font-weight',
-																				'bold')
-																		.css(
-																				'font-size',
-																				'large');
-									
-																flag = !flag;
-															},
-															error : function(
-																	data) {//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
-																console
-																		.log("에러:"
-																				+ data.responseText);
-															
-																
-															}
-														});
-														
-												console.log("+1된 좋아요개수" + data);
-
-											}
-
-										});////////////////////////////////////
-
-					});//////////////////////////
-
+	var flag = false;
+	//좋아요 클릭 이벤트처리
+	if(typeof $('.likeUnlike')!= 'undefined'){
+ 	$('.likeUnlike').click(function(){
+ 		var index = $(this).attr('id');
+ 		
+ 		
+		//좋아요 off  > on
+ 		if(flag){
+ 			
+ 			//$('#likeUnlikeIcon').removeClass('far fa-thumbs-up').addClass('fas fa-thumbs-up');
+ 			
+ 			$.ajax({
+ 				url:"<c:url value='/Movieing/Blog/LikeInsert.mov'/>",
+ 				type:'post',
+ 				dataType:'text',
+ 				data:
+ 					{id:'${id}',reviewNo:'${friendsReviewList1.get(index).reviewNo}'},
+			    beforeSend : function(xhr)
+                  {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+                      xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+                  },	
+ 				success:function(data){//서버로 부터 정상적인 응답을 받았을 때(200번)
+ 					$('#likeSpan'+index).html('<a><i class="fas fa-thumbs-up"></i>좋아요</a>');
+ 					$('#likeNumber'+index).text(data);
+ 					
+ 				},	
+ 				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+ 					console.log("에러:"+data.responseText);
+ 				}
+ 			});
+ 			
+ 			flag = !flag;
+ 		}
+ 		
+ 		//좋아요 on  > off
+ 		else{
+ 			//$('#likeUnlikeIcon').removeClass('fas fa-thumbs-up').addClass('far fa-thumbs-up'); 
+ 			
+ 			$.ajax({
+ 				url:"<c:url value='/Movieing/Blog/LikeRemove.mov'/>",
+ 				type:'post',
+ 				dataType:'text',
+ 				data:
+ 				{id:'${id}',reviewNo:'${friendsReviewList1.get(index).reviewNo}'},
+ 				beforeSend : function(xhr)
+                {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+                    xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+                },
+ 				success:function(data){//서버로 부터 정상적인 응답을 받았을 때(200번)
+ 					$('#likeSpan'+index).html('<a><i class="far fa-thumbs-up"></i>좋아요</a>');
+ 					$('#likeNumber'+index).text(data);
+ 				},	
+ 				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+ 					console.log("에러:"+data);
+ 				}
+ 			});
+ 			flag = !flag;
+ 		}
+ 			
+	});
+	}
+});
+	
 	//댓글 insert
 
 	$(document).ready(function() {
@@ -568,12 +501,12 @@ a {
 									<div align="right" style="padding-left: 550px">
 										<button class="btn btn-link dropdown-toggle" type="button"
 											id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
-											aria-expanded="false" data-target="#myModal"
+											aria-expanded="false" data-target="#myModal${status.index }"
 											style="text-align: right;">
 											<i class="fa fa-ellipsis-h"></i>
 										</button>
 									</div>
-									<div class="modal fade" id="myModal" tabindex="-1"
+									<div class="modal fade" id="myModal${status.index }" tabindex="-1"
 										role="dialog" aria-labelledby="myModalLabel">
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
@@ -625,14 +558,14 @@ a {
 
 								<div class="col-sm-4" align="center"
 									style="margin-bottom: -20px; margin-left: -20px">
-									<img class="effect" src="${item.imgUrl }" alt="Image">
+									<img class="effect" src="${item.movieImg }" alt="Image">
 								</div>
 								<div class="col-sm-8" style="margin-bottom: -40px">
 
 									<div class="row" style="height: 30px">
 										<div class="col-md-10">
 											<h4 class="card-title"
-												style="color: black; font-weight: bold;">${item.movieTitle }(${item.movieOrgTitle})</h4>
+												style="color: black; font-weight: bold;">${item.movieTitle }</h4>
 										</div>
 										
 										<div class="col-md-2">
@@ -669,7 +602,7 @@ a {
 								<div class="row">
 
 									<h6 style="padding-left: 20px">좋아요</h6>
-									<h6 class="likeNumber" id="likeNumber" name="likeNumber">${item.likeCount }</h6>
+									<h6 class="likeNumber${status.index }" id="likeNumber${status.index }" name="${status.index }">${item.likeCount }</h6>
 									<h6>개</h6>
 
 									<h6 style="padding-left: 20px">댓글 ${item.commentCount }개</h6>
@@ -704,9 +637,17 @@ a {
 
 						
 						<div class="card-footer">
-
-							<a href="#" class="card-link" id="likebutton" name="likebutton"
+										
+										<!-- 
+							<a href="#" class="likebutton" id="${status.index }" name="${status.index }"
 								value="unclick"><i class="fa fa-gittip"></i> 좋아요</a> 
+								-->
+								<button type="button" class="btn btn-link likeUnlike" id="${status.index }" ><span
+											style="font-weight: bold; color: #db147b; font-size: 0.9em" id="likeSpan${status.index }">
+											<a><i id="likeUnlikeIcon" class="fas fa-thumbs-up"></i>좋아요</a></span></button>
+											
+											<!-- 좋아요 아이콘 -->
+								
 								<!-- 
 								<a
 								href="#collapse${status.index }" data-toggle="collapse"
