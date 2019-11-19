@@ -397,15 +397,15 @@ public class MovieController {
 
 	// 영화 평가 보여주기
 	@RequestMapping("/Movieing/Movie/screening/First_like.mov")
-	public String ratingMovie(Model model, @RequestParam Map map) throws Exception {
+	public String ratingMovie(Model model, @RequestParam Map map,Authentication auth) throws Exception {
+			map.put("id", auth.getName());
+			int evalueCount = evalueWishService.getTotalEvalueCount(map);
+			model.addAttribute("evalueCount", evalueCount);
 
-		System.out.println("RatingMovie - 1 DB 가져오기 전");
 			List<MovieDto> movieList = movieService.selectListMovie(map);
 
-		System.out.println("RatingMovie - 2 movieList 값 저장");
 			model.addAttribute("movieList", movieList);
 
-		System.out.println("RatingMovie - 3 값 전송 완료");
 		return "movie/screening/First_like.tiles";
 
 		/*

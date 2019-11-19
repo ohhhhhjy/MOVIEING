@@ -71,6 +71,13 @@ public class UserDao implements UserService{
 		return template.selectList("selectFollowingList",map);
 	}
 
+	//유저닉네임으로 아이디 알아내기
+	@Override
+	public String selectUserId(String userNick) {
+
+		return template.selectOne("selectUserId", userNick);
+	}
+
 
 
 }

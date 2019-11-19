@@ -625,7 +625,7 @@ a {
 
 								<div class="col-sm-4" align="center"
 									style="margin-bottom: -20px; margin-left: -20px">
-									<img class="effect" src="${item.imgUrl }" alt="Image">
+									<img class="effect" src="${item.movieImg }" alt="Image">
 								</div>
 								<div class="col-sm-8" style="margin-bottom: -40px">
 

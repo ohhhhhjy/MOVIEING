@@ -60,6 +60,8 @@ body {
 
 .movieTitle {
 	font-weight: bold;
+	width:135px;
+	text-overflow: ellipsis ;
 }
 
 .movieStar {
@@ -116,7 +118,21 @@ height: 200px;
     padding: 0 0 10px 10px;
     border : 0;
     float: left;
+   
 }
+
+.liDiv{
+	width:135px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1; /* 라인수 */
+	-webkit-box-orient: vertical;
+	word-wrap:break-word; 
+	line-height: 1.2em;
+	height: 1.2em;
+}
+
 </style>
 
 <!--1.컨트롤러에서 넘어오는 page값 이용해서 탭 선택시켜주기 https://stackoverflow.com/questions/39461076/how-to-change-active-bootstrap-tab-with-javascript-->
@@ -125,10 +141,13 @@ height: 200px;
 
 <script>
 $(function(){
+	// $(window).hashchange(); 
+	var page = "";
+	
 	//탭세팅
 	tabSettingByPage();
 	$('.nav-item').click(function(){
-		var page;
+		
 		switch($(this).get(0).id){
 		case 'nav-star-tab':page='a';break;
 		case 'nav-review-tab':page='b';break;
@@ -199,10 +218,69 @@ $(function(){
  			
 	});
 	}
+	var reviewNo ="";
+	$('#deleteModal').on('show.bs.modal', function (e) { 
+		reviewNo = $(e.relatedTarget).data('notifyid'); 
+		
+		$('#deleteBtn').click(function(){
+			$.ajax({
+						url:"<c:url value='/Movieing/Blog/reviewRemove.mov'/>",
+						type:'post',
+						data:
+						{reviewNo:reviewNo},
+						beforeSend : function(xhr)
+		            {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+		                xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+		            },
+						success:function(){//서버로 부터 정상적인 응답을 받았을 때(200번)
+							//tabSettingByPage2(page);
+							location.href='<c:url value="/Movieing/Blog/MyActivity.mov?page='+page+'"/>';
+							
+						},	
+						error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+							console.log("에러:"+data);
+						}
+			});
+		});
+		
+		
+		});
+	
+	
 });
 
 function tabSettingByPage(){//전 페이지에서 넘어온 페이지값에 따라 탭과 탭컨텐츠 세팅해주기
+	
 	switch('${page}'){
+	case 'a': 
+		$('#nav-star-tab').addClass('active');
+		$('#nav-star').addClass('show active');
+		selectorSettingByTab('a');
+		break; 
+	case 'b': 
+		$('#nav-review-tab').addClass('active');
+		$('#nav-review').addClass('show active');
+		selectorSettingByTab('b');
+		break;
+	case 'c':
+		$('#nav-like-tab').addClass('active');
+		$('#nav-like').addClass('show active');
+		selectorSettingByTab('c');
+		break;
+	default://'d'
+		$('#nav-wish-tab').addClass('active');
+		$('#nav-wish').addClass('show active');
+		selectorSettingByTab('d');
+	}
+}
+
+function tabSettingByPage2(page){//전 페이지에서 넘어온 페이지값에 따라 탭과 탭컨텐츠 세팅해주기
+	console.log('들어왓니');
+	$('.nav-item').removeClass('active');
+	$('.tab-pane').removeClass('active');
+	
+	
+	switch(page){
 	case 'a': 
 		$('#nav-star-tab').addClass('active');
 		$('#nav-star').addClass('show active');
@@ -263,6 +341,11 @@ function goToBlogFeed(otherUserId){
 	f.submit();
 }
 
+
+
+
+
+
 </script>
 
 <!-- 컨테이너 시작 -->
@@ -304,8 +387,10 @@ function goToBlogFeed(otherUserId){
                  		<ul class="movieUl">
                  		<c:forEach items="${evaluationList }" var="item">
                  			<li class="movieLi">
-                 				<img  class="movieImg" src=${item.imgUrl } alt="영화포스터"/><br>
-								<span class="movieTitle">${item.movieTitle }</span><br>
+                 				<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><img  class="movieImg" src=${item.movieImg } alt="영화포스터"/></a><br>
+								<div class="liDiv">
+									<span class="movieTitle">${item.movieTitle }</span><br>
+								</div>
 								<span class="movieStar badge badge-pill badge-danger">★${item.evaluationGrade }</span>
                  			</li>
                  			</c:forEach>
@@ -330,11 +415,19 @@ function goToBlogFeed(otherUserId){
 								<div class="card-body">
 									<div class="row">
 										<div class="col-sm-3" align="center">
-											<img class="movieImg"
-												src="${item.imgUrl }" alt="포스터" />
+											<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><img class="movieImg"
+												src="${item.movieImg }" alt="포스터" /></a>
 										</div>
 										<div class="col-sm-9">
-											<h4 class="card-title">${item.movieTitle }</h4><!-- 영화제목 -->
+											<div class="row">
+												<div class="col-md-9">
+													<h4 class="card-title">${item.movieTitle }</h4><!-- 영화제목 -->
+												</div>
+												<div class="col-md-3">
+													<button type="button" class="btn btn-outline-primary" onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov?reviewNo=${item.reviewNo }"/>'">수정</button>
+													<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal"  data-notifyid="${item.reviewNo }">삭제</button>
+												</div>
+											</div>
 											<span class="badge badge-pill badge-danger">★ ${item.grade}</span><!-- 별점-->
 											<p class="card-text" style="height: 100px">${item.reviewContent }</p><!-- 리뷰내용 -->
 											<a><span
@@ -381,8 +474,8 @@ function goToBlogFeed(otherUserId){
 							<div class="card-body">
 								<div class="row">
 									<div class="col-sm-3" align="center">
-										<img class="movieImg"
-											src="${item.imgUrl }" alt="포스터" />
+										<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><img class="movieImg"
+											src="${item.movieImg }" alt="포스터" /></a>
 									</div>
 									<div class="col-sm-9">
 										<h4 class="card-title">${item.movieTitle }</h4>
@@ -413,13 +506,17 @@ function goToBlogFeed(otherUserId){
                  		</div>
                  	</c:if>
                  	<c:if test="${!isEmpty }">
+                 	
                 	  <ul class="movieUl">
                  		<c:forEach items="${wishList }" var="item">
                  			<li class="movieLi">
-                 				<img  class="movieImg" src=${item.imgUrl } alt="영화포스터"/><br>
-								<span class="movieTitle">${item.movieTitle }</span><br>
+                 				<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><img  class="movieImg" src=${item.movieImg } alt="영화포스터" /></a><br>
+          						<div class="liDiv">
+									<span class="movieTitle">${item.movieTitle }</span><br>
+								</div>
 								<!-- <span class="movieStar badge badge-pill badge-danger">예상★ 별점로직이 필요해...</span> -->
                  			</li>
+                 			
                  			</c:forEach>
                  		</ul>
                  	</c:if>
@@ -429,6 +526,28 @@ function goToBlogFeed(otherUserId){
                  </div>
              </div>
 		</div>
+		
+		
+		<!-- 삭제모달 -->
+		<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" align="center"> <i class="far fa-bell"></i> 알림창</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <p>리뷰를 삭제하시겠습니까?</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+		        <button id="deleteBtn" type="button" class="btn btn-danger"  data-dismiss="modal">삭제</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
 	</div>
 
-</div>

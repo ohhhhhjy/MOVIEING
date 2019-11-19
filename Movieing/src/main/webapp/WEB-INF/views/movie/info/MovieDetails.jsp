@@ -177,44 +177,6 @@ color:#db147b;
 }
 
 
-/* 상단에 이미지 넣으려다 실패 
-.headerBackImg{
--webkit-filter:blur(5px);
--moz-filter:blur(5px);
--o-filter:blur(5px);
--ms-filter:blur(5px);
-filter:blur(5px);
-position: absolute; top:0; left: 0;
-width: 100%;
-height: 100%;
-} */
-
-/*스택 - 별점 반개 실험*/
-.star-icon {
-    color: #ddd;
-    font-size: 34px;
-    position: relative;
-}
-
-.star-icon.full:before {
-    color: #FDE16D;
-    content: '\2605'; /* Full star in UTF8 */
-    position: absolute;
-    left: 0;
-    text-shadow: 0 0 2px rgba(0,0,0,0.7);
- }
- 
- .star-icon.half:before {
-    color: #FDE16D;
-    content: '\2605'; /* Full star in UTF8 */
-    position: absolute;
-    left: 0;
-    width: 50%;
-    overflow: hidden;
-    text-shadow: 0 0 2px rgba(0,0,0,0.7);
-}
-
-/* ^여기까지 별점 반개 실험^ */
 </style>
 
 
@@ -222,11 +184,11 @@ height: 100%;
 $(document).ready(function() {
 	
 	
- 	$('.starRev span').click(function() {
+/*  	$('.starRev span').click(function() {
 		$(this).parent().children('span').removeClass('on');
 		$(this).addClass('on').prevAll('span').addClass('on');
 		return false;
-	});
+	}); */
 	
 	//보고싶어요 클릭시 ajax 메소드..
  	$('#btnWish').click(function(){
@@ -330,7 +292,6 @@ $(document).ready(function() {
 	
 	function reviewListMaking(data){
 		var imgUrl = '';
-		console.log("데이타 받기 성공:",data);
 		var reviewString = "";
 		 $.each(data,function(index,element){
 			 imgUrl = element['userProfile']==null?"https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png":element['userProfile'];
@@ -356,14 +317,6 @@ $(document).ready(function() {
 
 
 </script>
-
-	<!-- <div class="headerDiv"style="position: absolute">
-		<div  style="position: relative;" >
-			<img class="headerImg" src="../../resources/img/movie/tooly.jpg" alt="포스터" />
-		</div>
-	</div>	 -->		
-				
-	<!-- <img class="headerBackImg"  src="../../resources/img/movie/tooly.jpg" alt="포스터" /> -->
 
 
 <div class="container">	

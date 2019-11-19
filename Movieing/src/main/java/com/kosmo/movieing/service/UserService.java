@@ -22,4 +22,7 @@ public interface UserService {
 	List<UserDto> selectFollowerList(Map map);
 	//팔로잉 유저 목록
 	List<UserDto> selectFollowingList(Map map);
+
+	//유저닉네임으로 아이디 알아내기
+	String selectUserId(String userNick);
 }

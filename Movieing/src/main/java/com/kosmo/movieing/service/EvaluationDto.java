@@ -13,10 +13,18 @@ public class EvaluationDto {
 	//프로그램 효율성을 위한 속성 추가]
 	//영화제목
 	private String movieTitle;
-	//이미지url
+	//영화이미지
+	private String movieImg;
+	//이미지url(이제 사용안함.)
 	private String imgUrl;
 
 
+	public String getMovieImg() {
+		return movieImg;
+	}
+	public void setMovieImg(String movieImg) {
+		this.movieImg = movieImg;
+	}
 	public String getImgUrl() {
 		return imgUrl;
 	}

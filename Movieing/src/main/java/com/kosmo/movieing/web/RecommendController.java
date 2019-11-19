@@ -12,8 +12,6 @@ import java.util.Vector;
 
 import javax.annotation.Resource;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -25,31 +23,30 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosmo.movieing.service.MovieDto;
 import com.kosmo.movieing.service.MovieService;
-import com.kosmo.movieing.service.impl.MovieDao;
 //
 @Controller
 public class RecommendController {
-	
+
 	@Resource(name = "movieService")
 	private MovieService movieService;
-	
-	
-	
+
+
+
 	@RequestMapping("/Movieing/Movie/Recommend.mov")
 	public String recommend(Model model, @RequestParam Map map) throws Exception {
-		
+
 		List<MovieDto> movieList = movieService.selectListMovie(map);
 		List<MovieDto> movieRomanceList = movieService.selectListRomance(map);
 		List<MovieDto> movieHorrorList = movieService.selectListHorror(map);
 		List<MovieDto> movieRamdomList = movieService.selectListRandom(map);
 		List<MovieDto> movieComedyList = movieService.selectListComedy(map);
-		
+
 		model.addAttribute("movieList", movieList);
 		model.addAttribute("movieRandomList", movieRamdomList);
 		model.addAttribute("movieRomanceList", movieRomanceList);
 		model.addAttribute("movieHorrorList", movieHorrorList);
 		model.addAttribute("movieComedyList", movieComedyList);
-		
+
 		return "movie/recommend/Recommend.tiles";
 		/*
 		List mNames = new Vector();
@@ -75,21 +72,21 @@ public class RecommendController {
 		model.addAttribute("movieImgDate",jArray);
 		*/
 	}
-	
+
 	@RequestMapping("/Movieing/Movie/test.mov")
 	public String test() {
 		return "movie/recommend/test.tiles";
 	}
-	
-	
-	@RequestMapping("/Movieing/Movie/First_like.mov")
-	public String first_like() {
-		return "movie/recommend/First_like.tiles";
-	}
-	
+
+
+//	@RequestMapping("/Movieing/Movie/First_like.mov")
+//	public String first_like() {
+//		return "movie/recommend/First_like.tiles";
+//	}
+
 	//무비리스트 가져오기
 	public List movieTrain() throws Exception{
-		
+
 		List<String> movieList = new Vector(); // 무비 리스트
 
 		//최신영화
@@ -118,29 +115,29 @@ public class RecommendController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}//catch
-		
+
 		return movieList;
 	}/////////////////////////////////movieTrain
-	
+
 	//네이버 영화 40개 긁어오기
 	public List movie40Get() throws Exception{
 		SeleniumController seleniumController = new SeleniumController(2);
-		
+
 		List movieCode = seleniumController.listCrawl();
-		
+
 		return movieCode;
 	}
-	
+
 	//네이버의 고화질 영화포스터 이미지url을 얻기위한 메소드
 		//public String movieImgUrl(String movieNm) throws Exception {
 		public Map movieImgUrl(String movieNm) throws Exception {
-			
+
 	        String clientId = "T1e73cqxyZeqqNbXbMLa";//애플리케이션 클라이언트 아이디값";
 	        String clientSecret = "cqCUwiyR31";//애플리케이션 클라이언트 시크릿값";
-	        
+
 	        Map dataMap = new HashMap();
-	        
-	        
+
+
 	            String text = URLEncoder.encode(movieNm, "UTF-8");
 	            String apiURL = "https://openapi.naver.com/v1/search/movie?query="+ text; // json 결과
 	            URL url = new URL(apiURL);
@@ -148,7 +145,7 @@ public class RecommendController {
 	            con.setRequestMethod("GET");
 	            con.setRequestProperty("X-Naver-Client-Id", clientId);
 	            con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
-	            int responseCode = con.getResponseCode();   
+	            int responseCode = con.getResponseCode();
 	            BufferedReader br;
 	            if(responseCode==200) { // 정상 호출
 	                br = new BufferedReader(new InputStreamReader(con.getInputStream()));
@@ -161,40 +158,40 @@ public class RecommendController {
 	                response.append(inputLine);
 	            }
 	            br.close();
-	            
+
 	            //JSON
 	    		ObjectMapper mapper = new ObjectMapper();
 	    		HashMap<String,List<Map>> movieInfoMap = mapper.readValue(response.toString(), HashMap.class);
-	    		
+
 	    		//System.out.println("제이슨:"+movieInfoMap);
-	    		
+
 	    		String imgStr = movieInfoMap.get("items").get(0).get("link").toString();
 	    		String dateStr = movieInfoMap.get("items").get(0).get("pubDate").toString().trim().replaceAll(" ", "");
-	    		
-	    		
-	    		
+
+
+
 	    		//System.out.println("dateStr:"+dateStr);
 	    		//System.out.println(imgStr);
 	    		String movieCode = imgStr.substring(imgStr.indexOf('=')+1);
 	    		//System.out.println("movieCode: " + movieCode);
 	    		//위의 모든 코드는 네이버의 영화코드를 얻기위해서 작성함...
-	    		
+
 	    		String realImgStr = "https://movie.naver.com/movie/bi/mi/photoViewPopup.nhn?movieCode="+movieCode;
-	    		
-	    		
+
+
 	    		//크롤링
 	    		Document doc = Jsoup.connect(realImgStr).get();
 	    		Elements descs = doc.select("#targetImage");
 	    		String realUrl =descs.get(0).attr("src");
 	    		//System.out.println("realImgStr : "+realImgStr);
 	    		//System.out.println("realUrl :"+realUrl);
-	    		
+
 	    		dataMap.put("realUrl",realUrl);
 	    		dataMap.put("date",dateStr);
 	    		//return realUrl;
 	    		return dataMap;
-	            
-	        
+
+
 		}///movieImgMap
 
 }
