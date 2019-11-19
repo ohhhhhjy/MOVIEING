@@ -9,46 +9,49 @@
          <div class="page-header">
              <h1>문의사항 관리 페이지</h1>
          </div>
+         <p hidden="hidden" >${qnaJson}</p>
         
          <div id="grid-qna"></div>
          </div>
     </div>
 </div>
 <script id="detailTemplate3" type="text/x-shield-template">
+	<div style="margin:30px;margin-left:80px">
         <table> 
             <tr>             
                <td>
-                    <b>Personal Contact Information</b></br>
+                    <b>문의사항 : {qnaContent}</b></br>
                     </br>
-                    <b>Email Address:</b>{email}</br>                    
-                    <b>Phone Number :</b>{phone}</br>       
-                    <b>Address      :</b>{address}</br>    
-					<b>Guid      :</b>{guid}</br>   
+					</br>
+                    <b>답변 : {qnaAnswer}</br>
                </td>
             </tr>
         </table>
-	</script>
+	</div>
+</script>
 
 <script type="text/javascript">
 $(function(){
+	var qnaData = $("p").html();
+	console.log(qnaData);
 	$("#grid-qna").shieldGrid({
 	    dataSource: {
-	        data: gridData
+	        data: qnaData
 	    },
 	    sorting: {
 	        multiple: true
 	    },
 	    paging: {
-	        pageSize: 12,
+	        pageSize: 10,
 	        pageLinksCount: 10
 	    },
 	    detailTemplate: $("#detailTemplate3").html(),
 	    
 	    columns: [
-	        { field: "id", width: "70px", title: "글 번호" },
-	        { field: "name", title: "글 제목" },
-	        { field: "company", title: "작성자 닉네임", width: "120px" },
-	        { field: "registered", title: "작성일자", width:"230px" },
+	        { field: "qnaNo", width: "70px", title: "글 번호" },
+	        { field: "qnaTitle", title: "글 제목" },
+	        { field: "qnaUserId", title: "작성자 닉네임", width: "120px" },
+	        { field: "qnaPostdate", title: "작성일자", width:"130px" },
 	        {
 	            title: "답변하기",
 	            width: "80px",

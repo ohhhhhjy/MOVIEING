@@ -22,20 +22,12 @@ public class QnaServiceImpl implements QnaService {
 		return dao.selectList(map);
 	}
 
-	@Override
-	public int getTotalCount(Map map) {
-		return dao.getTotalCount(map);
-	}
 
 	@Override
 	public QnaDto selectOne(Map map) {
 		return dao.selectOne(map);
 	}
 
-	@Override
-	public String selectQnaNo(Map map) {
-		return dao.selectQnaNo(map);
-	}
 
 	@Override
 	public int insert(Map map) {

@@ -22,20 +22,12 @@ public class NoticeDao implements NoticeService {
 		return template.selectList("selectNotiList",map);
 	}
 
-	@Override
-	public int getTotalCount(Map map) {
-		return 0;
-	}
 
 	@Override
 	public NoticeDto selectOne(Map map) {
 		return template.selectOne("selectNotiOne",map);
 	}
 
-	@Override
-	public String selectNoticeNo(Map map) {
-		return null;
-	}
 
 	@Override
 	public int insert(Map map) {

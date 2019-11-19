@@ -128,7 +128,7 @@
 								>영화관</a>
 							<div class="dropdown-content">
 								<a class="dropItem"
-									href="<c:url value ='/Movieing/summernote.mov'/>"
+									href="<c:url value ='/Movieing/Movie/Threater/ThreaterInfo.mov'/>"
 									style="color: white"><i class="fas fa-building"
 									style="padding-right: 5px"></i>상영관</a> 
 									<a class="dropItem"
