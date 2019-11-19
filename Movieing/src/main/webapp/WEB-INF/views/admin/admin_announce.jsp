@@ -46,7 +46,7 @@
             columns: [
                 { field: "id", width: "70px", title: "글 번호" },
                 { field: "name", title: "글 제목" },
-                { field: "registered", title: "작성일자", width:"230px" },
+                { field: "registered", title: "작성일자", width:"130px" },
                 {
                     title: "수정",
                     width: "80px",
