@@ -329,14 +329,6 @@ public class MovieController {
 
 
 
-	@RequestMapping("/Movieing/Movie/SearchResult.mov")
-	public String searchResult(@RequestParam Map map,Model model) {
-
-		return "movie/list/SearchResult.tiles";
-	}
-
-
-
 
 	// 영화 상세 페이지
 	@RequestMapping("/Movieing/Movie/MovieDetails.mov")

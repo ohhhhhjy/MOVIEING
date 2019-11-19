@@ -6,10 +6,11 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.kosmo.movieing.service.MoviePeopleDto;
 import com.kosmo.movieing.service.MoviePeopleService;
-
+@Repository
 public class MoviePeopleDao implements MoviePeopleService{
 
 	@Resource(name="template")
