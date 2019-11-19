@@ -181,6 +181,14 @@
 		where user_id=#{id} and REVIEW_NO =#{reviewNo}	
 	</delete>	
 	
+		<!-- 리뷰검색 -->
+	<select id="selectSearchReviewList" parameterType="java.util.Map" resultType="ReviewDto">
+		select * from review
+		where REVIEW_CONTENT LIKE #{%searchWord}
+		OR REVIEW_CONTENT LIKE #{searchWord%}
+		OR REVIEW_CONTENT LIKE #{%searchWord%}
+	</select>
+	
 	
 
 

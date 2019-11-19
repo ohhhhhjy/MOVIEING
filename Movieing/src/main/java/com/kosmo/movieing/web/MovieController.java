@@ -399,15 +399,15 @@ public class MovieController {
 
 	// 영화 평가 보여주기
 	@RequestMapping("/Movieing/Movie/screening/First_like.mov")
-	public String ratingMovie(Model model, @RequestParam Map map,Authentication auth) throws Exception {
-			map.put("id", auth.getName());
-			int evalueCount = evalueWishService.getTotalEvalueCount(map);
-			model.addAttribute("evalueCount", evalueCount);
+	public String ratingMovie(Model model, @RequestParam Map map) throws Exception {
 
+		System.out.println("RatingMovie - 1 DB 가져오기 전");
 			List<MovieDto> movieList = movieService.selectListMovie(map);
 
+		System.out.println("RatingMovie - 2 movieList 값 저장");
 			model.addAttribute("movieList", movieList);
 
+		System.out.println("RatingMovie - 3 값 전송 완료");
 		return "movie/screening/First_like.tiles";
 
 		/*
@@ -644,15 +644,22 @@ public class MovieController {
 		List<MovieDto> searchMovieList = movieService.selectListSearchRadom(map);
 		List<MoviePeopleDto> searchPeopleList = moviePeopleService.selectListPeople(map);
 		List<UserDto> searchUserList = userService.selectSearchList(map);
+		List<ReviewDto> searchReviewList = reviewService.selectSearchReviewList(map);
+		List<CommentDto> searchCommentList = commentService.selectSearchCommentList(map);
 
 		System.out.println("searchResult -2 searchMovieList 값 : "+searchMovieList);
 		System.out.println("searchResult -3 searchPeopleList 값 : "+searchPeopleList);
 		System.out.println("searchResult -4 searchUserList 값 : "+searchUserList);
-
+		System.out.println("searchResult -5 searchReviewList 값 : "+searchReviewList);
+		
+		
+		model.addAttribute("searchWord", searchWord);
 		model.addAttribute("searchMovieList",searchMovieList);
 		model.addAttribute("searchPeopleList",searchPeopleList);
 		model.addAttribute("searchUserList",searchUserList);
-
+		model.addAttribute("searchReviewList", searchReviewList);
+		model.addAttribute("searchCommentList", searchCommentList);
+		
 		return "movie/list/SearchResult.tiles";
 	}
 

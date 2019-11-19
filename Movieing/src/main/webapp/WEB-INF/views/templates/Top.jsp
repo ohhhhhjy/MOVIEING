@@ -168,9 +168,9 @@
 					<li>
 						<div id="custom-search-input">
 							<div class="input-group col-md-12">
-								<form action="<c:url value='/Movieing/Movie/SearchResult.mov'/>" method="get">
-									<input type="text" class="form-control input-lg" placeholder="검색어를 입력하세요" name="searchWord" /> 
-									<span class="input-group-btn">
+								<form action="<c:url value='/Movieing/Movie/SearchResult.mov'/>" method="get" style="display: inherit;" >
+									<input type="text" class="form-control input-lg" placeholder="검색어를 입력하세요" name="searchWord"  style="float:left; display: inline;"/> 
+									<span class="input-group-btn" style="display:inline; float: right;">
 										<button class="btn btn-info btn-lg" type="submit">
 										<img src="<c:url value='/resources/img/search.png'/>" alt="검색" />
 										</button>
