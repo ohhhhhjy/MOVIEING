@@ -39,6 +39,8 @@ import com.kosmo.movieing.service.PagingUtil;
 import com.kosmo.movieing.service.RealTimeSearchDto;
 import com.kosmo.movieing.service.ReviewDto;
 import com.kosmo.movieing.service.ReviewService;
+import com.kosmo.movieing.service.StillCutDto;
+import com.kosmo.movieing.service.StillCutService;
 import com.kosmo.movieing.service.RealTimeSearchService;
 import com.kosmo.movieing.service.UserDto;
 import com.kosmo.movieing.service.UserService;
@@ -69,6 +71,9 @@ public class MovieController {
 	@Resource(name = "realTimeSearchService")
 	private RealTimeSearchService realTimeSearchService;
 
+	@Resource(name = "stillCutService")
+	private StillCutService stillCutService;
+	
 	// 전체영화
 	@RequestMapping("/Movieing/Movie/AllMovie.mov")
 	public String movieMain(Model model, @RequestParam Map map) throws Exception {
@@ -347,11 +352,20 @@ public class MovieController {
 
 		System.out.println("MovieDetails 3 - 디비에서 가져오기 전");
 		MovieDto movieInfo = movieService.selectOne(map);
-		System.out.println("MovieDetails 4 - movieInfo 값 :" + movieInfo);
-
+		System.out.println("MovieDetails 4 - movieInfo 값 :" + movieInfo);	
+		
+		List<StillCutDto> stillCutList = stillCutService.searchStillCutList(map);
+		
+		System.out.println("MovieDetails 5 - stillCutList 값 : "+ stillCutList);
+		for(int i=0;i<stillCutList.size();i++) {
+			System.out.println("MovieDetails 6 - stillCutImg 값 : "+ stillCutList.get(i).getStillCutImage());
+			System.out.println("MovieDetails 6 - stillCutNo 값 : "+ stillCutList.get(i).getStillCutNo());
+			System.out.println("MovieDetails 6 - stillCut MoiveNo 값 : "+ stillCutList.get(i).getMovieNo());
+		}
 		model.addAttribute("movieNo", map.get("movieNo"));
 		model.addAttribute("movieInfo", movieInfo);
 		model.addAttribute("movieInfoMap",movieInfoMap(movieNo));
+		model.addAttribute("stillCutList",stillCutList);
 		/*
 		System.out.println("RequestMethod.GET");
 		System.out.println("name : " + mname);
@@ -395,7 +409,6 @@ public class MovieController {
 			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
 		}
 		
-		System.out.println("MovieDetails - 5 reviewList 값 :"+reviewList);
 		//System.out.println("MovieDetails - 6 reviewList.getUserId 값 :"+reviewList.get(0).getUserId());
 		model.addAttribute("reviewList", reviewList);
 
@@ -682,6 +695,7 @@ public class MovieController {
 		List<UserDto> searchUserList = userService.selectSearchList(map);
 		List<ReviewDto> searchReviewList = reviewService.selectSearchReviewList(map);
 		List<CommentDto> searchCommentList = commentService.selectSearchCommentList(map);
+	
 		/*
 		System.out.println("searchResult -2 searchMovieList 값 : "+searchMovieList);
 		System.out.println("searchResult -3 searchPeopleList 값 : "+searchPeopleList);
@@ -695,6 +709,7 @@ public class MovieController {
 		model.addAttribute("searchUserList",searchUserList);
 		model.addAttribute("searchReviewList", searchReviewList);
 		model.addAttribute("searchCommentList", searchCommentList);
+		model.addAttribute("searchRealTimeList",searchRealTimeList);
 		
 		return "movie/list/SearchResult.tiles";
 	}
