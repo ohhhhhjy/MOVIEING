@@ -682,6 +682,7 @@ public class MovieController {
 		List<UserDto> searchUserList = userService.selectSearchList(map);
 		List<ReviewDto> searchReviewList = reviewService.selectSearchReviewList(map);
 		List<CommentDto> searchCommentList = commentService.selectSearchCommentList(map);
+	
 		/*
 		System.out.println("searchResult -2 searchMovieList 값 : "+searchMovieList);
 		System.out.println("searchResult -3 searchPeopleList 값 : "+searchPeopleList);
@@ -695,6 +696,7 @@ public class MovieController {
 		model.addAttribute("searchUserList",searchUserList);
 		model.addAttribute("searchReviewList", searchReviewList);
 		model.addAttribute("searchCommentList", searchCommentList);
+		model.addAttribute("searchRealTimeList",searchRealTimeList);
 		
 		return "movie/list/SearchResult.tiles";
 	}

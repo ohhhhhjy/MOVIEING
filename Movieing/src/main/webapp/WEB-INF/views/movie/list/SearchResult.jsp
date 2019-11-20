@@ -99,6 +99,7 @@ height: 200px;
 
 <div class="container ">
 	<!-- 검색바 -->
+	<!-- 
 	<div class="row">
 		<div class="col-md-2">
 			<select class="browser-default custom-select">
@@ -109,9 +110,10 @@ height: 200px;
 				<option value="4">리뷰</option>
 			</select>
 		</div>
+		<!-- 
 		<div class="col-md-10">
 			<div class="input-group md-form form-sm form-1 pl-0">
-				<!-- https://mdbootstrap.com/docs/jquery/forms/search/ -->
+				<!-- https://mdbootstrap.com/docs/jquery/forms/search/
 				<div class="input-group-prepend">
 					<span class="input-group-text pink lighten-3" id="basic-text1"><i
 						class="fas fa-search text-white" aria-hidden="true"></i></span>
@@ -120,7 +122,9 @@ height: 200px;
 					placeholder="Search" aria-label="Search">
 			</div>
 		</div>
+		 
 	</div>
+	 -->
 	<!-- 검색바2. -->
 	<!-- <div class="row">
 		<div class="col-md-10 col-md-offset-1">
@@ -316,47 +320,12 @@ height: 200px;
 						<table id="tablePreview"
 							class="table table-hover table-sm table-borderless">
 							<tbody>
-								<tr>
-									<th scope="row">1</th>
-									<td><a href="#" style="color: black">검색어</a></td>
-								</tr>
-								<tr>
-									<th scope="row">2</th>
-									<td><a>검색어</a></td>
-								</tr>
-								<tr>
-									<th scope="row">3</th>
-									<td><a>검색어</a></td>
-								</tr>
-								<tr>
-									<th scope="row">4</th>
-									<td><a>검색어</a></td>
-								</tr>
-								<tr>
-									<th scope="row">5</th>
-									<td><a>검색어</a></td>
-								</tr>
-								<tr>
-									<th scope="row">6</th>
-									<td><a>검색어</a></td>
-								</tr>
-								<tr>
-									<th scope="row">7</th>
-									<td><a>검색어</a></td>
-								</tr>
-								<tr>
-									<th scope="row">8</th>
-									<td><a>검색어</a></td>
-								</tr>
-								<tr>
-									<th scope="row">9</th>
-									<td><a>검색어</a></td>
-								</tr>
-								<tr>
-									<th scope="row">10</th>
-									<td><a>검색어</a></td>
-								</tr>
-
+								<c:forEach  items="${searchRealTimeList}" var="realTime" varStatus="status" end="9">
+									<tr>
+										<th scope="row">${status.count}</th>
+										<td><a href="#" style="color: black">${realTime.keyword}</a></td>
+									</tr>
+								</c:forEach>
 							</tbody>
 							<!--Table body-->
 						</table>
