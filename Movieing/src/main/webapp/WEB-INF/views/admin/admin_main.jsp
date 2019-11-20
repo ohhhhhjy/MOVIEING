@@ -29,7 +29,7 @@
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-3 text-center">
                         <h4><span class="fa fa-users"></span> 가입자 수</h4>
-                        <h3>119</h3>
+                        <h3>${totalUser}</h3>
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-3 text-center">
                         <h4><span class="fa fa-money"></span> 매출</h4>

@@ -29,6 +29,24 @@ public class QnaDto {
 	public String getQnaAnswer() {
 		return qnaAnswer;
 	}
+	public void setQnaNo(String qnaNo) {
+		this.qnaNo = qnaNo;
+	}
+	public void setQnaTitle(String qnaTitle) {
+		this.qnaTitle = qnaTitle;
+	}
+	public void setQnaContent(String qnaContent) {
+		this.qnaContent = qnaContent;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public void setPostdate(Date postdate) {
+		this.postdate = postdate;
+	}
+	public void setQnaAnswer(String qnaAnswer) {
+		this.qnaAnswer = qnaAnswer;
+	}
 	
 	
 }

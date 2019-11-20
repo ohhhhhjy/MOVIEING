@@ -20,7 +20,7 @@
 	</select>
 	
 	<select id="userTotal" parameterType="java.util.Map" resultType="int">
-	
+		select count(*) from user_table
 	</select>
 	
 	<select id="userSelectOne" parameterType="java.util.Map" resultType="UserDto">
@@ -51,7 +51,7 @@
 	
 	
 	<delete id="userDelete" parameterType="java.util.Map">
-	
+		delete user_table where user_id=#{userId}
 	</delete>
 	
 	<!-- 팔로워 유저 목록 -->
