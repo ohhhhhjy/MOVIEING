@@ -44,8 +44,12 @@
                                   <input type="hidden" name="userid" value=${userid }>
                                       <div  class="form-group row">
                                            <label  for="image" class="col-4 col-form-label">프로필 사진</label>
-                                           
-                                           <div  class="col-4">
+										<div style="text-align: center">
+											<img src="<c:url value='/resources/img/friends/dahee.jpg'/>"
+												class="radiusImg img-thumbnail" alt="프로필 사진"
+												style="display: block; margin: 0px auto;">
+										</div>
+										<div  class="col-4">
                                                 <input  type="file" name="image" id="image" class="text-center center-block file-upload">
                                            </div>
                                       </div>
