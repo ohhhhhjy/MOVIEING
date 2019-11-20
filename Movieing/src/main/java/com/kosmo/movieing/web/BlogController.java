@@ -649,4 +649,11 @@ public class BlogController {
 
 	}/// movieImgMap
 
+
+	@RequestMapping("/Movieing/Map")
+	public String map() {
+
+		return "Map.tiles";
+	}
+
 }//////// class
