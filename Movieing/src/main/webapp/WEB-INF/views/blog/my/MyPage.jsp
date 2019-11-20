@@ -49,11 +49,11 @@
 	/*입력완료 경고창*/
 	$(document).ready(function() {
 		function success() {
-			if (username.value = "") {
+			if (username.value == "") {
 				return false;
 			} else if (nick.value == "") {
 				return false;
-			} else if (phone.value = "") {
+			} else if (phone.value == "") {
 				return false;
 			} else if (email.value == "") {
 				return false;
@@ -91,12 +91,12 @@
 
 		<div class="col-md-3">
 			<!-- col-md-3시작 -->
-
 			<!--프사 -->
 			<div style="text-align: center">
 				<img src="<c:url value='${mypage.userProfile }'/>"
 					class="radiusImg img-thumbnail" alt="프로필 사진"
 					style="display: block; margin: 0px auto;">
+				
 			</div>
 
 
@@ -107,7 +107,14 @@
 						님</h1>
 				</div>
 				<!-- 파일선택 -->
-				<input type="file" id="image" name="image" class="text-center center-block file-upload">
+					<form id="imgForm" method="post" id="frm" enctype="multipart/form-data" 
+						action="<c:url value='/Movieing/Blog/ImageUpdate.mov?${_csrf.parameterName}=${_csrf.token}'/>">
+					<input type="hidden" name="${_csrf.parameterName}"
+									value="${_csrf.token}"> 
+					
+					<input type="file" id="image" name="image" class="text-center center-block file-upload">
+					<button name="submit" type="submit" class="btn btn-primary">수정</button>
+					</form>
 			</div>
 
 
@@ -153,9 +160,10 @@
 								<div class="form-group row">
 									<label for="username" class="col-4 col-form-label">이름*</label>
 									<div class="col-8">
+									
 										<input id="username" name="username"
 											value="${mypage.userName }" placeholder="이름을 입력하세요"
-											class="form-control here" required="required" type="text" disabled="disabled">
+											class="form-control here" required="required" type="text">
 									</div>
 								</div>
 								<div class="form-group row">
@@ -189,7 +197,7 @@
 										소개</label>
 									<div class="col-8">
 										<textarea id="publicinfo" name="publicinfo" cols="40" rows="4"
-											class="form-control" placeholder="자기소개를 입력하세요"></textarea>
+											class="form-control" placeholder="자기소개를 입력하세요">${mypage.userSelf }</textarea>
 									</div>
 								</div>
 
@@ -220,15 +228,31 @@
 </div>
 
 <script>
+	var form =  $('form')[0];
+	//FormData parameter에 담아줌
+	var formData = new FormData(form);
 
-	var fileValue = $("#image").val().split("\\");
-	var fileName = fileValue[fileValue.length-1]; // 파일명
 	$(function () {
-		$(fileName).on('change',function(){
-			console.log(fileName);
-		});
+	
 		
+		$("#image").change(function(e){
+			 
+		    console.log($('input[type=file]')[0].files[0].name); //파일이름
+		    
+ 		    $.ajax({
+				
+				url : "<c:url  value='/Ajax/ImageChange.mov'/>",
+				processData : false,
+				contentType : false,
+				data : formData,
+				type : 'POST',
+				success : function(result) {
+					alert("업로드 성공!!");
+				}
+
+			});
+
+		});
+
 	});
-
-
 </script>

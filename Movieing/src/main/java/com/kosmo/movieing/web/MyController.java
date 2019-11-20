@@ -1,15 +1,21 @@
 package com.kosmo.movieing.web;
 
+import java.io.File;
+import java.io.IOException;
 import java.security.Principal;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.kosmo.movieing.service.ReviewService;
 import com.kosmo.movieing.service.UserDto;
@@ -22,6 +28,35 @@ public class MyController {
 	private ReviewService reviewService;
 	@Resource(name="userService")
 	private UserService userService;
+	
+	//이미지 수정
+	@PostMapping(value = "/Movieing/Blog/ImageUpdate.mov")
+		public String imageUpdate(@RequestParam Map map,@RequestPart MultipartFile image,HttpServletRequest req, Principal principal) throws IllegalStateException, IOException {
+			System.out.println("돼냐?");
+			// 세션아이디
+			String id = principal.getName();
+			map.put("userid", id);
+			//확장자 찾기
+			String original = image.getOriginalFilename();
+			int index = original.lastIndexOf('.');
+			if(index!=-1) {
+				String extension = original.substring(index, original.length());
+				//File객체 생성
+				String filePath = "/resources/Upload/"+map.get("userid")+extension;
+				File file =  new File(filePath);
+				System.out.println("filename : "+image.getOriginalFilename());
+				image.transferTo(file);
+				map.put("file", filePath);
+				userService.updateImage(map);
+			}
+				//System.out.println(filePath);
+			
+			
+			//return new UserDto(map.get("name").toString(),map.get("age").toString(),map.get("addr").toString());
+			return "";
+		
+		}
+		
 
 	// 마이페이지1]
 	@RequestMapping(value = "/Movieing/Blog/MyPage.mov" ,method=RequestMethod.GET)
