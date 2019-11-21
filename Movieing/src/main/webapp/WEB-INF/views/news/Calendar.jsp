@@ -111,8 +111,8 @@
 		header : {
 			left : 'prev,next today',
 			center : 'title',
-			//right: 'month,agendaWeek,agendaDay,listWeek'
-			right : ' , , '
+			right: 'month,agendaWeek,agendaDay,listWeek'
+			//right : ' , , '
 		},
 		defaultDate : '2019-12-05',
 		navLinks : true,

@@ -61,6 +61,12 @@ public class CommentServiceImpl implements CommentService{
 		return dao.selectSearchCommentList(map);
 	}
 
+	@Override
+	public int getCountNoti(String id) {
+		
+		return dao.getCountNoti(id);
+	}
+
 
 
 }
