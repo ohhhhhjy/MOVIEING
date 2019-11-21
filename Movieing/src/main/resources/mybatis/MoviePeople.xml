@@ -18,5 +18,14 @@
 		OR MOVIE_PEOPLE_NAME LIKE #{%searchWord%}
 	</select>
 
+	<select id="selectPeopleNoList" parameterType="java.util.Map" resultType="moviePeopleDto">
+		select *from MOVIE_PEOPLE
+		where MOVIE_PEOPLE_NAME = #{moviePeopleName}
+	</select>
+	
+	<select id="selectMoviePeopleNameOne" parameterType="java.util.Map" resultType="moviePeopleDto">
+		select * from MOVIE_PEOPLE
+		where MOVIE_PEOPLE_NAME = #{moviePeopleName}
+	</select>
 
 </mapper>
