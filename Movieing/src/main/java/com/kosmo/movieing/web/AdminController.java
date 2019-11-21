@@ -17,6 +17,7 @@ import com.kosmo.movieing.service.NoticeDto;
 import com.kosmo.movieing.service.NoticeService;
 import com.kosmo.movieing.service.QnaDto;
 import com.kosmo.movieing.service.QnaService;
+import com.kosmo.movieing.service.UserDto;
 import com.kosmo.movieing.service.UserService;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -45,8 +46,10 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/Movieing/admin/admin_usermanagement.mov")
-	public String admin_usermanagement() {
+	public String admin_usermanagement(@RequestParam Map map, Model model) {
 		
+		List<UserDto> userList = userService.selectAllUserList(map);
+		model.addAttribute("user",userList);
 		
 		return "admin/admin_usermanagement.admin";
 	}

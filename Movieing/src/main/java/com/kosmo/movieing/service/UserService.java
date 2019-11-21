@@ -36,4 +36,7 @@ public interface UserService {
 	//검색 용
 	List<UserDto> selectSearchList(Map map);
 	
+	//유저 전체 검색용
+	List<UserDto> selectAllUserList(Map map);
+	
 }

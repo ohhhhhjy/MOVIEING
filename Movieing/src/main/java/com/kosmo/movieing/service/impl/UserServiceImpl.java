@@ -100,4 +100,9 @@ public class UserServiceImpl implements UserService{
 		return dao.updateImage(map);
 	}
 
+	@Override
+	public List<UserDto> selectAllUserList(Map map) {
+		return dao.selectAllUserList(map);
+	}
+
 }

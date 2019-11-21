@@ -100,6 +100,11 @@ public class UserDao implements UserService{
 		return template.update("updateImage", map);
 	}
 
+	@Override
+	public List<UserDto> selectAllUserList(Map map) {
+		return template.selectList("selectAllUserList",map);
+	}
+
 
 
 }

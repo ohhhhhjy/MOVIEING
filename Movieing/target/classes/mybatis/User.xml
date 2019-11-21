@@ -76,7 +76,9 @@
 		OR USER_NICK LIKE #{%searchWord%}
 	</select>
 
-
+	<select id="selectAllUserList" parameterType="java.util.Map" resultType="UserDto">
+		select user_id,user_name,user_nick,user_contact,user_mail,user_signup_date,user_self from user_table
+	</select>
 
 
 </mapper>
