@@ -546,7 +546,7 @@ $(function(){
 
 								<div class="col-sm-4" align="center"
 									style="margin-bottom: -20px; margin-left: -20px">
-									<img class="effect" src="${item.imgUrl }" alt="Image">
+									<img class="effect" src="${item.movieImg }" alt="Image">
 								</div>
 								<div class="col-sm-8" style="margin-bottom: -40px">
 
@@ -586,7 +586,7 @@ $(function(){
 
 							<div class="text-muted h7 mb-2" style="padding-top: 20px">
 								<i class="fa fa-clock-o"
-									style="padding-bottom: 10px; padding-left: 5px"></i>${reviewPostdate }
+									style="padding-bottom: 10px; padding-left: 5px"></i>${item.reviewPostdate }
 								<div class="row">
 
 									<h6 style="padding-left: 20px">좋아요</h6>

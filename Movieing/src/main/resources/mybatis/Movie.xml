@@ -75,5 +75,18 @@
 		OR MOVIE_TITLE LIKE #{%searchWord%}
 	</select>
 	
+	<!-- 전체영화 드라마 가져오기 -->
+	<select id="selectListDrama" parameterType="java.util.Map" resultType="MovieDto">
+		select * from movie
+		where MOVIE_GENRE = '드라마'
+		order by dbms_random.value
+	</select>
+	
+	<!-- 전체영화 애니메이션 가져오기 -->
+	<select id="selectListAni" parameterType="java.util.Map" resultType="MovieDto">
+		select * from movie
+		where MOVIE_GENRE = '애니메이션'
+		order by dbms_random.value
+	</select>
 	
 </mapper>

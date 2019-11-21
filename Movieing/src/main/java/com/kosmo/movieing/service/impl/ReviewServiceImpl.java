@@ -138,6 +138,12 @@ public class ReviewServiceImpl implements ReviewService{
 		return dao.selectSearchReviewList(map);
 	}
 
+	@Override
+	public List<ReviewDto> selectBestReviewList() {
+
+		return dao.selectBestReviewList();
+	}
+
 
 
 

@@ -62,10 +62,13 @@ public interface ReviewService {
 	int update(Map map);
 	//내 리뷰 삭제]
 	int delete(Map map);
-	
-	
+
+
 	//리뷰검색
 	List<ReviewDto> selectSearchReviewList(Map map);
+
+	//인기 리뷰
+	List<ReviewDto> selectBestReviewList();
 
 
 }

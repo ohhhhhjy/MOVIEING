@@ -16,7 +16,7 @@
 	background: #000;
 	overflow-x: hidden;
 	overflow-y: auto;
-	margin-top: 100px;
+	margin-top: 0px;
 }
 
 #page-content-wrapper {
@@ -47,6 +47,7 @@
 	background: rgba(255, 255, 255, 0.2);
 }
 
+
 .sidebar-nav>.sidebar-brand {
 	font-size: 1.3em;
 	line-height: 3em;
@@ -69,9 +70,53 @@
 <script>
 	$(function() {
 		$('.genreTag').click(function() {
-			$('#options').html($(this).html());
+			//$('#options').html($(this).html());
+			$('.genreTag').css('backgroundColor','black');
+			$('.genreTag').css('color','#999');
+			$(this).css('color','black');
+			$(this).css('backgroundColor','#999'); 
+			
+			var genre = $(this).html();
+			
 		});
+		
 	});
+	
+	var ajax = function(genre){
+		$.ajax({
+			url:"<c:url value='/Movieing/Movie/movieAjax.mov'/>",
+			type:'post',
+			dataType:'json',
+			data:
+				{genre:genre},
+	    beforeSend : function(xhr)
+          {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+              xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+          },	
+			success:function(data){//서버로 부터 정상적인 응답을 받았을 때(200번)
+				makingList(data);
+			},	
+			error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+				console.log("에러:"+data.responseText);
+			} 
+		});
+	};
+	
+	function makingList(data){
+		var imgUrl = '';
+		var listString = '';
+
+		$.each(data,function(index,element){
+			imgUrl = '<c:url value="/Movieing/Movie/MovieDetails.mov?movieNo='+element['movieNo']+'"/>';
+			listString +='<div class="col-md-2 col-sm-6 movie-poster"style="margin-bottom: 5px">'+
+							'<a href="'+imgUrl+'">'+
+								'<img class="mvimg" src="'+element['movieImg']+'" alt="영화포스터" />'+
+							'</a>'+
+						'</div>';
+		});
+		
+		$('#listDiv').html(listString);
+	}
 </script>
 
 <div id="page-wrapper">
@@ -80,7 +125,7 @@
 	<div id="sidebar-wrapper" class="sidebar col-md-3">
 
 		<ul class="sidebar-nav">
-
+			<li style="height: 100px"></li>
 			
 			<li class="sidebar-brand"><span
 				style="font-weight: bold; color: white;">영화</span></li>
@@ -90,14 +135,14 @@
 			<li><a href="#" class="genreTag">국내누적관객수 TOP 영화</a></li>
 			<li><a href="#" class="genreTag">전문가 고평점 영화</a></li>
 			<li><a href="#" class="genreTag">슈퍼 히어로 영화</a></li>
-			<li><a href="#" class="genreTag">스포츠 영화</a></li>
+			<li><a href="#" class="genreTag">스포츠</a></li>
 			<li><a href="#" class="genreTag">범죄</a></li>
-			<li><a href="#" class="genreTag">드라마</a></li>
+			<li><a href="javascript:ajax('drama');" class="genreTag">드라마</a></li>
 			<li><a href="#" class="genreTag">코미디</a></li>
 			<li><a href="#" class="genreTag">로맨스/멜로</a></li>
 			<li><a href="#" class="genreTag">공포/스릴러</a></li>
 			<li><a href="#" class="genreTag">SF</a></li>
-			<li><a href="#" class="genreTag">애니메이션</a></li>
+			<li><a href="javascript:ajax('animation');" class="genreTag">애니메이션</a></li>
 			<li><a href="#" class="genreTag">액션</a></li>
 			<li><a href="#" class="genreTag">전쟁</a></li>
 			<li><a href="#" class="genreTag">판타지</a></li>
@@ -106,14 +151,7 @@
 			<li><a href="#" class="genreTag">느와르 영화</a></li>
 			<li><a href="#" class="genreTag">랜덤 영화</a></li>	
 			<li><a href="#" class="genreTag">가족</a></li>
-			
-		
-			
-			
 			<li><a href="#" class="genreTag">다큐멘터리</a></li>
-
-
-
 		</ul>
 	</div>
 	<!-- /사이드바 -->
@@ -125,7 +163,7 @@
 		<div class="container-fluid" style="margin-top: 110px;">
 
 			<div class="row">
-				<span id="options" class="font-weight-bold"></span>
+				<span id="options" class="font-weight-bold" style="color:#E4288C;font-size: 1.5em"></span>
 			</div>
 
 			<div class="row">
@@ -138,21 +176,13 @@
 			</div>
 
 
-			<div class="row" style="margin-top: 20px">
-			
+			<div class="row" style="margin-top: 20px" id="listDiv">
 				<c:forEach items="${movieList}" var="movie" begin="0" end="29">
-
 					<div class="col-md-2 col-sm-6 movie-poster"style="margin-bottom: 5px">
-						<a
-							href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo}'/>">
+						<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo}'/>">
 							<img class="mvimg" src="${movie.movieImg}" alt="" />
 						</a>
-
-	
-
 					</div>
-
-
 				</c:forEach>
 			</div>
 

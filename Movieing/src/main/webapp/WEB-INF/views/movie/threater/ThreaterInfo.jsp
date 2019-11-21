@@ -275,6 +275,12 @@ body {
 #gray {
 	color: gray;
 }
+
+#lotte{
+/* position: absolute; top:0; left: 0; */
+width: 100%;
+height: 100%;
+}
 </style>
 
 <script type="text/javascript"
@@ -757,9 +763,13 @@ body {
 					</div>
 					<!-- 영화시간표 div끝 -->
 
-					<div class="d-flex flex-row-reverse bg-dark text-white p-4">
 
-						<div class="py-3 px-5 pull-left">
+					<!-- 롯데시네마 이미지 배너 -->
+					<div class="">
+						<a href="http://www.lottecinema.co.kr/LCHS/Contents/Cinema/Cinema-Detail.aspx?divisionCode=1&detailDivisionCode=1&cinemaID=1013">
+							<img id="lotte" alt="배너" src="<c:url value='/resources/images/lotteBanner.PNG'/>">
+						</a>
+						<!-- <div class="py-3 px-5 pull-left">
 							<div class="h2 font-weight-light">예매정보</div>
 							<div class="row">
 								<div class="mb-2" id="gray">상영일</div>
@@ -795,7 +805,7 @@ body {
 							</div>
 
 
-						</div>
+						</div> -->
 					</div>
 
 				</div>

@@ -119,7 +119,7 @@ img.border-shadow {
 
 		<div class="row" style="margin-top: 20px">
 
-			<c:forEach items="${movieList}" var="movie" begin="0" end="5">
+			<c:forEach items="${movieList}" var="movie" begin="12" end="17">
 
 				<div class="col-md-2 col-sm-6 movie-poster"
 					style="margin-bottom: 5px">
@@ -147,7 +147,7 @@ img.border-shadow {
 		<div class="col-xl-12">
 			<div class="row">
 				<div class="col-xl-10">
-					<h3>무빙 최고 인기작</h3>
+					<h3>#무빙 최고 인기작</h3>
 				</div>
 				<div class="col-xl-2" align="right">
 				<a href="<c:url value='/Movieing/Movie/Genre.mov'/>" style="z-index: 1">
@@ -249,7 +249,7 @@ img.border-shadow {
 		<div class="col-xl-12">
 			<div class="row">
 				<div class="col-xl-10">
-					<h3>#마음이 따듯해지는 영화</h3>
+					<h3>#마음이 따뜻해지는 영화</h3>
 				</div>
 				<div class="col-xl-2" align="right">
 					<button type="button" class="btn btn-light btn-lg">

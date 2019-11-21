@@ -76,8 +76,7 @@
 	<select id="friendsReviewListFollower" parameterType="java.util.Map" resultType="ReviewDto">
 	
 	       select r.*, 
-		MOVIE_TITLE ,
-		MOVIE_ORG_TITLE ,
+		m.*,
 		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
 		(select count(*) from LIKE_REVIEW  where  review_no = r.review_no) likeCount,
 		(select count(*) from COMMENT_TABLE where  review_no = r.review_no) commentCount,
@@ -187,6 +186,16 @@
 		where REVIEW_CONTENT LIKE #{%searchWord}
 		OR REVIEW_CONTENT LIKE #{searchWord%}
 		OR REVIEW_CONTENT LIKE #{%searchWord%}
+	</select>
+	
+		<!-- 좋아요수 많은 인기 리뷰3개 -->
+	<select id="selectBestReviewList" resultType="ReviewDto">
+		select r.*, u.*,m.* 
+		from review r 
+		join user_table u on r.user_id = u.user_id 
+		join movie m on r.movie_no = m.movie_no
+        order by 
+        (select count(*) from like_review where review_no = r.review_no) DESC
 	</select>
 	
 	

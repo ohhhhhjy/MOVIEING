@@ -37,9 +37,9 @@ import com.kosmo.movieing.service.MoviePeopleService;
 import com.kosmo.movieing.service.MovieService;
 import com.kosmo.movieing.service.PagingUtil;
 import com.kosmo.movieing.service.RealTimeSearchDto;
+import com.kosmo.movieing.service.RealTimeSearchService;
 import com.kosmo.movieing.service.ReviewDto;
 import com.kosmo.movieing.service.ReviewService;
-import com.kosmo.movieing.service.RealTimeSearchService;
 import com.kosmo.movieing.service.UserDto;
 import com.kosmo.movieing.service.UserService;
 
@@ -394,7 +394,7 @@ public class MovieController {
 		for (ReviewDto record : reviewList) {
 			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
 		}
-		
+
 		System.out.println("MovieDetails - 5 reviewList 값 :"+reviewList);
 		//System.out.println("MovieDetails - 6 reviewList.getUserId 값 :"+reviewList.get(0).getUserId());
 		model.addAttribute("reviewList", reviewList);
@@ -407,8 +407,13 @@ public class MovieController {
 
 
 	// 영화 평가 보여주기
-	@RequestMapping("/Movieing/Movie/screening/First_like.mov")
-	public String ratingMovie(Model model, @RequestParam Map map) throws Exception {
+	@RequestMapping("/Movieing/Movie/screening/RatingMovie.mov")
+	public String ratingMovie(Model model, @RequestParam Map map,Authentication auth) throws Exception {
+
+		//이거지우지마 영화평가 갯수넘겨줘야해
+		map.put("id",auth.getName());
+		int evalueCount = evalueWishService.getTotalEvalueCount(map);
+		model.addAttribute("evalueCount",evalueCount);
 
 		System.out.println("RatingMovie - 1 DB 가져오기 전");
 			List<MovieDto> movieList = movieService.selectListMovie(map);
@@ -417,7 +422,7 @@ public class MovieController {
 			model.addAttribute("movieList", movieList);
 
 		System.out.println("RatingMovie - 3 값 전송 완료");
-		return "movie/screening/First_like.tiles";
+		return "movie/screening/RatingMovie.tiles";
 
 		/*
 		List movie40List = movie40Get();
@@ -523,6 +528,33 @@ public class MovieController {
 //		return "movie/info/MovieDetails.tiles";
 //	}
 //
+
+	//전체영화 ajax
+	@ResponseBody
+	@RequestMapping(value="/Movieing/Movie/movieAjax.mov")
+	public String movieAjax(@RequestParam Map map,Authentication auth) {
+
+		List<MovieDto> movieList;
+		if(map.get("genre").toString().equals("drama")) {
+			movieList = movieService.selectListDrama(map);
+		}
+		else {
+			movieList = movieService.selectListAni(map);
+		}
+
+		List<Map> movieJsonArray = new Vector<Map>();
+		for (MovieDto dto : movieList) {
+			Map record = new HashMap();
+			record.put("movieNo", dto.getMovieNo());
+			record.put("movieImg", dto.getMovieImg());
+			movieJsonArray.add(record);
+		}
+
+		return JSONArray.toJSONString(movieJsonArray);
+	}
+
+
+
 	//영화상세 페이지의 별점ajax
 	@ResponseBody
 	@RequestMapping(value="/Movieing/Movie/starAjax.mov")
@@ -641,7 +673,7 @@ public class MovieController {
 
 	@RequestMapping("/Movieing/Movie/SearchResult.mov")
 	public String searchResult(@RequestParam Map map, @RequestParam String searchWord, Model model ) {
-		
+
 		map.put("searchWord", searchWord);
 		map.put("searchWord%", searchWord+"%");
 		map.put("%searchWord", "%"+searchWord);
@@ -650,8 +682,8 @@ public class MovieController {
 		//map.put("searchPeople%", searchWord+"%");
 		/*
 		System.out.println("searchReuslt - 1 searchWord 값 : "+searchWord);
-		*/	
-		
+		*/
+
 		List<RealTimeSearchDto> searchRealTimeList = realTimeSearchService.selectRTSearchList(map);
 		System.out.println("searchResult -1 searchRealTimeLsit 값 : "+searchRealTimeList);
 		if(searchRealTimeList.size()==0) {
@@ -672,24 +704,24 @@ public class MovieController {
 			if(check==searchRealTimeList.size()) {
 				realTimeSearchService.insert(map);
 			}
-				
-			
+
+
 		}
-		
-		
+
+
 		List<MovieDto> searchMovieList = movieService.selectListSearchRadom(map);
 		List<MoviePeopleDto> searchPeopleList = moviePeopleService.selectListPeople(map);
 		List<UserDto> searchUserList = userService.selectSearchList(map);
 		List<ReviewDto> searchReviewList = reviewService.selectSearchReviewList(map);
 		List<CommentDto> searchCommentList = commentService.selectSearchCommentList(map);
-	
+
 		/*
 		System.out.println("searchResult -2 searchMovieList 값 : "+searchMovieList);
 		System.out.println("searchResult -3 searchPeopleList 값 : "+searchPeopleList);
 		System.out.println("searchResult -4 searchUserList 값 : "+searchUserList);
 		System.out.println("searchResult -5 searchReviewList 값 : "+searchReviewList);
 		*/
-		
+
 		model.addAttribute("searchWord", searchWord);
 		model.addAttribute("searchMovieList",searchMovieList);
 		model.addAttribute("searchPeopleList",searchPeopleList);
@@ -697,7 +729,7 @@ public class MovieController {
 		model.addAttribute("searchReviewList", searchReviewList);
 		model.addAttribute("searchCommentList", searchCommentList);
 		model.addAttribute("searchRealTimeList",searchRealTimeList);
-		
+
 		return "movie/list/SearchResult.tiles";
 	}
 

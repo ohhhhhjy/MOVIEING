@@ -503,8 +503,6 @@ public class BlogController {
 
 		System.out.println("닉네임:" + friendsReviewList2.get(0).getUserNick());
 
-		model.addAttribute("friendsReviewList1", friendsReviewList2);
-
 		// 유저자기소개]
 		ReviewDto friendsSelf = reviewService.selectMovieingOne(map);// 1개
 		model.addAttribute("friendsSelf", friendsSelf);
@@ -551,17 +549,15 @@ public class BlogController {
 			}
 
 			times.setReviewContent(times.getReviewContent().replace("\r\n", "<br>"));
-			// 가져온 리스트에 사진url담아주기
-			//times.setImgUrl(naverDefaultMovieImgUrl(times.getMovieTitle()));
 
 			map.put("reviewPostdate", reviewPostdate);
-			model.addAttribute("reviewPostdate", reviewPostdate);
+			//model.addAttribute("reviewPostdate", reviewPostdate);
 		} ////////////////////////////
 
-		model.addAttribute("friendsReviewList2", friendsReviewList2);
+		model.addAttribute("friendsReviewList2", friendsReviewList2.isEmpty()?null:friendsReviewList2);
 		// 팔로우된 아이디 리스트
 		List<FollowDto> selectFollowList=followService.selectFollowList(map);
-		model.addAttribute("selectFollowList", selectFollowList);
+		model.addAttribute("selectFollowList", selectFollowList.isEmpty()?null:selectFollowList);
 
 		return "blog/my/MovieingFriends_2.tiles";
 	}

@@ -433,7 +433,7 @@ body {
 				style="padding-top: 60px">
 				<h3 align="center">${userInfo.userNick}님의 취향은?</h3>
 				<p align="right">
-					<a href="<c:url value='/Movieing/Movie/screening/First_like.mov'/>"
+					<a href="<c:url value='/Movieing/Movie/screening/RatingMovie.mov'/>"
 						style="color: #a8a5a5">더 평가하러 가기</a>
 				</p>
 				<hr class="my-3">

@@ -4,7 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kosmo.movieing.service.ReviewDto;
+import com.kosmo.movieing.service.ReviewService;
 
 import kr.or.kobis.kobisopenapi.consumer.rest.KobisOpenAPIRestService;
 
@@ -27,7 +31,8 @@ public class LoginController {
 	@Autowired
 	private OAuth2Parameters googleOAuth2Parameters;
 
-
+	@Resource(name="reviewService")
+	private ReviewService reviewService;
 
 
 	/* NaverLoginBO */
@@ -107,7 +112,13 @@ public class LoginController {
 
 	@RequestMapping("/Movieing/Movie/Home.mov")
 	public String goToHome(Model model) throws Exception {
+
+		List<ReviewDto> bestReviewList = reviewService.selectBestReviewList();
+		model.addAttribute("bestReviewList", bestReviewList.isEmpty()?null:bestReviewList);
+
+		//영진위 박스오피스 순위 담기
 		model.addAttribute("dailyResult", boxofficeResult());
+
 		return "main_logined.tiles";
 	}
 

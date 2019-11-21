@@ -109,4 +109,16 @@ public class MovieServiceImpl implements MovieService{
 		return dao.selectListSearchPeople(map);
 	}
 
+	@Override
+	public List<MovieDto> selectListDrama(Map map) {
+
+		return dao.selectListDrama(map);
+	}
+
+	@Override
+	public List<MovieDto> selectListAni(Map map) {
+
+		return dao.selectListAni(map);
+	}
+
 }

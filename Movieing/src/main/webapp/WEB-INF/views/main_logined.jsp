@@ -418,7 +418,7 @@ $('#blogCarousel').carousel({
 							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 							allowfullscreen></iframe>
 							-->
-						<c:set var="title" value="말레피센트"></c:set>
+						<c:set var="title" value="겨울왕국2"></c:set>
 						<c:set var="result" value="[${title }]메인예고편" />
 						<iframe id="ytplayer1" type="text/html" width="100%"
 							height="400px"
@@ -512,11 +512,11 @@ $('#blogCarousel').carousel({
 
 			<!-- 2행 -->
 			<div>
-				<div class="col-xl-12">
+				<!-- <div class="col-xl-12">
 					<h5 style="font-weight: bold;">할인 영화</h5>
-				</div>
+				</div> -->
 
-				<div id="carouselSixColumn" class="carousel slide"
+				<%-- <div id="carouselSixColumn" class="carousel slide"
 					data-ride="carousel">
 					<ol class="carousel-indicators">
 						<li data-target="#carouselSixColumn" data-slide-to="0"
@@ -772,7 +772,7 @@ $('#blogCarousel').carousel({
 
 
 					<!-- 2행 div끝 -->
-				</div>
+				</d iv>--%>
 
 				<div>
 					<!-- 3행 div시작 ------------------------------------>
@@ -780,153 +780,49 @@ $('#blogCarousel').carousel({
 					<h5 style="font-weight: bold;">무비 블로그 인기 글</h5>
 					<!-- Card group -->
 					<div class="card-group">
-
-						<!-- Card -->
-						<div class="card mb-4">
-
-
-							<!-- Card image -->
-							<div class="view overlay">
-								<img class="card-img-top"
-									src="<c:url value='/resources/img/main/7.jpg'/>"
-									alt="Card image cap" style="width: 357px; height: 354px">
-								<a href="#!">
-									<div class="mask rgba-white-slight"></div>
-								</a>
-							</div>
-
-
-
-
-
-							<!-- Card content -->
-							<div class="card-body">
-
-								<!-- Title -->
-								<h4 class="card-title">
-									<div style="align-content: right;">
-										<span class="fa fa-star checked"></span> <span
-											class="fa fa-star checked"></span> <span
-											class="fa fa-star checked"></span> <span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-									</div>
-								</h4>
-								<!-- Text -->
-								<p class="card-text">장사리 : 잊혀진 영웅들 너무 재밌다.장사리 : 잊혀진 영웅들 너무
-									재밌다.장사리 : 잊혀진 영웅들 너무 재밌다. ...</p>
-								<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-								<div class="row actorForm">
-									<div class="col-sm-3">
-										<img class="radiusImg" alt="감독사진"
-											src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-									</div>
-									<div class="col-sm-4">
-										<span class="actorSpan">light_hj</span>
-									</div>
-									<div class="col-sm-5"></div>
+						
+						<c:forEach items="${bestReviewList }" var="review" begin="0" end="2" varStatus="status">
+							<!-- Card -->
+							<div class="card mb-4">
+								<!-- Card image -->
+								<div class="view overlay d-flex justify-content-center py-2">
+									<img class="card-img-top"
+										src="${review.movieImg }"
+										alt="Card image cap" style="width: 320px; height: 420px">
+									<a href="#!">
+										<div class="mask rgba-white-slight"></div>
+									</a>
 								</div>
-
-
-
-
-							</div>
-							<!-- Card content -->
-
-						</div>
-						<!-- Card -->
-						<div style="padding-left: 20px"></div>
-
-						<!-- Card -->
-						<div class="card mb-4">
-
-							<!-- Card image -->
-							<div class="view overlay">
-								<img class="card-img-top"
-									src="<c:url value='/resources/img/main/8.jpg'/>"
-									alt="Card image cap" style="width: 357px; height: 354px">
-								<a href="#!">
-									<div class="mask rgba-white-slight"></div>
-								</a>
-							</div>
-
-							<!-- Card content -->
-							<div class="card-body">
-								<!-- Title -->
-								<h4 class="card-title">
-									<span class="fa fa-star checked"></span> <span
-										class="fa fa-star checked"></span> <span
-										class="fa fa-star checked"></span> <span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-								</h4>
-								<!-- Text -->
-								<p class="card-text">장사리 : 잊혀진 영웅들 너무 재밌다.장사리 : 잊혀진 영웅들 너무
-									재밌다.장사리 : 잊혀진 영웅들 너무 재밌다. ...</p>
-								<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-								<div class="row actorForm">
-									<div class="col-sm-3">
-										<img class="radiusImg" alt="감독사진"
-											src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+								<!-- Card content -->
+								<div class="card-body">
+	
+									<!-- Title -->
+									<h4 class="card-title">
+										<!-- <div style="align-content: right;">
+											<span class="fa fa-star checked"></span> <span
+												class="fa fa-star checked"></span> <span
+												class="fa fa-star checked"></span> <span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+										</div> -->
+									</h4>
+									<!-- Text -->
+									<p class="card-text">${review.reviewContent }</p>
+									<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+									<div class="row actorForm">
+										<div class="col-sm-3">
+											<img class="radiusImg" alt="감독사진"
+												src="${review.userProfile }" />
+										</div>
+										<div class="col-sm-9">
+											<span class="actorSpan">${review.userNick }</span>
+										</div>
 									</div>
-									<div class="col-sm-4">
-										<span class="actorSpan">light_hj</span>
-									</div>
-									<div class="col-sm-5"></div>
 								</div>
-
+								<!-- Card content -->
 							</div>
-							<!-- Card content -->
-
-
-
-						</div>
-						<!-- Card -->
-						<div style="padding-left: 20px"></div>
-						<!-- Card -->
-						<div class="card mb-4">
-
-							<!-- Card image -->
-							<div class="view overlay">
-								<img class="card-img-top"
-									src="<c:url value='/resources/img/main/9.jpg'/>"
-									alt="Card image cap" style="width: 357px; height: 354px">
-								<a href="#!">
-									<div class="mask rgba-white-slight"></div>
-								</a>
-							</div>
-
-
-
-							<!-- Card content -->
-							<div class="card-body">
-
-								<!-- Title -->
-								<h4 class="card-title">
-									<span class="fa fa-star checked"></span> <span
-										class="fa fa-star checked"></span> <span
-										class="fa fa-star checked"></span> <span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-								</h4>
-								<!-- Text -->
-								<p class="card-text">장사리 : 잊혀진 영웅들 너무 재밌다.장사리 : 잊혀진 영웅들 너무
-									재밌다.장사리 : 잊혀진 영웅들 너무 재밌다. ...</p>
-								<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-								<div class="row actorForm">
-									<div class="col-sm-3">
-										<img class="radiusImg" alt="감독사진"
-											src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-									</div>
-									<div class="col-sm-4">
-										<span class="actorSpan">light_hj</span>
-									</div>
-									<div class="col-sm-5"></div>
-								</div>
-
-							</div>
-							<!-- Card content -->
-
-						</div>
-						<!-- Card -->
-
+							<!-- Card -->
+							<div style="padding-left: 20px"></div>
+						</c:forEach>
 					</div>
 					<!-- Card group -->
 
@@ -939,7 +835,7 @@ $('#blogCarousel').carousel({
 				</div>
 
 
-				<div style="padding-top: 60px"></div>
+				<%-- <div style="padding-top: 60px"></div>
 				<div>
 					<h5 style="font-weight: bold;">평론가 인기글</h5>
 
@@ -970,7 +866,7 @@ $('#blogCarousel').carousel({
 
 
 
-				</div>
+				</div> --%>
 
 				<!-- 4행시작 -->
 				<div style="padding-top: 60px"></div>
@@ -1071,13 +967,60 @@ $('#blogCarousel').carousel({
 
 
 				<ul class="list-unstyled video-list-thumbs row">
+					<li class="col-lg-3 col-sm-4 col-xs-6">
+							<iframe id="ytplayer1" type="text/html" width="100%"
+							height="100%"
+							src="https://www.youtube.com/embed/?listType=search&list=감쪽같은그녀메인&autoplay=1"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							frameborder="0" allowfullscreen></iframe>
+					</li>
+					<li class="col-lg-3 col-sm-4 col-xs-6">
+							<iframe id="ytplayer1" type="text/html" width="100%"
+							height="100%"
+							src="https://www.youtube.com/embed/?listType=search&list=굿라이어&autoplay=1"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							frameborder="0" allowfullscreen></iframe>
+					</li>
+					<li class="col-lg-3 col-sm-4 col-xs-6">
+							<iframe id="ytplayer1" type="text/html" width="100%"
+							height="100%"
+							src="https://www.youtube.com/embed/?listType=search&list=라스트크리스마스 메인&autoplay=1"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							frameborder="0" allowfullscreen></iframe>
+					</li>
+					<li class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
+							<iframe id="ytplayer1" type="text/html" width="100%"
+							height="100%"
+							src="https://www.youtube.com/embed/?listType=search&list=백두산 메인&autoplay=1"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							frameborder="0" allowfullscreen></iframe>
+					</li>
+				</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<%-- <ul class="list-unstyled video-list-thumbs row">
 					<li class="col-lg-3 col-sm-4 col-xs-6"><a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"
 						title="터미네이터 : 다크페이트">
 							<img src="<c:url value='/resources/img/main/pre1.PNG'/>"
 							alt="Barca" class="img-responsive" width="240px"  height="167px" />
-							<h2>터미네이터 : 다크페이트</h2> <span
+							<h2>감쪽같은 그녀</h2> <span
 							class="glyphicon glyphicon-play-circle"></span> <span
 							class="duration">03:15</span>
+							
+							
 					</a></li>
 					<li class="col-lg-3 col-sm-4 col-xs-6"><a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"
 						title="날씨의 아이">
@@ -1100,11 +1043,7 @@ $('#blogCarousel').carousel({
 							<h2>니나 내나</h2> <span class="glyphicon glyphicon-play-circle"></span>
 							<span class="duration">03:15</span>
 					</a></li>
-
-
-
-
-				</ul>
+				</ul> --%>
 
 
 

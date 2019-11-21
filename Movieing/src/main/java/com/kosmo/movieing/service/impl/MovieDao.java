@@ -113,6 +113,18 @@ public class MovieDao implements MovieService{
 		return template.selectList("selectListSearchPeople",map);
 	}
 
+	@Override
+	public List<MovieDto> selectListDrama(Map map) {
+
+		return template.selectList("selectListDrama",map);
+	}
+
+	@Override
+	public List<MovieDto> selectListAni(Map map) {
+
+		return template.selectList("selectListAni",map);
+	}
+
 
 
 }

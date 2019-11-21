@@ -139,5 +139,11 @@ public class ReviewDao implements ReviewService{
 		return template.selectList("selectSearchReviewList",map);
 	}
 
+	@Override
+	public List<ReviewDto> selectBestReviewList() {
+
+		return template.selectList("selectBestReviewList");
+	}
+
 
 }

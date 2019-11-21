@@ -50,5 +50,11 @@ public interface MovieService {
 	//검색 사람 용
 	List<MovieDto> selectListSearchPeople(Map map);
 
+	//전체영화 드라마
+	List<MovieDto> selectListDrama(Map map);
+
+	//전체영화 애니메이션
+	List<MovieDto> selectListAni(Map map);
+
 
 }

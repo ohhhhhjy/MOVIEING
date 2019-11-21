@@ -1,6 +1,5 @@
 package com.kosmo.movieing.service;
 
-import java.sql.Blob;
 import java.util.Date;
 
 //리뷰 테이블
@@ -34,7 +33,7 @@ public class ReviewDto {
 	//유저닉네임
 	private String userNick;
 	//유저 프로필이미지
-	private Blob userProfile;
+	private String userProfile;
 
 	//장르
 	private String movieGenre ;
@@ -76,11 +75,11 @@ public class ReviewDto {
 		this.movieOrgTitle = movieOrgTitle;
 	}
 
-	public Blob getUserProfile() {
+	public String getUserProfile() {
 		return userProfile;
 	}
 
-	public void setUserProfile(Blob userProfile) {
+	public void setUserProfile(String userProfile) {
 		this.userProfile = userProfile;
 	}
 
