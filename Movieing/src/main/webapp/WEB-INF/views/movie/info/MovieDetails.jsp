@@ -394,7 +394,7 @@ $(document).ready(function() {
 								<a href="#"> <img
 									class="jw-provider-icon price-comparison_grid_row_icon"
 									alt="Naver Store" title="Naver Store"
-									src="<c:url value='/resources/img/movie/pooq.jpg'/>">
+									src="<c:url value='/resources/img/movie/google.jpg'/>">
 								</a>
 								<div class="priceText">${movieInfo.googlePrice }</div>
 							</div>
@@ -526,7 +526,14 @@ $(document).ready(function() {
 						    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 						    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 						  </ol>
+						  
 						  <div class="carousel-inner">
+						  <c:forEach items="${stillCutList}" var="stillCut">
+						  	<div class="carousel-item active">
+						      <img src="${stillCut.stillCutImage}" class="d-block w-100" alt="...">
+						    </div>
+						  </c:forEach>
+						  <!-- 
 						    <div class="carousel-item active">
 						      <img src="<c:url value='/resources/img/movie/toolyPhoto1.jpg'/>" class="d-block w-100" alt="...">
 						    </div>
@@ -536,6 +543,7 @@ $(document).ready(function() {
 						    <div class="carousel-item">
 						      <img src="<c:url value='/resources/img/movie/toolyPhoto3.jpg'/>" class="d-block w-100" alt="...">
 						    </div>
+						   -->
 						  </div>
 						  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 						    <span class="carousel-control-prev-icon" aria-hidden="true"></span>

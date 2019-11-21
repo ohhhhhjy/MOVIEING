@@ -445,173 +445,176 @@ body {
 						</div>
 					</div>
 				</div>
+
 			</c:forEach>
 		</c:if>
-	</div>
-	<!-- 왼쪽 마이피드끝-->
 
-	<!-- 가운데 분계선 -->
-	<div
-		style="border-left-width: 1px; border-left-style: solid; border-left-color: #a8a5a5"></div>
+			
 
-	<!-- 여기서부터 오른쪽 취향분석 시작 -->
-	<div class="col-sm-4 col-sm-offset-1 blog-sidebar">
-
-		<div class="sidebar-module sidebar-module-inset"
-			style="padding-top: 60px">
-			<h3 align="center">${userInfo.userNick}님의취향은?</h3>
-			<p align="right">
-				<a href="<c:url value='/Movieing/Movie/screening/First_like.mov'/>"
-					style="color: #a8a5a5">더 평가하러 가기</a>
-			</p>
-			<hr class="my-3">
-			<p align="center" style="font-size: 1em">무빙과 함께한지 ${signUpDays }일째!</p>
-			<hr class="my-3">
-			<h5>별점분포</h5>
-			<p align="center" style="font-size: 0.8em">
-				<em>별점이 한결같은 소나무 타입</em>
-			</p>
-			<div id="chart"
-				style="width: 500px; height: 170px; padding-left: 50px"></div>
-
-			<hr class="my-3">
-
-			<h5>선호태그</h5>
-			<div class="card border-secondary mb-3 justify-content-center"
-				style="max-width: 200rem; padding-left: 10px">
-				<div
-					style="color: rgba(0, 0, 0, 1); width: 280px; height: 172px; padding-left: 20px; padding-top: 20px">
-					<span
-						style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(98px, 61px) rotate(0deg); font-weight: bold">웃기는</span>
-					<span
-						style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(160px, 73px) rotate(0deg); font-weight: bold">발랄한</span>
-					<span
-						style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(80px, 32px) rotate(0deg); font-weight: bold">따뜻한</span>
-					<span
-						style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(179px, 43px) rotate(0deg); font-weight: bold">사랑</span>
-					<span
-						style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(79px, 90px) rotate(0deg); font-weight: bold">슬픈</span>
-					<span
-						style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(156px, 19px) rotate(0deg); font-weight: bold">귀여운</span>
-					<span
-						style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(28px, 30px) rotate(0deg); font-weight: bold">재밌는</span>
-					<span
-						style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(39px, 62px) rotate(0deg); font-weight: bold">뭉클한</span>
-					<span
-						style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(27px, 85px) rotate(0deg); font-weight: bold">감동적인</span>
-				</div>
-			</div>
-			<hr class="my-3">
-			<h5>선호배우</h5>
-			<div class="row actorForm">
-				<div class="col-sm-3">
-					<img class="radiusImg" alt="배우사진"
-						src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-				</div>
-				<div class="col-sm-6">
-					<span class="actorSpan">염정아</span>
-				</div>
-				<div class="col-sm-3">
-					<span class="filmoSpan">25편</span>
-				</div>
-			</div>
-
-			<div class="row actorForm">
-				<div class="col-sm-3">
-					<img class="radiusImg" alt="배우사진"
-						src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-				</div>
-				<div class="col-sm-6">
-					<span class="actorSpan">김선아</span>
-				</div>
-				<div class="col-sm-3">
-					<span class="filmoSpan">25편</span>
-				</div>
-			</div>
-
-			<div class="row actorForm">
-				<div class="col-sm-3">
-					<img class="radiusImg" alt="배우사진"
-						src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-				</div>
-				<div class="col-sm-6">
-					<span class="actorSpan">손예진</span>
-				</div>
-				<div class="col-sm-3">
-					<span class="filmoSpan">25편</span>
-				</div>
-			</div>
-			<hr class="my-3">
-			<h5>선호감독</h5>
-			<div class="row actorForm">
-				<div class="col-sm-3">
-					<img class="radiusImg" alt="감독사진"
-						src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-				</div>
-				<div class="col-sm-6">
-					<span class="actorSpan">염정아</span>
-				</div>
-				<div class="col-sm-3">
-					<span class="filmoSpan">25편</span>
-				</div>
-			</div>
-			<div class="row actorForm">
-				<div class="col-sm-3">
-					<img class="radiusImg" alt="감독사진"
-						src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-				</div>
-				<div class="col-sm-6">
-					<span class="actorSpan">김선아</span>
-				</div>
-				<div class="col-sm-3">
-					<span class="filmoSpan">25편</span>
-				</div>
-			</div>
-			<div class="row actorForm">
-				<div class="col-sm-3">
-					<img class="radiusImg" alt="감독사진"
-						src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-				</div>
-				<div class="col-sm-6">
-					<span class="actorSpan">손예진</span>
-				</div>
-				<div class="col-sm-3">
-					<span class="filmoSpan">25편</span>
-				</div>
-			</div>
-			<hr class="my-3">
-			<h5>선호장르</h5>
-			<p align="center" style="font-size: 0.8em">
-				<em>영화에서 주로 반전과 공포를 찾는 사람</em>
-			</p>
-			<div class="row" align="center"
-				style="padding-left: 30px; padding-right: 30px">
-				<div class="col-md-4">
-					<a href="#"><span class="genreSpan">스릴러</span></a>
-				</div>
-				<div class="col-md-4">
-					<a href="#"><span class="genreSpan">공포</span></a>
-				</div>
-				<div class="col-md-4">
-					<a href="#"><span class="genreSpan">액션</span></a>
-				</div>
-			</div>
-
-			<hr class="my-3">
-			<h5>영화감상시간</h5>
-			<h6 align="center" style="color: #db147b">${evalueCount*2 }시간</h6>
-			<p align="center" style="font-size: 0.8em">
-				<em>영화를 정말 사랑하시네요!</em>
-			</p>
 		</div>
+		<!-- 왼쪽 마이피드끝-->
+
+		<!-- 가운데 분계선 -->
+		<div
+			style="border-left-width: 1px; border-left-style: solid; border-left-color: #a8a5a5"></div>
+
+		<!-- 여기서부터 오른쪽 취향분석 시작 -->
+		<div class="col-sm-4 col-sm-offset-1 blog-sidebar">
+
+			<div class="sidebar-module sidebar-module-inset"
+				style="padding-top: 60px">
+				<h3 align="center">${userInfo.userNick}님의 취향은?</h3>
+				<p align="right">
+					<a href="<c:url value='/Movieing/Movie/screening/First_like.mov'/>"
+						style="color: #a8a5a5">더 평가하러 가기</a>
+				</p>
+				<hr class="my-3">
+				<p align="center" style="font-size: 1em">무빙과 함께한지 ${signUpDays }일째!</p>
+				<hr class="my-3">
+				<h5>별점분포</h5>
+				<p align="center" style="font-size: 0.8em">
+					<em>별점이 한결같은 소나무 타입</em>
+				</p>
+				<div id="chart"
+					style="width: 500px; height: 170px; padding-left: 50px"></div>
+
+				<hr class="my-3">
+
+				<h5>선호태그</h5>
+				<div class="card border-secondary mb-3 justify-content-center"
+					style="max-width: 200rem; padding-left: 10px">
+					<div
+						style="color: rgba(0, 0, 0, 1); width: 280px; height: 172px; padding-left: 20px; padding-top: 20px">
+						<span
+							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(98px, 61px) rotate(0deg); font-weight: bold">웃기는</span>
+						<span
+							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(160px, 73px) rotate(0deg); font-weight: bold">발랄한</span>
+						<span
+							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(80px, 32px) rotate(0deg); font-weight: bold">따뜻한</span>
+						<span
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(179px, 43px) rotate(0deg); font-weight: bold">사랑</span>
+						<span
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(79px, 90px) rotate(0deg); font-weight: bold">슬픈</span>
+						<span
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(156px, 19px) rotate(0deg); font-weight: bold">귀여운</span>
+						<span
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(28px, 30px) rotate(0deg); font-weight: bold">재밌는</span>
+						<span
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(39px, 62px) rotate(0deg); font-weight: bold">뭉클한</span>
+						<span
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(27px, 85px) rotate(0deg); font-weight: bold">감동적인</span>
+					</div>
+				</div>
+				<hr class="my-3">
+				<h5>선호배우</h5>
+				<div class="row actorForm">
+					<div class="col-sm-3">
+						<img class="radiusImg" alt="배우사진"
+							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+					</div>
+					<div class="col-sm-6">
+						<span class="actorSpan">염정아</span>
+					</div>
+					<div class="col-sm-3">
+						<span class="filmoSpan">25편</span>
+					</div>
+				</div>
+
+				<div class="row actorForm">
+					<div class="col-sm-3">
+						<img class="radiusImg" alt="배우사진"
+							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+					</div>
+					<div class="col-sm-6">
+						<span class="actorSpan">김선아</span>
+					</div>
+					<div class="col-sm-3">
+						<span class="filmoSpan">25편</span>
+					</div>
+				</div>
+
+				<div class="row actorForm">
+					<div class="col-sm-3">
+						<img class="radiusImg" alt="배우사진"
+							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+					</div>
+					<div class="col-sm-6">
+						<span class="actorSpan">손예진</span>
+					</div>
+					<div class="col-sm-3">
+						<span class="filmoSpan">25편</span>
+					</div>
+				</div>
+				<hr class="my-3">
+				<h5>선호감독</h5>
+				<div class="row actorForm">
+					<div class="col-sm-3">
+						<img class="radiusImg" alt="감독사진"
+							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+					</div>
+					<div class="col-sm-6">
+						<span class="actorSpan">염정아</span>
+					</div>
+					<div class="col-sm-3">
+						<span class="filmoSpan">25편</span>
+					</div>
+				</div>
+				<div class="row actorForm">
+					<div class="col-sm-3">
+						<img class="radiusImg" alt="감독사진"
+							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+					</div>
+					<div class="col-sm-6">
+						<span class="actorSpan">김선아</span>
+					</div>
+					<div class="col-sm-3">
+						<span class="filmoSpan">25편</span>
+					</div>
+				</div>
+				<div class="row actorForm">
+					<div class="col-sm-3">
+						<img class="radiusImg" alt="감독사진"
+							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+					</div>
+					<div class="col-sm-6">
+						<span class="actorSpan">손예진</span>
+					</div>
+					<div class="col-sm-3">
+						<span class="filmoSpan">25편</span>
+					</div>
+				</div>
+				<hr class="my-3">
+				<h5>선호장르</h5>
+				<p align="center" style="font-size: 0.8em">
+					<em>영화에서 주로 반전과 공포를 찾는 사람</em>
+				</p>
+				<div class="row" align="center"
+					style="padding-left: 30px; padding-right: 30px">
+					<div class="col-md-4">
+						<a href="#"><span class="genreSpan">스릴러</span></a>
+					</div>
+					<div class="col-md-4">
+						<a href="#"><span class="genreSpan">공포</span></a>
+					</div>
+					<div class="col-md-4">
+						<a href="#"><span class="genreSpan">액션</span></a>
+					</div>
+				</div>
+
+				<hr class="my-3">
+				<h5>영화감상시간</h5>
+				<h6 align="center" style="color: #db147b">${evalueCount*2 }시간</h6>
+				<p align="center" style="font-size: 0.8em">
+					<em>영화를 정말 사랑하시네요!</em>
+				</p>
+			</div>
+		</div>
+		<!-- /.blog-sidebar -->
 	</div>
-	<!-- /.blog-sidebar -->
-</div>
-</div>
 
 <!--div class=row끝 -->
 
-
+</div>
 <!--컨테이너 끝 ---->
 
 <!-- 모달시작 -->

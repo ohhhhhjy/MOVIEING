@@ -9,6 +9,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,7 +17,9 @@ import com.kosmo.movieing.service.NoticeDto;
 import com.kosmo.movieing.service.NoticeService;
 import com.kosmo.movieing.service.QnaDto;
 import com.kosmo.movieing.service.QnaService;
+import com.kosmo.movieing.service.UserService;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @Controller
 public class AdminController {
 	
@@ -26,13 +29,17 @@ public class AdminController {
 	@Resource(name="noticeService")
 	private NoticeService noticeService;
 	
+	@Resource(name="userService")
+	private UserService userService;
+	
 	
 
 	// 관리자페이지]
 	@RequestMapping("/Movieing/admin/admin_main.mov")
 	public String admin_main(@RequestParam Map map,Model model) {
 		
-		
+		int totalUser = userService.getTotalCount(map);
+		model.addAttribute("totalUser",totalUser);
 		
 		return "admin/admin_main.admin";
 	}
@@ -48,6 +55,7 @@ public class AdminController {
 	public String admin_qna(@RequestParam Map map, Model model) {
 		
 		List<QnaDto> qnaList = qnaService.selectList(map);
+		
 		
 		JSONArray qnaJson = new JSONArray();
 		for(int i=0;i<qnaList.size();i++) {

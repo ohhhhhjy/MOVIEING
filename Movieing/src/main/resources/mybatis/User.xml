@@ -20,7 +20,7 @@
 	</select>
 	
 	<select id="userTotal" parameterType="java.util.Map" resultType="int">
-	
+		select count(*) from user_table
 	</select>
 	
 	<select id="userSelectOne" parameterType="java.util.Map" resultType="UserDto">
@@ -29,29 +29,29 @@
 
 	<insert id="userInsert" parameterType="java.util.Map">
 		INSERT INTO user_table 
-		(USER_ID, USER_PWD,USER_NAME,USER_NICK,USER_CONTACT,USER_MAIL,USER_SELF, USER_PROFILE) 
+		(USER_ID, USER_PWD,USER_NAME,USER_NICK,USER_CONTACT,USER_MAIL,USER_SELF) 
 		VALUES 
-		(#{userid},#{userpass},#{username},#{nickname},#{contact},#{email},#{publicinfo}, null)
+		(#{userid},#{userpass},#{username},#{nickname},#{contact},#{email},#{publicinfo})
 	</insert>
 	
 	<insert id="insertSec" parameterType="java.util.Map">
 		insert into auth_security values(#{userid}, default, default)
 	</insert>
 	
+	<!-- 이미지 말고 그냥 수정 -->
 	<update id="userUpdate" parameterType="java.util.Map">
-
-	update user_table set user_nick=#{nick},user_name=#{username},user_contact=#{phone},user_mail=#{email},user_self=#{publicinfo}
+	update user_table set user_nick=#{nick},user_name=#{username},user_contact=#{phone},user_mail=#{email},user_self=#{publicinfo} 
 	where user_id=#{id}
-	
 	</update>
 	
+	<!-- 이미지만 수정 -->
 	<update id="updateImage" parameterType="java.util.Map">
 		update USER_TABLE set USER_PROFILE = #{file} where USER_ID = #{userid} 
 	</update>
 	
 	
 	<delete id="userDelete" parameterType="java.util.Map">
-	
+		delete user_table where user_id=#{userId}
 	</delete>
 	
 	<!-- 팔로워 유저 목록 -->

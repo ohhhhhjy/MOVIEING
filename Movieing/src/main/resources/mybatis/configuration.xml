@@ -22,6 +22,9 @@
 		<typeAlias alias="CalendarDto" type="com.kosmo.movieing.service.CalendarDto"/>
 		<typeAlias alias="MoviePeopleDto" type="com.kosmo.movieing.service.MoviePeopleDto"/>
 		<typeAlias alias="RealTimeSearchDto" type="com.kosmo.movieing.service.RealTimeSearchDto"/>
+		<typeAlias alias="QnaDto" type="com.kosmo.movieing.service.QnaDto"/>
+		<typeAlias alias="NoticeDto" type="com.kosmo.movieing.service.NoticeDto"/>
+		<typeAlias alias="StillCutDto" type="com.kosmo.movieing.service.StillCutDto"/>
 
 	</typeAliases>
 	
@@ -38,6 +41,9 @@
 		<mapper resource="mybatis/Calendar.xml" />
 		<mapper resource="mybatis/MoviePeople.xml"/>
 		<mapper resource="mybatis/RealTimeSearch.xml"/>
+		<mapper resource="mybatis/Qna.xml" />
+		<mapper resource="mybatis/Notice.xml" />
+		<mapper resource="mybatis/StillCut.xml"/>
 	</mappers>
 	
 </configuration>

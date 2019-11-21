@@ -24,8 +24,9 @@ DROP TABLE USER_TABLE CASCADE CONSTRAINTS;
 
 drop sequence seq_review;
 drop sequence seq_qna;
-
-
+drop sequence seq_stillcut;
+drop sequence seq_notice;
+drop sequence seq_comment;
 
 /* Create Tables */
 
@@ -267,11 +268,11 @@ CREATE TABLE STILLCUT
 (
    -- 스틸컷 번호
    STILLCUT_NO nvarchar2(10) NOT NULL,
-   -- 이미지
-   STILLCUT_IMAGE blob NOT NULL,
    -- 영화진흥원 코드
-   --
    MOVIE_NO nvarchar2(15) NOT NULL,
+   -- 이미지
+   STILLCUT_IMAGE nvarchar2(2000) NOT NULL,
+   
    PRIMARY KEY (STILLCUT_NO)
 );
 
@@ -445,6 +446,10 @@ ALTER TABLE WISH
 ;
 
 ALTER TABLE BUY  ADD QUANTITY NUMBER(10) NOT NULL;
+
+create SEQUENCE seq_stillcut NOCYCLE NOCACHE;
+create SEQUENCE seq_notice NOCYCLE NOCACHE;
+
 /*
 ALTER TABLE USER_TABLE DROP COLUMN USER_PROFILE;
 ALTER TABLE USER_TABLE  ADD USER_PROFILE NVARCHAR2(1000);
@@ -581,3 +586,6 @@ insert into review values(seq_review.nextval,'KIM','20182669','재밌었다',SYS
 insert into qna(qna_no, qna_title, qna_content, user_id) values(seq_qna.nextval, '제목1','내용1', 'LEE');
 --시큐리티 사용을 위한 권한 추가
 insert into auth_security values('KIM',default,default);
+-- 값 넣기
+insert into stillcut values(SEQ_STILLCUT.nextval,'20198681', 'http://kobis.or.kr/common/mast/movie/2019/10/thumb_x640/thn_0fd2d6aae22e40d59a4c437dc8ab4822.jpg');
+insert into stillcut values(SEQ_STILLCUT.nextval,'20198681', 'http://kobis.or.kr/common/mast/movie/2019/10/thumb_x640/thn_916f161c96854a11a597a1848e8a73b7.jpg');

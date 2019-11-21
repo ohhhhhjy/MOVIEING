@@ -2,14 +2,14 @@ package com.kosmo.movieing.service;
 
 public class RealTimeSearchDto {
 
-	private String Keyword;
+	private String keyword;
 	private int count;
 	
 	public String getKeyword() {
-		return Keyword;
+		return keyword;
 	}
 	public void setKeyword(String keyword) {
-		Keyword = keyword;
+		this.keyword = keyword;
 	}
 	public int getCount() {
 		return count;
