@@ -65,6 +65,8 @@
           width: auto;
         }
       }
+      
+      
 </style>
 
 <script>

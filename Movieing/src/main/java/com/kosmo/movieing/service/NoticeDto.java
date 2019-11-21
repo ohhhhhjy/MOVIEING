@@ -22,6 +22,18 @@ public class NoticeDto {
 	public Date getNotiDate() {
 		return notiDate;
 	}
+	public void setNotiNo(String notiNo) {
+		this.notiNo = notiNo;
+	}
+	public void setNotiTitle(String notiTitle) {
+		this.notiTitle = notiTitle;
+	}
+	public void setNotiContent(String notiContent) {
+		this.notiContent = notiContent;
+	}
+	public void setNotiDate(Date notiDate) {
+		this.notiDate = notiDate;
+	}
 	
 	
 }

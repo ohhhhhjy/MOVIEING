@@ -60,6 +60,10 @@
 	font-weight: bold;
 	text-align: center;
 }
+ th{
+ background-color: gray;
+ color:white;
+ }
 </style>
 
 
@@ -82,10 +86,12 @@
 			</div>
 
 
-			
+
 			<div class="text-center" style="padding-bottom: 50px">
 				<div>
-					<h1 style="padding-bottom: 10px;text-align: center;padding-top: 10px">${mypage.userName } 님</h1>
+					<h1
+						style="padding-bottom: 10px; text-align: center; padding-top: 10px">${mypage.userName }
+						님</h1>
 				</div>
 				<!-- 파일선택 -->
 				<input type="file" class="text-center center-block file-upload">
@@ -95,21 +101,21 @@
 			<div class="row">
 
 				<a href="<c:url value='/Movieing/Blog/MyPage.mov'/>"
-					class="list-group-item list-group-item-action ">프로필
-					편집</a> <a href="<c:url value='/Movieing/Blog/MyPage_Pass.mov'/>"
-					class="list-group-item list-group-item-action">비밀번호
-					설정</a> <a href="<c:url value='/Movieing/Blog/MyPage_Permit.mov'/>"
-					class="list-group-item list-group-item-action active">공개범위
-					설정</a> <a href="<c:url value='/Movieing/Blog/MyPage_Notice.mov"'/>"
-					class="list-group-item list-group-item-action">알림
-					메시지</a> <a href="<c:url value='/Movieing/Blog/MyPage_QnA.mov'/>"
-					class="list-group-item list-group-item-action">문의글</a>
-				<a href="<c:url value='/Movieing/Blog/MyPage_Help.mov'/>" class="list-group-item list-group-item-action">도움말</a>
+					class="list-group-item list-group-item-action ">프로필 편집</a> <a
+					href="<c:url value='/Movieing/Blog/MyPage_Pass.mov'/>"
+					class="list-group-item list-group-item-action">비밀번호 설정</a> <a
+					href="<c:url value='/Movieing/Blog/MyPage_Permit.mov'/>"
+					class="list-group-item list-group-item-action active">결제내역 </a> <a
+					href="<c:url value='/Movieing/Blog/MyPage_Notice.mov"'/>"
+					class="list-group-item list-group-item-action">알림 메시지</a> <a
+					href="<c:url value='/Movieing/Blog/MyPage_QnA.mov'/>"
+					class="list-group-item list-group-item-action">문의글</a> <a
+					href="<c:url value='/Movieing/Blog/MyPage_Help.mov'/>"
+					class="list-group-item list-group-item-action">도움말</a>
 
 			</div>
 		</div>
 		<!-- col-md-3끝 -->
-
 
 
 
@@ -119,44 +125,122 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col-md-12">
-							<h4>계정공개범위</h4>
+							<h4>결제내역</h4>
 							<hr>
 						</div>
 					</div>
+					
 					<div class="row">
 						<div class="col-md-12">
-							<form>
-								<!-- 내용시작 -->
-								<div class="checkbox">
-									<input id="checkbox1" type="checkbox"> <label
-										for="checkbox1"> 비공계 계정 </label>
-										<label style="color: gray;padding-left: 10px">비공계 상태에서는 회원님이 승인한 유저만 회원님의 정보와 활동로그 및 게시글을 볼 수 있습니다.</label>
-								</div>
 
-							<div style="padding-bottom: 30px">
+							<div class="card">
+								<table class="table table-hover shopping-cart-wrap" >
+									<thead class="text-muted">
+										<tr>
+											<th scope="col" width="120">날짜</th>
+											<th scope="col">주문정보</th>
+											<th scope="col" width="120">상태</th>
+											<th scope="col" width="200" class="text-right">확인/신청</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>		
+											<td>
+											<h6>2019-11-20</h6>
+											</td>
+											
+											<td>
+												<figure class="media">
+													<div class="img-wrap" style="padding-right: 15px">
+														<img
+															src="<c:url value='/resources/img/news/j1.png'/>"
+															class="img-thumbnail" style="width: 100px;height: 150px;">
+													</div>
+													
+													<figcaption class="media-body">
+														<h5 class="title text-truncate" style="font-weight: bold;">서울독립영화제</h5>
+														<dl class="param param-inline small">
+															<dt>수량: 1개</dt>
+															<dt>결제 방식 : 카드</dt>
+															<dt>구매자: 정명지</dt>
+														</dl>
+													<hr class="my-3">
+														<dl class="param param-inline small">
+															<h5>12500원</h5>
+														</dl>
+														
+													</figcaption>
+												</figure>
+											</td>
+											<td>
+												<div class="price-wrap">
+													<h6 style="font-weight: bold;">결제완료</h6>
+												</div> <!-- price-wrap .// -->
+											</td>
+											<td class="text-right"><a href=""
+												class="btn btn-outline-danger"> 결제취소</a></td>
+										</tr>
+										<tr>		
+											<td>
+											<h6>2019-11-20</h6>
+											</td>
+											
+											<td>
+												<figure class="media">
+													<div class="img-wrap" style="padding-right: 15px">
+														<img
+															src="<c:url value='/resources/img/news/j1.png'/>"
+															class="img-thumbnail" style="width: 100px;height: 150px;">
+													</div>
+													
+													<figcaption class="media-body">
+														<h5 class="title text-truncate" style="font-weight: bold;">서울독립영화제</h5>
+														<dl class="param param-inline small">
+															<dt>수량: 1개</dt>
+															<dt>결제 방식 : 카드</dt>
+															<dt>구매자: 정명지</dt>
+														</dl>
+													<hr class="my-3">
+														<dl class="param param-inline small">
+															<h5>12500원</h5>
+														</dl>
+														
+													</figcaption>
+												</figure>
+											</td>
+											<td>
+												<div class="price-wrap">
+													<h6 style="font-weight: bold;">결제완료</h6>
+												</div> <!-- price-wrap .// -->
+											</td>
+											<td class="text-right"><a href=""
+												class="btn btn-outline-danger"> 결제취소</a></td>
+										</tr>
+		
+		
+										
+		
+										
+									</tbody>
+								</table>
 							</div>
-							
-								<div class="form-group row" style="text-align: right;">
-									<div class="offset-4 col-8">
-										<button name="submit" type="submit" class="btn btn-primary">수정
-											완료</button>
-									</div>
-								</div>
-								
-							</form>
-						</div>
-					</div>
+							<!-- card.// -->
 
+						</div>
+						<!--container end.//-->
+					</div>
 				</div>
+
 			</div>
 		</div>
-		<!-- sm-9끝 -->
-
-
-
-
-
-
 	</div>
-	<!-- row -->
+	<!-- sm-9끝 -->
+
+
+
+
+
+
+</div>
+<!-- row -->
 </div>

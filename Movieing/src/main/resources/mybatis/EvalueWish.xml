@@ -58,8 +58,7 @@
 	<insert id="insertEvalue" parameterType="java.util.Map"><!-- 기본별점1 -->
 	insert into EVALUATION values(#{id},#{movieNo},1,SYSDATE)
 	</insert>
-	
-	
+
 	
 	
 </mapper>
