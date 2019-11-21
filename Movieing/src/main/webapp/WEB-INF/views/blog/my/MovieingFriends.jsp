@@ -395,16 +395,21 @@ $(function(){
 	});
 		*/
 	
+		
 		$(document).ready(function() {
+			var reviewNo ="";
+			$('#myModal').on('show.bs.modal', function (e) { 
 			$('button[name=delete]').click(function(){
-				console.log('삭제버튼눌림');	
+				console.log('삭제버튼눌림');
+				reviewNo = $(event.relatedTarget).data('notifyid');
+				console.log(reviewNo+'됫다됫어');
 				
 				$.ajax({
 					url : "<c:url value='/Movieing/Blog/reviewRemove.mov'/>",
 					type : 'post',
 					dataType : 'text',
 					data : {
-						reviewNo : '${friendsReviewList1.get(index).reviewNo}'
+						reviewNo : reviewNo
 						
 					},
 					beforeSend : function(
@@ -428,7 +433,7 @@ $(function(){
 				
 				
 			});
-			
+			});
 		});
 		
 
@@ -501,7 +506,7 @@ $(function(){
 									<div align="right" style="padding-left: 550px">
 										<button class="btn btn-link dropdown-toggle" type="button"
 											id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
-											aria-expanded="false" data-target="#myModal${status.index }"
+											aria-expanded="false" data-target="#myModal${status.index }" data-notifyid="${item.reviewNo }
 											style="text-align: right;">
 											<i class="fa fa-ellipsis-h"></i>
 										</button>
@@ -514,7 +519,7 @@ $(function(){
 												<c:set var="userNick" value="${ item.userNick}"/>
 												<c:set var="myNick" value="${ friendsSelf.userNick }"/>
 											
-			
+											
 											   <c:if test="${ userNick ne myNick}">
 											<!--  남의 게시물 볼때 버튼들-->
 												<button type="button" class="btn btn-outline-secondary"

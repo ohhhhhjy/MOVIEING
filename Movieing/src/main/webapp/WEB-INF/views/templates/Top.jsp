@@ -112,7 +112,7 @@
 								>소식</a>
 							<div class="dropdown-content">
 								<a class="dropItem"
-									href="<c:url value ='/Movieing/News/News.mov'/>"
+									href="<c:url value ='/Movieing/News/Exhibition.mov'/>"
 									style="color: white"><i class="fas fa-video"
 									style="padding-right: 5px"></i>영화제</a> 
 									<a class="dropItem"
@@ -132,7 +132,7 @@
 									style="color: white"><i class="fas fa-building"
 									style="padding-right: 5px"></i>상영관</a> 
 									<a class="dropItem"
-									href="<c:url value ='#'/>"
+									href="<c:url value =''/>"
 									style="color: white"><i class="fas fa-gift"
 									style="padding-right: 5px"></i>굿즈몰</a>
 							</div>

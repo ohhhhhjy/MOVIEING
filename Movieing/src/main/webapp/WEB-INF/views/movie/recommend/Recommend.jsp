@@ -103,16 +103,15 @@ img.border-shadow {
 				<div class="col-xl-10">
 					<h3>#추천인기영화</h3>
 				</div>
-				<div class="col-xl-2" align="right" >
-					<a href="<c:url value='/Movieing/Movie/Popular.mov'/>" style="z-index: 1">
-					<button type="button" class="btn btn-light btn-lg">
-						모두 보기 >
-					</button>
+				<div class="col-xl-2" align="right">
+					<a href="<c:url value='/Movieing/Movie/Popular.mov'/>"
+						style="z-index: 1">
+						<button type="button" class="btn btn-light btn-lg">모두 보기
+							></button>
 					</a>
 				</div>
 			</div>
 		</div>
-
 
 
 		<!-- 캐러셀 시작  -->
@@ -150,11 +149,12 @@ img.border-shadow {
 					<h3>무빙 최고 인기작</h3>
 				</div>
 				<div class="col-xl-2" align="right">
-				<a href="<c:url value='/Movieing/Movie/Genre.mov'/>" style="z-index: 1">
-					<button type="button" class="btn btn-light btn-lg">
-						<h5 style="color: gray;">모두 보기 ></h5>
-					</button>
-				</a>
+					<a href="<c:url value='/Movieing/Movie/Genre.mov'/>"
+						style="z-index: 1">
+						<button type="button" class="btn btn-light btn-lg">
+							<h5 style="color: gray;">모두 보기 ></h5>
+						</button>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -181,7 +181,7 @@ img.border-shadow {
 
 	</div>
 
-<!-- 한 장르 끝 -->
+	<!-- 한 장르 끝 -->
 
 	<!-- 한 장르 시작 -->
 	<div style="margin-top: 60px">
@@ -200,11 +200,14 @@ img.border-shadow {
 		<!-- 캐러셀 시작  -->
 		<div class="row blog">
 			<div class="col-md-12">
-				<div id="blogCarousel" class="carousel slide" data-ride="carousel">
+				<div id="blogCarousel3" class="carousel slide" data-ride="carousel">
 					<ol class="carousel-indicators">
-						<li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
-						<li data-target="#blogCarousel" data-slide-to="1"></li>
-						<li data-target="#blogCarousel" data-slide-to="2"></li>
+						<li data-target="#blogCarousel3" data-slide-to="0" class="active"></li>
+						<li data-target="#blogCarousel3" data-slide-to="1"></li>
+						<li data-target="#blogCarousel3" data-slide-to="2"></li>
+						<li data-target="#blogCarousel3" data-slide-to="3"></li>
+						<li data-target="#blogCarousel3" data-slide-to="4"></li>
+						<li data-target="#blogCarousel3" data-slide-to="5"></li>
 					</ol>
 					<!-- Carousel items -->
 					<div class="carousel-inner">
@@ -228,10 +231,10 @@ img.border-shadow {
 			</div>
 			<!--.carousel-inner-->
 
-			<a class="carousel-control-prev" href="#blogCarousel" role="button"
+			<a class="carousel-control-prev" href="#blogCarousel3" role="button"
 				data-slide="prev"> <span class="carousel-control-prev-icon"
 				aria-hidden="true"></span> <span class="sr-only">Previous</span>
-			</a> <a class="carousel-control-next" href="#blogCarousel" role="button"
+			</a> <a class="carousel-control-next" href="#blogCarousel3" role="button"
 				data-slide="next"> <span class="carousel-control-next-icon"
 				aria-hidden="true"></span> <span class="sr-only">Next</span>
 			</a>
@@ -241,9 +244,10 @@ img.border-shadow {
 	<!-- 캐러셀 다이브  -->
 
 	<!-- 한 장르 끝 -->
-	
-	
-	
+
+
+
+
 	<!-- 한 장르 시작 -->
 	<div style="margin-top: 60px">
 		<div class="col-xl-12">

@@ -37,11 +37,11 @@ import com.kosmo.movieing.service.MoviePeopleService;
 import com.kosmo.movieing.service.MovieService;
 import com.kosmo.movieing.service.PagingUtil;
 import com.kosmo.movieing.service.RealTimeSearchDto;
+import com.kosmo.movieing.service.RealTimeSearchService;
 import com.kosmo.movieing.service.ReviewDto;
 import com.kosmo.movieing.service.ReviewService;
 import com.kosmo.movieing.service.StillCutDto;
 import com.kosmo.movieing.service.StillCutService;
-import com.kosmo.movieing.service.RealTimeSearchService;
 import com.kosmo.movieing.service.UserDto;
 import com.kosmo.movieing.service.UserService;
 
@@ -73,7 +73,7 @@ public class MovieController {
 
 	@Resource(name = "stillCutService")
 	private StillCutService stillCutService;
-	
+
 	// 전체영화
 	@RequestMapping("/Movieing/Movie/AllMovie.mov")
 	public String movieMain(Model model, @RequestParam Map map) throws Exception {
@@ -352,10 +352,10 @@ public class MovieController {
 
 		System.out.println("MovieDetails 3 - 디비에서 가져오기 전");
 		MovieDto movieInfo = movieService.selectOne(map);
-		System.out.println("MovieDetails 4 - movieInfo 값 :" + movieInfo);	
-		
+		System.out.println("MovieDetails 4 - movieInfo 값 :" + movieInfo);
+
 		List<StillCutDto> stillCutList = stillCutService.searchStillCutList(map);
-		
+
 		System.out.println("MovieDetails 5 - stillCutList 값 : "+ stillCutList);
 		for(int i=0;i<stillCutList.size();i++) {
 			System.out.println("MovieDetails 6 - stillCutImg 값 : "+ stillCutList.get(i).getStillCutImage());
@@ -408,7 +408,9 @@ public class MovieController {
 		for (ReviewDto record : reviewList) {
 			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
 		}
-		
+
+		System.out.println("MovieDetails - 5 reviewList 값 :"+reviewList);
+
 		//System.out.println("MovieDetails - 6 reviewList.getUserId 값 :"+reviewList.get(0).getUserId());
 		model.addAttribute("reviewList", reviewList);
 
@@ -654,7 +656,7 @@ public class MovieController {
 
 	@RequestMapping("/Movieing/Movie/SearchResult.mov")
 	public String searchResult(@RequestParam Map map, @RequestParam String searchWord, Model model ) {
-		
+
 		map.put("searchWord", searchWord);
 		map.put("searchWord%", searchWord+"%");
 		map.put("%searchWord", "%"+searchWord);
@@ -663,8 +665,8 @@ public class MovieController {
 		//map.put("searchPeople%", searchWord+"%");
 		/*
 		System.out.println("searchReuslt - 1 searchWord 값 : "+searchWord);
-		*/	
-		
+		*/
+
 		List<RealTimeSearchDto> searchRealTimeList = realTimeSearchService.selectRTSearchList(map);
 		System.out.println("searchResult -1 searchRealTimeLsit 값 : "+searchRealTimeList);
 		if(searchRealTimeList.size()==0) {
@@ -685,32 +687,33 @@ public class MovieController {
 			if(check==searchRealTimeList.size()) {
 				realTimeSearchService.insert(map);
 			}
-				
-			
+
+
 		}
-		
-		
+
+
 		List<MovieDto> searchMovieList = movieService.selectListSearchRadom(map);
 		List<MoviePeopleDto> searchPeopleList = moviePeopleService.selectListPeople(map);
 		List<UserDto> searchUserList = userService.selectSearchList(map);
 		List<ReviewDto> searchReviewList = reviewService.selectSearchReviewList(map);
 		List<CommentDto> searchCommentList = commentService.selectSearchCommentList(map);
-	
+
 		/*
 		System.out.println("searchResult -2 searchMovieList 값 : "+searchMovieList);
 		System.out.println("searchResult -3 searchPeopleList 값 : "+searchPeopleList);
 		System.out.println("searchResult -4 searchUserList 값 : "+searchUserList);
 		System.out.println("searchResult -5 searchReviewList 값 : "+searchReviewList);
 		*/
-		
+
 		model.addAttribute("searchWord", searchWord);
 		model.addAttribute("searchMovieList",searchMovieList);
 		model.addAttribute("searchPeopleList",searchPeopleList);
 		model.addAttribute("searchUserList",searchUserList);
 		model.addAttribute("searchReviewList", searchReviewList);
 		model.addAttribute("searchCommentList", searchCommentList);
+
 		model.addAttribute("searchRealTimeList",searchRealTimeList);
-		
+
 		return "movie/list/SearchResult.tiles";
 	}
 

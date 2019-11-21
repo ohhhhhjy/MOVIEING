@@ -64,6 +64,8 @@
           width: auto;
         }
       }
+      
+      
 </style>
 
 <script>
@@ -72,6 +74,23 @@
 			$('#options').html($(this).html());
 		});
 	});
+	
+	
+	/*사이드바 설정
+    $(document).ready(function() {
+        var menu_offset = $('#sidebar-wrapper').offset();
+        $(window).scroll(function() {
+          if ($(document).scrollTop() > menu_offset.top) {
+                $('#sidebar-wrapper').css({ 
+                     "position": "fixed", 
+                     "display": "block", 
+                     "z-index" : "9999",
+                     "top":"0px"
+                 });
+          }
+        });
+        });
+	*/
 </script>
 
 <div id="page-wrapper">
