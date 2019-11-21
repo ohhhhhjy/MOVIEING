@@ -19,6 +19,7 @@ public class FilmographyDao implements FilmographyService {
 	
 	@Override
 	public List<FilmographyDto> selectFilmoList(Map map) {
+		System.out.println("FilmographyDao 실행");
 		return template.selectList("selectFilmoList",map);
 	}
 

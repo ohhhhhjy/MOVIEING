@@ -18,6 +18,7 @@ public class FilmographyServiceImpl implements FilmographyService {
 	
 	@Override
 	public List<FilmographyDto> selectFilmoList(Map map) {
+		System.out.println("FilmographyServiceImpl 실행");
 		return dao.selectFilmoList(map);
 	}
 

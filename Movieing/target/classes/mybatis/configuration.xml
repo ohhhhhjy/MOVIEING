@@ -25,7 +25,7 @@
 		<typeAlias alias="QnaDto" type="com.kosmo.movieing.service.QnaDto"/>
 		<typeAlias alias="NoticeDto" type="com.kosmo.movieing.service.NoticeDto"/>
 		<typeAlias alias="StillCutDto" type="com.kosmo.movieing.service.StillCutDto"/>
-
+		<typeAlias alias="FilmographyDto" type="com.kosmo.movieing.service.FilmographyDto"/>
 	</typeAliases>
 	
 	
@@ -44,6 +44,7 @@
 		<mapper resource="mybatis/Qna.xml" />
 		<mapper resource="mybatis/Notice.xml" />
 		<mapper resource="mybatis/StillCut.xml"/>
+		<mapper resource="mybatis/Filmography.xml"/>
 	</mappers>
 	
 </configuration>
