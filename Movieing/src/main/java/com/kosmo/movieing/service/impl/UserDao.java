@@ -19,7 +19,7 @@ public class UserDao implements UserService{
 
 	@Override
 	public boolean isMember(Map map) {
-		System.out.println("악"+((Integer)template.selectOne("isMember",map)==1));
+		//System.out.println("악"+((Integer)template.selectOne("isMember",map)==1));
 		return (Integer)template.selectOne("isMember",map)==1?true:false;
 	}
 
@@ -103,6 +103,12 @@ public class UserDao implements UserService{
 	@Override
 	public List<UserDto> selectAllUserList(Map map) {
 		return template.selectList("selectAllUserList",map);
+	}
+
+	@Override
+	public boolean isAdmin(String id) {
+		
+		return template.selectOne("selectOneAdmin", id).equals("Y")?true:false;
 	}
 
 

@@ -3,6 +3,8 @@ package com.kosmo.movieing.service;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.security.core.Authentication;
+
 public interface UserService {
 
 	//기존에 있는 id/닉네임 인지 확인용
@@ -38,5 +40,10 @@ public interface UserService {
 	
 	//유저 전체 검색용
 	List<UserDto> selectAllUserList(Map map);
+	
+	//관리자 판단용
+	boolean isAdmin(String id);
+	
+	
 	
 }
