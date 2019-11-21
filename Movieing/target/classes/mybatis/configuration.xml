@@ -26,6 +26,8 @@
 		<typeAlias alias="NoticeDto" type="com.kosmo.movieing.service.NoticeDto"/>
 		<typeAlias alias="StillCutDto" type="com.kosmo.movieing.service.StillCutDto"/>
 		<typeAlias alias="FilmographyDto" type="com.kosmo.movieing.service.FilmographyDto"/>
+		<typeAlias alias="BuyDto" type="com.kosmo.movieing.service.BuyDto"/>
+
 	</typeAliases>
 	
 	
@@ -45,6 +47,7 @@
 		<mapper resource="mybatis/Notice.xml" />
 		<mapper resource="mybatis/StillCut.xml"/>
 		<mapper resource="mybatis/Filmography.xml"/>
+		<mapper resource="mybatis/Buy.xml" />
 	</mappers>
 	
 </configuration>

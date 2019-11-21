@@ -17,7 +17,6 @@ import com.kosmo.movieing.service.impl.UserDao;
 public class RestAPIController {
 	
 	//리액트용]
-	
 	@Resource(name="userDao")
 	private UserDao userDao;
 	
@@ -30,8 +29,28 @@ public class RestAPIController {
 		
 		users = userDao.selectAllUserList(map);
 		
-		//System.out.println(users.get(0).userId);
-		return users;
+		
+		int start = Integer.parseInt((String)map.get("start"))-1;
+		int pageSize = Integer.parseInt((String)map.get("pageSize"));
+
+		List<UserDto> pageList = users.subList(
+				Integer.parseInt((String)map.get("start"))>users.size()?start-pageSize:start
+						,start+pageSize<users.size()?start+pageSize:users.size()
+			);
+		return pageList;
+	}
+	
+	@CrossOrigin
+	@GetMapping("/api/user/total")
+	public String getUsersTotal(@RequestParam Map map) {
+		int total=userDao.getTotalCount(map);
+		return String.valueOf(total);
+	}
+	
+	@CrossOrigin(origins = "http://localhost:3000")
+	@GetMapping("/api/user/delete")
+	public int userOut(@RequestParam Map map) {
+		return userDao.delete(map);
 	}
 	
 }
