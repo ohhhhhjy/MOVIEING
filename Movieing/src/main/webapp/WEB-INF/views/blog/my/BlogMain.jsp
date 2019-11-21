@@ -7,6 +7,8 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"> -->
 
+
+
 <style>
 body {
 	padding-top: 125px;
@@ -136,6 +138,8 @@ body {
 	text-align: left;
 	vertical-align: middle;
 }
+
+
 </style>
 
 <!-- css파일 -->
@@ -186,21 +190,26 @@ body {
 		f.submit();
 	};
 	
+	var reviewNo="";
 	/*삭제모달*/
+	/*
 	$(document).ready(function() {
 		$('button[name=delete]').click(function(){
 			console.log('삭제버튼눌림');	
+			reviewNo=$(e.relatedTarget).data('notifyid');
+			console.log('리뷰넘버'+reviewNo);
 			
 			$.ajax({
 				url : "<c:url value='/Movieing/Blog/reviewRemove.mov'/>",
 				type : 'post',
 				dataType : 'text',
 				data : {
-					reviewNo : '${selectList.get(index).reviewNo}'
-					
+					reviewNo : reviewNo
+					//'${selectList.get(index).reviewNo}'
 				},
 				beforeSend : function(
 						xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+					/*
 					xhr
 							.setRequestHeader(
 									"${_csrf.headerName}",
@@ -208,6 +217,10 @@ body {
 				},
 				success : function(data) {
 					alert('글이 삭제되었습니다!');
+					
+					
+					
+					
 					location.reload();
 				},
 				error : function(data) {
@@ -222,361 +235,378 @@ body {
 		});
 		
 	});
+	*/
+	$(function(){
+	var reviewNo ="";
+	$('#deleteModal').on('show.bs.modal', function (e) { 
+		reviewNo = $(e.relatedTarget).data('notifyid'); 
+		console.log('잘들어오나');
+		$('#deleteBtn').click(function(){
+			$.ajax({
+						url:"<c:url value='/Movieing/Blog/reviewRemove.mov'/>",
+						type:'post',
+						data:
+						{reviewNo:reviewNo},
+						beforeSend : function(xhr)
+		            {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+		                xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+		            },
+						success:function(){//서버로 부터 정상적인 응답을 받았을 때(200번)
+							location.reload();
+							
+						},	
+						error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+							console.log("에러:"+data);
+						}
+			});
+		});
+		
+		
+		});
+	});
 	
+
 
 </script>
 
 
+
 <div class="container">
 
-	<div class="row" style="padding-top: 20px">
-		<!-- 왼쪽 마이피드 -->
-		<div class="col-sm-7 blog-main">
-			<!-- 프로필 -->
-			<div class="jumbotron">
-				<div class="row">
-					<!-- 프로필 사진 -->
-					<div class="col-sm-3" align="center">
-						<img class="profileImage" alt="프로필사진"
-							src="${userInfo.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': userInfo.userProfile}" />
-						<h5 style="padding-top: 20px">${userInfo.userNick}</h5>
-						<div class="row">
-							<div class="col-sm-6">
-								<a href="#followModal" data-toggle="modal" id="followerModal"
-									class="followModal"><span
-									style="font-weight: bold; color: black; font-size: 0.9em">팔로워
-										${followerCount } </span></a>
-							</div>
-							<div class="col-sm-6">
-								<a href="#followModal" data-toggle="modal" id="followingModal"
-									class="followModal"><span
-									style="font-weight: bold; color: black; font-size: 0.9em">팔로잉
-										${followingCount } </span></a>
-							</div>
+
+<div class="row" style="padding-top: 20px">
+	<!-- 왼쪽 마이피드 -->
+	<div class="col-sm-7 blog-main">
+		<!-- 프로필 -->
+		<div class="jumbotron">
+			<div class="row">
+				<!-- 프로필 사진 -->
+				<div class="col-sm-3" align="center">
+					<img class="profileImage" alt="프로필사진"
+						src="${userInfo.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': userInfo.userProfile}" />
+					<h5 style="padding-top: 20px">${userInfo.userNick}</h5>
+					<div class="row">
+						<div class="col-sm-6">
+							<a href="#followModal" data-toggle="modal" id="followerModal"
+								class="followModal"><span
+								style="font-weight: bold; color: black; font-size: 0.9em">팔로워
+									${followerCount } </span></a>
 						</div>
-						<br>
-						<!--  
+						<div class="col-sm-6">
+							<a href="#followModal" data-toggle="modal" id="followingModal"
+								class="followModal"><span
+								style="font-weight: bold; color: black; font-size: 0.9em">팔로잉
+									${followingCount } </span></a>
+						</div>
+					</div>
+					<br>
+					<!--  
 						<button type="button" class="btn btn-danger" onclick='<c:url value="/Movieing/Blog/MovindFriends.mov"/>'>무빙프렌즈</button>
 						-->
-						<a class="btn btn-danger"
-							href="<c:url value='/Movieing/Blog/MovieingFriends.mov'/>">무빙프렌즈</a>
+					<a class="btn btn-danger"
+						href="<c:url value='/Movieing/Blog/MovieingFriends.mov'/>">무빙프렌즈</a>
+				</div>
+
+				<!-- 프로필 활동내역 -->
+				<div class="col-sm-9">
+					<p align="right" style="padding-bottom: 20px">
+						<a class="btn btn-dark btn-sm"
+							href="<c:url value='/Movieing/Blog/MyPage.mov'/>" role="button">마이페이지</a>
+					</p>
+					<!-- a태그 post방식 페이지 전송 폼 -->
+					<form name="paging">
+						<input type="hidden" name="${_csrf.parameterName}"
+							value="${_csrf.token}"> <input type="hidden" name="page" />
+						<input type="hidden" name="id" />
+					</form>
+					<div class="row"
+						style="padding-top: 20px; padding-bottom: 20px; background-color: white; border-radius: 10px 10px 10px 10px;">
+						<div class="col-sm-3" align="center">
+							<a href="javascript:goPage('a');"><span
+								style="font-weight: bold">별점<br> ${evalueCount }
+							</span></a>
+						</div>
+						<div class="col-sm-3" align="center"
+							style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
+							<a href="javascript:goPage('b');"><span
+								style="font-weight: bold">리뷰<br> ${reviewCount }
+							</span></a>
+						</div>
+						<div class="col-sm-3" align="center"
+							style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
+							<a href="javascript:goPage('c');"><span
+								style="font-weight: bold">좋아요<br> ${likeCount }
+							</span></a>
+						</div>
+						<div class="col-sm-3" align="center"
+							style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
+							<a href="javascript:goPage('d');"><span
+								style="font-weight: bold">보고싶어요<br> ${wishCount }
+							</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 피드컨텐츠 시작 -->
+		<!-- 1.한줄컨텐츠(보고싶어요,별점,좋아요) -->
+		<div class="card border-secondary mb-3" style="max-width: 50rem;">
+			<div class="card-header">
+				겟아웃을 보고싶어요에 추가했어요!&nbsp;&nbsp;<span
+					style="color: #a8a5a5; font-size: 0.3em">2시간 전</span>
+			</div>
+		</div>
+
+
+
+		<c:if test="${empty selectList }" var="isEmpty">
+			<h5>
+				아직 등록한 리뷰가 없어요...<br>리뷰를 등록해보세요
+			</h5>
+		</c:if>
+
+
+		<c:if test="${!isEmpty }">
+			<c:forEach items="${selectList }" var="item" varStatus="status">
+				<!-- 2.여러줄컨텐츠(리뷰) -->
+				<div class="card border-secondary mb-3" style="max-width: 200rem;">
+					<div class="card-header">
+						${item.movieTitle }에 리뷰를 남겼어요!&nbsp;&nbsp; <span
+							style="color: #a8a5a5; font-size: 0.3em;">
+							${reviewPostdate} </span>
+						<button type="button" class="btn btn-outline-danger"
+							data-toggle="modal" data-target="#deleteModal"
+							style="float: right; text-align: right;"
+							data-notifyid="${item.reviewNo }">삭제</button>
+						<button type="button" class="btn btn-outline-primary"
+							style="float: right; text-align: right;"
+							onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov?reviewNo=${item.reviewNo }"/>'">수정</button>
+
+
+
+						<!-- 삭제모달 -->
+						<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" align="center">
+											<i class="far fa-bell"></i> 알림창
+										</h5>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<p>리뷰를 삭제하시겠습니까?</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-dismiss="modal">취소</button>
+										<button id="deleteBtn" type="button" class="btn btn-danger"
+											data-dismiss="modal">삭제</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
 					</div>
 
-					<!-- 프로필 활동내역 -->
-					<div class="col-sm-9">
-						<p align="right" style="padding-bottom: 20px">
-							<a class="btn btn-dark btn-sm"
-								href="<c:url value='/Movieing/Blog/MyPage.mov'/>" role="button">마이페이지</a>
-						</p>
-						<!-- a태그 post방식 페이지 전송 폼 -->
-						<form name="paging">
-							<input type="hidden" name="${_csrf.parameterName}"
-								value="${_csrf.token}"> <input type="hidden" name="page" />
-							<input type="hidden" name="id" />
-						</form>
-						<div class="row"
-							style="padding-top: 20px; padding-bottom: 20px; background-color: white; border-radius: 10px 10px 10px 10px;">
+
+					<div class="card-body">
+						<div class="row">
 							<div class="col-sm-3" align="center">
-								<a href="javascript:goPage('a');"><span
-									style="font-weight: bold">별점<br> ${evalueCount }
-								</span></a>
+								<a
+									href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><img
+									class="movieImage" src="${item.movieImg }" alt="포스터" /></a>
 							</div>
-							<div class="col-sm-3" align="center"
-								style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
-								<a href="javascript:goPage('b');"><span
-									style="font-weight: bold">리뷰<br> ${reviewCount }
-								</span></a>
-							</div>
-							<div class="col-sm-3" align="center"
-								style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
-								<a href="javascript:goPage('c');"><span
-									style="font-weight: bold">좋아요<br> ${likeCount }
-								</span></a>
-							</div>
-							<div class="col-sm-3" align="center"
-								style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
-								<a href="javascript:goPage('d');"><span
-									style="font-weight: bold">보고싶어요<br> ${wishCount }
-								</span></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- 피드컨텐츠 시작 -->
-			<!-- 1.한줄컨텐츠(보고싶어요,별점,좋아요) -->
-			<div class="card border-secondary mb-3" style="max-width: 50rem;">
-				<div class="card-header">
-					겟아웃을 보고싶어요에 추가했어요!&nbsp;&nbsp;<span
-						style="color: #a8a5a5; font-size: 0.3em">2시간 전</span>
-				</div>
-			</div>
-
-			
-
-			<c:if test="${empty selectList }" var="isEmpty">
-				<h5>
-					아직 등록한 리뷰가 없어요...<br>리뷰를 등록해보세요
-				</h5>
-			</c:if>
-
-			<c:if test="${!isEmpty }">
-				<c:forEach items="${selectList }" var="item" varStatus="status">
-					<!-- 2.여러줄컨텐츠(리뷰) -->
-					<div class="card border-secondary mb-3" style="max-width: 200rem;">
-						<div class="card-header">
-							${item.movieTitle }에 리뷰를 남겼어요!&nbsp;&nbsp; 
-							<span
-								style="color: #a8a5a5; font-size: 0.3em;">
-								${reviewPostdate} </span>
-
-							<!-- 모달 띄우기 -->
-
-							<button class="btn btn-link dropdown-toggle" type="button"
-								id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
-								aria-expanded="false" data-target="#myModal${status.index }"
-								style="float:right; text-align: right; line-height: 0px">
-								<i class="fa fa-ellipsis-h"></i>
-							</button>
-
-							<div class="modal fade" id="myModal${status.index }"
-								tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<!--  남의 게시물 볼때 버튼들
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: red">부적절한
-													콘텐츠로 신고</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: red">팔로우
-													취소</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: black;">게시물로
-													이동</button>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: black;">유저
-													블로그로 이동</button>
-													-->
-										<!-- 내 글 볼경우 버튼들 -->
-										<button type="button" class="btn btn-outline-secondary"
-											name="delete"
-											style="border-bottom: thin; width: 500px; height: 60px; color: red">삭제</button>
-										<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: black;"
-													data-dismiss="modal">취소</button>
-											</div>
-										</div>
-									<!-- 모달 끝 -->
-							</div>
-					</div>
+							<div class="col-sm-9">
 
 
+								<a
+									href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>">
+									<h4 class="card-title" style="color: black">${item.movieTitle }</h4>
+								</a> <span class="badge badge-pill badge-danger">★${item.grade }</span>
+								<p class="card-text" style="height: 110px">${item.reviewContent }</p>
+								<a href="#"> <span data-toggle="modal"
+									data-target="#likeModal${status.index }"
+									style="font-weight: bold; color: #db147b; font-size: 0.9em">
+										<i class="far fa-thumbs-up"></i>${item.likeCount }
+								</span> <!-- 좋아요수- -->
 
-
-					
-
-
-
-
-						<div class="card-body">
-							<div class="row">
-								<div class="col-sm-3" align="center">
-									<a
-										href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><img
-										class="movieImage" src="${item.movieImg }" alt="포스터" /></a>
-								</div>
-								<div class="col-sm-9">
-
-
-									<a
-										href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>">
-										<h4 class="card-title" style="color: black">${item.movieTitle }</h4>
-									</a> 
-									<span class="badge badge-pill badge-danger">★${item.grade }</span>
-									<p class="card-text" style="height: 110px">${item.reviewContent }</p>
-									<a href="#"> <span data-toggle="modal"
-										data-target="#likeModal${status.index }"
-										style="font-weight: bold; color: #db147b; font-size: 0.9em">
-											<i class="far fa-thumbs-up"></i>${item.likeCount }
-									</span>
-									<!-- 좋아요수- -->
-
-									</a>&nbsp;&nbsp;&nbsp; <a
-										href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>">
-										<span
-										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
-											class="far fa-comments"></i> ${item.commentCount } </span>
-									</a>
-									<!-- 댓글수 -->
-								</div>
+								</a>&nbsp;&nbsp;&nbsp; <a
+									href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>">
+									<span
+									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
+										class="far fa-comments"></i> ${item.commentCount } </span>
+								</a>
+								<!-- 댓글수 -->
 							</div>
 						</div>
-
-
-
-					</div>
-				</c:forEach>
-			</c:if>
-		</div>
-		<!-- 왼쪽 마이피드끝-->
-
-		<!-- 가운데 분계선 -->
-		<div
-			style="border-left-width: 1px; border-left-style: solid; border-left-color: #a8a5a5"></div>
-
-		<!-- 여기서부터 오른쪽 취향분석 시작 -->
-		<div class="col-sm-4 col-sm-offset-1 blog-sidebar">
-
-			<div class="sidebar-module sidebar-module-inset"
-				style="padding-top: 60px">
-				<h3 align="center">${userInfo.userNick}님의 취향은?</h3>
-				<p align="right">
-					<a href="<c:url value='/Movieing/Movie/screening/First_like.mov'/>"
-						style="color: #a8a5a5">더 평가하러 가기</a>
-				</p>
-				<hr class="my-3">
-				<p align="center" style="font-size: 1em">무빙과 함께한지 ${signUpDays }일째!</p>
-				<hr class="my-3">
-				<h5>별점분포</h5>
-				<p align="center" style="font-size: 0.8em">
-					<em>별점이 한결같은 소나무 타입</em>
-				</p>
-				<div id="chart"
-					style="width: 500px; height: 170px; padding-left: 50px"></div>
-
-				<hr class="my-3">
-
-				<h5>선호태그</h5>
-				<div class="card border-secondary mb-3 justify-content-center"
-					style="max-width: 200rem; padding-left: 10px">
-					<div
-						style="color: rgba(0, 0, 0, 1); width: 280px; height: 172px; padding-left: 20px; padding-top: 20px">
-						<span
-							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(98px, 61px) rotate(0deg); font-weight: bold">웃기는</span>
-						<span
-							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(160px, 73px) rotate(0deg); font-weight: bold">발랄한</span>
-						<span
-							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(80px, 32px) rotate(0deg); font-weight: bold">따뜻한</span>
-						<span
-							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(179px, 43px) rotate(0deg); font-weight: bold">사랑</span>
-						<span
-							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(79px, 90px) rotate(0deg); font-weight: bold">슬픈</span>
-						<span
-							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(156px, 19px) rotate(0deg); font-weight: bold">귀여운</span>
-						<span
-							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(28px, 30px) rotate(0deg); font-weight: bold">재밌는</span>
-						<span
-							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(39px, 62px) rotate(0deg); font-weight: bold">뭉클한</span>
-						<span
-							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(27px, 85px) rotate(0deg); font-weight: bold">감동적인</span>
 					</div>
 				</div>
-				<hr class="my-3">
-				<h5>선호배우</h5>
-				<div class="row actorForm">
-					<div class="col-sm-3">
-						<img class="radiusImg" alt="배우사진"
-							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-					</div>
-					<div class="col-sm-6">
-						<span class="actorSpan">염정아</span>
-					</div>
-					<div class="col-sm-3">
-						<span class="filmoSpan">25편</span>
-					</div>
-				</div>
-
-				<div class="row actorForm">
-					<div class="col-sm-3">
-						<img class="radiusImg" alt="배우사진"
-							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-					</div>
-					<div class="col-sm-6">
-						<span class="actorSpan">김선아</span>
-					</div>
-					<div class="col-sm-3">
-						<span class="filmoSpan">25편</span>
-					</div>
-				</div>
-
-				<div class="row actorForm">
-					<div class="col-sm-3">
-						<img class="radiusImg" alt="배우사진"
-							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-					</div>
-					<div class="col-sm-6">
-						<span class="actorSpan">손예진</span>
-					</div>
-					<div class="col-sm-3">
-						<span class="filmoSpan">25편</span>
-					</div>
-				</div>
-				<hr class="my-3">
-				<h5>선호감독</h5>
-				<div class="row actorForm">
-					<div class="col-sm-3">
-						<img class="radiusImg" alt="감독사진"
-							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-					</div>
-					<div class="col-sm-6">
-						<span class="actorSpan">염정아</span>
-					</div>
-					<div class="col-sm-3">
-						<span class="filmoSpan">25편</span>
-					</div>
-				</div>
-				<div class="row actorForm">
-					<div class="col-sm-3">
-						<img class="radiusImg" alt="감독사진"
-							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-					</div>
-					<div class="col-sm-6">
-						<span class="actorSpan">김선아</span>
-					</div>
-					<div class="col-sm-3">
-						<span class="filmoSpan">25편</span>
-					</div>
-				</div>
-				<div class="row actorForm">
-					<div class="col-sm-3">
-						<img class="radiusImg" alt="감독사진"
-							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-					</div>
-					<div class="col-sm-6">
-						<span class="actorSpan">손예진</span>
-					</div>
-					<div class="col-sm-3">
-						<span class="filmoSpan">25편</span>
-					</div>
-				</div>
-				<hr class="my-3">
-				<h5>선호장르</h5>
-				<p align="center" style="font-size: 0.8em">
-					<em>영화에서 주로 반전과 공포를 찾는 사람</em>
-				</p>
-				<div class="row" align="center"
-					style="padding-left: 30px; padding-right: 30px">
-					<div class="col-md-4">
-						<a href="#"><span class="genreSpan">스릴러</span></a>
-					</div>
-					<div class="col-md-4">
-						<a href="#"><span class="genreSpan">공포</span></a>
-					</div>
-					<div class="col-md-4">
-						<a href="#"><span class="genreSpan">액션</span></a>
-					</div>
-				</div>
-
-				<hr class="my-3">
-				<h5>영화감상시간</h5>
-				<h6 align="center" style="color: #db147b">${evalueCount*2 }시간</h6>
-				<p align="center" style="font-size: 0.8em">
-					<em>영화를 정말 사랑하시네요!</em>
-				</p>
-			</div>
-		</div>
-		<!-- /.blog-sidebar -->
+			</c:forEach>
+		</c:if>
 	</div>
+	<!-- 왼쪽 마이피드끝-->
+
+	<!-- 가운데 분계선 -->
+	<div
+		style="border-left-width: 1px; border-left-style: solid; border-left-color: #a8a5a5"></div>
+
+	<!-- 여기서부터 오른쪽 취향분석 시작 -->
+	<div class="col-sm-4 col-sm-offset-1 blog-sidebar">
+
+		<div class="sidebar-module sidebar-module-inset"
+			style="padding-top: 60px">
+			<h3 align="center">${userInfo.userNick}님의취향은?</h3>
+			<p align="right">
+				<a href="<c:url value='/Movieing/Movie/screening/First_like.mov'/>"
+					style="color: #a8a5a5">더 평가하러 가기</a>
+			</p>
+			<hr class="my-3">
+			<p align="center" style="font-size: 1em">무빙과 함께한지 ${signUpDays }일째!</p>
+			<hr class="my-3">
+			<h5>별점분포</h5>
+			<p align="center" style="font-size: 0.8em">
+				<em>별점이 한결같은 소나무 타입</em>
+			</p>
+			<div id="chart"
+				style="width: 500px; height: 170px; padding-left: 50px"></div>
+
+			<hr class="my-3">
+
+			<h5>선호태그</h5>
+			<div class="card border-secondary mb-3 justify-content-center"
+				style="max-width: 200rem; padding-left: 10px">
+				<div
+					style="color: rgba(0, 0, 0, 1); width: 280px; height: 172px; padding-left: 20px; padding-top: 20px">
+					<span
+						style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(98px, 61px) rotate(0deg); font-weight: bold">웃기는</span>
+					<span
+						style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(160px, 73px) rotate(0deg); font-weight: bold">발랄한</span>
+					<span
+						style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(80px, 32px) rotate(0deg); font-weight: bold">따뜻한</span>
+					<span
+						style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(179px, 43px) rotate(0deg); font-weight: bold">사랑</span>
+					<span
+						style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(79px, 90px) rotate(0deg); font-weight: bold">슬픈</span>
+					<span
+						style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(156px, 19px) rotate(0deg); font-weight: bold">귀여운</span>
+					<span
+						style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(28px, 30px) rotate(0deg); font-weight: bold">재밌는</span>
+					<span
+						style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(39px, 62px) rotate(0deg); font-weight: bold">뭉클한</span>
+					<span
+						style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(27px, 85px) rotate(0deg); font-weight: bold">감동적인</span>
+				</div>
+			</div>
+			<hr class="my-3">
+			<h5>선호배우</h5>
+			<div class="row actorForm">
+				<div class="col-sm-3">
+					<img class="radiusImg" alt="배우사진"
+						src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+				</div>
+				<div class="col-sm-6">
+					<span class="actorSpan">염정아</span>
+				</div>
+				<div class="col-sm-3">
+					<span class="filmoSpan">25편</span>
+				</div>
+			</div>
+
+			<div class="row actorForm">
+				<div class="col-sm-3">
+					<img class="radiusImg" alt="배우사진"
+						src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+				</div>
+				<div class="col-sm-6">
+					<span class="actorSpan">김선아</span>
+				</div>
+				<div class="col-sm-3">
+					<span class="filmoSpan">25편</span>
+				</div>
+			</div>
+
+			<div class="row actorForm">
+				<div class="col-sm-3">
+					<img class="radiusImg" alt="배우사진"
+						src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+				</div>
+				<div class="col-sm-6">
+					<span class="actorSpan">손예진</span>
+				</div>
+				<div class="col-sm-3">
+					<span class="filmoSpan">25편</span>
+				</div>
+			</div>
+			<hr class="my-3">
+			<h5>선호감독</h5>
+			<div class="row actorForm">
+				<div class="col-sm-3">
+					<img class="radiusImg" alt="감독사진"
+						src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+				</div>
+				<div class="col-sm-6">
+					<span class="actorSpan">염정아</span>
+				</div>
+				<div class="col-sm-3">
+					<span class="filmoSpan">25편</span>
+				</div>
+			</div>
+			<div class="row actorForm">
+				<div class="col-sm-3">
+					<img class="radiusImg" alt="감독사진"
+						src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+				</div>
+				<div class="col-sm-6">
+					<span class="actorSpan">김선아</span>
+				</div>
+				<div class="col-sm-3">
+					<span class="filmoSpan">25편</span>
+				</div>
+			</div>
+			<div class="row actorForm">
+				<div class="col-sm-3">
+					<img class="radiusImg" alt="감독사진"
+						src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+				</div>
+				<div class="col-sm-6">
+					<span class="actorSpan">손예진</span>
+				</div>
+				<div class="col-sm-3">
+					<span class="filmoSpan">25편</span>
+				</div>
+			</div>
+			<hr class="my-3">
+			<h5>선호장르</h5>
+			<p align="center" style="font-size: 0.8em">
+				<em>영화에서 주로 반전과 공포를 찾는 사람</em>
+			</p>
+			<div class="row" align="center"
+				style="padding-left: 30px; padding-right: 30px">
+				<div class="col-md-4">
+					<a href="#"><span class="genreSpan">스릴러</span></a>
+				</div>
+				<div class="col-md-4">
+					<a href="#"><span class="genreSpan">공포</span></a>
+				</div>
+				<div class="col-md-4">
+					<a href="#"><span class="genreSpan">액션</span></a>
+				</div>
+			</div>
+
+			<hr class="my-3">
+			<h5>영화감상시간</h5>
+			<h6 align="center" style="color: #db147b">${evalueCount*2 }시간</h6>
+			<p align="center" style="font-size: 0.8em">
+				<em>영화를 정말 사랑하시네요!</em>
+			</p>
+		</div>
+	</div>
+	<!-- /.blog-sidebar -->
+</div>
 </div>
 
 <!--div class=row끝 -->
@@ -586,6 +616,7 @@ body {
 
 <!-- 모달시작 -->
 <div class="modal" id="followModal">
+
 	<div class="modal-dialog" role="document">
 
 		<div class="modal-content" style="padding-bottom: 20px; width: 380px">
@@ -611,7 +642,7 @@ body {
 			<!-- 모달컨텐츠 -->
 			<div class="tab-content " id="myTabContent"
 				style="height: 477px; overflow-y: scroll; overflow-x: hidden; background-color: #f2f0f0; padding-top: 20px">
-				
+
 				<!-- 모달컨텐츠1.팔로워 -->
 				<div class="tab-pane fade " id="follower" role="tabpanel"
 					aria-labelledby="pills-follower-tab">
@@ -626,7 +657,8 @@ body {
 										src="${user.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': user.userProfile}" />
 								</div>
 								<div class="col-sm-5">
-									<a href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${user.userNick }'/>"><span
+									<a
+										href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${user.userNick }'/>"><span
 										class="actorSpan">${user.userNick }</span> </a>
 								</div>
 
@@ -665,7 +697,8 @@ body {
 										src="${user.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': user.userProfile}" />
 								</div>
 								<div class="col-sm-5">
-									<a href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${user.userNick }'/>"><span
+									<a
+										href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${user.userNick }'/>"><span
 										class="actorSpan">${user.userNick }</span> </a>
 								</div>
 
@@ -687,6 +720,7 @@ body {
 		</div>
 	</div>
 </div>
+
 <!-- 모달끝 -->
 
 

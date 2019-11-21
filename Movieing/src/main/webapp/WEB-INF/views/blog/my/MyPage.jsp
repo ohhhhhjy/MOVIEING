@@ -49,11 +49,11 @@
 	/*입력완료 경고창*/
 	$(document).ready(function() {
 		function success() {
-			if (username.value = "") {
+			if (username.value == "") {
 				return false;
 			} else if (nick.value == "") {
 				return false;
-			} else if (phone.value = "") {
+			} else if (phone.value == "") {
 				return false;
 			} else if (email.value == "") {
 				return false;
@@ -116,18 +116,17 @@
 			<div class="row">
 
 
-				<a href="<c:url value='/Movieing/Blog/MyPage.mov'/>"
-					class="list-group-item list-group-item-action active">프로필 편집</a> <a
-					href="<c:url value='/Movieing/Blog/MyPage_Pass.mov'/>"
-					class="list-group-item list-group-item-action">비밀번호 설정</a> <a
-					href="<c:url value='/Movieing/Blog/MyPage_Permit.mov'/>"
-					class="list-group-item list-group-item-action">공개범위 설정</a> <a
-					href="<c:url value='/Movieing/Blog/MyPage_Notice.mov"'/>"
-					class="list-group-item list-group-item-action">알림 메시지</a> <a
-					href="<c:url value='/Movieing/Blog/MyPage_QnA.mov'/>"
-					class="list-group-item list-group-item-action">문의글</a> <a
-					href="<c:url value='/Movieing/Blog/MyPage_Help.mov'/>"
-					class="list-group-item list-group-item-action">도움말</a>
+			<a href="<c:url value='/Movieing/Blog/MyPage.mov'/>"
+					class="list-group-item list-group-item-action active">프로필
+					편집</a> <a href="<c:url value='/Movieing/Blog/MyPage_Pass.mov'/>"
+					class="list-group-item list-group-item-action">비밀번호
+					설정</a> <a href="<c:url value='/Movieing/Blog/MyPage_Permit.mov'/>"
+					class="list-group-item list-group-item-action">결제내역
+					</a> <a href="<c:url value='/Movieing/Blog/MyPage_Notice.mov"'/>"
+					class="list-group-item list-group-item-action">알림
+					메시지</a> <a href="<c:url value='/Movieing/Blog/MyPage_QnA.mov'/>"
+					class="list-group-item list-group-item-action">문의글</a>
+				<a href="<c:url value='/Movieing/Blog/MyPage_Help.mov'/>" class="list-group-item list-group-item-action">도움말</a>
 
 			</div>
 		</div>
@@ -164,7 +163,7 @@
 									<label for="name" class="col-4 col-form-label">닉네임*</label>
 									<div class="col-8">
 										<input id="nick" name="nick" placeholder="닉네임을 입력하세요"
-											value="${mypage.userId }" class="form-control here"
+											value="${mypage.userNick }" class="form-control here"
 											type="text">
 									</div>
 								</div>
