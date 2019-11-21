@@ -364,11 +364,22 @@ public class MovieController {
 		List<StillCutDto> stillCutList = stillCutService.searchStillCutList(map);
 
 		System.out.println("MovieDetails 5 - stillCutList 값 : "+ stillCutList);
-		for(int i=0;i<stillCutList.size();i++) {
-			System.out.println("MovieDetails 6 - stillCutImg 값 : "+ stillCutList.get(i).getStillCutImage());
-			System.out.println("MovieDetails 6 - stillCutNo 값 : "+ stillCutList.get(i).getStillCutNo());
-			System.out.println("MovieDetails 6 - stillCut MoiveNo 값 : "+ stillCutList.get(i).getMovieNo());
-		}
+	
+			if(movieInfo.getNaverPrice() != null)
+			{
+				System.out.println("MovieDetails 6 - naverPrice 변경 전 값 :"+movieInfo.getNaverPrice());
+				String naverPrice= movieInfo.getNaverPrice().substring(0,movieInfo.getNaverPrice().indexOf("."));
+				System.out.println("MovieDetails 6 - naverPrice 변경 후 값 : "+naverPrice);
+				movieInfo.setNaverPrice(naverPrice);
+			}
+			if(movieInfo.getWavvePrice() != null) {
+				String wavvePrice = movieInfo.getWavvePrice().substring(0,movieInfo.getWavvePrice().indexOf("."));
+				movieInfo.setWavvePrice(wavvePrice);
+			}
+			if(movieInfo.getGooglePrice() != null) {
+				String googlePrice = movieInfo.getGooglePrice().substring(0,movieInfo.getGooglePrice().indexOf("."));
+				movieInfo.setGooglePrice(googlePrice);
+			}
 		model.addAttribute("movieNo", map.get("movieNo"));
 		model.addAttribute("movieInfo", movieInfo);
 		model.addAttribute("movieInfoMap",movieInfoMap(movieNo));
@@ -416,7 +427,6 @@ public class MovieController {
 			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
 		}
 
-		System.out.println("MovieDetails - 5 reviewList 값 :"+reviewList);
 
 		//System.out.println("MovieDetails - 6 reviewList.getUserId 값 :"+reviewList.get(0).getUserId());
 		model.addAttribute("reviewList", reviewList);

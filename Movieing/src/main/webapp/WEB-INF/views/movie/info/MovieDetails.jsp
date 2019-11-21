@@ -98,6 +98,7 @@ body {
     .priceText{
    font-size: 0.8em;
    font-weight: bold;
+   text-align: center;
    }
    
 /* 원형이미지들 */
@@ -386,7 +387,7 @@ $(document).ready(function() {
 								<a href="#"> <img
 									class="jw-provider-icon price-comparison_grid_row_icon"
 									alt="Naver Store" title="Naver Store"
-									src="<c:url value='/resources/img/movie/pooq.jpg'/>">
+									src="<c:url value='/resources/img/movie/wavve.jpg'/>">
 								</a>
 								<div class="priceText">${movieInfo.wavvePrice }</div>
 							</div>

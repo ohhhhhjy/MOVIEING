@@ -171,7 +171,7 @@ body {
 				<div class="filmo-movie-row">
 
 					<ul class="filmo-movie-list-Frame">
-						<c:forEach items="${movieInfoList}" var="movie">
+						<c:forEach items="${movieInfoList}"  var="movie">
 							<li class="filmo-movie-list-li">
 
 								<div class="filmo-movie-image-Frame">
