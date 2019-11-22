@@ -55,8 +55,10 @@
 
 .mvimg {
 	width: 230px;
-	height: 300px
+	height: 300px;
+	padding-bottom: 20px;
 }
+
 
   @media ( max-width: 480px ) {
       

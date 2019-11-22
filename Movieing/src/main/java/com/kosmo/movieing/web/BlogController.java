@@ -230,6 +230,7 @@ public class BlogController {
 		int reviewCount = reviewService.getTotalCount(map);
 		model.addAttribute("reviewCount", reviewCount);
 
+
 		//선호감독
 		List<MoviePeopleDto> directorList = moviePeopleService.selectDiretorList(map);
 		model.addAttribute("directorList", directorList.isEmpty()?null:directorList);
@@ -425,16 +426,16 @@ public class BlogController {
 		System.out.println("로그인된 아이디:" + id);
 		map.put("id", id);
 		model.addAttribute("id", id);
-		
+
 		//프사 불러오기 용
 		UserDto image = userService.selectOne(map);// 리스트전체조회
 		model.addAttribute("image", image);
-		
+
 		// 내가 특정리뷰에 좋아요 눌럿는지 확인
 
 		// 무빙프렌즈에서 피드 글보이기(전체공개면)]-모든 정보있음
 		List<ReviewDto> friendsReviewList1 = reviewService.friendsReviewList1(map);// 리스트전체조회
-		
+
 		System.out.println("닉네임:" + friendsReviewList1.get(0).getUserNick());
 
 		model.addAttribute("friendsReviewList1", friendsReviewList1);

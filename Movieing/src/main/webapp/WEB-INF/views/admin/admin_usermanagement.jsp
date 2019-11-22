@@ -9,7 +9,7 @@
                 <h1>유저 관리 페이지</h1>
             </div>
             
-           	<iframe style="border:none;width:100%;height:800px" src="http://192.168.0.20:7080/"></iframe>
+           	<iframe style="border:none;width:100%;height:500px" src="http://192.168.0.20:7080/"></iframe>
         </div>
     </div>
     <!-- /.row -->
