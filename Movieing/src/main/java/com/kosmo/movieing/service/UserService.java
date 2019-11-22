@@ -46,6 +46,9 @@ public interface UserService {
 	//관리자 판단용
 	boolean isAdmin(String id);
 
+	//안드로이드 로그인 확인용
+	boolean androidIsLogin(Map map);
+
 
 
 }

@@ -117,4 +117,10 @@ public class UserServiceImpl implements UserService{
 		return dao.isAdmin(id);
 	}
 
+	@Override
+	public boolean androidIsLogin(Map map) {
+
+		return dao.androidIsLogin(map);
+	}
+
 }

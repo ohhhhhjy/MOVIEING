@@ -117,6 +117,12 @@ public class UserDao implements UserService{
 		return template.selectOne("selectOneAdmin", id).equals("Y")?true:false;
 	}
 
+	@Override
+	public boolean androidIsLogin(Map map) {
+
+		return (Integer)template.selectOne("androidIsLogin", map)==1?true:false;
+	}
+
 
 
 }

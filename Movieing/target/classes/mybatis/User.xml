@@ -91,5 +91,8 @@
 	<select id="selectOneAdmin" parameterType="String" resultType="String">
 		select admin from USER_TABLE where user_id=#{id}
 	</select>
-
+	
+	<select id="androidIsLogin"  parameterType="java.util.Map" resultType="int">
+		select count(*) from user_table where USER_ID=#{id} and USER_PWD=#{pwd}
+	</select>
 </mapper>
