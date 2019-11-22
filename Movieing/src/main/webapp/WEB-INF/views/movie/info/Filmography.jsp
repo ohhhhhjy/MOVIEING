@@ -130,23 +130,22 @@ body {
 		<h1>필모그래피</h1>
 		<div style="margin-bottom: 10px"></div>
 
-		<c:forEach items="${selectPeople }" var="item">
 		<div class="card   bg-ligh mb-3">
 			<!-- 상단 -->
 			<div class="row card-body">
 				<!-- 포스터 -->
 				<div class="col-md-3 ">
-					<a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>"><img
-						class="movieImage"
-						src="<c:url value='/resources/img/filmo/emma.PNG'/>" alt="포스터" /></a>
+					<a href="<c:url value='/Movieing/Movie/MovieDetailsTest.mov'/>">
+					<img src="<c:url value='${selectPeople.moviePeopleImg }'/>"/></a>
 				</div>
+				
 				
 				<!-- 기본정보+별점 -->
 				<div class="col-md-9  ">
-					<h1>${item.moviePeopleName}<span class="text-muted px-2">${item.moviePeopleJob}</span>
+					<h1>${selectPeople.moviePeopleName}<span class="text-muted px-2">${selectPeople.moviePeopleJob}</span>
 					</h1>
 					<hr class="my-3">
-					<span class="px-2" style="font-weight: bold">국적: ${item.moviePeopleCountry}</span>
+					<span class="px-2" style="font-weight: bold">국적: ${selectPeople.moviePeopleCountry}</span>
 					<hr class="my-3">
 					<span class="px-2" style="font-weight: bold">출현작 :</span><!-- ${selectListDirector.movieTitle } -->
 					<!-- <span> ・</span>
@@ -158,7 +157,6 @@ body {
 
 			</div>
 		</div>
-		</c:forEach>
 		<!-- ------------------------------------------------------------------------------------------------ -->
 		<div style="padding-bottom: 30px"></div>
 
@@ -169,19 +167,19 @@ body {
 			<div class="card-body">
 				<h4>출현영화</h4>
 				<div class="filmo-movie-row">
-
+		
 					<ul class="filmo-movie-list-Frame">
-						<c:forEach begin="1" end="12" var="i">
+						<c:forEach items="${selectPeopleMovie }" var="item">
 							<li class="filmo-movie-list-li">
 
 								<div class="filmo-movie-image-Frame">
 									<div class="filmo-moive-image-second">
 										<img class="filmo-movie-image"
-											src="http://placehold.it/230x300">
+											src="<c:url value='${item.movieImg }'/>">
 									</div>
 								</div>
 								<div class=filmo-movie-Title-Frame>
-									<div class="filmo-movie-Title">영화제목 ${i}</div>
+									<div class="filmo-movie-Title">${item.movieTitle } </div>
 									<div class="filmo-movie-Rating">평점</div>
 								</div>
 

@@ -472,19 +472,19 @@ public class MovieController {
 	}
 ///////////////////////////////////////////ratingMovie
 
-
+	//필모그래피]-감독
 	@RequestMapping("/Movieing/Movie/Filmography.mov")
 	public String filmography(@RequestParam Map map,Model model) {
 		//사람 이름받기
 		String movieDirector=map.get("movieDirector").toString();
 		System.out.println("감독이름:"+movieDirector);
 
-		//이름에 맞는 정보가져오기
-		List<MoviePeopleDto> selectPeople=moviePeopleService.selectList(map);
+		//이름에 맞는 정보가져오기-감독
+		MoviePeopleDto selectPeople=moviePeopleService.selectPeople(map);
 		model.addAttribute("selectPeople", selectPeople);
-		//감독 출현작
-		//List<MovieDto> selectListDirector=movieService.selectListDirector(map);
-		//model.addAttribute("selectListDirector", selectListDirector);
+		//영화정보
+		MoviePeopleDto selectPeopleMovie=moviePeopleService.selectPeopleMovie(map);
+		model.addAttribute("selectPeopleMovie", selectPeopleMovie);
 
 		return "movie/info/Filmography.tiles";
 	}

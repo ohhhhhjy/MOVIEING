@@ -243,8 +243,8 @@ $(function(){
  		var index = $(this).attr('id');
  		
  		
-		//좋아요 off  > on
- 		if(flag){
+		//좋아요 on  > off
+ 		if(!flag){
  			
  			//$('#likeUnlikeIcon').removeClass('far fa-thumbs-up').addClass('fas fa-thumbs-up');
  			
@@ -259,7 +259,7 @@ $(function(){
                       xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
                   },	
  				success:function(data){//서버로 부터 정상적인 응답을 받았을 때(200번)
- 					$('#likeSpan'+index).html('<a><i class="fas fa-thumbs-up"></i>좋아요</a>');
+ 					$('#likeSpan'+index).html('<a style="font-weight: bold; color: #db147b;"><i class="fas fa-thumbs-up"></i>좋아요</a>');
  					$('#likeNumber'+index).text(data);
  					
  				},	
@@ -271,7 +271,7 @@ $(function(){
  			flag = !flag;
  		}
  		
- 		//좋아요 on  > off
+ 		//좋아요 on  < off
  		else{
  			//$('#likeUnlikeIcon').removeClass('fas fa-thumbs-up').addClass('far fa-thumbs-up'); 
  			
@@ -612,29 +612,6 @@ $(function(){
 
 									<h6 style="padding-left: 20px">댓글 ${item.commentCount }개</h6>
 
-									<!-- 
-									<div style="padding-left: 100px" class="row">
-										<h6 style="padding-right: 10px">
-											<span class="badge badge-secondary">#조커</span>
-										</h6>
-										<h6 style="padding-right: 10px">
-											<span class="badge badge-secondary">#재밌음</span>
-										</h6>
-										<h6 style="padding-right: 10px">
-											<span class="badge badge-secondary">#요즘추천영화</span>
-										</h6>
-										<h6 style="padding-right: 10px">
-											<span class="badge badge-secondary">#스릴러</span>
-										</h6>
-										<h6 style="padding-right: 10px">
-											<span class="badge badge-secondary">#어두운영화</span>
-										</h6>
-										<h6>
-											<span class="badge badge-secondary">#호아킨피닉스</span>
-										</h6>
-									</div>
-									 -->
-
 								</div>
 
 							</div>
@@ -647,11 +624,21 @@ $(function(){
 							<a href="#" class="likebutton" id="${status.index }" name="${status.index }"
 								value="unclick"><i class="fa fa-gittip"></i> 좋아요</a> 
 								-->
-								<button type="button" class="btn btn-link likeUnlike" id="${status.index }" ><span
-											style="font-weight: bold; color: #db147b; font-size: 0.9em" id="likeSpan${status.index }">
-											<a><i id="likeUnlikeIcon" class="fas fa-thumbs-up"></i>좋아요</a></span></button>
-											
-											<!-- 좋아요 아이콘 -->
+								<!-- 내가 좋아요를 눌렀으면 -->
+								<c:choose>
+									<c:when test="${item.likeMyCount eq 1 }">
+									<button type="button" class="btn btn-link likeUnlike" id="${status.index }" ><span
+											id="likeSpan${status.index }">
+											<a style="font-weight: bold; color: #db147b;"><i class="fas fa-thumbs-up"></i>좋아요</a></span></button>
+									</c:when>
+									<c:otherwise>
+								
+										<button type="button" class="btn btn-link likeUnlike" id="${status.index }" ><span
+											id="likeSpan${status.index }">
+											<a><i id="likeUnlikeIcon" class="far fa-thumbs-up"></i>좋아요</a></span></button>
+									</c:otherwise>
+								</c:choose>
+		
 								
 								<!-- 
 								<a

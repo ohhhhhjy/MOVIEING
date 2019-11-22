@@ -108,4 +108,9 @@ public class EvalueWishServiceImpl implements EvalueWishService{
 		return dao.insertEvalue(map);
 	}
 
+	@Override
+	public EvaluationDto selectReviewEvalue(Map map) {
+		return dao.selectReviewEvalue(map);
+	}
+
 }

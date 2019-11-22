@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!-- 타일즈 설정되어 있어서  바디부분만 작성하면 됨. 
 근데 타일즈라 그냥 만들기만 한다고 되는게 아님.
@@ -297,13 +298,25 @@ $(document).ready(function() {
                 },    
                  success:function(){//서버로 부터 정상적인 응답을 받았을 때(200번)
                 	 parentDiv.remove();
+                	    if(0 <= evalueCount && evalueCount < 10){
+                	        $('.message').text('아직 고객님의 취향을 잘 모르겠어요..');
+                	        }else if(10 <= evalueCount && evalueCount < 20){
+                	        	  $('.message').text('조금은 취향을 알것같아요!');
+                	        }else if(20 <= evalueCount && evalueCount < 30){
+                	        	  $('.message').text('이제 취향을 잘 알겠어요!');
+                	        }else if(30 <= evalueCount && evalueCount < 40){
+                	        	  $('.message').text('기왕 이렇게 된거 40개 가보죠!');
+                	        }else{
+                	        	  $('.message').text('휼륭해요!이 기세로 쭉쭉 밀고 나가봐요!');
+                	        }
                  },   
                  error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
                       console.log("에러:"+data.responseText);
                  }             
         });
         
-        
+    
+
         
    });
    
@@ -327,13 +340,13 @@ $(document).ready(function() {
 	<!-- 탑 -->
 	<div class="col-md-12 row" align="center" style="padding-bottom: 70px">
 		<div class="col-md-3" style="padding-top: 40px">
-			<button type="button" class="btn btn-outline-primary waves-effect">
-				< 선택완료</button>
 
 		</div>
 		<div class="col-md-6">
 			<h4 id="evalueCount">${evalueCount }</h4>
-			<h6>기왕 이렇게 된거 30개 가보죠!</h6>
+			
+			<h6 class="message">영화 취향 별점을 매겨주세요</h6>
+			
 			<div class="progress">
 				<div class="progress-bar" role="progressbar" style="width: ${evalueCount/30*100}%"
 					aria-valuenow="${evalueCount}" aria-valuemin="0" aria-valuemax="30"></div>
@@ -342,10 +355,12 @@ $(document).ready(function() {
 		</div>
 
 		<div class="col-md-3" style="padding-top: 40px">
-			<button type="button" class="btn btn-outline-primary waves-effect">
-				다음 ></button>
+			<button type="button" class="btn btn-outline-primary waves-effect" style="border-radius: 8em;font-size:medium;"
+			onclick="location.href='<c:url value='/Movieing/Blog/BlogMain.mov'/>'">
+				내 취향분석 결과보기</button>
 		</div>
 	</div>
+
 
 
 	<!-- 영화시작 -->
@@ -363,7 +378,7 @@ $(document).ready(function() {
 								<!-- 안에 내용 -->
 								<figcaption>
 									<div align="center" style="padding-top: 100px">
-										<div style="padding-right: 50px">
+										<div style="padding-right: 80px">
 										<h4>${movie.movieTitle}</h4>
 										<h6>${movie.movieYear }</h6>
 										</div>
