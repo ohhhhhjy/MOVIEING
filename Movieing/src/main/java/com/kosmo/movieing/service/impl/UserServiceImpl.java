@@ -118,8 +118,14 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
+	public boolean androidIsLogin(Map map) {
+
+		return dao.androidIsLogin(map);
+	}
+
+	@Override
 	public String selectImage(String id) {
-		
+
 		return dao.selectImage(id);
 	}
 
