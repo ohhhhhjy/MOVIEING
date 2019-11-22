@@ -187,7 +187,7 @@
 					<!-- 프로필 드롭다운 -->
 					<li class="nav-item">
 						<div class="dropdown">
-							<a class="nav-link js-scroll-trigger dropdown-button" href="<c:url value='/Movieing/Blog/MyPage.mov'/>" >
+							<a class="nav-link js-scroll-trigger dropdown-button" href="#" >
 							<img 
 								alt="user" src="<c:url value='/resources/img/user.png'/>"
 								style="width: 50px; height: 50px" /></a>

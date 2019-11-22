@@ -4563,6 +4563,37 @@ px
 			console.log(title);
 			$('.movie').val(title);
 			$('#modalCart').modal("hide");
+			
+			//평가한 별점 뿌리기 ajax
+			$.ajax({
+				url : "<c:url value='/Movieing/Blog/reviewEvalue.mov'/>",
+				type : 'post',
+				dataType : 'text',
+				data : {
+					movieTitle : title
+				},
+				beforeSend : function(
+						xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+					xhr
+							.setRequestHeader(
+									"${_csrf.headerName}",
+									"${_csrf.token}");
+				},
+				success : function(data) {
+					console.log('별점가져왔다'+data);
+					$(".btnrating").get(data-1).click();//별에 별점넣기
+					
+				},
+				error : function(data) {
+					console
+							.log("에러:"
+									+ data.responseText);
+				}
+
+			});
+			
+			
+			
 
 		});
 	});

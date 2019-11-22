@@ -57,6 +57,15 @@ public class MoviePeopleServiceImpl implements MoviePeopleService {
 	}
 
 	@Override
+	public MoviePeopleDto selectPeople(Map map) {
+		return dao.selectPeople(map);
+	}
+
+	@Override
+	public MoviePeopleDto selectPeopleMovie(Map map) {
+		return dao.selectPeopleMovie(map);
+	}
+	@Override
 	public List<MoviePeopleDto> selectPeopleNoList(Map map) {
 		return dao.selectPeopleNoList(map);
 	}

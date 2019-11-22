@@ -49,7 +49,20 @@ public class ReviewDto {
 	private String commentContent;
 	private java.util.Date commentDate;
 
+	//내가 특정리뷰에 좋아요한 갯수
+	private int likeMyCount;
 
+
+
+
+
+	public int getLikeMyCount() {
+		return likeMyCount;
+	}
+
+	public void setLikeMyCount(int likeMyCount) {
+		this.likeMyCount = likeMyCount;
+	}
 
 	public java.util.Date getCommentDate() {
 		return commentDate;

@@ -76,10 +76,10 @@ public class MovieController {
 	@Resource(name = "stillCutService")
 	private StillCutService stillCutService;
 
-	
+
 	@Resource(name = "filmographyService")
 	private FilmographyService filmoGraphyService;
-	
+
 
 	// 전체영화
 	@RequestMapping("/Movieing/Movie/AllMovie.mov")
@@ -364,13 +364,14 @@ public class MovieController {
 		List<StillCutDto> stillCutList = stillCutService.searchStillCutList(map);
 
 		System.out.println("MovieDetails 5 - stillCutList 값 : "+ stillCutList);
-	
+
 			if(movieInfo.getNaverPrice() != null)
 			{
 				System.out.println("MovieDetails 6 - naverPrice 변경 전 값 :"+movieInfo.getNaverPrice());
-				String naverPrice= movieInfo.getNaverPrice().substring(0,movieInfo.getNaverPrice().indexOf("."));
+				String naverPrice= movieInfo.getNaverPrice().substring(0,movieInfo.getNaverPrice().indexOf(".")).toString();
 				System.out.println("MovieDetails 6 - naverPrice 변경 후 값 : "+naverPrice);
 				movieInfo.setNaverPrice(naverPrice);
+
 			}
 			if(movieInfo.getWavvePrice() != null) {
 				String wavvePrice = movieInfo.getWavvePrice().substring(0,movieInfo.getWavvePrice().indexOf("."));
@@ -489,47 +490,61 @@ public class MovieController {
 	}
 ///////////////////////////////////////////ratingMovie
 
-
+	//필모그래피]-감독
 	@RequestMapping("/Movieing/Movie/Filmography.mov")
+
+/*
+	public String filmography(@RequestParam Map map,Model model) {
+		//사람 이름받기
+		String movieDirector=map.get("movieDirector").toString();
+		System.out.println("감독이름:"+movieDirector);
+
+		//이름에 맞는 정보가져오기-감독
+		MoviePeopleDto selectPeople=moviePeopleService.selectPeople(map);
+		model.addAttribute("selectPeople", selectPeople);
+		//영화정보
+		MoviePeopleDto selectPeopleMovie=moviePeopleService.selectPeopleMovie(map);
+		model.addAttribute("selectPeopleMovie", selectPeopleMovie);
+		*/
 	public String filmography(@RequestParam Map map,@RequestParam String moviePeopleName,Model model) {
 		System.out.println("Filmography -1 : map 실어 값 보내기 성공");
 		//영화인 이름
 		map.put("moviePeopleName", moviePeopleName);
-		
-		
+
+
 		//영화인 이름으로 영화인 번호 가져오기
 		//List<MoviePeopleDto> selectNoList = moviePeopleService.selectPeopleNoList(map);
 		MoviePeopleDto moviePeopleInfo = moviePeopleService.selectMoviePeopleNameOne(map);
 		//영화인 코드, 영화 코드 반환
 		System.out.println("Filmograph -2.1 : moviePeopleInfo.getName : "+ moviePeopleInfo.getMoviePeopleName());
 		System.out.println("Filmograph -2.2 : moviePeopleInfo.getNo : "+ moviePeopleInfo.getMoviePeopleNo());
-		
+
 		String moviePeopleNo =moviePeopleInfo.getMoviePeopleNo();
 		System.out.println("Filmograph -3 : moviePeople :"+moviePeopleNo);
 		map.put("moviePeopleNo", moviePeopleNo);
 		//번호 집어넣기
-		
+
 		//관련 영화 정보 가져오기
 		List<FilmographyDto> selectFilmoList = filmoGraphyService.selectFilmoList(map);
 		System.out.println("Filmography -4 : selectFilmoList 생성 완료 : "+selectFilmoList);
 		for(int i=0; i<selectFilmoList.size();i++) {
 			System.out.println("Filmography -4.1 : selectFilmoList(필모그래피 리스트).getMovieNo : "+selectFilmoList.get(i).getMovieNo());
-			System.out.println("Filmography -4.2 : selectFilmoList(필모그래피 리스트).getMoviePeopleNo : "+selectFilmoList.get(i).getMoviePeopleNo());			
+			System.out.println("Filmography -4.2 : selectFilmoList(필모그래피 리스트).getMoviePeopleNo : "+selectFilmoList.get(i).getMoviePeopleNo());
 		}
 		String movieNo;
 		MovieDto movieInfo;
 		List<MovieDto> movieInfoList = new Vector<MovieDto>();
-		
+
 		for(int i=0;i<selectFilmoList.size();i++) {
 			movieNo = selectFilmoList.get(i).getMovieNo();
 			map.put("movieNo", movieNo);
 			movieInfo = movieService.selectOne(map);
 			movieInfoList.add(movieInfo);
-			
+
 			System.out.println("Filmography 5 : movieInfoList : "+movieInfoList.get(i));
-			
+
 		}
-			
+
 		model.addAttribute("moviePeopleInfo",moviePeopleInfo);
 		model.addAttribute("movieInfoList",movieInfoList);
 		//감독 출현작
@@ -539,7 +554,7 @@ public class MovieController {
 		model.addAttribute("selectFilmoList",selectFilmoList);
 		//model.addAttribute("movieInfo",movieInfo);
 		//model.addAttribute("selectMovieList",selectMovieList);
-		
+
 		return "movie/info/Filmography.tiles";
 	}
 

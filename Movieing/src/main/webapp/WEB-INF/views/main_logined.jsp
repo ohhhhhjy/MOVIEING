@@ -400,7 +400,7 @@ $('#blogCarousel').carousel({
 
 	<!-- Services -->
 	<section class="page-section" id="services"
-		style="border-color: #f7f2f5">
+		style="border-color: #f7f2f5;margin-top: -80px">
 		<div class="container">
 
 
@@ -438,14 +438,12 @@ $('#blogCarousel').carousel({
 
 					<h5 style="font-weight: bold;">상영영화 일간 박스오피스</h5>
 
-
-
 					<!--Table-->
-					<table id="tablePreview" class="table table-hover table-sm"
-						style="width: auto; height: 400px">
+					<table id="tablePreview" class="table table-hover table-sm table-borderless"
+						style="width: auto; height: 400px;border: 1px solid #444444;border-left: none;border-right: none">
 						<!--Table head-->
 
-						<thead>
+						<thead style="background-color: black;color: white;font-size: medium;">
 							<tr>
 								<th>순위</th>
 								<th>영화명</th>
@@ -480,12 +478,8 @@ $('#blogCarousel').carousel({
 						</tbody>
 
 						<!--Table body-->
-
 					</table>
-
-
-
-					<label style="color: gray;">영화진흥위원회 자료제공(2019년 12월 4일 기준)</label>
+					<label style="color: gray;font-size: small;">영화진흥위원회 자료제공(2019년 12월 4일 기준)</label>
 					<!--Table-->
 
 				</div>
@@ -776,8 +770,8 @@ $('#blogCarousel').carousel({
 
 				<div>
 					<!-- 3행 div시작 ------------------------------------>
-
-					<h5 style="font-weight: bold;">무비 블로그 인기 글</h5>
+				
+						<h5 style="font-weight: bold;">무비 블로그 인기 글</h5>
 					<!-- Card group -->
 					<div class="card-group">
 						

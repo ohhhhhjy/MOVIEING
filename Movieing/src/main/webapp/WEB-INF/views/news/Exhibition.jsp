@@ -110,7 +110,126 @@ tbody>tr {
 		
 		<div class="col-md-3 text">
 			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/j2.png'/>">
+				src="<c:url value='/resources/img/news/n1.jpg'/>">
+			<div class="middle">
+				<div class="text">부산국제영화제</div>
+			</div>
+			<span class="text" style="font-size:1.5em;text-align: center;">부산국제영화제</span>
+		</div>
+		<div class="col-md-3 text">
+			<img class="img-responsive"
+				src="<c:url value='/resources/img/news/2.jpg'/>">
+			<div class="middle">
+				<div class="text">전주국제영화제</div>
+			</div>
+			<span class="text" style="font-size:1.5em;text-align: center;">전주국제영화제</span>
+		</div>
+		<div class="col-md-3 text">
+			<img class="img-responsive"
+				src="<c:url value='/resources/img/news/3.jpg'/>">
+			<div class="middle">
+				<div class="text">부천국제판타스틱영화제</div>
+			</div>
+			<span class="text" style="font-size:1.5em;text-align: center;">부천국제판타스틱영화제</span>
+		</div>
+	</div>
+	<!-- ---------------------------------1행--------------------------------------------- -->
+	
+	<div style="padding-top: 20px"></div>
+	<div class="row col-md-12">
+			<div class="col-md-3 text">
+			<img class="img-responsive" src="<c:url value='/resources/img/news/4.jpg'/>"
+				alt="서울독립영화제">
+			<div class="middle">
+				<div class="text">대종상 영화제</div>
+			</div>
+			<span class="text" style="font-size:1.5em;text-align: center;">대종상 영화제</span>
+		</div>
+		
+		<div class="col-md-3 text">
+			<img class="img-responsive"
+				src="<c:url value='/resources/img/news/5.jpg'/>">
+			<div class="middle">
+				<div class="text">청룡영화상</div>
+			</div>
+			<span class="text" style="font-size:1.5em;text-align: center;">청룡영화상</span>
+		</div>
+		<div class="col-md-3 text">
+			<img class="img-responsive"
+				src="<c:url value='/resources/img/news/6.jpg'/>">
+			<div class="middle">
+				<div class="text">백상예술대상</div>
+			</div>
+			<span class="text" style="font-size:1.5em;text-align: center;">백상예술대상</span>
+		</div>
+		<div class="col-md-3 text">
+			<img class="img-responsive"
+				src="<c:url value='/resources/img/news/7.jpg'/>">
+			<div class="middle">
+				<div class="text">시네마테크KOFA가 주목한 한..</div>
+			</div>
+			<span class="text" style="font-size:1.5em;text-align: center;">시네마테크KOFA가 주목한 한..</span>
+		</div>
+	</div>
+	
+	<!-- ---------------------------------2행--------------------------------------------- -->
+	
+	
+	<div style="padding-top: 20px"></div>
+	<div class="row col-md-12">
+			<div class="col-md-3 text">
+			<img class="img-responsive" src="<c:url value='/resources/img/news/8.jpg'/>"
+				alt="서울독립영화제">
+			<div class="middle">
+				<div class="text">서울국제여성영화제</div>
+			</div>
+			<span class="text" style="font-size:1.5em;text-align: center;">서울국제여성영화제</span>
+		</div>
+		
+		<div class="col-md-3 text">
+			<img class="img-responsive"
+				src="<c:url value='/resources/img/news/9.jpg'/>">
+			<div class="middle">
+				<div class="text">제천국제음악영화제</div>
+			</div>
+			<span class="text" style="font-size:1.5em;text-align: center;">제천국제음악영화제</span>
+		</div>
+		<div class="col-md-3 text">
+			<img class="img-responsive"
+				src="<c:url value='/resources/img/news/7.jpg'/>">
+			<div class="middle">
+				<div class="text">DMZ국제다큐멘터리영화제</div>
+			</div>
+			<span class="text" style="font-size:1.5em;text-align: center;">DMZ국제다큐멘터리영화제</span>
+		</div>
+		<div class="col-md-3 text">
+			<img class="img-responsive"
+				src="<c:url value='/resources/img/news/11.jpg'/>">
+			<div class="middle">
+				<div class="text">서울환경영화제</div>
+			</div>
+			<span class="text" style="font-size:1.5em;text-align: center;">서울환경영화제</span>
+		</div>
+	</div>
+	
+	
+	
+	<!-- ---------------------------------3행--------------------------------------------- -->
+	
+	<div style="padding-top: 20px"></div>
+	<div class="row col-md-12">
+			<div class="col-md-3 text">
+			<img class="img-responsive" src="<c:url value='/resources/img/news/12.jpg'/>"
+				alt="서울독립영화제">
+			<div class="middle">
+				<div class="text">미쟝센단편영화제</div>
+			</div>
+			<span class="text" style="font-size:1.5em;text-align: center;">미쟝센단편영화제</span>
+		</div>
+		
+		<div class="col-md-3 text">
+			<img class="img-responsive"
+				src="<c:url value='/resources/img/news/j2.jpg'/>">
 			<div class="middle">
 				<div class="text">최강애니전</div>
 			</div>
@@ -127,125 +246,6 @@ tbody>tr {
 		<div class="col-md-3 text">
 			<img class="img-responsive"
 				src="<c:url value='/resources/img/news/j4.jpg'/>">
-			<div class="middle">
-				<div class="text">제주영화제</div>
-			</div>
-			<span class="text" style="font-size:1.5em;text-align: center;">제주영화제</span>
-		</div>
-	</div>
-	<!-- ---------------------------------1행--------------------------------------------- -->
-	
-	<div style="padding-top: 20px"></div>
-	<div class="row col-md-12">
-			<div class="col-md-3 text">
-			<img class="img-responsive" src="<c:url value='/resources/img/news/1.png'/>"
-				alt="서울독립영화제">
-			<div class="middle">
-				<div class="text">부산국제영화제</div>
-			</div>
-			<span class="text" style="font-size:1.5em;text-align: center;">부산국제영화제</span>
-		</div>
-		
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/2.png'/>">
-			<div class="middle">
-				<div class="text">전주국제영화제</div>
-			</div>
-			<span class="text" style="font-size:1.5em;text-align: center;">전주국제영화제</span>
-		</div>
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/3.png'/>">
-			<div class="middle">
-				<div class="text">부천국제판타스틱영화제</div>
-			</div>
-			<span class="text" style="font-size:1.5em;text-align: center;">부천국제판타스틱영화제</span>
-		</div>
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/4.png'/>">
-			<div class="middle">
-				<div class="text">대종상 영화제</div>
-			</div>
-			<span class="text" style="font-size:1.5em;text-align: center;">대종상 영화제</span>
-		</div>
-	</div>
-	
-	<!-- ---------------------------------2행--------------------------------------------- -->
-	
-	
-	<div style="padding-top: 20px"></div>
-	<div class="row col-md-12">
-			<div class="col-md-3 text">
-			<img class="img-responsive" src="<c:url value='/resources/img/news/5.png'/>"
-				alt="서울독립영화제">
-			<div class="middle">
-				<div class="text">백상예술대상</div>
-			</div>
-			<span class="text" style="font-size:1.5em;text-align: center;">백상예술대상</span>
-		</div>
-		
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/6.png'/>">
-			<div class="middle">
-				<div class="text">시네마테그KOFA가 주목한...</div>
-			</div>
-			<span class="text" style="font-size:1.5em;text-align: center;">시네마테그KOFA가 주목한...</span>
-		</div>
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/7.png'/>">
-			<div class="middle">
-				<div class="text">서울국제여성영화제</div>
-			</div>
-			<span class="text" style="font-size:1.5em;text-align: center;">서울국제여성영화제</span>
-		</div>
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/8.png'/>">
-			<div class="middle">
-				<div class="text">제천국제음악영화제</div>
-			</div>
-			<span class="text" style="font-size:1.5em;text-align: center;">제천국제음악영화제</span>
-		</div>
-	</div>
-	
-	
-	
-	<!-- ---------------------------------3행--------------------------------------------- -->
-	
-	<div style="padding-top: 20px"></div>
-	<div class="row col-md-12">
-			<div class="col-md-3 text">
-			<img class="img-responsive" src="<c:url value='/resources/img/news/9.png'/>"
-				alt="서울독립영화제">
-			<div class="middle">
-				<div class="text">제 45회 <br>서울독립영화제 (2019)</div>
-			</div>
-			<span class="text" style="font-size:1.5em;text-align: center;">서울독립영화제</span>
-		</div>
-		
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/10.png'/>">
-			<div class="middle">
-				<div class="text">최강애니전</div>
-			</div>
-			<span class="text" style="font-size:1.5em;text-align: center;">최강애니전</span>
-		</div>
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/11.png'/>">
-			<div class="middle">
-				<div class="text">아동권리영화제</div>
-			</div>
-			<span class="text" style="font-size:1.5em;text-align: center;">아동권리영화제</span>
-		</div>
-		<div class="col-md-3 text">
-			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/12.png'/>">
 			<div class="middle">
 				<div class="text">제주영화제</div>
 			</div>

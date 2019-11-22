@@ -253,7 +253,7 @@ $(function(){
  				type:'post',
  				dataType:'text',
  				data:
- 					{id:'${id}',reviewNo:'${friendsReviewList1.get(index).reviewNo}'},
+ 					{id:'${id}',reviewNo:'${friendsReviewList2.get(index).reviewNo}'},
 			    beforeSend : function(xhr)
                   {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
                       xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
@@ -280,7 +280,7 @@ $(function(){
  				type:'post',
  				dataType:'text',
  				data:
- 				{id:'${id}',reviewNo:'${friendsReviewList1.get(index).reviewNo}'},
+ 				{id:'${id}',reviewNo:'${friendsReviewList2.get(index).reviewNo}'},
  				beforeSend : function(xhr)
                 {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
                     xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
@@ -315,7 +315,7 @@ $(function(){
 															commentContent : $(
 																	'#comment')
 																	.val(),
-															reviewNo : '${friendsReviewList.get(index).reviewNo}'
+															reviewNo : '${friendsReviewList2.get(index).reviewNo}'
 															
 														},
 														beforeSend : function(
@@ -404,7 +404,7 @@ $(function(){
 					type : 'post',
 					dataType : 'text',
 					data : {
-						reviewNo : '${friendsReviewList1.get(index).reviewNo}'
+						reviewNo : '${friendsReviewList2.get(index).reviewNo}'
 						
 					},
 					beforeSend : function(

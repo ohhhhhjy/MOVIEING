@@ -496,11 +496,12 @@ $(document).ready(function() {
 							
 								
 								<p class="card-text">${review.reviewContent }</p>
-								<a href="#"><span
+								<span
 									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
-										${review.likeCount } </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
+										${review.likeCount } </span>&nbsp;&nbsp;&nbsp; 
+								<span
 									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
-										${review.commentCount } </span></a>
+										${review.commentCount } </span>
 							</div>
 						</div>
 				</c:forEach>
@@ -565,7 +566,7 @@ $(document).ready(function() {
 				<h4>영상</h4>
 				<div align="center">
 						<c:set var="result" value="[${movieInfoMap.movieInfoResult.movieInfo.movieNm}]메인예고편" />
-						<iframe id="ytplayer1" type="text/html" width="80%"
+						<iframe id="ytplayer1" type="text/html" width="100%"
 							height="500px"
 							src="https://www.youtube.com/embed/?listType=search&list='${result}'&autoplay=1"
 							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

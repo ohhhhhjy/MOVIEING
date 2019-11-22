@@ -8,6 +8,14 @@
 		from evaluation e join movie m on m.movie_no=e.movie_no 
 		where user_id=#{id}
 	</select>
+	<!-- 특정 영화의 평가 별점 -->
+	<select id="selectReviewEvalue" parameterType="java.util.Map" resultType="EvaluationDto">
+	select * from EVALUATION 
+	where movie_no=
+ 	(select m.movie_no from movie m where m.movie_Title=#{movieTitle}) 
+ 	and user_id=#{id}
+	</select>
+	
 	<!-- 보고싶어요목록 -->
 	<select id="selectWishList" parameterType="java.util.Map" resultType="EvaluationDto">
 		select w.*,m.movie_title,movie_img 
