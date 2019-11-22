@@ -28,10 +28,10 @@
 	<div id="calendar" style="width: auto; height: 800px;"></div>
 
 
-
+	<br>
 	<div style="padding-bottom: 80px"></div>
 	<div>
-		<table class="table table-striped">
+		<table class="table table-striped"  style="text-align: center;">
 			<thead>
 				<tr>
 					<th>행사명</th>
@@ -40,22 +40,15 @@
 				</tr>
 			</thead>
 			<tbody>
+				<c:forEach items="${calendar }" var="item" varStatus="status" begin="0" end="${calendar.size()-1 }">
 				<tr>
 					<td><a class="nav-link" href="#modal1"
-						data-toggle="modal">부산 국제 영화제</a></td>
-					<td>2019.10.03(목) ~ 2019.10.12(토)</td>
-					<td>부산</td>
+						data-toggle="modal">${item.eventName }</a></td>
+					<td>${item.eventStart } ~ ${item.eventEnd }</td>
+					<td>${item.eventPlace }</td>
 				</tr>
-				<tr>
-					<td>부천 국제 판타스틱 영화제</td>
-					<td>2019.06.27(목) ~ 2019.07.07(일)</td>
-					<td>부천</td>
-				</tr>
-				<tr>
-					<td>부천 국제 애니메이션 페스티벌</td>
-					<td>2019.10.18(금) ~ 2019.10.22(화)</td>
-					<td>부천</td>
-				</tr>
+				
+					</c:forEach>
 			</tbody>
 		</table>
 	</div>

@@ -18,9 +18,9 @@ public class CalendarDao implements CalendarService{
 	private SqlSessionTemplate template;
 
 	@Override
-	public List<CalendarDto> selectList(Map map) {
+	public List<CalendarDto> selectList() {
 		
-		return template.selectList("calendarList",map);
+		return template.selectList("calendarList");
 	}
 	
 	
