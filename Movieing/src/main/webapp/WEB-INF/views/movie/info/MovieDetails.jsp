@@ -98,6 +98,7 @@ body {
     .priceText{
    font-size: 0.8em;
    font-weight: bold;
+   text-align: center;
    }
    
 /* 원형이미지들 */
@@ -388,7 +389,7 @@ $(document).ready(function() {
 								<a href="#"> <img
 									class="jw-provider-icon price-comparison_grid_row_icon"
 									alt="Naver Store" title="Naver Store"
-									src="<c:url value='/resources/img/movie/pooq.jpg'/>">
+									src="<c:url value='/resources/img/movie/wavve.jpg'/>">
 								</a>
 								<div class="priceText">${movieInfo.wavvePrice }</div>
 							</div>
@@ -434,7 +435,7 @@ $(document).ready(function() {
 			<!-- 감독 -->
 			<div class="row">
 				<div class="col-md-1"><h4>감독</h4></div>
-				<a class="moviePersonName"  href="<c:url value='/Movieing/Movie/Filmography.mov?movieDirector=${movieInfo.movieDirector }'/>">${movieInfo.movieDirector }</a>
+				<a class="moviePersonName"  href="<c:url value='/Movieing/Movie/Filmography.mov?moviePeopleName=${movieInfo.movieDirector }'/>">${movieInfo.movieDirector }</a>
 			</div>
 			
 			<hr class="my-3">
@@ -443,7 +444,7 @@ $(document).ready(function() {
 			<div class="row">
 				<div class="col-md-1"><h4>배우</h4></div>
 				<c:forEach items="${movieInfoMap.movieInfoResult.movieInfo.actors}" var="actors">
-					<a class="moviePersonName" href="#">${actors.peopleNm}</a>
+					<a class="moviePersonName" href="<c:url value='/Movieing/Movie/Filmography.mov?moviePeopleName=${actors.peopleNm }'/>">${actors.peopleNm}</a>
 				</c:forEach>
 			</div>
 			
@@ -497,11 +498,12 @@ $(document).ready(function() {
 							
 								
 								<p class="card-text">${review.reviewContent }</p>
-								<a href="#"><span
+								<span
 									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
-										${review.likeCount } </span></a>&nbsp;&nbsp;&nbsp; <a href="#"><span
+										${review.likeCount } </span>&nbsp;&nbsp;&nbsp; 
+								<span
 									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
-										${review.commentCount } </span></a>
+										${review.commentCount } </span>
 							</div>
 						</div>
 				</c:forEach>
@@ -566,7 +568,7 @@ $(document).ready(function() {
 				<h4>영상</h4>
 				<div align="center">
 						<c:set var="result" value="[${movieInfoMap.movieInfoResult.movieInfo.movieNm}]메인예고편" />
-						<iframe id="ytplayer1" type="text/html" width="80%"
+						<iframe id="ytplayer1" type="text/html" width="100%"
 							height="500px"
 							src="https://www.youtube.com/embed/?listType=search&list='${result}'&autoplay=1"
 							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

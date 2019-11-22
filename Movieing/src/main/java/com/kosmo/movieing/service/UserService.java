@@ -39,4 +39,13 @@ public interface UserService {
 	//영화본 친구
 	List<UserDto> selectMovieUserList(Map map);
 
+
+	//유저 전체 검색용
+	List<UserDto> selectAllUserList(Map map);
+
+	//관리자 판단용
+	boolean isAdmin(String id);
+
+
+
 }

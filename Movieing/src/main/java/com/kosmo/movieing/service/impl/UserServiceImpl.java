@@ -106,4 +106,15 @@ public class UserServiceImpl implements UserService{
 		return dao.selectMovieUserList(map);
 	}
 
+	@Override
+	public List<UserDto> selectAllUserList(Map map) {
+		return dao.selectAllUserList(map);
+	}
+
+	@Override
+	public boolean isAdmin(String id) {
+
+		return dao.isAdmin(id);
+	}
+
 }

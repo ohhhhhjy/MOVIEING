@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.social.google.connect.GoogleConnectionFactory;
 import org.springframework.social.oauth2.OAuth2Parameters;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosmo.movieing.service.ReviewDto;
 import com.kosmo.movieing.service.ReviewService;
+import com.kosmo.movieing.service.UserService;
 
 import kr.or.kobis.kobisopenapi.consumer.rest.KobisOpenAPIRestService;
 
@@ -34,6 +36,8 @@ public class LoginController {
 	@Resource(name="reviewService")
 	private ReviewService reviewService;
 
+	@Resource(name = "userService")
+	private UserService userService;
 
 	/* NaverLoginBO */
 	private NaverLoginBO naverLoginBO;
@@ -111,8 +115,15 @@ public class LoginController {
 //	}
 
 	@RequestMapping("/Movieing/Movie/Home.mov")
-	public String goToHome(Model model) throws Exception {
-
+	public String goToHome(Model model, Authentication auth) throws Exception {
+		//관리자확인
+		String id = auth.getName();
+		System.out.println(id);
+		boolean flag = userService.isAdmin(id);
+		System.out.println(flag);
+		if(flag==true)
+			return "forward:/Movieing/admin/admin_main.mov";
+		
 		List<ReviewDto> bestReviewList = reviewService.selectBestReviewList();
 		model.addAttribute("bestReviewList", bestReviewList.isEmpty()?null:bestReviewList);
 

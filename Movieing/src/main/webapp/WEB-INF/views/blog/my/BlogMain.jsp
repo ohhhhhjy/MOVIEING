@@ -140,6 +140,17 @@ body {
 	vertical-align: middle;
 }
 
+/*배너*/
+#floatMenu {
+	position: absolute;
+	left: 320px;
+	top: 400px;
+}
+
+/*배너 안 디자인*/
+
+
+
 
 </style>
 
@@ -265,6 +276,30 @@ body {
 		});
 	});
 	
+	
+	/*배너*/
+	$(document).ready(function() {
+
+		// 기존 css에서 플로팅 배너 위치(top)값을 가져와 저장한다.
+		var floatPosition = parseInt($("#floatMenu").css('top'));
+		// 250px 이런식으로 가져오므로 여기서 숫자만 가져온다. parseInt( 값 );
+
+		$(window).scroll(function() {
+			// 현재 스크롤 위치를 가져온다.
+			var scrollTop = $(window).scrollTop();
+			var newPosition = scrollTop + floatPosition + "px";
+
+			/* 애니메이션 없이 바로 따라감
+			 $("#floatMenu").css('top', newPosition);
+			 */
+
+			$("#floatMenu").stop().animate({
+				"top" : newPosition
+			}, 500);
+
+		}).scroll();
+
+	});
 
 
 </script>
@@ -272,77 +307,110 @@ body {
 
 
 <div class="container">
+	<!-- 플로팅 배너 -->
+	<div id="floatMenu">
+		<!--  
+		<img src="<c:url value='/resources/img/mup.png'/>">
+		-->
+			
+		
+		    <div class="card">
+		        <div class="card-content">
+		            <div class="card-title green white-text">
+		                <h3>Basic</h3>
+		                <h5>$29/month</h5>
+		            </div>
+		            <ul class="collection">
+		                <li class="collection-item">25GB Disk Space</li>
+		                <li class="collection-item">30 Email Address</li>
+		                <li class="collection-item">1 Domain</li>
+		                <li class="collection-item">Live Support</li>
+		                <li class="collection-item">Unlimited Bandwidth</li>
+		            </ul>
+		        </div>
+		        
+		        <div class="card-action">
+		            <div class="btn btn-block btn-large pink">Sing Up</div>
+		        </div>
+		    </div>
+		
+	
+	</div>
+	<!--  -->
+	
+	
+	
 
-
-<div class="row" style="padding-top: 20px">
-	<!-- 왼쪽 마이피드 -->
-	<div class="col-sm-7 blog-main">
-		<!-- 프로필 -->
-		<div class="jumbotron">
-			<div class="row">
-				<!-- 프로필 사진 -->
-				<div class="col-sm-3" align="center">
-					<img class="profileImage" alt="프로필사진"
-						src="${userInfo.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': userInfo.userProfile}" />
-					<h5 style="padding-top: 20px">${userInfo.userNick}</h5>
-					<div class="row">
-						<div class="col-sm-6">
-							<a href="#followModal" data-toggle="modal" id="followerModal"
-								class="followModal"><span
-								style="font-weight: bold; color: black; font-size: 0.9em">팔로워
-									${followerCount } </span></a>
+	<div class="row" style="padding-top: 20px">
+		<!-- 왼쪽 마이피드 -->
+		<div class="col-sm-7 blog-main">
+			<!-- 프로필 -->
+			<div class="jumbotron">
+				<div class="row">
+					<!-- 프로필 사진 -->
+					<div class="col-sm-3" align="center">
+						<img class="profileImage" alt="프로필사진"
+							src="${userInfo.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': userInfo.userProfile}" />
+						<h5 style="padding-top: 20px">${userInfo.userNick}</h5>
+						<div class="row">
+							<div class="col-sm-6">
+								<a href="#followModal" data-toggle="modal" id="followerModal"
+									class="followModal"><span
+									style="font-weight: bold; color: black; font-size: 0.9em">팔로워
+										${followerCount } </span></a>
+							</div>
+							<div class="col-sm-6">
+								<a href="#followModal" data-toggle="modal" id="followingModal"
+									class="followModal"><span
+									style="font-weight: bold; color: black; font-size: 0.9em">팔로잉
+										${followingCount } </span></a>
+							</div>
 						</div>
-						<div class="col-sm-6">
-							<a href="#followModal" data-toggle="modal" id="followingModal"
-								class="followModal"><span
-								style="font-weight: bold; color: black; font-size: 0.9em">팔로잉
-									${followingCount } </span></a>
-						</div>
-					</div>
-					<br>
-					<!--  
+						<br>
+						<!--  
 						<button type="button" class="btn btn-danger" onclick='<c:url value="/Movieing/Blog/MovindFriends.mov"/>'>무빙프렌즈</button>
 						-->
-					<a class="btn btn-danger"
-						href="<c:url value='/Movieing/Blog/MovieingFriends.mov'/>">무빙프렌즈</a>
-				</div>
+						<a class="btn btn-danger"
+							href="<c:url value='/Movieing/Blog/MovieingFriends.mov'/>">무빙프렌즈</a>
+					</div>
 
-				<!-- 프로필 활동내역 -->
-				<div class="col-sm-9">
-					<p align="right" style="padding-bottom: 20px">
-						<a class="btn btn-dark btn-sm"
-							href="<c:url value='/Movieing/Blog/MyPage.mov'/>" role="button">마이페이지</a>
-					</p>
-					<!-- a태그 post방식 페이지 전송 폼 -->
-					<form name="paging">
-						<input type="hidden" name="${_csrf.parameterName}"
-							value="${_csrf.token}"> <input type="hidden" name="page" />
-						<input type="hidden" name="id" />
-					</form>
-					<div class="row"
-						style="padding-top: 20px; padding-bottom: 20px; background-color: white; border-radius: 10px 10px 10px 10px;">
-						<div class="col-sm-3" align="center">
-							<a href="javascript:goPage('a');"><span
-								style="font-weight: bold">별점<br> ${evalueCount }
-							</span></a>
-						</div>
-						<div class="col-sm-3" align="center"
-							style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
-							<a href="javascript:goPage('b');"><span
-								style="font-weight: bold">리뷰<br> ${reviewCount }
-							</span></a>
-						</div>
-						<div class="col-sm-3" align="center"
-							style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
-							<a href="javascript:goPage('c');"><span
-								style="font-weight: bold">좋아요<br> ${likeCount }
-							</span></a>
-						</div>
-						<div class="col-sm-3" align="center"
-							style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
-							<a href="javascript:goPage('d');"><span
-								style="font-weight: bold">보고싶어요<br> ${wishCount }
-							</span></a>
+					<!-- 프로필 활동내역 -->
+					<div class="col-sm-9">
+						<p align="right" style="padding-bottom: 20px">
+							<a class="btn btn-dark btn-sm"
+								href="<c:url value='/Movieing/Blog/MyPage.mov'/>" role="button">마이페이지</a>
+						</p>
+						<!-- a태그 post방식 페이지 전송 폼 -->
+						<form name="paging">
+							<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}"> <input type="hidden" name="page" />
+							<input type="hidden" name="id" />
+						</form>
+						<div class="row"
+							style="padding-top: 20px; padding-bottom: 20px; background-color: white; border-radius: 10px 10px 10px 10px;">
+							<div class="col-sm-3" align="center">
+								<a href="javascript:goPage('a');"><span
+									style="font-weight: bold">별점<br> ${evalueCount }
+								</span></a>
+							</div>
+							<div class="col-sm-3" align="center"
+								style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
+								<a href="javascript:goPage('b');"><span
+									style="font-weight: bold">리뷰<br> ${reviewCount }
+								</span></a>
+							</div>
+							<div class="col-sm-3" align="center"
+								style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
+								<a href="javascript:goPage('c');"><span
+									style="font-weight: bold">좋아요<br> ${likeCount }
+								</span></a>
+							</div>
+							<div class="col-sm-3" align="center"
+								style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
+								<a href="javascript:goPage('d');"><span
+									style="font-weight: bold">보고싶어요<br> ${wishCount }
+								</span></a>
+							</div>
 						</div>
 					</div>
 					<c:if test="${notMe == 'y'}">
@@ -358,14 +426,14 @@ body {
 
 
 
-		<c:if test="${empty selectList }" var="isEmpty">
-			<h5>
-				아직 등록한 리뷰가 없어요...<br>리뷰를 등록해보세요
-			</h5>
-		</c:if>
+			<c:if test="${empty selectList }" var="isEmpty">
+				<h5>
+					아직 등록한 리뷰가 없어요...<br>리뷰를 등록해보세요
+				</h5>
+			</c:if>
 
 <!-- 중간에 한줄 끼워팔기,,, -->
-		<c:if test="${!isEmpty }">
+<c:if test="${!isEmpty }">
 			<c:forEach items="${selectList }" var="item" varStatus="status" begin="0" end="1">
 				<!-- 2.여러줄컨텐츠(리뷰) -->
 				<div class="card border-secondary mb-3" style="max-width: 200rem;">
@@ -383,69 +451,71 @@ body {
 
 
 
-						<!-- 삭제모달 -->
-						<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title" align="center">
-											<i class="far fa-bell"></i> 알림창
-										</h5>
-										<button type="button" class="close" data-dismiss="modal"
-											aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<p>리뷰를 삭제하시겠습니까?</p>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-dismiss="modal">취소</button>
-										<button id="deleteBtn" type="button" class="btn btn-danger"
-											data-dismiss="modal">삭제</button>
+							<!-- 삭제모달 -->
+							<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" align="center">
+												<i class="far fa-bell"></i> 알림창
+											</h5>
+											<button type="button" class="close" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<p>리뷰를 삭제하시겠습니까?</p>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+												data-dismiss="modal">취소</button>
+											<button id="deleteBtn" type="button" class="btn btn-danger"
+												data-dismiss="modal">삭제</button>
+										</div>
 									</div>
 								</div>
 							</div>
+
 						</div>
 
-					</div>
+
+						<div class="card-body">
+							<div class="row">
+								<div class="col-sm-3" align="center">
+									<a
+										href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><img
+										class="movieImage" src="${item.movieImg }" alt="포스터" /></a>
+								</div>
+								<div class="col-sm-9">
 
 
-					<div class="card-body">
-						<div class="row">
-							<div class="col-sm-3" align="center">
-								<a
-									href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><img
-									class="movieImage" src="${item.movieImg }" alt="포스터" /></a>
-							</div>
-							<div class="col-sm-9">
+									<a
+										href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>">
+										<h4 class="card-title" style="color: black">${item.movieTitle }</h4>
+									</a> <span class="badge badge-pill badge-danger">★${item.grade }</span>
+									<p class="card-text" style="height: 110px">${item.reviewContent }</p>
+									<a href="#"> <span data-toggle="modal"
+										data-target="#likeModal${status.index }"
+										style="font-weight: bold; color: #db147b; font-size: 0.9em">
+											<i class="far fa-thumbs-up"></i>${item.likeCount }
+									</span> <!-- 좋아요수- -->
 
-
-								<a
-									href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>">
-									<h4 class="card-title" style="color: black">${item.movieTitle }</h4>
-								</a> <span class="badge badge-pill badge-danger">★${item.grade }</span>
-								<p class="card-text" style="height: 110px">${item.reviewContent }</p>
-								<a href="#"> <span data-toggle="modal"
-									data-target="#likeModal${status.index }"
-									style="font-weight: bold; color: #db147b; font-size: 0.9em">
-										<i class="far fa-thumbs-up"></i>${item.likeCount }
-								</span> <!-- 좋아요수- -->
-
-								</a>&nbsp;&nbsp;&nbsp; <a
-									href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>">
-									<span
-									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
-										class="far fa-comments"></i> ${item.commentCount } </span>
-								</a>
-								<!-- 댓글수 -->
+									</a>&nbsp;&nbsp;&nbsp; <a
+										href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>">
+										<span
+										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
+											class="far fa-comments"></i> ${item.commentCount } </span>
+									</a>
+									<!-- 댓글수 -->
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				<!-- </div> -->
 
-			</c:forEach>
+	</c:forEach>
+			
 					<!-- 1.한줄컨텐츠(보고싶어요,별점,좋아요) -->
 		<div class="card border-secondary mb-3" style="max-width: 50rem;">
 			<div class="card-header">
@@ -534,9 +604,9 @@ body {
 				</div>
 
 			</c:forEach>
-		</c:if>
+</c:if>
 
-			
+
 
 		</div>
 		<!-- 왼쪽 마이피드끝-->
@@ -550,9 +620,10 @@ body {
 
 			<div class="sidebar-module sidebar-module-inset"
 				style="padding-top: 60px">
-				<h3 align="center">${userInfo.userNick}님의 취향은?</h3>
+				<h3 align="center">${userInfo.userNick}님의취향은?</h3>
 				<p align="right">
-					<a href="<c:url value='/Movieing/Movie/screening/RatingMovie.mov'/>"
+					<a
+						href="<c:url value='/Movieing/Movie/screening/RatingMovie.mov'/>"
 						style="color: #a8a5a5">더 평가하러 가기</a>
 				</p>
 				<hr class="my-3">
@@ -669,7 +740,7 @@ body {
 		<!-- /.blog-sidebar -->
 	</div>
 
-<!--div class=row끝 -->
+	<!--div class=row끝 -->
 
 </div>
 <!--컨테이너 끝 ---->

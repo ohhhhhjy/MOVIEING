@@ -366,7 +366,7 @@ height: 100%;
 												//지도 부착
 												$('#mapDiv')
 														.html(
-																'<div id="map" style="width:100%;height:350px;"></div>');
+																'<div id="map" style="width:100%;height:500px;"></div>');
 												makingMap();//지도 모양 채워줘
 
 												//영화상영시간표 부착
@@ -419,7 +419,7 @@ height: 100%;
 																									'+',
 																									' ')
 																							+ '</span>'
-																							+ '<button type="button" class="btn btn-grey">'
+																							+ '<button type="button" class="btn btn-grey" style="width:20px">'
 																							+ '<i class="fas fa-angle-right"></i>'
 																							+ '</button>'
 																							+ '</div>'
@@ -446,7 +446,7 @@ height: 100%;
 																														function(
 																																index_3,
 																																t) {
-																															timeTableString += '<div class="card" style="width:150px">'
+																															timeTableString += '<div class="card" style="width:140px;border-radius:0px">'
 																																	+ '<ul class="list-group">'
 																																	+ '<li class="list-group-item">'
 																																	+ decodeURIComponent(t['seat'])
@@ -574,7 +574,7 @@ height: 100%;
 		<div class="col-12">
 			<div class="card">
 				<div class="card-body p-0">
-					<div class="row p-5" style="margin-bottom: -70px;">
+					<div class="row p-5" style="margin-bottom: -70px; ">
 						<div class="col-md-6">
 							<h1>영화관 상영 시간표</h1>
 
@@ -753,7 +753,9 @@ height: 100%;
 
 
 					<!-- ------------------------------------------------------------------ -->
+					<h3>영화관 지도</h3>
 					<div class="row pb-5 p-5" id="mapDiv">
+					
 						<!-- 지도가 들어가는 부분 -->
 					</div>
 					<!-- ----------------------------------------------------------------------- -->

@@ -11,8 +11,8 @@ public interface EvalueWishService {
 	List<EvaluationDto> selectEvalueList(Map map);
 	//보고싶어요 목록
 	List<EvaluationDto> selectWishList(Map map);
-
-
+	//내가 별점준 영화 한편만
+	EvaluationDto selectReviewEvalue(Map map);
 
 	//해당영화에 남긴 별점이 있는지 확인
 	boolean isEvalue(Map map);

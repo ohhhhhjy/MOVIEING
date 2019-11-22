@@ -5,6 +5,7 @@
 
 <select id="selectFilmoList" parameterType="java.util.Map" resultType="FilmographyDto">
 	select * from FILMOGRAPHY
+	where MOVIE_PEOPLE_NO = #{moviePeopleNo}
 </select>
 
 </mapper>

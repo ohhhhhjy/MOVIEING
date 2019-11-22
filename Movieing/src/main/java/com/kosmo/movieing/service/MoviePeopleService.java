@@ -9,6 +9,10 @@ public interface MoviePeopleService {
 	boolean isMember(Map map);
 	//목록
 	List<MoviePeopleDto> selectList(Map map);
+	//감독  정보가 져오기
+	MoviePeopleDto selectPeople(Map map);
+	//감독 영화정보
+	MoviePeopleDto selectPeopleMovie(Map map);
 	//전체 레코드 수
 	int getTotalCount(Map map);
 	//상세보기 용
@@ -27,4 +31,7 @@ public interface MoviePeopleService {
 	//배우 리스트
 	List<MoviePeopleDto> selectActorList(Map map);
 
+	List<MoviePeopleDto> selectPeopleNoList(Map map);
+	//Filmography 에서 영화인 이름으로 영화인 번호 찾는 쿼리
+	MoviePeopleDto selectMoviePeopleNameOne(Map map);
 }

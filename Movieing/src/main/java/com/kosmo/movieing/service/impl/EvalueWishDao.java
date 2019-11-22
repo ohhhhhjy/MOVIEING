@@ -110,4 +110,9 @@ public class EvalueWishDao implements EvalueWishService{
 		return template.insert("insertEvalue", map);
 	}
 
+	@Override
+	public EvaluationDto selectReviewEvalue(Map map) {
+		return template.selectOne("selectReviewEvalue", map);
+	}
+
 	}

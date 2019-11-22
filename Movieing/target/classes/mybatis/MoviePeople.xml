@@ -4,19 +4,25 @@
 
 <mapper namespace="mybatis.MoviePeople">
 
-<!-- 필모그래피 영화인 정보가져오기 -->
+	<!-- 필모그래피 영화인 정보가져오기 (감독)-->
 	<select id="selectPeople" parameterType="java.util.Map" resultType="MoviePeopleDto">
 		select * from movie_people where movie_people_name=#{movieDirector}
 	</select>
+	<!-- 감독의 출현작 사진,제목,평점 가져오기 -->
+	<select id="selectPeopleMovie" parameterType="java.util.Map" resultType="MoviePeopleDto">
+		select * from movie
+		where movie_director=#{movieDirector}
+	</select>
 
 	
-	<select id="selectListPeople" parameterType="java.util.Map" resultType="moviePeopleDto">
+	<select id="selectListPeople" parameterType="java.util.Map" resultType="MoviePeopleDto">
 		select * from MOVIE_PEOPLE
 		where MOVIE_PEOPLE_COUNTRY = #{searchWord} 
 		OR MOVIE_PEOPLE_NAME LIKE #{%searchWord}
 		OR MOVIE_PEOPLE_NAME LIKE #{searchWord%}
 		OR MOVIE_PEOPLE_NAME LIKE #{%searchWord%}
 	</select>
+<<<<<<< HEAD
 	
 	<!-- 영화감독 -->
 	<select id="selectDiretorList" parameterType="java.util.Map" resultType="moviePeopleDto">
@@ -31,6 +37,16 @@
 	<!-- 영화배우 -->
 	<select id="selectActorList" parameterType="java.util.Map" resultType="moviePeopleDto">
       select * from movie_people where movie_people_job ='배우' 
+	</select>
+
+	<select id="selectPeopleNoList" parameterType="java.util.Map" resultType="moviePeopleDto">
+		select *from MOVIE_PEOPLE
+		where MOVIE_PEOPLE_NAME = #{moviePeopleName}
+	</select>
+	
+	<select id="selectMoviePeopleNameOne" parameterType="java.util.Map" resultType="moviePeopleDto">
+		select * from MOVIE_PEOPLE
+		where MOVIE_PEOPLE_NAME = #{moviePeopleName}
 	</select>
 
 

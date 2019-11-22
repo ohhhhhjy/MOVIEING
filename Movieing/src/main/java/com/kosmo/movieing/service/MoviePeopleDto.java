@@ -3,7 +3,7 @@ package com.kosmo.movieing.service;
 public class MoviePeopleDto {
 
 
-	int moviePeopleNo;
+	String moviePeopleNo;
 	String moviePeopleName;
 	String moviePeopleJob;
 	String moviePeopleCountry;
@@ -19,10 +19,10 @@ public class MoviePeopleDto {
 	public void setCount(int count) {
 		this.count = count;
 	}
-	public int getMoviePeopleNo() {
+	public String getMoviePeopleNo() {
 		return moviePeopleNo;
 	}
-	public void setMoviePeopleNo(int moviePeopleNo) {
+	public void setMoviePeopleNo(String moviePeopleNo) {
 		this.moviePeopleNo = moviePeopleNo;
 	}
 	public String getMoviePeopleName() {

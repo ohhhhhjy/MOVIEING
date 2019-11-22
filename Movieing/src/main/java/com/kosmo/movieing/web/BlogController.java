@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kosmo.movieing.service.CommentDto;
 import com.kosmo.movieing.service.CommentService;
 import com.kosmo.movieing.service.EvaluationDto;
 import com.kosmo.movieing.service.EvalueWishService;
@@ -68,7 +69,8 @@ public class BlogController {
 
 	// 블로그메인
 	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov")
-	public String blogMain(@RequestParam Map map, Model model, Authentication auth ,HttpServletRequest req ) throws Exception {
+	public String blogMain(@RequestParam Map map, Model model, Authentication auth, HttpServletRequest req)
+			throws Exception {
 
 		String id = auth.getName();
 		if(map.get("userNick")!=null ) {//남의 피드로 가는 경우.
@@ -176,7 +178,6 @@ public class BlogController {
 			model.addAttribute("insertReview", insertReview);// 리뷰테이블에 insert
 		}
 
-
 		// 내가 작성한 글]
 		List<ReviewDto> selectList = reviewService.selectList(map);// 쓴글 가져오기
 
@@ -223,7 +224,7 @@ public class BlogController {
 			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
 		}
 
-		model.addAttribute("selectList",  selectList.isEmpty() ? null : selectList);
+		model.addAttribute("selectList", selectList.isEmpty() ? null : selectList);
 
 		// 리뷰 카운트
 		int reviewCount = reviewService.getTotalCount(map);
@@ -335,7 +336,6 @@ public class BlogController {
 //
 //	}////////////////////////////////
 
-
 	// 블로그-내 활동
 	@RequestMapping("/Movieing/Blog/MyActivity.mov")
 	public String myActiviy(@RequestParam Map map, Model model, Authentication auth) throws Exception {
@@ -426,10 +426,10 @@ public class BlogController {
 		map.put("id", id);
 		model.addAttribute("id", id);
 
+		// 내가 특정리뷰에 좋아요 눌럿는지 확인
+
 		// 무빙프렌즈에서 피드 글보이기(전체공개면)]-모든 정보있음
 		List<ReviewDto> friendsReviewList1 = reviewService.friendsReviewList1(map);// 리스트전체조회
-
-
 
 		System.out.println("닉네임:" + friendsReviewList1.get(0).getUserNick());
 
@@ -488,15 +488,13 @@ public class BlogController {
 			model.addAttribute("reviewPostdate", reviewPostdate);
 		} ////////////////////////////
 
-		model.addAttribute("friendsReviewList1", friendsReviewList1.isEmpty()?null:friendsReviewList1);
+		model.addAttribute("friendsReviewList1", friendsReviewList1.isEmpty() ? null : friendsReviewList1);
 		// 모든 아이디 리스트
 		List<UserDto> allUser = userService.selectList(map);
-		model.addAttribute("allUser", allUser.isEmpty()?null:allUser);
+		model.addAttribute("allUser", allUser.isEmpty() ? null : allUser);
 
 		return "blog/my/MovieingFriends.tiles";
 	}///////////////////////////////////////////////////////////////////////////////
-
-
 
 	// 내 글 삭제
 	@ResponseBody
@@ -576,13 +574,14 @@ public class BlogController {
 			times.setReviewContent(times.getReviewContent().replace("\r\n", "<br>"));
 
 			map.put("reviewPostdate", reviewPostdate);
-			//model.addAttribute("reviewPostdate", reviewPostdate);
+			model.addAttribute("reviewPostdate", reviewPostdate);
+
 		} ////////////////////////////
 
-		model.addAttribute("friendsReviewList2", friendsReviewList2.isEmpty()?null:friendsReviewList2);
+		model.addAttribute("friendsReviewList2", friendsReviewList2.isEmpty() ? null : friendsReviewList2);
 		// 팔로우된 아이디 리스트
-		List<FollowDto> selectFollowList=followService.selectFollowList(map);
-		model.addAttribute("selectFollowList", selectFollowList.isEmpty()?null:selectFollowList);
+		List<FollowDto> selectFollowList = followService.selectFollowList(map);
+		model.addAttribute("selectFollowList", selectFollowList.isEmpty() ? null : selectFollowList);
 
 		return "blog/my/MovieingFriends_2.tiles";
 	}
@@ -620,8 +619,28 @@ public class BlogController {
 	}
 
 
+	// 무빙프렌즈댓글]얘가 찐임
+	@RequestMapping("/Movieing/Movie/FrinedsReviews.mov")
+	public String frinedsReviews(@RequestParam Map map, Model model, Authentication auth) {
+		map.put("id", auth.getName());
+		String reviewNo = map.get("reviewNo").toString();
+		System.out.println("리뷰 넘버:" + reviewNo);
 
+		UserDto user = userService.selectOne(map);
+		model.addAttribute("user", user);
+		ReviewDto review = reviewService.selectOne(map);
+		review.setReviewContent(review.getReviewContent().replace("\r\n", "<br>"));
+		model.addAttribute("review", review);
 
+		List<CommentDto> commentList = commentService.selectList(map);
+		for (CommentDto record : commentList) {
+			record.setCommentContent(record.getCommentContent().replace("\r\n", "<br>"));
+		}
+
+		model.addAttribute("commentList", commentList);
+
+		return "movie/info/FrinedsReviews.tiles";
+	}//////////////////////////////////
 
 	// 글쓰기 페이지]
 	@RequestMapping("/Movieing/Blog/WritePage.mov")
@@ -637,6 +656,21 @@ public class BlogController {
 
 		return "blog/my/WritePage.tiles";
 	}////////////////////////////////////////////
+
+	// 리뷰의 평가점수가져오기
+	@ResponseBody
+	@RequestMapping(value = "/Movieing/Blog/reviewEvalue.mov", method = RequestMethod.POST)
+	public String reviewEvalue(@RequestParam Map map, Authentication auth) {
+		String id = auth.getName();
+		map.put("id", id);
+
+		System.out.println("무비제목" + map.get("movieTitle"));
+		map.put("movieTitle", map.get("movieTitle"));
+
+		EvaluationDto selectEvalueList = evalueWishService.selectReviewEvalue(map);
+		return selectEvalueList.getEvaluationGrade();
+
+	}//////////////////////////////////////////////////
 
 	// 네이버가 제공하는 기본 영화포스터 이미지url을 얻기위한 메소드(고화질 아님.작은 이미지라 저화질이어도 괜찮음.)
 	public String naverDefaultMovieImgUrl(String movieNm) throws Exception {
@@ -672,7 +706,6 @@ public class BlogController {
 		return imgStr;
 
 	}/// movieImgMap
-
 
 	@RequestMapping("/Movieing/Map")
 	public String map() {

@@ -70,4 +70,24 @@ public class MoviePeopleDao implements MoviePeopleService{
 		return template.selectList("selectActorList",map);
 	}
 
+	@Override
+	public MoviePeopleDto selectPeople(Map map) {
+		return template.selectOne("selectPeople", map);
+	}
+
+	@Override
+	public MoviePeopleDto selectPeopleMovie(Map map) {
+		return template.selectOne("selectPeopleMovie", map);
+	}
+
+	@Override
+	public List<MoviePeopleDto> selectPeopleNoList(Map map) {
+		return template.selectList("selectPeopleNoList",map);
+	}
+
+	@Override
+	public MoviePeopleDto selectMoviePeopleNameOne(Map map) {
+		return template.selectOne("selectMoviePeopleNameOne",map);
+	}
+
 }
