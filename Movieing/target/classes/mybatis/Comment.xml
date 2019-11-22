@@ -33,5 +33,9 @@
 		OR COMMENT_CONTENT LIKE #{%searchWord%}
 	</select>
 		
-
+	
+	<!-- 노티 테스트용 신경 쓰지 마세요 -->
+	<select id="getCountNoti" resultType="int">
+		select count(*) from comment_table where review_no=4
+	</select>
 </mapper>

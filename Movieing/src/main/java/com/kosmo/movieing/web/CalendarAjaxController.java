@@ -28,7 +28,7 @@ public class CalendarAjaxController {
 	public String ajaxJsonArray() throws Exception {
 		Map map = new HashMap();
 		//calendarService.selectList(map);
-		List<CalendarDto> list = calendarService.selectList(map);
+		List<CalendarDto> list = calendarService.selectList();
 		String array="[";
 		for(CalendarDto dto : list) {
 			array+="{title:'"+ dto.getEventName()+"',start:'"+dto.getEventStart().toString()+"',end:'"+dto.getEventEnd().toString()+"'},";

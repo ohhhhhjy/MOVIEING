@@ -1,24 +1,32 @@
 package com.kosmo.movieing.web;
 
+import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kosmo.movieing.service.CalendarDto;
+import com.kosmo.movieing.service.CalendarService;
+
 @Controller
 public class NewsController {
-	@RequestMapping(value = "/Movieing/News/News.mov", method = RequestMethod.POST)
-	public String movieMain(@RequestParam Map map, Model model) {
-
-			model.addAttribute("seoulDR", map.get("seoulDR").toString());
-
-		return "news/Calendar.tiles";
-	}
+	
+	@Resource(name = "calendarService")
+	private CalendarService calendarService;
+	
 	@RequestMapping(value = "/Movieing/News/News.mov", method = RequestMethod.GET)
-	public String movieMain() {
+	public String movieMain(Model model) {
+		
+		List<CalendarDto> calendar = calendarService.selectList();
+		model.addAttribute("calendar", calendar);
+		
 		return "news/Calendar.tiles";
 	}
 

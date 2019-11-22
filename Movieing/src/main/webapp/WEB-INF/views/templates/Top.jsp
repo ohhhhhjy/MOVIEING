@@ -47,6 +47,17 @@
 	font-weight: bold;
 	text-align: center;
 }
+.radiusSmallImg {
+	width: 45px;
+	height: 45px;
+	/* background-image:url("배경이미지경로"); */
+	border-radius: 150px; /* 레이어 반크기만큼 반경을 잡기*/
+	display: table-cell;
+	vertical-align: middle;
+	color: #ffffff;
+	font-weight: bold;
+	text-align: center;
+}
 
 .line {
 	color: white;
@@ -172,7 +183,7 @@
 									<input type="text" class="form-control input-lg" placeholder="검색어를 입력하세요" name="searchWord"  style="float:left; display: inline;"/> 
 									<span class="input-group-btn" style="display:inline; float: right;">
 										<button class="btn btn-info btn-lg" type="submit">
-										<img src="<c:url value='/resources/img/search.png'/>" alt="검색" />
+										<img src="<c:url value='/resources/img/search.png'/>" alt="검색" class="rounded-circle"/>
 										</button>
 									</span>
 								</form>
@@ -182,14 +193,13 @@
 					<li><span>&nbsp;&nbsp;</span></li>
 				</ul>
 
-
 				<ul style="list-style: none;">
 					<!-- 프로필 드롭다운 -->
 					<li class="nav-item">
 						<div class="dropdown">
 							<a class="nav-link js-scroll-trigger dropdown-button" href="#" >
-							<img 
-								alt="user" src="<c:url value='/resources/img/user.png'/>"
+							<img id="img" 
+								alt="user" src="" class="radiusSmallImg"
 								style="width: 50px; height: 50px" /></a>
 							<div class="dropdown-content" style="width: 120px">
 
@@ -204,26 +214,21 @@
 									href="<c:url value='/Movieing/my/Notice.mov'/>"
 									style="color: white"><i class="far fa-bell"
 									style="padding-right: 5px"></i>알림</a>
+								<a class="dropItem"
+									href="<c:url value='/Movieing/my/Customer.mov'/>"
+									style="color: white"><i class="far fa-question-circle" style="padding-right: 5px"></i>고객센터</a>
+									
 								 <a class="dropItem"
 									href="javascript:logout()"
 									style="color: white"><i class="fas fa-sign-out-alt"
 									style="padding-right: 5px"></i>로그아웃</a> 
-								<a class="dropItem"
-									href="<c:url value ='/Movieing/admin/admin_main.mov'/>"
-									style="color: white">관리자</a>
-								<a class="dropItem"
-									href="<c:url value='/Movieing/my/Customer.mov'/>"
-									style="color: white"><i class="far fa-question-circle" style="padding-right: 5px"></i>고객센터</a>
-
+								
 							</div>
 						</div>
-
-
 
 					</li>
 
 				</ul>
-
 
 			</sec:authorize>
 
@@ -249,8 +254,26 @@
 
 <script>
    
+   var imageUrl;
+   //var img = ${img};
+   
    $(function () {
-	
+		
+	   $.ajax({
+			url : "<c:url  value='/Ajax/TopImage.mov'/>",
+		    type : 'post',
+		    dataType:'text', 
+			beforeSend : function(xhr)
+             {  
+                 xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+             }, 
+			success : function(data) {
+				console.log(data);
+				imageUrl = data;
+				$("#img").attr("src", data);
+			}
+				
+		});
 	   
 	
 });

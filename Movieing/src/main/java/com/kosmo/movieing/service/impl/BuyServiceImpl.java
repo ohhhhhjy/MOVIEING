@@ -1,5 +1,6 @@
 package com.kosmo.movieing.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -15,10 +16,6 @@ public class BuyServiceImpl implements BuyService {
 	@Resource(name="buyDao")
 	private BuyDao dao;
 
-	@Override
-	public BuyDto selectOne(Map map) {
-		return dao.selectOne(map);
-	}
 
 	@Override
 	public int insert(Map map) {
@@ -28,6 +25,16 @@ public class BuyServiceImpl implements BuyService {
 	@Override
 	public int delete(Map map) {
 		return dao.delete(map);
+	}
+
+	@Override
+	public int totalCount(Map map) {
+		return dao.totalCount(map);
+	}
+
+	@Override
+	public List<BuyDto> selectList(Map map) {
+		return dao.selectList(map);
 	}
 	
 }

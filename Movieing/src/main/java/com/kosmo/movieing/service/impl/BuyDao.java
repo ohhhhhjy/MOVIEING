@@ -1,5 +1,6 @@
 package com.kosmo.movieing.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -17,11 +18,6 @@ public class BuyDao implements BuyService {
 	private SqlSessionTemplate template;
 
 	@Override
-	public BuyDto selectOne(Map map) {
-		return template.selectOne("buySelect",map);
-	}
-
-	@Override
 	public int insert(Map map) {
 		return template.insert("buyInsert",map);
 	}
@@ -29,6 +25,16 @@ public class BuyDao implements BuyService {
 	@Override
 	public int delete(Map map) {
 		return template.delete("buyDelete",map);
+	}
+
+	@Override
+	public int totalCount(Map map) {
+		return template.selectOne("buyListTotal",map);
+	}
+
+	@Override
+	public List<BuyDto> selectList(Map map) {
+		return template.selectList("buySelect",map);
 	}
 	
 }

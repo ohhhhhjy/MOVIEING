@@ -123,6 +123,12 @@ public class UserDao implements UserService{
 		return (Integer)template.selectOne("androidIsLogin", map)==1?true:false;
 	}
 
+	@Override
+	public String selectImage(String id) {
+
+		return template.selectOne("selectOneImage", id);
+	}
+
 
 
 }

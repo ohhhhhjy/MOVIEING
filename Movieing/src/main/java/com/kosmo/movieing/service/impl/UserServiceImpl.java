@@ -123,4 +123,10 @@ public class UserServiceImpl implements UserService{
 		return dao.androidIsLogin(map);
 	}
 
+	@Override
+	public String selectImage(String id) {
+
+		return dao.selectImage(id);
+	}
+
 }

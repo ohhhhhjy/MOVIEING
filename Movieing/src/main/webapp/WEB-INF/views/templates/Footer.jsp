@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <meta charset="UTF-8">
 <footer class="footer">
      <div class="container">
@@ -48,40 +48,36 @@
         if (window.Notification) {
             Notification.requestPermission();
         }
-        
+        var id=1;
         $.ajax({
 			url : "<c:url  value='/Ajax/Noti.mov'/>",
-			type : 'post',
+		    type : 'post',
+		   /*  data:{id:'1'},*/
+		    dataType:'text', 
 			beforeSend : function(xhr)
-              {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+              {  
                   xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
-              },
-			data : $('#frm').serialize(), 
-			dataType : 'text',
+              }, 
 			success : function(data) {
-				if(data=='Y'){
-					$('#idcheck').css('color', 'red');						
-					$('#idcheck').text('이미 사용 중인  아이디입니다. ');
-					console.log($('#idcheck').html());
+				console.log(data);
+				if(data=="1"){
+					noti();
 				}
 				else{
-					$('#idcheck').css('color', 'green');					
-					$('#idcheck').text('사용 가능한 아이디입니다.');
-					if($('#userid').val().length==0){
-						$('#idcheck').css({'font-size':'.8em','color':'gray'});
-						$('#idcheck').text('아이디를 입력하세요');
-					}	
+					console.log()
 				}
 				
 
 			},
 			error : function(data) {
+				
 				console.log("에러 : " + data);
 			}
 
 		});
         
     });
+   
 
     function noti() {
         setTimeout(function () {
@@ -94,9 +90,9 @@
             alert('notification is disabled');
         }
         else {
-            var notification = new Notification('제목', {
-                icon: './mov.png',
-                body: '내용용',
+            var notification = new Notification('무빙 MOVIEING', {
+                icon: "<c:url value='/resources/img/mup.png'/>",
+                body: '회원님의 게시물에 댓글이 달렸어요!',
             });
 
             notification.onclick = function () {
