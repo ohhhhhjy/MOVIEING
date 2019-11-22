@@ -73,18 +73,41 @@ public class BlogController {
 			throws Exception {
 
 		String id = auth.getName();
+		map.put("id", id);
+		//팔로우 여부]내 팔로우리스트에 있는 애
+		//내 팔로우 리스트가져오기
+		// 팔로우된 아이디 리스트
+		List<FollowDto> selectFollowList = followService.selectFollowList(map);
+		//팔로우한 애면]
+		model.addAttribute("followOk", "n");
+		for(FollowDto dto:selectFollowList ) {
+			if(dto.getFollowing().equals(userService.selectUserId(map.get("userNick").toString()))) {
+				System.out.println("팔로우한 애네");
+				model.addAttribute("followOk", "y");
+			}
+		}
+System.out.println("돌았냐");
+model.containsAttribute("followOk");
+
+
 		if(map.get("userNick")!=null ) {//남의 피드로 가는 경우.
 			id= userService.selectUserId(map.get("userNick").toString());
-			if(!id.equals(auth.getName()))
+			System.out.println("남의 아이디:"+id);
+			if(!id.equals(auth.getName())) {
+				System.out.println("나가 아니야");
 				model.addAttribute("notMe","y");//내피드가 아니다
+			}
 			else
 				model.addAttribute("notMe","n");
 		}
 		else {
 			model.addAttribute("notMe","n");//내 피드다
 		}
+
 		map.put("id", id);
 		model.addAttribute("id", id);
+
+
 		// [유저정보] count 별.리.좋.보. 팔로워.팔로잉.
 		// 유저 정보
 		UserDto userInfo = userService.selectOne(map);

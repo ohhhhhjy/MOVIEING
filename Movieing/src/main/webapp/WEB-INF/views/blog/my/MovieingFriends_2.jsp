@@ -240,7 +240,7 @@ a {
 /*배너위치*/
 #floatMenu {
 	position: absolute;
-	left: 380px;
+	left: 300px;
 	top: 200px;
 }
 
