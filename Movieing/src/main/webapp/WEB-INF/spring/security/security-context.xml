@@ -62,7 +62,9 @@
             <security:session-management invalid-session-url="/Movieing/Member/Login.mov" >
                <security:concurrency-control max-sessions="1" expired-url="/Movieing/Member/Login.mov" />
             </security:session-management>
-            
+            <security:headers>			
+				<security:frame-options disabled="true"/>
+			</security:headers>
      </security:http>
     
      <security:authentication-manager>

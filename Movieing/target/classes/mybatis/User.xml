@@ -79,6 +79,10 @@
 	<select id="selectAllUserList" parameterType="java.util.Map" resultType="UserDto">
 		select user_id,user_name,user_nick,user_contact,user_mail,user_signup_date,user_self from user_table
 	</select>
-
+	
+	<!-- 관리자 여부 확인용 -->
+	<select id="selectOneAdmin" parameterType="String" resultType="String">
+		select admin from USER_TABLE where user_id=#{id}
+	</select>
 
 </mapper>

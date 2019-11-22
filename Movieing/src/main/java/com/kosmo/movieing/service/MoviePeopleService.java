@@ -24,5 +24,7 @@ public interface MoviePeopleService {
 
 
 	List<MoviePeopleDto> selectListPeople(Map map);
-
+	List<MoviePeopleDto> selectPeopleNoList(Map map);
+	//Filmography 에서 영화인 이름으로 영화인 번호 찾는 쿼리
+	MoviePeopleDto selectMoviePeopleNameOne(Map map);
 }

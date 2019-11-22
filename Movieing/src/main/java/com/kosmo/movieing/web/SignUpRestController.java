@@ -30,7 +30,7 @@ public class SignUpRestController {
       if(index!=-1) {
          String extension = original.substring(index, original.length());
          //File객체 생성
-         String filePath = "/resources/Upload/"+map.get("userid")+extension;
+         String filePath = "/Upload/"+map.get("userid")+extension;
          File file =  new File(filePath);
          System.out.println("filename : "+image.getOriginalFilename());
          image.transferTo(file);
