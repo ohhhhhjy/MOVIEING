@@ -180,8 +180,10 @@ height: 200px;
 				
 					<c:forEach begin="0" end="4" items="${searchMovieList}" var="movie">
 						<div class="col-md-2 col-sm-6 movie-poster" style="">
+							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo}'/>">
 							<img class="movieImg" src="${movie.movieImg }" alt="" /><br>
 							<span class="movieTitle">${movie.movieTitle }</span>
+							</a>
 						</div>
 					</c:forEach>
 				</div>
@@ -204,12 +206,18 @@ height: 200px;
 					<div style="padding-left: 20px;padding-top:10px">
 						<c:forEach begin="0" end="2" items="${searchPeopleList}" var="people">
 							<div class="row actorForm">
+						
 								<div class="col-sm-3">
+								<a href="<c:url value='/Movieing/Movie/Filmography.mov?moviePeopleName=${people.moviePeopleName }'/>">
 									<img class="radiusImg" alt="배우사진" src="${people.moviePeopleImg}"/>
+								</a>
 								</div>
 								<div class="col-sm-4">
+								<a href="<c:url value='/Movieing/Movie/Filmography.mov?moviePeopleName=${people.moviePeopleName }'/>">
 									<span class="actorSpan">${people.moviePeopleName}</span>
+								</a>
 								</div>
+							
 								<div class="col-sm-3">
 									<span class="filmoSpan">${people.moviePeopleCountry}${people.moviePeopleJob }</span>
 								</div>
@@ -252,7 +260,7 @@ height: 200px;
 			<!-- "검색어"가 포함된 리뷰 -->
 			<div class="row" style="padding-bottom: 20px;padding-top: 10px">
 				<div class="col-md-8">
-					<h5>"${searchWord}"가 포함된 리뷰</h5>
+					<h5>"${searchWord}"(이)가 포함된 리뷰</h5>
 				</div>
 				<div class="col-md-4" align="right">
 					<a href="#" class="moreContent">더보기</a>
@@ -280,7 +288,7 @@ height: 200px;
 			<!-- "검색어"가 포함된 댓글 -->
 			<div class="row" style="padding-bottom: 20px;padding-top: 10px">
 				<div class="col-md-8">
-					<h5>"${searchWord}"가 포함된 댓글</h5>
+					<h5>"${searchWord}"(이)가 포함된 댓글</h5>
 				</div>
 				<div class="col-md-4" align="right">
 					<a href="#" class="moreContent">더보기</a>
