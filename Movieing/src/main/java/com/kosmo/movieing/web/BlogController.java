@@ -218,6 +218,7 @@ public class BlogController {
 		int reviewCount = reviewService.getTotalCount(map);
 		model.addAttribute("reviewCount", reviewCount);
 
+
 		return "blog/my/BlogMain.tiles";
 	}/////////////////////////////////////////////
 

@@ -15,8 +15,8 @@ body {
 }
 
 .profileImage {
-	width: 100px;
-	height: 100px;
+	width: 150px;
+	height: 150px;
 	/* background-image:url("배경이미지경로"); */
 	border-radius: 150px; /* 레이어 반크기만큼 반경을 잡기*/
 	display: table-cell;
@@ -139,19 +139,262 @@ body {
 	vertical-align: middle;
 }
 
-/*배너*/
+/*배너위치*/
 #floatMenu {
 	position: absolute;
-	left: 320px;
-	top: 400px;
+	left: 380px;
+	top: 200px;
 }
 
 /*배너 안 디자인*/
+.left, .right {
+	top: 50%;
+	float: left;
+	transform: translateY(125%);
+}
 
+.left {
+	background: #337ab7;
+	display: inline-block;
+	white-space: nowrap;
+	width: 50px;
+	transition: width .5s;
+}
 
+.right {
+	background: #fff;
+	width: 350px;
+	transition: width 1s;
+	border-style: solid;
+	border-color: #ccc;
+	border-width: 1px;
+}
+/*
+.left:hover {
+	width: 100px;
+}
+*/
+.item:hover {
+	background-color: #222;
+}
 
+.left .fas {
+	margin: 15px;
+	width: 20px;
+	color: #fff;
+}
 
+i.fas {
+	font-size: 17px;
+	vertical-align: middle !important;
+}
+
+.item {
+	height: 50px;
+	overflow: hidden;
+	color: #fff;
+}
+
+/*새로운*/
+/*------------------------------------
+  Social color
+------------------------------------*/
+.text-facebook, .hover-facebook-text:hover i, .hover-facebook a:hover i
+	{
+	color: #3b5998;
+}
+
+.bg-facebook, .btn-facebook {
+	background-color: #3b5998;
+	color: #fff;
+}
+
+.text-twitter, .hover-twitter-text:hover i, .hover-twitter a:hover i {
+	color: #00aced;
+}
+
+.bg-twitter, .btn-twitter {
+	background-color: #00aced;
+	color: #fff;
+}
+
+.text-instagram, .hover-instagram-text:hover i, .hover-instagram a:hover i
+	{
+	color: #b300ad;
+}
+
+.bg-instagram, .btn-instagram {
+	background-color: #b300ad;
+	color: #fff;
+}
+
+.text-youtube, .hover-youtube-text:hover i, .hover-youtube a:hover i {
+	color: #bd0000;
+}
+
+.bg-youtube, .btn-youtube {
+	background-color: #bd0000;
+	color: #fff;
+}
+
+.text-gplus, .hover-gplus-text:hover i, .hover-gplus a:hover i {
+	color: #eb5e4c;
+}
+
+.bg-gplus, .btn-gplus {
+	background-color: #eb5e4c;
+	color: #fff;
+}
+
+.text-vimeo, .hover-vimeo-text:hover i, .hover-vimeo a:hover i {
+	color: #35c6ea;
+}
+
+.bg-vimeo, .btn-vimeo {
+	background-color: #35c6ea;
+	color: #fff;
+}
+
+.text-envelope, .hover-envelope-text:hover i, .hover-envelope a:hover i
+	{
+	color: #faa33d;
+}
+
+.bg-envelope, .btn-envelope {
+	background-color: #faa33d;
+	color: #fff;
+}
+
+.text-linkedin, .hover-linkedin-text:hover i, .hover-linkedin a:hover i
+	{
+	color: #6697ff;
+}
+
+.bg-linkedin, .btn-linkedin {
+	background-color: #6697ff;
+	color: #fff;
+}
+
+.text-telegram, .hover-telegram-text:hover i, .hover-telegram a:hover i
+	{
+	color: #30a8dc;
+}
+
+.bg-telegram, .btn-telegram {
+	background-color: #30a8dc;
+	color: #fff;
+}
+
+.text-pinterest, .hover-pinterest-text:hover i, .hover-pinterest a:hover i
+	{
+	color: #bd081b;
+}
+
+.bg-pinterest, .btn-pinterest {
+	background-color: #bd081b;
+	color: #fff;
+}
+
+.black a {
+	color: #000;
+}
+
+.post-content ul {
+	color: #474b5f;
+}
+
+.white a {
+	color: #fff;
+}
+/*------------------------------------
+	Member area
+------------------------------------*/
+.sidebar-item.active, .sidebar-item:hover {
+	background-color: #fff;
+	border: 1px solid #e6e7e9;
+	border-right: 0;
+	margin-right: -1px;
+}
+
+.sidebar-menu {
+	border-bottom: 1px solid #e6e7e9;
+	border-top: 1px solid #e6e7e9;
+	border-right: 1px solid #e6e7e9;
+	padding-bottom: 1rem;
+	padding-top: 1rem;
+	background-color: #f4f4f4;
+}
+
+.sidebar-item {
+	position: relative;
+	display: block;
+	padding: 0.75rem 1.25rem;
+	margin-bottom: 0.5rem;
+	border: 1px solid transparent;
+}
+
+.sidebar-item.active:hover {
+	background-color: #fff;
+}
+
+.card .icon-big {
+	font-size: 3rem;
+}
+
+.card .icon-big .notif {
+	position: absolute;
+	min-width: 25px;
+	border-radius: 5rem;
+	font-size: 1rem;
+	background: #dc3545;
+	color: #fff;
+}
+
+.card .numbers {
+	text-align: right;
+}
+
+.card .numbers p {
+	font-size: 1rem;
+	margin: 0;
+}
+
+.card .footer {
+	padding: 0;
+	line-height: 30px;
+}
+
+.side-notif {
+	padding-left: 7px;
+	padding-right: 7px;
+	font-size: 0.8rem;
+	border-radius: 5rem;
+	background-color: #dc3545;
+	color: #fff;
+}
+
+.statistics li {
+	padding: 0.25rem 0;
+}
+
+.member-item:hover .card {
+	background-color: #f4f4f4;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+	background-color: #f4f4f4;
+}
+
+@media ( max-width : 767.98px) {
+	.sidebar-item.active, .sidebar-item:hover {
+		border-right: 1px solid #e6e7e9;
+		margin-left: 0.25rem;
+		margin-right: 0.25rem;
+	}
+}
 </style>
+
+
 
 <!-- css파일 -->
 <%-- <link href="<c:url value='/resources/css/blogMainLayout.css'/>"
@@ -300,120 +543,346 @@ body {
 		}).scroll();
 
 	});
-
+	
+	$(function(){
+	$( '#top' ).click( function() {
+		$( 'html, body' ).animate( { scrollTop : 0 }, 400 );
+		return false;
+	} );
+	});
 
 </script>
 
 
 
 <div class="container">
-	<!-- 플로팅 배너 -->
+	<!-- 플로팅 배너 ---------------------------------------------------------------->
 	<div id="floatMenu">
-		<!--  
-		<img src="<c:url value='/resources/img/mup.png'/>">
-		-->
-			
-		
-		    <div class="card">
-		        <div class="card-content">
-		            <div class="card-title green white-text">
-		                <h3>Basic</h3>
-		                <h5>$29/month</h5>
-		            </div>
-		            <ul class="collection">
-		                <li class="collection-item">25GB Disk Space</li>
-		                <li class="collection-item">30 Email Address</li>
-		                <li class="collection-item">1 Domain</li>
-		                <li class="collection-item">Live Support</li>
-		                <li class="collection-item">Unlimited Bandwidth</li>
-		            </ul>
-		        </div>
-		        
-		        <div class="card-action">
-		            <div class="btn btn-block btn-large pink">Sing Up</div>
-		        </div>
-		    </div>
-		
-	
+		<div class="left">
+			<div class="item">
+				<a href="<c:url value='/Movieing/Blog/BlogMain.mov'/>"><i
+					class="fas fa-home"></i></a>
+				<!-- 내 블로그메인으로-->
+			</div>
+			<div class="item">
+				<a href="#followModal" data-toggle="modal" id="followerModal"
+					class="followModal"><i class="fas fa-users"></i></a>
+				<!--  팔로우보기-->
+			</div>
+			<div class="item">
+				<a href="<c:url value='/Movieing/my/Notice.mov'/>"><i
+					class="fas fa-bell" style="padding-left: 2px"></i></a>
+				<!-- 알림 -->
+			</div>
+			<div class="item">
+				<a href="<c:url value='/Movieing/Blog/WritePage.mov'/>"><i
+					class="fas fa-user-edit" style="padding-left: 2px"
+					style="padding-left: 2px"></i></a>
+				<!-- 글쓰기 -->
+			</div>
+			<div class="item" id="top">
+				<a href="#"><i class="fas fa-arrow-circle-up"
+					style="padding-left: 2px"></i></a> 상단으로
+			</div>
+		</div>
+
 	</div>
-	<!--  -->
-	
-	
-	
+	<!-- ----------------------------옆에 리모컨- 끝----------------------------------- -->
+
+
+
+
 
 	<div class="row" style="padding-top: 20px">
 		<!-- 왼쪽 마이피드 -->
 		<div class="col-sm-7 blog-main">
 			<!-- 프로필 -->
 			<div class="jumbotron">
-				<div class="row">
-					<!-- 프로필 사진 -->
-					<div class="col-sm-3" align="center">
-						<img class="profileImage" alt="프로필사진"
-							src="${userInfo.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': userInfo.userProfile}" />
-						<h5 style="padding-top: 20px">${userInfo.userNick}</h5>
-						<div class="row">
-							<div class="col-sm-6">
-								<a href="#followModal" data-toggle="modal" id="followerModal"
-									class="followModal"><span
-									style="font-weight: bold; color: black; font-size: 0.9em">팔로워
-										${followerCount } </span></a>
-							</div>
-							<div class="col-sm-6">
-								<a href="#followModal" data-toggle="modal" id="followingModal"
-									class="followModal"><span
-									style="font-weight: bold; color: black; font-size: 0.9em">팔로잉
-										${followingCount } </span></a>
+				<div class="dashboard-area" style="margin-bottom: -50px">
+					<div class="row">
+						<div class="col-12">
+							<div class="mb-3">
+
+								<div class="row">
+									<div class="col-12">
+
+										<div class="row">
+											<div class="col-md-6 ml-auto mr-auto">
+												<div class="span3 well">
+													<center>
+														<img alt="프로필사진" name="aboutme" width="140" height="140"
+															class="profileImage"
+															src="${userInfo.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': userInfo.userProfile}" />
+
+														<h3>${userInfo.userNick}</h3>
+
+														<div class="row">
+															<div class="col-md-6">
+																<a href="#followModal" data-toggle="modal"
+																	id="followerModal" class="followModal"> <span
+																	style="font-weight: bold; font-size: 2.0em; color: black;"
+																	class="description">${followerCount }</span>
+																</a>
+
+															</div>
+															<div class="col-md-6">
+																<a href="#followModal" data-toggle="modal"
+																	id="followingModal" class="followModal"> <span
+																	style="font-weight: bold; font-size: 2.0em; color: black;"
+																	class="description">${followingCount }</span></a>
+
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-6">
+																<a href="#followModal" data-toggle="modal"
+																	id="followerModal" class="followModal"> <span
+																	class="heading" style="font-weight: bold; color: gray;">팔로워</span></a>
+
+															</div>
+															<div class="col-md-6">
+																<a href="#followModal" data-toggle="modal"
+																	id="followingModal" class="followModal"> <span
+																	class="heading" style="font-weight: bold; color: gray;">팔로잉</span>
+																</a>
+
+															</div>
+														</div>
+
+													</center>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
 							</div>
 						</div>
-						<br>
-						<!--  
-						<button type="button" class="btn btn-danger" onclick='<c:url value="/Movieing/Blog/MovindFriends.mov"/>'>무빙프렌즈</button>
-						-->
-						<a class="btn btn-danger"
-							href="<c:url value='/Movieing/Blog/MovieingFriends.mov'/>">무빙프렌즈</a>
 					</div>
 
-					<!-- 프로필 활동내역 -->
-					<div class="col-sm-9">
-						<p align="right" style="padding-bottom: 20px">
-							<a class="btn btn-dark btn-sm"
-								href="<c:url value='/Movieing/Blog/MyPage.mov'/>" role="button">마이페이지</a>
-						</p>
-						<!-- a태그 post방식 페이지 전송 폼 -->
-						<form name="paging">
-							<input type="hidden" name="${_csrf.parameterName}"
-								value="${_csrf.token}"> <input type="hidden" name="page" />
-							<input type="hidden" name="id" />
-						</form>
-						<div class="row"
-							style="padding-top: 20px; padding-bottom: 20px; background-color: white; border-radius: 10px 10px 10px 10px;">
-							<div class="col-sm-3" align="center">
-								<a href="javascript:goPage('a');"><span
-									style="font-weight: bold">별점<br> ${evalueCount }
-								</span></a>
+					<div class="row">
+						<div class="col-12">
+							<ul
+								class="nav nav-pills mb-3 justify-content-center align-items-center"
+								id="pills-tab" role="tablist">
+								<li class="nav-item" style="padding-right: 10px"><a
+									class="btn btn-danger"
+									href="<c:url value='/Movieing/Blog/MovieingFriends.mov'/>">무빙프렌즈</a>
+								</li>
+
+								<li class="nav-item"><a class="btn btn-info"
+									href="<c:url value='/Movieing/Blog/MyPage.mov'/>" role="button">팔로우해제</a></li>
+							</ul>
+
+
+							<!-- 자기소개 -->
+							<div class="card mb-2 mb-md-5 py-3" style="border-radius: 0.8em">
+								<div class="content">
+									<div class="row">
+										<div
+											class="col-12 d-flex justify-content-center align-items-center">
+											<span style="font-weight: bold;">${userInfo.userSelf } </span>
+										</div>
+
+										
+									</div>
+								</div>
 							</div>
-							<div class="col-sm-3" align="center"
-								style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
-								<a href="javascript:goPage('b');"><span
-									style="font-weight: bold">리뷰<br> ${reviewCount }
-								</span></a>
-							</div>
-							<div class="col-sm-3" align="center"
-								style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
-								<a href="javascript:goPage('c');"><span
-									style="font-weight: bold">좋아요<br> ${likeCount }
-								</span></a>
-							</div>
-							<div class="col-sm-3" align="center"
-								style="border-left-width: 2px; border-left-style: solid; border-left-color: #a8a5a5">
-								<a href="javascript:goPage('d');"><span
-									style="font-weight: bold">보고싶어요<br> ${wishCount }
-								</span></a>
+
+
+
+
+							<div class="tab-content" id="pills-tabContent">
+								<div class="tab-pane fade active show" id="pills-home"
+									role="tabpanel" aria-labelledby="pills-home-tab">
+									<div class="row">
+										<form name="paging">
+											<input type="hidden" name="${_csrf.parameterName}"
+												value="${_csrf.token}"> <input type="hidden"
+												name="page" /> <input type="hidden" name="id" />
+										</form>
+
+
+										<div class="col-lg-4 col-sm-6">
+											<a class="member-item" href="javascript:goPage('a');">
+												<div class="card mb-2 mb-md-5 py-3"
+													style="border-radius: 1.0em">
+													<div class="content">
+														<div class="row">
+															<div
+																class="col-6 d-flex justify-content-center align-items-center">
+																<div class="icon-big text-warning text-center">
+																	<div class="notif">${evalueCount }</div>
+																	<i class="fas fa-star" style="font-size: xx-large;"></i>
+
+																</div>
+															</div>
+
+															<div
+																class="col-6 d-flex justify-content-center align-items-center"
+																style="margin-left: -30px">
+																<div class="row numbers">
+
+																	<span style="font-weight: bold;">별점 </span>
+																	<!--  
+																	<span style="font-weight: bold;">${evalueCount }</span>
+																	-->
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</a>
+										</div>
+
+
+
+										<div class="col-lg-4 col-sm-6">
+											<a class="member-item" href="javascript:goPage('b');">
+												<div class="card mb-2 mb-md-5 py-3"
+													style="border-radius: 1.0em">
+													<div class="content">
+														<div class="row">
+															<div
+																class="col-6 d-flex justify-content-center align-items-center">
+																<div class="icon-big text-info text-center"
+																	title="1 new comment">
+																	<div class="notif">${reviewCount }</div>
+																	<i class="fas fa-comment" style="font-size: xx-large;"></i>
+																</div>
+															</div>
+															<div
+																class="col-6 d-flex justify-content-center align-items-center"
+																style="margin-left: -30px">
+																<div class="numbers">
+																	<span style="font-weight: bold">리뷰 </span>
+
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</a>
+										</div>
+										<div class="col-lg-4 col-sm-6">
+											<a class="member-item" href="javascript:goPage('c');">
+												<div class="card mb-2 mb-md-5 py-3"
+													style="border-radius: 1.0em">
+													<div class="content">
+														<div class="row">
+															<div
+																class="col-6 d-flex justify-content-center align-items-center ">
+																<div class="icon-big text-danger text-center">
+																	<div class="notif">${likeCount }</div>
+																	<i class="fas fa-heart" style="font-size: xx-large;"></i>
+																</div>
+															</div>
+															<div
+																class="col-6 d-flex justify-content-center align-items-center"
+																style="margin-left: -30px">
+																<div class="numbers">
+																	<span style="font-weight: bold">좋아요 </span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</a>
+										</div>
+										<div class="col-lg-4 col-sm-6">
+											<a class="member-item" href="javascript:goPage('d');">
+												<div class="card mb-2 mb-md-5 py-3"
+													style="border-radius: 1.0em">
+													<div class="content">
+														<div class="row">
+															<div
+																class="col-6 d-flex justify-content-center align-items-center">
+																<div class="icon-big text-twitter text-center"
+																	title="1 new messages">
+																	<div class="notif">${wishCount }</div>
+																	<i class="far fa-eye" style="font-size: xx-large;"></i>
+
+																</div>
+															</div>
+															<div
+																class="col-6 d-flex justify-content-center align-items-center"
+																style="margin-left: -30px">
+																<div class="numbers">
+																	<span style="font-weight: bold; font-size: small;">보고싶어요
+																	</span>
+
+
+
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</a>
+										</div>
+										<div class="col-lg-4 col-sm-6">
+											<a class="member-item"
+												href="<c:url value='/Movieing/Blog/WritePage.mov'/>">
+												<div class="card mb-2 mb-md-5 py-3"
+													style="border-radius: 1.0em">
+													<div class="content">
+														<div class="row">
+															<div
+																class="col-6 d-flex justify-content-center align-items-center">
+																<div class="icon-big text-facebook text-center">
+																	<i class="fas fa-pencil-alt"
+																		style="font-size: xx-large;"></i>
+																</div>
+															</div>
+															<div
+																class="col-6 d-flex justify-content-center align-items-center"
+																style="margin-left: -30px">
+																<div class="numbers">
+																	<span style="font-weight: bold">글쓰기 </span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</a>
+										</div>
+
+										<div class="col-lg-4 col-sm-6">
+											<a class="member-item"
+												href="<c:url value='/Movieing/Blog/MyPage.mov'/>">
+												<div class="card mb-2 mb-md-5 py-3"
+													style="border-radius: 1.0em">
+													<div class="content">
+														<div class="row">
+															<div
+																class="col-6 d-flex justify-content-center align-items-center">
+																<div class="icon-big text-success text-center">
+																	<i class="far fa-user" style="font-size: xx-large;"></i>
+																</div>
+															</div>
+															<div
+																class="col-6 d-flex justify-content-center align-items-center"
+																style="margin-left: -30px">
+																<div class="numbers">
+																	<span style="font-weight: bold; font-size: small;">마이페이지
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</a>
+										</div>
+									</div>
+								</div>
+
+
 							</div>
 						</div>
 					</div>
 				</div>
+
+
 			</div>
 			<!-- 피드컨텐츠 시작 -->
 			<!-- 1.한줄컨텐츠(보고싶어요,별점,좋아요) -->

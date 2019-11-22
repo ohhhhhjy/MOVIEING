@@ -204,17 +204,15 @@
 									href="<c:url value='/Movieing/my/Notice.mov'/>"
 									style="color: white"><i class="far fa-bell"
 									style="padding-right: 5px"></i>알림</a>
+								<a class="dropItem"
+									href="<c:url value='/Movieing/my/Customer.mov'/>"
+									style="color: white"><i class="far fa-question-circle" style="padding-right: 5px"></i>고객센터</a>
+									
 								 <a class="dropItem"
 									href="javascript:logout()"
 									style="color: white"><i class="fas fa-sign-out-alt"
 									style="padding-right: 5px"></i>로그아웃</a> 
-								<a class="dropItem"
-									href="<c:url value ='/Movieing/admin/admin_main.mov'/>"
-									style="color: white">관리자</a>
-								<a class="dropItem"
-									href="<c:url value='/Movieing/my/Customer.mov'/>"
-									style="color: white"><i class="far fa-question-circle" style="padding-right: 5px"></i>고객센터</a>
-
+								
 							</div>
 						</div>
 

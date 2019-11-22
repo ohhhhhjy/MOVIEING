@@ -373,8 +373,8 @@ $(document).ready(function() {
 
 					<div class="col-md-2 parentDiv">
 						<div class="row">
-							<figure class="snip1273">
-								<img src="${movie.movieImg}" alt="Pineapple" alt="Image" style="width: 228px; height: 321px">
+							<figure class="snip1273" style="padding-bottom: 30px">
+								<img src="${movie.movieImg}" alt="Pineapple" alt="Image" style="width: 228px; height: 321px;">
 								<!-- 안에 내용 -->
 								<figcaption>
 									<div align="center" style="padding-top: 100px">

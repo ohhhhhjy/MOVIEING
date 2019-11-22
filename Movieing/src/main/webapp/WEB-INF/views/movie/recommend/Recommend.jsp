@@ -94,6 +94,7 @@ img.border-shadow {
 
 
 
+
 <div class="container-fluid"
 	style="padding-left: 120px; padding-right: 120px">
 	<!-- 한 장르 시작 -->
@@ -114,30 +115,59 @@ img.border-shadow {
 		</div>
 
 
+
 		<!-- 캐러셀 시작  -->
+		<div class="row blog">
+			<div class="col-md-12">
+				<div id="blogCarousel1" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#blogCarousel1" data-slide-to="0" class="active"></li>
+						<li data-target="#blogCarousel1" data-slide-to="1"></li>
+						<li data-target="#blogCarousel1" data-slide-to="2"></li>
 
-		<div class="row" style="margin-top: 20px">
+					</ol>
+					<!-- Carousel items -->
+					<div class="carousel-inner">
 
-			<c:forEach items="${movieList}" var="movie" begin="12" end="17">
+						<div class="row container-fluid" style="margin-top: 20px">
 
-				<div class="col-md-2 col-sm-6 movie-poster"
-					style="margin-bottom: 5px">
-					<a
-						href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
-						<img class="mvimg" src="${movie.movieImg}" alt="" />
-					</a>
+
+							<c:forEach items="${movieList}" var="movie" begin="12" end="18">
+
+								<div class="col-md-2 col-sm-6 movie-poster"
+									style="margin-bottom: 5px;margin-right: -50px;">
+									<a
+										href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
+										<img class="mvimg" src="${movie.movieImg}" alt="" />
+									</a>
+								</div>
+
+
+							</c:forEach>
+
+						</div>
+
+					</div>
 				</div>
+			</div>
+			<!--.carousel-inner-->
 
-
-			</c:forEach>
+			<a class="carousel-control-prev" href="#blogCarousel1" role="button"
+				data-slide="prev"> <span class="carousel-control-prev-icon"
+				aria-hidden="true"></span> <span class="sr-only">Previous</span>
+			</a> <a class="carousel-control-next" href="#blogCarousel1" role="button"
+				data-slide="next"> <span class="carousel-control-next-icon"
+				aria-hidden="true"></span> <span class="sr-only">Next</span>
+			</a>
 		</div>
+		<!--.Carousel-->
 
 	</div>
 	<!--.Carousel-->
 
 
 
-
+	<!-- --------------------------------------------------------------------------------- -->
 
 
 
@@ -160,28 +190,56 @@ img.border-shadow {
 		</div>
 
 
-
 		<!-- 캐러셀 시작  -->
+		<div class="row blog">
+			<div class="col-md-12">
+				<div id="blogCarousel2" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#blogCarousel2" data-slide-to="0" class="active"></li>
+						<li data-target="#blogCarousel2" data-slide-to="1"></li>
+						<li data-target="#blogCarousel2" data-slide-to="2"></li>
 
-		<div class="row" style="margin-top: 20px">
+					</ol>
+					<!-- Carousel items -->
+					<div class="carousel-inner">
 
-			<c:forEach items="${movieRandomList}" var="movie" begin="0" end="5">
+						<div class="row container-fluid" style="margin-top: 20px">
 
-				<div class="col-md-2 col-sm-6 movie-poster"
-					style="margin-bottom: 5px">
-					<a
-						href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
-						<img class="mvimg" src="${movie.movieImg}" alt="" />
-					</a>
+							<c:forEach items="${movieRandomList}" var="movie" begin="0"
+								end="6">
+
+								<div class="col-md-2 col-sm-6 movie-poster"
+									style="margin-bottom: 5px; margin-right: -50px;">
+									<a
+										href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
+										<img class="mvimg" src="${movie.movieImg}" alt="" />
+									</a>
+								</div>
+
+
+							</c:forEach>
+						</div>
+
+					</div>
 				</div>
+			</div>
+			<!--.carousel-inner-->
 
-
-			</c:forEach>
+			<a class="carousel-control-prev" href="#blogCarousel2" role="button"
+				data-slide="prev"> <span class="carousel-control-prev-icon"
+				aria-hidden="true"></span> <span class="sr-only">Previous</span>
+			</a> <a class="carousel-control-next" href="#blogCarousel2" role="button"
+				data-slide="next"> <span class="carousel-control-next-icon"
+				aria-hidden="true"></span> <span class="sr-only">Next</span>
+			</a>
 		</div>
+		<!--.Carousel-->
+
 
 	</div>
 
 	<!-- 한 장르 끝 -->
+	<!-- ----------------------------------------------------------------------------------------- -->
 
 	<!-- 한 장르 시작 -->
 	<div style="margin-top: 60px">
@@ -205,20 +263,18 @@ img.border-shadow {
 						<li data-target="#blogCarousel3" data-slide-to="0" class="active"></li>
 						<li data-target="#blogCarousel3" data-slide-to="1"></li>
 						<li data-target="#blogCarousel3" data-slide-to="2"></li>
-						<li data-target="#blogCarousel3" data-slide-to="3"></li>
-						<li data-target="#blogCarousel3" data-slide-to="4"></li>
-						<li data-target="#blogCarousel3" data-slide-to="5"></li>
+
 					</ol>
 					<!-- Carousel items -->
 					<div class="carousel-inner">
 
-						<div class="row" style="margin-top: 20px">
+						<div class="row container-fluid" style="margin-top: 20px">
 
 							<c:forEach items="${movieHorrorList}" var="movie" begin="0"
-								end="5">
+								end="6">
 
 								<div class="col-md-2 col-sm-6 movie-poster"
-									style="margin-bottom: 5px">
+									style="margin-bottom: 5px; margin-right: -50px;">
 									<a
 										href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
 										<img class="mvimg" src="${movie.movieImg}" alt="" />
@@ -245,7 +301,7 @@ img.border-shadow {
 
 	<!-- 한 장르 끝 -->
 
-
+	<!-- -------------------------------------------------------------------------------------------------------------------- -->
 
 
 	<!-- 한 장르 시작 -->
@@ -265,24 +321,24 @@ img.border-shadow {
 		<!-- 캐러셀 시작  -->
 		<div class="row blog">
 			<div class="col-md-12">
-				<div id="blogCarousel" class="carousel slide" data-ride="carousel">
+				<div id="blogCarousel4" class="carousel slide" data-ride="carousel">
 
 					<ol class="carousel-indicators">
-						<li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
-						<li data-target="#blogCarousel" data-slide-to="1"></li>
-						<li data-target="#blogCarousel" data-slide-to="2"></li>
+						<li data-target="#blogCarousel4" data-slide-to="0" class="active"></li>
+						<li data-target="#blogCarousel4" data-slide-to="1"></li>
+						<li data-target="#blogCarousel4" data-slide-to="2"></li>
 					</ol>
 					<!-- Carousel items -->
 					<div class="carousel-inner">
 						<div class="carousel-item active">
 							<div class="row">
-								<div class="row" style="margin-top: 20px">
+								<div class="row container-fluid" style="margin-top: 20px">
 
 									<c:forEach items="${movieRomanceList}" var="movie" begin="0"
-										end="5">
+										end="6">
 
 										<div class="col-md-2 col-sm-6 movie-poster"
-											style="margin-bottom: 5px">
+											style="margin-bottom: 5px; margin-right: -50px;">
 											<a
 												href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
 												<img class="mvimg" src="${movie.movieImg}" alt="" />
@@ -295,10 +351,11 @@ img.border-shadow {
 					</div>
 					<!--.carousel-inner-->
 
-					<a class="carousel-control-prev" href="#blogCarousel" role="button"
+
+					<a class="carousel-control-prev" href="#blogCarousel4" role="button"
 						data-slide="prev"> <span class="carousel-control-prev-icon"
 						aria-hidden="true"></span> <span class="sr-only">Previous</span>
-					</a> <a class="carousel-control-next" href="#blogCarousel"
+					</a> <a class="carousel-control-next" href="#blogCarousel4"
 						role="button" data-slide="next"> <span
 						class="carousel-control-next-icon" aria-hidden="true"></span> <span
 						class="sr-only">Next</span>
@@ -310,6 +367,7 @@ img.border-shadow {
 		</div>
 	</div>
 	<!-- 캐러셀 다이브  -->
+	<!-- --------------------------------------------------------------------------------------------------------------- -->
 
 	<!-- 한 장르 끝 -->
 	<div style="margin-top: 60px">
@@ -327,27 +385,61 @@ img.border-shadow {
 		</div>
 
 
-
 		<!-- 캐러셀 시작  -->
+		<div class="row blog">
+			<div class="col-md-12">
+				<div id="blogCarousel5" class="carousel slide" data-ride="carousel">
 
-		<div class="row" style="margin-top: 20px">
+					<ol class="carousel-indicators">
+						<li data-target="#blogCarousel5" data-slide-to="0" class="active"></li>
+						<li data-target="#blogCarousel5" data-slide-to="1"></li>
+						<li data-target="#blogCarousel5" data-slide-to="2"></li>
+					</ol>
+					<!-- Carousel items -->
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<div class="row">
+								<div class="row container-fluid" style="margin-top: 20px">
 
-			<c:forEach items="${movieComedyList}" var="movie" begin="0" end="5">
+									<c:forEach items="${movieComedyList}" var="movie" begin="0"
+										end="6">
 
-				<div class="col-md-2 col-sm-6 movie-poster"
-					style="margin-bottom: 5px">
-					<a
-						href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
-						<img class="mvimg" src="${movie.movieImg}" alt="" />
+										<div class="col-md-2 col-sm-6 movie-poster"
+											style="margin-bottom: 5px; margin-right: -50px;">
+											<a
+												href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
+												<img class="mvimg" src="${movie.movieImg}" alt="" />
+											</a>
+										</div>
+
+
+									</c:forEach>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<!--.carousel-inner-->
+
+
+					<a class="carousel-control-prev" href="#blogCarousel5" role="button"
+						data-slide="prev"> <span class="carousel-control-prev-icon"
+						aria-hidden="true"></span> <span class="sr-only">Previous</span>
+					</a> <a class="carousel-control-next" href="#blogCarousel5"
+						role="button" data-slide="next"> <span
+						class="carousel-control-next-icon" aria-hidden="true"></span> <span
+						class="sr-only">Next</span>
 					</a>
+
 				</div>
+				<!--.Carousel-->
 
 
-			</c:forEach>
+			</div>
+
+
 		</div>
-
 	</div>
-
 
 
 
