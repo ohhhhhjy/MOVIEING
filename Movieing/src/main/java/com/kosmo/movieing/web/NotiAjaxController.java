@@ -13,12 +13,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kosmo.movieing.service.CommentService;
+import com.kosmo.movieing.service.UserService;
 
 @Controller
 public class NotiAjaxController {
 	
 	@Resource(name = "commentService")
 	private CommentService commentService;
+	
+	@Resource(name="userService")
+	private UserService userService;
 	
 	@ResponseBody
 	@RequestMapping(value = "/Ajax/Noti.mov")
@@ -33,6 +37,14 @@ public class NotiAjaxController {
 			return "1";
 		}
 		return "0";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/Ajax/TopImage.mov")
+	public String topImage(Authentication auth) {
+		String id = auth.getName();
+		String imagePath = userService.selectImage(id);
+		return imagePath;
 	}
 
 }

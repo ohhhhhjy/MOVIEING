@@ -84,5 +84,9 @@
 	<select id="selectOneAdmin" parameterType="String" resultType="String">
 		select admin from USER_TABLE where user_id=#{id}
 	</select>
-
+	
+	<!-- Top에서 쓸 이미지 가져오기용 -->
+	<select id="selectOneImage" parameterType="String" resultType="String">
+		select user_profile from USER_TABLE where user_id=#{id}
+	</select>
 </mapper>

@@ -30,12 +30,18 @@ public class SignUpRestController {
       if(index!=-1) {
          String extension = original.substring(index, original.length());
          //File객체 생성
-         String filePath = "/Upload/"+map.get("userid")+extension;
-         File file =  new File(filePath);
-         System.out.println("filename : "+image.getOriginalFilename());
-         image.transferTo(file);
-         map.put("file", filePath);
-         userService.updateImage(map);
+         String path = "C:/Users/kosmo_16/git/MOVIEING/Movieing/src/main/webapp/resources/Upload/";
+         File file = new File(path + map.get("userid")+extension);
+			System.out.println("filename : "+image.getOriginalFilename());
+			image.transferTo(file);
+			
+			int indexUpload = path.indexOf("resources");
+			String dbPath = "/movieing"+path.substring(indexUpload-1)+map.get("userid")+extension;
+			System.out.println("dbPath : "+dbPath);
+			//map.put("file", filePath);
+			map.put("file", dbPath);
+			
+			userService.updateImage(map);
       }
          //System.out.println(filePath);
       

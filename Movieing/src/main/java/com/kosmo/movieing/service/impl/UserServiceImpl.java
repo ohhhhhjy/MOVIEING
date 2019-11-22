@@ -112,4 +112,10 @@ public class UserServiceImpl implements UserService{
 		return dao.isAdmin(id);
 	}
 
+	@Override
+	public String selectImage(String id) {
+		
+		return dao.selectImage(id);
+	}
+
 }

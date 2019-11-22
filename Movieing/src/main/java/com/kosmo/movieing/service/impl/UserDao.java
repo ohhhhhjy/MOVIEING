@@ -111,6 +111,12 @@ public class UserDao implements UserService{
 		return template.selectOne("selectOneAdmin", id).equals("Y")?true:false;
 	}
 
+	@Override
+	public String selectImage(String id) {
+		
+		return template.selectOne("selectOneImage", id);
+	}
+
 
 
 }

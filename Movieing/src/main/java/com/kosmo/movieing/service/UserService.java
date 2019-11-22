@@ -44,6 +44,9 @@ public interface UserService {
 	//관리자 판단용
 	boolean isAdmin(String id);
 	
+	//Top에서 쓸 이미지 가져오기용
+	String selectImage(String id);
+	
 	
 	
 }
