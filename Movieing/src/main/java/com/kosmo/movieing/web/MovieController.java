@@ -368,9 +368,10 @@ public class MovieController {
 			if(movieInfo.getNaverPrice() != null)
 			{
 				System.out.println("MovieDetails 6 - naverPrice 변경 전 값 :"+movieInfo.getNaverPrice());
-				String naverPrice= movieInfo.getNaverPrice().substring(0,movieInfo.getNaverPrice().indexOf("."));
+				String naverPrice= movieInfo.getNaverPrice().substring(0,movieInfo.getNaverPrice().indexOf(".")).toString();
 				System.out.println("MovieDetails 6 - naverPrice 변경 후 값 : "+naverPrice);
 				movieInfo.setNaverPrice(naverPrice);
+				
 			}
 			if(movieInfo.getWavvePrice() != null) {
 				String wavvePrice = movieInfo.getWavvePrice().substring(0,movieInfo.getWavvePrice().indexOf("."));
