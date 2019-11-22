@@ -423,7 +423,7 @@ $(document).ready(function() {
 					    <button  id="btnWish" class="btn btn-outline-danger waves-effect" data-toggle="button"><i class="fas fa-plus" id="wishBtnIcon"></i>&nbsp;보고싶어요</button>
 					</div>
 					<hr class="my-3">
-					<c:if test="${!empty movieUserList}">
+					<c:if test="${movieUserList != null}">
 						<div class="row">
 							<div class="col-md-6" style="font-weight: bold">이 영화를 본 친구</div>
 							<c:forEach items="${movieUserList}" var="user">

@@ -363,7 +363,7 @@ public class MovieController {
 		map.put("id", auth.getName());
 		List<UserDto> movieUserList = userService.selectMovieUserList(map);
 		model.addAttribute("movieUserList",movieUserList.isEmpty()?null:movieUserList);
-
+		System.out.println("무비유저리스트"+movieUserList);
 		System.out.println("MovieDetails 1  - map에 mname, date 넣기 전 :");
 		map.put("movieNo",movieNo);
 		System.out.println("MovieDetails 1-1 movieNo 값 : "+movieNo);
@@ -397,7 +397,7 @@ public class MovieController {
 		model.addAttribute("movieNo", map.get("movieNo"));
 		model.addAttribute("movieInfo", movieInfo);
 		model.addAttribute("movieInfoMap",movieInfoMap(movieNo));
-		model.addAttribute("stillCutList",stillCutList);
+		model.addAttribute("stillCutList",stillCutList.isEmpty()?null:stillCutList);
 		/*
 		System.out.println("RequestMethod.GET");
 		System.out.println("name : " + mname);
@@ -452,7 +452,7 @@ public class MovieController {
 
 
 		//System.out.println("MovieDetails - 6 reviewList.getUserId 값 :"+reviewList.get(0).getUserId());
-		model.addAttribute("reviewList", reviewList);
+		model.addAttribute("reviewList", reviewList.isEmpty()?null:reviewList);
 
 		model.addAttribute("userNick", userService.userSelectList(map).get(0).getUserNick());
 
