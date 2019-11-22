@@ -54,6 +54,14 @@ public class AdminController {
 		return "admin/admin_usermanagement.admin";
 	}
 	
+	@RequestMapping("/Movieing/admin/admin_iframe.mov")
+	public String admin_iframe(@RequestParam Map map, Model model) {
+		
+		
+		return "react/index";
+	}
+	
+	
 	@RequestMapping("/Movieing/admin/admin_qna.mov")
 	public String admin_qna(@RequestParam Map map, Model model) {
 		
