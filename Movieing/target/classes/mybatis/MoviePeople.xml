@@ -22,7 +22,6 @@
 		OR MOVIE_PEOPLE_NAME LIKE #{searchWord%}
 		OR MOVIE_PEOPLE_NAME LIKE #{%searchWord%}
 	</select>
-<<<<<<< HEAD
 	
 	<!-- 영화감독 -->
 	<select id="selectDiretorList" parameterType="java.util.Map" resultType="moviePeopleDto">
