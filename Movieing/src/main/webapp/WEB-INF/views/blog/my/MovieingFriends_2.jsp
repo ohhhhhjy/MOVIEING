@@ -293,6 +293,19 @@ i.fas {
 	color: #fff;
 }
 
+#allLog{
+	background-color : #D5D5D5;
+	border: none;
+	border-bottom: 	1.5px solid gray;
+}
+
+#anotherLog{
+	border: 1.5px solid gray;
+	border-bottom: none;
+}
+
+
+
 </style>
 
 <script>
@@ -548,24 +561,21 @@ $(function(){
 <div style="padding-top: 150px; background-color: white;"></div>
 
 
+
 <!-- 버튼 두개 만들기 -->
 <div
 	style="padding-left: 40px; background-color: white; padding-right: 40px">
-	<div class="row" style="padding-left: 480px">
+	<div class="row" style="padding-left: 380px">
 
 		<div class="btn-group btn-group-lg btn-group-block">
-			<a href="<c:url value="/Movieing/Blog/MovieingFriends.mov"/>" class="btn btn-secondary" style="width: 400px;margin-right: 400px"> 모든 활동 로그</a> 
-			<a href="#" style="width: 400px"
-				class="btn btn-primary">팔로우 활동 로그</a>
+			<a href="<c:url value="/Movieing/Blog/MovieingFriends.mov"/>" class="btn" style="width: 388px;margin-right: 390px" id="allLog">모든 활동 로그</a> 
+			<a href="#" style="width: 410px" id="anotherLog"
+				class="btn"><strong>팔로우 활동 로그</strong></a>
 		</div>
 
 	</div>
-	<div class="container">
-		<!-- 중간줄 -->
-		<hr class="my-3">
-	</div>
+	
 </div>
-
 
 
 <!-- 피드보이기시작 -->
@@ -589,8 +599,8 @@ $(function(){
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="mr-2">
-										<img class="rounded-circle" width="45"
-											src="https://picsum.photos/50/50" alt="">
+										<img class="rounded-circle" width="45" height="45"
+											src="${item.userProfile}" alt="">
 									</div>
 
 									<div class="ml-2" >

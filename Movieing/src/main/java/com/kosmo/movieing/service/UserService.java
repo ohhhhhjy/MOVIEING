@@ -49,6 +49,8 @@ public interface UserService {
 	//Top에서 쓸 이미지 가져오기용
 	String selectImage(String id);
 	
+
+	
 	
 	
 

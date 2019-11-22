@@ -528,7 +528,8 @@ public class BlogController {
 
 		// 무빙프렌즈에서 피드 글보이기(전체공개면)]-모든 정보있음
 		List<ReviewDto> friendsReviewList2 = reviewService.friendsReviewList2(map);// 리스트전체조회
-
+		
+		
 		System.out.println("닉네임:" + friendsReviewList2.get(0).getUserNick());
 
 		// 유저자기소개]
