@@ -51,6 +51,8 @@ public class ReviewDto {
 
 
 
+
+
 	public java.util.Date getCommentDate() {
 		return commentDate;
 	}

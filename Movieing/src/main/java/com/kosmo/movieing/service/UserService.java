@@ -22,7 +22,7 @@ public interface UserService {
 
 	//회원가입 시 시큐리티 권한주기
 	int insertSec(Map map);
-	
+
 	//회원가입 시 이미지 넣기
 	int updateImage(Map map);
 
@@ -35,5 +35,8 @@ public interface UserService {
 	String selectUserId(String userNick);
 	//검색 용
 	List<UserDto> selectSearchList(Map map);
-	
+
+	//영화본 친구
+	List<UserDto> selectMovieUserList(Map map);
+
 }

@@ -21,4 +21,10 @@ public interface MoviePeopleService {
 
 	List<MoviePeopleDto> selectListPeople(Map map);
 
+	//감독 리스트
+	List<MoviePeopleDto> selectDiretorList(Map map);
+
+	//배우 리스트
+	List<MoviePeopleDto> selectActorList(Map map);
+
 }

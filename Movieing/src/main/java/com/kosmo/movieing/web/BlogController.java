@@ -1,8 +1,6 @@
 package com.kosmo.movieing.web;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -21,13 +19,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosmo.movieing.service.CommentService;
@@ -36,6 +31,8 @@ import com.kosmo.movieing.service.EvalueWishService;
 import com.kosmo.movieing.service.FollowDto;
 import com.kosmo.movieing.service.FollowService;
 import com.kosmo.movieing.service.LikeReviewService;
+import com.kosmo.movieing.service.MoviePeopleDto;
+import com.kosmo.movieing.service.MoviePeopleService;
 import com.kosmo.movieing.service.MovieService;
 import com.kosmo.movieing.service.ReviewDto;
 import com.kosmo.movieing.service.ReviewService;
@@ -66,15 +63,24 @@ public class BlogController {
 	@Resource(name = "userService")
 	private UserService userService;
 
+	@Resource(name = "moviePeopleService")
+	private MoviePeopleService moviePeopleService;
+
 	// 블로그메인
 	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov")
 	public String blogMain(@RequestParam Map map, Model model, Authentication auth ,HttpServletRequest req ) throws Exception {
 
 		String id = auth.getName();
-		if(map.get("userNick")!=null) {
+		if(map.get("userNick")!=null ) {//남의 피드로 가는 경우.
 			id= userService.selectUserId(map.get("userNick").toString());
+			if(!id.equals(auth.getName()))
+				model.addAttribute("notMe","y");//내피드가 아니다
+			else
+				model.addAttribute("notMe","n");
 		}
-
+		else {
+			model.addAttribute("notMe","n");//내 피드다
+		}
 		map.put("id", id);
 		model.addAttribute("id", id);
 		// [유저정보] count 별.리.좋.보. 팔로워.팔로잉.
@@ -145,7 +151,7 @@ public class BlogController {
 		model.addAttribute("followerList", followerList);
 
 
-		//post방식으로 들어올때
+		//post방식으로 들어올때!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		if(req.getMethod().equals("POST")) {
 			String movieTitle = map.get("movieTitle").toString();
 			String grade = map.get("grade").toString();
@@ -223,6 +229,18 @@ public class BlogController {
 		int reviewCount = reviewService.getTotalCount(map);
 		model.addAttribute("reviewCount", reviewCount);
 
+		//선호감독
+		List<MoviePeopleDto> directorList = moviePeopleService.selectDiretorList(map);
+		model.addAttribute("directorList", directorList.isEmpty()?null:directorList);
+		//선호장르
+		List<String> genreList = movieService.selectGenreList(map);
+		model.addAttribute("genreList", genreList.isEmpty()?null:genreList);
+		//선호태그
+		List<String> tagList = movieService.selectTagList(map);
+		model.addAttribute("tagList", tagList.isEmpty()?null:tagList);
+		//선호배우
+		List<MoviePeopleDto> actorList = moviePeopleService.selectActorList(map);
+		model.addAttribute("actorList", actorList.isEmpty()?null:actorList);
 
 		return "blog/my/BlogMain.tiles";
 	}/////////////////////////////////////////////
@@ -478,8 +496,8 @@ public class BlogController {
 		return "blog/my/MovieingFriends.tiles";
 	}///////////////////////////////////////////////////////////////////////////////
 
-	
-	
+
+
 	// 내 글 삭제
 	@ResponseBody
 	@RequestMapping(value = "/Movieing/Blog/reviewRemove.mov", method = RequestMethod.POST)
@@ -600,9 +618,9 @@ public class BlogController {
 
 		return "blog/my/MovieingFriendsComment.tiles";
 	}
-	
 
-	
+
+
 
 
 	// 글쓰기 페이지]

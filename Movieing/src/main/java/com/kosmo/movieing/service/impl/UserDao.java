@@ -96,8 +96,14 @@ public class UserDao implements UserService{
 
 	@Override
 	public int updateImage(Map map) {
-		
+
 		return template.update("updateImage", map);
+	}
+
+	@Override
+	public List<UserDto> selectMovieUserList(Map map) {
+
+		return template.selectList("selectMovieUserList",map);
 	}
 
 

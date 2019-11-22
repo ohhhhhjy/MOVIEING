@@ -15,6 +15,7 @@ import javax.annotation.Resource;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,9 +34,13 @@ public class RecommendController {
 
 
 	@RequestMapping("/Movieing/Movie/Recommend.mov")
-	public String recommend(Model model, @RequestParam Map map) throws Exception {
+	public String recommend(Model model, @RequestParam Map map,Authentication auth) throws Exception {
 
-		List<MovieDto> movieList = movieService.selectListMovie(map);
+		map.put("id", auth.getName());
+
+		//추천 영화
+		List<MovieDto> movieList = movieService.selectListBestRecommendMovie(map);
+
 		List<MovieDto> movieRomanceList = movieService.selectListRomance(map);
 		List<MovieDto> movieHorrorList = movieService.selectListHorror(map);
 		List<MovieDto> movieRamdomList = movieService.selectListRandom(map);

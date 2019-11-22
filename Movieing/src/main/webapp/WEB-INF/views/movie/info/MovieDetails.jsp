@@ -358,12 +358,14 @@ $(document).ready(function() {
 					    <button  id="btnWish" class="btn btn-outline-danger waves-effect" data-toggle="button"><i class="fas fa-plus" id="wishBtnIcon"></i>&nbsp;보고싶어요</button>
 					</div>
 					<hr class="my-3">
-					<div class="row">
-						<div class="col-md-6" style="font-weight: bold">이 영화를 본 친구</div>
-						<c:forEach items="${reviewList}" var="review">
-						<div class="col-md-6" align="right"> ${review.userId}님 외 4명</div>
-						</c:forEach>
-					</div>
+					<c:if test="${!empty movieUserList}">
+						<div class="row">
+							<div class="col-md-6" style="font-weight: bold">이 영화를 본 친구</div>
+							<c:forEach items="${movieUserList}" var="user">
+								<div class="col-md-6" align="right"> ${user.userNick}님 외 ${movieUserList.size()}명</div>
+							</c:forEach>
+						</div>
+					</c:if>
 			</div>
 			<!-- 가격비교 -->
 			<div class="col-md-3">
@@ -468,7 +470,7 @@ $(document).ready(function() {
 							<a href="<c:url value='/Movieing/Movie/MovieReviews.mov'/>" class="moreContent">더보기</a>
 						</div> --%>
 			<c:if test="${empty reviewList }" var="isEmpty">
-				<h5>등록된 게시물이 없습니다</h5>
+				<h5 align="center" style="padding-bottom: 20px">" 등록된 게시물이 없습니다 "</h5>
 			</c:if>
 			<c:if test="${not isEmpty }">
            		 <!-- 리뷰카드 -->
@@ -595,7 +597,7 @@ $(document).ready(function() {
 										<div class="card-body">
 											<h6 class="card-title">애드 아스드라</h6>
 											<span id="rateMe1" style="width: 50px"></span>
-											<p class="card-text">구매 5,450원</p>
+											<!-- <p class="card-text">구매 5,450원</p> -->
 
 										</div>
 									</div>
@@ -607,7 +609,7 @@ $(document).ready(function() {
 										<div class="card-body">
 											<h6 class="card-title">쿵푸보이</h6>
 											<span id="rateMe1" style="width: 50px"></span>
-											<p class="card-text" style="font-size: small;">구매 5,450원</p>
+											<!-- <p class="card-text" style="font-size: small;">구매 5,450원</p> -->
 
 										</div>
 									</div>
@@ -619,7 +621,6 @@ $(document).ready(function() {
 										<div class="card-body">
 											<h6 class="card-title">우리집</h6>
 											<span id="rateMe1" style="width: 50px"></span>
-											<p class="card-text" style="font-size: small;">구매 5,450원</p>
 
 										</div>
 									</div>
@@ -632,7 +633,6 @@ $(document).ready(function() {
 											<h6 class="card-title" style="font-size: small;">잃어버린
 												세계를 찾아서</h6>
 											<span id="rateMe1" style="width: 50px"></span>
-											<p class="card-text" style="font-size: small;">구매 5,450원</p>
 
 										</div>
 									</div>
@@ -644,7 +644,6 @@ $(document).ready(function() {
 										<div class="card-body">
 											<h6 class="card-title">47미터2</h6>
 											<span id="rateMe1" style="width: 50px"></span>
-											<p class="card-text" style="font-size: small;">구매 5,450원</p>
 
 										</div>
 									</div>
@@ -656,8 +655,6 @@ $(document).ready(function() {
 										<div class="card-body">
 											<h6 class="card-title">마리아칼라스</h6>
 											<span id="rateMe1" style="width: 50px"></span>
-											<p class="card-text" style="font-size: small;">구매 5,450원</p>
-
 										</div>
 									</div>
 								</div>

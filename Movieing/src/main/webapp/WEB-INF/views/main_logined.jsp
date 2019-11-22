@@ -364,7 +364,7 @@ $('#blogCarousel').carousel({
 								<h1>아이가 보기에 좋은 영화</h1>
 								<p>토이스토리, 알라딘 등</p>
 								<p>
-									<a class="btn btn-lg btn-primary" href="#" role="button">상세보기</a>
+									<a class="btn btn-lg btn-primary" href="<c:url value='/Movieing/Movie/AllMovie.mov?genre=animation'/>" role="button">상세보기</a>
 								</p>
 							</div>
 						</div>

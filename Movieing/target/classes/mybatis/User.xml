@@ -75,6 +75,13 @@
 		OR USER_NICK LIKE #{searchWord%}
 		OR USER_NICK LIKE #{%searchWord%}
 	</select>
+	
+	<!--  영화 본 친구 -->
+	<select id="selectMovieUserList" parameterType="java.util.Map" resultType="UserDto">
+		 select user_nick from user_table U 
+		 where user_id in (select following from follow where follower = #{id}) 
+		 and user_id in (select user_id from evaluation where movie_no=#{movieNo})
+	</select>
 
 
 

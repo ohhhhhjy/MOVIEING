@@ -9,6 +9,16 @@ public class MoviePeopleDto {
 	String moviePeopleCountry;
 	String moviePeopleImg;
 
+	//효율성
+	//감독수
+	int count;
+
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
 	public int getMoviePeopleNo() {
 		return moviePeopleNo;
 	}

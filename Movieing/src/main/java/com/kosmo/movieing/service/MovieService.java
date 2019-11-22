@@ -56,5 +56,14 @@ public interface MovieService {
 	//전체영화 애니메이션
 	List<MovieDto> selectListAni(Map map);
 
+	//취향로직,,,
+	List<MovieDto> selectListBestRecommendMovie(Map map);
+
+	//내 영화 장르 3개
+	List<String> selectGenreList(Map map);
+
+	//선호태그리스트
+	List<String> selectTagList(Map map);
+
 
 }
