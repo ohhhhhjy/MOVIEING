@@ -93,7 +93,7 @@
 			<!-- col-md-3시작 -->
 			<!--프사 -->
 			<div style="text-align: center">
-				<img src="<c:url value='${mypage.userProfile }'/>"
+				<img src="${mypage.userProfile }"
 					class="radiusImg img-thumbnail" alt="프로필 사진"
 					style="display: block; margin: 0px auto;">
 				

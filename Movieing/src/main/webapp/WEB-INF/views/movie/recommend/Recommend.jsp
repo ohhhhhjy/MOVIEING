@@ -102,7 +102,7 @@ img.border-shadow {
 		<div class="col-xl-12">
 			<div class="row">
 				<div class="col-xl-10">
-					<h3>#추천인기영화</h3>
+					<h3>#당신의 취향을 저격할 영화</h3>
 				</div>
 				<div class="col-xl-2" align="right">
 					<a href="<c:url value='/Movieing/Movie/Popular.mov'/>"
@@ -129,13 +129,14 @@ img.border-shadow {
 					<!-- Carousel items -->
 					<div class="carousel-inner">
 
+
 						<div class="row container-fluid" style="margin-top: 20px">
 
+							<c:forEach items="${movieList}" var="movie" begin="0" end="5">
 
-							<c:forEach items="${movieList}" var="movie" begin="12" end="18">
 
 								<div class="col-md-2 col-sm-6 movie-poster"
-									style="margin-bottom: 5px;margin-right: -50px;">
+									style="margin-bottom: 5px; margin-right: -50px;">
 									<a
 										href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo }'/>">
 										<img class="mvimg" src="${movie.movieImg}" alt="" />
@@ -352,9 +353,10 @@ img.border-shadow {
 					<!--.carousel-inner-->
 
 
-					<a class="carousel-control-prev" href="#blogCarousel4" role="button"
-						data-slide="prev"> <span class="carousel-control-prev-icon"
-						aria-hidden="true"></span> <span class="sr-only">Previous</span>
+					<a class="carousel-control-prev" href="#blogCarousel4"
+						role="button" data-slide="prev"> <span
+						class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+						class="sr-only">Previous</span>
 					</a> <a class="carousel-control-next" href="#blogCarousel4"
 						role="button" data-slide="next"> <span
 						class="carousel-control-next-icon" aria-hidden="true"></span> <span
@@ -422,9 +424,10 @@ img.border-shadow {
 					<!--.carousel-inner-->
 
 
-					<a class="carousel-control-prev" href="#blogCarousel5" role="button"
-						data-slide="prev"> <span class="carousel-control-prev-icon"
-						aria-hidden="true"></span> <span class="sr-only">Previous</span>
+					<a class="carousel-control-prev" href="#blogCarousel5"
+						role="button" data-slide="prev"> <span
+						class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+						class="sr-only">Previous</span>
 					</a> <a class="carousel-control-next" href="#blogCarousel5"
 						role="button" data-slide="next"> <span
 						class="carousel-control-next-icon" aria-hidden="true"></span> <span

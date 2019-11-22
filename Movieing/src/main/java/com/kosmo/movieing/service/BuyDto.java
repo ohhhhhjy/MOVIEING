@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class BuyDto {
 	
-	String userId;
+	String key;
 	String naming;
 	String price;
 	String quantity;
@@ -12,10 +12,10 @@ public class BuyDto {
 	
 	
 	public String getUserId() {
-		return userId;
+		return key;
 	}
 	public void setUserId(String userId) {
-		this.userId = userId;
+		this.key = userId;
 	}
 	public String getNaming() {
 		return naming;

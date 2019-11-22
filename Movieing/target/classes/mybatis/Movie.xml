@@ -12,7 +12,8 @@
 	
 	<!-- 영화 리스트 가져오기 -->
 	<select id="selectListMovie" parameterType="java.util.Map" resultType="MovieDto">
-		select * from movie
+        select * from movie
+		where movie_no not in (select movie_no from evaluation where user_id=#{id})
 	</select>
 	
 	<!-- 영화 한개 DTO 가져오기 -->
@@ -88,5 +89,42 @@
 		where MOVIE_GENRE = '애니메이션'
 		order by dbms_random.value
 	</select>
+	
+	<!-- 영화 추천 로직 -->
+	<select id="selectListBestRecommendMovie" parameterType="java.util.Map" resultType="MovieDto">
+        SELECT * FROM MOVIE WHERE 
+        (
+            movie_genre in (select movie_genre from 
+           (select g.*,rownum r from 
+           (SELECT count(movie_genre) c,movie_genre FROM evaluation E JOIN MOVIE M ON e.movie_no=m.movie_no where user_id=#{id} group by movie_genre order by c desc)g 
+           ) a where r &lt;= 3)
+            or
+            movie_director in (select movie_director from 
+           (select g.*,rownum r from 
+           (SELECT count(movie_director) c,movie_director FROM evaluation E JOIN MOVIE M ON e.movie_no=m.movie_no where user_id=#{id} group by movie_director order by c desc)g 
+           ) a where r &lt;= 3)
+       )
+        and
+        movie_no not in (select movie_no from evaluation where user_id=#{id} )
+        order by dbms_random.value
+	</select>
+	
+	<!-- 내 영화 장르 3개  -->
+	<select id="selectGenreList" parameterType="java.util.Map" resultType="String">
+		select movie_genre from
+       (select g.*,rownum r from
+       (SELECT count(movie_genre) c,movie_genre FROM evaluation E JOIN MOVIE M ON e.movie_no=m.movie_no where user_id=#{id} group by movie_genre order by c desc)g
+       ) a where r &lt;=3 
+	</select>
+	
+	<!-- 선호태그  -->
+	<select id="selectTagList" parameterType="java.util.Map" resultType="String">
+		select tag from tag where genre in (select movie_genre from
+       (select g.*,rownum r from
+       (SELECT count(movie_genre) c,movie_genre FROM evaluation E JOIN MOVIE M ON e.movie_no=m.movie_no where user_id=#{id} group by movie_genre order by c desc)g
+       ) a  )
+	</select>
+	
+	
 	
 </mapper>

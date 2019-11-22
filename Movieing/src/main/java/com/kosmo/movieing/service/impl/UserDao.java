@@ -96,8 +96,14 @@ public class UserDao implements UserService{
 
 	@Override
 	public int updateImage(Map map) {
-		
+
 		return template.update("updateImage", map);
+	}
+
+	@Override
+	public List<UserDto> selectMovieUserList(Map map) {
+
+		return template.selectList("selectMovieUserList",map);
 	}
 
 	@Override
@@ -107,8 +113,14 @@ public class UserDao implements UserService{
 
 	@Override
 	public boolean isAdmin(String id) {
-		
+
 		return template.selectOne("selectOneAdmin", id).equals("Y")?true:false;
+	}
+
+	@Override
+	public String selectImage(String id) {
+		
+		return template.selectOne("selectOneImage", id);
 	}
 
 

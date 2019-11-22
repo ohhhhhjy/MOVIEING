@@ -121,4 +121,22 @@ public class MovieServiceImpl implements MovieService{
 		return dao.selectListAni(map);
 	}
 
+	@Override
+	public List<MovieDto> selectListBestRecommendMovie(Map map) {
+
+		return dao.selectListBestRecommendMovie(map);
+	}
+
+	@Override
+	public List<String> selectGenreList(Map map) {
+
+		return dao.selectGenreList(map);
+	}
+
+	@Override
+	public List<String> selectTagList(Map map) {
+
+		return dao.selectTagList(map);
+	}
+
 }

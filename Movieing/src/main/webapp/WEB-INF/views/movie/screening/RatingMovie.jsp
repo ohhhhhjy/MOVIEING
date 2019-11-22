@@ -273,6 +273,8 @@ $(document).ready(function() {
 		$(this).removeClass("hover");
 	}); */
 	
+	
+	
  	//별점 클릭시 insert와 update를 실행시키기위한 ajax메소드..
  	$('.starRadio').click(function(){
 	    var movieNo = $(this).attr('name');//영화번호
@@ -299,7 +301,7 @@ $(document).ready(function() {
                  success:function(){//서버로 부터 정상적인 응답을 받았을 때(200번)
                 	 parentDiv.remove();
                 	    if(0 <= evalueCount && evalueCount < 10){
-                	        $('.message').text('아직 고객님의 취향을 잘 모르겠어요..');
+                	        $('.message').text('아직 '+'${id}'+'님의 취향을 잘 모르겠어요..');
                 	        }else if(10 <= evalueCount && evalueCount < 20){
                 	        	  $('.message').text('조금은 취향을 알것같아요!');
                 	        }else if(20 <= evalueCount && evalueCount < 30){

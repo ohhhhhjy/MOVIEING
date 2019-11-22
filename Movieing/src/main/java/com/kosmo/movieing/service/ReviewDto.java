@@ -52,9 +52,20 @@ public class ReviewDto {
 	//내가 특정리뷰에 좋아요한 갯수
 	private int likeMyCount;
 
+	//좋아요 한 리뷰넘버 = 리뷰넘버
+	private boolean likeReviewEqual;
 
 
 
+
+
+	public boolean isLikeReviewEqual() {
+		return likeReviewEqual;
+	}
+
+	public void setLikeReviewEqual(boolean likeReviewEqual) {
+		this.likeReviewEqual = likeReviewEqual;
+	}
 
 	public int getLikeMyCount() {
 		return likeMyCount;

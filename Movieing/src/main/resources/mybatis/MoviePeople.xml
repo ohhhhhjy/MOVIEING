@@ -22,6 +22,21 @@
 		OR MOVIE_PEOPLE_NAME LIKE #{searchWord%}
 		OR MOVIE_PEOPLE_NAME LIKE #{%searchWord%}
 	</select>
+	
+	<!-- 영화감독 -->
+	<select id="selectDiretorList" parameterType="java.util.Map" resultType="moviePeopleDto">
+         select mp.*,
+         (SELECT count(*) FROM evaluation E JOIN MOVIE M ON e.movie_no=m.movie_no where user_id=#{id} and movie_director = mp.movie_people_name  ) as count from movie_people mp where movie_people_name in
+         (select movie_director from
+       (select g.*,rownum r from
+       (SELECT count(movie_director) c,movie_director FROM evaluation E JOIN MOVIE M ON e.movie_no=m.movie_no where user_id=#{id} group by movie_director order by c desc)g
+       ) a )
+	</select>
+
+	<!-- 영화배우 -->
+	<select id="selectActorList" parameterType="java.util.Map" resultType="moviePeopleDto">
+      select * from movie_people where movie_people_job ='배우' 
+	</select>
 
 	<select id="selectPeopleNoList" parameterType="java.util.Map" resultType="moviePeopleDto">
 		select *from MOVIE_PEOPLE

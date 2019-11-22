@@ -24,5 +24,8 @@ public interface CommentService {
 
 	//댓글 검색 
 	List<CommentDto> selectSearchCommentList(Map map);
+	
+	//노티 테스트용
+	int getCountNoti(String id);
 
 }

@@ -5,7 +5,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import com.kosmo.movieing.service.UserDto;
@@ -97,8 +96,14 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public int updateImage(Map map) {
-		
+
 		return dao.updateImage(map);
+	}
+
+	@Override
+	public List<UserDto> selectMovieUserList(Map map) {
+
+		return dao.selectMovieUserList(map);
 	}
 
 	@Override
@@ -108,8 +113,14 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public boolean isAdmin(String id) {
-		
+
 		return dao.isAdmin(id);
+	}
+
+	@Override
+	public String selectImage(String id) {
+		
+		return dao.selectImage(id);
 	}
 
 }

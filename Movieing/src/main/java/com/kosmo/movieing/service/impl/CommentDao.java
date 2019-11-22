@@ -60,6 +60,12 @@ public class CommentDao implements CommentService{
 		return template.selectList("selectSearchCommentList",map);
 	}
 
+	@Override
+	public int getCountNoti(String id) {
+		
+		return template.selectOne("getCountNoti");
+	}
+
 
 
 }

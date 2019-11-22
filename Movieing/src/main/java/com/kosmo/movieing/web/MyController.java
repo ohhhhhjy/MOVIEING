@@ -31,29 +31,41 @@ public class MyController {
 	
 	//이미지 수정
 	@PostMapping(value = "/Movieing/Blog/ImageUpdate.mov")
-		public String imageUpdate(@RequestParam Map map,@RequestPart MultipartFile image,HttpServletRequest req, Principal principal) throws IllegalStateException, IOException {
+		public String imageUpdate(@RequestParam Map map,@RequestPart MultipartFile image, Model model, HttpServletRequest req, Principal principal) throws IllegalStateException, IOException {
 			System.out.println("돼냐?");
 			// 세션아이디
 			String id = principal.getName();
-			map.put("userid", id);
+			map.put("userid", id);	
 			//확장자 찾기
 			String original = image.getOriginalFilename();
 			int index = original.lastIndexOf('.');
 			if(index!=-1) {
 				String extension = original.substring(index, original.length());
 				//File객체 생성
-				String filePath = "/resources/Upload/"+map.get("userid")+extension;
-				File file =  new File(filePath);
+//				String filePath = "/Upload/"+map.get("userid")+extension;
+//				File file =  new File(filePath);
+				//String path = req.getSession().getServletContext().getRealPath("/Upload");
+				String path = "C:/Users/kosmo_16/git/MOVIEING/Movieing/src/main/webapp/resources/Upload/";
+				System.out.println("path"+path);
+				//File file =  new File(path+File.separator+image.getOriginalFilename());
+				File file = new File(path + map.get("userid")+extension);
 				System.out.println("filename : "+image.getOriginalFilename());
 				image.transferTo(file);
-				map.put("file", filePath);
+				
+				int indexUpload = path.indexOf("resources");
+				String dbPath = "/movieing"+path.substring(indexUpload-1)+map.get("userid")+extension;
+				System.out.println("dbPath : "+dbPath);
+				//map.put("file", filePath);
+				map.put("file", dbPath);
+				
 				userService.updateImage(map);
 			}
-				//System.out.println(filePath);
-			
+			map.put("id", id);	
+			UserDto mypage = userService.selectOne(map);// 리스트전체조회
+			model.addAttribute("mypage", mypage);
 			
 			//return new UserDto(map.get("name").toString(),map.get("age").toString(),map.get("addr").toString());
-			return "";
+			return "blog/my/MyPage.tiles";
 		
 		}
 		

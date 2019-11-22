@@ -635,8 +635,8 @@ i.fas {
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="mr-2">
-										<img class="rounded-circle" width="45"
-											src="https://picsum.photos/50/50" alt="">
+										<img class="rounded-circle" width="45" height="45"
+											src="${image.userProfile}" alt="">
 									</div>
 
 									<div class="ml-2">
@@ -856,7 +856,7 @@ i.fas {
 
 					<div style="padding-right: 10px">
 						<img class="radiusImg" alt="프사진"
-							src="<c:url value='/resources/img/friends/oubin.png'/>" />
+							src="${image.userProfile }" />
 					</div>
 					<div style="padding-right: 60px">
 

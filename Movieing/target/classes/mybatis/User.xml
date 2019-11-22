@@ -75,6 +75,13 @@
 		OR USER_NICK LIKE #{searchWord%}
 		OR USER_NICK LIKE #{%searchWord%}
 	</select>
+	
+	<!--  영화 본 친구 -->
+	<select id="selectMovieUserList" parameterType="java.util.Map" resultType="UserDto">
+		 select user_nick from user_table U 
+		 where user_id in (select following from follow where follower = #{id}) 
+		 and user_id in (select user_id from evaluation where movie_no=#{movieNo})
+	</select>
 
 	<select id="selectAllUserList" parameterType="java.util.Map" resultType="UserDto">
 		select user_id,user_name,user_nick,user_contact,user_mail,user_signup_date,user_self from user_table
@@ -84,5 +91,9 @@
 	<select id="selectOneAdmin" parameterType="String" resultType="String">
 		select admin from USER_TABLE where user_id=#{id}
 	</select>
-
+	
+	<!-- Top에서 쓸 이미지 가져오기용 -->
+	<select id="selectOneImage" parameterType="String" resultType="String">
+		select user_profile from USER_TABLE where user_id=#{id}
+	</select>
 </mapper>

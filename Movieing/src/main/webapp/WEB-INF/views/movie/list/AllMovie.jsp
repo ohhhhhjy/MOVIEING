@@ -84,7 +84,15 @@
 			
 		});
 		
+		if(${!empty genre}){
+			console.log('${genre}');
+			ajax('animation');
+			$('#ani').css('color','black');
+			$('#ani').css('backgroundColor','#999'); 
+		}
+		
 	});
+	
 	
 	var ajax = function(genre){
 		$.ajax({
@@ -146,7 +154,7 @@
 			<li><a href="#" class="genreTag">로맨스/멜로</a></li>
 			<li><a href="#" class="genreTag">공포/스릴러</a></li>
 			<li><a href="#" class="genreTag">SF</a></li>
-			<li><a href="javascript:ajax('animation');" class="genreTag">애니메이션</a></li>
+			<li><a id="ani" href="javascript:ajax('animation');" class="genreTag">애니메이션</a></li>
 			<li><a href="#" class="genreTag">액션</a></li>
 			<li><a href="#" class="genreTag">전쟁</a></li>
 			<li><a href="#" class="genreTag">판타지</a></li>
