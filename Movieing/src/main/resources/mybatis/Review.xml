@@ -60,15 +60,14 @@
 	
 	     select r.*, 
 		MOVIE_TITLE ,movie_img,
-		MOVIE_ORG_TITLE ,
+		MOVIE_ORG_TITLE , user_profile ,
 		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
 		(select count(*) from LIKE_REVIEW  where  review_no = r.review_no) likeCount,
 		(select count(*) from COMMENT_TABLE where  review_no = r.review_no) commentCount,
 		(select USER_NICK from user_table where review_no = r.review_no and user_id= r.user_id) userNick,
 		(select count(*) from LIKE_REVIEW  where user_id= #{id} and review_no = r.review_no) likeMyCount
-		from review r
-		join movie m on r.movie_no=m.movie_no 
-		WHERE PUBLIC_PRIVATE='Y'
+		from review r, user_table u, movie m
+		WHERE PUBLIC_PRIVATE='Y' and  r.movie_no=m.movie_no  and  r.user_id = u.user_id
 		Order by REVIEW_POSTDATE desc
 	</select>
 	
@@ -77,13 +76,13 @@
 	<select id="friendsReviewListFollower" parameterType="java.util.Map" resultType="ReviewDto">
 	
 	       select r.*, 
-		m.*,
+		m.*,  user_profile ,
 		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
 		(select count(*) from LIKE_REVIEW  where  review_no = r.review_no) likeCount,
 		(select count(*) from COMMENT_TABLE where  review_no = r.review_no) commentCount,
 		(select USER_NICK from user_table where review_no = r.review_no and user_id= r.user_id) userNick
-		from review r,movie m,follow f
-		WHERE PUBLIC_PRIVATE='Y' and f.following!=#{id} and r.movie_no=m.movie_no and f.following=r.user_id  
+		from review r,movie m,follow f, user_table u
+		WHERE PUBLIC_PRIVATE='Y' and f.following!=#{id} and r.movie_no=m.movie_no and f.following=r.user_id and r.user_id = u.user_id 
 		Order by REVIEW_POSTDATE desc
 
 	</select>

@@ -293,6 +293,19 @@ i.fas {
 	color: #fff;
 }
 
+#anotherLog{
+	background-color : #D5D5D5;
+	border: none;
+	border-bottom: 	1.5px solid gray;
+}
+
+#allLog{
+	border: 1.5px solid gray;
+	border-bottom: none;
+}
+
+
+
 </style>
 
 <script>
@@ -588,26 +601,23 @@ i.fas {
 		});
 </script>
 
+
 <!-- 위에 패딩주기 -->
 <div style="padding-top: 150px; background-color: white;"></div>
-
 
 <!-- 버튼 두개 만들기 -->
 <div
 	style="padding-left: 40px; background-color: white; padding-right: 40px">
-	<div class="row" style="padding-left: 480px">
+	<div class="row" style="padding-left: 380px">
 
 		<div class="btn-group btn-group-lg btn-group-block">
-			<a href="#" class="btn btn-primary" style="width: 400px;margin-right: 400px"> 모든 활동 로그</a> 
-			<a href="<c:url value="/Movieing/Blog/MovieingFriends2.mov"/>" style="width: 400px"
-				class="btn btn-secondary">팔로우 활동 로그</a>
+			<a href="#" class="btn" style="width: 388px;margin-right: 390px" id="allLog"><strong>모든 활동 로그</strong></a> 
+			<a href="<c:url value="/Movieing/Blog/MovieingFriends2.mov"/>" style="width: 410px" id="anotherLog"
+				class="btn">팔로우 활동 로그</a>
 		</div>
 
 	</div>
-	<div class="container">
-		<!-- 중간줄 -->
-		<hr class="my-3">
-	</div>
+	
 </div>
 
 
@@ -636,8 +646,8 @@ i.fas {
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="mr-2">
 										<a href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${item.userNick }'/>">
-											<img class="rounded-circle" width="45" height="45"
-											src="${image.userProfile}" alt=""></a>
+										<img class="rounded-circle" width="45" height="45"
+											src="${item.userProfile}" alt=""></a>
 									</div>
 
 									<div class="ml-2">

@@ -83,8 +83,6 @@
 </style>
 
 
-
-
 <div class="container" style="padding-top: 150px">
 
 	<div class="row">	
@@ -99,7 +97,6 @@
 				
 			</div>
 
-
 			<div class="text-center" style="padding-bottom: 50px">
 				<div>
 					<h1
@@ -111,16 +108,17 @@
 						action="<c:url value='/Movieing/Blog/ImageUpdate.mov?${_csrf.parameterName}=${_csrf.token}'/>">
 					<input type="hidden" name="${_csrf.parameterName}"
 									value="${_csrf.token}"> 
-					
-					<input type="file" id="image" name="image" class="text-center center-block file-upload">
-					<button name="submit" type="submit" class="btn btn-primary">수정</button>
+					<div class="row">
+						<div class="col-md-9">
+							<input type="file" id="image" name="image" class="text-center center-block file-upload">
+						</div>
+						<div class="col-md-3">
+							<button name="submit" type="submit" class="btn btn-primary .btn-sm">수정</button>
+						</div>
+					</div>
 					</form>
 			</div>
-
-
 			<div class="row">
-
-
 			<a href="<c:url value='/Movieing/Blog/MyPage.mov'/>"
 					class="list-group-item list-group-item-action active">프로필
 					편집</a> <a href="<c:url value='/Movieing/Blog/MyPage_Pass.mov'/>"

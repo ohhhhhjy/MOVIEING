@@ -49,8 +49,13 @@ public interface UserService {
 	//Top에서 쓸 이미지 가져오기용
 	String selectImage(String id);
 	
+
 	
 	
+	
+
+	//안드로이드 로그인 확인용
+	boolean androidIsLogin(Map map);
 
 
 
