@@ -35,6 +35,8 @@ import com.kosmo.movieing.service.CommentService;
 import com.kosmo.movieing.service.EvalueWishService;
 import com.kosmo.movieing.service.FilmographyDto;
 import com.kosmo.movieing.service.FilmographyService;
+import com.kosmo.movieing.service.LikeReviewDto;
+import com.kosmo.movieing.service.LikeReviewService;
 import com.kosmo.movieing.service.MovieDto;
 import com.kosmo.movieing.service.MoviePeopleDto;
 import com.kosmo.movieing.service.MoviePeopleService;
@@ -81,6 +83,9 @@ public class MovieController {
 
 	@Resource(name = "filmographyService")
 	private FilmographyService filmoGraphyService;
+
+	@Resource(name = "likeReviewService")
+	private LikeReviewService likeReviewService;
 
 
 	// 전체영화
@@ -430,15 +435,26 @@ public class MovieController {
 		String pagingString = PagingUtil.pagingBootStrapStyle(totalRecordCount, pageSize, blockPage, 1);
 		model.addAttribute("pagingString", pagingString);
 
+		List<LikeReviewDto> likeReviewNoList = likeReviewService.selectReviewNoList(map);
+
 		// 영화 리뷰 다 뿌려주자
 		List<ReviewDto> reviewList = reviewService.selectMovieReviewList(map);
 		for (ReviewDto record : reviewList) {
 			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
+			record.setLikeReviewEqual(false);
+			for(LikeReviewDto dto:likeReviewNoList) {
+				if(dto.getReviewNo().equals(record.getReviewNo())) {
+					record.setLikeReviewEqual(true);
+				}
+			}
 		}
+
 
 
 		//System.out.println("MovieDetails - 6 reviewList.getUserId 값 :"+reviewList.get(0).getUserId());
 		model.addAttribute("reviewList", reviewList);
+
+		model.addAttribute("userNick", userService.userSelectList(map).get(0).getUserNick());
 
 		return "movie/info/MovieDetails.tiles";
 	}
@@ -682,9 +698,6 @@ public class MovieController {
 	@RequestMapping(value="/Movieing/Movie/ReviewAjax.mov", method = RequestMethod.POST)
 	public String reviewAjax(@RequestParam Map map) throws UnsupportedEncodingException {
 
-		//넘겨받은 영화코드 : movieNo. 임시로 넣어줌
-		String movieNo = "1";
-		map.put("movieNo", movieNo);
 
 		int nowPage = Integer.parseInt(map.get("nowPage").toString());
 		// 페이징을 위한 로직]
@@ -702,7 +715,6 @@ public class MovieController {
 		map.put("end", end);
 
 		String pagingString = PagingUtil.pagingBootStrapStyle(totalRecordCount, pageSize, blockPage, nowPage);
-
 		// 영화 리뷰 다 뿌려주자
 		List<ReviewDto> reviewList = reviewService.selectMovieReviewList(map);
 

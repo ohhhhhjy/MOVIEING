@@ -71,5 +71,11 @@ public class LikeReviewDao implements LikeReviewService{
 		return template.selectOne("AllLikeOneReviewTotalCount",map);
 	}
 
+	@Override
+	public List<LikeReviewDto> selectReviewNoList(Map map) {
+
+		return template.selectList("selectReviewNoList", map);
+	}
+
 
 }

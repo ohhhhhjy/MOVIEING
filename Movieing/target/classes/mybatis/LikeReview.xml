@@ -28,7 +28,12 @@
 	
 	<!-- 내 글 좋아요 누른 유저들 리스트 -->
 	<select id="selectLikeList" parameterType="java.util.Map" resultType="LikeReviewDto">
-		select user_id from LIKE_REVIEW where review_No=#{reviewNo}
+		select * from LIKE_REVIEW where review_No=#{reviewNo}
+	</select>
+	
+	<!-- 내가 좋아요 누른 리뷰 리스트 -->
+	<select id="selectReviewNoList" parameterType="java.util.Map" resultType="LikeReviewDto">
+		select * from LIKE_REVIEW where  user_id= #{id} 
 	</select>
 	
 	

@@ -217,7 +217,9 @@ $(function(){
  		}
  			
 	});
-	}
+}
+	
+	//리뷰삭제처리
 	var reviewNo ="";
 	$('#deleteModal').on('show.bs.modal', function (e) { 
 		reviewNo = $(e.relatedTarget).data('notifyid'); 

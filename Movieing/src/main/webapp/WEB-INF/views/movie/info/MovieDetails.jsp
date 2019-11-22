@@ -184,6 +184,67 @@ color:#db147b;
 <script>
 $(document).ready(function() {
 	
+	var flag = true;
+	//좋아요 클릭 이벤트처리
+	if(typeof $('.likeUnlike')!= 'undefined'){
+	 	$('.likeUnlike').click(function(){
+	 		var index = $(this).attr('id');
+	 		console.log("나야",index);
+	 		
+			//좋아요 off  > on
+	 		if(flag){
+	 			//$('#likeUnlikeIcon').removeClass('far fa-thumbs-up').addClass('fas fa-thumbs-up');
+	 			
+	 			$.ajax({
+	 				url:"<c:url value='/Movieing/Blog/LikeInsert.mov'/>",
+	 				type:'post',
+	 				dataType:'text',
+	 				data:
+	 					{id:'${id}',reviewNo:'${reviewList.get(index).reviewNo}'},
+				    beforeSend : function(xhr)
+	                  {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+	                      xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+	                  },	
+	 				success:function(data){//서버로 부터 정상적인 응답을 받았을 때(200번)
+	 					$('#likeSpan'+index).html('<i class="fas fa-thumbs-up"></i>'+data);
+	 				},	
+	 				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+	 					console.log("에러:"+data.responseText);
+	 				}
+	 			});
+	 			
+	 			flag = !flag;
+	 		}
+	 		
+	 		//좋아요 on  > off
+	 		else{
+	 			//$('#likeUnlikeIcon').removeClass('fas fa-thumbs-up').addClass('far fa-thumbs-up'); 
+	 			
+	 			$.ajax({
+	 				url:"<c:url value='/Movieing/Blog/LikeRemove.mov'/>",
+	 				type:'post',
+	 				dataType:'text',
+	 				data:
+	 				{id:'${id}',reviewNo:'${reviewList.get(index).reviewNo}'},
+	 				beforeSend : function(xhr)
+	                {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+	                    xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+	                },
+	 				success:function(data){//서버로 부터 정상적인 응답을 받았을 때(200번)
+	 					$('#likeSpan'+index).html('<i class="far fa-thumbs-up"></i>'+data);
+	 				},	
+	 				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+	 					console.log("에러:"+data);
+	 				}
+	 			});
+	 			flag = !flag;
+	 		}
+	 			
+		});
+}
+	
+///////////////////////////////////////////////////////////////	
+	
 	
 /*  	$('.starRev span').click(function() {
 		$(this).parent().children('span').removeClass('on');
@@ -258,13 +319,14 @@ $(document).ready(function() {
 
 	//페이징 클릭시 ajax처리
 	var paging = function(intTemp){
+		var movieNo = ${movieNo};
 		$.ajax({
 			url:'<c:url value="/Movieing/Movie/ReviewAjax.mov"/>',
 			type:'post',
 			//contentType : 'application/json',
 	        dataType : 'json',
 			data:
-				({nowPage:intTemp }),
+				({nowPage:intTemp,movieNo: movieNo}),
 			beforeSend : function(xhr)
               {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
                   xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
@@ -294,6 +356,7 @@ $(document).ready(function() {
 	function reviewListMaking(data){
 		var imgUrl = '';
 		var reviewString = "";
+		var pagingString = '';
 		 $.each(data,function(index,element){
 			 imgUrl = element['userProfile']==null?"https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png":element['userProfile'];
 			reviewString+="<div class='card border-secondary mb-3' style='max-width: 200rem;'><div class='card-body'><div class='row'><div class='col-md-6'><a href='#'>";
@@ -307,12 +370,13 @@ $(document).ready(function() {
 			reviewString+=element['likeCount']+"</span></a>&nbsp;&nbsp;&nbsp;";
 			reviewString+="<a href='#'><span style='font-weight: bold; color: #db147b; font-size: 0.9em'><i class='far fa-comments'></i>";
 			reviewString+=element['commentCount']+"</span></a></div></div>";
-			
+			pagingString = element['pagingString'];
 		}); 
 		
 		$('#AllReview').html(reviewString);
 		
-		 var pagingString = data[0]['pagingString'];
+		/*  var pagingString = data[0]['pagingString']; */
+		 console.log(pagingString);
 		 $('#pagingString').html(pagingString);
 	}///reviewListMaking
 
@@ -416,9 +480,7 @@ $(document).ready(function() {
 		<div class="card   bg-ligh mb-3" style="max-width: 200rem;"><!-- border-secondary -->
 			<div class="card-body">
 			<button type="button" id="btnWish" class="btn btn-outline-danger waves-effect" onclick="location.href='<c:url value="/Movieing/Movie/MovieWrite.mov?movieTitle=${movieInfo.movieTitle}"/>'"><i class="far fa-edit"></i>&nbsp;리뷰남기기</button>
-			<c:forEach items="${reviewList}" var="review">
-			<span style="font-weight: bold">&nbsp;${review.userId }님의 평가를 글로 남겨보는건 어떨까요?</span>
-			</c:forEach>
+			<span style="font-weight: bold">&nbsp;${userNick}님의 평가를 글로 남겨보는건 어떨까요?</span>
 			</div>
 		</div>
 		
@@ -476,7 +538,7 @@ $(document).ready(function() {
 			<c:if test="${not isEmpty }">
            		 <!-- 리뷰카드 -->
            	<div id="AllReview">
-            	<c:forEach items="${reviewList }" var="review" >
+            	<c:forEach items="${reviewList }" var="review" varStatus="status">
 						<div class="card border-secondary mb-3" style="max-width: 200rem;">
 							
 							<div class="card-body">
@@ -498,12 +560,12 @@ $(document).ready(function() {
 							
 								
 								<p class="card-text">${review.reviewContent }</p>
-								<span
-									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
-										${review.likeCount } </span>&nbsp;&nbsp;&nbsp; 
-								<span
-									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
-										${review.commentCount } </span>
+										<button type="button" class="btn btn-link likeUnlike" id="${status.index }" ><span
+											style="font-weight: bold; color: #db147b; font-size: 0.9em" id="likeSpan${status.index }"><i id="likeUnlikeIcon" class="${review.likeReviewEqual?'fas fa-thumbs-up': 'far fa-thumbs-up'}"></i><!-- 좋아요 아이콘 -->
+												${review.likeCount } </span></button>&nbsp;&nbsp;&nbsp; 
+										<button type="button" class="btn btn-link" onclick="location.href='<c:url value="/Movieing/Movie/MovieReviews.mov?reviewNo=${review.reviewNo }"/>'"><span style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
+												${review.commentCount } </span></button>
+										<span id="reviewNo${status.index }" style="color:white;font-size: 0.1em">${review.reviewNo }</span>
 							</div>
 						</div>
 				</c:forEach>
@@ -511,7 +573,7 @@ $(document).ready(function() {
 				<!-- 페이지네이션 -->
 				<div id="pagingString" class="row d-flex justify-content-center ">
 				<!-- 원래 페이지네이션
-
+				
 					 -->
 					${pagingString }
 				</div>
