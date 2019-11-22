@@ -479,6 +479,10 @@ public class MovieController {
 			model.addAttribute("movieList", movieList);
 
 		System.out.println("RatingMovie - 3 값 전송 완료");
+		
+		//id
+		model.addAttribute("id", auth.getName());
+		
 		return "movie/screening/RatingMovie.tiles";
 
 		/*
