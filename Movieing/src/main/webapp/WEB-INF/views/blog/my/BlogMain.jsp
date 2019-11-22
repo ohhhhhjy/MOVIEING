@@ -143,7 +143,7 @@ body {
 /*배너위치*/
 #floatMenu {
 	position: absolute;
-	left: 380px;
+	left: 300px;
 	top: 200px;
 }
 
@@ -590,9 +590,6 @@ i.fas {
 	<!-- ----------------------------옆에 리모컨- 끝----------------------------------- -->
 
 
-
-
-
 	<div class="row" style="padding-top: 20px">
 		<!-- 왼쪽 마이피드 -->
 		<div class="col-sm-7 blog-main">
@@ -662,17 +659,51 @@ i.fas {
 
 					<div class="row">
 						<div class="col-12">
-							<ul
-								class="nav nav-pills mb-3 justify-content-center align-items-center"
-								id="pills-tab" role="tablist">
-								<li class="nav-item" style="padding-right: 10px"><a
-									class="btn btn-danger"
-									href="<c:url value='/Movieing/Blog/MovieingFriends.mov'/>">무빙프렌즈</a>
-								</li>
+							<c:choose>
+								<c:when test="${notMe =='y' && followOk =='n'}">
+									<!-- 생판모르는 남 -->
+									<ul
+										class="nav nav-pills mb-3 justify-content-center align-items-center"
+										id="pills-tab" role="tablist">
+										<li class="nav-item" style="padding-right: 10px"><a
+											class="btn btn-danger"
+											href="<c:url value='/Movieing/Blog/MovieingFriends.mov'/>">무빙프렌즈</a>
+										</li>
 
-								<li class="nav-item"><a class="btn btn-info"
-									href="<c:url value='/Movieing/Blog/MyPage.mov'/>" role="button">팔로우해제</a></li>
-							</ul>
+										<li class="nav-item"><a class="btn btn-info"
+											href="<c:url value='#'/>" role="button">팔로우하기</a></li>
+									</ul>
+								</c:when>
+								<c:when test="${notMe =='y' && followOk =='y'}">
+									<!-- 팔로우한 사람-->
+									<ul
+										class="nav nav-pills mb-3 justify-content-center align-items-center"
+										id="pills-tab" role="tablist">
+										<li class="nav-item" style="padding-right: 10px"><a
+											class="btn btn-danger"
+											href="<c:url value='/Movieing/Blog/MovieingFriends.mov'/>">무빙프렌즈</a>
+										</li>
+
+										<li class="nav-item"><a class="btn btn-info"
+											href="<c:url value='#'/>" role="button">팔로우해제</a></li>
+									</ul>
+
+								</c:when>
+								<c:otherwise>
+									<!-- 나-->
+									<ul
+										class="nav nav-pills mb-3 justify-content-center align-items-center"
+										id="pills-tab" role="tablist">
+										<li class="nav-item" style="padding-right: 10px"><a
+											class="btn btn-danger"
+											href="<c:url value='/Movieing/Blog/MovieingFriends.mov'/>">무빙프렌즈</a>
+										</li>
+
+									</ul>
+
+								</c:otherwise>
+							</c:choose>
+
 
 
 							<!-- 자기소개 -->
@@ -681,10 +712,10 @@ i.fas {
 									<div class="row">
 										<div
 											class="col-12 d-flex justify-content-center align-items-center">
-											<span style="font-weight: bold;">${userInfo.userSelf } </span>
+											<span style="font-weight: bold;">"${userInfo.userSelf }"</span>
 										</div>
 
-										
+
 									</div>
 								</div>
 							</div>
@@ -820,59 +851,64 @@ i.fas {
 												</div>
 											</a>
 										</div>
-										<div class="col-lg-4 col-sm-6">
-											<a class="member-item"
-												href="<c:url value='/Movieing/Blog/WritePage.mov'/>">
-												<div class="card mb-2 mb-md-5 py-3"
-													style="border-radius: 1.0em">
-													<div class="content">
-														<div class="row">
-															<div
-																class="col-6 d-flex justify-content-center align-items-center">
-																<div class="icon-big text-facebook text-center">
-																	<i class="fas fa-pencil-alt"
-																		style="font-size: xx-large;"></i>
+										<c:if test="${notMe =='n' && followOk =='n'}">
+											<!-- 나 -->
+											<div class="col-lg-4 col-sm-6">
+												<a class="member-item"
+													href="<c:url value='/Movieing/Blog/WritePage.mov'/>">
+													<div class="card mb-2 mb-md-5 py-3"
+														style="border-radius: 1.0em">
+														<div class="content">
+															<div class="row">
+																<div
+																	class="col-6 d-flex justify-content-center align-items-center">
+																	<div class="icon-big text-facebook text-center">
+																		<i class="fas fa-pencil-alt"
+																			style="font-size: xx-large;"></i>
+																	</div>
 																</div>
-															</div>
-															<div
-																class="col-6 d-flex justify-content-center align-items-center"
-																style="margin-left: -30px">
-																<div class="numbers">
-																	<span style="font-weight: bold">글쓰기 </span>
+																<div
+																	class="col-6 d-flex justify-content-center align-items-center"
+																	style="margin-left: -30px">
+																	<div class="numbers">
+																		<span style="font-weight: bold">글쓰기 </span>
+																	</div>
 																</div>
 															</div>
 														</div>
 													</div>
-												</div>
-											</a>
-										</div>
+												</a>
+											</div>
 
-										<div class="col-lg-4 col-sm-6">
-											<a class="member-item"
-												href="<c:url value='/Movieing/Blog/MyPage.mov'/>">
-												<div class="card mb-2 mb-md-5 py-3"
-													style="border-radius: 1.0em">
-													<div class="content">
-														<div class="row">
-															<div
-																class="col-6 d-flex justify-content-center align-items-center">
-																<div class="icon-big text-success text-center">
-																	<i class="far fa-user" style="font-size: xx-large;"></i>
+											<div class="col-lg-4 col-sm-6">
+												<a class="member-item"
+													href="<c:url value='/Movieing/Blog/MyPage.mov'/>">
+													<div class="card mb-2 mb-md-5 py-3"
+														style="border-radius: 1.0em">
+														<div class="content">
+															<div class="row">
+																<div
+																	class="col-6 d-flex justify-content-center align-items-center">
+																	<div class="icon-big text-success text-center">
+																		<i class="far fa-user" style="font-size: xx-large;"></i>
+																	</div>
 																</div>
-															</div>
-															<div
-																class="col-6 d-flex justify-content-center align-items-center"
-																style="margin-left: -30px">
-																<div class="numbers">
-																	<span style="font-weight: bold; font-size: small;">마이페이지
-																	</span>
+																<div
+																	class="col-6 d-flex justify-content-center align-items-center"
+																	style="margin-left: -30px">
+																	<div class="numbers">
+																		<span style="font-weight: bold; font-size: small;">마이페이지
+																		</span>
+																	</div>
 																</div>
 															</div>
 														</div>
 													</div>
-												</div>
-											</a>
-										</div>
+												</a>
+											</div>
+
+										</c:if>
+
 									</div>
 								</div>
 
@@ -880,17 +916,13 @@ i.fas {
 							</div>
 						</div>
 					</div>
-					<c:if test="${notMe == 'y'}">
-						<div class="row d-flex justify-content-end" style="padding-top: 70px;" >
-							<button  class="btn btn-primary " >팔로우 취소</button>
-						</div>
-					</c:if>
+
 				</div>
 
 
 			</div>
-		<!-- </div> -->
-		<!-- 피드컨텐츠 시작 -->
+			<!-- </div> -->
+			<!-- 피드컨텐츠 시작 -->
 
 
 
@@ -901,22 +933,116 @@ i.fas {
 				</h5>
 			</c:if>
 
-<!-- 중간에 한줄 끼워팔기,,, -->
-<c:if test="${!isEmpty }">
-			<c:forEach items="${selectList }" var="item" varStatus="status" begin="0" end="1">
-				<!-- 2.여러줄컨텐츠(리뷰) -->
-				<div class="card border-secondary mb-3" style="max-width: 200rem;">
+			<!-- 중간에 한줄 끼워팔기,,, -->
+			<c:if test="${!isEmpty }">
+				<c:forEach items="${selectList }" var="item" varStatus="status"
+					begin="0" end="1">
+					<!-- 2.여러줄컨텐츠(리뷰) -->
+					<div class="card border-secondary mb-3" style="max-width: 200rem;">
+						<div class="card-header">
+							${item.movieTitle }에 리뷰를 남겼어요!&nbsp;&nbsp; <span
+								style="color: #a8a5a5; font-size: 0.3em;">
+								${reviewPostdate} </span>
+							<c:if test="${notMe =='n' && followOk =='n'}">
+								<!-- 나 -->
+								<button type="button" class="btn btn-outline-danger"
+									data-toggle="modal" data-target="#deleteModal"
+									style="float: right; text-align: right;"
+									data-notifyid="${item.reviewNo }">삭제</button>
+								<button type="button" class="btn btn-outline-primary"
+									style="float: right; text-align: right;"
+									onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov?reviewNo=${item.reviewNo }"/>'">수정</button>
+
+							</c:if>
+
+							<!-- 삭제모달 -->
+							<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" align="center">
+												<i class="far fa-bell"></i> 알림창
+											</h5>
+											<button type="button" class="close" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<p>리뷰를 삭제하시겠습니까?</p>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+												data-dismiss="modal">취소</button>
+											<button id="deleteBtn" type="button" class="btn btn-danger"
+												data-dismiss="modal">삭제</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+
+						<div class="card-body">
+							<div class="row">
+								<div class="col-sm-3" align="center">
+									<a
+										href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><img
+										class="movieImage" src="${item.movieImg }" alt="포스터" /></a>
+								</div>
+								<div class="col-sm-9">
+
+
+									<a
+										href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>">
+										<h4 class="card-title" style="color: black">${item.movieTitle }</h4>
+									</a> <span class="badge badge-pill badge-danger">★${item.grade }</span>
+									<p class="card-text" style="height: 110px">${item.reviewContent }</p>
+									<a href="#"> <span data-toggle="modal"
+										data-target="#likeModal${status.index }"
+										style="font-weight: bold; color: #db147b; font-size: 0.9em">
+											<i class="far fa-thumbs-up"></i>${item.likeCount }
+									</span> <!-- 좋아요수- -->
+
+									</a>&nbsp;&nbsp;&nbsp; <a
+										href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>">
+										<span
+										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
+											class="far fa-comments"></i> ${item.commentCount } </span>
+									</a>
+									<!-- 댓글수 -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- </div> -->
+
+				</c:forEach>
+
+				<!-- 1.한줄컨텐츠(보고싶어요,별점,좋아요) -->
+				<div class="card border-secondary mb-3" style="max-width: 50rem;">
 					<div class="card-header">
-						${item.movieTitle }에 리뷰를 남겼어요!&nbsp;&nbsp; <span
-							style="color: #a8a5a5; font-size: 0.3em;">
-							${reviewPostdate} </span>
-						<button type="button" class="btn btn-outline-danger"
-							data-toggle="modal" data-target="#deleteModal"
-							style="float: right; text-align: right;"
-							data-notifyid="${item.reviewNo }">삭제</button>
-						<button type="button" class="btn btn-outline-primary"
-							style="float: right; text-align: right;"
-							onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov?reviewNo=${item.reviewNo }"/>'">수정</button>
+						겟아웃을 보고싶어요에 추가했어요!&nbsp;&nbsp;<span
+							style="color: #a8a5a5; font-size: 0.3em">2시간 전</span>
+					</div>
+				</div>
+
+				<c:forEach items="${selectList }" var="item" varStatus="status"
+					begin="2" end="${selectList.size()-1 }">
+					<!-- 2.여러줄컨텐츠(리뷰) -->
+					<div class="card border-secondary mb-3" style="max-width: 200rem;">
+						<div class="card-header">
+							${item.movieTitle }에 리뷰를 남겼어요!&nbsp;&nbsp; <span
+								style="color: #a8a5a5; font-size: 0.3em;">
+								${reviewPostdate} </span>
+							<button type="button" class="btn btn-outline-danger"
+								data-toggle="modal" data-target="#deleteModal"
+								style="float: right; text-align: right;"
+								data-notifyid="${item.reviewNo }">삭제</button>
+							<button type="button" class="btn btn-outline-primary"
+								style="float: right; text-align: right;"
+								onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov?reviewNo=${item.reviewNo }"/>'">수정</button>
 
 
 
@@ -981,103 +1107,13 @@ i.fas {
 							</div>
 						</div>
 					</div>
-				<!-- </div> -->
 
-	</c:forEach>
-			
-					<!-- 1.한줄컨텐츠(보고싶어요,별점,좋아요) -->
-		<div class="card border-secondary mb-3" style="max-width: 50rem;">
-			<div class="card-header">
-				겟아웃을 보고싶어요에 추가했어요!&nbsp;&nbsp;<span
-					style="color: #a8a5a5; font-size: 0.3em">2시간 전</span>
-			</div>
+				</c:forEach>
+			</c:if>
+
+
+
 		</div>
-		
-		<c:forEach items="${selectList }" var="item" varStatus="status" begin="2" end="${selectList.size()-1 }">
-				<!-- 2.여러줄컨텐츠(리뷰) -->
-				<div class="card border-secondary mb-3" style="max-width: 200rem;">
-					<div class="card-header">
-						${item.movieTitle }에 리뷰를 남겼어요!&nbsp;&nbsp; <span
-							style="color: #a8a5a5; font-size: 0.3em;">
-							${reviewPostdate} </span>
-						<button type="button" class="btn btn-outline-danger"
-							data-toggle="modal" data-target="#deleteModal"
-							style="float: right; text-align: right;"
-							data-notifyid="${item.reviewNo }">삭제</button>
-						<button type="button" class="btn btn-outline-primary"
-							style="float: right; text-align: right;"
-							onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov?reviewNo=${item.reviewNo }"/>'">수정</button>
-
-
-
-						<!-- 삭제모달 -->
-						<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title" align="center">
-											<i class="far fa-bell"></i> 알림창
-										</h5>
-										<button type="button" class="close" data-dismiss="modal"
-											aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<p>리뷰를 삭제하시겠습니까?</p>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-dismiss="modal">취소</button>
-										<button id="deleteBtn" type="button" class="btn btn-danger"
-											data-dismiss="modal">삭제</button>
-									</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-
-
-					<div class="card-body">
-						<div class="row">
-							<div class="col-sm-3" align="center">
-								<a
-									href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><img
-									class="movieImage" src="${item.movieImg }" alt="포스터" /></a>
-							</div>
-							<div class="col-sm-9">
-
-
-								<a
-									href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>">
-									<h4 class="card-title" style="color: black">${item.movieTitle }</h4>
-								</a> <span class="badge badge-pill badge-danger">★${item.grade }</span>
-								<p class="card-text" style="height: 110px">${item.reviewContent }</p>
-								<a href="#"> <span data-toggle="modal"
-									data-target="#likeModal${status.index }"
-									style="font-weight: bold; color: #db147b; font-size: 0.9em">
-										<i class="far fa-thumbs-up"></i>${item.likeCount }
-								</span> <!-- 좋아요수- -->
-
-								</a>&nbsp;&nbsp;&nbsp; <a
-									href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>">
-									<span
-									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
-										class="far fa-comments"></i> ${item.commentCount } </span>
-								</a>
-								<!-- 댓글수 -->
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</c:forEach>
-		</c:if>
-
-
-
-	</div>
 		<!-- 왼쪽 마이피드끝-->
 
 		<!-- 가운데 분계선 -->
@@ -1113,23 +1149,24 @@ i.fas {
 					<div
 						style="color: rgba(0, 0, 0, 1); width: 280px; height: 200px; padding-left: 20px; padding-top: 20px">
 						<span
-							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(98px, 61px) rotate(0deg); font-weight: bold">#${tagList[0] }</span>
-						<span
-							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(160px, 90px) rotate(0deg); font-weight: bold">#${tagList[1] }</span>
-						<span
-							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(80px, 32px) rotate(0deg); font-weight: bold">#${tagList[2] }</span>
-						<span
-							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(200px, 43px) rotate(0deg); font-weight: bold">#${tagList[3] }</span>
-						<span
-							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(79px, 120px) rotate(0deg); font-weight: bold">#${tagList[4] }</span>
-						<span
-							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(180px, 19px) rotate(0deg); font-weight: bold">#${tagList[5] }</span>
-						<span
-							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(10px, 10px) rotate(0deg); font-weight: bold">#${tagList[6] }</span>
-						<span
-							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(20px, 62px) rotate(0deg); font-weight: bold">#${tagList[7] }</span>
-						<span
-							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(27px, 85px) rotate(0deg); font-weight: bold">#${tagList[8] }</span>
+							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(98px, 61px) rotate(0deg); font-weight: bold">#${tagList[0]
+							}</span> <span
+							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(160px, 90px) rotate(0deg); font-weight: bold">#${tagList[1]
+							}</span> <span
+							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(80px, 32px) rotate(0deg); font-weight: bold">#${tagList[2]
+							}</span> <span
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(200px, 43px) rotate(0deg); font-weight: bold">#${tagList[3]
+							}</span> <span
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(79px, 120px) rotate(0deg); font-weight: bold">#${tagList[4]
+							}</span> <span
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(180px, 19px) rotate(0deg); font-weight: bold">#${tagList[5]
+							}</span> <span
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(10px, 10px) rotate(0deg); font-weight: bold">#${tagList[6]
+							}</span> <span
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(20px, 62px) rotate(0deg); font-weight: bold">#${tagList[7]
+							}</span> <span
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(27px, 85px) rotate(0deg); font-weight: bold">#${tagList[8]
+							}</span>
 					</div>
 				</div>
 				<hr class="my-3">
@@ -1138,8 +1175,7 @@ i.fas {
 					<c:forEach items="${actorList }" var="actor" begin="6" end="8">
 						<div class="row actorForm">
 							<div class="col-sm-3">
-								<img class="radiusImg" alt="배우사진"
-									src="${actor.moviePeopleImg }" />
+								<img class="radiusImg" alt="배우사진" src="${actor.moviePeopleImg }" />
 							</div>
 							<div class="col-sm-6">
 								<span class="actorSpan">${actor.moviePeopleName }</span>
@@ -1150,12 +1186,12 @@ i.fas {
 						</div>
 					</c:forEach>
 				</c:if>
-				<c:if test="${!me}" ><!-- 남의 피드 -->
+				<c:if test="${!me}">
+					<!-- 남의 피드 -->
 					<c:forEach items="${actorList }" var="actor" begin="30" end="32">
 						<div class="row actorForm">
 							<div class="col-sm-3">
-								<img class="radiusImg" alt="배우사진"
-									src="${actor.moviePeopleImg }" />
+								<img class="radiusImg" alt="배우사진" src="${actor.moviePeopleImg }" />
 							</div>
 							<div class="col-sm-6">
 								<span class="actorSpan">${actor.moviePeopleName }</span>
@@ -1166,7 +1202,7 @@ i.fas {
 						</div>
 					</c:forEach>
 				</c:if>
-												
+
 				<hr class="my-3">
 				<h5>선호감독</h5>
 				<c:forEach items="${directorList }" var="director">
@@ -1183,7 +1219,7 @@ i.fas {
 						</div>
 					</div>
 				</c:forEach>
-				
+
 				<hr class="my-3">
 				<h5>선호장르</h5>
 				<p align="center" style="font-size: 0.8em">
@@ -1200,7 +1236,7 @@ i.fas {
 
 				<hr class="my-3">
 				<h5>영화감상시간</h5>
-				<h6 align="center" style="color: #db147b;font-size: 1.5em">${evalueCount*2 }시간</h6>
+				<h6 align="center" style="color: #db147b; font-size: 1.5em">${evalueCount*2 }시간</h6>
 				<p align="center" style="font-size: 0.8em">
 					<!-- <em>영화를 정말 사랑하시네요!</em> -->
 				</p>

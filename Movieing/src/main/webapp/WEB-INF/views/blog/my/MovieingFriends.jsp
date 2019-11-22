@@ -240,7 +240,7 @@ a {
 /*배너위치*/
 #floatMenu {
 	position: absolute;
-	left: 380px;
+	left: 300px;
 	top: 200px;
 }
 
@@ -645,13 +645,15 @@ i.fas {
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="mr-2">
+										<a href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${item.userNick }'/>">
 										<img class="rounded-circle" width="45" height="45"
-											src="${item.userProfile}" alt="">
+											src="${item.userProfile}" alt=""></a>
 									</div>
 
 									<div class="ml-2">
+										
 										<div class="h5 m-0" style="color: black;">
-											${item.userNick }</div>
+										<span>${item.userNick }</span></div>
 									</div>
 
 
