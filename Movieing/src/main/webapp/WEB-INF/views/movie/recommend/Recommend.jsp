@@ -101,7 +101,7 @@ img.border-shadow {
 		<div class="col-xl-12">
 			<div class="row">
 				<div class="col-xl-10">
-					<h3>#추천인기영화</h3>
+					<h3>#당신의 취향을 저격할 영화</h3>
 				</div>
 				<div class="col-xl-2" align="right">
 					<a href="<c:url value='/Movieing/Movie/Popular.mov'/>"
@@ -118,7 +118,7 @@ img.border-shadow {
 
 		<div class="row" style="margin-top: 20px">
 
-			<c:forEach items="${movieList}" var="movie" begin="12" end="17">
+			<c:forEach items="${movieList}" var="movie" begin="0" end="5">
 
 				<div class="col-md-2 col-sm-6 movie-poster"
 					style="margin-bottom: 5px">

@@ -24,4 +24,7 @@ public interface LikeReviewService {
 	//좋아요삭제
 	int delete(Map map);
 
+	//내가 좋아요 누른 리뷰 리스트
+	List<LikeReviewDto> selectReviewNoList(Map map);
+
 }

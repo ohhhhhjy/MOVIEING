@@ -3,8 +3,6 @@ package com.kosmo.movieing.service;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.security.core.Authentication;
-
 public interface UserService {
 
 	//기존에 있는 id/닉네임 인지 확인용
@@ -24,7 +22,7 @@ public interface UserService {
 
 	//회원가입 시 시큐리티 권한주기
 	int insertSec(Map map);
-	
+
 	//회원가입 시 이미지 넣기
 	int updateImage(Map map);
 
@@ -37,10 +35,14 @@ public interface UserService {
 	String selectUserId(String userNick);
 	//검색 용
 	List<UserDto> selectSearchList(Map map);
-	
+
+	//영화본 친구
+	List<UserDto> selectMovieUserList(Map map);
+
+
 	//유저 전체 검색용
 	List<UserDto> selectAllUserList(Map map);
-	
+
 	//관리자 판단용
 	boolean isAdmin(String id);
 	
@@ -49,4 +51,7 @@ public interface UserService {
 	
 	
 	
+
+
+
 }

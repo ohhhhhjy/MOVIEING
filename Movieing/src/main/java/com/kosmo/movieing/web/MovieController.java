@@ -7,6 +7,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.security.Principal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +35,8 @@ import com.kosmo.movieing.service.CommentService;
 import com.kosmo.movieing.service.EvalueWishService;
 import com.kosmo.movieing.service.FilmographyDto;
 import com.kosmo.movieing.service.FilmographyService;
+import com.kosmo.movieing.service.LikeReviewDto;
+import com.kosmo.movieing.service.LikeReviewService;
 import com.kosmo.movieing.service.MovieDto;
 import com.kosmo.movieing.service.MoviePeopleDto;
 import com.kosmo.movieing.service.MoviePeopleService;
@@ -80,11 +84,17 @@ public class MovieController {
 	@Resource(name = "filmographyService")
 	private FilmographyService filmoGraphyService;
 
+	@Resource(name = "likeReviewService")
+	private LikeReviewService likeReviewService;
+
 
 	// 전체영화
 	@RequestMapping("/Movieing/Movie/AllMovie.mov")
-	public String movieMain(Model model, @RequestParam Map map) throws Exception {
-
+	public String movieMain(Model model, @RequestParam Map map,Authentication auth) throws Exception {
+		if(map.get("genre")!=null) {
+			model.addAttribute("genre","animation");
+		}
+		map.put("id", auth.getName());
 		System.out.println("AllMovie - 1 디비 가져오기 전");
 		List<MovieDto> movieList = movieService.selectListMovie(map);
 		System.out.println("AllMovie - 2 movieList 생성");
@@ -132,8 +142,8 @@ public class MovieController {
 
 
 	@RequestMapping("/Movieing/Movie/NewMovie.mov")
-	public String movieNew(Model model, @RequestParam Map map) throws Exception {
-
+	public String movieNew(Model model, @RequestParam Map map, Authentication auth) throws Exception {
+		map.put("id", auth.getName());
 		System.out.println("NewMovie 1 - DB 받아오기 전");
 			List<MovieDto> newMovieList = movieService.selectListNewRandom(map);
 		System.out.println("NewMovie 2 - newMoveList 생성 완료");
@@ -196,8 +206,8 @@ public class MovieController {
 	//NewMovie.jsp
 	//////////////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping("/Movieing/Movie/Popular.mov")
-	public String moviePopular(Model model, @RequestParam Map map) throws Exception {
-
+	public String moviePopular(Model model, @RequestParam Map map,Authentication auth) throws Exception {
+		map.put("id", auth.getName());
 		System.out.println("popMovie 1 - DB 받아오기 전");
 		List<MovieDto> popMovieList = movieService.selectListRandom(map);
 	System.out.println("popMovie 2 - popMovieList 생성 완료");
@@ -261,8 +271,8 @@ public class MovieController {
 	}//////////////////////// moviePopular
 
 	@RequestMapping("/Movieing/Movie/Genre.mov")
-	public String movieGenre(Model model, @RequestParam Map map) throws Exception {
-
+	public String movieGenre(Model model, @RequestParam Map map,Authentication auth) throws Exception {
+		map.put("id", auth.getName());
 		System.out.println("GradeMovie 1 - DB 받아오기 전");
 			List<MovieDto> StarMovieList = movieService.selectListRandom(map);
 		System.out.println("GradeMovie 2 - popMovieList 생성 완료");
@@ -348,9 +358,12 @@ public class MovieController {
 
 	// 영화 상세 페이지
 	@RequestMapping("/Movieing/Movie/MovieDetails.mov")
-	public String movieDetailsTest(HttpServletRequest req, @RequestParam Map map, Model model, @RequestParam String movieNo) throws Exception {
-
-
+	public String movieDetailsTest(HttpServletRequest req, @RequestParam Map map, Model model, @RequestParam String movieNo,Authentication auth) throws Exception {
+		//지우지마
+		map.put("id", auth.getName());
+		List<UserDto> movieUserList = userService.selectMovieUserList(map);
+		model.addAttribute("movieUserList",movieUserList.isEmpty()?null:movieUserList);
+		System.out.println("무비유저리스트"+movieUserList);
 		System.out.println("MovieDetails 1  - map에 mname, date 넣기 전 :");
 		map.put("movieNo",movieNo);
 		System.out.println("MovieDetails 1-1 movieNo 값 : "+movieNo);
@@ -384,7 +397,7 @@ public class MovieController {
 		model.addAttribute("movieNo", map.get("movieNo"));
 		model.addAttribute("movieInfo", movieInfo);
 		model.addAttribute("movieInfoMap",movieInfoMap(movieNo));
-		model.addAttribute("stillCutList",stillCutList);
+		model.addAttribute("stillCutList",stillCutList.isEmpty()?null:stillCutList);
 		/*
 		System.out.println("RequestMethod.GET");
 		System.out.println("name : " + mname);
@@ -422,15 +435,26 @@ public class MovieController {
 		String pagingString = PagingUtil.pagingBootStrapStyle(totalRecordCount, pageSize, blockPage, 1);
 		model.addAttribute("pagingString", pagingString);
 
+		List<LikeReviewDto> likeReviewNoList = likeReviewService.selectReviewNoList(map);
+
 		// 영화 리뷰 다 뿌려주자
 		List<ReviewDto> reviewList = reviewService.selectMovieReviewList(map);
 		for (ReviewDto record : reviewList) {
 			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
+			record.setLikeReviewEqual(false);
+			for(LikeReviewDto dto:likeReviewNoList) {
+				if(dto.getReviewNo().equals(record.getReviewNo())) {
+					record.setLikeReviewEqual(true);
+				}
+			}
 		}
 
 
+
 		//System.out.println("MovieDetails - 6 reviewList.getUserId 값 :"+reviewList.get(0).getUserId());
-		model.addAttribute("reviewList", reviewList);
+		model.addAttribute("reviewList", reviewList.isEmpty()?null:reviewList);
+
+		model.addAttribute("userNick", userService.userSelectList(map).get(0).getUserNick());
 
 		return "movie/info/MovieDetails.tiles";
 	}
@@ -449,7 +473,7 @@ public class MovieController {
 		model.addAttribute("evalueCount",evalueCount);
 
 		System.out.println("RatingMovie - 1 DB 가져오기 전");
-			List<MovieDto> movieList = movieService.selectListMovie(map);
+		List<MovieDto> movieList = movieService.selectListMovie(map);
 
 		System.out.println("RatingMovie - 2 movieList 값 저장");
 			model.addAttribute("movieList", movieList);
@@ -674,9 +698,6 @@ public class MovieController {
 	@RequestMapping(value="/Movieing/Movie/ReviewAjax.mov", method = RequestMethod.POST)
 	public String reviewAjax(@RequestParam Map map) throws UnsupportedEncodingException {
 
-		//넘겨받은 영화코드 : movieNo. 임시로 넣어줌
-		String movieNo = "1";
-		map.put("movieNo", movieNo);
 
 		int nowPage = Integer.parseInt(map.get("nowPage").toString());
 		// 페이징을 위한 로직]
@@ -694,7 +715,6 @@ public class MovieController {
 		map.put("end", end);
 
 		String pagingString = PagingUtil.pagingBootStrapStyle(totalRecordCount, pageSize, blockPage, nowPage);
-
 		// 영화 리뷰 다 뿌려주자
 		List<ReviewDto> reviewList = reviewService.selectMovieReviewList(map);
 
@@ -731,12 +751,18 @@ public class MovieController {
 		model.addAttribute("user", user);
 		ReviewDto review = reviewService.selectOne(map);
 		review.setReviewContent(review.getReviewContent().replace("\r\n", "<br>"));
+
+		SimpleDateFormat format = new SimpleDateFormat("yyyy. MM. dd");
+
+		model.addAttribute("date",format.format(review.getReviewPostdate()));
+
 		model.addAttribute("review",review);
 
 
 		List<CommentDto> commentList = commentService.selectList(map);
 		for(CommentDto record:commentList) {
 			record.setCommentContent(record.getCommentContent().replace("\r\n", "<br>"));
+			record.setStringDate(format.format(record.getCommentDate()));
 		}
 
 		model.addAttribute("commentList",commentList);
@@ -747,8 +773,11 @@ public class MovieController {
 	// 리뷰댓글 ajax
 	@ResponseBody
 	@RequestMapping(value = "/Movieing/Movie/CommentAjax.mov", method = RequestMethod.POST)
-	public void commentAjax(@RequestParam Map map) {
+	public String commentAjax(@RequestParam Map map) {
 		commentService.insert(map);
+		SimpleDateFormat format = new SimpleDateFormat("yyyy. MM. dd");
+		Date date = new Date();
+		return  format.format(date);
 	}
 
 

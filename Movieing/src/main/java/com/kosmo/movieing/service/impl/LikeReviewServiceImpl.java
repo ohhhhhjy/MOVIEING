@@ -71,4 +71,10 @@ public class LikeReviewServiceImpl implements LikeReviewService{
 		return dao.getTotalCountByAll(map);
 	}
 
+	@Override
+	public List<LikeReviewDto> selectReviewNoList(Map map) {
+
+		return dao.selectReviewNoList(map);
+	}
+
 }

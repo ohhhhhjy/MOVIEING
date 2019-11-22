@@ -53,6 +53,7 @@ body {
 /* 필모그램 스팬 */
 .filmoSpan {
 	line-height: 65px;
+	font-weight: bold;
 }
 
 /* 배우 스팬 */
@@ -168,7 +169,7 @@ body {
 	function drawStuff() {
 		console.log();
 		var data = new google.visualization.arrayToDataTable([ [ '', '' ],
-				[ "1", ${evalue1} ], [ '2', ${evalue2}], [ '3', ${evalue3} ], [ '4', ${evalue4} ], [ '5', ${evalue5} ] ]);
+				[ '1', ${evalue1}], [ '2', ${evalue2}], [ '3', ${evalue3}], [ '4', ${evalue4}], [ '5', ${evalue5}]]);
 		/*([ [ '', '' ],
 				[ "0", 15 ], [ "", 1 ], [ "1", 12 ], [ "", 10 ], [ '2', 3 ],
 				[ '', 20 ], [ '3', 7 ], [ '', 3 ], [ '4', 15 ], [ '', 5 ],
@@ -264,7 +265,6 @@ body {
 		            },
 						success:function(){//서버로 부터 정상적인 응답을 받았을 때(200번)
 							location.reload();
-							
 						},	
 						error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
 							console.log("에러:"+data);
@@ -413,16 +413,16 @@ body {
 							</div>
 						</div>
 					</div>
+					<c:if test="${notMe == 'y'}">
+						<div class="row d-flex justify-content-end" style="padding-top: 70px;" >
+							<button  class="btn btn-primary " >팔로우 취소</button>
+						</div>
+					</c:if>
 				</div>
 			</div>
-			<!-- 피드컨텐츠 시작 -->
-			<!-- 1.한줄컨텐츠(보고싶어요,별점,좋아요) -->
-			<div class="card border-secondary mb-3" style="max-width: 50rem;">
-				<div class="card-header">
-					겟아웃을 보고싶어요에 추가했어요!&nbsp;&nbsp;<span
-						style="color: #a8a5a5; font-size: 0.3em">2시간 전</span>
-				</div>
-			</div>
+		<!-- </div> -->
+		<!-- 피드컨텐츠 시작 -->
+
 
 
 
@@ -432,22 +432,22 @@ body {
 				</h5>
 			</c:if>
 
-
-			<c:if test="${!isEmpty }">
-				<c:forEach items="${selectList }" var="item" varStatus="status">
-					<!-- 2.여러줄컨텐츠(리뷰) -->
-					<div class="card border-secondary mb-3" style="max-width: 200rem;">
-						<div class="card-header">
-							${item.movieTitle }에 리뷰를 남겼어요!&nbsp;&nbsp; <span
-								style="color: #a8a5a5; font-size: 0.3em;">
-								${reviewPostdate} </span>
-							<button type="button" class="btn btn-outline-danger"
-								data-toggle="modal" data-target="#deleteModal"
-								style="float: right; text-align: right;"
-								data-notifyid="${item.reviewNo }">삭제</button>
-							<button type="button" class="btn btn-outline-primary"
-								style="float: right; text-align: right;"
-								onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov?reviewNo=${item.reviewNo }"/>'">수정</button>
+<!-- 중간에 한줄 끼워팔기,,, -->
+<c:if test="${!isEmpty }">
+			<c:forEach items="${selectList }" var="item" varStatus="status" begin="0" end="1">
+				<!-- 2.여러줄컨텐츠(리뷰) -->
+				<div class="card border-secondary mb-3" style="max-width: 200rem;">
+					<div class="card-header">
+						${item.movieTitle }에 리뷰를 남겼어요!&nbsp;&nbsp; <span
+							style="color: #a8a5a5; font-size: 0.3em;">
+							${reviewPostdate} </span>
+						<button type="button" class="btn btn-outline-danger"
+							data-toggle="modal" data-target="#deleteModal"
+							style="float: right; text-align: right;"
+							data-notifyid="${item.reviewNo }">삭제</button>
+						<button type="button" class="btn btn-outline-primary"
+							style="float: right; text-align: right;"
+							onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov?reviewNo=${item.reviewNo }"/>'">수정</button>
 
 
 
@@ -512,13 +512,103 @@ body {
 							</div>
 						</div>
 					</div>
+				<!-- </div> -->
 
-				</c:forEach>
-			</c:if>
-
-
-
+	</c:forEach>
+			
+					<!-- 1.한줄컨텐츠(보고싶어요,별점,좋아요) -->
+		<div class="card border-secondary mb-3" style="max-width: 50rem;">
+			<div class="card-header">
+				겟아웃을 보고싶어요에 추가했어요!&nbsp;&nbsp;<span
+					style="color: #a8a5a5; font-size: 0.3em">2시간 전</span>
+			</div>
 		</div>
+		
+		<c:forEach items="${selectList }" var="item" varStatus="status" begin="2" end="${selectList.size()-1 }">
+				<!-- 2.여러줄컨텐츠(리뷰) -->
+				<div class="card border-secondary mb-3" style="max-width: 200rem;">
+					<div class="card-header">
+						${item.movieTitle }에 리뷰를 남겼어요!&nbsp;&nbsp; <span
+							style="color: #a8a5a5; font-size: 0.3em;">
+							${reviewPostdate} </span>
+						<button type="button" class="btn btn-outline-danger"
+							data-toggle="modal" data-target="#deleteModal"
+							style="float: right; text-align: right;"
+							data-notifyid="${item.reviewNo }">삭제</button>
+						<button type="button" class="btn btn-outline-primary"
+							style="float: right; text-align: right;"
+							onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov?reviewNo=${item.reviewNo }"/>'">수정</button>
+
+
+
+						<!-- 삭제모달 -->
+						<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" align="center">
+											<i class="far fa-bell"></i> 알림창
+										</h5>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<p>리뷰를 삭제하시겠습니까?</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-dismiss="modal">취소</button>
+										<button id="deleteBtn" type="button" class="btn btn-danger"
+											data-dismiss="modal">삭제</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+
+					<div class="card-body">
+						<div class="row">
+							<div class="col-sm-3" align="center">
+								<a
+									href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>"><img
+									class="movieImage" src="${item.movieImg }" alt="포스터" /></a>
+							</div>
+							<div class="col-sm-9">
+
+
+								<a
+									href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${item.movieNo }'/>">
+									<h4 class="card-title" style="color: black">${item.movieTitle }</h4>
+								</a> <span class="badge badge-pill badge-danger">★${item.grade }</span>
+								<p class="card-text" style="height: 110px">${item.reviewContent }</p>
+								<a href="#"> <span data-toggle="modal"
+									data-target="#likeModal${status.index }"
+									style="font-weight: bold; color: #db147b; font-size: 0.9em">
+										<i class="far fa-thumbs-up"></i>${item.likeCount }
+								</span> <!-- 좋아요수- -->
+
+								</a>&nbsp;&nbsp;&nbsp; <a
+									href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>">
+									<span
+									style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
+										class="far fa-comments"></i> ${item.commentCount } </span>
+								</a>
+								<!-- 댓글수 -->
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</c:forEach>
+		</c:if>
+
+
+
+	</div>
 		<!-- 왼쪽 마이피드끝-->
 
 		<!-- 가운데 분계선 -->
@@ -541,7 +631,7 @@ body {
 				<hr class="my-3">
 				<h5>별점분포</h5>
 				<p align="center" style="font-size: 0.8em">
-					<em>별점이 한결같은 소나무 타입</em>
+					<!-- <em>별점이 한결같은 소나무 타입</em> -->
 				</p>
 				<div id="chart"
 					style="width: 500px; height: 170px; padding-left: 50px"></div>
@@ -552,128 +642,98 @@ body {
 				<div class="card border-secondary mb-3 justify-content-center"
 					style="max-width: 200rem; padding-left: 10px">
 					<div
-						style="color: rgba(0, 0, 0, 1); width: 280px; height: 172px; padding-left: 20px; padding-top: 20px">
+						style="color: rgba(0, 0, 0, 1); width: 280px; height: 200px; padding-left: 20px; padding-top: 20px">
 						<span
-							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(98px, 61px) rotate(0deg); font-weight: bold">웃기는</span>
+							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(98px, 61px) rotate(0deg); font-weight: bold">#${tagList[0] }</span>
 						<span
-							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(160px, 73px) rotate(0deg); font-weight: bold">발랄한</span>
+							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(160px, 90px) rotate(0deg); font-weight: bold">#${tagList[1] }</span>
 						<span
-							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(80px, 32px) rotate(0deg); font-weight: bold">따뜻한</span>
+							style="position: absolute; font-size: 17px; line-height: 23px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(80px, 32px) rotate(0deg); font-weight: bold">#${tagList[2] }</span>
 						<span
-							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(179px, 43px) rotate(0deg); font-weight: bold">사랑</span>
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(200px, 43px) rotate(0deg); font-weight: bold">#${tagList[3] }</span>
 						<span
-							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(79px, 90px) rotate(0deg); font-weight: bold">슬픈</span>
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(79px, 120px) rotate(0deg); font-weight: bold">#${tagList[4] }</span>
 						<span
-							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(156px, 19px) rotate(0deg); font-weight: bold">귀여운</span>
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(180px, 19px) rotate(0deg); font-weight: bold">#${tagList[5] }</span>
 						<span
-							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(28px, 30px) rotate(0deg); font-weight: bold">재밌는</span>
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(10px, 10px) rotate(0deg); font-weight: bold">#${tagList[6] }</span>
 						<span
-							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(39px, 62px) rotate(0deg); font-weight: bold">뭉클한</span>
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(20px, 62px) rotate(0deg); font-weight: bold">#${tagList[7] }</span>
 						<span
-							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(27px, 85px) rotate(0deg); font-weight: bold">감동적인</span>
+							style="position: absolute; font-size: 13px; line-height: 19px; color: rgb(255, 47, 110); width: 64px; text-align: center; white-space: nowrap; transform-origin: center bottom; transform: translate(27px, 85px) rotate(0deg); font-weight: bold">#${tagList[8] }</span>
 					</div>
 				</div>
 				<hr class="my-3">
 				<h5>선호배우</h5>
-				<div class="row actorForm">
-					<div class="col-sm-3">
-						<img class="radiusImg" alt="배우사진"
-							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-					</div>
-					<div class="col-sm-6">
-						<span class="actorSpan">염정아</span>
-					</div>
-					<div class="col-sm-3">
-						<span class="filmoSpan">25편</span>
-					</div>
-				</div>
-
-				<div class="row actorForm">
-					<div class="col-sm-3">
-						<img class="radiusImg" alt="배우사진"
-							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-					</div>
-					<div class="col-sm-6">
-						<span class="actorSpan">김선아</span>
-					</div>
-					<div class="col-sm-3">
-						<span class="filmoSpan">25편</span>
-					</div>
-				</div>
-
-				<div class="row actorForm">
-					<div class="col-sm-3">
-						<img class="radiusImg" alt="배우사진"
-							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-					</div>
-					<div class="col-sm-6">
-						<span class="actorSpan">손예진</span>
-					</div>
-					<div class="col-sm-3">
-						<span class="filmoSpan">25편</span>
-					</div>
-				</div>
+				<c:if test="${notMe == 'n'}" var="me">
+					<c:forEach items="${actorList }" var="actor" begin="6" end="8">
+						<div class="row actorForm">
+							<div class="col-sm-3">
+								<img class="radiusImg" alt="배우사진"
+									src="${actor.moviePeopleImg }" />
+							</div>
+							<div class="col-sm-6">
+								<span class="actorSpan">${actor.moviePeopleName }</span>
+							</div>
+							<div class="col-sm-3">
+								<span class="filmoSpan">${actor.moviePeopleCountry }</span>
+							</div>
+						</div>
+					</c:forEach>
+				</c:if>
+				<c:if test="${!me}" ><!-- 남의 피드 -->
+					<c:forEach items="${actorList }" var="actor" begin="30" end="32">
+						<div class="row actorForm">
+							<div class="col-sm-3">
+								<img class="radiusImg" alt="배우사진"
+									src="${actor.moviePeopleImg }" />
+							</div>
+							<div class="col-sm-6">
+								<span class="actorSpan">${actor.moviePeopleName }</span>
+							</div>
+							<div class="col-sm-3">
+								<span class="filmoSpan">${actor.moviePeopleCountry }</span>
+							</div>
+						</div>
+					</c:forEach>
+				</c:if>
+												
 				<hr class="my-3">
 				<h5>선호감독</h5>
-				<div class="row actorForm">
-					<div class="col-sm-3">
-						<img class="radiusImg" alt="감독사진"
-							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
+				<c:forEach items="${directorList }" var="director">
+					<div class="row actorForm">
+						<div class="col-sm-3">
+							<img class="radiusImg" alt="감독사진"
+								src="${director.moviePeopleImg }" />
+						</div>
+						<div class="col-sm-6">
+							<span class="actorSpan">${director.moviePeopleName }</span>
+						</div>
+						<div class="col-sm-3">
+							<span class="filmoSpan">${director.count }편</span>
+						</div>
 					</div>
-					<div class="col-sm-6">
-						<span class="actorSpan">염정아</span>
-					</div>
-					<div class="col-sm-3">
-						<span class="filmoSpan">25편</span>
-					</div>
-				</div>
-				<div class="row actorForm">
-					<div class="col-sm-3">
-						<img class="radiusImg" alt="감독사진"
-							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-					</div>
-					<div class="col-sm-6">
-						<span class="actorSpan">김선아</span>
-					</div>
-					<div class="col-sm-3">
-						<span class="filmoSpan">25편</span>
-					</div>
-				</div>
-				<div class="row actorForm">
-					<div class="col-sm-3">
-						<img class="radiusImg" alt="감독사진"
-							src="<c:url value='/resources/img/actordirector/yeomjunga.jpg'/>" />
-					</div>
-					<div class="col-sm-6">
-						<span class="actorSpan">손예진</span>
-					</div>
-					<div class="col-sm-3">
-						<span class="filmoSpan">25편</span>
-					</div>
-				</div>
+				</c:forEach>
+				
 				<hr class="my-3">
 				<h5>선호장르</h5>
 				<p align="center" style="font-size: 0.8em">
-					<em>영화에서 주로 반전과 공포를 찾는 사람</em>
+					<!-- <em>영화에서 주로 반전과 공포를 찾는 사람</em> -->
 				</p>
 				<div class="row" align="center"
 					style="padding-left: 30px; padding-right: 30px">
-					<div class="col-md-4">
-						<a href="#"><span class="genreSpan">스릴러</span></a>
-					</div>
-					<div class="col-md-4">
-						<a href="#"><span class="genreSpan">공포</span></a>
-					</div>
-					<div class="col-md-4">
-						<a href="#"><span class="genreSpan">액션</span></a>
-					</div>
+					<c:forEach items="${genreList }" var="genre">
+						<div class="col-md-4">
+							<a href="#"><span class="genreSpan">${genre }</span></a>
+						</div>
+					</c:forEach>
 				</div>
 
 				<hr class="my-3">
 				<h5>영화감상시간</h5>
-				<h6 align="center" style="color: #db147b">${evalueCount*2 }시간</h6>
+				<h6 align="center" style="color: #db147b;font-size: 1.5em">${evalueCount*2 }시간</h6>
 				<p align="center" style="font-size: 0.8em">
-					<em>영화를 정말 사랑하시네요!</em>
+					<!-- <em>영화를 정말 사랑하시네요!</em> -->
 				</p>
 			</div>
 		</div>

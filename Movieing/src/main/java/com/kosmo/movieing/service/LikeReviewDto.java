@@ -5,7 +5,7 @@ import java.sql.Date;
 public class LikeReviewDto {
 
 	String userId;
-	int reviewNo;
+	String reviewNo;
 	Date likeDate;
 
 
@@ -17,10 +17,10 @@ public class LikeReviewDto {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public int getReviewNo() {
+	public String getReviewNo() {
 		return reviewNo;
 	}
-	public void setReviewNo(int reviewNo) {
+	public void setReviewNo(String reviewNo) {
 		this.reviewNo = reviewNo;
 	}
 	public Date getLikeDate() {

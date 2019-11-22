@@ -32,6 +32,8 @@ import com.kosmo.movieing.service.EvalueWishService;
 import com.kosmo.movieing.service.FollowDto;
 import com.kosmo.movieing.service.FollowService;
 import com.kosmo.movieing.service.LikeReviewService;
+import com.kosmo.movieing.service.MoviePeopleDto;
+import com.kosmo.movieing.service.MoviePeopleService;
 import com.kosmo.movieing.service.MovieService;
 import com.kosmo.movieing.service.ReviewDto;
 import com.kosmo.movieing.service.ReviewService;
@@ -62,16 +64,25 @@ public class BlogController {
 	@Resource(name = "userService")
 	private UserService userService;
 
+	@Resource(name = "moviePeopleService")
+	private MoviePeopleService moviePeopleService;
+
 	// 블로그메인
 	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov")
 	public String blogMain(@RequestParam Map map, Model model, Authentication auth, HttpServletRequest req)
 			throws Exception {
 
 		String id = auth.getName();
-		if (map.get("userNick") != null) {
-			id = userService.selectUserId(map.get("userNick").toString());
+		if(map.get("userNick")!=null ) {//남의 피드로 가는 경우.
+			id= userService.selectUserId(map.get("userNick").toString());
+			if(!id.equals(auth.getName()))
+				model.addAttribute("notMe","y");//내피드가 아니다
+			else
+				model.addAttribute("notMe","n");
 		}
-
+		else {
+			model.addAttribute("notMe","n");//내 피드다
+		}
 		map.put("id", id);
 		model.addAttribute("id", id);
 		// [유저정보] count 별.리.좋.보. 팔로워.팔로잉.
@@ -141,8 +152,9 @@ public class BlogController {
 		}
 		model.addAttribute("followerList", followerList);
 
-		// post방식으로 들어올때
-		if (req.getMethod().equals("POST")) {
+
+		//post방식으로 들어올때!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		if(req.getMethod().equals("POST")) {
 			String movieTitle = map.get("movieTitle").toString();
 			String grade = map.get("grade").toString();
 			String reviewContent = map.get("reviewContent").toString();
@@ -217,6 +229,19 @@ public class BlogController {
 		// 리뷰 카운트
 		int reviewCount = reviewService.getTotalCount(map);
 		model.addAttribute("reviewCount", reviewCount);
+
+		//선호감독
+		List<MoviePeopleDto> directorList = moviePeopleService.selectDiretorList(map);
+		model.addAttribute("directorList", directorList.isEmpty()?null:directorList);
+		//선호장르
+		List<String> genreList = movieService.selectGenreList(map);
+		model.addAttribute("genreList", genreList.isEmpty()?null:genreList);
+		//선호태그
+		List<String> tagList = movieService.selectTagList(map);
+		model.addAttribute("tagList", tagList.isEmpty()?null:tagList);
+		//선호배우
+		List<MoviePeopleDto> actorList = moviePeopleService.selectActorList(map);
+		model.addAttribute("actorList", actorList.isEmpty()?null:actorList);
 
 		return "blog/my/BlogMain.tiles";
 	}/////////////////////////////////////////////

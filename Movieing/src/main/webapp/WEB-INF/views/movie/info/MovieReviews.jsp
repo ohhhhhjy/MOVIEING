@@ -43,6 +43,7 @@ border-radius: 6px;
 
 <script>
 $(document).ready(function() {
+	//댓글등록
 	$('#registerBtn').click(function(){
 		var userNick = '${user.userNick}';
 		var comment = $('#textarea').val();
@@ -55,10 +56,8 @@ $(document).ready(function() {
 	              {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
 	                  xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
 	              },
-				success:function(){//서버로 부터 정상적인 응답을 받았을 때(200번)
-					 //var ajdata = decodeURIComponent( data );
-
-					commentMaking(userNick,comment);
+				success:function(data){//서버로 부터 정상적인 응답을 받았을 때(200번)
+					commentMaking(userNick,comment,data);
 					
 				},	
 				error:function(request,status,error){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
@@ -71,13 +70,20 @@ $(document).ready(function() {
 	});
 	
 	
-	var commentMaking = function(userNick,comment){
+	var commentMaking = function(userNick,comment,date){
 		var imgUrl = "${user.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png':user.userProfile }";
 		var commentString = '';
 		commentString+='<div class=" row comment  px-3 " style="padding-top: 20px">	<div class="col-md-1 d-flex justify-content-end">';
-		commentString+= '<img class="radiusImg" alt="댓글유저사진" src="'+imgUrl+'" align="left"/></div><div class="col-md-11 px-2" >';
-		commentString+='<h6>'+userNick+'</h6>';
+		commentString+= '<img class="radiusImg" alt="댓글유저사진" src="'+imgUrl+'" align="left"/></div><div class="col-md-11 px-2" >'+
+					'<div class="row">'+
+						'<div class="col-md-10">';
+		commentString+='<h6>'+userNick+'</h6></div>'+
+						'<div class="col-md-2" >'+
+						'<span >'+date+'</span>'+
+						'</div>'+
+						'</div>';
 		commentString+='<p class="commentP">'+comment+'</p></div></div><hr> ';
+		
 		
 		$('#commentDiv').append(commentString);
 		$('#textareaDiv').html('<textarea class="form-control" id="textarea" rows="3" placeholder="댓글을 남겨보세요."></textarea>');
@@ -167,7 +173,14 @@ $(document).ready(function() {
 			</a>
 		</div>
 		<div class="card-body">
-			<span class="badge badge-pill badge-danger">★${review.grade }</span>
+			<div class="row">
+				<div class="col-md-10">
+					<span class="badge badge-pill badge-danger">★${review.grade }</span>
+				</div>
+				<div class="col-md-2" style="text-align: right;">	
+					<span>${date }</span>
+				</div>	
+			</div>	
 			<p class="card-text">${review.reviewContent }</p>
 			<a href="#"><span
 				style="font-weight: bold; color: #db147b; font-size: 0.9em" class="likeUnlike"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
@@ -175,6 +188,7 @@ $(document).ready(function() {
 			<a href="#" ><span
 				style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
 					${review.commentCount } </span></a><!--콜랍스 설정 data-toggle="collapse"  href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" data-target="#commentWindow${i}"  aria-expanded="true" aria-controls="commentWindow${i}" -->
+			
 			<hr>
 		
 			<!-- 댓글 리스트 -->
@@ -185,13 +199,21 @@ $(document).ready(function() {
 							<img class="radiusImg" alt="댓글유저사진" src="${comment.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png':comment.userProfile }" align="left"/>
 						</div>
 						<div class="col-md-11 px-2" >
-							<h6>${comment.userNick }</h6>
+							<div class="row">
+								<div class="col-md-10">
+									<h6>${comment.userNick }</h6>
+								</div>	
+								<div class="col-md-2" >
+									<span >${comment.stringDate }</span>
+								</div>
+							</div>	
 							<p class="commentP">${comment.commentContent }</p> 
 						</div> 
 					</div>
 					<hr>
 				</c:forEach>
 			</div>
+			
 			
 			<!-- 댓글쓰기 -->
 			<div class=" row comment px-3 " style="padding-top: 20px">
