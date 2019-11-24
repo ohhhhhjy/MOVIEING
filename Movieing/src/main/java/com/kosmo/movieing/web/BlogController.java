@@ -73,40 +73,38 @@ public class BlogController {
 			throws Exception {
 
 		String id = auth.getName();
-		map.put("id", id);
-		//팔로우 여부]내 팔로우리스트에 있는 애
-		//내 팔로우 리스트가져오기
+		map.put("id", id);//park
+		// 팔로우 여부]내 팔로우리스트에 있는 애
+		// 내 팔로우 리스트가져오기
 		// 팔로우된 아이디 리스트
-		List<FollowDto> selectFollowList = followService.selectFollowList(map);
-		//팔로우한 애면]
+		List<FollowDto> selectFollowList = followService.selectFollowList(map);//kim
+		// 팔로우한 애면]
 		model.addAttribute("followOk", "n");
-		for(FollowDto dto:selectFollowList ) {
-			if(dto.getFollowing().equals(userService.selectUserId(map.get("userNick").toString()))) {
+		if (map.get("userNick") != null) {
+		for (FollowDto dto : selectFollowList) {
+			if (dto.getFollowing().equals(userService.selectUserId(map.get("userNick").toString()))) {
 				System.out.println("팔로우한 애네");
 				model.addAttribute("followOk", "y");
 			}
 		}
-System.out.println("돌았냐");
-model.containsAttribute("followOk");
-
-
-		if(map.get("userNick")!=null ) {//남의 피드로 가는 경우.
-			id= userService.selectUserId(map.get("userNick").toString());
-			System.out.println("남의 아이디:"+id);
-			if(!id.equals(auth.getName())) {
-				System.out.println("나가 아니야");
-				model.addAttribute("notMe","y");//내피드가 아니다
-			}
-			else
-				model.addAttribute("notMe","n");
 		}
-		else {
-			model.addAttribute("notMe","n");//내 피드다
+		System.out.println("돌았냐");
+		model.containsAttribute("followOk");
+
+		if (map.get("userNick") != null) {// 남의 피드로 가는 경우.
+			id = userService.selectUserId(map.get("userNick").toString());
+			System.out.println("남의 아이디:" + id);
+			if (!id.equals(auth.getName())) {
+				System.out.println("나가 아니야");
+				model.addAttribute("notMe", "y");// 내피드가 아니다
+			} else
+				model.addAttribute("notMe", "n");
+		} else {
+			model.addAttribute("notMe", "n");// 내 피드다
 		}
 
 		map.put("id", id);
 		model.addAttribute("id", id);
-
 
 		// [유저정보] count 별.리.좋.보. 팔로워.팔로잉.
 		// 유저 정보
@@ -175,9 +173,8 @@ model.containsAttribute("followOk");
 		}
 		model.addAttribute("followerList", followerList);
 
-
-		//post방식으로 들어올때!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		if(req.getMethod().equals("POST")) {
+		// post방식으로 들어올때!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		if (req.getMethod().equals("POST")) {
 			String movieTitle = map.get("movieTitle").toString();
 			String grade = map.get("grade").toString();
 			String reviewContent = map.get("reviewContent").toString();
@@ -253,19 +250,18 @@ model.containsAttribute("followOk");
 		int reviewCount = reviewService.getTotalCount(map);
 		model.addAttribute("reviewCount", reviewCount);
 
-
-		//선호감독
+		// 선호감독
 		List<MoviePeopleDto> directorList = moviePeopleService.selectDiretorList(map);
-		model.addAttribute("directorList", directorList.isEmpty()?null:directorList);
-		//선호장르
+		model.addAttribute("directorList", directorList.isEmpty() ? null : directorList);
+		// 선호장르
 		List<String> genreList = movieService.selectGenreList(map);
-		model.addAttribute("genreList", genreList.isEmpty()?null:genreList);
-		//선호태그
+		model.addAttribute("genreList", genreList.isEmpty() ? null : genreList);
+		// 선호태그
 		List<String> tagList = movieService.selectTagList(map);
-		model.addAttribute("tagList", tagList.isEmpty()?null:tagList);
-		//선호배우
+		model.addAttribute("tagList", tagList.isEmpty() ? null : tagList);
+		// 선호배우
 		List<MoviePeopleDto> actorList = moviePeopleService.selectActorList(map);
-		model.addAttribute("actorList", actorList.isEmpty()?null:actorList);
+		model.addAttribute("actorList", actorList.isEmpty() ? null : actorList);
 
 		return "blog/my/BlogMain.tiles";
 	}/////////////////////////////////////////////
@@ -450,7 +446,7 @@ model.containsAttribute("followOk");
 		map.put("id", id);
 		model.addAttribute("id", id);
 
-		//프사 불러오기 용
+		// 프사 불러오기 용
 		UserDto image = userService.selectOne(map);// 리스트전체조회
 		model.addAttribute("image", image);
 
@@ -551,8 +547,7 @@ model.containsAttribute("followOk");
 
 		// 무빙프렌즈에서 피드 글보이기(전체공개면)]-모든 정보있음
 		List<ReviewDto> friendsReviewList2 = reviewService.friendsReviewList2(map);// 리스트전체조회
-		
-		
+
 		System.out.println("닉네임:" + friendsReviewList2.get(0).getUserNick());
 
 		// 유저자기소개]
@@ -646,7 +641,6 @@ model.containsAttribute("followOk");
 
 		return "blog/my/MovieingFriendsComment.tiles";
 	}
-
 
 	// 무빙프렌즈댓글]얘가 찐임
 	@RequestMapping("/Movieing/Movie/FrinedsReviews.mov")
