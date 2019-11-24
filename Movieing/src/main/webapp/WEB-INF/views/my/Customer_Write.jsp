@@ -29,7 +29,7 @@
 
 
 		<!-- Default form contact -->
-		<form class="border border-light" action="#!">
+		<form class="border border-light" action="<c:url value='/Movieing/Customer/Write.mov'/>">
 
 			<h5>제목</h5>
 			<div style="padding-bottom: 10px"></div>
@@ -76,8 +76,7 @@
 
 			<!-- Send button -->
 			<div class="mb-4">
-				<button class="btn btn-info btn-block" type="submit"
-					onclick="document.getElementById('contact-form').submit();">등록</button>
+				<button class="btn btn-info btn-block" type="submit">등록</button>
 			</div>
 		</form>
 		<!-- Default form contact -->
