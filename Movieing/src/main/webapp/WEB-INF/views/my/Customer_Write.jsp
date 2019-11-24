@@ -35,7 +35,7 @@
 			<div style="padding-bottom: 10px"></div>
 			<input type="text" class="form-control" placeholder="제목"
 				aria-label="Example text with button addon"
-				aria-describedby="MaterialButton-addon1">
+				aria-describedby="MaterialButton-addon1" name="qnaTitle" id="qnaTitle">
 
 
 			<div style="padding-bottom: 10px"></div>
@@ -43,7 +43,7 @@
 			<h5>내용</h5>
 			<div class="form-group">
 				<textarea class="form-control rounded-0"
-					id="exampleFormControlTextarea2" rows="3" placeholder=""></textarea>
+					 rows="3" placeholder="" name="qnaContent" id="qnaContent" ></textarea>
 			</div>
 
 

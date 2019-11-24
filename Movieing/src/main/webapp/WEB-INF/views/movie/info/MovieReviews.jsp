@@ -169,7 +169,7 @@ $(document).ready(function() {
 		<div class="card-header" >
 			<a href="#">
 				<img class="radiusImg" alt="유저사진" src="${review.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png':review.userProfile }" align="left"/>
-				<span class="reviewUserSpan" >${review.userNick }</span>
+				<span class="reviewUserSpan" ><a style="font-size:1.2em; font-weight: bold;color:black " href="http://localhost:8080/movieing/Movieing/Blog/BlogMain.mov?userNick=${review.userNick }">${review.userNick }</a></span>
 			</a>
 		</div>
 		<div class="card-body">
@@ -201,7 +201,7 @@ $(document).ready(function() {
 						<div class="col-md-11 px-2" >
 							<div class="row">
 								<div class="col-md-10">
-									<h6>${comment.userNick }</h6>
+									<h6><a href="http://localhost:8080/movieing/Movieing/Blog/BlogMain.mov?userNick=${comment.userNick }" style="color:black;">${comment.userNick }</a></h6>
 								</div>	
 								<div class="col-md-2" >
 									<span >${comment.stringDate }</span>

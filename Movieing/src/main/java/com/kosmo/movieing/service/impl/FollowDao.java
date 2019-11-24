@@ -51,7 +51,7 @@ public class FollowDao implements FollowService{
 	@Override
 	public int insert(Map map) {
 
-		return template.insert("",map);
+		return template.insert("insertFollow",map);
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class FollowDao implements FollowService{
 	@Override
 	public int delete(Map map) {
 
-		return template.delete("",map);
+		return template.delete("deleteFollow",map);
 	}
 
 }

@@ -14,7 +14,7 @@ public class CommentDto {
 
 	//효율성을 위해 따로 추가
 	private String userNick;
-	private Blob userProfile;
+	private String userProfile;
 	private String stringDate;
 
 
@@ -24,10 +24,10 @@ public class CommentDto {
 	public void setStringDate(String stringDate) {
 		this.stringDate = stringDate;
 	}
-	public Blob getUserProfile() {
+	public String getUserProfile() {
 		return userProfile;
 	}
-	public void setUserProfile(Blob userProfile) {
+	public void setUserProfile(String userProfile) {
 		this.userProfile = userProfile;
 	}
 	public String getUserNick() {
