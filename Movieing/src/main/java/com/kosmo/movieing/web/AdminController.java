@@ -1,9 +1,11 @@
 package com.kosmo.movieing.web;
 
+import java.nio.file.FileSystems;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -90,7 +92,32 @@ public class AdminController {
 	}
 
 	@RequestMapping("/Movieing/admin/admin_announce.mov")
-	public String admin_announce(@RequestParam Map map, Model model) {
+	public String admin_announce(@RequestParam Map map, Model model, HttpServletRequest req) {
+		
+		if (req.getMethod().equals("POST")&&map.get("mtd").equals("WRT")) {
+			
+			String notiTitle = map.get("title").toString();
+			String notiContent = map.get("content").toString();
+			
+			map.put("notiTitle", notiTitle);
+			map.put("notiContent", notiContent);
+			
+			int insertNotice = noticeService.insert(map);
+			
+		}
+		else if(req.getMethod().equals("POST")&&map.get("mtd").equals("EDT")) {
+			
+			String notiTitle = map.get("title").toString();
+			String notiContent = map.get("content").toString();
+			String notiNo = map.get("no").toString();
+			map.put("notiNo", notiNo);
+			map.put("notiTitle", notiTitle);
+			map.put("notiContent", notiContent);
+			
+			int updateNotice = noticeService.update(map);
+			
+		}
+		
 		
 		List<NoticeDto> notiList = noticeService.selectList(map);
 		
@@ -109,14 +136,30 @@ public class AdminController {
 		model.addAttribute("notiList", notiList);
 		model.addAttribute("notiJson",notiJson);
 		
+		
 		return "admin/admin_announce.admin";
 	}
+	
 	@RequestMapping("/Movieing/admin/admin_awrite.mov")
 	public String admin_announce_write(@RequestParam Map map, Model model) {
 		
 		
 		return "admin/admin_awrite.admin";
 	}
+	
+	@RequestMapping("/Movieing/admin/admin_aedit.mov")
+	public String admin_announce_edit(@RequestParam Map map, Model model) {
+		
+		String notiNo = (String)map.get("no");
+		map.put("notiNo", notiNo);
+		
+		NoticeDto dto = noticeService.selectOne(map);
+		
+		model.addAttribute("dto",dto);
+		
+		return "admin/admin_aedit.admin";
+	}
+	
 
 
 }//////// class
