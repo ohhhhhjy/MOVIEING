@@ -3,11 +3,13 @@ package com.kosmo.movieing.web;
 import java.io.File;
 import java.io.IOException;
 import java.security.Principal;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.kosmo.movieing.service.BuyDto;
+import com.kosmo.movieing.service.BuyService;
 import com.kosmo.movieing.service.ReviewService;
 import com.kosmo.movieing.service.UserDto;
 import com.kosmo.movieing.service.UserService;
@@ -28,6 +32,8 @@ public class MyController {
 	private ReviewService reviewService;
 	@Resource(name="userService")
 	private UserService userService;
+	@Resource(name="buyService")
+	private BuyService buyService;
 	
 	//이미지 수정
 	@PostMapping(value = "/Movieing/Blog/ImageUpdate.mov")
@@ -131,6 +137,13 @@ public class MyController {
 		model.addAttribute("mypage", mypage);
 		return "blog/my/MyPage_Pass.tiles";
 	}
+	
+	@RequestMapping("/Movieing/Blog/PassChange.mov")
+	public String pass_change(@RequestParam Map map, Authentication auth) {
+		String id = auth.getName();
+		
+		return "";
+	}
 
 	// 마이페이지_허용범위]
 	@RequestMapping("/Movieing/Blog/MyPage_Permit.mov")
@@ -138,10 +151,17 @@ public class MyController {
 
 		// 세션아이디
 		String id = principal.getName();
-
-		map.put("id", id);
-
+		map.put("userId", id);
+		List<BuyDto> list = buyService.selectList(map);
+		//내 아이디로 된 결제 있을 경우
+		if(list.size()!=0) {
+			model.addAttribute("buyList",list);
+			System.out.println("buyList테스트용 : " +list.get(0).getNaming());
+			System.out.println("buyList테스트용 : " +list.get(0).getUserId());
+		}
+		
 		// 내 정보뿌려주기
+		map.put("id", id);
 		UserDto mypage = userService.selectOne(map);// 리스트전체조회
 		model.addAttribute("mypage", mypage);
 		return "blog/my/MyPage_Permit.tiles";

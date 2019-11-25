@@ -80,7 +80,7 @@
 
 			<!--프사 -->
 			<div style="text-align: center">
-				<img src="<c:url value='/resources/img/friends/dahee.jpg'/>"
+				<img src="${mypage.userProfile }"
 					class="radiusImg img-thumbnail" alt="프로필 사진"
 					style="display: block; margin: 0px auto;">
 			</div>
@@ -134,6 +134,10 @@
 						<div class="col-md-12">
 
 							<div class="card">
+							<c:if test="${empty buyList }" var="isEmpty">
+								<h5>아직 결제하신 내역이 없어요...<i class="far fa-sad-cry"></i></h5>
+							</c:if>
+							<c:if test="${!isEmpty }">
 								<table class="table table-hover shopping-cart-wrap" >
 									<thead class="text-muted">
 										<tr>
@@ -144,9 +148,11 @@
 										</tr>
 									</thead>
 									<tbody>
+									
+									<c:forEach items="${buyList }" var="buy">
 										<tr>		
 											<td>
-											<h6>2019-11-20</h6>
+											<h6>${buy.buydate }</h6>
 											</td>
 											
 											<td>
@@ -158,15 +164,15 @@
 													</div>
 													
 													<figcaption class="media-body">
-														<h5 class="title text-truncate" style="font-weight: bold;">서울독립영화제</h5>
+														<h5 class="title text-truncate" style="font-weight: bold;">${buy.naming }</h5>
 														<dl class="param param-inline small">
-															<dt>수량: 1개</dt>
+															<dt>수량: ${buy.quantity }개</dt>
 															<dt>결제 방식 : 카드</dt>
-															<dt>구매자: 정명지</dt>
+															<dt>구매자: 오지윤</dt>
 														</dl>
 													<hr class="my-3">
 														<dl class="param param-inline small">
-															<h5>12500원</h5>
+															<h5>${buy.price * buy.quantity }원</h5>
 														</dl>
 														
 													</figcaption>
@@ -180,49 +186,12 @@
 											<td class="text-right"><a href=""
 												class="btn btn-outline-danger"> 결제취소</a></td>
 										</tr>
-										<tr>		
-											<td>
-											<h6>2019-11-20</h6>
-											</td>
-											
-											<td>
-												<figure class="media">
-													<div class="img-wrap" style="padding-right: 15px">
-														<img
-															src="<c:url value='/resources/img/news/j1.png'/>"
-															class="img-thumbnail" style="width: 100px;height: 150px;">
-													</div>
-													
-													<figcaption class="media-body">
-														<h5 class="title text-truncate" style="font-weight: bold;">서울독립영화제</h5>
-														<dl class="param param-inline small">
-															<dt>수량: 1개</dt>
-															<dt>결제 방식 : 카드</dt>
-															<dt>구매자: 정명지</dt>
-														</dl>
-													<hr class="my-3">
-														<dl class="param param-inline small">
-															<h5>12500원</h5>
-														</dl>
-														
-													</figcaption>
-												</figure>
-											</td>
-											<td>
-												<div class="price-wrap">
-													<h6 style="font-weight: bold;">결제완료</h6>
-												</div> <!-- price-wrap .// -->
-											</td>
-											<td class="text-right"><a href=""
-												class="btn btn-outline-danger"> 결제취소</a></td>
-										</tr>
-		
-		
-										
-		
+										</c:forEach>
+						
 										
 									</tbody>
 								</table>
+							</c:if>
 							</div>
 							<!-- card.// -->
 

@@ -7,8 +7,11 @@ public class BuyDto {
 	String key;
 	String naming;
 	String price;
-	String quantity;
+	int quantity;
 	Date buydate;
+	
+	String userId;
+	int goodsNo;
 	
 	
 	public String getUserId() {
@@ -29,10 +32,10 @@ public class BuyDto {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public String getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(String quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 	public Date getBuydate() {

@@ -76,7 +76,7 @@
 
 			<!--프사 -->
 			<div style="text-align: center">
-				<img src="<c:url value='/resources/img/friends/dahee.jpg'/>"
+				<img src="${mypage.userProfile }"
 					class="radiusImg img-thumbnail" alt="프로필 사진"
 					style="display: block; margin: 0px auto;">
 			</div>
