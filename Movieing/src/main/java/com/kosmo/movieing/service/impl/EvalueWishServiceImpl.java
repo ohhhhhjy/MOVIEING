@@ -113,4 +113,24 @@ public class EvalueWishServiceImpl implements EvalueWishService{
 		return dao.selectReviewEvalue(map);
 	}
 
+	@Override
+	public EvaluationDto selectEvalueOne(Map map) {
+		return dao.selectEvalueOne(map);
+	}
+
+	@Override
+	public double selectGradeAvg(Map map) {
+		return dao.selectGradeAvg(map);
+	}
+
+	@Override
+	public int selectEvalueCount(Map map) {
+		return dao.selectEvalueCount(map);
+	}
+
+	@Override
+	public int selectEvalueCountAll(Map map) {
+		return dao.selectEvalueCountAll(map);
+	}
+
 }

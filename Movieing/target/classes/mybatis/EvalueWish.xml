@@ -8,6 +8,14 @@
 		from evaluation e join movie m on m.movie_no=e.movie_no 
 		where user_id=#{id}
 	</select>
+	<!-- 내가 평가준 특정영화 별점 -->
+	<select id="selectEvalueOne" parameterType="java.util.Map" resultType="EvaluationDto">
+	select e.*,m.movie_title,movie_img
+		from evaluation e join movie m on m.movie_no=e.movie_no 
+		where user_id=#{id} AND E.MOVIE_NO=#{movieNo}
+	</select>
+	
+	
 	<!-- 특정 영화의 평가 별점 -->
 	<select id="selectReviewEvalue" parameterType="java.util.Map" resultType="EvaluationDto">
 	select * from EVALUATION 
@@ -63,10 +71,22 @@
 	</delete>
 	
 	<!-- 평가 영화 리스트넣기 -->
-	<insert id="insertEvalue" parameterType="java.util.Map"><!-- 기본별점1 -->
-	insert into EVALUATION values(#{id},#{movieNo},1,SYSDATE)
+	<insert id="insertEvalue" parameterType="java.util.Map"><!-- 기본별점null -->
+	insert into EVALUATION values(#{id},#{movieNo},null,SYSDATE)
 	</insert>
-
 	
+	<!-- 특정영화 평점뿌리기 -->
+	<select id="selectGradeAvg" parameterType="java.util.Map" resultType="double">
+	select avg(EVALUATION_grade) as avg from EVALUATION where movie_no=#{movieNo}
+	</select>
+
+	<!-- 내가 평점준 영화인지 유무count -->
+	<select id="selectEvalueCount" parameterType="java.util.Map" resultType="int">
+	select count(*) from evaluation where user_id=#{id} and movie_no=#{movieNo}
+	</select>
+	<!-- 평점을 한번은 받은 영화인지 유무  count -->
+	<select id="selectEvalueCountAll" parameterType="java.util.Map" resultType="int">
+	select count(*) from evaluation where movie_no=#{movieNo}
+	</select>
 	
 </mapper>

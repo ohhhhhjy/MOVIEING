@@ -133,6 +133,7 @@
 
 
 
+
  
 
 
@@ -181,7 +182,10 @@
 
 
 
+
 input
+
+
 
 
 
@@ -375,7 +379,11 @@ text
 
 
 
+
+
 :focus
+
+
 
 
 
@@ -518,7 +526,9 @@ text
 
 
 
+
  
+
 
 
 
@@ -617,7 +627,9 @@ readonly
 
 
 
+
  
+
 
 
 
@@ -762,6 +774,8 @@ border-bottom
 
 
 
+
+
 :
 
 
@@ -810,7 +824,9 @@ border-bottom
 
 
 
+
  
+
 
 
 
@@ -907,7 +923,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -1003,6 +1021,7 @@ solid
 
 
 
+
  
 
 
@@ -1051,7 +1070,10 @@ solid
 
 
 
+
 #f48fb1
+
+
 
 
 
@@ -1242,6 +1264,8 @@ box-shadow
 
 
 
+
+
 :
 
 
@@ -1290,7 +1314,9 @@ box-shadow
 
 
 
+
  
+
 
 
 
@@ -1388,7 +1414,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -1439,6 +1467,8 @@ px
 0
 0
 #f48fb1
+
+
 
 
 
@@ -1588,6 +1618,7 @@ px
 
 
 
+
  
 
 
@@ -1636,7 +1667,10 @@ px
 
 
 
+
 input
+
+
 
 
 
@@ -1830,7 +1864,11 @@ text
 
 
 
+
+
 :focus
+
+
 
 
 
@@ -1973,7 +2011,9 @@ text
 
 
 
+
  
+
 
 
 
@@ -2072,7 +2112,9 @@ readonly
 
 
 
+
  
+
 
 
 
@@ -2217,6 +2259,8 @@ border-bottom
 
 
 
+
+
 :
 
 
@@ -2265,7 +2309,9 @@ border-bottom
 
 
 
+
  
+
 
 
 
@@ -2362,7 +2408,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -2458,6 +2506,7 @@ solid
 
 
 
+
  
 
 
@@ -2506,7 +2555,10 @@ solid
 
 
 
+
 #ce93d8
+
+
 
 
 
@@ -2697,6 +2749,8 @@ box-shadow
 
 
 
+
+
 :
 
 
@@ -2745,7 +2799,9 @@ box-shadow
 
 
 
+
  
+
 
 
 
@@ -2843,7 +2899,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -2894,6 +2952,8 @@ px
 0
 0
 #ce93d8
+
+
 
 
 
@@ -3043,6 +3103,7 @@ px
 
 
 
+
  
 
 
@@ -3091,7 +3152,10 @@ px
 
 
 
+
 input
+
+
 
 
 
@@ -3285,7 +3349,11 @@ text
 
 
 
+
+
 :focus
+
+
 
 
 
@@ -3428,7 +3496,9 @@ text
 
 
 
+
  
+
 
 
 
@@ -3527,7 +3597,9 @@ readonly
 
 
 
+
  
+
 
 
 
@@ -3672,6 +3744,8 @@ border-bottom
 
 
 
+
+
 :
 
 
@@ -3720,7 +3794,9 @@ border-bottom
 
 
 
+
  
+
 
 
 
@@ -3817,7 +3893,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -3913,6 +3991,7 @@ solid
 
 
 
+
  
 
 
@@ -3961,7 +4040,10 @@ solid
 
 
 
+
 #4dd0e1
+
+
 
 
 
@@ -4152,6 +4234,8 @@ box-shadow
 
 
 
+
+
 :
 
 
@@ -4200,7 +4284,9 @@ box-shadow
 
 
 
+
  
+
 
 
 
@@ -4298,7 +4384,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -4349,6 +4437,8 @@ px
 0
 0
 #4dd0e1
+
+
 
 
 
@@ -4540,63 +4630,7 @@ px
 		}));
 
 	});
-	/*
-	모달 스크롤
-	 */
-	$(document).ready(function() {
-		$('#dtDynamicVerticalScrollExample').DataTable({
-			"scrollY" : "50vh",
-			"scrollCollapse" : true,
-		});
-		$('.dataTables_length').addClass('bs-select');
-	});
 
-	/*모달 영화 선택*/
-	$(document).ready(function() {
-		$("#trOne tr").click(function() {
-			//클릭한 row
-			var tr = $(this);
-			var td = tr.children();
-
-			// td.eq(index)를 통해 값을 가져올 수도 있다.
-			var title = td.eq(0).text();
-			console.log(title);
-			$('.movie').val(title);
-			$('#modalCart').modal("hide");
-			
-			//평가한 별점 뿌리기 ajax
-			$.ajax({
-				url : "<c:url value='/Movieing/Blog/reviewEvalue.mov'/>",
-				type : 'post',
-				dataType : 'text',
-				data : {
-					movieTitle : title
-				},
-				beforeSend : function(
-						xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
-					xhr
-							.setRequestHeader(
-									"${_csrf.headerName}",
-									"${_csrf.token}");
-				},
-				success : function(data) {
-					console.log('별점가져왔다'+data);
-					$(".btnrating").get(data-1).click();//별에 별점넣기
-					
-				},
-				error : function(data) {
-					console
-							.log("에러:"
-									+ data.responseText);
-				}
-
-			});
-			
-			
-			
-
-		});
-	});
 	/*입력완료 경고창*/
 	$(document).ready(function() {
 		function success() {
@@ -4615,7 +4649,31 @@ px
 		}
 	});
 
+	$(function() {
+		//평가한 별점 뿌리기 ajax
 
+		$.ajax({
+			url : "<c:url value='/Movieing/Blog/reviewEvalue.mov'/>",
+			type : 'post',
+			dataType : 'text',
+			data : {
+				movieTitle : '${selectMyReviewOne.movieTitle }'
+			},
+			beforeSend : function(xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+				xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+			},
+			success : function(data) {
+				console.log('별점가져왔다' + data);
+				$(".btnrating").get(data - 1).click();//별에 별점넣기
+
+			},
+			error : function(data) {
+				console.log("에러:" + data.responseText);
+			}
+
+		});
+
+	});
 </script>
 
 
@@ -4637,23 +4695,22 @@ px
 
 			<!--Section heading-->
 			<h2 class="h1-responsive font-weight-bold text-center my-4">영화
-				리뷰 남기기</h2>
+				리뷰 수정하기</h2>
 			<!--Section description-->
 			<p class="text-center w-responsive mx-auto mb-5">여기에 무빙에서 추천해 준
 				영화를 보고 난 후의 후기를 자유롭게 작성해주세요 :)</p>
 
-
+			
 
 
 			<!-- Default form contact -->
 			<form class="border border-light" method="post" id="form"
-				action="<c:url value='/Movieing/Blog/BlogMain.mov'/>" name="write">
+				action="<c:url value='/Movieing/Blog/BlogMain_Update.mov'/>" name="write">
 				<input type="hidden" name="${_csrf.parameterName}"
 					value="${_csrf.token}">
-
+				<input type="hidden" name="reviewNo" value="${reviewNo }"><!--넘어온 리뷰넘버받고 -->
 				<h5>영화명</h5>
-
-
+				
 
 				<div class="md-form input-group mb-3">
 					<div class="input-group-prepend">
@@ -4663,136 +4720,16 @@ px
 					</div>
 					<div style="padding-bottom: 10px"></div>
 					<input type="text" class="form-control movie" name="movieTitle"
-						placeholder="영화를 선택해주세요"
+						placeholder="영화를 선택해주세요" value="${selectMyReviewOne.movieTitle }"
 						aria-label="Example text with button addon"
 						aria-describedby="MaterialButton-addon1" required="required">
 				</div>
-
-				<!--  
-			<button type="button" class="btn btn-primary" data-toggle="modal"
-				data-target="#modalCart">영화선택</button>
-			<div style="padding-bottom: 10px"></div>
-			<input type="text" id="defaultContactFormName"
-				class="form-control mb-4" placeholder="영화명">
-				-->
-
-				<!-- 영화선택 시 모달 -->
-
-
-				<!-- Modal: modalCart -->
-				<div class="modal fade" id="modalCart" tabindex="-1" role="dialog"
-					aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<!--Header-->
-							<div class="modal-header">
-
-								<h4 class="modal-title" id="myModalLabel">내가 본 영화</h4>
-
-								<button type="button" class="close" data-dismiss="modal"
-									name="MOVIE_TITLE" aria-label="Close">
-									<span aria-hidden="true">×</span>
-								</button>
-
-							</div>
-
-							<!-- 검색바.
-<div style="width: 200px; height: 30px" class="row">
-										<form class="form-inline md-form form-sm mt-0">
-											<i class="fas fa-search" aria-hidden="true"></i> <input
-												class="form-control form-control-sm ml-3 w-75" type="text"
-												placeholder="검색" aria-label="Search">
-										</form>
-									</div> -->
-
-
-
-							<!--Body-->
-							<c:if test="${empty write}" var="isEmpty">
-								<div class="modal-body">
-									<h5>
-										리뷰를 쓸 영화가 없어요...<br>평가메뉴에서 본 영화의 평점을 매겨주세요! :)
-									</h5>
-								</div>
-								<div class="modal-footer">
-									<a
-										href="<c:url value='/Movieing/Movie/screening/First_like.mov'/>"><button
-											type="button" class="btn btn-outline-primary waves-effect">
-											<i class="fas fa-star"></i> 더 평가하러가기
-										</button></a>
-
-								</div>
-							</c:if>
-							<c:if test="${!isEmpty }">
-								<div class="modal-body"
-									style="overflow: scroll; overflow-x: hidden; width: 490px; height: 430px; text-align: center;">
-									<table class="table table-striped table-bordered table-sm"
-										id="dtDynamicVerticalScrollExample" cellspacing="0">
-										<thead>
-											<tr>
-												<th class="th-sm">영화명</th>
-												<th class="th-sm">장르</th>
-												<th class="th-sm">개봉년도</th>
-												<th class="th-sm">국가</th>
-											</tr>
-										</thead>
-										<tbody id="trOne">
-											<c:forEach items="${write}" var="item">
-												<tr>
-													<td style="font-weight: bold;">${item.movieTitle }</td>
-													<td>${item.movieGenre }</td>
-													<td>${item.movieYear }</td>
-													<td>${item.movieCountry }</td>
-												</tr>
-											</c:forEach>
-										</tbody>
-									</table>
-
-								</div>
-
-
-								<!--Footer-->
-								<div class="modal-footer">
-
-									<h5>선택한 영화:</h5>
-									<input placeholder="영화를 선택해주세요" type="text"
-										id="inputPlaceholderEx" class="form-control movie"
-										style="width: 240px; height: 30px">
-									<div style="padding-right: 80px"></div>
-
-								</div>
-							</c:if>
-						</div>
-					</div>
-				</div>
-				<!-- Modal: modalCart모달 끝 -->
 
 
 
 				<!-- Email -->
 				<div style="padding-bottom: 10px"></div>
 				<h5>평점</h5>
-				<!--  
-			<div class="container">
-				<div class="feedback">
-					<div class="rating col-md-3" align="left" name="grade"
-						style="margin-left: -70px" required="required">
-					
-							<input type="radio" name="rating" id="rating-5"> <label
-								for="rating-5"></label> <input type="radio" name="rating"
-								id="rating-4"> <label for="rating-4"></label> <input
-								type="radio" name="rating" id="rating-3"> <label
-								for="rating-3"></label> <input type="radio" name="rating"
-								id="rating-2"> <label for="rating-2"></label> <input
-								type="radio" name="rating" id="rating-1"> <label
-								for="rating-1"></label>
-					
-					</div>
-				</div>
-
-			</div>
-			
-			-->
 
 				<div class="form-group" id="rating-ability-wrapper">
 					<label class="control-label" for="rating"> <span
@@ -4838,28 +4775,26 @@ px
 				<!-- Subject -->
 				<h5>공개여부</h5>
 
+				<c:choose>
+					<c:when test="${selectMyReviewOne.publicPrivate eq N }">
+						<select class="browser-default custom-select mb-4"
+							required="required" name="publicPrivate" id="publicPrivate">
+							<option value="">선택</option>
+							<option value="N" selected>나만보기</option>
+							<option value="Y">전체 공개</option>
 
-				<select class="browser-default custom-select mb-4"
-					required="required" name="publicPrivate" id="publicPrivate">
-					<option value="" selected>선택</option>
-					<option value="N">나만보기</option>
-					<option value="Y">전체 공개</option>
+						</select>
+					</c:when>
+					<c:otherwise>
+						<select class="browser-default custom-select mb-4"
+							required="required" name="publicPrivate" id="publicPrivate">
+							<option value="">선택</option>
+							<option value="N">나만보기</option>
+							<option value="Y" selected>전체 공개</option>
 
-				</select>
-
-
-				<!--  
-
-			<h5>해쉬태그</h5>
-			<div class="mb-4" style="padding-bottom: 10px">
-				<input type="text" class="form-control" required="required"
-					aria-label="Sizing example input" name="hashtag"
-					aria-describedby="inputGroupMaterial-sizing-default"
-					placeholder="#해쉬태그 방식으로 작성해주세요">
-
-			</div>
-			-->
-
+						</select>
+					</c:otherwise>
+				</c:choose>
 
 				<!-- Message -->
 
@@ -4868,38 +4803,9 @@ px
 
 					<textarea class="form-control rounded-0" required="required"
 						name="reviewContent" id="exampleFormControlTextarea2" rows="3"
-						placeholder=""></textarea>
-		
-						<!--  
-					<textarea name="weditor" id="weditor" rows="10" cols="100"></textarea>
-					-->
-				</div>
-
-
-				<!-- 
-			<div class="custom-control custom-checkbox mb-4">
-				<div class="row">
-					<div>
-						<label style="font-weight: bold;">이 글에 스포일러가 포함되어 있나요?</label>
-					</div>
-					<div style="padding-right: 50px"></div>
-					<div class="row">
-						<div class="form-check mb-3">
-							<input class="form-check-input" type="radio" id="radio1"
-								name="cmethod" value="phone" checked> <label
-								class="form-check-label" for="radio1">있음</label>
-						</div>
-						<div style="padding-right: 10px"></div>
-						<div class="form-check mb-3">
-							<input class="form-check-input" type="radio" id="radio2"
-								name="cmethod" value="mail"> <label
-								class="form-check-label" for="radio2">없음</label>
-						</div>
-					</div>
+						placeholder="" >${selectMyReviewOne.reviewContent }</textarea>
 
 				</div>
-			</div>
- -->
 
 				<!-- Send button -->
 				<div class="mb-4">

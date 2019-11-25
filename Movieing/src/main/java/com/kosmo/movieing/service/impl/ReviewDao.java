@@ -82,7 +82,7 @@ public class ReviewDao implements ReviewService{
 	@Override
 	public List<ReviewDto> selectList(Map map) {
 
-		return template.selectList("selectList",map);
+		return template.selectList("selectListAll",map);
 	}
 
 	@Override
@@ -143,6 +143,11 @@ public class ReviewDao implements ReviewService{
 	public List<ReviewDto> selectBestReviewList() {
 
 		return template.selectList("selectBestReviewList");
+	}
+
+	@Override
+	public ReviewDto selectMyReviewOne(Map map) {
+		return template.selectOne("selectMyReviewOne", map);
 	}
 
 

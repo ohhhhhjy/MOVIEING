@@ -508,7 +508,7 @@ $(function(){
 
 
 									<!-- 모달 띄우기 -->
-									<div align="right" style="padding-left: 550px">
+									<div align="right" style="padding-left: 500px">
 										<button class="btn btn-link dropdown-toggle" type="button"
 											id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
 											aria-expanded="false" data-target="#myModal${status.index }"
@@ -651,7 +651,7 @@ $(function(){
 								href="#collapse${status.index }" data-toggle="collapse"
 								data-parent="#accordion" class="card-link">
 								-->
-								<a href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>" style="padding-left: 5px">
+								<a href="<c:url value='/Movieing/Blog/My/BlogReviews2.mov?reviewNo=${item.reviewNo }'/>" style="padding-left: 5px">
 								<i
 								class="fa fa-comment"></i> 댓글</a>
 							<!--  
@@ -797,8 +797,10 @@ $(function(){
 								<!-- 제일큰 바디 다이브 -->
 								<div
 									style="overflow: auto; overflow-x: hidden; width: 220px; height: 300px;">
-
+							
+									
 									<!-- 한 사람 시작 -->
+									<!--  
 									<c:forEach items="${selectFollowList }" var="item"> 
 									<div class="row profileForm" style="padding-left: 10px">
 										<div style="padding-left: 10px">
@@ -806,14 +808,17 @@ $(function(){
 												src="<c:url value='/resources/img/friends/boy.png'/>" />
 										</div>
 										<div style="padding-left: 10px">
+										<a
+											href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${item.following }'/>"
+											target="_self">
 											<span class="timeLineText"
 												style="font-size: 1.0em; color: black;">${item.following }</span>
-											<h6 class="actorSpan" style="font-size: 0.5em; color: black;">1시간전</h6>
-
+												</a>
 										</div>
 
 									</div>
 									</c:forEach>
+									-->
 									<!-- 한 사람 끝 -->
 
 							</div>
