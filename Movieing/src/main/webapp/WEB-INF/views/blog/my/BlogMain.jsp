@@ -571,7 +571,7 @@ i.fas {
 														<div class="row">
 															<div class="col-md-6">
 																<a href="#followModal" data-toggle="modal"
-																	id="followerModal" class="followModal"> <span
+																	id="followerModal" class="followModal"> <span id="followerCount"
 																	style="font-weight: bold; font-size: 2.0em; color: black;"
 																	class="description">${followerCount }</span>
 																</a>
@@ -625,8 +625,8 @@ i.fas {
 											href="<c:url value='/Movieing/Blog/MovieingFriends.mov'/>">무빙프렌즈</a>
 										</li>
 
-										<li class="nav-item"><a class="btn btn-info"
-											href="<c:url value='#'/>" role="button">팔로우하기</a></li>
+										<li class="nav-item"><button class="btn btn-info" id="follow"
+											 role="button" >팔로우하기</button></li>
 									</ul>
 								</c:when>
 								<c:when test="${notMe =='y' && followOk =='y'}">
@@ -639,8 +639,8 @@ i.fas {
 											href="<c:url value='/Movieing/Blog/MovieingFriends.mov'/>">무빙프렌즈</a>
 										</li>
 
-										<li class="nav-item"><a class="btn btn-info"
-											href="<c:url value='#'/>" role="button">팔로우해제</a></li>
+										<li class="nav-item"><li class="nav-item"><button class="btn btn-info" id="unfollow"
+											 role="button" >팔로우취소</button></li>
 									</ul>
 
 								</c:when>
@@ -1329,6 +1329,47 @@ i.fas {
 				$('#follower').removeClass('show active');
 				$('#following').addClass('show active');
 			}
+		});
+		
+		
+		$('#follow').click(function(){
+
+			console.log("${userInfo.userNick}");
+ 			$.ajax({
+				url : "<c:url  value='/Movieing/Ajax/Follow.mov?userNick=${userInfo.userNick}'/>",
+				success : function() {
+					console.log('팔로우 성공');
+					$('#follow').text('팔로우취소');
+					console.log('${followerCount}');
+					${followerCount}
+					$('#followerCount').text('${followerCount+1}');
+				},
+				error : function() {
+					
+				}
+
+			});
+			 
+		});
+		
+		$('#unfollow').click(function(){
+
+			console.log("${userInfo.userNick}");
+ 			$.ajax({
+				url : "<c:url  value='/Movieing/Ajax/UnFollow.mov?userNick=${userInfo.userNick}'/>",
+				success : function() {
+					console.log('팔로우 취소');
+					$('#unfollow').text('팔로우하기');
+					console.log('${followerCount}');
+					${followerCount}
+					$('#followerCount').text('${followerCount-1}');
+				},
+				error : function() {
+					
+				}
+
+			});
+			 
 		});
 
 	});

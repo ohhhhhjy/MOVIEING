@@ -804,6 +804,9 @@ public class BlogController {
 		System.out.println("로그인된 아이디:" + id);
 		map.put("id", id);
 		model.addAttribute("id", id);
+		//프사 불러오기 용
+		UserDto image = userService.selectOne(map);// 리스트전체조회
+		model.addAttribute("image", image);
 
 		// 무빙프렌즈에서 피드 글보이기(전체공개면)]-모든 정보있음
 		List<ReviewDto> friendsReviewList2 = reviewService.friendsReviewList2(map);// 리스트전체조회

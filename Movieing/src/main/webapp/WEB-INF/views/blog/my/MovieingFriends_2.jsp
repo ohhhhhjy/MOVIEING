@@ -710,7 +710,7 @@ $(function(){
 
 					<div style="padding-right: 10px">
 						<img class="radiusImg" alt="프사진"
-							src="<c:url value='/resources/img/friends/oubin.png'/>" />
+							src="${image.userProfile }" />
 					</div>
 					<div style="padding-right: 60px">
 

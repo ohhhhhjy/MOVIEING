@@ -29,13 +29,13 @@
 
 
 		<!-- Default form contact -->
-		<form class="border border-light" action="#!">
+		<form class="border border-light" action="<c:url value='/Movieing/Customer/Write.mov'/>">
 
 			<h5>제목</h5>
 			<div style="padding-bottom: 10px"></div>
 			<input type="text" class="form-control" placeholder="제목"
 				aria-label="Example text with button addon"
-				aria-describedby="MaterialButton-addon1">
+				aria-describedby="MaterialButton-addon1" name="qnaTitle" id="qnaTitle">
 
 
 			<div style="padding-bottom: 10px"></div>
@@ -43,7 +43,7 @@
 			<h5>내용</h5>
 			<div class="form-group">
 				<textarea class="form-control rounded-0"
-					id="exampleFormControlTextarea2" rows="3" placeholder=""></textarea>
+					 rows="3" placeholder="" name="qnaContent" id="qnaContent" ></textarea>
 			</div>
 
 
@@ -76,8 +76,7 @@
 
 			<!-- Send button -->
 			<div class="mb-4">
-				<button class="btn btn-info btn-block" type="submit"
-					onclick="document.getElementById('contact-form').submit();">등록</button>
+				<button class="btn btn-info btn-block" type="submit">등록</button>
 			</div>
 		</form>
 		<!-- Default form contact -->
