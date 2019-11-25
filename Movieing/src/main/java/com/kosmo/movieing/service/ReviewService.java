@@ -51,6 +51,9 @@ public interface ReviewService {
 	//무빙프렌즈 유저정보]
 	ReviewDto selectMovieingOne(Map map);
 
+	//내 리뷰 1개만]
+	ReviewDto selectMyReviewOne(Map map);
+
 	//마이페이지]
 	List<ReviewDto> selectMyPageList(Map map);
 

@@ -365,10 +365,10 @@ $(document).ready(function() {
 
 
 
+
+
 	<!-- 영화시작 -->
-
 	
-
 		<div class="col-xl-12">
 			<div class="row">
 				<c:forEach items="${movieList}" var="movie" varStatus="status">
@@ -380,7 +380,7 @@ $(document).ready(function() {
 								<!-- 안에 내용 -->
 								<figcaption>
 									<div align="center" style="padding-top: 100px">
-										<div style="padding-right: 80px">
+										<div style="padding-right: 50px">
 										<h4>${movie.movieTitle}</h4>
 										<h6>${movie.movieYear }</h6>
 										</div>

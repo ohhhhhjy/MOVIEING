@@ -100,4 +100,11 @@
 	<select id="selectOneImage" parameterType="String" resultType="String">
 		select user_profile from USER_TABLE where user_id=#{id}
 	</select>
+	
+	<!-- 나를 제외한 모든 유저 닉네임 리스트-->
+
+	<select id="selectList" parameterType="java.util.Map" resultType="UserDto">
+	select USER_NICK from user_table where user_id not in #{id} AND user_id not in 'admin'
+	</select>
+
 </mapper>

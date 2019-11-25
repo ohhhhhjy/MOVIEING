@@ -380,6 +380,20 @@ $(document).ready(function() {
 		 $('#pagingString').html(pagingString);
 	}///reviewListMaking
 
+	/*
+	$(function(){
+		if('${selectEvalueList.evaluationGrade}'==null){
+			console.log('잘되는걸까.ㅇ..');
+		}else{
+			var grade='${selectEvalueList.evaluationGrade}';	
+			$(".starRadio").get(grade-1).click();//별에 별점넣기	
+			$('#btnWish').click();
+		}
+		
+		
+	});
+	*/
+
 
 </script>
 
@@ -400,7 +414,12 @@ $(document).ready(function() {
 					<hr class="my-3">
 					<span class="px-2">${movieInfo.movieGrade} ・ ${movieInfo.movieGenre} ・ ${movieInfo.movieCountry}</span>
 					<hr class="my-3">
-					<span class="px-2" style="font-weight: bold">평점★3.8</span>
+					<span class="px-2" style="font-weight: bold">
+					<c:choose>
+					<c:when test="${selectGradeAvg==null }">아직 평점을 매긴 유저가 없어요..</c:when>
+					<c:otherwise>평점★${selectGradeAvg }</c:otherwise>
+					</c:choose>
+					</span>
 					<!-- <span> ・</span>
 					<span class="px-2" style="color:#db147b;font-weight: bold">예상★4.0</span> -->
 					<hr class="my-3">

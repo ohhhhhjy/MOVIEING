@@ -4641,7 +4641,7 @@ px
 					</div>
 					<div style="padding-bottom: 10px"></div>
 					<input type="text" class="form-control movie" name="movieTitle"
-						placeholder="${movieTitle }"
+						placeholder="" value="${movieTitle }"
 						aria-label="Example text with button addon"
 						aria-describedby="MaterialButton-addon1" required="required">
 				</div>

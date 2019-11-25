@@ -445,52 +445,7 @@ i.fas {
 		f.submit();
 	};
 	
-	var reviewNo="";
-	/*삭제모달*/
-	/*
-	$(document).ready(function() {
-		$('button[name=delete]').click(function(){
-			console.log('삭제버튼눌림');	
-			reviewNo=$(e.relatedTarget).data('notifyid');
-			console.log('리뷰넘버'+reviewNo);
-			
-			$.ajax({
-				url : "<c:url value='/Movieing/Blog/reviewRemove.mov'/>",
-				type : 'post',
-				dataType : 'text',
-				data : {
-					reviewNo : reviewNo
-					//'${selectList.get(index).reviewNo}'
-				},
-				beforeSend : function(
-						xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
-					/*
-					xhr
-							.setRequestHeader(
-									"${_csrf.headerName}",
-									"${_csrf.token}");
-				},
-				success : function(data) {
-					alert('글이 삭제되었습니다!');
-					
-					
-					
-					
-					location.reload();
-				},
-				error : function(data) {
-					console
-							.log("에러:"
-									+ data.responseText);
-				}
 
-			});
-			
-			
-		});
-		
-	});
-	*/
 	$(function(){
 	var reviewNo ="";
 	$('#deleteModal').on('show.bs.modal', function (e) { 
@@ -951,7 +906,7 @@ i.fas {
 									data-notifyid="${item.reviewNo }">삭제</button>
 								<button type="button" class="btn btn-outline-primary"
 									style="float: right; text-align: right;"
-									onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov?reviewNo=${item.reviewNo }"/>'">수정</button>
+									onclick="location.href='<c:url value="/Movieing/Blog/WritePage_Update.mov?reviewNo=${item.reviewNo }"/>'">수정</button>
 
 							</c:if>
 

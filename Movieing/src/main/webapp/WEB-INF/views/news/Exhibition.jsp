@@ -231,7 +231,7 @@ i.fas {
 		</div>
 		<div class="col-md-3 text">
 			<img class="img-responsive"
-				src="<c:url value='/resources/img/news/3.jpg'/>" >
+				src="<c:url value='/resources/img/news/3.jpg'/>" style="width: 241px;height: 347px">
 			<div class="middle">
 				<div class="text">부천국제판타스틱영화제</div>
 			</div>
@@ -306,7 +306,7 @@ i.fas {
 			<div class="middle">
 				<div class="text">DMZ국제다큐멘터리영화제</div>
 			</div>
-			<div class="text" style="font-size:1.2em;text-align: center;">DMZ국제다큐멘터리영화제</div>
+			<span class="text" style="font-size:1.5em;text-align: center;width: 241px;height: 347px">DMZ국제다큐멘터리영화제</span>
 		</div>
 		<div class="col-md-3 text">
 			<img class="img-responsive"

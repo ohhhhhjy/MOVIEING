@@ -15,7 +15,7 @@
 		WHERE USER_ID=#{id}
 	</select>
 	<!-- 내가 쓴 전체 리스트 가져오기(시간순으로) -->
-	<select id="selectList"  parameterType="java.util.Map" resultType="ReviewDto">
+	<select id="selectListAll"  parameterType="java.util.Map" resultType="ReviewDto">
 		select r.*, 
 		movie_title,movie_img,
 		(select EVALUATION_GRADE  from evaluation where user_id= r.user_id and movie_no = r.movie_no) grade,
@@ -198,7 +198,18 @@
         (select count(*) from like_review where review_no = r.review_no) DESC
 	</select>
 	
-	
+	<!-- 내 특정리뷰 1개만 가져오기 -->
+	<select id="selectMyReviewOne" parameterType="java.util.Map" resultType="ReviewDto">
+	select r.*,
+	(select movie_Title from movie where movie_no=(select movie_no from review where user_id=#{id} and review_no=#{reviewNo}))movieTitle
+	from review r
+	where user_id=#{id} and review_no=#{reviewNo}
+	</select>
+	<!-- 리뷰 업데이트하기 -->
+	<update id="reviewUpdate" parameterType="java.util.Map">
+	update review set review_content=#{reviewContent},review_postdate=SYSDATE,public_private=#{publicPrivate}
+	where user_id=#{id} and review_no=#{reviewNo} and movie_no=#{movieNo}
+	</update>
 
 
 	
