@@ -59,6 +59,9 @@ public interface UserService {
 
 	//안드로이드 로그인 확인용
 	boolean androidIsLogin(Map map);
+	
+	//비번변경
+	int updatePass(Map map);
 
 
 

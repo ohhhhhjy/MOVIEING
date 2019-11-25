@@ -135,5 +135,12 @@ public class UserServiceImpl implements UserService{
 	}
 
 
+	@Override
+	public int updatePass(Map map) {
+
+		return dao.updatePass(map);
+	}
+
+
 
 }

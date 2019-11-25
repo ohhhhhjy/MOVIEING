@@ -133,6 +133,11 @@ public class UserDao implements UserService{
 	public List<UserDto> AllUserNick(Map map) {
 		return template.selectList("AllUserNick", map);
 	}
+	@Override
+	public int updatePass(Map map) {
+
+		return template.update("updatePass", map);
+	}
 
 
 

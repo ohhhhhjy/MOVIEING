@@ -4,14 +4,17 @@
 
 <mapper namespace="mybatis.Qna">
 
-	<select id="selectQnaList" parameterType="java.util.Map" resultType="QnaDto">
-		select * from qna
+	<select id="selectQnaList" resultType="QnaDto">
+		select * from qna order by qna_no desc
 	</select>
 	
 	<select id="selectNotiOne" parameterType="java.util.Map" resultType="QnaDto">
-		select * where qna_no=#{qnaNo}
+		select * from qna where qna_no=#{qnaNo}
 	</select>
 	
+	<select id="selectQnaOne" parameterType="java.util.Map" resultType="QnaDto">
+		select * from qna where qna_no=#{qnaNo} 
+	</select>
 	
 	<insert id="insertQna" parameterType="java.util.Map">
 		insert into qna values(seq_qna.nextval,#{qnaTitle},#{qnaContent},#{userId},default,null)
@@ -28,5 +31,5 @@
 	<update id="replyQna" parameterType="java.util.Map">
 		update qna set qna_answer=#{qnaAnswer} where qna_no=#{qnaNo}
 	</update>
-
+	
 </mapper>

@@ -117,6 +117,28 @@
 	font-weight: bold;
 	text-align: center;
 }
+
+
+/* 모달 정중앙 */
+.modal {
+        text-align: center;
+}
+ 
+@media screen and (min-width: 768px) { 
+        .modal:before {
+                display: inline-block;
+                vertical-align: middle;
+                content: " ";
+                height: 100%;
+        }
+}
+ 
+.modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+}
+
 </style>
 
 
@@ -132,7 +154,7 @@
 
 			<!--프사 -->
 			<div style="text-align: center">
-				<img src="<c:url value='/resources/img/friends/dahee.jpg'/>"
+				<img src="${mypage.userProfile }"
 					class="radiusImg img-thumbnail" alt="프로필 사진"
 					style="display: block; margin: 0px auto;">
 			</div>
@@ -182,13 +204,15 @@
 								<div class="col-md-12" style="padding-top: 40px">
 
 
-									<form method="post" id="passwordForm">
+									<form method="post" id="passwordForm" action="<c:url value='/Movieing/Blog/PassChange.mov'/>">
+									<input type="hidden" name="${_csrf.parameterName}"
+									value="${_csrf.token}"> 
 										<div class="form-group row">
-											<h5 id="username" class="col-3 col-form-label"
+											<h5 class="col-3 col-form-label"
 												style="text-align: right;font-weight: bold;">이전 비밀번호</h5>
 											<div class="col-9">
 												<input type="password" class="input-lg form-control"
-													name="password1" id="password1" placeholder="이전 비밀번호 입력"
+													name="originPass" id="originPass" placeholder="이전 비밀번호 입력"
 													autocomplete="off" style="padding-right: 30px">
 											</div>
 										</div>
@@ -201,7 +225,7 @@
 												style="text-align: right;font-weight: bold;">새 비밀번호</h5>
 											<div class="col-9">
 												<input type="password" class="input-lg form-control"
-													name="password2" id="password2" placeholder="새 비밀번호 입력"
+													name="newPass1" id="newPass1" placeholder="새 비밀번호 입력"
 													autocomplete="off" style="padding-right: 30px">
 											</div>
 										</div>
@@ -231,7 +255,7 @@
 												style="text-align: right;font-weight: bold;">새 비밀번호 확인</h5>
 											<div class="col-9">
 												<input type="password" class="input-lg form-control"
-													name="password3" id="password3" placeholder="새 비밀번호 확인"
+													name="newPass2" id="newPass2" placeholder="새 비밀번호 확인"
 													autocomplete="off" style="padding-right: 30px">
 											</div>
 										</div>
@@ -239,7 +263,7 @@
 										<div class="row">
 											<div class="col-sm-12" style="text-align: center;">
 												<span id="pwmatch" class="glyphicon glyphicon-remove"
-													style="color: #FF0004;"></span> 비밀번호 일치여부 확인
+													style="color: #FF0004;"></span> 
 											</div>
 										</div>
 
@@ -266,3 +290,71 @@
 	</div>
 	<!-- row -->
 </div>
+
+
+
+<!-- 모달 -->
+
+		<div class="modal fade bd-example-modal-lg" tabindex="-1" id="modalPass"
+			role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content p-4">
+					<div class="well">
+						<div class="row">
+							<div class="col-md-12" style="padding-top: 10px;padding-left: 10px;padding-right: 10px" id="content">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+<script>
+
+$(function() {
+	
+	$('#pwmatch').text('이전 비밀번호가 일치하지 않습니다. ');
+	
+	$('#originPass').on('propertychange change input',function(){
+		
+		if($('#originPass').val()=='jy0721@@'){
+			$('#pwmatch').css('color', 'green');
+			$('#pwmatch').text('변경할 비밀번호를 입력해주세요');
+		}
+		
+	});
+	
+	$('#newPass2').on('propertychange change input',function(){
+		
+		if($(this).val()==$('#newPass1').val()){
+			$('#pwmatch').css('color', 'green');
+			$('#pwmatch').text('비밀번호와 일치합니다.');
+			}
+		else{
+			$('#pwmatch').css('color', 'red');
+			$('#pwmatch').text('비밀번호와 일치하지 않습니다.');
+			}
+		});
+	
+	
+	
+	 var flag = '${flag}';
+	
+	
+	console.log("flag : "+flag);
+	
+	if(flag==1){
+		/* $('#content').text('비밀번호가 변경되었습니다. ');
+		$('#modalPass').modal('show'); */
+		alert("비밀번호가 변경되었습니다. ");
+	} 
+	
+});
+
+
+
+
+</script>

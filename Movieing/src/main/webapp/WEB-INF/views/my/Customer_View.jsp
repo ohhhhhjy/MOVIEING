@@ -153,32 +153,29 @@ p {
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th scope="col" colspan="1">제목</th>
-				<td scope="col" colspan="5">뭐 이런 하다하다..별..!</td>
-
+				<th scope="col"  style="width: 25%" colspan="1">제목</th>
+				<td scope="col"  style="width: 75%" colspan="5">${bbs.qnaTitle }</td>
 
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<th>작성자</th>
-				<td>김팔복</td>
-				<th>작성일</th>
-				<td>2019-11-06</td>
-				<th>조회수</th>
-				<td>3412</td>
-
+				<th  style="width: 25%">작성자</th>
+				<td  style="width: 25%">${bbs.userId }</td>
+				<th style="width: 25%">작성일</th>
+				<td style="width: 25%">${bbs.postdate }</td>
+				
 			</tr>
 
 
 			<tr>
-				<td colspan="6">이 무빙 도대체 뭐죠? 뭐 이런 완벽한 홈페이지가 있단 말이죠? <br>정말
-					이제 안걸 너무 화가 납니다... <br>이런 서비스 무료로 제공해주셔서 더 화가납니다!<br> 이제
-					제 돈으로 많이 혼나세요!!!!!!!
+				<td colspan="6">
+					<br>
+					${id==bbs.userId?bbs.qnaContent:'회원님이 작성한 게시글이 아닙니다' }
+					<br>
+					<br>
 				</td>
 			</tr>
-
-
 		</tbody>
 	</table>
 
@@ -187,15 +184,15 @@ p {
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th scope="col">이전글</th>
-				<td scope="col">블로그가 갑자기 안 들어가집니다..이것은 한두번이..</td>
+				<th scope="col" style="width: 25%">이전글</th>
+				<td scope="col" style="width: 75%"><a href="<c:url value='/Movieing/my/Customer_View.mov?qnaNo=${bbs.qnaNo+1 }'/>">${before}</a></td>
 
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<th scope="col">다음글</th>
-				<td scope="col">누군가 비속어 사용을 남발하네요..규제부탁드려요</td>
+				<th scope="col" style="width: 25%">다음글</th>
+				<td scope="col" style="width: 75%"><a href="<c:url value='/Movieing/my/Customer_View.mov?qnaNo=${bbs.qnaNo-1 }'/>">${after }</a></td>
 			</tr>
 
 		</tbody>
@@ -205,50 +202,31 @@ p {
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th scope="col" colspan="6">댓글</th>
+				<th scope="col" colspan="6">답변</th>
 
 			</tr>
 		</thead>
 	</table>
 	
-	
-
 
 	<div class="comments" style="border-color: black;border: medium;">
 		
 		<div class="comment-wrap">
 			<div class="photo">
-				<div class="avatar"
-					style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg')"></div>
+				<div class="avatar">
+					<img style="width: 30px;height: 30px;" alt="admin" src="https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png">
+				</div>
+				<div>
+					<span style="text-align: center;">관리자</span>
+				</div>
 			</div>
 			<div class="comment-block">
-				<p class="comment-text">호갱님 ㅠㅠ 정말 죄송하네요^^ㅜㅗ</p>
-				<div class="bottom-comment">
-					<div class="comment-date">Aug 24, 2014 @ 2:35 PM</div>
-					<ul class="comment-actions">
-						<li class="complain">Complain</li>
-						<li class="reply">Reply</li>
-					</ul>
-				</div>
+				<p class="comment-text">${bbs.qnaAnswer!=null?bbs.qnaAnswer:'아직 답변이 작성되지 않았습니다'}</p>
+				
 			</div>
 		</div>
 
-		<div class="comment-wrap">
-			<div class="photo">
-				<div class="avatar"
-					style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/felipenogs/128.jpg')"></div>
-			</div>
-			<div class="comment-block">
-				<p class="comment-text">ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</p>
-				<div class="bottom-comment">
-					<div class="comment-date">Aug 23, 2014 @ 10:32 AM</div>
-					<ul class="comment-actions">
-						<li class="complain">Complain</li>
-						<li class="reply">Reply</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		
 	</div>
 
 
