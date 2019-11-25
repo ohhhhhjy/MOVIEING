@@ -89,14 +89,18 @@ img.border-shadow {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
 		rgba(0, 0, 0, 0.19);
 }
+
+/*밑줄*/
+h3{
+text-decoration: underline solid aqua;
+}
 </style>
 
 
 
 
-
 <div class="container-fluid"
-	style="padding-left: 120px; padding-right: 120px">
+	style="padding-left: 20px; padding-right: 20px">
 	<!-- 한 장르 시작 -->
 	<div style="margin-top: 150px">
 		<div class="col-xl-12">
@@ -115,7 +119,6 @@ img.border-shadow {
 		</div>
 
 
-
 		<!-- 캐러셀 시작  -->
 		<div class="row blog">
 			<div class="col-md-12">
@@ -132,7 +135,7 @@ img.border-shadow {
 
 						<div class="row container-fluid" style="margin-top: 20px">
 
-							<c:forEach items="${movieList}" var="movie" begin="0" end="5">
+							<c:forEach items="${movieList}" var="movie" begin="0" end="6">
 
 
 								<div class="col-md-2 col-sm-6 movie-poster"
@@ -169,6 +172,7 @@ img.border-shadow {
 
 
 	<!-- --------------------------------------------------------------------------------- -->
+
 
 
 

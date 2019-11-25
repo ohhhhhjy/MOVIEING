@@ -237,61 +237,20 @@ a {
     grid-auto-rows: auto;
 }
 
-/*배너위치*/
-#floatMenu {
-	position: absolute;
-	left: 380px;
-	top: 200px;
+
+
+#allLog{
+	background-color : #D5D5D5;
+	border: none;
+	border-bottom: 	1.5px solid gray;
 }
 
-/*배너 안 디자인*/
-.left, .right {
-	top: 50%;
-	float: left;
-	transform: translateY(125%);
+#anotherLog{
+	border: 1.5px solid gray;
+	border-bottom: none;
 }
 
-.left {
-	background: #337ab7;
-	display: inline-block;
-	white-space: nowrap;
-	width: 50px;
-	transition: width .5s;
-}
 
-.right {
-	background: #fff;
-	width: 350px;
-	transition: width 1s;
-	border-style: solid;
-	border-color: #ccc;
-	border-width: 1px;
-}
-/*
-.left:hover {
-	width: 100px;
-}
-*/
-.item:hover {
-	background-color: #222;
-}
-
-.left .fas {
-	margin: 15px;
-	width: 20px;
-	color: #fff;
-}
-
-i.fas {
-	font-size: 17px;
-	vertical-align: middle !important;
-}
-
-.item {
-	height: 50px;
-	overflow: hidden;
-	color: #fff;
-}
 
 </style>
 
@@ -493,79 +452,29 @@ $(function(){
 			});
 			
 		});
-		
-		/*배너*/
-		$(document).ready(function() {
 
-			// 기존 css에서 플로팅 배너 위치(top)값을 가져와 저장한다.
-			var floatPosition = parseInt($("#floatMenu").css('top'));
-			// 250px 이런식으로 가져오므로 여기서 숫자만 가져온다. parseInt( 값 );
-
-			$(window).scroll(function() {
-				// 현재 스크롤 위치를 가져온다.
-				var scrollTop = $(window).scrollTop();
-				var newPosition = scrollTop + floatPosition + "px";
-
-				/* 애니메이션 없이 바로 따라감
-				 $("#floatMenu").css('top', newPosition);
-				 */
-
-				$("#floatMenu").stop().animate({
-					"top" : newPosition
-				}, 500);
-
-			}).scroll();
-
-		});
-		
-		$(function(){
-		$( '#top' ).click( function() {
-			$( 'html, body' ).animate( { scrollTop : 0 }, 400 );
-			return false;
-		} );
-		});
-
-		//팔로잉/팔로우 모달
-		$(function() {
-			$('.followModal').click(function() {//내 프로필에서 '팔로우','팔로잉' 각각 클릭시, 모달의 선택상태 세팅해주기.
-				if ($(this).get(0).id == 'followerModal') {
-					$('#pills-following-tab').removeClass('active');
-					$('#pills-follower-tab').addClass('active');
-					$('#following').removeClass('show active');
-					$('#follower').addClass('show active');
-				} else {
-					$('#pills-follower-tab').removeClass('active');
-					$('#pills-following-tab').addClass('active');
-					$('#follower').removeClass('show active');
-					$('#following').addClass('show active');
-				}
-			});
-
-		});
 </script>
 
 <!-- 위에 패딩주기 -->
 <div style="padding-top: 150px; background-color: white;"></div>
 
 
+
 <!-- 버튼 두개 만들기 -->
 <div
 	style="padding-left: 40px; background-color: white; padding-right: 40px">
-	<div class="row" style="padding-left: 480px">
+	<button type="button" class="btn btn-dark btn-sm" onclick="location.href='<c:url value='/Movieing/Blog/BlogMain.mov'/>'" ><i class="fas fa-chevron-left"></i>&nbsp마이블로그 </button>
+	<div class="row" style="padding-left: 380px">
 
 		<div class="btn-group btn-group-lg btn-group-block">
-			<a href="<c:url value="/Movieing/Blog/MovieingFriends.mov"/>" class="btn btn-secondary" style="width: 400px;margin-right: 400px"> 모든 활동 로그</a> 
-			<a href="#" style="width: 400px"
-				class="btn btn-primary">팔로우 활동 로그</a>
+			<a href="<c:url value="/Movieing/Blog/MovieingFriends.mov"/>" class="btn" style="width: 388px;margin-right: 390px" id="allLog">모든 활동 로그</a> 
+			<a href="#" style="width: 410px" id="anotherLog"
+				class="btn"><strong>팔로우 활동 로그</strong></a>
 		</div>
 
 	</div>
-	<div class="container">
-		<!-- 중간줄 -->
-		<hr class="my-3">
-	</div>
+	
 </div>
-
 
 
 <!-- 피드보이기시작 -->
@@ -589,8 +498,8 @@ $(function(){
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="mr-2">
-										<img class="rounded-circle" width="45"
-											src="https://picsum.photos/50/50" alt="">
+										<img class="rounded-circle" width="45" height="45"
+											src="${item.userProfile}" alt="">
 									</div>
 
 									<div class="ml-2" >
@@ -801,7 +710,7 @@ $(function(){
 
 					<div style="padding-right: 10px">
 						<img class="radiusImg" alt="프사진"
-							src="<c:url value='/resources/img/friends/oubin.png'/>" />
+							src="${image.userProfile }" />
 					</div>
 					<div style="padding-right: 60px">
 
@@ -925,146 +834,4 @@ $(function(){
 </div>
 
 
-<!-- 플로팅 배너 ---------------------------------------------------------------->
-	<div id="floatMenu">
-		<div class="left">
-			<div class="item">
-				<a href="<c:url value='/Movieing/Blog/BlogMain.mov'/>"><i
-					class="fas fa-home"></i></a>
-				<!-- 내 블로그메인으로-->
-			</div>
-			<div class="item">
-				<a href="#followModal" data-toggle="modal" id="followerModal"
-					class="followModal"><i class="fas fa-users"></i></a>
-				<!--  팔로우보기-->
-			</div>
-			<div class="item">
-				<a href="<c:url value='/Movieing/my/Notice.mov'/>"><i
-					class="fas fa-bell" style="padding-left: 2px"></i></a>
-				<!-- 알림 -->
-			</div>
-			<div class="item">
-				<a href="<c:url value='/Movieing/Blog/WritePage.mov'/>"><i
-					class="fas fa-user-edit" style="padding-left: 2px"
-					style="padding-left: 2px"></i></a>
-				<!-- 글쓰기 -->
-			</div>
-			<div class="item" id="top">
-				<a href="#"><i class="fas fa-arrow-circle-up"
-					style="padding-left: 2px"></i></a> 상단으로
-			</div>
-		</div>
-
-	</div>
-	<!-- ----------------------------옆에 리모컨- 끝----------------------------------- -->
-
-
-<!-- 모달시작 -->
-<div class="modal" id="followModal">
-
-	<div class="modal-dialog" role="document">
-
-		<div class="modal-content" style="padding-bottom: 20px; width: 380px">
-			<!-- 모달 클로즈 버튼 -->
-			<div align="right" style="padding: 10px">
-				<button type="button" class="close" data-dismiss="modal"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-
-
-			<!-- 모달 헤더 -->
-			<ul class="nav nav-pills nav-justified " role="tablist" style="">
-				<li class="nav-item"><a class="nav-link " href="#follower"
-					data-toggle="pill" aria-controls="pills-follower"
-					id="pills-follower-tab">팔로워</a></li>
-				<li class="nav-item"><a class="nav-link" href="#following"
-					data-toggle="pill" aria-controls="pills-following"
-					id="pills-following-tab">팔로잉</a></li>
-			</ul>
-
-			<!-- 모달컨텐츠 -->
-			<div class="tab-content " id="myTabContent"
-				style="height: 477px; overflow-y: scroll; overflow-x: hidden; background-color: #f2f0f0; padding-top: 20px">
-
-				<!-- 모달컨텐츠1.팔로워 -->
-				<div class="tab-pane fade " id="follower" role="tabpanel"
-					aria-labelledby="pills-follower-tab">
-					<c:if test="${empty followerList }" var="isEmpty">
-						<h5>아직 팔로워가 없어요</h5>
-					</c:if>
-					<c:if test="${!isEmpty }">
-						<c:forEach items="${followerList }" var="user" varStatus="status">
-							<div class="row followForm">
-								<div class="col-sm-4">
-									<img class="radiusImg" alt="팔로워사진"
-										src="${user.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': user.userProfile}" />
-								</div>
-								<div class="col-sm-5">
-									<a
-										href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${user.userNick }'/>"><span
-										class="actorSpan">${user.userNick }</span> </a>
-								</div>
-
-								<!-- 스위치 : 스위치의 input-id와 label-for값이 같아야 스위치가 작동한다-->
-								<div class="custom-control custom-switch col-sm-3">
-									<c:if test="${user.isFollow }" var="isFollow">
-										<input type="checkbox" class="custom-control-input"
-											id="aSwitch${status.index }" checked="checked">
-									</c:if>
-									<c:if test="${!isFollow }">
-										<input type="checkbox" class="custom-control-input"
-											id="aSwitch${status.index }">
-									</c:if>
-
-									<label class="custom-control-label"
-										for="aSwitch${status.index }" style=""></label>
-								</div>
-
-							</div>
-							<hr class="my-3" style="width: 450px">
-						</c:forEach>
-					</c:if>
-				</div>
-
-				<!-- 모달컨텐츠2:팔로잉 -->
-				<div class="tab-pane fade" id="following" role="tabpanel"
-					aria-labelledby="pills-following-tab">
-					<c:if test="${empty followingList }" var="isEmpty">
-						<h5>아직 팔로잉한 친구들이 없어요</h5>
-					</c:if>
-					<c:if test="${!isEmpty }">
-						<c:forEach items="${followingList }" var="user" varStatus="status">
-							<div class="row followForm">
-								<div class="col-sm-4">
-									<img class="radiusImg" alt="팔로잉사진"
-										src="${user.userProfile==null?'https://www.clipartwiki.com/clipimg/detail/248-2480210_user-staff-man-profile-person-icon-circle-png.png': user.userProfile}" />
-								</div>
-								<div class="col-sm-5">
-									<a
-										href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${user.userNick }'/>"><span
-										class="actorSpan">${user.userNick }</span> </a>
-								</div>
-
-								<!-- 스위치 -->
-								<div class="custom-control custom-switch col-sm-3">
-									<input type="checkbox" class="custom-control-input"
-										id="bSwitch${status.index }" checked="checked"> <label
-										class="custom-control-label" for="bSwitch${status.index }"
-										style=""></label>
-								</div>
-
-							</div>
-							<hr class="my-3" style="width: 450px">
-						</c:forEach>
-					</c:if>
-				</div>
-			</div>
-
-		</div>
-	</div>
-</div>
-
-<!-- 모달끝 -->
 
