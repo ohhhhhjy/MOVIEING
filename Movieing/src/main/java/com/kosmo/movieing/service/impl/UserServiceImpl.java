@@ -129,6 +129,12 @@ public class UserServiceImpl implements UserService{
 		return dao.selectImage(id);
 	}
 
+	@Override
+	public int updatePass(Map map) {
+		
+		return dao.updatePass(map);
+	}
+
 	
 
 }

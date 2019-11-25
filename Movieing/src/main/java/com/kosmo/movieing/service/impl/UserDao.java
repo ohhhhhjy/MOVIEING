@@ -129,6 +129,12 @@ public class UserDao implements UserService{
 		return template.selectOne("selectOneImage", id);
 	}
 
+	@Override
+	public int updatePass(Map map) {
+		
+		return template.update("updatePass", map);
+	}
+
 
 
 

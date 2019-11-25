@@ -19,8 +19,8 @@ public class QnaDao implements QnaService {
 	
 
 	@Override
-	public List<QnaDto> selectList(Map map) {
-		return template.selectList("selectQnaList",map);
+	public List<QnaDto> selectList() {
+		return template.selectList("selectQnaList");
 	}
 
 

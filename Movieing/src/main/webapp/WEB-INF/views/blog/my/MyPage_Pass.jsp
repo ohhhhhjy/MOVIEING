@@ -117,6 +117,28 @@
 	font-weight: bold;
 	text-align: center;
 }
+
+
+/* 모달 정중앙 */
+.modal {
+        text-align: center;
+}
+ 
+@media screen and (min-width: 768px) { 
+        .modal:before {
+                display: inline-block;
+                vertical-align: middle;
+                content: " ";
+                height: 100%;
+        }
+}
+ 
+.modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+}
+
 </style>
 
 
@@ -270,9 +292,30 @@
 </div>
 
 
+
+<!-- 모달 -->
+
+		<div class="modal fade bd-example-modal-lg" tabindex="-1" id="modalPass"
+			role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content p-4">
+					<div class="well">
+						<div class="row">
+							<div class="col-md-12" style="padding-top: 10px;padding-left: 10px;padding-right: 10px" id="content">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
 <script>
 
 $(function() {
+	
 	$('#pwmatch').text('이전 비밀번호가 일치하지 않습니다. ');
 	
 	$('#originPass').on('propertychange change input',function(){
@@ -295,6 +338,20 @@ $(function() {
 			$('#pwmatch').text('비밀번호와 일치하지 않습니다.');
 			}
 		});
+	
+	
+	
+	 var flag = '${flag}';
+	
+	
+	console.log("flag : "+flag);
+	
+	if(flag==1){
+		/* $('#content').text('비밀번호가 변경되었습니다. ');
+		$('#modalPass').modal('show'); */
+		alert("비밀번호가 변경되었습니다. ");
+	} 
+	
 });
 
 

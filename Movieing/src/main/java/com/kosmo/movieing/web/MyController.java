@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +22,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.kosmo.movieing.service.BuyDto;
 import com.kosmo.movieing.service.BuyService;
+import com.kosmo.movieing.service.QnaDto;
+import com.kosmo.movieing.service.QnaService;
 import com.kosmo.movieing.service.ReviewService;
 import com.kosmo.movieing.service.UserDto;
 import com.kosmo.movieing.service.UserService;
@@ -34,6 +37,8 @@ public class MyController {
 	private UserService userService;
 	@Resource(name="buyService")
 	private BuyService buyService;
+	@Resource(name="qnaService")
+	private QnaService qnaService;
 	
 	//이미지 수정
 	@PostMapping(value = "/Movieing/Blog/ImageUpdate.mov")
@@ -138,11 +143,19 @@ public class MyController {
 		return "blog/my/MyPage_Pass.tiles";
 	}
 	
+	
+	//비밀번호 변경
 	@RequestMapping("/Movieing/Blog/PassChange.mov")
-	public String pass_change(@RequestParam Map map, Authentication auth) {
+	public String pass_change(@RequestParam Map map, Authentication auth, Model model) {
 		String id = auth.getName();
-		
-		return "";
+		map.put("id", id);
+		//update 성공/실패 확인용
+		int flag = userService.updatePass(map);
+		System.out.println("flag : "+flag);
+		UserDto mypage = userService.selectOne(map);// 리스트전체조회
+		model.addAttribute("mypage", mypage);
+		model.addAttribute("flag", flag);
+		return "blog/my/MyPage_Pass.tiles";
 	}
 
 	// 마이페이지_허용범위]
@@ -215,7 +228,10 @@ public class MyController {
 
 	// 고객센터_메인
 	@RequestMapping("/Movieing/my/Customer.mov")
-	public String Customer() {
+	public String Customer(Authentication auth, Model model) {
+		String id = auth.getName();
+		List<QnaDto> list = qnaService.selectList();
+		model.addAttribute("qnaList", list);
 		return "my/Customer.tiles";
 	}
 
@@ -233,7 +249,19 @@ public class MyController {
 
 	// 작성글보기
 	@RequestMapping("/Movieing/my/Customer_View.mov")
-	public String Customer_View() {
+	public String Customer_View(Authentication auth, Model model, @RequestParam Map map) {
+		String id = auth.getName();
+		int qnaNo =Integer.parseInt(map.get("qnaNo").toString());
+		QnaDto bbs =  qnaService.selectOne(map);
+		int size = qnaService.selectList().size();
+		map.put("qnaNo", qnaNo+1);
+		String before = qnaNo+1>=size?"이전 글이 없어요":qnaService.selectOne(map).getQnaTitle();
+		map.put("qnaNo", qnaNo-1);
+		String after = qnaNo-1<=1?"다음 글이 없어요":qnaService.selectOne(map).getQnaTitle();
+		model.addAttribute("id", id);
+		model.addAttribute("bbs",bbs);
+		model.addAttribute("before", before);
+		model.addAttribute("after", after);
 		return "my/Customer_View.tiles";
 	}
 

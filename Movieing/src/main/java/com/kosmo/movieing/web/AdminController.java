@@ -65,7 +65,7 @@ public class AdminController {
 	@RequestMapping("/Movieing/admin/admin_qna.mov")
 	public String admin_qna(@RequestParam Map map, Model model) {
 		
-		List<QnaDto> qnaList = qnaService.selectList(map);
+		List<QnaDto> qnaList = qnaService.selectList();
 		
 		
 		JSONArray qnaJson = new JSONArray();

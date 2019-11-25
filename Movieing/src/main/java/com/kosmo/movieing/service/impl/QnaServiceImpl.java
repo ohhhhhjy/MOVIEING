@@ -18,8 +18,8 @@ public class QnaServiceImpl implements QnaService {
 	
 
 	@Override
-	public List<QnaDto> selectList(Map map) {
-		return dao.selectList(map);
+	public List<QnaDto> selectList() {
+		return dao.selectList();
 	}
 
 
@@ -48,7 +48,8 @@ public class QnaServiceImpl implements QnaService {
 	public int reply(Map map) {
 		return dao.reply(map);
 	}
-	
+
+
 	
 
 }
