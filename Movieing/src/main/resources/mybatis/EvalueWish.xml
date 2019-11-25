@@ -72,7 +72,7 @@
 	
 	<!-- 평가 영화 리스트넣기 -->
 	<insert id="insertEvalue" parameterType="java.util.Map"><!-- 기본별점null -->
-	insert into EVALUATION values(#{id},#{movieNo},null,SYSDATE)
+	insert into EVALUATION values(#{id},#{movieNo},#{evaluationGrade},SYSDATE)
 	</insert>
 	
 	<!-- 특정영화 평점뿌리기 -->

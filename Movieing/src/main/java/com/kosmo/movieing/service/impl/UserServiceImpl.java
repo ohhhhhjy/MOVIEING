@@ -129,6 +129,11 @@ public class UserServiceImpl implements UserService{
 		return dao.selectImage(id);
 	}
 
-	
+	@Override
+	public List<UserDto> AllUserNick(Map map) {
+		return dao.selectAllUserList(map);
+	}
+
+
 
 }

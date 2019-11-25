@@ -4584,18 +4584,12 @@ px
 		}
 	});
 
-	/*스마트 에디터*/
-	/*
-	$(function() {
-		var oEditors = [];
-		nhn.husky.EZCreator.createInIFrame({
-					oAppRef : oEditors,
-					elPlaceHolder : "weditor",
-					sSkinURI : "<c:url value='/webapp/smarteditor2-master/workspace/static/SmartEditor2Skin.html'/>",
-					fCreator : "createSEditor2"
-				});
+	$(function(){
+		var grade='${evaluationGrade}';
+		$(".btnrating").get(grade-1).click();
+		
 	});
-	*/
+
 </script>
 
 
@@ -4662,27 +4656,7 @@ px
 				<!-- Email -->
 				<div style="padding-bottom: 10px"></div>
 				<h5>평점</h5>
-				<!--  
-			<div class="container">
-				<div class="feedback">
-					<div class="rating col-md-3" align="left" name="grade"
-						style="margin-left: -70px" required="required">
-					
-							<input type="radio" name="rating" id="rating-5"> <label
-								for="rating-5"></label> <input type="radio" name="rating"
-								id="rating-4"> <label for="rating-4"></label> <input
-								type="radio" name="rating" id="rating-3"> <label
-								for="rating-3"></label> <input type="radio" name="rating"
-								id="rating-2"> <label for="rating-2"></label> <input
-								type="radio" name="rating" id="rating-1"> <label
-								for="rating-1"></label>
-					
-					</div>
-				</div>
 
-			</div>
-			
-			-->
 
 				<div class="form-group" id="rating-ability-wrapper">
 					<label class="control-label" for="rating"> <span
