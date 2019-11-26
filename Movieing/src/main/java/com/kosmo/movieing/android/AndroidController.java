@@ -150,7 +150,7 @@ public class AndroidController {
 		json.put("googlePrice",dto.getGooglePrice());
 
 		json.put("movieContent", URLEncoder.encode(dto.getMovieContent(), "UTF-8"));
-		json.put("movieDirector", URLEncoder.encode(dto.getMovieDirector(), "UTF-8"));
+		json.put("movieDirector", URLEncoder.encode(dto.getMovieDirector()==null?"감독":dto.getMovieDirector(), "UTF-8"));
 		json.put("movieGrade", URLEncoder.encode(dto.getMovieGrade(), "UTF-8"));//영화관람가
 
 		return json.toJSONString();
