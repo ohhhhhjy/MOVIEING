@@ -17,9 +17,16 @@ public class MovieDto {
     private String naverPrice;
     private String wavvePrice;
     private String googlePrice;
-    
-    
-    
+    private String grade;
+
+
+
+	public String getGrade() {
+		return grade;
+	}
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
 	public String getMovieNo() {
 		return movieNo;
 	}
@@ -104,8 +111,8 @@ public class MovieDto {
 	public void setGooglePrice(String googlePrice) {
 		this.googlePrice = googlePrice;
 	}
-	
-	
+
+
 
 
 }

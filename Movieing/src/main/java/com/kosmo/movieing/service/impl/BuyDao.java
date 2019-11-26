@@ -36,5 +36,10 @@ public class BuyDao implements BuyService {
 	public List<BuyDto> selectList(Map map) {
 		return template.selectList("buySelect",map);
 	}
+
+	@Override
+	public int totalAmount(Map map) {
+		return template.selectOne("buyAmountTotal",map);
+	}
 	
 }

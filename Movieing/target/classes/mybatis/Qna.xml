@@ -7,11 +7,7 @@
 	<select id="selectQnaList" resultType="QnaDto">
 		select * from qna order by qna_no desc
 	</select>
-	
-	<select id="selectNotiOne" parameterType="java.util.Map" resultType="QnaDto">
-		select * from qna where qna_no=#{qnaNo}
-	</select>
-	
+
 	<select id="selectQnaOne" parameterType="java.util.Map" resultType="QnaDto">
 		select * from qna where qna_no=#{qnaNo} 
 	</select>

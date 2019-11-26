@@ -13,5 +13,9 @@
 	<select id="buyListTotal" parameterType="java.util.Map" resultType="int">
 		select count(*) from buy where user_id=#{userId, jdbcType=VARCHAR}
 	</select>
+	
+	<select id="buyAmountTotal" parameterType="java.util.Map" resultType="int">
+		select sum(g.price*b.quantity) from  goods g join buy b on b.goods_no=g.goods_no
+	</select>
 
 </mapper>

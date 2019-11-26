@@ -149,6 +149,12 @@ public class ReviewServiceImpl implements ReviewService{
 		return dao.selectMyReviewOne(map);
 	}
 
+	@Override
+	public int selectReviewCount(Map map) {
+		// TODO Auto-generated method stub
+		return dao.selectReviewCount(map);
+	}
+
 
 
 

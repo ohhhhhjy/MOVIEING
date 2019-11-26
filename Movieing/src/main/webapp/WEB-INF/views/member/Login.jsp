@@ -87,7 +87,7 @@
 						<label>| </label>
 						<div style="padding-left: 10px"></div>
 						<label><a
-							href="<c:url value='/Movieing/Member/SignUp.mov'/>">회원가입</a></label>
+							href="<c:url value='/Movieing/Member/SignUp.mov'/>" style="color: black;">회원가입</a></label>
 	
 					</div>
 	
@@ -108,21 +108,22 @@
 		<br>
 	</div>
 </div> --%>
-
+<%-- 
 <!-- 네이버 로그인 창으로 이동 -->
 <div class="row d-flex justify-content-center" >
-<div id="naver_id_login" style="text-align:center"><a href="${url}">
-<img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a>
-
-	<div id="google_id_login"
-		style="text-align: center; ">
-		<div class="g-signin2" data-onsuccess="onSignIn"></div>
-		<!-- data-onsucess: 로그인 성공시 onSignIn함수실행  -->
-
+	<div id="naver_id_login" style="text-align:center">
+		<a href="${url}">
+			<img width="50" height="50" src="https://t1.daumcdn.net/cfile/tistory/99117C3F5D04CEE519"/>
+		</a>
 	</div>
+	<div id="google_id_login" style="text-align: center; ">
+		<div class="g-signin2" data-onsuccess="onSignIn">
+		</div>
+			<!-- data-onsucess: 로그인 성공시 onSignIn함수실행  -->
+		
 	</div>
 	
-</div>
+</div> --%>
 
 <script>
 //구글 로그인 후, 호출되는 함수

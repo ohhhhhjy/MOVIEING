@@ -150,5 +150,10 @@ public class ReviewDao implements ReviewService{
 		return template.selectOne("selectMyReviewOne", map);
 	}
 
+	@Override
+	public int selectReviewCount(Map map) {
+		return template.selectOne("selectReviewCount",map);
+	}
+
 
 }

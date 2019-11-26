@@ -5,16 +5,16 @@
 <mapper namespace="mybatis.Notice">
 
 	<select id="selectNotiList" parameterType="java.util.Map" resultType="NoticeDto">
-		select * from notice
+		select * from notice order by noti_no
 	</select>
 	
 	<select id="selectNotiOne" parameterType="java.util.Map" resultType="NoticeDto">
-		select * where noti_no=#{notiNo}
+		select * from notice where noti_no=#{notiNo}
 	</select>
 	
 	
 	<insert id="insertNotice" parameterType="java.util.Map">
-		insert into notice values(seq_noti.nextval,#{notiTitle},#{notiContent},default)
+		insert into notice values(seq_notice.nextval,#{notiTitle, jdbcType=VARCHAR},#{notiContent, jdbcType=VARCHAR},default)
 	</insert>
 	
 	<update id="updateNotice" parameterType="java.util.Map">
