@@ -177,7 +177,7 @@
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-4 text-center">
                         <h4><span class="fa fa-money"></span> 매출</h4>
-                        <h3>200,000 ￦</h3>
+                        <h3>${totalBuy} ￦</h3>
                     </div>
                 </div>
             </div>

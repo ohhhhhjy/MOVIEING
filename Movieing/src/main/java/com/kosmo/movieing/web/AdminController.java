@@ -1,6 +1,7 @@
 package com.kosmo.movieing.web;
 
 import java.nio.file.FileSystems;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kosmo.movieing.service.BuyService;
 import com.kosmo.movieing.service.NoticeDto;
 import com.kosmo.movieing.service.NoticeService;
 import com.kosmo.movieing.service.QnaDto;
@@ -39,6 +41,11 @@ public class AdminController {
 	@Resource(name="reviewService")
 	private ReviewService reviewService;
 	
+	@Resource(name="buyService")
+	private BuyService buyService;
+	
+	
+	
 
 	// 관리자페이지]
 	@RequestMapping("/Movieing/admin/admin_main.mov")
@@ -48,6 +55,10 @@ public class AdminController {
 		model.addAttribute("totalUser",totalUser);
 		int totalReview = reviewService.selectReviewCount(map);
 		model.addAttribute("totalReview", totalReview);
+		int totalBuy = buyService.totalAmount(map);
+		DecimalFormat dc = new DecimalFormat("###,###,###,###");
+		String totalBuyDC = dc.format(totalBuy);
+		model.addAttribute("totalBuy", totalBuyDC);
 		
 		JSONArray userJson = new JSONArray();
 		int day = 24*60*60*1000;
