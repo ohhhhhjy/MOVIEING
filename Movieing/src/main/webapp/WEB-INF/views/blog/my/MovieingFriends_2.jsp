@@ -508,7 +508,7 @@ $(function(){
 
 
 									<!-- 모달 띄우기 -->
-									<div align="right" style="padding-left: 550px">
+									<div align="right" style="padding-left: 500px">
 										<button class="btn btn-link dropdown-toggle" type="button"
 											id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
 											aria-expanded="false" data-target="#myModal${status.index }"
@@ -596,7 +596,7 @@ $(function(){
 
 							<div class="text-muted h7 mb-2" style="padding-top: 20px">
 								<i class="fa fa-clock-o"
-									style="padding-bottom: 10px; padding-left: 5px"></i>${item.reviewPostdate }
+									style="padding-bottom: 10px; padding-left: 5px"></i>${reviewPostdate }
 								<div class="row">
 
 									<h6 style="padding-left: 20px">좋아요</h6>
@@ -651,7 +651,7 @@ $(function(){
 								href="#collapse${status.index }" data-toggle="collapse"
 								data-parent="#accordion" class="card-link">
 								-->
-								<a href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>" style="padding-left: 5px">
+								<a href="<c:url value='/Movieing/Blog/My/BlogReviews2.mov?reviewNo=${item.reviewNo }'/>" style="padding-left: 5px">
 								<i
 								class="fa fa-comment"></i> 댓글</a>
 							<!--  
@@ -733,19 +733,6 @@ $(function(){
 				</div>
 
 
-			<!-- 버튼: 시간순/인기순 -->
-			<!--  
-				<div style="padding-bottom: 50px">
-					<select class="form-control" style="text-align: center;" name="select">
-						<option value="1">시간 순</option>
-						<option value="2">좋아요 순</option>
-						<option value="3">댓글 순</option>
-
-					</select>
-				</div>
--->
-
-
 				<div class="card">
 
 					<div class="card-body">
@@ -797,19 +784,22 @@ $(function(){
 								<!-- 제일큰 바디 다이브 -->
 								<div
 									style="overflow: auto; overflow-x: hidden; width: 220px; height: 300px;">
-
+							
+									
 									<!-- 한 사람 시작 -->
 									<c:forEach items="${selectFollowList }" var="item"> 
 									<div class="row profileForm" style="padding-left: 10px">
 										<div style="padding-left: 10px">
 											<img class="radiusSmallImg" alt="배우사진"
-												src="<c:url value='/resources/img/friends/boy.png'/>" />
+												src="${item.userProfile }" />
 										</div>
-										<div style="padding-left: 10px">
+										<div style="padding-left: 10px;text-align: center;">
+										<a
+											href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${item.userNick }'/>"
+											target="_self">
 											<span class="timeLineText"
-												style="font-size: 1.0em; color: black;">${item.following }</span>
-											<h6 class="actorSpan" style="font-size: 0.5em; color: black;">1시간전</h6>
-
+												style="font-size: 1.0em; color: black;text-align: center;">${item.userNick }</span>
+												</a>
 										</div>
 
 									</div>

@@ -4615,18 +4615,7 @@ px
 		}
 	});
 
-	/*스마트 에디터*/
-	/*
-	$(function() {
-		var oEditors = [];
-		nhn.husky.EZCreator.createInIFrame({
-					oAppRef : oEditors,
-					elPlaceHolder : "weditor",
-					sSkinURI : "<c:url value='/webapp/smarteditor2-master/workspace/static/SmartEditor2Skin.html'/>",
-					fCreator : "createSEditor2"
-				});
-	});
-	*/
+
 </script>
 
 

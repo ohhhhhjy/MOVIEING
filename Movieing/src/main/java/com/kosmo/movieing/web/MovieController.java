@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosmo.movieing.service.CommentDto;
 import com.kosmo.movieing.service.CommentService;
+import com.kosmo.movieing.service.EvaluationDto;
 import com.kosmo.movieing.service.EvalueWishService;
 import com.kosmo.movieing.service.FilmographyDto;
 import com.kosmo.movieing.service.FilmographyService;
@@ -65,7 +66,7 @@ public class MovieController {
 	@Resource(name = "commentService")
 	private CommentService commentService;
 
-	@Resource(name="evalueWishService")
+	@Resource(name = "evalueWishService")
 	private EvalueWishService evalueWishService;
 
 	@Resource(name = "movieService")
@@ -80,19 +81,17 @@ public class MovieController {
 	@Resource(name = "stillCutService")
 	private StillCutService stillCutService;
 
-
 	@Resource(name = "filmographyService")
 	private FilmographyService filmoGraphyService;
 
 	@Resource(name = "likeReviewService")
 	private LikeReviewService likeReviewService;
 
-
 	// 전체영화
 	@RequestMapping("/Movieing/Movie/AllMovie.mov")
-	public String movieMain(Model model, @RequestParam Map map,Authentication auth) throws Exception {
-		if(map.get("genre")!=null) {
-			model.addAttribute("genre","animation");
+	public String movieMain(Model model, @RequestParam Map map, Authentication auth) throws Exception {
+		if (map.get("genre") != null) {
+			model.addAttribute("genre", "animation");
 		}
 		map.put("id", auth.getName());
 		System.out.println("AllMovie - 1 디비 가져오기 전");
@@ -140,60 +139,44 @@ public class MovieController {
 		return "movie/list/AllMovie.tiles";
 	}////////////////// movieMain
 
-
 	@RequestMapping("/Movieing/Movie/NewMovie.mov")
 	public String movieNew(Model model, @RequestParam Map map, Authentication auth) throws Exception {
 		map.put("id", auth.getName());
 		System.out.println("NewMovie 1 - DB 받아오기 전");
-			List<MovieDto> newMovieList = movieService.selectListNewRandom(map);
+		List<MovieDto> newMovieList = movieService.selectListNewRandom(map);
 		System.out.println("NewMovie 2 - newMoveList 생성 완료");
-			model.addAttribute("newMovieList", newMovieList);
+		model.addAttribute("newMovieList", newMovieList);
 		System.out.println("NewMovie 3 - movieList 전달 완료");
 
 		return "movie/list/NewMovie.tiles";
 		/*
-		// List<Map> mData = new Vector<Map>();
-		// Map<K, V> mNameDate = new HashMap();
-		List mNames = new Vector();
-		List mDate = new Vector();
-		List mList = movieTrain();
-		JSONObject json = new JSONObject();
-		JSONArray jArray = new JSONArray();
-		/*
-		 * for(int j=0; j<3;j++) { for(int i=j*6; i<j*6+6; i++) { System.out.println(i);
-		 * System.out.println(mlist.get(i)); mNames.add(movieImgUrl((String)
-		 * mlist.get(i))); //System.out.println(mNames.get(i)); //System.out.println();
-		 * } }
-		try {
-			for (int i = 0; i < 18; i++) {
-				mNames.add(movieImgUrl((String) mList.get(i)).get("realUrl"));
-				mDate.add(movieImgUrl((String) mList.get(i)).get("date"));
-				JSONObject obj = new JSONObject();
-				obj.put("realUrl", mNames.get(i));
-				obj.put("date", mDate.get(i));
-				obj.put("mname", mList.get(i));
-				jArray.add(obj);
-				// mNameDate.put((movieImgUrl((String)
-				// mList.get(i)).get("realUrl")),(movieImgUrl((String)
-				// mList.get(i)).get("date")));
-				// mNameDate.put("mImgUrl",movieImgUrl((String) mList.get(i)).get("realUrl"));
-				// mNameDate.put("mPubDate", movieImgUrl((String) mList.get(i)).get("date"));
-				// mData.add(mNameDate);
-				if (i % 5 == 0) {
-					Thread.sleep(1000);
-				}
-				// System.out.println("영화 제목 "+i+":"+mList.get(i));
-				// System.out.println("이미지 소스 "+i+":"+mNameDate.get("mImgUrl"));
-				// System.out.println("영화 제작 년도 "+i+":"+mNameDate.get("mPubDate"));
-				// System.out.println("영화 ?? "+i+":"+mNameDate.get(i));
-				// System.out.println("이미지 소스 "+i+":"+mNames.get(i));
-				// System.out.println("영화 제작 년도 "+i+":"+mDate.get(i));
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		// 영화이미지*/
+		 * // List<Map> mData = new Vector<Map>(); // Map<K, V> mNameDate = new
+		 * HashMap(); List mNames = new Vector(); List mDate = new Vector(); List mList
+		 * = movieTrain(); JSONObject json = new JSONObject(); JSONArray jArray = new
+		 * JSONArray(); /* for(int j=0; j<3;j++) { for(int i=j*6; i<j*6+6; i++) {
+		 * System.out.println(i); System.out.println(mlist.get(i));
+		 * mNames.add(movieImgUrl((String) mlist.get(i)));
+		 * //System.out.println(mNames.get(i)); //System.out.println(); } } try { for
+		 * (int i = 0; i < 18; i++) { mNames.add(movieImgUrl((String)
+		 * mList.get(i)).get("realUrl")); mDate.add(movieImgUrl((String)
+		 * mList.get(i)).get("date")); JSONObject obj = new JSONObject();
+		 * obj.put("realUrl", mNames.get(i)); obj.put("date", mDate.get(i));
+		 * obj.put("mname", mList.get(i)); jArray.add(obj); //
+		 * mNameDate.put((movieImgUrl((String) //
+		 * mList.get(i)).get("realUrl")),(movieImgUrl((String) //
+		 * mList.get(i)).get("date"))); // mNameDate.put("mImgUrl",movieImgUrl((String)
+		 * mList.get(i)).get("realUrl")); // mNameDate.put("mPubDate",
+		 * movieImgUrl((String) mList.get(i)).get("date")); // mData.add(mNameDate); if
+		 * (i % 5 == 0) { Thread.sleep(1000); } //
+		 * System.out.println("영화 제목 "+i+":"+mList.get(i)); //
+		 * System.out.println("이미지 소스 "+i+":"+mNameDate.get("mImgUrl")); //
+		 * System.out.println("영화 제작 년도 "+i+":"+mNameDate.get("mPubDate")); //
+		 * System.out.println("영화 ?? "+i+":"+mNameDate.get(i)); //
+		 * System.out.println("이미지 소스 "+i+":"+mNames.get(i)); //
+		 * System.out.println("영화 제작 년도 "+i+":"+mDate.get(i)); }
+		 *
+		 * } catch (Exception e) { e.printStackTrace(); } // 영화이미지
+		 */
 		// System.out.println("이미지소스 리스트 :"+mNames);
 		// System.out.println("영화제작년도 리스트 :"+mDate);
 		// System.out.println("제이슨 객체 :"+jArray);
@@ -201,172 +184,136 @@ public class MovieController {
 		// model.addAttribute("moviePubDate", mDate);
 		// model.addAttribute("movieName", mList);
 		// model.addAttribute("movieImgDate", mNameDate);
-		//model.addAttribute("movieImgDate", jArray);
+		// model.addAttribute("movieImgDate", jArray);
 	}/////////////////
-	//NewMovie.jsp
-	//////////////////////////////////////////////////////////////////////////////////////////////
+		// NewMovie.jsp
+		//////////////////////////////////////////////////////////////////////////////////////////////
+
 	@RequestMapping("/Movieing/Movie/Popular.mov")
-	public String moviePopular(Model model, @RequestParam Map map,Authentication auth) throws Exception {
+	public String moviePopular(Model model, @RequestParam Map map, Authentication auth) throws Exception {
 		map.put("id", auth.getName());
 		System.out.println("popMovie 1 - DB 받아오기 전");
 		List<MovieDto> popMovieList = movieService.selectListRandom(map);
-	System.out.println("popMovie 2 - popMovieList 생성 완료");
+		System.out.println("popMovie 2 - popMovieList 생성 완료");
 		model.addAttribute("popMovieList", popMovieList);
-	System.out.println("popMovie 3 - popMovieList 전달 완료");
+		System.out.println("popMovie 3 - popMovieList 전달 완료");
 
 		return "movie/list/Popular.tiles";
 		/*
-		// List<Map> mData = new Vector<Map>();
-		// Map<K, V> mNameDate = new HashMap();
-		List mNames = new Vector();
-		List mDate = new Vector();
-		List mList = movieTrain2();
-		JSONObject json = new JSONObject();
-		JSONArray jArray = new JSONArray();
-		/*
-		 * for(int j=0; j<3;j++) { for(int i=j*6; i<j*6+6; i++) { System.out.println(i);
-		 * System.out.println(mlist.get(i)); mNames.add(movieImgUrl((String)
-		 * mlist.get(i))); //System.out.println(mNames.get(i)); //System.out.println();
-		 * } }
-		try {
-			for (int i = 0; i < 18; i++) {
-				mNames.add(movieImgUrl((String) mList.get(i)).get("realUrl"));
-				mDate.add(movieImgUrl((String) mList.get(i)).get("date"));
-				JSONObject obj = new JSONObject();
-				obj.put("realUrl", mNames.get(i));
-				obj.put("date", mDate.get(i));
-				obj.put("mname", mList.get(i));
-				jArray.add(obj);
-				// mNameDate.put((movieImgUrl((String)
-				// mList.get(i)).get("realUrl")),(movieImgUrl((String)
-				// mList.get(i)).get("date")));
-				// mNameDate.put("mImgUrl",movieImgUrl((String) mList.get(i)).get("realUrl"));
-				// mNameDate.put("mPubDate", movieImgUrl((String) mList.get(i)).get("date"));
-				// mData.add(mNameDate);
-				if (i % 5 == 0) {
-					Thread.sleep(1000);
-				}
-				// System.out.println("영화 제목 "+i+":"+mList.get(i));
-				// System.out.println("이미지 소스 "+i+":"+mNameDate.get("mImgUrl"));
-				// System.out.println("영화 제작 년도 "+i+":"+mNameDate.get("mPubDate"));
-				// System.out.println("영화 ?? "+i+":"+mNameDate.get(i));
-				// System.out.println("이미지 소스 "+i+":"+mNames.get(i));
-				// System.out.println("영화 제작 년도 "+i+":"+mDate.get(i));
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		// 영화이미지
-		// System.out.println("이미지소스 리스트 :"+mNames);
-		// System.out.println("영화제작년도 리스트 :"+mDate);
-		// System.out.println("제이슨 객체 :"+jArray);
-		// model.addAttribute("movieImgUrl", mNames);
-		// model.addAttribute("moviePubDate", mDate);
-		// model.addAttribute("movieName", mList);
-		// model.addAttribute("movieImgDate", mNameDate);
-		model.addAttribute("movieImgDate", jArray);
-		return "movie/list/Popular.tiles";
-		*/
+		 * // List<Map> mData = new Vector<Map>(); // Map<K, V> mNameDate = new
+		 * HashMap(); List mNames = new Vector(); List mDate = new Vector(); List mList
+		 * = movieTrain2(); JSONObject json = new JSONObject(); JSONArray jArray = new
+		 * JSONArray(); /* for(int j=0; j<3;j++) { for(int i=j*6; i<j*6+6; i++) {
+		 * System.out.println(i); System.out.println(mlist.get(i));
+		 * mNames.add(movieImgUrl((String) mlist.get(i)));
+		 * //System.out.println(mNames.get(i)); //System.out.println(); } } try { for
+		 * (int i = 0; i < 18; i++) { mNames.add(movieImgUrl((String)
+		 * mList.get(i)).get("realUrl")); mDate.add(movieImgUrl((String)
+		 * mList.get(i)).get("date")); JSONObject obj = new JSONObject();
+		 * obj.put("realUrl", mNames.get(i)); obj.put("date", mDate.get(i));
+		 * obj.put("mname", mList.get(i)); jArray.add(obj); //
+		 * mNameDate.put((movieImgUrl((String) //
+		 * mList.get(i)).get("realUrl")),(movieImgUrl((String) //
+		 * mList.get(i)).get("date"))); // mNameDate.put("mImgUrl",movieImgUrl((String)
+		 * mList.get(i)).get("realUrl")); // mNameDate.put("mPubDate",
+		 * movieImgUrl((String) mList.get(i)).get("date")); // mData.add(mNameDate); if
+		 * (i % 5 == 0) { Thread.sleep(1000); } //
+		 * System.out.println("영화 제목 "+i+":"+mList.get(i)); //
+		 * System.out.println("이미지 소스 "+i+":"+mNameDate.get("mImgUrl")); //
+		 * System.out.println("영화 제작 년도 "+i+":"+mNameDate.get("mPubDate")); //
+		 * System.out.println("영화 ?? "+i+":"+mNameDate.get(i)); //
+		 * System.out.println("이미지 소스 "+i+":"+mNames.get(i)); //
+		 * System.out.println("영화 제작 년도 "+i+":"+mDate.get(i)); }
+		 *
+		 * } catch (Exception e) { e.printStackTrace(); } // 영화이미지 //
+		 * System.out.println("이미지소스 리스트 :"+mNames); //
+		 * System.out.println("영화제작년도 리스트 :"+mDate); //
+		 * System.out.println("제이슨 객체 :"+jArray); // model.addAttribute("movieImgUrl",
+		 * mNames); // model.addAttribute("moviePubDate", mDate); //
+		 * model.addAttribute("movieName", mList); // model.addAttribute("movieImgDate",
+		 * mNameDate); model.addAttribute("movieImgDate", jArray); return
+		 * "movie/list/Popular.tiles";
+		 */
 	}//////////////////////// moviePopular
 
 	@RequestMapping("/Movieing/Movie/Genre.mov")
-	public String movieGenre(Model model, @RequestParam Map map,Authentication auth) throws Exception {
+	public String movieGenre(Model model, @RequestParam Map map, Authentication auth) throws Exception {
 		map.put("id", auth.getName());
 		System.out.println("GradeMovie 1 - DB 받아오기 전");
-			List<MovieDto> StarMovieList = movieService.selectListRandom(map);
+		List<MovieDto> StarMovieList = movieService.selectListRandom(map);
 		System.out.println("GradeMovie 2 - popMovieList 생성 완료");
-			model.addAttribute("StarMovieList", StarMovieList);
+		model.addAttribute("StarMovieList", StarMovieList);
 		System.out.println("GradeMovie 3 - popMovieList 전달 완료");
 
-
 		return "movie/list/Genre.tiles";
 		/*
-		// List<Map> mData = new Vector<Map>();
-		// Map<K, V> mNameDate = new HashMap();
-		List mNames = new Vector();
-		List mDate = new Vector();
-		List mList = movieTrain3();
-
-		JSONObject json = new JSONObject();
-		JSONArray jArray = new JSONArray();
-
-		/*
-		 * for(int j=0; j<3;j++) { for(int i=j*6; i<j*6+6; i++) { System.out.println(i);
-		 * System.out.println(mlist.get(i)); mNames.add(movieImgUrl((String)
-		 * mlist.get(i))); //System.out.println(mNames.get(i)); //System.out.println();
-		 * } }
-
-		try {
-			for (int i = 0; i < 18; i++) {
-
-				mNames.add(movieImgUrl((String) mList.get(i)).get("realUrl"));
-				mDate.add(movieImgUrl((String) mList.get(i)).get("date"));
-
-				JSONObject obj = new JSONObject();
-				obj.put("realUrl", mNames.get(i));
-				obj.put("date", mDate.get(i));
-				obj.put("mname", mList.get(i));
-
-				jArray.add(obj);
-
-				// mNameDate.put((movieImgUrl((String)
-				// mList.get(i)).get("realUrl")),(movieImgUrl((String)
-				// mList.get(i)).get("date")));
-
-				// mNameDate.put("mImgUrl",movieImgUrl((String) mList.get(i)).get("realUrl"));
-				// mNameDate.put("mPubDate", movieImgUrl((String) mList.get(i)).get("date"));
-
-				// mData.add(mNameDate);
-
-				if (i % 5 == 0) {
-					Thread.sleep(1000);
-				}
-				// System.out.println("영화 제목 "+i+":"+mList.get(i));
-				// System.out.println("이미지 소스 "+i+":"+mNameDate.get("mImgUrl"));
-				// System.out.println("영화 제작 년도 "+i+":"+mNameDate.get("mPubDate"));
-				// System.out.println("영화 ?? "+i+":"+mNameDate.get(i));
-				// System.out.println("이미지 소스 "+i+":"+mNames.get(i));
-				// System.out.println("영화 제작 년도 "+i+":"+mDate.get(i));
-
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		// 영화이미지
-		// System.out.println("이미지소스 리스트 :"+mNames);
-		// System.out.println("영화제작년도 리스트 :"+mDate);
-		// System.out.println("제이슨 객체 :"+jArray);
-
-		// model.addAttribute("movieImgUrl", mNames);
-		// model.addAttribute("moviePubDate", mDate);
-		// model.addAttribute("movieName", mList);
-		// model.addAttribute("movieImgDate", mNameDate);
-		model.addAttribute("movieImgDate", jArray);
-		return "movie/list/Genre.tiles";
-	///////////////// movieGenre
-		*/
+		 * // List<Map> mData = new Vector<Map>(); // Map<K, V> mNameDate = new
+		 * HashMap(); List mNames = new Vector(); List mDate = new Vector(); List mList
+		 * = movieTrain3();
+		 *
+		 * JSONObject json = new JSONObject(); JSONArray jArray = new JSONArray();
+		 *
+		 * /* for(int j=0; j<3;j++) { for(int i=j*6; i<j*6+6; i++) {
+		 * System.out.println(i); System.out.println(mlist.get(i));
+		 * mNames.add(movieImgUrl((String) mlist.get(i)));
+		 * //System.out.println(mNames.get(i)); //System.out.println(); } }
+		 *
+		 * try { for (int i = 0; i < 18; i++) {
+		 *
+		 * mNames.add(movieImgUrl((String) mList.get(i)).get("realUrl"));
+		 * mDate.add(movieImgUrl((String) mList.get(i)).get("date"));
+		 *
+		 * JSONObject obj = new JSONObject(); obj.put("realUrl", mNames.get(i));
+		 * obj.put("date", mDate.get(i)); obj.put("mname", mList.get(i));
+		 *
+		 * jArray.add(obj);
+		 *
+		 * // mNameDate.put((movieImgUrl((String) //
+		 * mList.get(i)).get("realUrl")),(movieImgUrl((String) //
+		 * mList.get(i)).get("date")));
+		 *
+		 * // mNameDate.put("mImgUrl",movieImgUrl((String)
+		 * mList.get(i)).get("realUrl")); // mNameDate.put("mPubDate",
+		 * movieImgUrl((String) mList.get(i)).get("date"));
+		 *
+		 * // mData.add(mNameDate);
+		 *
+		 * if (i % 5 == 0) { Thread.sleep(1000); } //
+		 * System.out.println("영화 제목 "+i+":"+mList.get(i)); //
+		 * System.out.println("이미지 소스 "+i+":"+mNameDate.get("mImgUrl")); //
+		 * System.out.println("영화 제작 년도 "+i+":"+mNameDate.get("mPubDate")); //
+		 * System.out.println("영화 ?? "+i+":"+mNameDate.get(i)); //
+		 * System.out.println("이미지 소스 "+i+":"+mNames.get(i)); //
+		 * System.out.println("영화 제작 년도 "+i+":"+mDate.get(i));
+		 *
+		 * }
+		 *
+		 * } catch (Exception e) { e.printStackTrace(); }
+		 *
+		 * // 영화이미지 // System.out.println("이미지소스 리스트 :"+mNames); //
+		 * System.out.println("영화제작년도 리스트 :"+mDate); //
+		 * System.out.println("제이슨 객체 :"+jArray);
+		 *
+		 * // model.addAttribute("movieImgUrl", mNames); //
+		 * model.addAttribute("moviePubDate", mDate); // model.addAttribute("movieName",
+		 * mList); // model.addAttribute("movieImgDate", mNameDate);
+		 * model.addAttribute("movieImgDate", jArray); return "movie/list/Genre.tiles";
+		 * ///////////////// movieGenre
+		 */
 	}
-
-
-
-
-
-
 
 	// 영화 상세 페이지
 	@RequestMapping("/Movieing/Movie/MovieDetails.mov")
-	public String movieDetailsTest(HttpServletRequest req, @RequestParam Map map, Model model, @RequestParam String movieNo,Authentication auth) throws Exception {
-		//지우지마
+	public String movieDetailsTest(HttpServletRequest req, @RequestParam Map map, Model model,
+			@RequestParam String movieNo, Authentication auth) throws Exception {
+		// 지우지마
 		map.put("id", auth.getName());
 		List<UserDto> movieUserList = userService.selectMovieUserList(map);
-		model.addAttribute("movieUserList",movieUserList.isEmpty()?null:movieUserList);
-		System.out.println("무비유저리스트"+movieUserList);
+		model.addAttribute("movieUserList", movieUserList.isEmpty() ? null : movieUserList);
+		System.out.println("무비유저리스트" + movieUserList);
 		System.out.println("MovieDetails 1  - map에 mname, date 넣기 전 :");
-		map.put("movieNo",movieNo);
-		System.out.println("MovieDetails 1-1 movieNo 값 : "+movieNo);
+		map.put("movieNo", movieNo);
+		System.out.println("MovieDetails 1-1 movieNo 값 : " + movieNo);
 
 		System.out.println("MovieDetails 2 - map에 mname, date 넣기 성공");
 
@@ -376,45 +323,41 @@ public class MovieController {
 
 		List<StillCutDto> stillCutList = stillCutService.searchStillCutList(map);
 
-		System.out.println("MovieDetails 5 - stillCutList 값 : "+ stillCutList);
+		System.out.println("MovieDetails 5 - stillCutList 값 : " + stillCutList);
 
-			if(movieInfo.getNaverPrice() != null)
-			{
-				System.out.println("MovieDetails 6 - naverPrice 변경 전 값 :"+movieInfo.getNaverPrice());
-				String naverPrice= movieInfo.getNaverPrice().substring(0,movieInfo.getNaverPrice().indexOf(".")).toString();
-				System.out.println("MovieDetails 6 - naverPrice 변경 후 값 : "+naverPrice);
-				movieInfo.setNaverPrice(naverPrice);
+		if (movieInfo.getNaverPrice() != null) {
+			System.out.println("MovieDetails 6 - naverPrice 변경 전 값 :" + movieInfo.getNaverPrice());
+			String naverPrice = movieInfo.getNaverPrice().substring(0, movieInfo.getNaverPrice().indexOf("."))
+					.toString();
+			System.out.println("MovieDetails 6 - naverPrice 변경 후 값 : " + naverPrice);
+			movieInfo.setNaverPrice(naverPrice);
 
-			}
-			if(movieInfo.getWavvePrice() != null) {
-				String wavvePrice = movieInfo.getWavvePrice().substring(0,movieInfo.getWavvePrice().indexOf("."));
-				movieInfo.setWavvePrice(wavvePrice);
-			}
-			if(movieInfo.getGooglePrice() != null) {
-				String googlePrice = movieInfo.getGooglePrice().substring(0,movieInfo.getGooglePrice().indexOf("."));
-				movieInfo.setGooglePrice(googlePrice);
-			}
+		}
+		if (movieInfo.getWavvePrice() != null) {
+			String wavvePrice = movieInfo.getWavvePrice().substring(0, movieInfo.getWavvePrice().indexOf("."));
+			movieInfo.setWavvePrice(wavvePrice);
+		}
+		if (movieInfo.getGooglePrice() != null) {
+			String googlePrice = movieInfo.getGooglePrice().substring(0, movieInfo.getGooglePrice().indexOf("."));
+			movieInfo.setGooglePrice(googlePrice);
+		}
 		model.addAttribute("movieNo", map.get("movieNo"));
 		model.addAttribute("movieInfo", movieInfo);
-		model.addAttribute("movieInfoMap",movieInfoMap(movieNo));
-		model.addAttribute("stillCutList",stillCutList.isEmpty()?null:stillCutList);
+		model.addAttribute("movieInfoMap", movieInfoMap(movieNo));
+		model.addAttribute("stillCutList", stillCutList.isEmpty() ? null : stillCutList);
 		/*
-		System.out.println("RequestMethod.GET");
-		System.out.println("name : " + mname);
-		System.out.println("date : " + date);
-
-		String mcode = moviecdGet(mname);
-
-		String mImgSource = (String) movieImgUrl(mname).get("realUrl");
-
-		// 영화상세정보
-		model.addAttribute("movieInfoMap", movieInfoMap(mcode));// 아직 해당영화 코드 가져올 방법이 없으므로 하드코딩
-		// 영화이미지
-		model.addAttribute("movieImgUrl", mImgSource);
-		System.out.println("movieImgUrl : " + movieImgUrl(mname));
-		*/
+		 * System.out.println("RequestMethod.GET"); System.out.println("name : " +
+		 * mname); System.out.println("date : " + date);
+		 *
+		 * String mcode = moviecdGet(mname);
+		 *
+		 * String mImgSource = (String) movieImgUrl(mname).get("realUrl");
+		 *
+		 * // 영화상세정보 model.addAttribute("movieInfoMap", movieInfoMap(mcode));// 아직 해당영화
+		 * 코드 가져올 방법이 없으므로 하드코딩 // 영화이미지 model.addAttribute("movieImgUrl", mImgSource);
+		 * System.out.println("movieImgUrl : " + movieImgUrl(mname));
+		 */
 		// 넘겨받은 영화코드 : movieNo. 임시로 넣어줌
-
 
 		// 페이징을 위한 로직]
 		int pageSize = 5;
@@ -442,152 +385,151 @@ public class MovieController {
 		for (ReviewDto record : reviewList) {
 			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
 			record.setLikeReviewEqual(false);
-			for(LikeReviewDto dto:likeReviewNoList) {
-				if(dto.getReviewNo().equals(record.getReviewNo())) {
+			for (LikeReviewDto dto : likeReviewNoList) {
+				if (dto.getReviewNo().equals(record.getReviewNo())) {
 					record.setLikeReviewEqual(true);
 				}
 			}
 		}
 
-
-
-		//System.out.println("MovieDetails - 6 reviewList.getUserId 값 :"+reviewList.get(0).getUserId());
-		model.addAttribute("reviewList", reviewList.isEmpty()?null:reviewList);
+		// System.out.println("MovieDetails - 6 reviewList.getUserId 값
+		// :"+reviewList.get(0).getUserId());
+		model.addAttribute("reviewList", reviewList.isEmpty() ? null : reviewList);
 
 		model.addAttribute("userNick", userService.userSelectList(map).get(0).getUserNick());
+
+		//보고싶어요한 영화 평점 뿌리기]일단 가져와
+		//내가 평가를 했는지의 유무]
+		if(evalueWishService.selectEvalueCount(map)==1) {//평가한 영화가 있다
+			EvaluationDto selectEvalueOne=evalueWishService.selectEvalueOne(map);
+			model.addAttribute("selectEvalueOne", selectEvalueOne);
+		}else {
+			model.addAttribute("selectEvalueOne", null);
+		}
+
+		//평점
+		//평점이 있는지의 유무]
+		if(evalueWishService.selectEvalueCountAll(map)>=1) {//있으면
+			double selectGradeAvg=evalueWishService.selectGradeAvg(map);
+			model.addAttribute("selectGradeAvg",Math.round(selectGradeAvg*100)/100.0);//둘째짜리
+		}else {
+			model.addAttribute("selectGradeAvg",null);//둘째짜리
+		}
+
+
 
 		return "movie/info/MovieDetails.tiles";
 	}
 	//////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
 	// 영화 평가 보여주기
 	@RequestMapping("/Movieing/Movie/screening/RatingMovie.mov")
-	public String ratingMovie(Model model, @RequestParam Map map,Authentication auth) throws Exception {
+	public String ratingMovie(Model model, @RequestParam Map map, Authentication auth) throws Exception {
 
-		//이거지우지마 영화평가 갯수넘겨줘야해
-		map.put("id",auth.getName());
+		// 이거지우지마 영화평가 갯수넘겨줘야해
+		map.put("id", auth.getName());
 		int evalueCount = evalueWishService.getTotalEvalueCount(map);
-		model.addAttribute("evalueCount",evalueCount);
+		model.addAttribute("evalueCount", evalueCount);
 
 		System.out.println("RatingMovie - 1 DB 가져오기 전");
 		List<MovieDto> movieList = movieService.selectListMovie(map);
 
 		System.out.println("RatingMovie - 2 movieList 값 저장");
-			model.addAttribute("movieList", movieList);
+		model.addAttribute("movieList", movieList);
 
 		System.out.println("RatingMovie - 3 값 전송 완료");
-		
-		//id
+
+		// id
 		model.addAttribute("id", auth.getName());
-		
+
 		return "movie/screening/RatingMovie.tiles";
 
 		/*
-		List movie40List = movie40Get();
-		JSONObject json = new JSONObject();
-		JSONArray jArray = new JSONArray();
-		List mImgUrl = new Vector();
-		List mDate = new Vector();
-		for (int i = 0; i < 40; i++) {
-			System.out.println("리스트 " + i + "번째 제목 : " + movie40List.get(i));
-		}
-		try {
-			for (int i = 0; i < 40; i++) {
-				mImgUrl.add(movieImgUrl((String) movie40List.get(i)).get("realUrl"));
-				mDate.add(movieImgUrl((String) movie40List.get(i)).get("date"));
-				JSONObject obj = new JSONObject();
-				obj.put("mname", movie40List.get(i));
-				obj.put("mImgUrl", mImgUrl.get(i));
-				obj.put("mdate", mDate.get(i));
-				jArray.add(obj);
-				if (i % 4 == 0) {
-					Thread.sleep(500);
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		System.out.println("이미지소스 리스트 :" + movie40List);
-		System.out.println("영화제작년도 리스트 :" + mDate);
-		System.out.println("json 객체 :" + jArray);
-		model.addAttribute("movieImgName", jArray);
+		 * List movie40List = movie40Get(); JSONObject json = new JSONObject();
+		 * JSONArray jArray = new JSONArray(); List mImgUrl = new Vector(); List mDate =
+		 * new Vector(); for (int i = 0; i < 40; i++) { System.out.println("리스트 " + i +
+		 * "번째 제목 : " + movie40List.get(i)); } try { for (int i = 0; i < 40; i++) {
+		 * mImgUrl.add(movieImgUrl((String) movie40List.get(i)).get("realUrl"));
+		 * mDate.add(movieImgUrl((String) movie40List.get(i)).get("date")); JSONObject
+		 * obj = new JSONObject(); obj.put("mname", movie40List.get(i));
+		 * obj.put("mImgUrl", mImgUrl.get(i)); obj.put("mdate", mDate.get(i));
+		 * jArray.add(obj); if (i % 4 == 0) { Thread.sleep(500); } } } catch (Exception
+		 * e) { e.printStackTrace(); } System.out.println("이미지소스 리스트 :" + movie40List);
+		 * System.out.println("영화제작년도 리스트 :" + mDate); System.out.println("json 객체 :" +
+		 * jArray); model.addAttribute("movieImgName", jArray);
 		 */
 	}
 ///////////////////////////////////////////ratingMovie
 
-	//필모그래피]-감독
+	// 필모그래피]-감독
 	@RequestMapping("/Movieing/Movie/Filmography.mov")
 
-/*
-	public String filmography(@RequestParam Map map,Model model) {
-		//사람 이름받기
-		String movieDirector=map.get("movieDirector").toString();
-		System.out.println("감독이름:"+movieDirector);
-
-		//이름에 맞는 정보가져오기-감독
-		MoviePeopleDto selectPeople=moviePeopleService.selectPeople(map);
-		model.addAttribute("selectPeople", selectPeople);
-		//영화정보
-		MoviePeopleDto selectPeopleMovie=moviePeopleService.selectPeopleMovie(map);
-		model.addAttribute("selectPeopleMovie", selectPeopleMovie);
-		*/
-	public String filmography(@RequestParam Map map,@RequestParam String moviePeopleName,Model model) {
+	/*
+	 * public String filmography(@RequestParam Map map,Model model) { //사람 이름받기
+	 * String movieDirector=map.get("movieDirector").toString();
+	 * System.out.println("감독이름:"+movieDirector);
+	 *
+	 * //이름에 맞는 정보가져오기-감독 MoviePeopleDto
+	 * selectPeople=moviePeopleService.selectPeople(map);
+	 * model.addAttribute("selectPeople", selectPeople); //영화정보 MoviePeopleDto
+	 * selectPeopleMovie=moviePeopleService.selectPeopleMovie(map);
+	 * model.addAttribute("selectPeopleMovie", selectPeopleMovie);
+	 */
+	public String filmography(@RequestParam Map map, @RequestParam String moviePeopleName, Model model) {
 		System.out.println("Filmography -1 : map 실어 값 보내기 성공");
-		//영화인 이름
+		// 영화인 이름
 		map.put("moviePeopleName", moviePeopleName);
 
-
-		//영화인 이름으로 영화인 번호 가져오기
-		//List<MoviePeopleDto> selectNoList = moviePeopleService.selectPeopleNoList(map);
+		// 영화인 이름으로 영화인 번호 가져오기
+		// List<MoviePeopleDto> selectNoList =
+		// moviePeopleService.selectPeopleNoList(map);
 		MoviePeopleDto moviePeopleInfo = moviePeopleService.selectMoviePeopleNameOne(map);
-		//영화인 코드, 영화 코드 반환
-		System.out.println("Filmograph -2.1 : moviePeopleInfo.getName : "+ moviePeopleInfo.getMoviePeopleName());
-		System.out.println("Filmograph -2.2 : moviePeopleInfo.getNo : "+ moviePeopleInfo.getMoviePeopleNo());
+		// 영화인 코드, 영화 코드 반환
+		System.out.println("Filmograph -2.1 : moviePeopleInfo.getName : " + moviePeopleInfo.getMoviePeopleName());
+		System.out.println("Filmograph -2.2 : moviePeopleInfo.getNo : " + moviePeopleInfo.getMoviePeopleNo());
 
-		String moviePeopleNo =moviePeopleInfo.getMoviePeopleNo();
-		System.out.println("Filmograph -3 : moviePeople :"+moviePeopleNo);
+		String moviePeopleNo = moviePeopleInfo.getMoviePeopleNo();
+		System.out.println("Filmograph -3 : moviePeople :" + moviePeopleNo);
 		map.put("moviePeopleNo", moviePeopleNo);
-		//번호 집어넣기
+		// 번호 집어넣기
 
-		//관련 영화 정보 가져오기
+		// 관련 영화 정보 가져오기
 		List<FilmographyDto> selectFilmoList = filmoGraphyService.selectFilmoList(map);
-		System.out.println("Filmography -4 : selectFilmoList 생성 완료 : "+selectFilmoList);
-		for(int i=0; i<selectFilmoList.size();i++) {
-			System.out.println("Filmography -4.1 : selectFilmoList(필모그래피 리스트).getMovieNo : "+selectFilmoList.get(i).getMovieNo());
-			System.out.println("Filmography -4.2 : selectFilmoList(필모그래피 리스트).getMoviePeopleNo : "+selectFilmoList.get(i).getMoviePeopleNo());
+		System.out.println("Filmography -4 : selectFilmoList 생성 완료 : " + selectFilmoList);
+		for (int i = 0; i < selectFilmoList.size(); i++) {
+			System.out.println("Filmography -4.1 : selectFilmoList(필모그래피 리스트).getMovieNo : "
+					+ selectFilmoList.get(i).getMovieNo());
+			System.out.println("Filmography -4.2 : selectFilmoList(필모그래피 리스트).getMoviePeopleNo : "
+					+ selectFilmoList.get(i).getMoviePeopleNo());
 		}
 		String movieNo;
 		MovieDto movieInfo;
 		List<MovieDto> movieInfoList = new Vector<MovieDto>();
 
-		for(int i=0;i<selectFilmoList.size();i++) {
+		for (int i = 0; i < selectFilmoList.size(); i++) {
 			movieNo = selectFilmoList.get(i).getMovieNo();
 			map.put("movieNo", movieNo);
 			movieInfo = movieService.selectOne(map);
 			movieInfoList.add(movieInfo);
 
-			System.out.println("Filmography 5 : movieInfoList : "+movieInfoList.get(i));
+			System.out.println("Filmography 5 : movieInfoList : " + movieInfoList.get(i));
 
 		}
 
-		model.addAttribute("moviePeopleInfo",moviePeopleInfo);
-		model.addAttribute("movieInfoList",movieInfoList);
-		//감독 출현작
-		//List<MovieDto> selectListDirector=movieService.selectListDirector(map);
-		//model.addAttribute("selectListDirector", selectListDirector);
+		model.addAttribute("moviePeopleInfo", moviePeopleInfo);
+		model.addAttribute("movieInfoList", movieInfoList);
+		// 감독 출현작
+		// List<MovieDto> selectListDirector=movieService.selectListDirector(map);
+		// model.addAttribute("selectListDirector", selectListDirector);
 
-		model.addAttribute("selectFilmoList",selectFilmoList);
-		//model.addAttribute("movieInfo",movieInfo);
-		//model.addAttribute("selectMovieList",selectMovieList);
+		model.addAttribute("selectFilmoList", selectFilmoList);
+		// model.addAttribute("movieInfo",movieInfo);
+		// model.addAttribute("selectMovieList",selectMovieList);
 
 		return "movie/info/Filmography.tiles";
 	}
 
 	///////////////////////////////////////////////////////
-
 
 	// 전체영화 보여주기
 
@@ -641,16 +583,15 @@ public class MovieController {
 //	}
 //
 
-	//전체영화 ajax
+	// 전체영화 ajax
 	@ResponseBody
-	@RequestMapping(value="/Movieing/Movie/movieAjax.mov")
-	public String movieAjax(@RequestParam Map map,Authentication auth) {
+	@RequestMapping(value = "/Movieing/Movie/movieAjax.mov")
+	public String movieAjax(@RequestParam Map map, Authentication auth) {
 
 		List<MovieDto> movieList;
-		if(map.get("genre").toString().equals("drama")) {
+		if (map.get("genre").toString().equals("drama")) {
 			movieList = movieService.selectListDrama(map);
-		}
-		else {
+		} else {
 			movieList = movieService.selectListAni(map);
 		}
 
@@ -665,43 +606,40 @@ public class MovieController {
 		return JSONArray.toJSONString(movieJsonArray);
 	}
 
-
-
-	//영화상세 페이지의 별점ajax
+	// 영화상세 페이지의 별점ajax
 	@ResponseBody
-	@RequestMapping(value="/Movieing/Movie/starAjax.mov")
-	public void starAjax(@RequestParam Map map,Authentication auth) {
+	@RequestMapping(value = "/Movieing/Movie/starAjax.mov")
+	public void starAjax(@RequestParam Map map, Authentication auth) {
 		String userId = auth.getName();
-		map.put("id",userId.toString());
+		map.put("id", userId.toString());
 
-		if(evalueWishService.isEvalue(map)) {//이미 남긴 별점이 있다면,
+		if (evalueWishService.isEvalue(map)) {// 이미 남긴 별점이 있다면,
 			evalueWishService.update(map);
-		}
-		else {//별점을 새로 입력하는 경우라면,
+		} else {// 별점을 새로 입력하는 경우라면,
 			evalueWishService.insert(map);
 		}
 	}
 
-	//영화상세 페이지의 보고싶어요ajax
+	// 영화상세 페이지의 보고싶어요ajax
 	@ResponseBody
-	@RequestMapping(value="/Movieing/Movie/wishAjax.mov")
-	public void wishAjax(@RequestParam Map map,Authentication auth) {
+	@RequestMapping(value = "/Movieing/Movie/wishAjax.mov")
+	public void wishAjax(@RequestParam Map map, Authentication auth) {
 		String userId = auth.getName();
-		map.put("id",userId.toString());
+		map.put("id", userId.toString());
 
-		if(map.get("isInsert").equals("true")) {//보고싶어요에 추가하는 경우
+		if (map.get("isInsert").equals("true")) {// 보고싶어요에 추가하는 경우
 			evalueWishService.insertWish(map);
-		}
-		else {//보고싶어요에서 삭제하는 경우
+		} else {// 보고싶어요에서 삭제하는 경우
 			evalueWishService.deleteWish(map);
 		}
 	}
 
-	//영화상세페이지의 리뷰 뿌리기
-	@ResponseBody//produces="text/html; charset=UTF-8" ,produces="application/json;charset=UTF-8"   , consumes = {"application/json;charset=UTF-8"}
-	@RequestMapping(value="/Movieing/Movie/ReviewAjax.mov", method = RequestMethod.POST)
+	// 영화상세페이지의 리뷰 뿌리기
+	@ResponseBody // produces="text/html; charset=UTF-8"
+					// ,produces="application/json;charset=UTF-8" , consumes =
+					// {"application/json;charset=UTF-8"}
+	@RequestMapping(value = "/Movieing/Movie/ReviewAjax.mov", method = RequestMethod.POST)
 	public String reviewAjax(@RequestParam Map map) throws UnsupportedEncodingException {
-
 
 		int nowPage = Integer.parseInt(map.get("nowPage").toString());
 		// 페이징을 위한 로직]
@@ -748,8 +686,8 @@ public class MovieController {
 	@RequestMapping("/Movieing/Movie/MovieReviews.mov")
 	public String movieReviews(@RequestParam Map map, Model model, Authentication auth) {
 		map.put("id", auth.getName());
-		String reviewNo=map.get("reviewNo").toString();
-		System.out.println("리뷰 넘버:"+reviewNo);
+		String reviewNo = map.get("reviewNo").toString();
+		System.out.println("리뷰 넘버:" + reviewNo);
 
 		UserDto user = userService.selectOne(map);
 		model.addAttribute("user", user);
@@ -758,73 +696,88 @@ public class MovieController {
 
 		SimpleDateFormat format = new SimpleDateFormat("yyyy. MM. dd");
 
-		model.addAttribute("date",format.format(review.getReviewPostdate()));
+		model.addAttribute("date", format.format(review.getReviewPostdate()));
 
-		model.addAttribute("review",review);
-
+		model.addAttribute("review", review);
 
 		List<CommentDto> commentList = commentService.selectList(map);
-		for(CommentDto record:commentList) {
+		for (CommentDto record : commentList) {
 			record.setCommentContent(record.getCommentContent().replace("\r\n", "<br>"));
 			record.setStringDate(format.format(record.getCommentDate()));
 		}
 
-		model.addAttribute("commentList",commentList);
+		model.addAttribute("commentList", commentList);
 
 		return "movie/info/MovieReviews.tiles";
 	}//////////////////////////////////
 
-	// 리뷰댓글 ajax
+	// 리뷰댓글 ajax]-날짜
 	@ResponseBody
 	@RequestMapping(value = "/Movieing/Movie/CommentAjax.mov", method = RequestMethod.POST)
 	public String commentAjax(@RequestParam Map map) {
+
 		commentService.insert(map);
 		SimpleDateFormat format = new SimpleDateFormat("yyyy. MM. dd");
 		Date date = new Date();
-		return  format.format(date);
+
+		/*
+		 * //댓글개수 가져오기 ReviewDto review = reviewService.selectOne(map);
+		 *
+		 * //json형태로 담아서 보내기 JSONObject obj =new JSONObject(); obj.put("date",
+		 * date.toString()); obj.put("review", review.getCommentCount().toString());
+		 *
+		 */
+
+		return format.format(date).toString();
 	}
 
+	// 리뷰댓글 ajax]-댓글수
+	@ResponseBody
+	@RequestMapping(value = "/Movieing/Movie/CommentAjax2.mov", method = RequestMethod.POST)
+	public String commentAjax2(@RequestParam Map map) {
+		System.out.println("제발ㄹ,,,");
+		// 댓글개수 가져오기
+		ReviewDto review = reviewService.selectOne(map);
 
+		return review.getCommentCount().toString();
+	}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	@RequestMapping("/Movieing/Movie/SearchResult.mov")
-	public String searchResult(@RequestParam Map map, @RequestParam String searchWord, Model model ) {
+	public String searchResult(@RequestParam Map map, @RequestParam String searchWord, Model model) {
 
 		map.put("searchWord", searchWord);
-		map.put("searchWord%", searchWord+"%");
-		map.put("%searchWord", "%"+searchWord);
-		map.put("%searchWord%", "%"+searchWord+"%");
+		map.put("searchWord%", searchWord + "%");
+		map.put("%searchWord", "%" + searchWord);
+		map.put("%searchWord%", "%" + searchWord + "%");
 
-		//map.put("searchPeople%", searchWord+"%");
+		// map.put("searchPeople%", searchWord+"%");
 		/*
-		System.out.println("searchReuslt - 1 searchWord 값 : "+searchWord);
-		*/
+		 * System.out.println("searchReuslt - 1 searchWord 값 : "+searchWord);
+		 */
 
 		List<RealTimeSearchDto> searchRealTimeList = realTimeSearchService.selectRTSearchList(map);
-		System.out.println("searchResult -1 searchRealTimeLsit 값 : "+searchRealTimeList);
-		if(searchRealTimeList.size()==0) {
+		System.out.println("searchResult -1 searchRealTimeLsit 값 : " + searchRealTimeList);
+		if (searchRealTimeList.size() == 0) {
 			realTimeSearchService.insert(map);
-		}//if
+		} // if
 		else {
-			int check=0;
-			for(int i=0; i<searchRealTimeList.size();i++) {
-				if(searchRealTimeList.get(i).getKeyword().equals(searchWord)) {
+			int check = 0;
+			for (int i = 0; i < searchRealTimeList.size(); i++) {
+				if (searchRealTimeList.get(i).getKeyword().equals(searchWord)) {
 					realTimeSearchService.update(map);
-					System.out.println("여긴 업데이트"+searchRealTimeList.get(i).getKeyword());
+					System.out.println("여긴 업데이트" + searchRealTimeList.get(i).getKeyword());
 					break;
-				}
-				else {
+				} else {
 					check++;
 				}
-			}//for
-			if(check==searchRealTimeList.size()) {
+			} // for
+			if (check == searchRealTimeList.size()) {
 				realTimeSearchService.insert(map);
 			}
 
-
 		}
-
 
 		List<MovieDto> searchMovieList = movieService.selectListSearchRadom(map);
 		List<MoviePeopleDto> searchPeopleList = moviePeopleService.selectListPeople(map);
@@ -833,20 +786,20 @@ public class MovieController {
 		List<CommentDto> searchCommentList = commentService.selectSearchCommentList(map);
 
 		/*
-		System.out.println("searchResult -2 searchMovieList 값 : "+searchMovieList);
-		System.out.println("searchResult -3 searchPeopleList 값 : "+searchPeopleList);
-		System.out.println("searchResult -4 searchUserList 값 : "+searchUserList);
-		System.out.println("searchResult -5 searchReviewList 값 : "+searchReviewList);
-		*/
+		 * System.out.println("searchResult -2 searchMovieList 값 : "+searchMovieList);
+		 * System.out.println("searchResult -3 searchPeopleList 값 : "+searchPeopleList);
+		 * System.out.println("searchResult -4 searchUserList 값 : "+searchUserList);
+		 * System.out.println("searchResult -5 searchReviewList 값 : "+searchReviewList);
+		 */
 
 		model.addAttribute("searchWord", searchWord);
-		model.addAttribute("searchMovieList",searchMovieList);
-		model.addAttribute("searchPeopleList",searchPeopleList);
-		model.addAttribute("searchUserList",searchUserList);
+		model.addAttribute("searchMovieList", searchMovieList);
+		model.addAttribute("searchPeopleList", searchPeopleList);
+		model.addAttribute("searchUserList", searchUserList);
 		model.addAttribute("searchReviewList", searchReviewList);
 		model.addAttribute("searchCommentList", searchCommentList);
 
-		model.addAttribute("searchRealTimeList",searchRealTimeList);
+		model.addAttribute("searchRealTimeList", searchRealTimeList);
 
 		return "movie/list/SearchResult.tiles";
 	}
@@ -1064,7 +1017,6 @@ public class MovieController {
 
 	}/// movieImgMap
 
-
 	// 글쓰기 페이지]
 	@RequestMapping("/Movieing/Movie/MovieWrite.mov")
 	public String write(@RequestParam Map map, Model model, Principal principal) {
@@ -1073,20 +1025,24 @@ public class MovieController {
 		String id = principal.getName();
 		map.put("id", id);
 
-		//String movieNo=map.get("movieNo").toString();
-		String movieTitle=map.get("movieTitle").toString();
-		System.out.println("영화제목"+movieTitle);
-		//영화네임에 따른 영화넘버 가져오기
-		String movieNo =movieService.selectMovieNo(map);
-		System.out.println("영화넘버"+movieNo);
+		String movieTitle = map.get("movieTitle").toString();
+		System.out.println("영화제목" + movieTitle);
+		// 영화네임에 따른 영화넘버 가져오기
+		String movieNo = movieService.selectMovieNo(map);
+		System.out.println("영화넘버" + movieNo);
 		map.put("movieNo", movieNo);
-		//평가테이블에 insert
-		int insertEvalue=evalueWishService.insertEvalue(map);
-		System.out.println("평가테이블에 insert");
+		//영화넘버와 아이디에 따른 평가점수가져오기
+		EvaluationDto selectEvalueOne=evalueWishService.selectEvalueOne(map);
+		map.put("evaluationGrade", selectEvalueOne.getEvaluationGrade());
+		model.addAttribute("evaluationGrade", selectEvalueOne.getEvaluationGrade());//평가점수
+		//System.out.println("evaluationGrade"+selectEvalueOne.getEvaluationGrade());
+
 
 		model.addAttribute("movieTitle", movieTitle);
 
-		return "/movie/info/MovieWrite.tiles";
+		return "movie/info/MovieWrite.tiles";
 	}////////////////////////////////////////////
+
+
 
 }

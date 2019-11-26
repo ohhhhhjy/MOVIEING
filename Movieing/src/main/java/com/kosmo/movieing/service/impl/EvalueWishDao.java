@@ -115,4 +115,24 @@ public class EvalueWishDao implements EvalueWishService{
 		return template.selectOne("selectReviewEvalue", map);
 	}
 
+	@Override
+	public EvaluationDto selectEvalueOne(Map map) {
+		return template.selectOne("selectEvalueOne", map);
+	}
+
+	@Override
+	public double selectGradeAvg(Map map) {
+		return template.selectOne("selectGradeAvg",map);
+	}
+
+	@Override
+	public int selectEvalueCount(Map map) {
+		return template.selectOne("selectEvalueCount", map);
+	}
+
+	@Override
+	public int selectEvalueCountAll(Map map) {
+		return template.selectOne("selectEvalueCountAll", map);
+	}
+
 	}

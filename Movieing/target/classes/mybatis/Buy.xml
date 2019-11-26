@@ -6,7 +6,8 @@
 	
 	<select id="buySelect" parameterType="java.util.Map" resultType="BuyDto">
 		select b.user_id || '_buy' as key,g.naming,g.price,b.quantity,b.buydate from
-		buy b join goods g on b.goods_no=g.goods_no where b.user_id=#{userId, jdbcType=VARCHAR} order by b.buydate
+		<!-- buy b join goods g on b.goods_no=g.goods_no where b.user_id=#{userId, jdbcType=VARCHAR} order by b.buydate  -->
+		 buy b join goods g on b.goods_no=g.goods_no where b.user_id=#{userId, jdbcType=VARCHAR} order by b.buydate
 	</select>
 	
 	<select id="buyListTotal" parameterType="java.util.Map" resultType="int">

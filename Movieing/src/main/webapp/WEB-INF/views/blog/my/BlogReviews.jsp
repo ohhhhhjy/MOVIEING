@@ -184,7 +184,7 @@ $(document).ready(function() {
 </script>
 
 <div class="container">
-	<a href="javascript:window.history.back();"><i class="fas fa-arrow-left" style="color:#db147b;font-size: 1.4em"></i></a>
+	<a href="<c:url value='/Movieing/Blog/MovieingFriends.mov'/>"><i class="fas fa-arrow-left" style="color:#db147b;font-size: 1.4em"></i></a>
 	<h2 align="center" style="padding: 30px">${review.userNick }님의 ${review.movieTitle } 리뷰</h2>
 
 

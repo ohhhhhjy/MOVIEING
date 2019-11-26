@@ -11,6 +11,9 @@ public interface UserService {
 	List<UserDto> selectList(Map map);
 	//유저
 	List<UserDto> userSelectList(Map map);
+	//나제외 모든 유저 닉
+	List<UserDto> AllUserNick(Map map);
+
 	//전체 레코드 수
 	int getTotalCount(Map map);
 	//상세보기 용
@@ -45,17 +48,20 @@ public interface UserService {
 
 	//관리자 판단용
 	boolean isAdmin(String id);
-	
+
 	//Top에서 쓸 이미지 가져오기용
 	String selectImage(String id);
-	
 
-	
-	
-	
+
+
+
+
 
 	//안드로이드 로그인 확인용
 	boolean androidIsLogin(Map map);
+	
+	//비번변경
+	int updatePass(Map map);
 
 
 

@@ -13,6 +13,10 @@ public interface EvalueWishService {
 	List<EvaluationDto> selectWishList(Map map);
 	//내가 별점준 영화 한편만
 	EvaluationDto selectReviewEvalue(Map map);
+	//내가 별점준 영화 한편만인데 방식다른]
+	EvaluationDto selectEvalueOne(Map map);
+	//평점
+	double selectGradeAvg(Map map);
 
 	//해당영화에 남긴 별점이 있는지 확인
 	boolean isEvalue(Map map);
@@ -41,5 +45,9 @@ public interface EvalueWishService {
 
 	//평가 리스트에 넣기
 	int insertEvalue(Map map);
+
+	//평점 준 유무
+	int selectEvalueCount(Map map);
+	int selectEvalueCountAll(Map map);
 
 }

@@ -259,12 +259,13 @@ $(document).ready(function() {
  		//보고싶어요 x > 보고싶어요 o(insert)
  		if($('#wishBtnIcon').prop('class')=='fas fa-plus'){
  			$('#wishBtnIcon').removeClass('fa-plus').addClass('fa-bookmark');
- 			
+ 			location.reload();
  		}
  		//보고싶어요 o > 보고싶어요 x(delete)
  		else{
  			$('#wishBtnIcon').removeClass('fa-bookmark').addClass('fa-plus'); 
  			isInsert = false;
+ 			location.reload();
  		}
  		
  		$.ajax({
@@ -352,7 +353,6 @@ $(document).ready(function() {
 	
 	
 	
-	
 	function reviewListMaking(data){
 		var imgUrl = '';
 		var reviewString = "";
@@ -380,6 +380,23 @@ $(document).ready(function() {
 		 $('#pagingString').html(pagingString);
 	}///reviewListMaking
 
+	
+	$(function(){
+		if('${selectEvalueOne.evaluationGrade}'==null){
+			
+		}else{
+			var grade='${selectEvalueOne.evaluationGrade}';//평가한 별점가져와 뿌림
+			console.log('평가점수'+grade);
+			$(".starRadio").get(5-grade).click();//별에 별점넣기	
+			$('#wishBtnIcon').removeClass('fa-plus').addClass('fa-bookmark');
+			$('#btnWish').css('background-color','red');
+			$('#btnWish').css('color','white');
+		}
+		
+		
+		
+	});
+
 
 </script>
 
@@ -400,7 +417,12 @@ $(document).ready(function() {
 					<hr class="my-3">
 					<span class="px-2">${movieInfo.movieGrade} ・ ${movieInfo.movieGenre} ・ ${movieInfo.movieCountry}</span>
 					<hr class="my-3">
-					<span class="px-2" style="font-weight: bold">평점★3.8</span>
+					<span class="px-2" style="font-weight: bold">
+					<c:choose>
+					<c:when test="${selectGradeAvg==null }">아직 평점을 매긴 유저가 없어요..</c:when>
+					<c:otherwise>평점★${selectGradeAvg }</c:otherwise>
+					</c:choose>
+					</span>
 					<!-- <span> ・</span>
 					<span class="px-2" style="color:#db147b;font-weight: bold">예상★4.0</span> -->
 					<hr class="my-3">
@@ -408,11 +430,12 @@ $(document).ready(function() {
 					<div class="row">
 						<!-- 별점 -->
 					<div class="rating px-3" >
-				      <input class="starRadio" type="radio" id="star5" name="최고예요" value="5" /><label for="star5" title="최고예요">5 stars</label>
+					<input class="starRadio" type="radio" id="star5" name="최고예요" value="5" /><label for="star5" title="최고예요">5 stars</label>
 				      <input class="starRadio" type="radio" id="star4" name="재미있어요" value="4" /><label for="star4" title="재미있어요">4 stars</label>
 				      <input class="starRadio" type="radio" id="star3" name="보통이에요" value="3" /><label for="star3" title="보통이에요">3 stars</label>
 				      <input class="starRadio" type="radio" id="star2" name="별로예요" value="2" /><label for="star2" title="별로예요">2 stars</label>
 				      <input class="starRadio" type="radio" id="star1" name="싫어요" value="1" /><label for="star1" title="싫어요">1 star</label>
+				      
 				    </div> 
 								<!-- 별점 반개 실험 <span class="star-icon full">☆</span>
 								<span class="star-icon full">☆</span>
@@ -476,13 +499,16 @@ $(document).ready(function() {
 		
 		
 	<!-- ----------------------------------------여기부터 하단 ---------------------------------------------------------------- -->		
+	
 		<!-- 리뷰남기기 (남긴 리뷰가 없을때만 나타나도록)-->
+		<c:if test="${selectEvalueOne!=null }">
 		<div class="card   bg-ligh mb-3" style="max-width: 200rem;"><!-- border-secondary -->
 			<div class="card-body">
 			<button type="button" id="btnWish" class="btn btn-outline-danger waves-effect" onclick="location.href='<c:url value="/Movieing/Movie/MovieWrite.mov?movieTitle=${movieInfo.movieTitle}"/>'"><i class="far fa-edit"></i>&nbsp;리뷰남기기</button>
 			<span style="font-weight: bold">&nbsp;${userNick}님의 평가를 글로 남겨보는건 어떨까요?</span>
 			</div>
 		</div>
+		</c:if>
 		
 		<!-- 영화정보 -->
 		<div class="card   bg-ligh mb-3" style="max-width: 200rem;"><!-- border-secondary -->

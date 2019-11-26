@@ -1013,25 +1013,25 @@ $( '#top' ).click( function() {
 								<div class="carousel-item active">
 									<div class="row">
 										<div class="col-md-3">
-											<a href="#"> <img
+											<a href="<c:url value='/Movieing/News/Exhibition.mov'/>"> <img
 												src="<c:url value='/resources/img/main/jun1.PNG'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
 										<div class="col-md-3">
-											<a href="#"> <img
+											<a href="<c:url value='/Movieing/News/Exhibition.mov'/>"> <img
 												src="<c:url value='/resources/img/main/jun2.PNG'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
 										<div class="col-md-3">
-											<a href="#"> <img
+											<a href="<c:url value='/Movieing/News/Exhibition.mov'/>"> <img
 												src="<c:url value='/resources/img/main/jun3.PNG'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
 										<div class="col-md-3">
-											<a href="#"> <img
+											<a href="<c:url value='/Movieing/News/Exhibition.mov'/>"> <img
 												src="<c:url value='/resources/img/main/jun4.PNG'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
@@ -1045,25 +1045,25 @@ $( '#top' ).click( function() {
 								<div class="carousel-item">
 									<div class="row">
 										<div class="col-md-3">
-											<a href="#"> <img
+											<a href="<c:url value='/Movieing/News/Exhibition.mov'/>"> <img
 												src="<c:url value='/resources/img/main/jun1.PNG'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
 										<div class="col-md-3">
-											<a href="#"> <img
+											<a href="<c:url value='/Movieing/News/Exhibition.mov'/>"> <img
 												src="<c:url value='/resources/img/main/jun2.PNG'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
 										<div class="col-md-3">
-											<a href="#"> <img
+											<a href="<c:url value='/Movieing/News/Exhibition.mov'/>"> <img
 												src="<c:url value='/resources/img/main/jun3.PNG'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
 										<div class="col-md-3">
-											<a href="#"> <img
+											<a href="<c:url value='/Movieing/News/Exhibition.mov'/>"> <img
 												src="<c:url value='/resources/img/main/jun4.PNG'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>

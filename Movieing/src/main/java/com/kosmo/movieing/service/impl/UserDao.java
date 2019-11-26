@@ -129,7 +129,17 @@ public class UserDao implements UserService{
 		return template.selectOne("selectOneImage", id);
 	}
 
-	
+	@Override
+	public List<UserDto> AllUserNick(Map map) {
+		return template.selectList("AllUserNick", map);
+	}
+	@Override
+	public int updatePass(Map map) {
+
+		return template.update("updatePass", map);
+	}
+
+
 
 
 

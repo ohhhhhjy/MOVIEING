@@ -7,7 +7,7 @@ public interface QnaService {
 	
 
 	// 목록
-	List<QnaDto> selectList(Map map);
+	List<QnaDto> selectList();
 
 	// 상세보기 용
 	QnaDto selectOne(Map map);
@@ -20,5 +20,6 @@ public interface QnaService {
 	int delete(Map map);
 	
 	int reply(Map map);
+
 	
 }

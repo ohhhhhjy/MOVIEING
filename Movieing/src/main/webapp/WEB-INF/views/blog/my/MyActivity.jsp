@@ -355,7 +355,7 @@ function goToBlogFeed(otherUserId){
 	<div class="row">
 		<!-- 오른쪽시작 -->
 		<div class="col-sm-2">
-			<a class="btn btn-secondary" href="<c:url value='/Movieing/Blog/BlogMain.mov'/>" role="button">< 블로그 메인</a>
+			<a class="btn btn-secondary btn-sm" href="<c:url value='/Movieing/Blog/BlogMain.mov'/>" role="button"><i class="fas fa-chevron-left"></i> 블로그 메인</a>
 			 <!-- 드롭다운 -->
 			 <!-- <div id="selector" style="padding-top:20px">
 			 </div> -->
@@ -426,7 +426,7 @@ function goToBlogFeed(otherUserId){
 													<h4 class="card-title">${item.movieTitle }</h4><!-- 영화제목 -->
 												</div>
 												<div class="col-md-3">
-													<button type="button" class="btn btn-outline-primary" onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov?reviewNo=${item.reviewNo }"/>'">수정</button>
+													<button type="button" class="btn btn-outline-primary" onclick="location.href='<c:url value="/Movieing/Blog/WritePage_Update.mov?reviewNo=${item.reviewNo }"/>'">수정</button>
 													<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal"  data-notifyid="${item.reviewNo }">삭제</button>
 												</div>
 											</div>

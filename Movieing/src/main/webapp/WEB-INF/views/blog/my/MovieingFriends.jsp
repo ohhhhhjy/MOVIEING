@@ -232,25 +232,21 @@ a {
 
 /*탭*/
 .btn-group-block {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fill, calc(100% / 2));
-    grid-auto-rows: auto;
+	display: grid !important;
+	grid-template-columns: repeat(auto-fill, calc(100%/ 2));
+	grid-auto-rows: auto;
 }
 
-#anotherLog{
-	background-color : #D5D5D5;
+#anotherLog {
+	background-color: #D5D5D5;
 	border: none;
-	border-bottom: 	1.5px solid gray;
+	border-bottom: 1.5px solid gray;
 }
 
-#allLog{
+#allLog {
 	border: 1.5px solid gray;
 	border-bottom: none;
 }
-
-
-
-
 </style>
 
 <script>
@@ -389,116 +385,39 @@ a {
 					});
 
 	///////////////////////////////////////////////////////
-	/*			
-	$(document).ready(function() {
-		$('select[name=select]').change(function(){
-			console.log('선택:');
-			
-			if($(this).val()=="1"){
-				console.log('시간순');
-				
-				$.ajax({
-					url : "<c:url value='/Movieing/Blog/MovieingFriends.mov'/>",
-					type : 'post',
-					dataType : 'text',
-					data : {
-						reviewNo : '${friendsReviewList.get(index).reviewNo}'
-					},
-					beforeSend : function(
-							xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
-	/*
-	xhr.setRequestHeader(
-					"${_csrf.headerName}",
-					"${_csrf.token}");
-	},
-	success : function(data) {
-	console.log('피드 가져오기 성공');
-	$('#contentpeed').children.
-	
-	
-	},
-	error : function(data) {
-	console
-			.log("에러:"
-					+ data.responseText);
-	}
 
-	})
 
-	
-	
-	
-	}else if($(this).val()=="2"){
-	console.log('좋아요');
-	}else{
-	console.log('댓글');
-	}
-	
-	
+	$(function(){
+	var reviewNo ="";
+	$('#deleteModal').on('show.bs.modal', function (e) { 
+		reviewNo = $(e.relatedTarget).data('notifyid'); 
+		console.log('잘들어오나');
+		$('#deleteBtn').click(function(){
+			$.ajax({
+						url:"<c:url value='/Movieing/Blog/reviewRemove.mov'/>",
+						type:'post',
+						data:
+						{reviewNo:reviewNo},
+						beforeSend : function(xhr)
+		            {   /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
+		                xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+		            },
+						success:function(){//서버로 부터 정상적인 응답을 받았을 때(200번)
+							location.reload();
+						},	
+						error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
+							console.log("에러:"+data);
+						}
+			});
+		});
+		
+		
+		});
 	});
+
+
+
 	
-	});
-	 */
-
-	$(document)
-			.ready(
-					function() {
-						var reviewNo = "";
-						$('#myModal')
-								.on(
-										'show.bs.modal',
-										function(e) {
-											$('button[name=delete]')
-													.click(
-															function() {
-																console
-																		.log('삭제버튼눌림');
-																reviewNo = $(
-																		event.relatedTarget)
-																		.data(
-																				'notifyid');
-																console
-																		.log(reviewNo
-																				+ '됫다됫어');
-
-																$
-																		.ajax({
-																			url : "<c:url value='/Movieing/Blog/reviewRemove.mov'/>",
-																			type : 'post',
-																			dataType : 'text',
-																			data : {
-																				reviewNo : reviewNo
-
-																			},
-																			beforeSend : function(
-																					xhr) { /*데이터를 전송하기 전에 헤더에 csrf값을 설정한다*/
-																				xhr
-																						.setRequestHeader(
-																								"${_csrf.headerName}",
-																								"${_csrf.token}");
-																			},
-																			success : function(
-																					data) {
-																				alert('글이 삭제되었습니다!');
-																				location
-																						.reload();
-																			},
-																			error : function(
-																					data) {
-																				console
-																						.log("에러:"
-																								+ data.responseText);
-																			}
-
-																		});
-
-															});
-										});
-					});
-	 
-	 
-
-
 </script>
 
 
@@ -509,18 +428,22 @@ a {
 <!-- 버튼 두개 만들기 -->
 <div
 	style="padding-left: 40px; background-color: white; padding-right: 40px">
-	<button type="button" class="btn btn-dark btn-sm" onclick="location.href='<c:url value='/Movieing/Blog/BlogMain.mov'/>'" ><i class="fas fa-chevron-left"></i>&nbsp마이블로그 </button>
-	
+	<button type="button" class="btn btn-dark btn-sm"
+		onclick="location.href='<c:url value='/Movieing/Blog/BlogMain.mov'/>'">
+		<i class="fas fa-chevron-left"></i>&nbsp마이블로그
+	</button>
+
 	<div class="row" style="padding-left: 380px">
 
 		<div class="btn-group btn-group-lg btn-group-block">
-			<a href="#" class="btn" style="width: 388px;margin-right: 390px" id="allLog"><strong>모든 활동 로그</strong></a> 
-			<a href="<c:url value="/Movieing/Blog/MovieingFriends2.mov"/>" style="width: 410px" id="anotherLog"
-				class="btn">팔로우 활동 로그</a>
+			<a href="#" class="btn" style="width: 388px; margin-right: 390px"
+				id="allLog"><strong>모든 활동 로그</strong></a> <a
+				href="<c:url value="/Movieing/Blog/MovieingFriends2.mov"/>"
+				style="width: 410px" id="anotherLog" class="btn">팔로우 활동 로그</a>
 		</div>
 
 	</div>
-	
+
 </div>
 
 
@@ -548,69 +471,98 @@ a {
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="mr-2">
-										<a href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${item.userNick }'/>"  target="_self">
-										<img class="rounded-circle" width="45" height="45"
-											src="${item.userProfile}" alt=""></a>
+										<a
+											href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${item.userNick }'/>"
+											target="_self"> <img class="rounded-circle" width="45"
+											height="45" src="${item.userProfile}" alt=""></a>
 									</div>
 
-									<div class="ml-2">
-										
+									<div class="ml-2 mr-5">
+
 										<div class="h5 m-0" style="color: black;">
-										<a href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${item.userNick }'/>"  target="_self">
-										<span>${item.userNick }</span></a></div>
+											<a
+												href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${item.userNick }'/>"
+												target="_self"> <span>${item.userNick }</span></a>
+										</div>
 									</div>
+
+
+
 
 
 									<!-- 모달 띄우기 -->
-									<div align="right" style="padding-left: 550px">
-										<button class="btn btn-link dropdown-toggle" type="button"
-											id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
-											aria-expanded="false" data-target="#myModal${status.index }"
-											data-notifyid="${item.reviewNo }
-											style="text-align:right;">
-											<i class="fa fa-ellipsis-h"></i>
-										</button>
+									<div class="row ml-5" align="right"
+										style="float: right; text-align: right;">
+										<c:set var="userNick" value="${ item.userNick}" />
+										<c:set var="myNick" value="${ friendsSelf.userNick }" />
+
+										<c:if test="${ userNick ne myNick}">
+											<div style="padding-left: 500px"></div>
+											<button class="btn btn-link dropdown-toggle" type="button"
+												id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
+												aria-expanded="false" data-target="#myModal${status.index }
+												data-notifyid="${userNick }" style="text-align: right;">
+												<i class="fa fa-ellipsis-h"></i>
+											</button>
+										</c:if>
+										<c:if test="${ userNick eq myNick}">
+											<div style="padding-left: 400px"></div>
+											<button type="button" class="btn btn-outline-danger"
+												data-toggle="modal" data-target="#deleteModal"
+												style="float: right; text-align: right;"
+												data-notifyid="${item.reviewNo }">삭제</button>
+											<button type="button" class="btn btn-outline-primary"
+												style="float: right; text-align: right;"
+												onclick="location.href='<c:url value="/Movieing/Blog/WritePage_Update.mov?reviewNo=${item.reviewNo }"/>'">수정</button>
+										</c:if>
+
 									</div>
+
 									<div class="modal fade" id="myModal${status.index }"
 										tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
-
-												<c:set var="userNick" value="${ item.userNick}" />
-												<c:set var="myNick" value="${ friendsSelf.userNick }" />
-
-
 												<c:if test="${ userNick ne myNick}">
 													<!--  남의 게시물 볼때 버튼들-->
 													<button type="button" class="btn btn-outline-secondary"
 														style="border-bottom: thin; width: 500px; height: 60px; color: red">부적절한
 														콘텐츠로 신고</button>
+							
 													<button type="button" class="btn btn-outline-secondary"
-														style="border-bottom: thin; width: 500px; height: 60px; color: red">팔로우
-														취소</button>
-													<button type="button" class="btn btn-outline-secondary"
-														style="border-bottom: thin; width: 500px; height: 60px; color: black;">게시물로
-														이동</button>
-													<button type="button" class="btn btn-outline-secondary"
-														style="border-bottom: thin; width: 500px; height: 60px; color: black;">유저
-														블로그로 이동</button>
-
+														style="border-bottom: thin; width: 500px; height: 60px; color: black;"
+														data-dismiss="modal">취소</button>
 												</c:if>
-
-												<c:if test="${ userNick eq myNick}">
-													<!-- 내 글 볼경우 버튼들 -->
-													<button type="button" class="btn btn-outline-secondary"
-														name="delete"
-														style="border-bottom: thin; width: 500px; height: 60px; color: red">삭제</button>
-												</c:if>
-												<button type="button" class="btn btn-outline-secondary"
-													style="border-bottom: thin; width: 500px; height: 60px; color: black;"
-													data-dismiss="modal">취소</button>
-
 											</div>
 										</div>
 									</div>
 									<!-- 모달 끝 -->
+
+									<!-- 삭제모달 -->
+									<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" align="center">
+														<i class="far fa-bell"></i> 알림창
+													</h5>
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div class="modal-body">
+													<p>리뷰를 삭제하시겠습니까?</p>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-secondary"
+														data-dismiss="modal">취소</button>
+													<button id="deleteBtn" type="button" class="btn btn-danger"
+														data-dismiss="modal">삭제</button>
+												</div>
+											</div>
+										</div>
+									</div>
+
 
 								</div>
 
@@ -672,7 +624,8 @@ a {
 										id="likeNumber${status.index }" name="${status.index }">${item.likeCount }</h6>
 									<h6>개</h6>
 
-									<h6 style="padding-left: 20px">댓글 ${item.commentCount }개</h6>
+									<h6 style="padding-left: 20px" id="commentCount">댓글
+										${item.commentCount }개</h6>
 
 								</div>
 
@@ -713,7 +666,7 @@ a {
 								data-parent="#accordion" class="card-link">
 								-->
 							<a
-								href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>"
+								href="<c:url value='/Movieing/Blog/My/BlogReviews.mov?reviewNo=${item.reviewNo }'/>"
 								style="padding-left: 5px"> <i class="fa fa-comment"></i> 댓글
 							</a>
 							<!--  
@@ -771,8 +724,7 @@ a {
 					<h5></h5>
 
 					<div style="padding-right: 10px">
-						<img class="radiusImg" alt="프사진"
-							src="${image.userProfile }" />
+						<img class="radiusImg" alt="프사진" src="${image.userProfile }" />
 					</div>
 					<div style="padding-right: 60px">
 
@@ -836,7 +788,7 @@ a {
 				<div class="card gedf-card">
 
 					<div class="card bg-light text-dark">
-						<div class="card-body">
+						<div class="card-body" style="">
 							<div class="row" style="padding-left: 10px; height: 15px">
 								<img
 									src="<c:url value='/resources/img/friends/passage-of-time.png'/>"
@@ -845,7 +797,7 @@ a {
 									style="padding-left: 5px; font-weight: bold; padding-right: 40px">타임
 									라인</h6>
 								<a style="text-decoration: underline;"
-									href="<c:url value='/Movieing/Blog/MF_Timeline.mov'/>">모두
+									href="<c:url value=''/>">모두
 									보기</a>
 
 							</div>
@@ -868,17 +820,20 @@ a {
 									style="overflow: auto; overflow-x: hidden; width: 220px; height: 300px;">
 
 									<!-- 한 사람 시작 -->
-									<c:forEach items="${allUser }" var="item">
+							
+									<c:forEach items="${selectAllUserList }" var="item">
 										<div class="row profileForm" style="padding-left: 10px">
 											<div style="padding-left: 10px">
 												<img class="radiusSmallImg" alt="배우사진"
-													src="<c:url value='/resources/img/friends/boy.png'/>" />
+													src="${item.userProfile }" />
 											</div>
-											<div style="padding-left: 10px">
-												<span class="timeLineText"
-													style="font-size: 1.0em; color: black;">${item.userId }</span>
-												<h6 class="actorSpan"
-													style="font-size: 0.5em; color: black;">1시간전</h6>
+											<div style="padding-left: 10px;text-align: center;">
+											<a
+											href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${item.userNick }'/>"
+											target="_self">
+												<span class="timeLineText" 
+													style="font-size: 1.0em; color: black;text-align: center;">${item.userNick }</span>
+													</a>
 
 											</div>
 
@@ -887,6 +842,8 @@ a {
 									<!-- 한 사람 끝 -->
 
 									<!-- 카드 레이아웃 팔로우 유저보이기 div끝 -->
+
+
 
 
 

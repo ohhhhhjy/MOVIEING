@@ -309,54 +309,26 @@ px
 					<table class="table" cellspacing="0">
 
 						<thead>
-							<tr>
-								<th>번호</th>
-								<th>제목</th>
-								<th>작성자</th>
-								<th>등록일</th>
-								<th>조회수</th>
+							<tr style="text-align: center;">
+								<th style="width: 10%">번호</th>
+								<th style="width: 40%">제목</th>
+								<th style="width: 20%">작성자</th>
+								<th style="width: 30%">등록일</th>
 							</tr>
 						</thead>
-
 						<tbody>
-
-							<tr>
-								<td>5</td>
-								<td><a
-									href="<c:url value='/Movieing/my/Customer_View.mov'/>">이게
-										불편해요!</a></td>
-								<td>유아인</td>
-								<td>2019-11-06</td>
-								<td>54239</td>
-							</tr>
-							<tr>
-								<td><a href="#">4</a></td>
-								<td>이게 불편해요!</td>
-								<td>유아인</td>
-								<td>2019-11-06</td>
-								<td>54239</td>
-							</tr>
-							<tr>
-								<td><a href="#">3</a></td>
-								<td>이게 불편해요!</td>
-								<td>유아인</td>
-								<td>2019-11-06</td>
-								<td>54239</td>
-							</tr>
-							<tr>
-								<td><a href="#">2</a></td>
-								<td>이게 불편해요!</td>
-								<td>유아인</td>
-								<td>2019-11-06</td>
-								<td>54239</td>
-							</tr>
-							<tr>
-								<td><a href="#">1</a></td>
-								<td>이게 불편해요!</td>
-								<td>유아인</td>
-								<td>2019-11-06</td>
-								<td>54239</td>
-							</tr>
+							<c:forEach items="${qnaList }" var="qna">
+								<tr>
+									<td style="text-align: center;">${qna.qnaNo }</td>
+									<td>
+									<a href="<c:url value='/Movieing/my/Customer_View.mov?qnaNo=${qna.qnaNo }'/>">
+										${qna.qnaTitle}
+									</a></td>
+									<td style="text-align: center;">${qna.userId }</td>
+									<td style="text-align: center;">${qna.postdate }</td>
+									
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 
@@ -387,8 +359,6 @@ px
 				</ul>
 			</nav>
 		</div>
-
-
 
 	</section>
 </div>

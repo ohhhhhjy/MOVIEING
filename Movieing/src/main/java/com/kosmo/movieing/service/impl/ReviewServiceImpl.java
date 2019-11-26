@@ -144,6 +144,11 @@ public class ReviewServiceImpl implements ReviewService{
 		return dao.selectBestReviewList();
 	}
 
+	@Override
+	public ReviewDto selectMyReviewOne(Map map) {
+		return dao.selectMyReviewOne(map);
+	}
+
 
 
 

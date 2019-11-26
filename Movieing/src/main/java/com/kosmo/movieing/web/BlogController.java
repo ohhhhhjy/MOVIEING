@@ -73,20 +73,20 @@ public class BlogController {
 			throws Exception {
 
 		String id = auth.getName();
-		map.put("id", id);//park
+		map.put("id", id);
 		// 팔로우 여부]내 팔로우리스트에 있는 애
 		// 내 팔로우 리스트가져오기
 		// 팔로우된 아이디 리스트
-		List<FollowDto> selectFollowList = followService.selectFollowList(map);//kim
+		List<FollowDto> selectFollowList = followService.selectFollowList(map);
 		// 팔로우한 애면]
 		model.addAttribute("followOk", "n");
 		if (map.get("userNick") != null) {
-		for (FollowDto dto : selectFollowList) {
-			if (dto.getFollowing().equals(userService.selectUserId(map.get("userNick").toString()))) {
-				System.out.println("팔로우한 애네");
-				model.addAttribute("followOk", "y");
+			for (FollowDto dto : selectFollowList) {
+				if (dto.getFollowing().equals(userService.selectUserId(map.get("userNick").toString()))) {
+					System.out.println("팔로우한 애네");
+					model.addAttribute("followOk", "y");
+				}
 			}
-		}
 		}
 		System.out.println("돌았냐");
 		model.containsAttribute("followOk");
@@ -265,6 +265,205 @@ public class BlogController {
 
 		return "blog/my/BlogMain.tiles";
 	}/////////////////////////////////////////////
+
+	// 블로그메인]리뷰수정하고
+	@RequestMapping(value = "/Movieing/Blog/BlogMain_Update.mov")
+	public String blogMain_Update(@RequestParam Map map, Model model, Authentication auth, HttpServletRequest req)
+			throws Exception {
+
+		String id = auth.getName();
+		map.put("id", id);// park
+		// 팔로우 여부]내 팔로우리스트에 있는 애
+		// 내 팔로우 리스트가져오기
+		// 팔로우된 아이디 리스트
+		List<FollowDto> selectFollowList = followService.selectFollowList(map);// kim
+		// 팔로우한 애면]
+		model.addAttribute("followOk", "n");
+		if (map.get("userNick") != null) {
+			for (FollowDto dto : selectFollowList) {
+				if (dto.getFollowing().equals(userService.selectUserId(map.get("userNick").toString()))) {
+					System.out.println("팔로우한 애네");
+					model.addAttribute("followOk", "y");
+				}
+			}
+		}
+		System.out.println("돌았냐");
+		model.containsAttribute("followOk");
+
+		if (map.get("userNick") != null) {// 남의 피드로 가는 경우.
+			id = userService.selectUserId(map.get("userNick").toString());
+			System.out.println("남의 아이디:" + id);
+			if (!id.equals(auth.getName())) {
+				System.out.println("나가 아니야");
+				model.addAttribute("notMe", "y");// 내피드가 아니다
+			} else
+				model.addAttribute("notMe", "n");
+		} else {
+			model.addAttribute("notMe", "n");// 내 피드다
+		}
+
+		map.put("id", id);
+		model.addAttribute("id", id);
+
+		// [유저정보] count 별.리.좋.보. 팔로워.팔로잉.
+		// 유저 정보
+		UserDto userInfo = userService.selectOne(map);
+		model.addAttribute("userInfo", userInfo);
+
+		// 유저의 가입일수 구하기(뫄뫄님이 가입하신지 며칠째)..
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+		java.util.Date today = new java.util.Date();
+		long diff = (today.getTime() - userInfo.getUserSignupDate().getTime()) / 1000 / (60 * 60 * 24) + 1;
+		model.addAttribute("signUpDays", diff);
+
+		// 각 별점 카운트 리스트
+		// 1
+		map.put("number", 1);
+		int evalue1 = evalueWishService.getEachEvalue(map);
+		model.addAttribute("evalue1", evalue1);
+		// 2
+		map.put("number", 2);
+		int evalue2 = evalueWishService.getEachEvalue(map);
+		model.addAttribute("evalue2", evalue2);
+		// 3
+		map.put("number", 3);
+		int evalue3 = evalueWishService.getEachEvalue(map);
+		model.addAttribute("evalue3", evalue3);
+		// 4
+		map.put("number", 4);
+		int evalue4 = evalueWishService.getEachEvalue(map);
+		model.addAttribute("evalue4", evalue4);
+		// 5
+		map.put("number", 5);
+		int evalue5 = evalueWishService.getEachEvalue(map);
+		model.addAttribute("evalue5", evalue5);
+
+		// 별점 카운트
+		int evalueCount = evalueWishService.getTotalEvalueCount(map);
+		model.addAttribute("evalueCount", evalueCount);
+
+		// 좋아요 카운트
+		int likeCount = likeReviewService.getTotalCountByMe(map);
+		model.addAttribute("likeCount", likeCount);
+		// 보고싶어요 카운트
+		int wishCount = evalueWishService.getTotalWishCount(map);
+
+		model.addAttribute("wishCount", wishCount);
+
+		// 팔로잉 카운트
+		int followingCount = followService.getTotalFollowingCount(map);
+		model.addAttribute("followingCount", followingCount);
+		// 팔로잉 유저 리스트
+		List<UserDto> followingList = userService.selectFollowingList(map);
+		model.addAttribute("followingList", followingList);
+		// 팔로워 카운트
+		int followerCount = followService.getTotalFollowerCount(map);
+		model.addAttribute("followerCount", followerCount);
+		// 팔로워 유저 리스트
+		List<UserDto> followerList = userService.selectFollowerList(map);
+
+		// 팔로워리스트 중 팔로잉된 사람 확인하기(맞팔여부)
+		for (UserDto followerUser : followerList) {
+			followerUser.setIsFollow(false);
+			for (UserDto followingUser : followingList) {
+				if (followerUser.getUserId().equals(followingUser.getUserId()))
+					followerUser.setIsFollow(true);
+			}
+		}
+		model.addAttribute("followerList", followerList);
+
+		// post방식으로 들어올때!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		if (req.getMethod().equals("POST")) {
+			String movieTitle = map.get("movieTitle").toString();
+			String grade = map.get("grade").toString();
+			String reviewContent = map.get("reviewContent").toString();
+			String publicPrivate = map.get("publicPrivate").toString();
+
+			String movieNo = movieService.selectMovieNo(map);
+			map.put("movieNo", movieNo);
+			System.out.println("리뷰넘버?" + map.get("reviewNo").toString());
+
+			model.addAttribute("movieTitle", movieTitle);
+			model.addAttribute("movieNo", movieNo);// 영화번호
+			model.addAttribute("grade", grade);// 평점
+			model.addAttribute("reviewContent", reviewContent);// 내용
+			// 평가 테이블에 평점 넣기]
+			int updateGrade = evalueWishService.update(map);// 업데이트
+			System.out.println("잘 업데이트가 됫나?" + updateGrade);
+			// 글 업데이트하기]
+			int updateAll = reviewService.update(map);
+			System.out.println("잘 업데이트가 됫나22?" + updateAll);
+
+		}
+
+		// 내가 작성한 글]
+		List<ReviewDto> selectList = reviewService.selectList(map);// 쓴글 가져오기
+
+		for (ReviewDto times : selectList) {
+			// 현재시각
+			Date now = new Date();
+			Calendar cal1 = Calendar.getInstance();
+			Calendar cal2 = Calendar.getInstance();
+
+			System.out.println("현재시각" + now);
+			SimpleDateFormat formatter = new SimpleDateFormat("MM월 dd일");
+			String nowFormat = formatter.format(now);// 현재시간 형식
+			System.out.println("현재시간 형식:" + nowFormat);
+			Date time = times.getReviewPostdate();// 게시 일자
+
+			cal2.setTime(time);
+			String postDateFormat = formatter.format(time);// 게시시간 형식
+			System.out.println("현재시간 형식:" + postDateFormat);
+
+			String reviewPostdate;
+			if (nowFormat.equals(postDateFormat)) {
+				reviewPostdate = "오늘";
+			} else {// 날짜 다르면
+				long diffSec = (cal1.getTimeInMillis() - cal2.getTimeInMillis()) / 1000;// 초
+				long diffDay = diffSec / (60 * 60 * 24);
+				System.out.println("두 날짜의 일 차이:" + diffDay);
+				if (diffDay == 1.0) {
+					reviewPostdate = "어제";
+				} else {
+					reviewPostdate = postDateFormat;
+				}
+
+			}
+			map.put("reviewPostdate", reviewPostdate);
+			model.addAttribute("reviewPostdate", reviewPostdate);
+
+//			times.setImgUrl(naverDefaultMovieImgUrl(times.getMovieTitle())); 이제 더이상 사용하지 않아(크롤링 x.DB에서 꺼내옴)
+			times.setReviewContent(times.getReviewContent().replace("\r\n", "<br>"));
+		}
+
+		// 영화포스터 + 리뷰 줄바꿈 처리
+		for (ReviewDto record : selectList) {
+//			record.setImgUrl(naverDefaultMovieImgUrl(record.getMovieTitle()));
+			record.setReviewContent(record.getReviewContent().replace("\r\n", "<br/>"));
+		}
+
+		model.addAttribute("selectList", selectList.isEmpty() ? null : selectList);
+
+		// 리뷰 카운트
+		int reviewCount = reviewService.getTotalCount(map);
+		model.addAttribute("reviewCount", reviewCount);
+
+		// 선호감독
+		List<MoviePeopleDto> directorList = moviePeopleService.selectDiretorList(map);
+		model.addAttribute("directorList", directorList.isEmpty() ? null : directorList);
+		// 선호장르
+		List<String> genreList = movieService.selectGenreList(map);
+		model.addAttribute("genreList", genreList.isEmpty() ? null : genreList);
+		// 선호태그
+		List<String> tagList = movieService.selectTagList(map);
+		model.addAttribute("tagList", tagList.isEmpty() ? null : tagList);
+		// 선호배우
+		List<MoviePeopleDto> actorList = moviePeopleService.selectActorList(map);
+		model.addAttribute("actorList", actorList.isEmpty() ? null : actorList);
+
+		return "blog/my/BlogMain.tiles";
+
+	}
 
 	// 리뷰작성 후 메인으로
 //	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov", method = RequestMethod.POST)
@@ -446,6 +645,21 @@ public class BlogController {
 		map.put("id", id);
 		model.addAttribute("id", id);
 
+		// 팔로우 여부]내 팔로우리스트에 있는 애
+		// 내 팔로우 리스트가져오기
+		// 팔로우된 아이디 리스트
+		List<FollowDto> selectFollowList = followService.selectFollowList(map);
+		// 팔로우한 애면]
+		model.addAttribute("followOk", "n");
+		if (map.get("userNick") != null) {
+			for (FollowDto dto : selectFollowList) {
+				if (dto.getFollowing().equals(userService.selectUserId(map.get("userNick").toString()))) {
+					System.out.println("팔로우한 애네");
+					model.addAttribute("followOk", "y");
+				}
+			}
+		}
+
 		// 프사 불러오기 용
 		UserDto image = userService.selectOne(map);// 리스트전체조회
 		model.addAttribute("image", image);
@@ -514,26 +728,89 @@ public class BlogController {
 
 		model.addAttribute("friendsReviewList1", friendsReviewList1.isEmpty() ? null : friendsReviewList1);
 		// 모든 아이디 리스트
-		List<UserDto> allUser = userService.selectList(map);
-		model.addAttribute("allUser", allUser.isEmpty() ? null : allUser);
+		List<UserDto> selectAllUserList = userService.AllUserNick(map);
+		model.addAttribute("selectAllUserList", selectAllUserList.isEmpty() ? null : selectAllUserList);
 
 		return "blog/my/MovieingFriends.tiles";
 	}///////////////////////////////////////////////////////////////////////////////
+
+
 
 	// 내 글 삭제
 	@ResponseBody
 	@RequestMapping(value = "/Movieing/Blog/reviewRemove.mov", method = RequestMethod.POST)
 	public void reviewRemove(@RequestParam Map map, Authentication auth) {
+		System.out.println("삭제컨트롤러");
 		String id = auth.getName();
 		int reviewNo = Integer.parseInt(map.get("reviewNo").toString());
 		System.out.println("삭제글번호" + reviewNo);
 		map.put("reviewNo", reviewNo);
 		map.put("id", id);
-		likeReviewService.delete(map);// 좋아요삭제
-		commentService.delete(map);// 댓글삭제
-		reviewService.delete(map);// 리뷰삭제
+		int likedelete = likeReviewService.delete(map);// 좋아요삭제
+		int commentDelete = commentService.delete(map);// 댓글삭제
+		System.out.println("조아요삭제" + likedelete + "댓삭" + commentDelete);
+		int reviewDelete = reviewService.delete(map);// 리뷰삭제
+		System.out.println("리뷰삭제" + reviewDelete);
 		System.out.println("내 글이 삭제됨");
 	}//////////////////////////////////////////////////
+
+	// 리뷰상세페이지]무빙프렌즈1
+	@RequestMapping("/Movieing/Blog/My/BlogReviews.mov")
+	public String blogReviews1(@RequestParam Map map, Model model, Authentication auth) {
+		map.put("id", auth.getName());
+		String reviewNo = map.get("reviewNo").toString();
+		System.out.println("리뷰 넘버:" + reviewNo);
+
+		UserDto user = userService.selectOne(map);
+		model.addAttribute("user", user);
+		ReviewDto review = reviewService.selectOne(map);
+		review.setReviewContent(review.getReviewContent().replace("\r\n", "<br>"));
+
+		SimpleDateFormat format = new SimpleDateFormat("yyyy. MM. dd");
+
+		model.addAttribute("date", format.format(review.getReviewPostdate()));
+
+		model.addAttribute("review", review);
+
+		List<CommentDto> commentList = commentService.selectList(map);
+		for (CommentDto record : commentList) {
+			record.setCommentContent(record.getCommentContent().replace("\r\n", "<br>"));
+			record.setStringDate(format.format(record.getCommentDate()));
+		}
+
+		model.addAttribute("commentList", commentList);
+
+		return "blog/my/BlogReviews.tiles";
+	}//////////////////////////////////
+
+	// 리뷰상세페이지]무빙프렌즈2
+	@RequestMapping("/Movieing/Blog/My/BlogReviews2.mov")
+	public String blogReviews2(@RequestParam Map map, Model model, Authentication auth) {
+		map.put("id", auth.getName());
+		String reviewNo = map.get("reviewNo").toString();
+		System.out.println("리뷰 넘버:" + reviewNo);
+
+		UserDto user = userService.selectOne(map);
+		model.addAttribute("user", user);
+		ReviewDto review = reviewService.selectOne(map);
+		review.setReviewContent(review.getReviewContent().replace("\r\n", "<br>"));
+
+		SimpleDateFormat format = new SimpleDateFormat("yyyy. MM. dd");
+
+		model.addAttribute("date", format.format(review.getReviewPostdate()));
+
+		model.addAttribute("review", review);
+
+		List<CommentDto> commentList = commentService.selectList(map);
+		for (CommentDto record : commentList) {
+			record.setCommentContent(record.getCommentContent().replace("\r\n", "<br>"));
+			record.setStringDate(format.format(record.getCommentDate()));
+		}
+
+		model.addAttribute("commentList", commentList);
+
+		return "blog/my/BlogReviews2.tiles";
+	}//////////////////////////////////
 
 	// 무빙프렌즈2]
 	@RequestMapping("/Movieing/Blog/MovieingFriends2.mov")
@@ -544,7 +821,7 @@ public class BlogController {
 		System.out.println("로그인된 아이디:" + id);
 		map.put("id", id);
 		model.addAttribute("id", id);
-		//프사 불러오기 용
+		// 프사 불러오기 용
 		UserDto image = userService.selectOne(map);// 리스트전체조회
 		model.addAttribute("image", image);
 
@@ -599,10 +876,11 @@ public class BlogController {
 			}
 
 			times.setReviewContent(times.getReviewContent().replace("\r\n", "<br>"));
-
+			// 가져온 리스트에 사진url담아주기
+//			times.setImgUrl(naverDefaultMovieImgUrl(times.getMovieTitle()));
+			System.out.println("제대로 날짜?"+reviewPostdate);
 			map.put("reviewPostdate", reviewPostdate);
 			model.addAttribute("reviewPostdate", reviewPostdate);
-
 		} ////////////////////////////
 
 		model.addAttribute("friendsReviewList2", friendsReviewList2.isEmpty() ? null : friendsReviewList2);
@@ -681,6 +959,23 @@ public class BlogController {
 		model.addAttribute("write", write);
 
 		return "blog/my/WritePage.tiles";
+	}////////////////////////////////////////////
+
+	// 글쓰기 수정페이지]
+	@RequestMapping("/Movieing/Blog/WritePage_Update.mov")
+	public String writeUpdate(@RequestParam Map map, Model model, Principal principal) {
+		// 세션아이디
+		String id = principal.getName();
+		map.put("id", id);
+		model.addAttribute("reviewNo", map.get("reviewNo"));// 전달받은 리뷰넘버 넘기기
+		// 내 정보뿌려주기
+		List<ReviewDto> write = reviewService.selectNotReviewList(map);// 리스트전체조회
+		model.addAttribute("write", write);
+		// 리뷰넘버 가져와서 리뷰넘버에 맞는 리뷰글 가져오기 모두
+		ReviewDto selectMyReviewOne = reviewService.selectMyReviewOne(map);
+		model.addAttribute("selectMyReviewOne", selectMyReviewOne);
+
+		return "blog/my/WritePage_Update.tiles";
 	}////////////////////////////////////////////
 
 	// 리뷰의 평가점수가져오기
