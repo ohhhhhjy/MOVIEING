@@ -133,4 +133,11 @@ public class EvalueWishServiceImpl implements EvalueWishService{
 		return dao.selectEvalueCountAll(map);
 	}
 
+
+
+	@Override
+	public int getEvalueOneLikeCount(Map map) {
+		return dao.getEvalueOneLikeCount(map);
+	}
+
 }

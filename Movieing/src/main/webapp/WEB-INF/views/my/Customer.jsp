@@ -241,9 +241,9 @@ px
 						</thead>
 						<tbody>
 							<tr>
-								<td><a href="#">1</a></td>
-								<td>회원등급</td>
-								<td>회원등급이 어떻게 올라가나요?</td>
+								<td><a href="#">3</a></td>
+								<td>댓글</td>
+								<td>댓글 작성이 안되요</td>
 							</tr>
 							<tr>
 								<td><a href="#">2</a></td>
@@ -251,7 +251,7 @@ px
 								<td>결제가 되지 않아요</td>
 							</tr>
 							<tr>
-								<td><a href="#">3</a></td>
+								<td><a href="#">1</a></td>
 								<td>블로그</td>
 								<td>글 작성이 안되요</td>
 							</tr>

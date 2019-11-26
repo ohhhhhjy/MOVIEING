@@ -641,7 +641,7 @@ $(function(){
 								value="unclick"><i class="fa fa-gittip"></i> 좋아요</a> 
 								-->
 								<button type="button" class="btn btn-link likeUnlike" id="${status.index }" ><span
-											style="font-weight: bold; color: #db147b; font-size: 0.9em" id="likeSpan${status.index }">
+											style="font-weight: bold; color: #db147b;" id="likeSpan${status.index }">
 											<a><i id="likeUnlikeIcon" class="fas fa-thumbs-up"></i>좋아요</a></span></button>
 											
 											<!-- 좋아요 아이콘 -->
