@@ -275,7 +275,7 @@ i.fas {
 
 <script>
 
-	
+	//모달띄우기	
 	$(function(){	
 		var modal = '${seoulDR}';
 		
