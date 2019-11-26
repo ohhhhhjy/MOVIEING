@@ -11,7 +11,7 @@
             
             
             
-           	<iframe style="border:none;width:100%;height:700px" src="http://localhost:7070/"></iframe>
+           	<iframe style="border:none;width:100%;height:700px" src="http://localhost:6060/"></iframe>
         </div>
     </div>
     <!-- /.row -->

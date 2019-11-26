@@ -16,6 +16,8 @@ public interface UserService {
 
 	//전체 레코드 수
 	int getTotalCount(Map map);
+	int getCountByDate(Map map);
+	
 	//상세보기 용
 	UserDto selectOne(Map map);
 	//입력/수정/삭제

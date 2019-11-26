@@ -27,6 +27,10 @@
 		select count(*) from user_table
 	</select>
 	
+	<select id="userTotalByDate" parameterType="java.util.Map" resultType="int">
+		select count(*) from user_table where user_signup_date between #{date} and #{date}+1 
+	</select>
+	
 	<select id="userSelectOne" parameterType="java.util.Map" resultType="UserDto">
 		select * from user_table where user_id=#{id}
 	</select>
