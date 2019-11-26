@@ -135,4 +135,10 @@ public class EvalueWishDao implements EvalueWishService{
 		return template.selectOne("selectEvalueCountAll", map);
 	}
 
+	@Override
+	public int getEvalueOneLikeCount(Map map) {
+		return template.selectOne("getEvalueOneLikeCount", map);
+	}
+
+
 	}

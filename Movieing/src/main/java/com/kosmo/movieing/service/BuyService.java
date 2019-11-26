@@ -16,4 +16,6 @@ public interface BuyService {
 	
 	int totalCount(Map map);
 	
+	int totalAmount(Map map);
+	
 }

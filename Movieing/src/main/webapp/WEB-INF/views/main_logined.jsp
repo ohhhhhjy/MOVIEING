@@ -998,6 +998,7 @@ $( '#top' ).click( function() {
 				<!-- 4행시작 -->
 				<div style="padding-top: 60px"></div>
 				<div class="row blog">
+				<div  style="padding-left:15px"></div>
 					<h5 style="font-weight: bold;">영화제</h5>
 					<div class="col-md-12">
 						<div id="blogCarousel" class="carousel slide" data-ride="carousel">

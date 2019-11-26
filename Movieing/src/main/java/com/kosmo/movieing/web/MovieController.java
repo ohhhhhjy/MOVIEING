@@ -415,6 +415,17 @@ public class MovieController {
 		}else {
 			model.addAttribute("selectGradeAvg",null);//둘째짜리
 		}
+		//보고싶어요 유무]
+		String userId = auth.getName();
+		map.put("id", userId.toString());
+		//보고싶어요 누른경우 유무]
+		int getEvalueOneLikeCount=evalueWishService.getEvalueOneLikeCount(map);
+		if(getEvalueOneLikeCount==1) {//눌럿네
+			model.addAttribute("getEvalueOneLikeCount", "y");
+		}else {
+			model.addAttribute("getEvalueOneLikeCount", "n");
+		}
+
 
 
 
@@ -632,7 +643,25 @@ public class MovieController {
 		} else {// 보고싶어요에서 삭제하는 경우
 			evalueWishService.deleteWish(map);
 		}
+
+
 	}
+	//영화 상세 보고싶어요 눌럿냐]
+
+	@ResponseBody
+	@RequestMapping(value = "/Movieing/Movie/wishAjax_ok.mov")
+	public String wishAjax_ok(@RequestParam Map map, Authentication auth) {
+		String userId = auth.getName();
+		map.put("id", userId.toString());
+		//보고싶어요 누른경우 유무]
+		int getEvalueOneLikeCount=evalueWishService.getEvalueOneLikeCount(map);
+		if(getEvalueOneLikeCount==1) {//눌럿네
+			return "y";
+		}else {
+			return "n";
+		}
+	}
+
 
 	// 영화상세페이지의 리뷰 뿌리기
 	@ResponseBody // produces="text/html; charset=UTF-8"

@@ -36,5 +36,10 @@ public class BuyServiceImpl implements BuyService {
 	public List<BuyDto> selectList(Map map) {
 		return dao.selectList(map);
 	}
+
+	@Override
+	public int totalAmount(Map map) {
+		return dao.totalAmount(map);
+	}
 	
 }
