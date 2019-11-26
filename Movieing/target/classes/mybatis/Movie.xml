@@ -92,7 +92,9 @@
 	
 	<!-- 영화 추천 로직 -->
 	<select id="selectListBestRecommendMovie" parameterType="java.util.Map" resultType="MovieDto">
-        SELECT * FROM MOVIE WHERE 
+        SELECT mv.*,(select avg(evaluation_grade) from evaluation where movie_no = mv.movie_no) as grade 
+        FROM MOVIE mv 
+        WHERE
         (
             movie_genre in (select movie_genre from 
            (select g.*,rownum r from 

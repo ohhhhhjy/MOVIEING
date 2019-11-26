@@ -57,7 +57,7 @@ public class AndroidController {
 		List<MovieDto> movieList = movieService.selectListMovie(map);
 
 		int evalueCount = evalueWishService.getTotalEvalueCount(map);
-		System.out.println("평가수?"+evalueCount);
+
 		List<Map> collections = new Vector<Map>();
 		for(MovieDto dto:movieList) {
 			Map record = new HashMap();
@@ -93,6 +93,67 @@ public class AndroidController {
 			System.out.println("인서트");
 			evalueWishService.insert(map);
 		}
+	}//evalueList
+
+	//추천 리스트 뿌려주기
+	@ResponseBody
+	@RequestMapping(value="/Movieing/Android/RecommendList.mov")
+	public String recommendList(@RequestParam Map map) throws UnsupportedEncodingException {
+
+		map.put("id","KIM");//우선 하드코딩
+		//int evalueCount = evalueWishService.getTotalEvalueCount(map);
+
+		List<MovieDto> movieList = movieService.selectListBestRecommendMovie(map);
+
+		List<Map> collections = new Vector<Map>();
+		for(MovieDto dto:movieList) {
+			Map record = new HashMap();
+			record.put("movieNo",dto.getMovieNo());
+			record.put("movieTitle",URLEncoder.encode(dto.getMovieTitle(), "UTF-8"));
+			record.put("movieImg", dto.getMovieImg());
+			record.put("movieCountry", URLEncoder.encode(dto.getMovieCountry(), "UTF-8"));
+			record.put("movieGenre", URLEncoder.encode(dto.getMovieGenre(), "UTF-8"));
+			record.put("movieOrgTitle",dto.getMovieOrgTitle());
+			record.put("movieYear", dto.getMovieYear());
+			record.put("grade",dto.getGrade());
+			collections.add(record);
+		}
+
+
+		return JSONArray.toJSONString(collections);
+	}//evalueList
+
+
+	@ResponseBody
+	@RequestMapping(value="/Movieing/Android/MovieOne.mov")
+	public String movieOne(@RequestParam Map map) throws UnsupportedEncodingException {
+
+		map.put("id","KIM");//우선 하드코딩
+		//int evalueCount = evalueWishService.getTotalEvalueCount(map);
+
+		MovieDto dto = movieService.selectOne(map);
+
+
+		JSONObject json = new JSONObject();
+
+		json.put("movieNo",dto.getMovieNo());
+		json.put("movieTitle",URLEncoder.encode(dto.getMovieTitle(), "UTF-8"));
+		json.put("movieImg", dto.getMovieImg());
+		json.put("movieCountry", URLEncoder.encode(dto.getMovieCountry(), "UTF-8"));
+		json.put("movieGenre", URLEncoder.encode(dto.getMovieGenre(), "UTF-8"));
+		json.put("movieOrgTitle",dto.getMovieOrgTitle());
+		json.put("movieYear", dto.getMovieYear());
+		json.put("grade",dto.getGrade());
+		//가격
+		json.put("naverPrice",dto.getNaverPrice());
+		json.put("wavvePrice",dto.getWavvePrice());
+		json.put("googlePrice",dto.getGooglePrice());
+
+		json.put("movieContent", URLEncoder.encode(dto.getMovieContent(), "UTF-8"));
+		json.put("movieDirector", URLEncoder.encode(dto.getMovieDirector(), "UTF-8"));
+		json.put("movieGrade", URLEncoder.encode(dto.getMovieGrade(), "UTF-8"));//영화관람가
+
+		return json.toJSONString();
 	}//evalueList
 
 
