@@ -19,6 +19,7 @@ import com.kosmo.movieing.service.NoticeDto;
 import com.kosmo.movieing.service.NoticeService;
 import com.kosmo.movieing.service.QnaDto;
 import com.kosmo.movieing.service.QnaService;
+import com.kosmo.movieing.service.ReviewService;
 import com.kosmo.movieing.service.UserDto;
 import com.kosmo.movieing.service.UserService;
 
@@ -35,6 +36,8 @@ public class AdminController {
 	@Resource(name="userService")
 	private UserService userService;
 	
+	@Resource(name="reviewService")
+	private ReviewService reviewService;
 	
 
 	// 관리자페이지]
@@ -43,6 +46,8 @@ public class AdminController {
 		
 		int totalUser = userService.getTotalCount(map);
 		model.addAttribute("totalUser",totalUser);
+		int totalReview = reviewService.selectReviewCount(map);
+		model.addAttribute("totalReview", totalReview);
 		
 		JSONArray userJson = new JSONArray();
 		int day = 24*60*60*1000;

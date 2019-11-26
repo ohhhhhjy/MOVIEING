@@ -168,8 +168,8 @@
                 </div>
                 <div class="panel-body">
                     <div class="col-md-4 col-sm-4 col-xs-4 text-center">
-                        <h4><span class="fa fa-file-video-o"></span> 게시글 수</h4>
-                        <h3>327</h3>
+                        <h4><span class="fa fa-file-video-o"></span> 리뷰 수</h4>
+                        <h3>${totalReview}</h3>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-4 text-center">
                         <h4><span class="fa fa-users"></span> 가입자 수</h4>

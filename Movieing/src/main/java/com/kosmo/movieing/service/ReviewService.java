@@ -72,6 +72,8 @@ public interface ReviewService {
 
 	//인기 리뷰
 	List<ReviewDto> selectBestReviewList();
+	
+	int selectReviewCount(Map map);
 
 
 }

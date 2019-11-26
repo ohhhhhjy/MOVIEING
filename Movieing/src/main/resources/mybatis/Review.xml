@@ -211,6 +211,8 @@
 	where user_id=#{id} and review_no=#{reviewNo} and movie_no=#{movieNo}
 	</update>
 
-
+	<select id="selectReviewCount" parameterType="java.util.Map" resultType="int">
+		select count(*) from review
+	</select>
 	
 </mapper>
