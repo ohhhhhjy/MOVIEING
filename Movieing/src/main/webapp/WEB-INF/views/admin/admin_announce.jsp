@@ -29,6 +29,7 @@
         </table>
 	</div>
 	</script>
+	
     <script>
     var notiData = $("p").html();
     
@@ -79,7 +80,15 @@
 		                caption: "<div class='annodel'></div>삭제",
 		                commandName: "annodel",
 		                click: function (rowIndex) {
-		                    
+		                	
+		                	if(confirm('해당 게시글을 삭제하시겠습니까?')){
+			                	var no;
+			                	if(rowIndex%2==0)
+			                		no = $('.sui-row:eq('+rowIndex/2+')>.sui-cell:eq(1)').text();
+			                	else
+			                		no = $('.sui-alt-row:eq('+(rowIndex-1)/2+')>.sui-cell:eq(1)').text();
+			                	location.assign("<c:url value='/Movieing/admin/admin_adel.mov?no="+no+"'/>");
+		                	}
 		                }
 		            }]
                 }
