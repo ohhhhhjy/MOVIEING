@@ -139,6 +139,11 @@ public class UserDao implements UserService{
 		return template.update("updatePass", map);
 	}
 
+	@Override
+	public int getCountByDate(Map map) {
+		return template.selectOne("userTotalByDate", map);
+	}
+
 
 
 

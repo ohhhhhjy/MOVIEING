@@ -6,7 +6,7 @@
 <div id="page-wrapper">
     <div class="row">
     	<div class="col-md-12">
-         <div class="well">
+         <div class="well-lg">
             <form class="form-horizontal" method="post" action="<c:url value='/Movieing/admin/admin_announce.mov'/>">
                 <fieldset>
                 <input type="hidden" name="${_csrf.parameterName}"

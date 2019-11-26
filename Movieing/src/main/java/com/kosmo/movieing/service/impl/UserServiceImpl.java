@@ -141,6 +141,11 @@ public class UserServiceImpl implements UserService{
 		return dao.updatePass(map);
 	}
 
+	@Override
+	public int getCountByDate(Map map) {
+		return dao.getCountByDate(map);
+	}
+
 
 
 }

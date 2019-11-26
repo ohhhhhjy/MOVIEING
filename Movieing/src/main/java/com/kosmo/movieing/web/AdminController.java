@@ -22,7 +22,7 @@ import com.kosmo.movieing.service.QnaService;
 import com.kosmo.movieing.service.UserDto;
 import com.kosmo.movieing.service.UserService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @Controller
 public class AdminController {
 	
@@ -43,6 +43,19 @@ public class AdminController {
 		
 		int totalUser = userService.getTotalCount(map);
 		model.addAttribute("totalUser",totalUser);
+		
+		JSONArray userJson = new JSONArray();
+		int day = 24*60*60*1000;
+		
+		for(int i=11;i>=0;i--) {
+			java.sql.Date date = new java.sql.Date(new java.util.Date().getTime()-day*(11-i));
+			map.put("date",date);
+			System.out.println(date);
+			int userByDate = userService.getCountByDate(map);
+			System.out.println(userByDate);
+			userJson.add(11-i,userByDate);
+		}
+		model.addAttribute("userJson",userJson);
 		
 		return "admin/admin_main.admin";
 	}
@@ -65,7 +78,19 @@ public class AdminController {
 	
 	
 	@RequestMapping("/Movieing/admin/admin_qna.mov")
-	public String admin_qna(@RequestParam Map map, Model model) {
+	public String admin_qna(@RequestParam Map map, Model model, HttpServletRequest req) {
+		
+		if (req.getMethod().equals("POST")) {
+			
+			String qnaNo = map.get("no").toString();
+			String qnaAnswer = map.get("content").toString();
+			
+			map.put("qnaNo",qnaNo);
+			map.put("qnaAnswer", qnaAnswer);
+			
+			int replyQna = qnaService.reply(map);
+			
+		}
 		
 		List<QnaDto> qnaList = qnaService.selectList();
 		
@@ -158,6 +183,19 @@ public class AdminController {
 		model.addAttribute("dto",dto);
 		
 		return "admin/admin_aedit.admin";
+	}
+	
+	@RequestMapping("/Movieing/admin/admin_adel.mov")
+	public String admin_announce_delete(@RequestParam Map map, Model model) {
+		
+		String notiNo = (String)map.get("no");
+		map.put("notiNo", notiNo);
+		
+		int result = noticeService.delete(map);
+		
+		model.addAttribute("result", result);
+		
+		return "admin/admin_adel.admin";
 	}
 	
 
