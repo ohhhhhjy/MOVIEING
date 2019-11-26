@@ -34,9 +34,20 @@
              <li class="dropdown user-dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> 관리자A<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#"><i class="fa fa-power-off"></i> 로그아웃</a></li>
+                    <li><a href="javascript:logout()"><i class="fa fa-power-off"></i> 로그아웃</a></li>
                 </ul>
             </li>
          </ul>
      </div>
+	<form id="logoutForm" method="post" action="<c:url value='/logout'/>">
+	   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+	</form>
+     <script>
+     
+     function logout(){
+        $('#logoutForm').submit();
+        
+     }
+     
+     </script>
  </nav>

@@ -56,6 +56,8 @@ public class AndroidController {
 
 		List<MovieDto> movieList = movieService.selectListMovie(map);
 
+		int evalueCount = evalueWishService.getTotalEvalueCount(map);
+		System.out.println("평가수?"+evalueCount);
 		List<Map> collections = new Vector<Map>();
 		for(MovieDto dto:movieList) {
 			Map record = new HashMap();
@@ -64,10 +66,12 @@ public class AndroidController {
 			record.put("movieImg", dto.getMovieImg());
 			record.put("movieCountry", URLEncoder.encode(dto.getMovieCountry(), "UTF-8"));
 			record.put("movieYear", dto.getMovieYear());
-
+			record.put("evalueCount",evalueCount);
 
 			collections.add(record);
 		}
+
+
 		return JSONArray.toJSONString(collections);
 	}//evalueList
 
@@ -78,6 +82,8 @@ public class AndroidController {
 	public void evalueInsert(@RequestParam Map map) {
 
 		map.put("id","KIM");//우선 하드코딩
+
+		if(map.get("grade").equals("0")) return;
 
 		if(evalueWishService.isEvalue(map)) {//이미 남긴 별점이 있다면,
 			System.out.println("업데이트");

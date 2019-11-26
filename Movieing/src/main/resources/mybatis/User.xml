@@ -14,6 +14,10 @@
 	select USER_ID from user_table where USER_ID not in #{id}
 
 	</select>
+	<!-- 관리자, 나 제외한 모든 닉네임들과 프로필 -->
+	<select id="AllUserNick" parameterType="java.util.Map" resultType="UserDto">
+	select user_nick,user_Profile from user_table where USER_ID not in #{id} and USER_ID not in 'admin'
+	</select>
 	<!-- 내 정보 모두 -->
 	<select id="userSelectList" parameterType="java.util.Map" resultType="UserDto">
 		select * from user_table where user_id=#{id}

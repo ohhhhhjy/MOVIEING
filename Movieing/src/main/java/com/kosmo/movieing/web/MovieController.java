@@ -401,10 +401,10 @@ public class MovieController {
 		//보고싶어요한 영화 평점 뿌리기]일단 가져와
 		//내가 평가를 했는지의 유무]
 		if(evalueWishService.selectEvalueCount(map)==1) {//평가한 영화가 있다
-			EvaluationDto selectEvalueList=evalueWishService.selectEvalueOne(map);
-			model.addAttribute("selectEvalueList", selectEvalueList);
+			EvaluationDto selectEvalueOne=evalueWishService.selectEvalueOne(map);
+			model.addAttribute("selectEvalueOne", selectEvalueOne);
 		}else {
-			model.addAttribute("selectEvalueList", null);
+			model.addAttribute("selectEvalueOne", null);
 		}
 
 		//평점
@@ -1031,9 +1031,12 @@ public class MovieController {
 		String movieNo = movieService.selectMovieNo(map);
 		System.out.println("영화넘버" + movieNo);
 		map.put("movieNo", movieNo);
-		// 평가테이블에 insert
-		int insertEvalue = evalueWishService.insertEvalue(map);
-		System.out.println("평가테이블에 insert");
+		//영화넘버와 아이디에 따른 평가점수가져오기
+		EvaluationDto selectEvalueOne=evalueWishService.selectEvalueOne(map);
+		map.put("evaluationGrade", selectEvalueOne.getEvaluationGrade());
+		model.addAttribute("evaluationGrade", selectEvalueOne.getEvaluationGrade());//평가점수
+		//System.out.println("evaluationGrade"+selectEvalueOne.getEvaluationGrade());
+
 
 		model.addAttribute("movieTitle", movieTitle);
 

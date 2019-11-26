@@ -73,11 +73,11 @@ public class BlogController {
 			throws Exception {
 
 		String id = auth.getName();
-		map.put("id", id);// park
+		map.put("id", id);
 		// 팔로우 여부]내 팔로우리스트에 있는 애
 		// 내 팔로우 리스트가져오기
 		// 팔로우된 아이디 리스트
-		List<FollowDto> selectFollowList = followService.selectFollowList(map);// kim
+		List<FollowDto> selectFollowList = followService.selectFollowList(map);
 		// 팔로우한 애면]
 		model.addAttribute("followOk", "n");
 		if (map.get("userNick") != null) {
@@ -381,7 +381,7 @@ public class BlogController {
 
 			String movieNo = movieService.selectMovieNo(map);
 			map.put("movieNo", movieNo);
-			System.out.println("리뷰넘버?"+map.get("reviewNo").toString());
+			System.out.println("리뷰넘버?" + map.get("reviewNo").toString());
 
 			model.addAttribute("movieTitle", movieTitle);
 			model.addAttribute("movieNo", movieNo);// 영화번호
@@ -389,10 +389,10 @@ public class BlogController {
 			model.addAttribute("reviewContent", reviewContent);// 내용
 			// 평가 테이블에 평점 넣기]
 			int updateGrade = evalueWishService.update(map);// 업데이트
-			System.out.println("잘 업데이트가 됫나?"+updateGrade);
-			//글 업데이트하기]
-			int updateAll=reviewService.update(map);
-			System.out.println("잘 업데이트가 됫나22?"+updateAll);
+			System.out.println("잘 업데이트가 됫나?" + updateGrade);
+			// 글 업데이트하기]
+			int updateAll = reviewService.update(map);
+			System.out.println("잘 업데이트가 됫나22?" + updateAll);
 
 		}
 
@@ -645,6 +645,21 @@ public class BlogController {
 		map.put("id", id);
 		model.addAttribute("id", id);
 
+		// 팔로우 여부]내 팔로우리스트에 있는 애
+		// 내 팔로우 리스트가져오기
+		// 팔로우된 아이디 리스트
+		List<FollowDto> selectFollowList = followService.selectFollowList(map);
+		// 팔로우한 애면]
+		model.addAttribute("followOk", "n");
+		if (map.get("userNick") != null) {
+			for (FollowDto dto : selectFollowList) {
+				if (dto.getFollowing().equals(userService.selectUserId(map.get("userNick").toString()))) {
+					System.out.println("팔로우한 애네");
+					model.addAttribute("followOk", "y");
+				}
+			}
+		}
+
 		// 프사 불러오기 용
 		UserDto image = userService.selectOne(map);// 리스트전체조회
 		model.addAttribute("image", image);
@@ -713,11 +728,13 @@ public class BlogController {
 
 		model.addAttribute("friendsReviewList1", friendsReviewList1.isEmpty() ? null : friendsReviewList1);
 		// 모든 아이디 리스트
-		List<UserDto> allUser = userService.selectList(map);
-		model.addAttribute("allUser", allUser.isEmpty() ? null : allUser);
+		List<UserDto> selectAllUserList = userService.AllUserNick(map);
+		model.addAttribute("selectAllUserList", selectAllUserList.isEmpty() ? null : selectAllUserList);
 
 		return "blog/my/MovieingFriends.tiles";
 	}///////////////////////////////////////////////////////////////////////////////
+
+
 
 	// 내 글 삭제
 	@ResponseBody
@@ -729,11 +746,11 @@ public class BlogController {
 		System.out.println("삭제글번호" + reviewNo);
 		map.put("reviewNo", reviewNo);
 		map.put("id", id);
-		int likedelete=likeReviewService.delete(map);// 좋아요삭제
-		int commentDelete=commentService.delete(map);// 댓글삭제
-		System.out.println("조아요삭제"+likedelete+"댓삭"+commentDelete);
-		int reviewDelete=reviewService.delete(map);// 리뷰삭제
-		System.out.println("리뷰삭제"+reviewDelete);
+		int likedelete = likeReviewService.delete(map);// 좋아요삭제
+		int commentDelete = commentService.delete(map);// 댓글삭제
+		System.out.println("조아요삭제" + likedelete + "댓삭" + commentDelete);
+		int reviewDelete = reviewService.delete(map);// 리뷰삭제
+		System.out.println("리뷰삭제" + reviewDelete);
 		System.out.println("내 글이 삭제됨");
 	}//////////////////////////////////////////////////
 
@@ -804,7 +821,7 @@ public class BlogController {
 		System.out.println("로그인된 아이디:" + id);
 		map.put("id", id);
 		model.addAttribute("id", id);
-		//프사 불러오기 용
+		// 프사 불러오기 용
 		UserDto image = userService.selectOne(map);// 리스트전체조회
 		model.addAttribute("image", image);
 
@@ -861,7 +878,7 @@ public class BlogController {
 			times.setReviewContent(times.getReviewContent().replace("\r\n", "<br>"));
 			// 가져온 리스트에 사진url담아주기
 //			times.setImgUrl(naverDefaultMovieImgUrl(times.getMovieTitle()));
-
+			System.out.println("제대로 날짜?"+reviewPostdate);
 			map.put("reviewPostdate", reviewPostdate);
 			model.addAttribute("reviewPostdate", reviewPostdate);
 		} ////////////////////////////
@@ -950,7 +967,7 @@ public class BlogController {
 		// 세션아이디
 		String id = principal.getName();
 		map.put("id", id);
-		model.addAttribute("reviewNo", map.get("reviewNo"));//전달받은 리뷰넘버 넘기기
+		model.addAttribute("reviewNo", map.get("reviewNo"));// 전달받은 리뷰넘버 넘기기
 		// 내 정보뿌려주기
 		List<ReviewDto> write = reviewService.selectNotReviewList(map);// 리스트전체조회
 		model.addAttribute("write", write);

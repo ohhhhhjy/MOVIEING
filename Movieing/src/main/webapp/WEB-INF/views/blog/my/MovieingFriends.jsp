@@ -414,7 +414,9 @@ a {
 		
 		});
 	});
-	
+
+
+
 	
 </script>
 
@@ -489,16 +491,17 @@ a {
 
 
 									<!-- 모달 띄우기 -->
-									<div class="row ml-5" align="right" style="float: right; text-align: right;">
-									<c:set var="userNick" value="${ item.userNick}" />
-									<c:set var="myNick" value="${ friendsSelf.userNick }" />
-									
+									<div class="row ml-5" align="right"
+										style="float: right; text-align: right;">
+										<c:set var="userNick" value="${ item.userNick}" />
+										<c:set var="myNick" value="${ friendsSelf.userNick }" />
+
 										<c:if test="${ userNick ne myNick}">
-										<div style="padding-left: 500px"></div>
+											<div style="padding-left: 500px"></div>
 											<button class="btn btn-link dropdown-toggle" type="button"
 												id="gedf-drop1" data-toggle="modal" aria-haspopup="true"
-												aria-expanded="false" data-target="#myModal${status.index }"
-												data-notifyid="${item.reviewNo }" style="text-align:right;">
+												aria-expanded="false" data-target="#myModal${status.index }
+												data-notifyid="${userNick }" style="text-align: right;">
 												<i class="fa fa-ellipsis-h"></i>
 											</button>
 										</c:if>
@@ -519,22 +522,16 @@ a {
 										tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
-
-				
 												<c:if test="${ userNick ne myNick}">
 													<!--  남의 게시물 볼때 버튼들-->
 													<button type="button" class="btn btn-outline-secondary"
 														style="border-bottom: thin; width: 500px; height: 60px; color: red">부적절한
 														콘텐츠로 신고</button>
-													<button type="button" class="btn btn-outline-secondary"
-														style="border-bottom: thin; width: 500px; height: 60px; color: red">팔로우
-														취소</button>
+							
 													<button type="button" class="btn btn-outline-secondary"
 														style="border-bottom: thin; width: 500px; height: 60px; color: black;"
 														data-dismiss="modal">취소</button>
 												</c:if>
-
-
 											</div>
 										</div>
 									</div>
@@ -800,7 +797,7 @@ a {
 									style="padding-left: 5px; font-weight: bold; padding-right: 40px">타임
 									라인</h6>
 								<a style="text-decoration: underline;"
-									href="<c:url value='/Movieing/Blog/MF_Timeline.mov'/>">모두
+									href="<c:url value=''/>">모두
 									보기</a>
 
 							</div>
@@ -823,29 +820,30 @@ a {
 									style="overflow: auto; overflow-x: hidden; width: 220px; height: 300px;">
 
 									<!-- 한 사람 시작 -->
-									<!-- 
-									<c:forEach items="${allUser }" var="item">
+							
+									<c:forEach items="${selectAllUserList }" var="item">
 										<div class="row profileForm" style="padding-left: 10px">
 											<div style="padding-left: 10px">
 												<img class="radiusSmallImg" alt="배우사진"
-													src="<c:url value='/resources/img/friends/boy.png'/>" />
+													src="${item.userProfile }" />
 											</div>
-											<div style="padding-left: 10px">
+											<div style="padding-left: 10px;text-align: center;">
 											<a
 											href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${item.userNick }'/>"
 											target="_self">
-												<span class="timeLineText"
-													style="font-size: 1.0em; color: black;">${item.userNick }</span>
+												<span class="timeLineText" 
+													style="font-size: 1.0em; color: black;text-align: center;">${item.userNick }</span>
 													</a>
 
 											</div>
 
 										</div>
 									</c:forEach>
-									 -->
 									<!-- 한 사람 끝 -->
 
 									<!-- 카드 레이아웃 팔로우 유저보이기 div끝 -->
+
+
 
 
 

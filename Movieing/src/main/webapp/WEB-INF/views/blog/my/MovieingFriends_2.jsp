@@ -596,7 +596,7 @@ $(function(){
 
 							<div class="text-muted h7 mb-2" style="padding-top: 20px">
 								<i class="fa fa-clock-o"
-									style="padding-bottom: 10px; padding-left: 5px"></i>${item.reviewPostdate }
+									style="padding-bottom: 10px; padding-left: 5px"></i>${reviewPostdate }
 								<div class="row">
 
 									<h6 style="padding-left: 20px">좋아요</h6>
@@ -733,19 +733,6 @@ $(function(){
 				</div>
 
 
-			<!-- 버튼: 시간순/인기순 -->
-			<!--  
-				<div style="padding-bottom: 50px">
-					<select class="form-control" style="text-align: center;" name="select">
-						<option value="1">시간 순</option>
-						<option value="2">좋아요 순</option>
-						<option value="3">댓글 순</option>
-
-					</select>
-				</div>
--->
-
-
 				<div class="card">
 
 					<div class="card-body">
@@ -800,25 +787,23 @@ $(function(){
 							
 									
 									<!-- 한 사람 시작 -->
-									<!--  
 									<c:forEach items="${selectFollowList }" var="item"> 
 									<div class="row profileForm" style="padding-left: 10px">
 										<div style="padding-left: 10px">
 											<img class="radiusSmallImg" alt="배우사진"
-												src="<c:url value='/resources/img/friends/boy.png'/>" />
+												src="${item.userProfile }" />
 										</div>
-										<div style="padding-left: 10px">
+										<div style="padding-left: 10px;text-align: center;">
 										<a
-											href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${item.following }'/>"
+											href="<c:url value='/Movieing/Blog/BlogMain.mov?userNick=${item.userNick }'/>"
 											target="_self">
 											<span class="timeLineText"
-												style="font-size: 1.0em; color: black;">${item.following }</span>
+												style="font-size: 1.0em; color: black;text-align: center;">${item.userNick }</span>
 												</a>
 										</div>
 
 									</div>
 									</c:forEach>
-									-->
 									<!-- 한 사람 끝 -->
 
 							</div>
