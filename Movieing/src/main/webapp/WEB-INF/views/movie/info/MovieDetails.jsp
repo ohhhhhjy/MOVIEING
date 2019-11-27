@@ -255,17 +255,15 @@ $(document).ready(function() {
  	$('#btnWish').click(function(){
  		var movieNo = ${movieNo};
  		var isInsert = true;
- 		//보고싶어요 x > 보고싶어요 o(insert)
+ 		console.log('보고싶어요 누름');
+ 		//보고싶어요 x -> 보고싶어요 o(insert)
  		if($('#wishBtnIcon').prop('class')=='fas fa-plus'){
  			$('#wishBtnIcon').removeClass('fa-plus').addClass('fa-bookmark');
- 			$('#wishBtnIcon').css('background-color','white').css('color','red');
  		}
- 		//보고싶어요 o > 보고싶어요 x(delete)
+ 		//보고싶어요 o -> 보고싶어요 x(delete)
  		else{
  			$('#wishBtnIcon').removeClass('fa-bookmark').addClass('fa-plus'); 
- 			$('#wishBtnIcon').css('background-color','red').css('color','white');
  			isInsert = false;
- 			
  		}
  		
  		$.ajax({
@@ -278,6 +276,7 @@ $(document).ready(function() {
                   xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
               },	
 				success:function(){//서버로 부터 정상적인 응답을 받았을 때(200번)
+				console.log('보고싶어요 삽입완료');
 				},	
 				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
 					console.log("에러:"+data.responseText);
@@ -447,6 +446,7 @@ $(document).ready(function() {
 								<span class="star-icon full">☆</span>
 								<span class="star-icon half">☆</span>
 								<span class="star-icon half">☆</span> -->
+								<!--  
 					   <c:choose>
 					   <c:when test="${getEvalueOneLikeCount=='n' }">
 					    <button  id="btnWish" class="btn btn-outline-danger waves-effect" data-toggle="button"><i class="fas fa-plus" id="wishBtnIcon"></i>&nbsp;보고싶어요</button>
@@ -455,6 +455,8 @@ $(document).ready(function() {
 					    <button  id="btnWish" class="btn btn-outline-danger" data-toggle="button" style="background-color: red;color: white;"><i class="fas fa-bookmark" id="wishBtnIcon"></i>&nbsp;보고싶어요</button>
 					    </c:otherwise>
 					    </c:choose>
+					    -->
+					    <button  id="btnWish" class="btn btn-outline-danger waves-effect" data-toggle="button"><i class="fas fa-plus" id="wishBtnIcon"></i>&nbsp;보고싶어요</button>
 					</div>
 					<hr class="my-3">
 					<c:if test="${movieUserList != null}">

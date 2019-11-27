@@ -637,9 +637,10 @@ public class MovieController {
 	public void wishAjax(@RequestParam Map map, Authentication auth) {
 		String userId = auth.getName();
 		map.put("id", userId.toString());
-
+		System.out.println("무비넘버"+map.get("movieNo"));
 		if (map.get("isInsert").equals("true")) {// 보고싶어요에 추가하는 경우
 			evalueWishService.insertWish(map);
+			System.out.println("보고싶어요 추가됨");
 		} else {// 보고싶어요에서 삭제하는 경우
 			evalueWishService.deleteWish(map);
 		}
