@@ -724,8 +724,7 @@ $(function(){
 
 					<div style="padding-top: 10px">
 
-						<button type="button" class="btn btn-primary"
-							style="width: 80px; height: 35px"
+						<button type="button" class="btn btn-primary btn-sm"
 							onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov"/>'">글쓰기</button>
 
 					</div>

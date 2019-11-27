@@ -15,7 +15,7 @@ import com.kosmo.movieing.service.QnaService;
 
 @Controller
 public class CustomerController {
-	
+
 	@Resource(name = "qnaService")
 	private QnaService qnaService;
 
@@ -27,6 +27,6 @@ public class CustomerController {
 		qnaService.insert(map);
 		return "forward:/Movieing/my/Customer.mov";
 	}
-	
-	
+
+
 }

@@ -63,6 +63,24 @@
 }
 </style>
 
+<script>
+
+/*입력완료 경고창*/
+$(document).ready(function() {
+	function success() {
+		if (qnaTitle.value == "") {
+			return false;
+		} else if (qnaContent.value == "") {
+			return false;
+		} else {
+			alert("문의글 작성이 완료되었습니다");
+		}
+
+	}
+});
+
+</script>
+
 
 
 <div class="container" style="padding-top: 150px">
@@ -76,15 +94,16 @@
 
 			<!--프사 -->
 			<div style="text-align: center">
-				<img src="${mypage.userProfile }"
-					class="radiusImg img-thumbnail" alt="프로필 사진"
-					style="display: block; margin: 0px auto;">
+				<img src="${mypage.userProfile }" class="radiusImg img-thumbnail"
+					alt="프로필 사진" style="display: block; margin: 0px auto;">
 			</div>
 
 
 			<div class="text-center" style="padding-bottom: 50px">
 				<div>
-					<h1 style="padding-bottom: 10px;text-align: center;padding-top: 10px">${mypage.userName } 님</h1>
+					<h1
+						style="padding-bottom: 10px; text-align: center; padding-top: 10px">${mypage.userName }
+						님</h1>
 				</div>
 				<!-- 파일선택 -->
 				<input type="file" class="text-center center-block file-upload">
@@ -94,16 +113,15 @@
 			<div class="row">
 
 				<a href="<c:url value='/Movieing/Blog/MyPage.mov'/>"
-					class="list-group-item list-group-item-action ">프로필
-					편집</a> <a href="<c:url value='/Movieing/Blog/MyPage_Pass.mov'/>"
-					class="list-group-item list-group-item-action">비밀번호
-					설정</a> <a href="<c:url value='/Movieing/Blog/MyPage_Permit.mov'/>"
-					class="list-group-item list-group-item-action">결제내역
-					</a> <a href="<c:url value='/Movieing/Blog/MyPage_Notice.mov"'/>"
-					class="list-group-item list-group-item-action">알림
-					메시지</a> <a href="<c:url value='/Movieing/Blog/MyPage_QnA.mov'/>"
-					class="list-group-item list-group-item-action active">문의글</a>
-				<a href="<c:url value='/Movieing/Blog/MyPage_Help.mov'/>" class="list-group-item list-group-item-action">도움말</a>
+					class="list-group-item list-group-item-action ">프로필 편집</a> <a
+					href="<c:url value='/Movieing/Blog/MyPage_Pass.mov'/>"
+					class="list-group-item list-group-item-action">비밀번호 설정</a> <a
+					href="<c:url value='/Movieing/Blog/MyPage_Permit.mov'/>"
+					class="list-group-item list-group-item-action">결제내역 </a> <a
+					href="<c:url value='/Movieing/Blog/MyPage_Notice.mov"'/>"
+					class="list-group-item list-group-item-action">알림 메시지</a> <a
+					href="<c:url value='/Movieing/Blog/MyPage_QnA.mov'/>"
+					class="list-group-item list-group-item-action active">문의글</a> <
 
 			</div>
 		</div>
@@ -122,78 +140,82 @@
 							<hr>
 						</div>
 					</div>
+
 					<div class="row">
 						<div class="col-md-12">
-							<form>
-								<div class="row">
-									<div class="col-md-1" style="text-align: right;">
-										<img alt="전화기"
-											src="<c:url value='/resources/img/myPage/call-answer.png'/>"
-											style="width: 25px; height: 25px;">
-									</div>
-									<div class="col-md-11" style="text-align: left;">
-										<h5 style="font-weight: bold;">문의 전화</h5>
-										<h5 style="font-weight: bold; color: red;">02-1234-5678</h5>
-										<h6 style="color: gray;">문의 전화 이용 시간은 오전 9:30 - 오후 6:30,
-											월~금입니다. 이용의 불편을 드려 죄송합니다.</h6>
-									</div>
+
+							<div class="row">
+								<div class="col-md-1" style="text-align: right;">
+									<img alt="전화기"
+										src="<c:url value='/resources/img/myPage/call-answer.png'/>"
+										style="width: 25px; height: 25px;">
 								</div>
+								<div class="col-md-11" style="text-align: left;">
+									<h5 style="font-weight: bold;">문의 전화</h5>
+									<h5 style="font-weight: bold; color: red;">02-1234-5678</h5>
+									<h6 style="color: gray;">문의 전화 이용 시간은 오전 9:30 - 오후 6:30,
+										월~금입니다. 이용의 불편을 드려 죄송합니다.</h6>
+								</div>
+							</div>
 
-								<!--  공간 띄우기-->
-								<div style="padding-bottom: 20px"></div>
+							<!--  공간 띄우기-->
+							<div style="padding-bottom: 20px"></div>
 
-								<div class="row">
-									<div class="col-md-1" style="text-align: right;">
-										<img alt="문의"
-											src="<c:url value='/resources/img/myPage/comments.png'/>"
-											style="width: 25px; height: 25px;">
-									</div>
-									<div class="col-md-11" style="text-align: left;">
-										<h5 style="font-weight: bold;">문의글 작성하기</h5>
+							<div class="row">
+								<div class="col-md-1" style="text-align: right;">
+									<img alt="문의"
+										src="<c:url value='/resources/img/myPage/comments.png'/>"
+										style="width: 25px; height: 25px;">
+								</div>
+								<div class="col-md-11" style="text-align: left;">
+									<h5 style="font-weight: bold;">문의글 작성하기</h5>
 
-										<button class="btn btn-secondary btn-sm" type="button"
-											data-toggle="modal" data-target="#myModal">작성하기</button>
+									<button class="btn btn-secondary btn-sm" type="button"
+										data-toggle="modal" data-target="#myModal">작성하기</button>
 
-										<button class="btn btn-secondary btn-sm" type="button"
-											onclick="location.href = '<c:url value='/Movieing/my/Customer.mov'/>'">내가
-											작성한 글보기</button>
+									<button class="btn btn-secondary btn-sm" type="button"
+										onclick="location.href = '<c:url value='/Movieing/my/Customer.mov'/>'">내가
+										작성한 글보기</button>
 
-										<!-- 작성 모달 -->
+									<!-- 작성 모달 -->
 
-										<div class="modal fade" id="myModal" tabindex="-1"
-											role="dialog" aria-labelledby="myModalLabel">
-											<div class="modal-dialog" role="document">
-												<div class="modal-content">
-													<div class="modal-header">
-														<!-- 모달헤더 -->
 
-														<h4 class="modal-title" id="myModalLabel">문의글 작성하기</h4>
-														<button type="button" class="close" data-dismiss="modal"
-															aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														</button>
-													</div>
+									<div class="modal fade" id="myModal" tabindex="-1"
+										role="dialog" aria-labelledby="myModalLabel">
 
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<!-- 모달헤더 -->
+
+													<h4 class="modal-title" id="myModalLabel">문의글 작성하기</h4>
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<form id="imgForm" method="post" id="frm"
+													enctype="multipart/form-data"
+													action="<c:url value='/Movieing/Customer/Write.mov'/>">
+													<input type="hidden" name="${_csrf.parameterName}"
+														value="${_csrf.token}">
 													<div class="modal-body">
 														<!-- 모달 바디 -->
 
 														<div class="col-12" style="padding-bottom: 20px">
-															<input id="name" name="name" class="form-control here"
-																type="text" placeholder="제목">
+															<input id="name" name="qnaTitle"
+																class="form-control here" type="text" placeholder="제목">
 														</div>
 
 
 														<div class="col-12">
-															<textarea id="publicinfo" name="publicinfo" cols="60"
+															<textarea id="publicinfo" name="qnaContent" cols="60"
 																rows="10" class="form-control" placeholder="내용"></textarea>
 														</div>
 
 
 
-
-
-
-														<div style="padding-left: 30px;padding-top: 10px" >
+														<div style="padding-left: 30px; padding-top: 10px">
 
 															<div class="row">
 																<div class="form-check mb-3">
@@ -216,38 +238,37 @@
 
 															<button type="button" class="btn btn-default"
 																data-dismiss="modal">취소</button>
-															<button type="button" class="btn btn-primary">제출</button>
+															<button type="button" class="btn btn-primary"
+																name="submit" type="submit" onclick="success()">제출</button>
 
 														</div>
 													</div>
-												</div>
+												</form>
+
 											</div>
-											<!-- 모달 끝 -->
-
 										</div>
+										<!-- 모달 끝 -->
 
 									</div>
+
 								</div>
-								<!--  공간 띄우기-->
-								<div style="padding-bottom: 20px"></div>
+							</div>
+							<!--  공간 띄우기-->
+							<div style="padding-bottom: 20px"></div>
 
-								<div class="row">
-									<div class="col-md-1" style="text-align: right;">
-										<img alt="채팅"
-											src="<c:url value='/resources/img/myPage/contract.png'/>"
-											style="width: 25px; height: 25px;">
-									</div>
-									<div class="col-md-11" style="text-align: left;">
-
-										<h5 style="font-weight: bold;">1:1 채팅 문의</h5>
-										<button type="button" class="btn btn-info btn-sm">채팅하기</button>
-
-										<h6 style="color: gray;">1:1 채팅 이용 시간은 오전 9:30 - 오후 6:30,
-											월~금입니다. 이용의 불편을 드려 죄송합니다.</h6>
-
-									</div>
+							<div class="row">
+								<div class="col-md-1" style="text-align: right;">
+									<img alt="채팅"
+										src="<c:url value='/resources/img/myPage/contract.png'/>"
+										style="width: 25px; height: 25px;">
 								</div>
-							</form>
+								<div class="col-md-11" style="text-align: left;">
+
+									<h5 style="font-weight: bold;">1:1 채팅 문의</h5>
+									<h6 style="color: gray;">우측 하단의 챗봇을 통해 궁금한 것을 물어보세요!</h6>
+
+								</div>
+							</div>
 						</div>
 					</div>
 

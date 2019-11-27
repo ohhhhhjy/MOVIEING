@@ -738,8 +738,7 @@ a {
 
 					<div style="padding-top: 10px">
 
-						<button type="button" class="btn btn-primary"
-							style="width: 80px; height: 35px"
+						<button type="button" class="btn btn-primary btn-sm"
 							onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov"/>'">글쓰기</button>
 
 					</div>
@@ -821,7 +820,7 @@ a {
 
 									<!-- 한 사람 시작 -->
 							
-									<c:forEach items="${selectAllUserList }" var="item">
+									<c:forEach items="${AllUserNick }" var="item">
 										<div class="row profileForm" style="padding-left: 10px">
 											<div style="padding-left: 10px">
 												<img class="radiusSmallImg" alt="배우사진"

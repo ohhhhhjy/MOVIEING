@@ -728,8 +728,8 @@ public class BlogController {
 
 		model.addAttribute("friendsReviewList1", friendsReviewList1.isEmpty() ? null : friendsReviewList1);
 		// 모든 아이디 리스트
-		List<UserDto> selectAllUserList = userService.AllUserNick(map);
-		model.addAttribute("selectAllUserList", selectAllUserList.isEmpty() ? null : selectAllUserList);
+		List<UserDto> AllUserNick = userService.AllUserNick(map);
+		model.addAttribute("AllUserNick", AllUserNick.isEmpty() ? null : AllUserNick);
 
 		return "blog/my/MovieingFriends.tiles";
 	}///////////////////////////////////////////////////////////////////////////////
