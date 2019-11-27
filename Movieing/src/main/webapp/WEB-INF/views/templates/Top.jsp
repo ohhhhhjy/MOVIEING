@@ -134,9 +134,8 @@
 						</div>
 					</li>
 					<li class="nav-item">
-						<div class="dropdown">
-							<a class="nav-link js-scroll-trigger " href="<c:url value ='#'/>"
-								>영화관</a>
+					<a class="nav-link js-scroll-trigger " href="<c:url value ='/Movieing/Movie/Threater/ThreaterInfo.mov'/>">영화관</a>
+						<%-- <div class="dropdown">
 							<div class="dropdown-content">
 								<a class="dropItem"
 									href="<c:url value ='/Movieing/Movie/Threater/ThreaterInfo.mov'/>"
@@ -147,7 +146,7 @@
 									style="color: white"><i class="fas fa-gift"
 									style="padding-right: 5px"></i>굿즈몰</a>
 							</div>
-						</div>
+						</div> --%>
 					</li>
 				</ul>
 				<ul class="navbar-nav text-uppercase ml-auto">

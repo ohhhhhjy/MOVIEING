@@ -49,19 +49,19 @@
 					<tbody>
 						<tr>
 							<td class="main">결제자</td>
-							<td>정명지</td>
+							<td>오지윤</td>
 						</tr>
 						<tr>
 							<td class="main">결제내용</td>
-							<td>부산국제영화제</td>
+							<td>서울독립영화제</td>
 						</tr>
 						<tr>
 							<td class="main">결제일시</td>
-							<td>2019.11.20 11:03</td>
+							<td>2019.11.27</td>
 						</tr>
 						<tr>
 							<td class="main">결제금액</td>
-							<td>23000원</td>
+							<td>72000원</td>
 						</tr>
 						<tr>
 							<td class="main">접수상태</td>

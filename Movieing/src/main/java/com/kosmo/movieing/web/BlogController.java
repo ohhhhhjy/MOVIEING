@@ -31,6 +31,7 @@ import com.kosmo.movieing.service.EvaluationDto;
 import com.kosmo.movieing.service.EvalueWishService;
 import com.kosmo.movieing.service.FollowDto;
 import com.kosmo.movieing.service.FollowService;
+import com.kosmo.movieing.service.LikeReviewDto;
 import com.kosmo.movieing.service.LikeReviewService;
 import com.kosmo.movieing.service.MoviePeopleDto;
 import com.kosmo.movieing.service.MoviePeopleService;
@@ -77,13 +78,12 @@ public class BlogController {
 		// 팔로우 여부]내 팔로우리스트에 있는 애
 		// 내 팔로우 리스트가져오기
 		// 팔로우된 아이디 리스트
-		List<FollowDto> selectFollowList = followService.selectFollowList(map);
+		List<UserDto> selectFollowingList = userService.selectFollowingList(map);
 		// 팔로우한 애면]
 		model.addAttribute("followOk", "n");
 		if (map.get("userNick") != null) {
-			for (FollowDto dto : selectFollowList) {
-				if (dto.getFollowing().equals(userService.selectUserId(map.get("userNick").toString()))) {
-					System.out.println("팔로우한 애네");
+			for (UserDto dto : selectFollowingList) {
+				if (dto.getUserId().equals(userService.selectUserId(map.get("userNick").toString()))) {
 					model.addAttribute("followOk", "y");
 				}
 			}
@@ -771,6 +771,18 @@ public class BlogController {
 		model.addAttribute("date", format.format(review.getReviewPostdate()));
 
 		model.addAttribute("review", review);
+		//likeReviewEqual
+				review.setLikeReviewEqual(false);
+				boolean flag = false;
+				List<LikeReviewDto> likeReviewNoList = likeReviewService.selectReviewNoList(map);
+				for (LikeReviewDto dto : likeReviewNoList) {
+					if (dto.getReviewNo().equals(review.getReviewNo())) {
+						review.setLikeReviewEqual(true);
+						flag=true;
+					}
+
+					if(flag) break;
+				}
 
 		List<CommentDto> commentList = commentService.selectList(map);
 		for (CommentDto record : commentList) {

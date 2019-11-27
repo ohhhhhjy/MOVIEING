@@ -13,6 +13,7 @@
 	</select>
 	
 	<!-- 내가 팔로우한 유저들 -->
+	
 	<!-- <select id="selectFollowList" parameterType="java.util.Map" resultType="FollowDto">
 	 SELECT u.USER_PROFILE,
 	(select user_nick from user_table where user_id = (select following from follow  where follower = #{id}))userNick
@@ -20,9 +21,11 @@
 	WHERE USER_ID = (select following from follow  where follower =  #{id})
 
 	</select> -->
+	
 	<select  id="selectFollowList" parameterType="java.util.Map" resultType="FollowDto">
 		select * from user_table WHERE USER_ID in (select following from follow  where follower =  #{id})
 	</select>
+	
 	
 
 	<!-- 닉네임에 해당하는 유저 팔로우 하기 -->

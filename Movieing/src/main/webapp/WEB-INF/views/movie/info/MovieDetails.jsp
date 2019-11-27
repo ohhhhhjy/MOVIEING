@@ -189,7 +189,6 @@ $(document).ready(function() {
 	if(typeof $('.likeUnlike')!= 'undefined'){
 	 	$('.likeUnlike').click(function(){
 	 		var index = $(this).attr('id');
-	 		console.log("나야",index);
 	 		
 			//좋아요 off  > on
 	 		if(flag){
@@ -682,8 +681,8 @@ $(document).ready(function() {
 			
 			<hr class="my-3">
 			<!-- 관련 영화 캐러셀 -->
-			<h4>관련 영화</h4>
-			<div id="carouselSixColumn" class="carousel slide"
+			<!-- <h4>관련 영화</h4> -->
+			<%--<div id="carouselSixColumn" class="carousel slide"
 					data-ride="carousel">
 					<ol class="carousel-indicators">
 						<li data-target="#carouselSixColumn" data-slide-to="0"
@@ -930,7 +929,7 @@ $(document).ready(function() {
 						</a>
 					</div>
 
-				</div>
+				</div> --%>
 			
 			
 			
