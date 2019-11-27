@@ -207,7 +207,7 @@ $(document).ready(function() {
 			</div>	
 			<p class="card-text">${review.reviewContent }</p>
 			<a href="#"><span
-				style="font-weight: bold; color: #db147b; font-size: 0.9em" class="likeUnlike"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
+				style="font-weight: bold; color: #db147b; font-size: 0.9em" class="likeUnlike"><i class="${review.likeReviewEqual?'fas fa-thumbs-up': 'far fa-thumbs-up'}"></i><!-- 좋아요 아이콘 -->
 					${review.likeCount } </span></a>&nbsp;&nbsp;&nbsp; 
 			<a href="#" ><span
 				style="font-weight: bold; color: #db147b; font-size: 0.9em" id="commentCount"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->

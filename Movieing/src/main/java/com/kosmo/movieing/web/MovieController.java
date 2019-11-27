@@ -722,6 +722,19 @@ public class MovieController {
 		model.addAttribute("user", user);
 		ReviewDto review = reviewService.selectOne(map);
 		review.setReviewContent(review.getReviewContent().replace("\r\n", "<br>"));
+//likeReviewEqual
+		review.setLikeReviewEqual(false);
+		boolean flag = false;
+		List<LikeReviewDto> likeReviewNoList = likeReviewService.selectReviewNoList(map);
+		for (LikeReviewDto dto : likeReviewNoList) {
+			if (dto.getReviewNo().equals(review.getReviewNo())) {
+				review.setLikeReviewEqual(true);
+				flag=true;
+			}
+
+			if(flag) break;
+		}
+
 
 		SimpleDateFormat format = new SimpleDateFormat("yyyy. MM. dd");
 
@@ -973,9 +986,6 @@ public class MovieController {
 		// Kobis서비스의 get메소드 : 반환값은 String(JSON형태)
 		// getMovieInfo는 영화코드로만 정보를 가져올 수 있지만 우리가 원하는 정보를 다준다.
 		String movieInfoResponse = service.getMovieInfo(true, movieCd);
-		// getMovieList는 영화명,코드,어쩌구저쩌구로 정보를 다 가져올 수 있지만, 배우정보는 주지 않는다
-		// String movieInfoResponse =service.getMovieList(true, null, null, "툴리", null,
-		// null, null, null, null, null, null);
 
 		// JSON
 		ObjectMapper mapper = new ObjectMapper();

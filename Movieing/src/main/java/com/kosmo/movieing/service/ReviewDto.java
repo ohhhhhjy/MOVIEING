@@ -59,7 +59,7 @@ public class ReviewDto {
 
 
 
-	public boolean isLikeReviewEqual() {
+	public boolean getLikeReviewEqual() {
 		return likeReviewEqual;
 	}
 

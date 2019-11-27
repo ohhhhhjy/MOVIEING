@@ -24,7 +24,6 @@ public class ThreaterController {
 
 	private WebDriver driver;
 	public static final String WEB_DRIVER_ID = "webdriver.chrome.driver";
-	//	public static final String WEB_DRIVER_PATH = "C:/KHJ/Selenium/chromedriver_win32/chromedriver.exe";
 	public static final String WEB_DRIVER_PATH = "D:/Jsoup/chromedriver_win32/chromedriver.exe";
 	private String base_url;
 	WebDriverWait wait;
@@ -96,7 +95,7 @@ public class ThreaterController {
 
 			elements =driver.findElements(By.xpath("//*[@id=\"content\"]/div[4]/div[1]/div/dl/dt"));
 			int index = 1;
-			for(WebElement el:elements) {//김지영,터미네이터..
+			for(WebElement el:elements) {//영화제목
 				dElements =driver.findElements(By.xpath("//*[@id=\"content\"]/div[4]/div[1]/div/dl["+index+"]/dd/ul/li/ul[1]"));
 				int dIndex = 1;
 				for(WebElement del:dElements) {//2d,4d,...
@@ -137,10 +136,7 @@ public class ThreaterController {
 			}
 			obj = new JSONObject();
 			obj.put("movieList", movieListArray);
-			System.out.println(obj);
-//			//JSON
-//			ObjectMapper mapper = new ObjectMapper();
-//			movieTimeMap = mapper.readValue(obj.toJSONString(), HashMap.class);
+
 
 			driver.close();
 		}
