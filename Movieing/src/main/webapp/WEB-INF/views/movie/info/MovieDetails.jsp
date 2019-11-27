@@ -259,13 +259,14 @@ $(document).ready(function() {
  		//보고싶어요 x > 보고싶어요 o(insert)
  		if($('#wishBtnIcon').prop('class')=='fas fa-plus'){
  			$('#wishBtnIcon').removeClass('fa-plus').addClass('fa-bookmark');
- 			location.reload();
+ 			$('#wishBtnIcon').css('background-color','white').css('color','red');
  		}
  		//보고싶어요 o > 보고싶어요 x(delete)
  		else{
  			$('#wishBtnIcon').removeClass('fa-bookmark').addClass('fa-plus'); 
+ 			$('#wishBtnIcon').css('background-color','red').css('color','white');
  			isInsert = false;
- 			location.reload();
+ 			
  		}
  		
  		$.ajax({
@@ -307,11 +308,17 @@ $(document).ready(function() {
  				success:function(){//서버로 부터 정상적인 응답을 받았을 때(200번)
  					//아래의 메소드는 별점클릭시 span을 추가해주기 위함이므로, 평가메뉴에서 사용할거라면 빼는걸 추천..
  					$('#starSpan').html('<span  class="px-2" style="color:#db147b;font-weight: bold">'+starString+'</span>');
+ 					if (self.name != 'reload') {
+ 				         self.name = 'reload';
+ 				         self.location.reload(true);
+ 				     }
+ 				     else self.name = ''; 
  				},	
  				error:function(data){//서버로 부터 비정상적인 응답을 받았을 때(404번,500번...)
  					console.log("에러:"+data.responseText);
  				} 			
  		});
+ 		
  	});
  	
 
@@ -386,12 +393,11 @@ $(document).ready(function() {
 			
 		}else{
 			var grade='${selectEvalueOne.evaluationGrade}';//평가한 별점가져와 뿌림
-			console.log('평가점수'+grade);
 			$(".starRadio").get(5-grade).click();//별에 별점넣기	
-			$('#wishBtnIcon').removeClass('fa-plus').addClass('fa-bookmark');
-			$('#btnWish').css('background-color','red');
-			$('#btnWish').css('color','white');
-		}
+			
+			
+			
+		}//////////////
 		
 		
 		
@@ -442,8 +448,14 @@ $(document).ready(function() {
 								<span class="star-icon full">☆</span>
 								<span class="star-icon half">☆</span>
 								<span class="star-icon half">☆</span> -->
-					   
+					   <c:choose>
+					   <c:when test="${getEvalueOneLikeCount=='n' }">
 					    <button  id="btnWish" class="btn btn-outline-danger waves-effect" data-toggle="button"><i class="fas fa-plus" id="wishBtnIcon"></i>&nbsp;보고싶어요</button>
+					    </c:when>
+					    <c:otherwise>
+					    <button  id="btnWish" class="btn btn-outline-danger" data-toggle="button" style="background-color: red;color: white;"><i class="fas fa-bookmark" id="wishBtnIcon"></i>&nbsp;보고싶어요</button>
+					    </c:otherwise>
+					    </c:choose>
 					</div>
 					<hr class="my-3">
 					<c:if test="${movieUserList != null}">

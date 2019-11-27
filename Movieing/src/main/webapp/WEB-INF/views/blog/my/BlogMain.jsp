@@ -4,8 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/core"%>
-<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"> -->
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
 
@@ -891,7 +890,7 @@ i.fas {
 			<!-- 중간에 한줄 끼워팔기,,, -->
 			<c:if test="${!isEmpty }">
 				<c:forEach items="${selectList }" var="item" varStatus="status"
-					begin="0" end="1">
+					>
 					<!-- 2.여러줄컨텐츠(리뷰) -->
 					<div class="card border-secondary mb-3" style="max-width: 200rem;">
 						<div class="card-header">
@@ -902,12 +901,12 @@ i.fas {
 								<!-- 나 -->
 								<button type="button" class="btn btn-outline-danger"
 									data-toggle="modal" data-target="#deleteModal"
-									style="float: right; text-align: right;"
+									style="float: right;"
 									data-notifyid="${item.reviewNo }">삭제</button>
-								<button type="button" class="btn btn-outline-primary"
-									style="float: right; text-align: right;"
+								<button type="button" class="btn btn-outline-primary mx-2"
+									style="float: right; "
 									onclick="location.href='<c:url value="/Movieing/Blog/WritePage_Update.mov?reviewNo=${item.reviewNo }"/>'">수정</button>
-
+								
 							</c:if>
 
 							<!-- 삭제모달 -->
@@ -976,13 +975,13 @@ i.fas {
 				</c:forEach>
 
 				<!-- 1.한줄컨텐츠(보고싶어요,별점,좋아요) -->
-				<div class="card border-secondary mb-3" style="max-width: 50rem;">
+				<!-- <div class="card border-secondary mb-3" style="max-width: 50rem;">
 					<div class="card-header">
 						겟아웃을 보고싶어요에 추가했어요!&nbsp;&nbsp;<span
 							style="color: #a8a5a5; font-size: 0.3em">2시간 전</span>
 					</div>
 				</div>
-
+ -->
 				<c:forEach items="${selectList }" var="item" varStatus="status"
 					begin="2" end="${selectList.size()-1 }">
 					<!-- 2.여러줄컨텐츠(리뷰) -->
@@ -991,13 +990,13 @@ i.fas {
 							${item.movieTitle }에 리뷰를 남겼어요!&nbsp;&nbsp; <span
 								style="color: #a8a5a5; font-size: 0.3em;">
 								${reviewPostdate} </span>
-							<button type="button" class="btn btn-outline-danger"
-								data-toggle="modal" data-target="#deleteModal"
-								style="float: right; text-align: right;"
-								data-notifyid="${item.reviewNo }">삭제</button>
-							<button type="button" class="btn btn-outline-primary"
-								style="float: right; text-align: right;"
-								onclick="location.href='<c:url value="/Movieing/Blog/WritePage.mov?reviewNo=${item.reviewNo }"/>'">수정</button>
+								<button type="button" class="btn btn-outline-danger"
+									data-toggle="modal" data-target="#deleteModal"
+									style="float: right;"
+									data-notifyid="${item.reviewNo }">삭제</button>
+								<button type="button" class="btn btn-outline-primary mx-2"
+									style="float: right; "
+									onclick="location.href='<c:url value="/Movieing/Blog/WritePage_Update.mov?reviewNo=${item.reviewNo }"/>'">수정</button>
 
 
 
@@ -1080,7 +1079,7 @@ i.fas {
 
 			<div class="sidebar-module sidebar-module-inset"
 				style="padding-top: 60px">
-				<h3 align="center">${userInfo.userNick}님의취향은?</h3>
+				<h3 align="center">${userInfo.userNick}님의 취향은?</h3>
 				<p align="right">
 					<a
 						href="<c:url value='/Movieing/Movie/screening/RatingMovie.mov'/>"
@@ -1160,7 +1159,7 @@ i.fas {
 
 				<hr class="my-3">
 				<h5>선호감독</h5>
-				<c:forEach items="${directorList }" var="director">
+				<c:forEach items="${directorList }" var="director" begin="0" end="2"> 
 					<div class="row actorForm">
 						<div class="col-sm-3">
 							<img class="radiusImg" alt="감독사진"

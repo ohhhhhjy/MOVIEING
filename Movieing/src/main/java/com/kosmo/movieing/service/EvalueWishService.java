@@ -15,6 +15,7 @@ public interface EvalueWishService {
 	EvaluationDto selectReviewEvalue(Map map);
 	//내가 별점준 영화 한편만인데 방식다른]
 	EvaluationDto selectEvalueOne(Map map);
+
 	//평점
 	double selectGradeAvg(Map map);
 
@@ -26,6 +27,10 @@ public interface EvalueWishService {
 
 	//보고싶어요 전체 레코드 수
 	int getTotalWishCount(Map map);
+
+	//보고싶아 한개만 카운트
+	int getEvalueOneLikeCount(Map map);
+
 
 	//상세보기 용
 	EvaluationDto selectOne(Map map);

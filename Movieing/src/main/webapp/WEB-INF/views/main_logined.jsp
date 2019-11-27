@@ -612,7 +612,7 @@ $( '#top' ).click( function() {
 
 						<!--Table body-->
 					</table>
-					<label style="color: gray;font-size: small;">영화진흥위원회 자료제공(2019년 12월 4일 기준)</label>
+					<label style="color: gray;font-size: small;">영화진흥위원회 자료제공</label><!-- (2019년 12월 03일 기준) -->
 					<!--Table-->
 
 				</div>
@@ -998,6 +998,7 @@ $( '#top' ).click( function() {
 				<!-- 4행시작 -->
 				<div style="padding-top: 60px"></div>
 				<div class="row blog">
+				<div  style="padding-left:15px"></div>
 					<h5 style="font-weight: bold;">영화제</h5>
 					<div class="col-md-12">
 						<div id="blogCarousel" class="carousel slide" data-ride="carousel">
