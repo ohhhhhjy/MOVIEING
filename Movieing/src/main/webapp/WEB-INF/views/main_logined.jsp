@@ -612,7 +612,7 @@ $( '#top' ).click( function() {
 
 						<!--Table body-->
 					</table>
-					<label style="color: gray;font-size: small;">영화진흥위원회 자료제공(2019년 12월 4일 기준)</label>
+					<label style="color: gray;font-size: small;">영화진흥위원회 자료제공</label><!-- (2019년 12월 03일 기준) -->
 					<!--Table-->
 
 				</div>
