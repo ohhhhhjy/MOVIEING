@@ -51,7 +51,7 @@ public class AndroidController {
 	@RequestMapping(value="/Movieing/Android/EvalueList.mov")
 	public String evalueList(@RequestParam Map map) throws UnsupportedEncodingException {
 
-		map.put("id","ohhhhhjy");//우선 하드코딩
+		map.put("id","KIM");//우선 하드코딩
 		//int evalueCount = evalueWishService.getTotalEvalueCount(map);
 
 		List<MovieDto> movieList = movieService.selectListMovie(map);
@@ -81,7 +81,7 @@ public class AndroidController {
 	@RequestMapping(value="/Movieing/Android/EvalueInsert.mov")
 	public void evalueInsert(@RequestParam Map map) {
 
-		map.put("id","ohhhhhjy");//우선 하드코딩
+		map.put("id","KIM");//우선 하드코딩
 
 		if(map.get("grade").equals("0")) return;
 
@@ -100,7 +100,7 @@ public class AndroidController {
 	@RequestMapping(value="/Movieing/Android/RecommendList.mov")
 	public String recommendList(@RequestParam Map map) throws UnsupportedEncodingException {
 
-		map.put("id","ohhhhhjy");//우선 하드코딩
+		map.put("id","KIM");//우선 하드코딩
 		//int evalueCount = evalueWishService.getTotalEvalueCount(map);
 
 		List<MovieDto> movieList = movieService.selectListBestRecommendMovie(map);
@@ -128,7 +128,7 @@ public class AndroidController {
 	@RequestMapping(value="/Movieing/Android/MovieOne.mov")
 	public String movieOne(@RequestParam Map map) throws UnsupportedEncodingException {
 
-		map.put("id","ohhhhhjy");//우선 하드코딩
+		map.put("id","KIM");//우선 하드코딩
 		//int evalueCount = evalueWishService.getTotalEvalueCount(map);
 
 		MovieDto dto = movieService.selectOne(map);
