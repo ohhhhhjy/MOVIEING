@@ -29,7 +29,10 @@
 
 
 		<!-- Default form contact -->
-		<form class="border border-light" action="<c:url value='/Movieing/Customer/Write.mov'/>">
+		<form class="border border-light" action="<c:url value='/Movieing/Customer/Write.mov'/>"
+			method="post">
+			<input type="hidden" name="${_csrf.parameterName}"
+					value="${_csrf.token}">
 
 			<h5>제목</h5>
 			<div style="padding-bottom: 10px"></div>
@@ -76,7 +79,7 @@
 
 			<!-- Send button -->
 			<div class="mb-4">
-				<button class="btn btn-info btn-block" type="submit">등록</button>
+				<button class="btn btn-info btn-block" type="submit" id="submit">등록</button>
 			</div>
 		</form>
 		<!-- Default form contact -->
@@ -94,3 +97,15 @@
 
 
 </div>
+
+<script>
+	$(function() {
+	
+		$('#submit').on('click', function() {
+			alert("문의글이 등록되었습니다 :)");
+		});
+		
+	});
+	
+
+</script>
