@@ -54,10 +54,14 @@
 .active-cyan-2
 
 
+
  
 
 
+
 input
+
+
 
 
 
@@ -71,7 +75,11 @@ text
 
 
 
+
+
 :focus
+
+
 
 
 
@@ -79,7 +87,9 @@ text
 :not
 
 
+
  
+
 
 
 (
@@ -88,7 +98,9 @@ readonly
 ]
 
 
+
  
+
 
 
 )
@@ -98,26 +110,36 @@ border-bottom
 
 
 
+
+
 :
 
 
+
  
+
 
 
 1
 px
 
 
+
  
+
 
 
 solid
 
 
+
  
 
 
+
 #4dd0e1
+
+
 
 
 
@@ -128,10 +150,14 @@ box-shadow
 
 
 
+
+
 :
 
 
+
  
+
 
 
 0
@@ -139,12 +165,16 @@ box-shadow
 px
 
 
+
  
+
 
 
 0
 0
 #4dd0e1
+
+
 
 
 
@@ -229,31 +259,34 @@ px
 
 
 
+
+
 				<div class="tab-pane fade show active" id="nav-home" role="tabpanel"
 					aria-labelledby="nav-home-tab">
 					<table class="table" id="dtBasicExample" cellspacing="0">
 						<thead>
 							<tr>
-								<th>번호</th>
-								<th>분류</th>
-								<th>질문</th>
+								<th style="width: 80px;text-align: center;font-weight: bold;">번호</th>
+								<th style="width: 50px;text-align: center; font-weight: bold;">분류</th>
+								<th style="width: 400px;text-align: center;font-weight: bold;">질문</th>
 							</tr>
 						</thead>
+						
 						<tbody>
 							<tr>
-								<td><a href="#">3</a></td>
-								<td>댓글</td>
-								<td>댓글 작성이 안되요</td>
+								<td style="width: 80px;text-align: center;"><a href="#">3</a></td>
+								<td style="width: 50px;text-align: center;">영화</td>
+								<td style="width: 400px;text-align: center;font-weight: bold;">시간표가 안보여요</td>
 							</tr>
 							<tr>
-								<td><a href="#">2</a></td>
-								<td>결제</td>
-								<td>결제가 되지 않아요</td>
+								<td style="width: 80px;text-align: center;"><a href="#">2</a></td>
+								<td style="width: 50px;text-align: center;">결제</td>
+								<td style="width: 400px;text-align: center;font-weight: bold;">결제가 되지 않아요</td>
 							</tr>
 							<tr>
-								<td><a href="#">1</a></td>
-								<td>블로그</td>
-								<td>글 작성이 안되요</td>
+								<td style="width: 80px;text-align: center;"><a href="#">1</a></td>
+								<td style="width: 50px;text-align: center;">블로그</td>
+								<td style="width: 400px;text-align: center;font-weight: bold;">글 작성이 안되요</td>
 							</tr>
 						</tbody>
 					</table>
@@ -263,46 +296,25 @@ px
 					<table class="table" cellspacing="0">
 						<thead>
 							<tr>
-								<th>번호</th>
-								<th>제목</th>
-								<th>등록일</th>
-								<th>조회수</th>
+								<th style="width: 30px;text-align: center;font-weight: bold;">번호</th>
+								<th style="width: 250px;text-align: center;font-weight: bold;">제목</th>
+								<th style="width: 50px;text-align: center;font-weight: bold;">등록일</th>
 							</tr>
 						</thead>
+						
 						<tbody>
-							<tr>
-								<td><a href="#">5</a></td>
-								<td>시스템 점검 안내</td>
-								<td>2019-11-06</td>
-								<td>54239</td>
-							</tr>
-							<tr>
-								<td><a href="#">4</a></td>
-								<td>시스템 점검 안내</td>
-								<td>2019-11-06</td>
-								<td>54239</td>
-							</tr>
-							<tr>
-								<td><a href="#">3</a></td>
-								<td>시스템 점검 안내</td>
-								<td>2019-11-06</td>
-								<td>54239</td>
-							</tr>
-							<tr>
-								<td><a href="#">2</a></td>
-								<td>시스템 점검 안내</td>
-								<td>2019-11-06</td>
-								<td>54239</td>
-							</tr>
-							<tr>
-								<td><a href="#">1</a></td>
-								<td>시스템 점검 안내</td>
-								<td>2019-11-06</td>
-								<td>54239</td>
-							</tr>
+							<c:forEach items="${selectNotiList }" var="item">
+								<tr>
+									<td style="width: 30px;text-align: center;">${item.notiNo }</td>
+									<td style="width: 250px;text-align: center;"><a href="<c:url value='/Movieing/my/Customer_View_noti.mov?notiNo=${item.notiNo }'/>">${item.notiTitle }</a></td>
+									<td style="width: 50px;text-align: center;">${item.notiDate }</td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>
+				
+				
 
 				<div class="tab-pane fade" id="nav-contact" role="tabpanel"
 					aria-labelledby="nav-contact-tab">
@@ -320,28 +332,27 @@ px
 							<c:forEach items="${qnaList }" var="qna">
 								<tr>
 									<td style="text-align: center;">${qna.qnaNo }</td>
-									<td>
-									<a href="<c:url value='/Movieing/my/Customer_View.mov?qnaNo=${qna.qnaNo }'/>">
-										${qna.qnaTitle}
-									</a></td>
+									<td style="text-align: center;"><a
+										href="<c:url value='/Movieing/my/Customer_View.mov?qnaNo=${qna.qnaNo }'/>">
+											${qna.qnaTitle} </a></td>
 									<td style="text-align: center;">${qna.userId }</td>
 									<td style="text-align: center;">${qna.postdate }</td>
-									
+
 								</tr>
 							</c:forEach>
 						</tbody>
 					</table>
 
 					<div align="right" style="text-align: right;">
-						<button class="btn btn-secondary" type="button"  onclick = "location.href = '<c:url value='/Movieing/my/Customer_Write.mov'/>'"
-											>글쓰기</button>
-											</div>
+						<button class="btn btn-secondary" type="button"
+							onclick="location.href = '<c:url value='/Movieing/my/Customer_Write.mov'/>'">글쓰기</button>
+					</div>
 				</div>
 			</div>
 		</div>
 
 
-		<div style="padding-left: 400px;padding-top: 20px">
+		<div style="padding-left: 400px; padding-top: 20px">
 			<nav>
 				<ul class="pagination pg-blue">
 					<li class="page-item"><a class="page-link"

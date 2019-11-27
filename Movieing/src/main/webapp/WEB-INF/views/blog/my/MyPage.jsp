@@ -113,7 +113,7 @@
 							<input type="file" id="image" name="image" class="text-center center-block file-upload">
 						</div>
 						<div class="col-md-3">
-							<button name="submit" type="submit" class="btn btn-primary .btn-sm">수정</button>
+							<button name="submit" type="submit" class="btn btn-primary btn-sm">수정</button>
 						</div>
 					</div>
 					</form>
@@ -129,7 +129,6 @@
 					class="list-group-item list-group-item-action">알림
 					메시지</a> <a href="<c:url value='/Movieing/Blog/MyPage_QnA.mov'/>"
 					class="list-group-item list-group-item-action">문의글</a>
-				<a href="<c:url value='/Movieing/Blog/MyPage_Help.mov'/>" class="list-group-item list-group-item-action">도움말</a>
 
 			</div>
 		</div>

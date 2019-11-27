@@ -16,16 +16,14 @@
 	
 	<!-- <select id="selectFollowList" parameterType="java.util.Map" resultType="FollowDto">
 	 SELECT u.USER_PROFILE,
-	(select user_nick from user_table where user_id=(select following from follow  where follower = #{id}))userNick
+	(select user_nick from user_table where user_id = (select following from follow  where follower = #{id}))userNick
 	FROM USER_TABLE u
-	WHERE USER_ID=(select following from follow  where follower =  #{id})
+	WHERE USER_ID = (select following from follow  where follower =  #{id})
 
 	</select> -->
 	
-	<select id="selectFollowList" parameterType="java.util.Map" resultType="FollowDto">
-	SELECT *
-	FROM USER_TABLE 
-	WHERE USER_ID IN (select following from follow  where follower =  #{id})
+	<select  id="selectFollowList" parameterType="java.util.Map" resultType="FollowDto">
+		select * from user_table WHERE USER_ID in (select following from follow  where follower =  #{id})
 	</select>
 	
 	
