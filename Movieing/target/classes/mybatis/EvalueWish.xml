@@ -66,7 +66,7 @@
 	<insert id="evaluationInsert" parameterType="java.util.Map">
 		insert into evaluation values(#{id},#{movieNo},#{grade},SYSDATE)
 	</insert>
-	
+	 
 	<!-- 보고싶어요 추가하기 -->
 	<insert id="insertWish" parameterType="java.util.Map">
 		insert into wish values(#{id},#{movieNo},SYSDATE)
