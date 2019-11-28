@@ -387,7 +387,8 @@ $(document).ready(function() {
 
 	
 	$(function(){
-		if('${selectEvalueOne.evaluationGrade}'==null){
+		console.log(typeof '${selectEvalueOne.evaluationGrade}');
+		if('${selectEvalueOne.evaluationGrade}'==''){
 			
 		}else{
 			var grade='${selectEvalueOne.evaluationGrade}';//평가한 별점가져와 뿌림
@@ -477,30 +478,36 @@ $(document).ready(function() {
 						<!-- 구매 -->
 				  	     <span class="badge badge-dark" style="font-size:0.9em">구매</span>
 						 <div class="price-comparison_grid_row row py-1">
-							<div class="price-comparison_grid_row_element_icon col-md-4">
-								<a href="#"> <img
-									class="jw-provider-icon price-comparison_grid_row_icon"
-									alt="Naver Store" title="Naver Store"
-									src="<c:url value='/resources/img/movie/naver.png'/>">
-								</a>
-								<div class="priceText" >${movieInfo.naverPrice}</div>
-							</div>
-							<div class="price-comparison_grid_row_element_icon col-md-4">
-								<a href="#"> <img
-									class="jw-provider-icon price-comparison_grid_row_icon"
-									alt="Naver Store" title="Naver Store"
-									src="<c:url value='/resources/img/movie/wavve.jpg'/>">
-								</a>
-								<div class="priceText">${movieInfo.wavvePrice }</div>
-							</div>
-							<div class="price-comparison_grid_row_element_icon col-md-4">
-								<a href="#"> <img
-									class="jw-provider-icon price-comparison_grid_row_icon"
-									alt="Naver Store" title="Naver Store"
-									src="<c:url value='/resources/img/movie/google.jpg'/>">
-								</a>
-								<div class="priceText">${movieInfo.googlePrice }</div>
-							</div>
+						 	<c:if test="${movieInfo.naverPrice!=null }">
+								<div class="price-comparison_grid_row_element_icon col-md-4">
+									<a href="#"> <img
+										class="jw-provider-icon price-comparison_grid_row_icon"
+										alt="Naver Store" title="Naver Store"
+										src="<c:url value='/resources/img/movie/naver.png'/>">
+									</a>
+									<div class="priceText" >${movieInfo.naverPrice}원</div>
+								</div>
+							</c:if>
+							<c:if test="${movieInfo.wavvePrice!=null }">
+								<div class="price-comparison_grid_row_element_icon col-md-4">
+									<a href="#"> <img
+										class="jw-provider-icon price-comparison_grid_row_icon"
+										alt="Naver Store" title="Naver Store"
+										src="<c:url value='/resources/img/movie/wavve.jpg'/>">
+									</a>
+									<div class="priceText">${movieInfo.wavvePrice }원</div>
+								</div>
+							</c:if>
+							<c:if test="${movieInfo.googlePrice!=null }">
+								<div class="price-comparison_grid_row_element_icon col-md-4">
+									<a href="#"> <img
+										class="jw-provider-icon price-comparison_grid_row_icon"
+										alt="Naver Store" title="Naver Store"
+										src="<c:url value='/resources/img/movie/google.jpg'/>">
+									</a>
+									<div class="priceText">${movieInfo.googlePrice }원</div>
+								</div>
+							</c:if>
 						</div>
 						
 					</div>
