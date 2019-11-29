@@ -88,7 +88,6 @@ public class BlogController {
 				}
 			}
 		}
-		System.out.println("돌았냐");
 		model.containsAttribute("followOk");
 
 		if (map.get("userNick") != null) {// 남의 피드로 가는 경우.
@@ -641,7 +640,6 @@ public class BlogController {
 	public String blogFriends(@RequestParam Map map, Model model, Authentication auth) throws Exception {
 		// 세션아이디
 		String id = auth.getName();
-		System.out.println("로그인된 아이디:" + id);
 		map.put("id", id);
 		model.addAttribute("id", id);
 
@@ -669,7 +667,6 @@ public class BlogController {
 		// 무빙프렌즈에서 피드 글보이기(전체공개면)]-모든 정보있음
 		List<ReviewDto> friendsReviewList1 = reviewService.friendsReviewList1(map);// 리스트전체조회
 
-		System.out.println("닉네임:" + friendsReviewList1.get(0).getUserNick());
 
 		model.addAttribute("friendsReviewList1", friendsReviewList1);
 
@@ -677,7 +674,6 @@ public class BlogController {
 		ReviewDto friendsSelf = reviewService.selectMovieingOne(map);// 1개
 		model.addAttribute("friendsSelf", friendsSelf);
 
-		System.out.println("자기소개 가져오기완료");
 		// 팔로우수]
 		int follower = followService.getTotalFollowerCount(map);
 		// 팔로잉수]
@@ -694,22 +690,18 @@ public class BlogController {
 			Calendar cal1 = Calendar.getInstance();
 			Calendar cal2 = Calendar.getInstance();
 
-			System.out.println("현재시각" + now);
 			SimpleDateFormat formatter = new SimpleDateFormat("MM월 dd일");
 			String nowFormat = formatter.format(now);// 현재시간 형식
-			System.out.println("현재시간 형식:" + nowFormat);
 			Date time = times.getReviewPostdate();// 게시 일자
 
 			cal2.setTime(time);
 			String postDateFormat = formatter.format(time);// 게시시간 형식
-			System.out.println("현재시간 형식:" + postDateFormat);
 
 			if (nowFormat.equals(postDateFormat)) {
 				reviewPostdate = "오늘";
 			} else {// 날짜 다르면
 				long diffSec = (cal1.getTimeInMillis() - cal2.getTimeInMillis()) / 1000;// 초
 				long diffDay = diffSec / (60 * 60 * 24);
-				System.out.println("두 날짜의 일 차이:" + diffDay);
 				if (diffDay == 1.0) {
 					reviewPostdate = "어제";
 				} else {
@@ -729,12 +721,8 @@ public class BlogController {
 		model.addAttribute("friendsReviewList1", friendsReviewList1.isEmpty() ? null : friendsReviewList1);
 		// 모든 아이디 리스트
 		List<UserDto> AllUserNick = userService.AllUserNick(map);
-		model.addAttribute("AllUserNick", AllUserNick.isEmpty() ? null : AllUserNick);
-		for(UserDto record:AllUserNick) {
-			System.out.println("유저아이디:"+record.getUserNick());
-			System.out.println("유저이미지:"+record.getUserProfile());
-		}
 
+		model.addAttribute("AllUserNick", AllUserNick.isEmpty()? null : AllUserNick);
 
 		return "blog/my/MovieingFriends.tiles";
 	}///////////////////////////////////////////////////////////////////////////////

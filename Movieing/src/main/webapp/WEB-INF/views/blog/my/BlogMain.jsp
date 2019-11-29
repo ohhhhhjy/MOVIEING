@@ -960,7 +960,7 @@ i.fas {
 									</span> <!-- 좋아요수- -->
 
 									</a>&nbsp;&nbsp;&nbsp; <a
-										href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>">
+										href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }&prevPage=BlogMain'/>">
 										<span
 										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
 											class="far fa-comments"></i> ${item.commentCount } </span>
@@ -1051,7 +1051,7 @@ i.fas {
 									</span> <!-- 좋아요수- -->
 
 									</a>&nbsp;&nbsp;&nbsp; <a
-										href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>">
+										href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }&prevPage=BlogMain'/>">
 										<span
 										style="font-weight: bold; color: #db147b; font-size: 0.9em"><i
 											class="far fa-comments"></i> ${item.commentCount } </span>

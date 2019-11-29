@@ -131,7 +131,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<UserDto> AllUserNick(Map map) {
-		return dao.selectAllUserList(map);
+		return dao.AllUserNick(map);
 	}
 
 

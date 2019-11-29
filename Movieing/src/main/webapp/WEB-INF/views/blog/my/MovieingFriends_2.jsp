@@ -651,7 +651,7 @@ $(function(){
 								href="#collapse${status.index }" data-toggle="collapse"
 								data-parent="#accordion" class="card-link">
 								-->
-								<a href="<c:url value='/Movieing/Blog/My/BlogReviews2.mov?reviewNo=${item.reviewNo }'/>" style="padding-left: 5px">
+								<a href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }&prevPage=MF_2'/>" style="padding-left: 5px">
 								<i
 								class="fa fa-comment"></i> 댓글</a>
 							<!--  

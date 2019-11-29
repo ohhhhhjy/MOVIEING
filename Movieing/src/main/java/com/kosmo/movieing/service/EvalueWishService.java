@@ -55,4 +55,6 @@ public interface EvalueWishService {
 	int selectEvalueCount(Map map);
 	int selectEvalueCountAll(Map map);
 
+
+
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.kosmo.movieing.service.EvaluationDto;
 import com.kosmo.movieing.service.EvalueWishService;
 import com.kosmo.movieing.service.MovieDto;
 import com.kosmo.movieing.service.MovieService;
@@ -32,6 +33,8 @@ public class AndroidController {
 
 	@Resource(name="movieService")
 	private MovieService movieService;
+
+
 
 	//로그인
 	@ResponseBody
@@ -51,7 +54,7 @@ public class AndroidController {
 	@RequestMapping(value="/Movieing/Android/EvalueList.mov")
 	public String evalueList(@RequestParam Map map) throws UnsupportedEncodingException {
 
-		map.put("id","ohhhhhjy");//우선 하드코딩
+		map.put("id","KIM");//우선 하드코딩
 		//int evalueCount = evalueWishService.getTotalEvalueCount(map);
 
 		List<MovieDto> movieList = movieService.selectListMovie(map);
@@ -81,7 +84,7 @@ public class AndroidController {
 	@RequestMapping(value="/Movieing/Android/EvalueInsert.mov")
 	public void evalueInsert(@RequestParam Map map) {
 
-		map.put("id","ohhhhhjy");//우선 하드코딩
+		map.put("id","KIM");//우선 하드코딩
 
 		if(map.get("grade").equals("0")) return;
 
@@ -93,14 +96,14 @@ public class AndroidController {
 			System.out.println("인서트");
 			evalueWishService.insert(map);
 		}
-	}//evalueList
+	}//evalueInsert
 
 	//추천 리스트 뿌려주기
 	@ResponseBody
 	@RequestMapping(value="/Movieing/Android/RecommendList.mov")
 	public String recommendList(@RequestParam Map map) throws UnsupportedEncodingException {
 
-		map.put("id","ohhhhhjy");//우선 하드코딩
+		map.put("id","KIM");//우선 하드코딩
 		//int evalueCount = evalueWishService.getTotalEvalueCount(map);
 
 		List<MovieDto> movieList = movieService.selectListBestRecommendMovie(map);
@@ -128,7 +131,7 @@ public class AndroidController {
 	@RequestMapping(value="/Movieing/Android/MovieOne.mov")
 	public String movieOne(@RequestParam Map map) throws UnsupportedEncodingException {
 
-		map.put("id","ohhhhhjy");//우선 하드코딩
+		map.put("id","KIM");//우선 하드코딩
 		//int evalueCount = evalueWishService.getTotalEvalueCount(map);
 
 		MovieDto dto = movieService.selectOne(map);
@@ -155,6 +158,23 @@ public class AndroidController {
 
 		return json.toJSONString();
 	}//evalueList
+
+
+
+	//보고싶어요 추가하기
+	@ResponseBody
+	@RequestMapping(value="/Movieing/Android/WishInsert.mov")
+	public void wishInsert(@RequestParam Map map) {
+
+		map.put("id","KIM");//우선 하드코딩
+
+		List<EvaluationDto> list = evalueWishService.selectWishList(map);
+		for(EvaluationDto dto:list) {
+			if(dto.getMovieNo().equals(map.get("movieNo")))
+				return;
+		}
+		evalueWishService.insertWish(map);
+	}//wishInsert
 
 
 }
