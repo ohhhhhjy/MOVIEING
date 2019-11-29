@@ -666,7 +666,7 @@ a {
 								data-parent="#accordion" class="card-link">
 								-->
 							<a
-								href="<c:url value='/Movieing/Blog/My/BlogReviews.mov?reviewNo=${item.reviewNo }'/>"
+								href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }&prevPage=MF_1'/>"
 								style="padding-left: 5px"> <i class="fa fa-comment"></i> 댓글
 							</a>
 							<!--  

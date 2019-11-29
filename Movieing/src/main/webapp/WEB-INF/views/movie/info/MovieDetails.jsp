@@ -183,6 +183,12 @@ color:#db147b;
 
 <script>
 $(document).ready(function() {
+	if(${move!=null?move:false}==true){
+		var offset = $('#actorDiv').offset(); //선택한 태그의 위치를 반환
+	        //animate()메서드를 이용해서 선택한 태그의 스크롤 위치를 지정해서 0.4초 동안 부드럽게 해당 위치로 이동함 
+	    $('html').animate({scrollTop : offset.top}, 0);
+
+	}
 	
 	var flag = true;
 	//좋아요 클릭 이벤트처리
@@ -245,11 +251,6 @@ $(document).ready(function() {
 ///////////////////////////////////////////////////////////////	
 	
 	
-/*  	$('.starRev span').click(function() {
-		$(this).parent().children('span').removeClass('on');
-		$(this).addClass('on').prevAll('span').addClass('on');
-		return false;
-	}); */
 	
 	//보고싶어요 클릭시 ajax 메소드..
  	$('#btnWish').click(function(){
@@ -321,7 +322,7 @@ $(document).ready(function() {
  	
 
 
-});
+});//document.ready
 
 	//페이징 클릭시 ajax처리
 	var paging = function(intTemp){
@@ -368,8 +369,8 @@ $(document).ready(function() {
 			reviewString+="<img class='radiusImg' alt='유저사진' src='"+imgUrl+"' align='left'/>";			
 			reviewString+="<span class='reviewUserSpan' >"+element['userNick']+"</span>";
 			reviewString+="<span class='badge badge-pill badge-danger'>★"+element['grade']+"</span>";
-			reviewString+="</a></div ><div class='col-md-6' align='right'>";
-			reviewString+="<a class='btn btn-outline-danger waves-effect' href='/movieing/Movieing/Movie/MovieReviews.mov?reviewNo="+element['reviewNo']+"'>더보기</a></div></div>";
+			reviewString+="</a></div ><div class='col-md-6' align='right'>";                                   //<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${review.reviewNo }&prevPage=movieDetail_1'/>
+			reviewString+="<a class='btn btn-outline-danger waves-effect' href='/movieing/Movieing/Movie/MovieReviews.mov?reviewNo="+element['reviewNo']+"&prevPage=movieDetail_"+element['movieNo']+"_"+element['nowPage']+"'>더보기</a></div></div>";
 			reviewString+="<p class='card-text'>"+element['reviewContent']+"</p>";
 			reviewString+="<a href='#'><span style='font-weight: bold; color: #db147b; font-size: 0.9em'><i class='far fa-thumbs-up'></i>";
 			reviewString+=element['likeCount']+"</span></a>&nbsp;&nbsp;&nbsp;";
@@ -457,7 +458,7 @@ $(document).ready(function() {
 					    </c:otherwise>
 					    </c:choose>
 					    -->
-					    <button  id="btnWish" class="btn btn-outline-danger waves-effect" data-toggle="button"><i class="fas fa-plus" id="wishBtnIcon"></i>&nbsp;보고싶어요</button>
+					    <button id="btnWish" class="btn btn-outline-danger waves-effect" data-toggle="button"><i class="fas fa-plus" id="wishBtnIcon"></i>&nbsp;보고싶어요</button>
 					</div>
 					<hr class="my-3">
 					<c:if test="${movieUserList != null}">
@@ -550,7 +551,7 @@ $(document).ready(function() {
 			
 			<!-- 배우 -->
 			<div class="row">
-				<div class="col-md-1"><h4>배우</h4></div>
+				<div class="col-md-1" id="actorDiv"><h4>배우</h4></div>
 				<c:forEach items="${movieInfoMap.movieInfoResult.movieInfo.actors}" var="actors">
 					<a class="moviePersonName" href="<c:url value='/Movieing/Movie/Filmography.mov?moviePeopleName=${actors.peopleNm }'/>">${actors.peopleNm}</a>
 				</c:forEach>
@@ -598,7 +599,7 @@ $(document).ready(function() {
 										</a>
 									</div >
 									<div class="col-md-6" align="right">
-										<a class="btn btn-outline-danger waves-effect" href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${review.reviewNo }'/>">더보기</a>
+										<a class="btn btn-outline-danger waves-effect" href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${review.reviewNo }&prevPage=movieDetail_${review.movieNo }_1'/>">더보기</a>
 									</div>
 								</div>
 							

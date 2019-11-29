@@ -88,7 +88,6 @@ public class BlogController {
 				}
 			}
 		}
-		System.out.println("돌았냐");
 		model.containsAttribute("followOk");
 
 		if (map.get("userNick") != null) {// 남의 피드로 가는 경우.
@@ -641,7 +640,7 @@ public class BlogController {
 	public String blogFriends(@RequestParam Map map, Model model, Authentication auth) throws Exception {
 		// 세션아이디
 		String id = auth.getName();
-		System.out.println("로그인된 아이디:" + id);
+		System.out.println("로그인된 아이디:"+ id);
 		map.put("id", id);
 		model.addAttribute("id", id);
 

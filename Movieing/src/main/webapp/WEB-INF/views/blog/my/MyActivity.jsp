@@ -434,7 +434,7 @@ function goToBlogFeed(otherUserId){
 											<p class="card-text" style="height: 100px">${item.reviewContent }</p><!-- 리뷰내용 -->
 											<a><span
 												style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
-													${item.likeCount } </span></a>&nbsp;&nbsp;&nbsp; <a href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }'/>"><span
+													${item.likeCount } </span></a>&nbsp;&nbsp;&nbsp; <a href="<c:url value='/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }&prevPage=MyActivityB'/>"><span
 												style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
 													${item.commentCount }</span></a>
 										</div>
@@ -487,7 +487,7 @@ function goToBlogFeed(otherUserId){
 										<button type="button" class="btn btn-link likeUnlike" id="${status.index }" ><span
 											style="font-weight: bold; color: #db147b; font-size: 0.9em" id="likeSpan${status.index }"><i id="likeUnlikeIcon" class="fas fa-thumbs-up"></i><!-- 좋아요 아이콘 -->
 												${item.likeCount } </span></button>&nbsp;&nbsp;&nbsp; 
-										<button type="button" class="btn btn-link" onclick="location.href='<c:url value="/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }"/>'"><span style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
+										<button type="button" class="btn btn-link" onclick="location.href='<c:url value="/Movieing/Movie/MovieReviews.mov?reviewNo=${item.reviewNo }&prevPage=MyActivityC"/>'"><span style="font-weight: bold; color: #db147b; font-size: 0.9em"><i class="far fa-comments"></i><!-- 댓글 아이콘 -->
 												${item.commentCount } </span></button>
 										<span id="reviewNo${status.index }" style="color:white;font-size: 0.1em">${item.reviewNo }</span>
 									</div>

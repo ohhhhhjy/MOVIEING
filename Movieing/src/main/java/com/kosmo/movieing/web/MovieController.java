@@ -95,7 +95,7 @@ public class MovieController {
 		}
 		map.put("id", auth.getName());
 		System.out.println("AllMovie - 1 디비 가져오기 전");
-		List<MovieDto> movieList = movieService.selectListMovie(map);
+		List<MovieDto> movieList = movieService.selectListNewRandom(map);
 		System.out.println("AllMovie - 2 movieList 생성");
 
 		System.out.println("AllMovie - 3 moveList 값 : " + movieList);
@@ -306,30 +306,26 @@ public class MovieController {
 	@RequestMapping("/Movieing/Movie/MovieDetails.mov")
 	public String movieDetailsTest(HttpServletRequest req, @RequestParam Map map, Model model,
 			@RequestParam String movieNo, Authentication auth) throws Exception {
+
+		if(map.get("move")!=null) {
+			model.addAttribute("move", true);
+		}
+
 		// 지우지마
 		map.put("id", auth.getName());
 		List<UserDto> movieUserList = userService.selectMovieUserList(map);
 		model.addAttribute("movieUserList", movieUserList.isEmpty() ? null : movieUserList);
-		System.out.println("무비유저리스트" + movieUserList);
-		System.out.println("MovieDetails 1  - map에 mname, date 넣기 전 :");
 		map.put("movieNo", movieNo);
-		System.out.println("MovieDetails 1-1 movieNo 값 : " + movieNo);
 
-		System.out.println("MovieDetails 2 - map에 mname, date 넣기 성공");
 
-		System.out.println("MovieDetails 3 - 디비에서 가져오기 전");
 		MovieDto movieInfo = movieService.selectOne(map);
-		System.out.println("MovieDetails 4 - movieInfo 값 :" + movieInfo);
 
 		List<StillCutDto> stillCutList = stillCutService.searchStillCutList(map);
 
-		System.out.println("MovieDetails 5 - stillCutList 값 : " + stillCutList);
 
 		if (movieInfo.getNaverPrice() != null) {
-			System.out.println("MovieDetails 6 - naverPrice 변경 전 값 :" + movieInfo.getNaverPrice());
 			String naverPrice = movieInfo.getNaverPrice().substring(0, movieInfo.getNaverPrice().indexOf("."))
 					.toString();
-			System.out.println("MovieDetails 6 - naverPrice 변경 후 값 : " + naverPrice);
 			movieInfo.setNaverPrice(naverPrice);
 
 		}
@@ -360,10 +356,11 @@ public class MovieController {
 		// 넘겨받은 영화코드 : movieNo. 임시로 넣어줌
 
 		// 페이징을 위한 로직]
-		int pageSize = 5;
+		int pageSize = 4;
 		int blockPage = 3;
-//			int nowPage=map.get("nowPage")==null?1:(Integer)map.get("nowPage");//임시
-		int nowPage = 1;// 임시
+		int nowPage = map.get("nowPage")==null?1:Integer.parseInt(map.get("nowPage").toString());// 임시
+		System.out.println("지금 몇페이지냐?"+nowPage);
+
 		// 전체 리뷰 레코드 수
 		int totalRecordCount = reviewService.getTotalMovieReviewCount(map);
 		// 전체페이지 수
@@ -375,7 +372,7 @@ public class MovieController {
 		map.put("start", start);
 		map.put("end", end);
 
-		String pagingString = PagingUtil.pagingBootStrapStyle(totalRecordCount, pageSize, blockPage, 1);
+		String pagingString = PagingUtil.pagingBootStrapStyle(totalRecordCount, pageSize, blockPage, nowPage);
 		model.addAttribute("pagingString", pagingString);
 
 		List<LikeReviewDto> likeReviewNoList = likeReviewService.selectReviewNoList(map);
@@ -702,6 +699,8 @@ public class MovieController {
 			record.put("grade", dto.getGrade());
 			record.put("reviewNo", dto.getReviewNo());
 			record.put("pagingString", pagingString);
+			record.put("nowPage", nowPage);
+			record.put("movieNo", dto.getMovieNo());
 			reviewJsonArray.add(record);
 		}
 
@@ -715,6 +714,12 @@ public class MovieController {
 	// 리뷰상세페이지
 	@RequestMapping("/Movieing/Movie/MovieReviews.mov")
 	public String movieReviews(@RequestParam Map map, Model model, Authentication auth) {
+
+		if(map.get("prevPage")!=null) {
+			model.addAttribute("prevPage", map.get("prevPage").toString());
+		System.out.println("들어온 프리브페이지:"+map.get("prevPage"));
+		}
+
 		map.put("id", auth.getName());
 		String reviewNo = map.get("reviewNo").toString();
 		System.out.println("리뷰 넘버:" + reviewNo);
@@ -723,7 +728,7 @@ public class MovieController {
 		model.addAttribute("user", user);
 		ReviewDto review = reviewService.selectOne(map);
 		review.setReviewContent(review.getReviewContent().replace("\r\n", "<br>"));
-//likeReviewEqual
+		//likeReviewEqual
 		review.setLikeReviewEqual(false);
 		boolean flag = false;
 		List<LikeReviewDto> likeReviewNoList = likeReviewService.selectReviewNoList(map);
@@ -753,6 +758,27 @@ public class MovieController {
 
 		return "movie/info/MovieReviews.tiles";
 	}//////////////////////////////////
+
+	//리뷰상세페이지에서 뒤로가기했을때 가는 페이지!
+	@RequestMapping("/Movieing/Movie/prevMovieReviews.mov")
+	public String prevMovieReviews(@RequestParam Map map) {
+		String page="";
+		String nowPage = map.get("prevPage").toString();
+		String[] nowPageArray ;
+		switch(map.get("prevPage").toString()) {
+		case "BlogMain": page="redirect:/Movieing/Blog/BlogMain.mov";break;
+		case "MyActivityB": page = "redirect:/Movieing/Blog/MyActivity.mov?page=b";break;
+		case "MyActivityC":page = "redirect:/Movieing/Blog/MyActivity.mov?page=c";break;
+		case "MF_1":page="redirect:/Movieing/Blog/MovieingFriends.mov";break;
+		case "MF_2":page="redirect:/Movieing/Blog/MovieingFriends2.mov";break;
+		default:
+			nowPageArray = nowPage.split("_");
+			page="redirect:/Movieing/Movie/MovieDetails.mov?movieNo="+nowPageArray[1] +"&nowPage="+nowPageArray[2]+"&move=y";
+
+		}
+
+		return page;
+	}
 
 	// 리뷰댓글 ajax]-날짜
 	@ResponseBody
