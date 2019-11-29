@@ -730,6 +730,11 @@ public class BlogController {
 		// 모든 아이디 리스트
 		List<UserDto> AllUserNick = userService.AllUserNick(map);
 		model.addAttribute("AllUserNick", AllUserNick.isEmpty() ? null : AllUserNick);
+		for(UserDto record:AllUserNick) {
+			System.out.println("유저아이디:"+record.getUserNick());
+			System.out.println("유저이미지:"+record.getUserProfile());
+		}
+
 
 		return "blog/my/MovieingFriends.tiles";
 	}///////////////////////////////////////////////////////////////////////////////

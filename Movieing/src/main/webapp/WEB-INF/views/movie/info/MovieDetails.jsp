@@ -259,6 +259,7 @@ $(document).ready(function() {
  		//보고싶어요 x -> 보고싶어요 o(insert)
  		if($('#wishBtnIcon').prop('class')=='fas fa-plus'){
  			$('#wishBtnIcon').removeClass('fa-plus').addClass('fa-bookmark');
+ 			
  		}
  		//보고싶어요 o -> 보고싶어요 x(delete)
  		else{

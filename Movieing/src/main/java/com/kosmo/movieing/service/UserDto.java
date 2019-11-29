@@ -18,7 +18,6 @@ public class UserDto {
 	boolean isFollow;
 
 
-
 	public String getUserProfile() {
 		return userProfile;
 	}

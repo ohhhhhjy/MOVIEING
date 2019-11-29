@@ -221,6 +221,10 @@
 									href="javascript:logout()"
 									style="color: white"><i class="fas fa-sign-out-alt"
 									style="padding-right: 5px"></i>로그아웃</a> 
+									 <a class="dropItem"
+									href="<c:url value='/Movieing/FCMTest.mov'/>"
+									style="color: white"><i class="fas fa-sign-out-alt"
+									style="padding-right: 5px"></i>파이어베이스 테스트</a> 
 								
 							</div>
 						</div>
