@@ -824,7 +824,7 @@ a {
 										<div class="row profileForm" style="padding-left: 10px">
 											<div style="padding-left: 10px">
 												<img class="radiusSmallImg" alt="배우사진"
-													src="${item.userProfile }" />
+													src="${item.userProfile  }" />
 											</div>
 											<div style="padding-left: 10px;text-align: center;">
 											<a
