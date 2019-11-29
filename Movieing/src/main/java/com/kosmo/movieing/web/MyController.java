@@ -195,6 +195,22 @@ public class MyController {
 		return "blog/my/MyPage_Notice.tiles";
 	}
 
+	// 마이페이지_쿠폰]
+		@RequestMapping("/Movieing/Blog/MyPage_Coupon.mov")
+		public String myPage_Coupon(@RequestParam Map map, Model model, Principal principal) {
+
+			// 세션아이디
+			String id = principal.getName();
+
+			map.put("id", id);
+
+			// 내 정보뿌려주기
+			UserDto mypage = userService.selectOne(map);// 리스트전체조회
+			model.addAttribute("mypage", mypage);
+			return "blog/my/MyPage_Notice.tiles";
+		}
+	
+	
 	// 마이페이지_문의]
 	@RequestMapping("/Movieing/Blog/MyPage_QnA.mov")
 	public String myPage_QnA(@RequestParam Map map, Model model, Principal principal) {

@@ -98,7 +98,10 @@
 					class="list-group-item list-group-item-action ">프로필
 					편집</a> <a href="<c:url value='/Movieing/Blog/MyPage_Pass.mov'/>"
 					class="list-group-item list-group-item-action">비밀번호
-					설정</a> <a href="<c:url value='/Movieing/Blog/MyPage_Permit.mov'/>"
+					설정</a> 
+					<a href="<c:url value='/Movieing/Blog/MyPage_Coupon.mov'/>"
+					class="list-group-item list-group-item-action">내 쿠폰함</a>
+					<a href="<c:url value='/Movieing/Blog/MyPage_Permit.mov'/>"
 					class="list-group-item list-group-item-action">결제내역
 					</a> <a href="<c:url value='/Movieing/Blog/MyPage_Notice.mov"'/>"
 					class="list-group-item list-group-item-action">알림
