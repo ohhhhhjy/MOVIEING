@@ -36,7 +36,7 @@
 
 <h2>Notification 보낼 내용 입력</h2>
 
-<form action="<c:url value='/SendMessage'/>" method="post">
+<form action="<c:url value='/fcmTest'/>" method="post">
 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 
 
