@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kosmo.movieing.android.FCMService;
 import com.kosmo.movieing.service.CommentDto;
 import com.kosmo.movieing.service.CommentService;
 import com.kosmo.movieing.service.EvaluationDto;
@@ -784,9 +785,18 @@ public class MovieController {
 	// 리뷰댓글 ajax]-날짜
 	@ResponseBody
 	@RequestMapping(value = "/Movieing/Movie/CommentAjax.mov", method = RequestMethod.POST)
-	public String commentAjax(@RequestParam Map map) {
+	public String commentAjax(@RequestParam Map map,HttpServletRequest req) {
 
 		commentService.insert(map);
+		String otherNick = userService.userSelectList(map).get(0).getUserNick().toString();
+		String reviewOwnerNick = reviewService.selectOne(map).getUserNick().toString();
+		FCMService fcm = new FCMService();
+		try {
+			fcm.send(req,String.format("%s님이 %s님의 리뷰에 댓글을 남겼어요♥", otherNick,reviewOwnerNick));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
 		SimpleDateFormat format = new SimpleDateFormat("yyyy. MM. dd");
 		Date date = new Date();
 

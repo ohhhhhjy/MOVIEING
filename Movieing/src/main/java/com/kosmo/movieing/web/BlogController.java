@@ -68,6 +68,10 @@ public class BlogController {
 	@Resource(name = "moviePeopleService")
 	private MoviePeopleService moviePeopleService;
 
+
+
+
+
 	// 블로그메인
 	@RequestMapping(value = "/Movieing/Blog/BlogMain.mov")
 	public String blogMain(@RequestParam Map map, Model model, Authentication auth, HttpServletRequest req)
@@ -92,9 +96,7 @@ public class BlogController {
 
 		if (map.get("userNick") != null) {// 남의 피드로 가는 경우.
 			id = userService.selectUserId(map.get("userNick").toString());
-			System.out.println("남의 아이디:" + id);
 			if (!id.equals(auth.getName())) {
-				System.out.println("나가 아니야");
 				model.addAttribute("notMe", "y");// 내피드가 아니다
 			} else
 				model.addAttribute("notMe", "n");
@@ -206,15 +208,12 @@ public class BlogController {
 			Calendar cal1 = Calendar.getInstance();
 			Calendar cal2 = Calendar.getInstance();
 
-			System.out.println("현재시각" + now);
 			SimpleDateFormat formatter = new SimpleDateFormat("MM월 dd일");
 			String nowFormat = formatter.format(now);// 현재시간 형식
-			System.out.println("현재시간 형식:" + nowFormat);
 			Date time = times.getReviewPostdate();// 게시 일자
 
 			cal2.setTime(time);
 			String postDateFormat = formatter.format(time);// 게시시간 형식
-			System.out.println("현재시간 형식:" + postDateFormat);
 
 			String reviewPostdate;
 			if (nowFormat.equals(postDateFormat)) {
@@ -222,7 +221,6 @@ public class BlogController {
 			} else {// 날짜 다르면
 				long diffSec = (cal1.getTimeInMillis() - cal2.getTimeInMillis()) / 1000;// 초
 				long diffDay = diffSec / (60 * 60 * 24);
-				System.out.println("두 날짜의 일 차이:" + diffDay);
 				if (diffDay == 1.0) {
 					reviewPostdate = "어제";
 				} else {
@@ -281,19 +279,15 @@ public class BlogController {
 		if (map.get("userNick") != null) {
 			for (FollowDto dto : selectFollowList) {
 				if (dto.getFollowing().equals(userService.selectUserId(map.get("userNick").toString()))) {
-					System.out.println("팔로우한 애네");
 					model.addAttribute("followOk", "y");
 				}
 			}
 		}
-		System.out.println("돌았냐");
 		model.containsAttribute("followOk");
 
 		if (map.get("userNick") != null) {// 남의 피드로 가는 경우.
 			id = userService.selectUserId(map.get("userNick").toString());
-			System.out.println("남의 아이디:" + id);
 			if (!id.equals(auth.getName())) {
-				System.out.println("나가 아니야");
 				model.addAttribute("notMe", "y");// 내피드가 아니다
 			} else
 				model.addAttribute("notMe", "n");
@@ -380,7 +374,6 @@ public class BlogController {
 
 			String movieNo = movieService.selectMovieNo(map);
 			map.put("movieNo", movieNo);
-			System.out.println("리뷰넘버?" + map.get("reviewNo").toString());
 
 			model.addAttribute("movieTitle", movieTitle);
 			model.addAttribute("movieNo", movieNo);// 영화번호
@@ -388,10 +381,8 @@ public class BlogController {
 			model.addAttribute("reviewContent", reviewContent);// 내용
 			// 평가 테이블에 평점 넣기]
 			int updateGrade = evalueWishService.update(map);// 업데이트
-			System.out.println("잘 업데이트가 됫나?" + updateGrade);
 			// 글 업데이트하기]
 			int updateAll = reviewService.update(map);
-			System.out.println("잘 업데이트가 됫나22?" + updateAll);
 
 		}
 
@@ -404,15 +395,12 @@ public class BlogController {
 			Calendar cal1 = Calendar.getInstance();
 			Calendar cal2 = Calendar.getInstance();
 
-			System.out.println("현재시각" + now);
 			SimpleDateFormat formatter = new SimpleDateFormat("MM월 dd일");
 			String nowFormat = formatter.format(now);// 현재시간 형식
-			System.out.println("현재시간 형식:" + nowFormat);
 			Date time = times.getReviewPostdate();// 게시 일자
 
 			cal2.setTime(time);
 			String postDateFormat = formatter.format(time);// 게시시간 형식
-			System.out.println("현재시간 형식:" + postDateFormat);
 
 			String reviewPostdate;
 			if (nowFormat.equals(postDateFormat)) {
@@ -420,7 +408,6 @@ public class BlogController {
 			} else {// 날짜 다르면
 				long diffSec = (cal1.getTimeInMillis() - cal2.getTimeInMillis()) / 1000;// 초
 				long diffDay = diffSec / (60 * 60 * 24);
-				System.out.println("두 날짜의 일 차이:" + diffDay);
 				if (diffDay == 1.0) {
 					reviewPostdate = "어제";
 				} else {
@@ -603,7 +590,6 @@ public class BlogController {
 	public String likeInsert(@RequestParam Map map, Authentication auth) {
 		String id = auth.getName();
 
-		System.out.println("뭐냐이게 되냐고" + map.get("reviewNo").toString());
 		int reviewNo = Integer.parseInt(map.get("reviewNo").toString());
 
 		// map.put("reviewNo", reviewNo);
@@ -627,9 +613,6 @@ public class BlogController {
 		map.put("id", id);
 
 		String reviewNo = map.get("reviewNo").toString();
-		System.out.println("댓글내용:" + commentContent);
-		System.out.println("아이디:" + id);
-		System.out.println("리뷰번호:" + reviewNo);
 
 		int insert = commentService.insert(map);// 댓글insert
 
@@ -652,7 +635,6 @@ public class BlogController {
 		if (map.get("userNick") != null) {
 			for (FollowDto dto : selectFollowList) {
 				if (dto.getFollowing().equals(userService.selectUserId(map.get("userNick").toString()))) {
-					System.out.println("팔로우한 애네");
 					model.addAttribute("followOk", "y");
 				}
 			}
@@ -733,18 +715,13 @@ public class BlogController {
 	@ResponseBody
 	@RequestMapping(value = "/Movieing/Blog/reviewRemove.mov", method = RequestMethod.POST)
 	public void reviewRemove(@RequestParam Map map, Authentication auth) {
-		System.out.println("삭제컨트롤러");
 		String id = auth.getName();
 		int reviewNo = Integer.parseInt(map.get("reviewNo").toString());
-		System.out.println("삭제글번호" + reviewNo);
 		map.put("reviewNo", reviewNo);
 		map.put("id", id);
 		int likedelete = likeReviewService.delete(map);// 좋아요삭제
 		int commentDelete = commentService.delete(map);// 댓글삭제
-		System.out.println("조아요삭제" + likedelete + "댓삭" + commentDelete);
 		int reviewDelete = reviewService.delete(map);// 리뷰삭제
-		System.out.println("리뷰삭제" + reviewDelete);
-		System.out.println("내 글이 삭제됨");
 	}//////////////////////////////////////////////////
 
 	// 리뷰상세페이지]무빙프렌즈1
@@ -752,7 +729,6 @@ public class BlogController {
 	public String blogReviews1(@RequestParam Map map, Model model, Authentication auth) {
 		map.put("id", auth.getName());
 		String reviewNo = map.get("reviewNo").toString();
-		System.out.println("리뷰 넘버:" + reviewNo);
 
 		UserDto user = userService.selectOne(map);
 		model.addAttribute("user", user);
@@ -793,7 +769,6 @@ public class BlogController {
 	public String blogReviews2(@RequestParam Map map, Model model, Authentication auth) {
 		map.put("id", auth.getName());
 		String reviewNo = map.get("reviewNo").toString();
-		System.out.println("리뷰 넘버:" + reviewNo);
 
 		UserDto user = userService.selectOne(map);
 		model.addAttribute("user", user);
@@ -823,7 +798,6 @@ public class BlogController {
 
 		// 세션아이디
 		String id = auth.getName();
-		System.out.println("로그인된 아이디:" + id);
 		map.put("id", id);
 		model.addAttribute("id", id);
 		// 프사 불러오기 용
@@ -833,13 +807,11 @@ public class BlogController {
 		// 무빙프렌즈에서 피드 글보이기(전체공개면)]-모든 정보있음
 		List<ReviewDto> friendsReviewList2 = reviewService.friendsReviewList2(map);// 리스트전체조회
 
-		System.out.println("닉네임:" + friendsReviewList2.get(0).getUserNick());
 
 		// 유저자기소개]
 		ReviewDto friendsSelf = reviewService.selectMovieingOne(map);// 1개
 		model.addAttribute("friendsSelf", friendsSelf);
 
-		System.out.println("자기소개 가져오기완료");
 		// 팔로우수]
 		int follower = followService.getTotalFollowerCount(map);
 		// 팔로잉수]
@@ -856,22 +828,18 @@ public class BlogController {
 			Calendar cal1 = Calendar.getInstance();
 			Calendar cal2 = Calendar.getInstance();
 
-			System.out.println("현재시각" + now);
 			SimpleDateFormat formatter = new SimpleDateFormat("MM월 dd일");
 			String nowFormat = formatter.format(now);// 현재시간 형식
-			System.out.println("현재시간 형식:" + nowFormat);
 			Date time = times.getReviewPostdate();// 게시 일자
 
 			cal2.setTime(time);
 			String postDateFormat = formatter.format(time);// 게시시간 형식
-			System.out.println("현재시간 형식:" + postDateFormat);
 
 			if (nowFormat.equals(postDateFormat)) {
 				reviewPostdate = "오늘";
 			} else {// 날짜 다르면
 				long diffSec = (cal1.getTimeInMillis() - cal2.getTimeInMillis()) / 1000;// 초
 				long diffDay = diffSec / (60 * 60 * 24);
-				System.out.println("두 날짜의 일 차이:" + diffDay);
 				if (diffDay == 1.0) {
 					reviewPostdate = "어제";
 				} else {
@@ -883,7 +851,6 @@ public class BlogController {
 			times.setReviewContent(times.getReviewContent().replace("\r\n", "<br>"));
 			// 가져온 리스트에 사진url담아주기
 //			times.setImgUrl(naverDefaultMovieImgUrl(times.getMovieTitle()));
-			System.out.println("제대로 날짜?"+reviewPostdate);
 			map.put("reviewPostdate", reviewPostdate);
 			model.addAttribute("reviewPostdate", reviewPostdate);
 		} ////////////////////////////
@@ -933,7 +900,6 @@ public class BlogController {
 	public String frinedsReviews(@RequestParam Map map, Model model, Authentication auth) {
 		map.put("id", auth.getName());
 		String reviewNo = map.get("reviewNo").toString();
-		System.out.println("리뷰 넘버:" + reviewNo);
 
 		UserDto user = userService.selectOne(map);
 		model.addAttribute("user", user);
