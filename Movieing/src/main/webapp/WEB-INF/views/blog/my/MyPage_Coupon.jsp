@@ -112,9 +112,7 @@
 						<div class="col-md-9">
 							<input type="file" id="image" name="image" class="text-center center-block file-upload">
 						</div>
-						<div class="col-md-3">
-							<button name="submit" type="submit" class="btn btn-primary btn-sm">수정</button>
-						</div>
+						
 					</div>
 					</form>
 			</div>
@@ -149,72 +147,18 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col-md-12">
-							<h4>프로필</h4>
+							<h4>내 쿠폰함</h4>
 							<hr>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-12">
 
-							<!-- 폼 시작 -->
-							<form class="border border-light" method="post" id="form"
-								action="<c:url value='/Movieing/Blog/MyPage2.mov'/>" name="write">
-								<input type="hidden" name="${_csrf.parameterName}"
-									value="${_csrf.token}">
-								<div class="form-group row">
-									<label for="username" class="col-4 col-form-label">이름*</label>
-									<div class="col-8">
-									
-										<input id="username" name="username"
-											value="${mypage.userName }" placeholder="이름을 입력하세요"
-											class="form-control here" required="required" type="text">
-									</div>
-								</div>
-								<div class="form-group row">
-									<label for="name" class="col-4 col-form-label">닉네임*</label>
-									<div class="col-8">
-										<input id="nick" name="nick" placeholder="닉네임을 입력하세요"
-											value="${mypage.userNick }" class="form-control here"
-											type="text">
-									</div>
-								</div>
-
-
-								<div class="form-group row">
-									<label for="select" class="col-4 col-form-label">휴대폰번호</label>
-									<div class="col-8">
-										<input id="phone" name="phone" placeholder="휴대폰번호를 입력하세요"
-											value="${mypage.userContact }" class="form-control here"
-											type="text">
-									</div>
-								</div>
-								<div class="form-group row">
-									<label for="email" class="col-4 col-form-label">이메일*</label>
-									<div class="col-8">
-										<input id="email" name="email" value="${mypage.userMail }"
-											placeholder="이메일을 입력하세요" class="form-control here"
-											required="required" type="text">
-									</div>
-								</div>
-								<div class="form-group row">
-									<label for="publicinfo" class="col-4 col-form-label">자기
-										소개</label>
-									<div class="col-8">
-										<textarea id="publicinfo" name="publicinfo" cols="40" rows="4"
-											class="form-control" placeholder="자기소개를 입력하세요">${mypage.userSelf }</textarea>
-									</div>
-								</div>
-
-
-
-								<div class="form-group row">
-									<div class="offset-4 col-8" style="text-align: right;">
-										<button name="submit" type="submit" class="btn btn-primary"
-											onclick="success()">수정 완료</button>
-									</div>
-								</div>
-							</form>
-							<!-- 폼끝 -->
+							<!-- 내 쿠폰 리스트 -->
+							
+							
+							
+							
 						</div>
 					</div>
 

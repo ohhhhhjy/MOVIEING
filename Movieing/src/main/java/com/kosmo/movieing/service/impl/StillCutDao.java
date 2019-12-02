@@ -1,6 +1,5 @@
 package com.kosmo.movieing.service.impl;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -18,9 +17,9 @@ public class StillCutDao implements StillCutService {
 	private SqlSessionTemplate template;
 	
 	@Override
-	public List<StillCutDto> searchStillCutList(Map map) {
-		System.out.println("StillCutDao 호출");
-		return template.selectList("searchStillCutList",map);
+	public StillCutDto searchStillcut(Map map) {
+		System.out.println("StillcutDao 호출");
+		return template.selectOne("searchStillcut",map);
 	}
 
 }

@@ -1,6 +1,5 @@
 package com.kosmo.movieing.service.impl;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -19,9 +18,9 @@ public class StillCutImpl implements StillCutService{
 	
 	
 	@Override
-	public List<StillCutDto> searchStillCutList(Map map) {
-		System.out.println("StillCutImpl에서 호출");
-		return dao.searchStillCutList(map);
+	public StillCutDto searchStillcut(Map map) {
+		System.out.println("StillcutImpl에서 호출");
+		return dao.searchStillcut(map);
 	
 	}
 

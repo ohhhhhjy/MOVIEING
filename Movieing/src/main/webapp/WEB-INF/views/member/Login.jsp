@@ -135,5 +135,12 @@ function onSignIn(googleUser) {
    console.log('Image URL: ' + profile.getImageUrl());
    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
+
+
+$(function() {
+	if('$(member)'=='member'){
+		alert("회원가입이 완료되었습니다. 로그인 해주세요:)");
+	}
+});
 </script>
 

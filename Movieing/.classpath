@@ -31,11 +31,12 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
 		<attributes>
-			<attribute name="owner.project.facets" value="java"/>
+			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/kosmo_15/git/MOVIEING/Movieing/src/main/webapp/WEB-INF/lib/gcm-server.jar"/>
-	<classpathentry kind="lib" path="C:/Users/kosmo_15/git/MOVIEING/Movieing/src/main/webapp/WEB-INF/lib/json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/kosmo_15/git/MOVIEING/Movieing/src/main/webapp/WEB-INF/lib/mysql-connector-java-5.1.34-bin.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/gcm-server.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/mysql-connector-java-5.1.34-bin.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/kobis-opcl-rest-v1.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

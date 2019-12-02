@@ -218,7 +218,7 @@ font-size: large;
 									<i class="far fa-user-circle"
 									style="padding-right: 5px"></i>마이페이지</a> 
 								<a class="dropItem"
-									href="<c:url value='/Movieing/my/Notice.mov'/>"
+									href="<c:url value='/Movieing/Blog/MyPage_Notice.mov'/>"
 									style="color: white"><i class="far fa-bell"
 									style="padding-right: 5px"></i>알림</a>
 								<a class="dropItem"
@@ -229,10 +229,7 @@ font-size: large;
 									href="javascript:logout()"
 									style="color: white"><i class="fas fa-sign-out-alt"
 									style="padding-right: 5px"></i>로그아웃</a> 
-									 <a class="dropItem"
-									href="<c:url value='/Movieing/FCMTest2.mov'/>"
-									style="color: white"><i class="fas fa-sign-out-alt"
-									style="padding-right: 5px"></i>파이어베이스 테스트</a> 
+
 								
 							</div>
 						</div>

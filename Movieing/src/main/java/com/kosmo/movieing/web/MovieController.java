@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kosmo.movieing.android.FCMService;
 import com.kosmo.movieing.service.CommentDto;
 import com.kosmo.movieing.service.CommentService;
 import com.kosmo.movieing.service.EvaluationDto;
@@ -320,27 +321,28 @@ public class MovieController {
 
 		MovieDto movieInfo = movieService.selectOne(map);
 
-		List<StillCutDto> stillCutList = stillCutService.searchStillCutList(map);
+		StillCutDto stillcut = stillCutService.searchStillcut(map);
+	//	System.out.println("스틸컷 테스트 : "+stillcut.getStillcut1().toString());
 
 
-		if (movieInfo.getNaverPrice() != null) {
-			String naverPrice = movieInfo.getNaverPrice().substring(0, movieInfo.getNaverPrice().indexOf("."))
-					.toString();
-			movieInfo.setNaverPrice(naverPrice);
-
-		}
-		if (movieInfo.getWavvePrice() != null) {
-			String wavvePrice = movieInfo.getWavvePrice().substring(0, movieInfo.getWavvePrice().indexOf("."));
-			movieInfo.setWavvePrice(wavvePrice);
-		}
-		if (movieInfo.getGooglePrice() != null) {
-			String googlePrice = movieInfo.getGooglePrice().substring(0, movieInfo.getGooglePrice().indexOf("."));
-			movieInfo.setGooglePrice(googlePrice);
-		}
+//		if (movieInfo.getNaverPrice() != null) {
+//			String naverPrice = movieInfo.getNaverPrice().substring(0, movieInfo.getNaverPrice().indexOf("."))
+//					.toString();
+//			movieInfo.setNaverPrice(naverPrice);
+//
+//		}
+//		if (movieInfo.getWavvePrice() != null) {
+//			String wavvePrice = movieInfo.getWavvePrice().substring(0, movieInfo.getWavvePrice().indexOf("."));
+//			movieInfo.setWavvePrice(wavvePrice);
+//		}
+//		if (movieInfo.getGooglePrice() != null) {
+//			String googlePrice = movieInfo.getGooglePrice().substring(0, movieInfo.getGooglePrice().indexOf("."));
+//			movieInfo.setGooglePrice(googlePrice);
+//		}
 		model.addAttribute("movieNo", map.get("movieNo"));
 		model.addAttribute("movieInfo", movieInfo);
 		model.addAttribute("movieInfoMap", movieInfoMap(movieNo));
-		model.addAttribute("stillCutList", stillCutList.isEmpty() ? null : stillCutList);
+		model.addAttribute("stillcut", stillcut==null ? null : stillcut);
 		/*
 		 * System.out.println("RequestMethod.GET"); System.out.println("name : " +
 		 * mname); System.out.println("date : " + date);
@@ -783,9 +785,18 @@ public class MovieController {
 	// 리뷰댓글 ajax]-날짜
 	@ResponseBody
 	@RequestMapping(value = "/Movieing/Movie/CommentAjax.mov", method = RequestMethod.POST)
-	public String commentAjax(@RequestParam Map map) {
+	public String commentAjax(@RequestParam Map map,HttpServletRequest req) {
 
 		commentService.insert(map);
+		String otherNick = userService.userSelectList(map).get(0).getUserNick().toString();
+		String reviewOwnerNick = reviewService.selectOne(map).getUserNick().toString();
+		FCMService fcm = new FCMService();
+		try {
+			fcm.send(req,String.format("%s님이 %s님의 리뷰에 댓글을 남겼어요♥", otherNick,reviewOwnerNick));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
 		SimpleDateFormat format = new SimpleDateFormat("yyyy. MM. dd");
 		Date date = new Date();
 
