@@ -1015,25 +1015,25 @@ $( '#top' ).click( function() {
 									<div class="row">
 										<div class="col-md-3">
 											<a href="<c:url value='/Movieing/News/Exhibition.mov'/>"> <img
-												src="<c:url value='/resources/img/main/jun1.PNG'/>"
+												src="<c:url value='/resources/img/news/n1.jpg'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
 										<div class="col-md-3">
 											<a href="<c:url value='/Movieing/News/Exhibition.mov'/>"> <img
-												src="<c:url value='/resources/img/main/jun2.PNG'/>"
+												src="<c:url value='/resources/img/news/2.jpg'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
 										<div class="col-md-3">
 											<a href="<c:url value='/Movieing/News/Exhibition.mov'/>"> <img
-												src="<c:url value='/resources/img/main/jun3.PNG'/>"
+												src="<c:url value='/resources/img/news/3.jpg'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
 										<div class="col-md-3">
 											<a href="<c:url value='/Movieing/News/Exhibition.mov'/>"> <img
-												src="<c:url value='/resources/img/main/jun4.PNG'/>"
+												src="<c:url value='/resources/img/news/4.jpg'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
@@ -1047,25 +1047,25 @@ $( '#top' ).click( function() {
 									<div class="row">
 										<div class="col-md-3">
 											<a href="<c:url value='/Movieing/News/Exhibition.mov'/>"> <img
-												src="<c:url value='/resources/img/main/jun1.PNG'/>"
+												src="<c:url value='/resources/img/news/6.jpg'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
 										<div class="col-md-3">
 											<a href="<c:url value='/Movieing/News/Exhibition.mov'/>"> <img
-												src="<c:url value='/resources/img/main/jun2.PNG'/>"
+												src="<c:url value='/resources/img/news/7.jpg'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
 										<div class="col-md-3">
 											<a href="<c:url value='/Movieing/News/Exhibition.mov'/>"> <img
-												src="<c:url value='/resources/img/main/jun3.PNG'/>"
+												src="<c:url value='/resources/img/news/8.jpg'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
 										<div class="col-md-3">
 											<a href="<c:url value='/Movieing/News/Exhibition.mov'/>"> <img
-												src="<c:url value='/resources/img/main/jun4.PNG'/>"
+												src="<c:url value='/resources/img/news/9.jpg'/>"
 												alt="Image" style="max-width: 100%;">
 											</a>
 										</div>
