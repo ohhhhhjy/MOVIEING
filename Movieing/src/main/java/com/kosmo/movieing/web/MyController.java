@@ -209,8 +209,8 @@ public class MyController {
 			model.addAttribute("mypage", mypage);
 			return "blog/my/MyPage_Coupon.tiles";
 		}
-	
-	
+
+
 	// 마이페이지_문의]
 	@RequestMapping("/Movieing/Blog/MyPage_QnA.mov")
 	public String myPage_QnA(@RequestParam Map map, Model model, Principal principal) {

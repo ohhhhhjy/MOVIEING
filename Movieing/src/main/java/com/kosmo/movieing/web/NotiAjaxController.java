@@ -23,6 +23,7 @@ public class NotiAjaxController {
 	@ResponseBody
 	@RequestMapping(value = "/Ajax/Noti.mov")
 	public String noti(Authentication auth) {
+
 		String id = auth.getName();
 		int count = commentService.getCountNoti(id);
 		if(count==16) {

@@ -73,7 +73,6 @@ body {
     .rating > label:active {
         position:relative;
         top:2px;
-        left:2px;
     }
     
    /*  보고싶어요 버튼 */
@@ -95,12 +94,13 @@ body {
 }
 
 /* 영화 최저가 가격  글자   */
-    .priceText{
-   font-size: 0.8em;
-   font-weight: bold;
-   text-align: center;
-   }
-   
+.priceText {
+	font-size: 1.5em;
+	font-weight: bold;
+	padding-left: 10px;
+	padding-top: 5px;
+}
+
 /* 원형이미지들 */
 .radiusImg {
 	width: 30px;
@@ -471,50 +471,57 @@ $(document).ready(function() {
 						</div>
 					</c:if>
 			</div>
-			<!-- 가격비교 -->
-			<div class="col-md-3">
-				<div class="card   bg-ligh mb-3" style="max-width: 20rem;"><!-- border-secondary -->
-					<div class="card-body">
-						<h5>가격비교</h5>
-						<hr class="my-3">
-						<!-- 구매 -->
-				  	     <span class="badge badge-dark" style="font-size:0.9em">구매</span>
-						 <div class="price-comparison_grid_row row py-1">
-						 	<c:if test="${movieInfo.naverPrice!=null }">
-								<div class="price-comparison_grid_row_element_icon col-md-4">
-									<a href="#"> <img
-										class="jw-provider-icon price-comparison_grid_row_icon"
-										alt="Naver Store" title="Naver Store"
-										src="<c:url value='/resources/img/movie/naver.png'/>">
-									</a>
-									<div class="priceText" >${movieInfo.naverPrice}원</div>
-								</div>
-							</c:if>
-							<c:if test="${movieInfo.wavvePrice!=null }">
-								<div class="price-comparison_grid_row_element_icon col-md-4">
-									<a href="#"> <img
-										class="jw-provider-icon price-comparison_grid_row_icon"
-										alt="Naver Store" title="Naver Store"
-										src="<c:url value='/resources/img/movie/wavve.jpg'/>">
-									</a>
-									<div class="priceText">${movieInfo.wavvePrice }원</div>
-								</div>
-							</c:if>
-							<c:if test="${movieInfo.googlePrice!=null }">
-								<div class="price-comparison_grid_row_element_icon col-md-4">
-									<a href="#"> <img
-										class="jw-provider-icon price-comparison_grid_row_icon"
-										alt="Naver Store" title="Naver Store"
-										src="<c:url value='/resources/img/movie/google.jpg'/>">
-									</a>
-									<div class="priceText">${movieInfo.googlePrice }원</div>
-								</div>
-							</c:if>
-						</div>
-						
+
+<!-- 가격비교 -->
+		<div class="col-md-3">
+			<div class="card   bg-ligh mb-3" style="max-width: 20rem;">
+				<!-- border-secondary -->
+				<div class="card-body">
+					<h5>가격비교</h5>
+					<hr class="my-3">
+					<!-- 구매 -->
+					<span class="badge badge-dark" style="font-size: 0.9em">구매</span>
+					<div class="price-comparison_grid_row py-1 text-center" style="padding-left: 40px">
+						<c:if test="${movieInfo.naverPrice!=null }">
+							<div class="row price-comparison_grid_row_element_icon col-12"
+								style="padding: 10px">
+								<a href="#"> <img
+									class="jw-provider-icon price-comparison_grid_row_icon"
+									alt="Naver Store" title="Naver Store"
+									src="<c:url value='/resources/img/movie/naver.png'/>">
+								</a>
+								<div class="priceText">${movieInfo.naverPrice}원</div>
+							</div>
+						</c:if>
+						<c:if test="${movieInfo.wavvePrice!=null }">
+							<div class="row price-comparison_grid_row_element_icon col-12"
+								style="padding: 10px">
+								<a href="#"> <img
+									class="jw-provider-icon price-comparison_grid_row_icon"
+									alt="Naver Store" title="Naver Store"
+									src="<c:url value='/resources/img/movie/wavve.jpg'/>">
+								</a>
+								<div class="priceText">${movieInfo.wavvePrice }원</div>
+							</div>
+						</c:if>
+						<c:if test="${movieInfo.googlePrice!=null }">
+							<div class="row price-comparison_grid_row_element_icon col-12"
+								style="padding: 10px">
+								<a href="#"> <img
+									class="jw-provider-icon price-comparison_grid_row_icon"
+									alt="Naver Store" title="Naver Store"
+									src="<c:url value='/resources/img/movie/google.jpg'/>">
+								</a>
+								<div class="priceText">${movieInfo.googlePrice }원</div>
+							</div>
+						</c:if>
 					</div>
+
+
 				</div>
 			</div>
+		</div>
+
 		</div>
 	<!-- ----------------------------------------여기까지 상단 ---------------------------------------------------------------- -->	
 		<hr class="my-3">

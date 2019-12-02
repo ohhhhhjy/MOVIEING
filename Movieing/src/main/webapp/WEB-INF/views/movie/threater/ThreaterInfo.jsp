@@ -152,7 +152,7 @@ body {
 }
 
 .btn {
-	width: 120px;
+	width: 100px;
 	height: 40px;
 	border-radius: 0px;
 	font-size: 0.75em;
@@ -675,24 +675,25 @@ height: 100%;
 
 					<div class="p-5">
 
-						<div style="padding-left: 20px">
+
+						<div style="padding-left: 40px">
 							<div class="row">
 								<button type="button"
-									class="btn btn-outline-secondary waves-effect">서울(23)</button>
+									class="btn btn-outline-secondary waves-effect">서울</button>
 								<button type="button"
-									class="btn btn-outline-secondary waves-effect">경기/인천(44)</button>
+									class="btn btn-outline-secondary waves-effect">경기/인천</button>
 								<button type="button"
-									class="btn btn-outline-secondary waves-effect">충청/대전(9)</button>
+									class="btn btn-outline-secondary waves-effect">충청/대전</button>
 								<button type="button"
-									class="btn btn-outline-secondary waves-effect">전라/광주(9)</button>
+									class="btn btn-outline-secondary waves-effect">전라/광주</button>
 								<button type="button"
-									class="btn btn-outline-secondary waves-effect">경북/대구(16)</button>
+									class="btn btn-outline-secondary waves-effect">경북/대구</button>
 								<button type="button"
-									class="btn btn-outline-secondary waves-effect">경남/부산/울산(22)</button>
+									class="btn btn-outline-secondary waves-effect">경남/부산/울산</button>
 								<button type="button"
-									class="btn btn-outline-secondary waves-effect">강원(3)</button>
+									class="btn btn-outline-secondary waves-effect">강원</button>
 								<button type="button"
-									class="btn btn-outline-secondary waves-effect">제주(3)</button>
+									class="btn btn-outline-secondary waves-effect">제주</button>
 							</div>
 
 							<div class="row">
@@ -703,7 +704,7 @@ height: 100%;
 								<button type="button" class="btn btn-secondary">김포공항</button>
 								<button type="button" class="btn btn-secondary">노원</button>
 								<button type="button" class="btn btn-secondary">독산</button>
-								<button type="button" class="btn btn-secondary">브로드웨이(신사)</button>
+								<button type="button" class="btn btn-secondary">브로드웨이</button>
 								<button type="button" class="btn btn-secondary">서울대입구</button>
 								<button type="button" class="btn btn-secondary">수락산</button>
 								<button type="button" class="btn btn-secondary">수유</button>
@@ -720,6 +721,7 @@ height: 100%;
 								<button type="button" class="btn btn-secondary">홍대입구</button>
 								<button type="button" class="btn btn-secondary">황학</button>
 							</div>
+
 
 						</div>
 					</div>
@@ -769,43 +771,7 @@ height: 100%;
 						<a href="http://www.lottecinema.co.kr/LCHS/Contents/Cinema/Cinema-Detail.aspx?divisionCode=1&detailDivisionCode=1&cinemaID=1013">
 							<img id="lotte" alt="배너" src="<c:url value='/resources/images/lotteBanner.PNG'/>">
 						</a>
-						<!-- <div class="py-3 px-5 pull-left">
-							<div class="h2 font-weight-light">예매정보</div>
-							<div class="row">
-								<div class="mb-2" id="gray">상영일</div>
-								&nbsp&nbsp
-								<div class="mb-2">2019-11-19</div>
-							</div>
-							<div class="row">
-								<div class="mb-2" id="gray">상영시간</div>
-								&nbsp&nbsp
-								<div class="mb-2">23:00~1:00</div>
-							</div>
-							<div class="row">
-								<div class="mb-2" id="gray">상영관</div>
-								&nbsp&nbsp
-								<div class="mb-2">가산디지털 롯데시네마</div>
-								<div class="mb-2">3관</div>
-							</div>
-
-						</div>
-
-						<div class="py-3 px-5 pull-left">
-							<div class="h2 font-weight-light">영화</div>
-							<div class="row">
-								<div class="mb-2" id="gray">영화명</div>
-								&nbsp&nbsp
-								<div class="mb-2">블랙머니</div>
-							</div>
-							<div class="row">
-								<div class="mb-2" id="gray">스크린</div>
-								&nbsp&nbsp
-								<div class="mb-2">2D</div>
-
-							</div>
-
-
-						</div> -->
+					
 					</div>
 
 				</div>
