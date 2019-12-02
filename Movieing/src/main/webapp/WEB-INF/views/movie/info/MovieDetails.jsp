@@ -642,11 +642,17 @@ $(document).ready(function() {
 						  </ol>
 						  
 						  <div class="carousel-inner">
-						  <c:forEach items="${stillCutList}" var="stillCut">
+						  
 						  	<div class="carousel-item active">
-						      <img src="${stillCut.stillCutImage}" class="d-block w-100" alt="...">
+						      <img src="${stillCut.stillcut1}" class="d-block w-100" alt="...">
 						    </div>
-						  </c:forEach>
+						    <div class="carousel-item ">
+						      <img src="${stillCut.stillcut2}" class="d-block w-100" alt="...">
+						    </div>
+						    <div class="carousel-item ">
+						      <img src="${stillCut.stillcut2}" class="d-block w-100" alt="...">
+						    </div>
+						  
 						  <!-- 
 						    <div class="carousel-item active">
 						      <img src="<c:url value='/resources/img/movie/toolyPhoto1.jpg'/>" class="d-block w-100" alt="...">

@@ -5,7 +5,7 @@
 
 
 
-	<select id="searchStillCutList" parameterType="java.util.Map" resultType="StillCutDto">
+	<select id="searchStillCut" parameterType="java.util.Map" resultType="StillCutDto">
 		select * from STILLCUT
 		WHERE MOVIE_NO = #{movieNo} 
 	

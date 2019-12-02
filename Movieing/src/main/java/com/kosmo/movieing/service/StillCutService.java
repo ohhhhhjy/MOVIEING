@@ -1,10 +1,9 @@
 package com.kosmo.movieing.service;
 
-import java.util.List;
 import java.util.Map;
 
 public interface StillCutService {
 
-	List<StillCutDto> searchStillCutList(Map map);
+	StillCutDto searchStillCut(Map map);
 	
 }

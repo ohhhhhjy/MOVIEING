@@ -321,7 +321,7 @@ public class MovieController {
 
 		MovieDto movieInfo = movieService.selectOne(map);
 
-		List<StillCutDto> stillCutList = stillCutService.searchStillCutList(map);
+		StillCutDto stillCut = stillCutService.searchStillCut(map);
 
 
 		if (movieInfo.getNaverPrice() != null) {
@@ -341,7 +341,7 @@ public class MovieController {
 		model.addAttribute("movieNo", map.get("movieNo"));
 		model.addAttribute("movieInfo", movieInfo);
 		model.addAttribute("movieInfoMap", movieInfoMap(movieNo));
-		model.addAttribute("stillCutList", stillCutList.isEmpty() ? null : stillCutList);
+		model.addAttribute("stillCut", stillCut==null ? null : stillCut);
 		/*
 		 * System.out.println("RequestMethod.GET"); System.out.println("name : " +
 		 * mname); System.out.println("date : " + date);
