@@ -23,7 +23,7 @@ public class FCMService {
 	ArrayList<String> tokens = new ArrayList<String>();
 	//Firebase Console->프로젝트 선택->설정->프로젝트 설정
 	//->클라우드 메시징->서버키 복사
-	final String apiKey = "AAAANGyszzA:APA91bFnE3TvTHzyprsbyFgZwvTHPvO6a3ur1l13a-ZmUGWh26QuJ3Z_dsAAGMoOk8HpuxpO1csFFvt2q7c8coFcwTbqocueW9RO3K_uKDOtVigbBDw3nGMJb0uqpVuHaGsyHoJ9nLXU" ;
+	final String apiKey = "AAAAxbboMa8:APA91bE3BaZXfDEtXfRksKvf0aDRwrOLjbSI-QRTH2TVaa99jOtscnMRSAls4wkkook6dWVygKC6IIVfcpi7uYRVfCBzOORd4ubdEpmkQhb9eLASB62EoZJ-XTmz-msDwExWYXBU0cph" ;
 
 
 	String gcmURL = "https://fcm.googleapis.com/fcm/send";
@@ -36,6 +36,12 @@ public class FCMService {
 		private void requestToFCMServer(String title, String message,String token) {
 
 			try {
+				//토큰 임시로 하드코딩 - 권혜주 폰
+				token = "cBKyW7271lI:APA91bHVwxxzfgJrB2tvJrvF5hZMVau7ed2dTsSs1mjNMPt5KOVQuPnf-i3wzTB4AFPQo7uiHMA0xGMWzPBh2ReFtKXaugyq8PLuNkMpTFg-qmluFGKjv8GDyUhXZOoIpDSKXl9pTSD0";
+
+
+
+
 
 				URL url = new URL(gcmURL);
 				HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
