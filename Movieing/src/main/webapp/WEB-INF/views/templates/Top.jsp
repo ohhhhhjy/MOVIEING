@@ -210,7 +210,7 @@
 									<i class="far fa-user-circle"
 									style="padding-right: 5px"></i>마이페이지</a> 
 								<a class="dropItem"
-									href="<c:url value='/Movieing/my/Notice.mov'/>"
+									href="<c:url value='/Movieing/Blog/MyPage_Notice.mov'/>"
 									style="color: white"><i class="far fa-bell"
 									style="padding-right: 5px"></i>알림</a>
 								<a class="dropItem"
