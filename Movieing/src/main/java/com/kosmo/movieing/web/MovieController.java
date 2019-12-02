@@ -321,22 +321,23 @@ public class MovieController {
 		MovieDto movieInfo = movieService.selectOne(map);
 
 		StillCutDto stillcut = stillCutService.searchStillcut(map);
+	//	System.out.println("스틸컷 테스트 : "+stillcut.getStillcut1().toString());
 
 
-		if (movieInfo.getNaverPrice() != null) {
-			String naverPrice = movieInfo.getNaverPrice().substring(0, movieInfo.getNaverPrice().indexOf("."))
-					.toString();
-			movieInfo.setNaverPrice(naverPrice);
-
-		}
-		if (movieInfo.getWavvePrice() != null) {
-			String wavvePrice = movieInfo.getWavvePrice().substring(0, movieInfo.getWavvePrice().indexOf("."));
-			movieInfo.setWavvePrice(wavvePrice);
-		}
-		if (movieInfo.getGooglePrice() != null) {
-			String googlePrice = movieInfo.getGooglePrice().substring(0, movieInfo.getGooglePrice().indexOf("."));
-			movieInfo.setGooglePrice(googlePrice);
-		}
+//		if (movieInfo.getNaverPrice() != null) {
+//			String naverPrice = movieInfo.getNaverPrice().substring(0, movieInfo.getNaverPrice().indexOf("."))
+//					.toString();
+//			movieInfo.setNaverPrice(naverPrice);
+//
+//		}
+//		if (movieInfo.getWavvePrice() != null) {
+//			String wavvePrice = movieInfo.getWavvePrice().substring(0, movieInfo.getWavvePrice().indexOf("."));
+//			movieInfo.setWavvePrice(wavvePrice);
+//		}
+//		if (movieInfo.getGooglePrice() != null) {
+//			String googlePrice = movieInfo.getGooglePrice().substring(0, movieInfo.getGooglePrice().indexOf("."));
+//			movieInfo.setGooglePrice(googlePrice);
+//		}
 		model.addAttribute("movieNo", map.get("movieNo"));
 		model.addAttribute("movieInfo", movieInfo);
 		model.addAttribute("movieInfoMap", movieInfoMap(movieNo));
