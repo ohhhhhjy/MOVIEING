@@ -202,7 +202,7 @@ public class MyController {
 			// 세션아이디
 			String id = principal.getName();
 
-			map.put("id", id);s
+			map.put("id", id);
 
 			// 내 정보뿌려주기
 			UserDto mypage = userService.selectOne(map);// 리스트전체조회
