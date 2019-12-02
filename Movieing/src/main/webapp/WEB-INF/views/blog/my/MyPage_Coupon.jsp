@@ -126,7 +126,7 @@
 					class="list-group-item list-group-item-action">비밀번호
 					설정</a> 
 					<a href="<c:url value='/Movieing/Blog/MyPage_Coupon.mov'/>"
-					class="list-group-item list-group-item-action ">내 쿠폰함</a>
+					class="list-group-item list-group-item-action active">내 쿠폰함</a>
 					<a href="<c:url value='/Movieing/Blog/MyPage_Permit.mov'/>"
 					class="list-group-item list-group-item-action">결제내역
 					</a> 
@@ -140,6 +140,7 @@
 			</div>
 		</div>
 		<!-- col-md-3끝 -->
+
 
 
 		<!-- 내용 상세보기 시작-->

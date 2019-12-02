@@ -125,7 +125,7 @@ $(document).ready(function() {
 					href="<c:url value='/Movieing/Blog/MyPage_Notice.mov"'/>"
 					class="list-group-item list-group-item-action">알림 메시지</a> <a
 					href="<c:url value='/Movieing/Blog/MyPage_QnA.mov'/>"
-					class="list-group-item list-group-item-action active">문의글</a> <
+					class="list-group-item list-group-item-action active">문의글</a>
 
 			</div>
 		</div>

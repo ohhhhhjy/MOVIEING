@@ -1,29 +1,18 @@
 package com.notification;
 
-import java.io.FileInputStream;
-import java.util.Arrays;
-
-import org.json.simple.JSONObject;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.client.RestTemplate;
-
-import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 
 
 @Controller
 public class NotificationApiController {
+	/*
 
-	@RequestMapping(value="/fcmTest", method=RequestMethod.POST, produces="text/plain;charset=UTF-8")
-    public void fcmTest() throws Exception {
+	@RequestMapping(value="/Movieing/FCMTest.mov", method=RequestMethod.GET, produces="text/plain;charset=UTF-8")
+    public String fcmTest() throws Exception {
+		System.out.println("fcm 컨트롤러로 들어옴");
         try {
 
-            String path = "C:/** .. **/webapp/resources/google/{fcm-test-*******************************.json}";
+            String path = "/Movieing/src/main/webapp/resources/google/androidmoving-c76d9-firebase-adminsdk-jkzgq-48383acc63.json";
             String MESSAGING_SCOPE = "https://www.googleapis.com/auth/firebase.messaging";
             String[] SCOPES = { MESSAGING_SCOPE };
 
@@ -68,10 +57,13 @@ public class NotificationApiController {
 
             }
             */
+	/*
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
 
+        return "index.tiles";
+    }
+*/
 
 }
