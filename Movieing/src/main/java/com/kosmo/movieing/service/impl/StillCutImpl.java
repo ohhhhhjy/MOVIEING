@@ -18,9 +18,9 @@ public class StillCutImpl implements StillCutService{
 	
 	
 	@Override
-	public StillCutDto searchStillCut(Map map) {
-		System.out.println("StillCutImpl에서 호출");
-		return dao.searchStillCut(map);
+	public StillCutDto searchStillcut(Map map) {
+		System.out.println("StillcutImpl에서 호출");
+		return dao.searchStillcut(map);
 	
 	}
 

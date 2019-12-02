@@ -2,14 +2,8 @@
 <!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mybatis.StillCut">
-
-
-
-	<select id="searchStillCut" parameterType="java.util.Map" resultType="StillCutDto">
-		select * from STILLCUT
-		WHERE MOVIE_NO = #{movieNo} 
 	
+	<select id="searchStillcut" parameterType="java.util.Map" resultType="StillCutDto">
+		select * from stillcut where movie_no = #{movieNo}
 	</select>
-
-
 </mapper>

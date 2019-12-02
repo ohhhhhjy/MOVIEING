@@ -207,10 +207,10 @@ public class MyController {
 			// 내 정보뿌려주기
 			UserDto mypage = userService.selectOne(map);// 리스트전체조회
 			model.addAttribute("mypage", mypage);
-			return "blog/my/MyPage_Notice.tiles";
+			return "blog/my/MyPage_Coupon.tiles";
 		}
-	
-	
+
+
 	// 마이페이지_문의]
 	@RequestMapping("/Movieing/Blog/MyPage_QnA.mov")
 	public String myPage_QnA(@RequestParam Map map, Model model, Principal principal) {

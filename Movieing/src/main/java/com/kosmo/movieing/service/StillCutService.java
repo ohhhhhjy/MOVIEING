@@ -4,6 +4,6 @@ import java.util.Map;
 
 public interface StillCutService {
 
-	StillCutDto searchStillCut(Map map);
+	StillCutDto searchStillcut(Map map);
 	
 }

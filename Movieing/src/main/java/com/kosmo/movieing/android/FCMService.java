@@ -17,8 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.json.simple.JSONArray;
 
 
-
-
 public class FCMService {
 	ArrayList<String> tokens = new ArrayList<String>();
 	//Firebase Console->프로젝트 선택->설정->프로젝트 설정

@@ -111,48 +111,178 @@
 		</div>
 		<!-- col-md-3끝 -->
 
-
-
-
 		<!-- 내용 상세보기 시작-->
 		<div class="col-md-9">
 			<div class="card">
 				<div class="card-body">
 					<div class="row">
 						<div class="col-md-12">
-							<h4>알림 메시지 받아보기</h4>
+							<h4>알림 메시지</h4>
 							<hr>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-							<form>
-								<!-- 내용시작 -->
-								<div class="checkbox">
-									<input id="checkbox1" type="checkbox" checked="checked">
-									<label for="checkbox1">게시물 알림 </label>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="row mb-2">
+							            <div class="col-md-12">
+							              <a href="#" class="text-dark">
+							              <div class="card shadow">
+							                <div class="card-body">
+							                    <div class="row">
+							                        <div class="col-xs-1 col-sm-2 col-md-1 mr-3">
+							                        <i class="fa fa-tachometer fa-4x "></i></br>
+							                        </div>
+							                        <div class="col-xs-8 col-sm-7 col-md-8">
+							                        <h5>Car System Alerts</h5>
+							                        <p>Check the battery and alternator conditions</p>
+							                        </div>
+							                    </div>
+							                </div>
+							              </div>
+							              </a>
+							            </div>
+							        </div>
+							        <div class="row mb-2">
+							            <div class="col-md-12">
+							              <a href="#" class="text-dark">
+							              <div class="card shadow">
+							                <div class="card-body">
+							                    <div class="row">
+							                        <div class="col-xs-1 col-sm-2 col-md-1 mr-3">
+							                        <i class="fa fa-tachometer fa-4x "></i></br>
+							                        </div>
+							                        <div class="col-xs-8 col-sm-7 col-md-8">
+							                        <h5>Car System Alerts</h5>
+							                        <p>Check the battery and alternator conditions</p>
+							                        </div>
+							                    </div>
+							                </div>
+							              </div>
+							              </a>
+							            </div>
+							        </div>
+							        <div class="row mb-2">
+							            <div class="col-md-12">
+							              <a href="#" class="text-dark">
+							              <div class="card shadow">
+							                <div class="card-body">
+							                    <div class="row">
+							                        <div class="col-xs-1 col-sm-2 col-md-1 mr-3">
+							                        <i class="fa fa-tachometer fa-4x "></i></br>
+							                        </div>
+							                        <div class="col-xs-8 col-sm-7 col-md-8">
+							                        <h5>Car System Alerts</h5>
+							                        <p>Check the battery and alternator conditions</p>
+							                        </div>
+							                    </div>
+							                </div>
+							              </div>
+							              </a>
+							            </div>
+							        </div>
+							        <div class="row mb-2">
+							            <div class="col-md-12">
+							              <a href="#" class="text-dark">
+							              <div class="card shadow">
+							                <div class="card-body">
+							                    <div class="row">
+							                        <div class="col-xs-1 col-sm-2 col-md-1 mr-3">
+							                        <i class="fa fa-tachometer fa-4x "></i></br>
+							                        </div>
+							                        <div class="col-xs-8 col-sm-7 col-md-8">
+							                        <h5>Car System Alerts</h5>
+							                        <p>Check the battery and alternator conditions</p>
+							                        </div>
+							                    </div>
+							                </div>
+							              </div>
+							              </a>
+							            </div>
+							        </div>
+							        <div class="row mb-2">
+							            <div class="col-md-12">
+							              <a href="#" class="text-dark">
+							              <div class="card shadow">
+							                <div class="card-body">
+							                    <div class="row">
+							                        <div class="col-xs-1 col-sm-2 col-md-1 mr-3">
+							                        <i class="fa fa-tachometer fa-4x "></i></br>
+							                        </div>
+							                        <div class="col-xs-8 col-sm-7 col-md-8">
+							                        <h5>Car System Alerts</h5>
+							                        <p>Check the battery and alternator conditions</p>
+							                        </div>
+							                    </div>
+							                </div>
+							              </div>
+							              </a>
+							            </div>
+							        </div>
+							        <div class="row mb-2">
+							            <div class="col-md-12">
+							              <a href="#" class="text-dark">
+							              <div class="card shadow">
+							                <div class="card-body">
+							                    <div class="row">
+							                        <div class="col-xs-1 col-sm-2 col-md-1 mr-3">
+							                        <i class="fa fa-tachometer fa-4x "></i></br>
+							                        </div>
+							                        <div class="col-xs-8 col-sm-7 col-md-8">
+							                        <h5>Car System Alerts</h5>
+							                        <p>Check the battery and alternator conditions</p>
+							                        </div>
+							                    </div>
+							                </div>
+							              </div>
+							              </a>
+							            </div>
+							        </div>
+							        <div class="row mb-2">
+							            <div class="col-md-12">
+							              <a href="#" class="text-dark">
+							              <div class="card shadow">
+							                <div class="card-body">
+							                    <div class="row">
+							                        <div class="col-xs-1 col-sm-2 col-md-1 mr-3">
+							                        <i class="fa fa-tachometer fa-4x "></i></br>
+							                        </div>
+							                        <div class="col-xs-8 col-sm-7 col-md-8">
+							                        <h5>Car System Alerts</h5>
+							                        <p>Check the battery and alternator conditions</p>
+							                        </div>
+							                    </div>
+							                </div>
+							              </div>
+							              </a>
+							            </div>
+							        </div>
+							        <div class="row mb-2">
+							            <div class="col-md-12">
+							              <a href="#" class="text-dark">
+							              <div class="card shadow">
+							                <div class="card-body">
+							                    <div class="row">
+							                        <div class="col-xs-1 col-sm-2 col-md-1 mr-3">
+							                        <i class="fa fa-tachometer fa-4x "></i></br>
+							                        </div>
+							                        <div class="col-xs-8 col-sm-7 col-md-8">
+							                        <h5>Car System Alerts</h5>
+							                        <p>Check the battery and alternator conditions</p>
+							                        </div>
+							                    </div>
+							                </div>
+							              </div>
+							              </a>
+							            </div>
+							        </div>
+
+									
 								</div>
-								<label style="color: gray; padding-left: 10px">팔로우한 유저가
-									게시물이나 댓글 등을 올릴경우, 실시간으로 게시물 알림이 가는 기능</label>
-								<div class="checkbox">
-									<input id="checkbox1" type="checkbox"> <label
-										for="checkbox1"> 메시지 알림 </label>
-								</div>
-								<label style="color: gray; padding-left: 10px">다른 유저가
-									메시지를 보내면, 실시간으로 메시지 알림이 가는 기능</label>
-
-
-
-
-								<div style="padding-bottom: 30px"></div>
-
-								<div class="form-group row" style="text-align: right;">
-									<div class="offset-4 col-8">
-										<button name="submit" type="submit" class="btn btn-primary">수정
-											완료</button>
-									</div>
-								</div>
-							</form>
+								<!--/col-md-12-->
+							</div>
+							<!--/row-->
 						</div>
 					</div>
 

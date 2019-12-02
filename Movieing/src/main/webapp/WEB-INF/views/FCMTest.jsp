@@ -36,15 +36,7 @@
 
 <h2>Notification 보낼 내용 입력</h2>
 
-<form action="<c:url value='/fcmTest'/>" method="post">
-<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-
-
-    <textarea name="message" rows="4" cols="50" placeholder="메세지를 입력하세요"></textarea><br>
-
-    <input type="submit" name="submit" value="Send" id="submitButton">
-
-</form>
+<button onclick="location.href='<c:url value="/Movieing/FCMTest_success.mov"/>'">연결</button>
 
 
 

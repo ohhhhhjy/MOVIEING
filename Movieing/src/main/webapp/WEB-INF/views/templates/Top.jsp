@@ -8,11 +8,13 @@
 	display: none;
 	position: absolute;
 	background-color: #002941; /* #002941 */
-	min-width: 110px;
+	min-width: 120px;
 	padding: 5px;
 	border-radius: 4px;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2)
 }
+
+
 
 .dropdown-content a {
 	font-size: 0.8em;
@@ -63,6 +65,12 @@
 	color: white;
 	border: thick;
 }
+
+.nav-item{
+font-size: large;
+}
+
+
 </style>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav"
@@ -210,7 +218,7 @@
 									<i class="far fa-user-circle"
 									style="padding-right: 5px"></i>마이페이지</a> 
 								<a class="dropItem"
-									href="<c:url value='/Movieing/my/Notice.mov'/>"
+									href="<c:url value='/Movieing/Blog/MyPage_Notice.mov'/>"
 									style="color: white"><i class="far fa-bell"
 									style="padding-right: 5px"></i>알림</a>
 								<a class="dropItem"
@@ -221,10 +229,7 @@
 									href="javascript:logout()"
 									style="color: white"><i class="fas fa-sign-out-alt"
 									style="padding-right: 5px"></i>로그아웃</a> 
-									<%--  <a class="dropItem"
-									href="<c:url value='/Movieing/FCMTest2.mov'/>"
-									style="color: white"><i class="fas fa-sign-out-alt"
-									style="padding-right: 5px"></i>파이어베이스 테스트1</a>  --%>
+
 								
 							</div>
 						</div>
