@@ -17,9 +17,9 @@ public class StillCutDao implements StillCutService {
 	private SqlSessionTemplate template;
 	
 	@Override
-	public StillCutDto searchStillCut(Map map) {
-		System.out.println("StillCutDao 호출");
-		return template.selectOne("searchStillCut",map);
+	public StillCutDto searchStillcut(Map map) {
+		System.out.println("StillcutDao 호출");
+		return template.selectOne("searchStillcut",map);
 	}
 
 }

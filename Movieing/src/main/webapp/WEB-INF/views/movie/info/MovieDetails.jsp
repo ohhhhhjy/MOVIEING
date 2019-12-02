@@ -644,13 +644,13 @@ $(document).ready(function() {
 						  <div class="carousel-inner">
 						  
 						  	<div class="carousel-item active">
-						      <img src="${stillCut.stillcut1}" class="d-block w-100" alt="...">
+						      <img src="${stillcut.stillcut1}" class="d-block w-100" alt="...">
 						    </div>
 						    <div class="carousel-item ">
-						      <img src="${stillCut.stillcut2}" class="d-block w-100" alt="...">
+						      <img src="${stillcut.stillcut2}" class="d-block w-100" alt="...">
 						    </div>
 						    <div class="carousel-item ">
-						      <img src="${stillCut.stillcut2}" class="d-block w-100" alt="...">
+						      <img src="${stillcut.stillcut2}" class="d-block w-100" alt="...">
 						    </div>
 						  
 						  <!-- 
