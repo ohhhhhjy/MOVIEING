@@ -325,10 +325,10 @@ public class MovieController {
 
 
 		if (movieInfo.getNaverPrice() != null) {
+			System.out.println("네이버가격이 널이라면?:"+movieInfo.getNaverPrice());
 			String naverPrice = movieInfo.getNaverPrice().substring(0, movieInfo.getNaverPrice().indexOf("."))
 					.toString();
 			movieInfo.setNaverPrice(naverPrice);
-
 		}
 		if (movieInfo.getWavvePrice() != null) {
 			String wavvePrice = movieInfo.getWavvePrice().substring(0, movieInfo.getWavvePrice().indexOf("."));

@@ -36,12 +36,6 @@ public class FCMService {
 		private void requestToFCMServer(String title, String message,String token) {
 
 			try {
-				//토큰 임시로 하드코딩 - 권혜주 폰
-				token = "cBKyW7271lI:APA91bHVwxxzfgJrB2tvJrvF5hZMVau7ed2dTsSs1mjNMPt5KOVQuPnf-i3wzTB4AFPQo7uiHMA0xGMWzPBh2ReFtKXaugyq8PLuNkMpTFg-qmluFGKjv8GDyUhXZOoIpDSKXl9pTSD0";
-
-
-
-
 
 				URL url = new URL(gcmURL);
 				HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
@@ -50,7 +44,6 @@ public class FCMService {
 				httpConn.setRequestProperty("Content-Type", "application/json");
 				httpConn.setRequestProperty("Authorization", "key=" + apiKey);
 				httpConn.setRequestProperty("Accept", "application/json");
-				httpConn.setRequestProperty("project_id", "992036377345");
 
 				httpConn.connect();
 
