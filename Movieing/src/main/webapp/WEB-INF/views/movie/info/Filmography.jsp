@@ -190,7 +190,6 @@ body {
 		margin-top: 0;
 	}
 }
-
 </style>
 
 <script>
@@ -259,8 +258,8 @@ body {
 				<hr class="my-3">
 				<div class="row">
 					<span span class="px-2" style="font-weight: bold; color: gray;">출생&nbsp</span>
-					<span class="px-2" style="font-weight: bold"> 1958년 8월 25일(만
-						61세)</span>
+					<span class="px-2" style="font-weight: bold"> 1979년 7월 10일(만
+						40세)</span>
 				</div>
 				<div class="row">
 					<span span class="px-2" style="font-weight: bold; color: gray;">국적&nbsp</span>
@@ -269,11 +268,11 @@ body {
 				</div>
 				<div class="row">
 					<span span class="px-2" style="font-weight: bold; color: gray;">신체&nbsp</span>
-					<span class="px-2" style="font-weight: bold"> 182cm</span>
+					<span class="px-2" style="font-weight: bold"> 184cm</span>
 				</div>
 				<div class="row">
 					<span span class="px-2" style="font-weight: bold; color: gray;">사이트&nbsp</span>
-					<span class="px-2" style="font-weight: bold"> <a href="#">페이스북</a></span>
+					<span class="px-2" style="font-weight: bold"> <a href="#">공식홈페이지</a></span>
 				</div>
 
 				<!--<span class="px-2" style="font-weight: bold">출현작 :</span><!-- ${selectListDirector.movieTitle } -->
@@ -313,49 +312,42 @@ body {
 				<div id="tab01" class="tab-contents">
 					<div class="row" style="padding-top: 10px">
 						<div class="col-sm-2">
-							<a style="color: gray; font-weight: bold;">2010.10</a>
+							<a style="color: gray; font-weight: bold;">2014.107</a>
 						</div>
-						<div class="col-sm-10" style="color: black;">호주 홍보대사</div>
-					</div>
-					<hr class="my-3">
-					<div class="row">
-						<div class="col-sm-2">
-							<a style="color: gray; font-weight: bold;">2010.10</a>
-						</div>
-						<div class="col-sm-10">호주 홍보대사</div>
-					</div>
-					<hr class="my-3">
-					<div class="row">
-						<div class="col-sm-2">
-							<a style="color: gray; font-weight: bold;">2010.10</a>
-						</div>
-						<div class="col-sm-10">호주 홍보대사</div>
+						<div class="col-sm-10" style="color: black;">국세청 홍보대사</div>
 					</div>
 				</div>
 				<div id="tab02" class="tab-contents">
 					<div class="row" style="padding-top: 10px">
 						<div class="col-sm-2">
-							<a style="color: gray; font-weight: bold;">1995</a>
+							<a style="color: gray; font-weight: bold;">1999~2005</a>
 						</div>
-						<div class="col-sm-10">한남대학교 미술교육학 학사</div>
+						<div class="col-sm-10">경희대학교 아트퓨전디자인대학원 퍼포밍아트학</div>
 					</div>
 					<hr class="my-3">
 					<div class="row">
 						<div class="col-sm-2">&nbsp</div>
-						<div class="col-sm-10">충남대학교</div>
+						<div class="col-sm-10">경희대학교 연극영화학 학사</div>
 					</div>
 					<hr class="my-3">
 					<div class="row">
 						<div class="col-sm-2">&nbsp</div>
-						<div class="col-sm-10">동명중학교</div>
+						<div class="col-sm-10">동인고등학교</div>
 					</div>
+					<hr class="my-3">
+					<div class="row">
+						<div class="col-sm-2">&nbsp</div>
+						<div class="col-sm-10">내성중학교</div>
+					</div>
+
 				</div>
 				<div id="tab03" class="tab-contents">
 					<div class="row" style="padding-top: 10px">
 						<div class="col-sm-2">
 							<a style="color: gray; font-weight: bold;">2011</a>
 						</div>
-						<div class="col-sm-10" style="color: black;">제6회 아시아모델상시상식 아시아스타상</div>
+						<div class="col-sm-10" style="color: black;">제6회 아시아모델상시상식
+							아시아스타상</div>
 					</div>
 					<hr class="my-3">
 					<div class="row">
@@ -369,7 +361,7 @@ body {
 						<div class="col-sm-2">
 							<a style="color: gray; font-weight: bold;">2010.10</a>
 						</div>
-						<div class="col-sm-10">제6회 아시아모델상시상식 아시아스타상</div>
+						<div class="col-sm-10">올해의 브랜드 대상 올해의 남자배우</div>
 					</div>
 				</div>
 			</div>
@@ -384,7 +376,7 @@ body {
 	<div class="card  bg-ligh mb-3" style="max-width: 200rem;">
 		<!-- border-secondary -->
 		<div class="card-body">
-			<h4>출현영화</h4>
+			<h4>출연영화</h4>
 			<div class="filmo-movie-row">
 
 				<ul class="filmo-movie-list-Frame">
@@ -399,7 +391,7 @@ body {
 							<div class=filmo-movie-Title-Frame>
 								<div class="filmo-movie-Title"
 									style="color: black; font-weight: bold;">
-									<a href="#" style="color: black;font-weight: bold;">${movie.movieTitle}</a>
+									<a href="#" style="color: black; font-weight: bold;">${movie.movieTitle}</a>
 								</div>
 							</div>
 

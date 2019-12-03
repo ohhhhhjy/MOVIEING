@@ -52,7 +52,7 @@
                                       
                                       <div  class="form-group row">
                                            <div  class="offset-4 col-8" style="text-align: right;">
-                                                <button  name="submit" type="submit" class="btn  btn-primary">다음</button>
+                                                <button  name="submit" type="submit" id="submit" class="btn  btn-primary">다음</button>
                                            </div>
                                       </div>
                                   </form>
@@ -196,7 +196,14 @@ $(function() {
 
 		});
 		
+		});
+			
+		
 	});
+	
+	$('#submit').on('click', function() {
+		 alert('회원가입이 완료되었습니다!');
+	}
 </script>
 
 
