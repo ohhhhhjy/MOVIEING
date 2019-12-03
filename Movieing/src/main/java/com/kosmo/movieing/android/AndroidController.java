@@ -44,6 +44,7 @@ public class AndroidController {
 		boolean isLogin = userService.androidIsLogin(map);
 		JSONObject json = new JSONObject();
 		json.put("isLogin", isLogin?"Y":"N");
+		System.out.println("안드 테스트");
 
 		return json.toJSONString();
 	}
@@ -108,6 +109,7 @@ public class AndroidController {
 
 		List<MovieDto> movieList = movieService.selectListBestRecommendMovie(map);
 
+		String a = "3.45";
 		List<Map> collections = new Vector<Map>();
 		for(MovieDto dto:movieList) {
 			Map record = new HashMap();
@@ -118,7 +120,7 @@ public class AndroidController {
 			record.put("movieGenre", URLEncoder.encode(dto.getMovieGenre(), "UTF-8"));
 			record.put("movieOrgTitle",dto.getMovieOrgTitle());
 			record.put("movieYear", dto.getMovieYear());
-			record.put("grade",dto.getGrade());
+			record.put("grade",Math.round(Double.parseDouble(dto.getGrade()==null?a:dto.getGrade())*10)/10.0);
 			collections.add(record);
 		}
 

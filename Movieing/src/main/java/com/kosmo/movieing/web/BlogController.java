@@ -79,6 +79,8 @@ public class BlogController {
 
 		String id = auth.getName();
 		map.put("id", id);
+
+
 		// 팔로우 여부]내 팔로우리스트에 있는 애
 		// 내 팔로우 리스트가져오기
 		// 팔로우된 아이디 리스트
