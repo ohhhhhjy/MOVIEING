@@ -785,14 +785,19 @@ public class MovieController {
 	// 리뷰댓글 ajax]-날짜
 	@ResponseBody
 	@RequestMapping(value = "/Movieing/Movie/CommentAjax.mov", method = RequestMethod.POST)
-	public String commentAjax(@RequestParam Map map,HttpServletRequest req) {
+	public String commentAjax(@RequestParam Map map,HttpServletRequest req, Model model) {
 
 		commentService.insert(map);
 		String otherNick = userService.userSelectList(map).get(0).getUserNick().toString();
 		String reviewOwnerNick = reviewService.selectOne(map).getUserNick().toString();
 		FCMService fcm = new FCMService();
+		String reviewId = userService.selectUserId(reviewOwnerNick);
 		try {
 			fcm.send(req,String.format("%s님이 %s님의 리뷰에 댓글을 남겼어요♥", otherNick,reviewOwnerNick));
+			model.addAttribute("who", otherNick);
+			model.addAttribute("whom", reviewId);
+			
+			
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}

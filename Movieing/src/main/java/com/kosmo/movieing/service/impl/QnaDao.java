@@ -49,7 +49,6 @@ public class QnaDao implements QnaService {
 	public int reply(Map map) {
 		return template.update("replyQna",map);
 	}
-	
-	
+
 
 }

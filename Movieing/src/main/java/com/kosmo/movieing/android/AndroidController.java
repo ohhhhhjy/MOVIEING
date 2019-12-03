@@ -25,89 +25,89 @@ import com.kosmo.movieing.service.UserService;
 @Controller
 public class AndroidController {
 
-	@Resource(name="userService")
-	private UserService userService;
+   @Resource(name="userService")
+   private UserService userService;
 
-	@Resource(name="evalueWishService")
-	private EvalueWishService evalueWishService;
+   @Resource(name="evalueWishService")
+   private EvalueWishService evalueWishService;
 
-	@Resource(name="movieService")
-	private MovieService movieService;
-
-
-
-	//로그인
-	@ResponseBody
-	@RequestMapping(value="/Movieing/Android/Login.mov")
-	public String login(@RequestParam Map map) {
-
-		boolean isLogin = userService.androidIsLogin(map);
-		JSONObject json = new JSONObject();
-		json.put("isLogin", isLogin?"Y":"N");
-		System.out.println("안드 테스트");
-
-		return json.toJSONString();
-	}
+   @Resource(name="movieService")
+   private MovieService movieService;
 
 
-	//별점매길 리스트 뿌려주기
-	@ResponseBody
-	@RequestMapping(value="/Movieing/Android/EvalueList.mov")
-	public String evalueList(@RequestParam Map map) throws UnsupportedEncodingException {
 
-		map.put("id","KIM");//우선 하드코딩
-		//int evalueCount = evalueWishService.getTotalEvalueCount(map);
+   //로그인
+   @ResponseBody
+   @RequestMapping(value="/Movieing/Android/Login.mov")
+   public String login(@RequestParam Map map) {
 
-		List<MovieDto> movieList = movieService.selectListMovie(map);
+      boolean isLogin = userService.androidIsLogin(map);
+      JSONObject json = new JSONObject();
+      json.put("isLogin", isLogin?"Y":"N");
+      System.out.println("안드 테스트");
 
-		int evalueCount = evalueWishService.getTotalEvalueCount(map);
-
-		List<Map> collections = new Vector<Map>();
-		for(MovieDto dto:movieList) {
-			Map record = new HashMap();
-			record.put("movieNo",dto.getMovieNo());
-			record.put("movieTitle",URLEncoder.encode(dto.getMovieTitle(), "UTF-8"));
-			record.put("movieImg", dto.getMovieImg());
-			record.put("movieCountry", URLEncoder.encode(dto.getMovieCountry(), "UTF-8"));
-			record.put("movieYear", dto.getMovieYear());
-			record.put("evalueCount",evalueCount);
-
-			collections.add(record);
-		}
+      return json.toJSONString();
+   }
 
 
-		return JSONArray.toJSONString(collections);
-	}//evalueList
+   //별점매길 리스트 뿌려주기
+   @ResponseBody
+   @RequestMapping(value="/Movieing/Android/EvalueList.mov")
+   public String evalueList(@RequestParam Map map) throws UnsupportedEncodingException {
+
+      map.put("id","ohhhhhjy");//우선 하드코딩
+      //int evalueCount = evalueWishService.getTotalEvalueCount(map);
+
+      List<MovieDto> movieList = movieService.selectListMovie(map);
+
+      int evalueCount = evalueWishService.getTotalEvalueCount(map);
+
+      List<Map> collections = new Vector<Map>();
+      for(MovieDto dto:movieList) {
+         Map record = new HashMap();
+         record.put("movieNo",dto.getMovieNo());
+         record.put("movieTitle",URLEncoder.encode(dto.getMovieTitle(), "UTF-8"));
+         record.put("movieImg", dto.getMovieImg());
+         record.put("movieCountry", URLEncoder.encode(dto.getMovieCountry(), "UTF-8"));
+         record.put("movieYear", dto.getMovieYear());
+         record.put("evalueCount",evalueCount);
+
+         collections.add(record);
+      }
 
 
-	//별점 남기기
-	@ResponseBody
-	@RequestMapping(value="/Movieing/Android/EvalueInsert.mov")
-	public void evalueInsert(@RequestParam Map map) {
+      return JSONArray.toJSONString(collections);
+   }//evalueList
 
-		map.put("id","KIM");//우선 하드코딩
 
-		if(map.get("grade").equals("0")) return;
+   //별점 남기기
+   @ResponseBody
+   @RequestMapping(value="/Movieing/Android/EvalueInsert.mov")
+   public void evalueInsert(@RequestParam Map map) {
 
-		if(evalueWishService.isEvalue(map)) {//이미 남긴 별점이 있다면,
-			System.out.println("업데이트");
-			evalueWishService.update(map);
-		}
-		else {//별점을 새로 입력하는 경우라면,
-			System.out.println("인서트");
-			evalueWishService.insert(map);
-		}
-	}//evalueInsert
+      map.put("id","ohhhhhjy");//우선 하드코딩
 
-	//추천 리스트 뿌려주기
-	@ResponseBody
-	@RequestMapping(value="/Movieing/Android/RecommendList.mov")
-	public String recommendList(@RequestParam Map map) throws UnsupportedEncodingException {
+      if(map.get("grade").equals("0")) return;
 
-		map.put("id","KIM");//우선 하드코딩
-		//int evalueCount = evalueWishService.getTotalEvalueCount(map);
+      if(evalueWishService.isEvalue(map)) {//이미 남긴 별점이 있다면,
+         System.out.println("업데이트");
+         evalueWishService.update(map);
+      }
+      else {//별점을 새로 입력하는 경우라면,
+         System.out.println("인서트");
+         evalueWishService.insert(map);
+      }
+   }//evalueInsert
 
-		List<MovieDto> movieList = movieService.selectListBestRecommendMovie(map);
+   //추천 리스트 뿌려주기
+   @ResponseBody
+   @RequestMapping(value="/Movieing/Android/RecommendList.mov")
+   public String recommendList(@RequestParam Map map) throws UnsupportedEncodingException {
+
+      map.put("id","ohhhhhjy");//우선 하드코딩
+      //int evalueCount = evalueWishService.getTotalEvalueCount(map);
+
+      List<MovieDto> movieList = movieService.selectListBestRecommendMovie(map);
 
 		String a = "3.45";
 		List<Map> collections = new Vector<Map>();
@@ -125,58 +125,58 @@ public class AndroidController {
 		}
 
 
-		return JSONArray.toJSONString(collections);
-	}//evalueList
+      return JSONArray.toJSONString(collections);
+   }//evalueList
 
 
-	@ResponseBody
-	@RequestMapping(value="/Movieing/Android/MovieOne.mov")
-	public String movieOne(@RequestParam Map map) throws UnsupportedEncodingException {
+   @ResponseBody
+   @RequestMapping(value="/Movieing/Android/MovieOne.mov")
+   public String movieOne(@RequestParam Map map) throws UnsupportedEncodingException {
 
-		map.put("id","KIM");//우선 하드코딩
-		//int evalueCount = evalueWishService.getTotalEvalueCount(map);
+      map.put("id","ohhhhhjy");//우선 하드코딩
+      //int evalueCount = evalueWishService.getTotalEvalueCount(map);
 
-		MovieDto dto = movieService.selectOne(map);
-
-
-		JSONObject json = new JSONObject();
-
-		json.put("movieNo",dto.getMovieNo());
-		json.put("movieTitle",URLEncoder.encode(dto.getMovieTitle(), "UTF-8"));
-		json.put("movieImg", dto.getMovieImg());
-		json.put("movieCountry", URLEncoder.encode(dto.getMovieCountry(), "UTF-8"));
-		json.put("movieGenre", URLEncoder.encode(dto.getMovieGenre(), "UTF-8"));
-		json.put("movieOrgTitle",dto.getMovieOrgTitle());
-		json.put("movieYear", dto.getMovieYear());
-		json.put("grade",dto.getGrade());
-		//가격
-		json.put("naverPrice",dto.getNaverPrice());
-		json.put("wavvePrice",dto.getWavvePrice());
-		json.put("googlePrice",dto.getGooglePrice());
-
-		json.put("movieContent", URLEncoder.encode(dto.getMovieContent(), "UTF-8"));
-		json.put("movieDirector", URLEncoder.encode(dto.getMovieDirector()==null?"감독":dto.getMovieDirector(), "UTF-8"));
-		json.put("movieGrade", URLEncoder.encode(dto.getMovieGrade(), "UTF-8"));//영화관람가
-
-		return json.toJSONString();
-	}//evalueList
+      MovieDto dto = movieService.selectOne(map);
 
 
+      JSONObject json = new JSONObject();
 
-	//보고싶어요 추가하기
-	@ResponseBody
-	@RequestMapping(value="/Movieing/Android/WishInsert.mov")
-	public void wishInsert(@RequestParam Map map) {
+      json.put("movieNo",dto.getMovieNo());
+      json.put("movieTitle",URLEncoder.encode(dto.getMovieTitle(), "UTF-8"));
+      json.put("movieImg", dto.getMovieImg());
+      json.put("movieCountry", URLEncoder.encode(dto.getMovieCountry(), "UTF-8"));
+      json.put("movieGenre", URLEncoder.encode(dto.getMovieGenre(), "UTF-8"));
+      json.put("movieOrgTitle",dto.getMovieOrgTitle());
+      json.put("movieYear", dto.getMovieYear());
+      json.put("grade",dto.getGrade());
+      //가격
+      json.put("naverPrice",dto.getNaverPrice());
+      json.put("wavvePrice",dto.getWavvePrice());
+      json.put("googlePrice",dto.getGooglePrice());
 
-		map.put("id","KIM");//우선 하드코딩
+      json.put("movieContent", URLEncoder.encode(dto.getMovieContent(), "UTF-8"));
+      json.put("movieDirector", URLEncoder.encode(dto.getMovieDirector()==null?"감독":dto.getMovieDirector(), "UTF-8"));
+      json.put("movieGrade", URLEncoder.encode(dto.getMovieGrade(), "UTF-8"));//영화관람가
 
-		List<EvaluationDto> list = evalueWishService.selectWishList(map);
-		for(EvaluationDto dto:list) {
-			if(dto.getMovieNo().equals(map.get("movieNo")))
-				return;
-		}
-		evalueWishService.insertWish(map);
-	}//wishInsert
+      return json.toJSONString();
+   }//evalueList
+
+
+
+   //보고싶어요 추가하기
+   @ResponseBody
+   @RequestMapping(value="/Movieing/Android/WishInsert.mov")
+   public void wishInsert(@RequestParam Map map) {
+
+      map.put("id","ohhhhhjy");//우선 하드코딩
+
+      List<EvaluationDto> list = evalueWishService.selectWishList(map);
+      for(EvaluationDto dto:list) {
+         if(dto.getMovieNo().equals(map.get("movieNo")))
+            return;
+      }
+      evalueWishService.insertWish(map);
+   }//wishInsert
 
 
 }

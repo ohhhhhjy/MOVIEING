@@ -57,11 +57,11 @@
 						</tr>
 						<tr>
 							<td class="main">결제일시</td>
-							<td>2019.11.27</td>
+							<td>2019.12.04</td>
 						</tr>
 						<tr>
 							<td class="main">결제금액</td>
-							<td>72000원</td>
+							<td>62000원</td>
 						</tr>
 						<tr>
 							<td class="main">접수상태</td>

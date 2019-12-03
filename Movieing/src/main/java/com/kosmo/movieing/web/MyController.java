@@ -248,6 +248,7 @@ public class MyController {
 		String id = auth.getName();
 		// Q&A
 		List<QnaDto> list = qnaService.selectList();
+	
 		model.addAttribute("qnaList", list);
 		// 공지사항
 		List<NoticeDto> selectNotiList = noticeService.selectList(map);
@@ -276,21 +277,21 @@ public class MyController {
 		int size=noticeService.selectList(map).size();//2
 		System.out.println("노티넘버:"+notiNo);//2
 
-		if(notiNo +1 >= size) {//2+1>=2
-			//이전글
-			model.addAttribute("before", "이전 글이 없어요");
-		}else {
-			map.put("notiNo",notiNo+1);
-			model.addAttribute("before", noticeService.selectOne(map).getNotiTitle());
-		}
-
-		if(notiNo-1 < 1) {
-			//다음글
-			model.addAttribute("after", "다음 글이 없어요");
-		}else {
-			map.put("notiNo",notiNo-1);
-			model.addAttribute("after",noticeService.selectOne(map).getNotiTitle());
-		}
+//		if(notiNo +1 >= size) {//2+1>=2
+//			//이전글
+//			model.addAttribute("before", "이전 글이 없어요");
+//		}else {
+//			map.put("notiNo",notiNo+1);
+//			model.addAttribute("before", noticeService.selectOne(map).getNotiTitle());
+//		}
+//
+//		if(notiNo-1 < 1) {
+//			//다음글
+//			model.addAttribute("after", "다음 글이 없어요");
+//		}else {
+//			map.put("notiNo",notiNo-1);
+//			model.addAttribute("after",noticeService.selectOne(map).getNotiTitle());
+//		}
 
 		return "my/Customer_View_noti.tiles";
 	}////////////////////

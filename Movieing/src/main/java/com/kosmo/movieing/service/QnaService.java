@@ -21,5 +21,7 @@ public interface QnaService {
 	
 	int reply(Map map);
 
+
+
 	
 }
