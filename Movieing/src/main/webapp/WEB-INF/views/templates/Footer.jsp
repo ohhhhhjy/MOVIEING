@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec"
+    uri="http://www.springframework.org/security/tags"%>
+
+
 <meta charset="UTF-8">
 <footer class="footer">
      <div class="container">
@@ -39,15 +43,39 @@
         </div>
       </div>
     </div>
+    
+    <sec:authorize access="isAuthenticated()">
+                    <sec:authentication property="principal.username" var="user_id" />
+                    <div id="user_id">${user_id }</div>
+                </sec:authorize>
+
+
+    
     </footer>
     
     
     <script>
     
     $(function () {
+    	var id = $('#user_id').html();
+    	//var reviewId = '${reviewId}';
+    	console.log(id);
         if (window.Notification) {
             Notification.requestPermission();
         }
+  
+        console.log('누구 게시물?'+'${whom}');	
+        if('${whom}'==id){
+        	console.log('내 게시물에 댓글 달렸냐');
+        		
+        }
+        	
+        
+	/* 	//if('${whom}'!='') console.log('댓글 달렸냐');
+    	if('${whom}'==id){
+    		console.log('내가 쓴 리뷰에 댓글이 달렸어요');
+    	} */
+    	
         var id=1;
         $.ajax({
 			url : "<c:url  value='/Ajax/Noti.mov'/>",

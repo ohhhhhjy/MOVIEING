@@ -245,12 +245,12 @@ px
 
 					<div style="padding-right: 300px"></div>
 
-					<div class="row" style="text-align: right;">
+					<%-- <div class="row" style="text-align: right;">
 						<p>총</p>
-						<p style="font-weight: bold;">255</p>
+						<p style="font-weight: bold;">${qnaCount }</p>
 						<p>개의 게시물이 있습니다.</p>
 					</div>
-
+ --%>
 
 
 				</div>

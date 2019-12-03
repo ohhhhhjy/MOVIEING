@@ -17,7 +17,7 @@
   pay_method : 'card', // 결제 수단
   merchant_uid : 'merchant_' + new Date().getTime(),
   name : '주문명: 서울독립영화제', // order 테이블에 들어갈 주문명 혹은 주문 번호
-  amount : '72000', // 결제 금액
+  amount : '62000', // 결제 금액
   buyer_email : 'ohhhhhjy@naver.com', // 구매자 email
   buyer_name : '오지윤', // 구매자 이름
   buyer_tel : '010-7777-7777', // 구매자 전화번호
