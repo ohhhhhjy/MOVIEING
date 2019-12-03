@@ -58,16 +58,19 @@ body {
 	font-size: 1.2em;
 	font-weight: bold;
 	line-height: 65px;
+	color:black;
 }
 
 /* 필모그램 스팬 */
 .filmoSpan {
 	line-height: 65px;
+	color:black;
 }
 
 /* 배우 스팬 */
 .actorForm {
-	padding-bottom: 20px;;
+	padding-bottom: 20px;
+	color:black;
 }
 
 .moreContent{
@@ -182,7 +185,7 @@ height: 200px;
 						<div class="col-md-2 col-sm-6 movie-poster" style="">
 							<a href="<c:url value='/Movieing/Movie/MovieDetails.mov?movieNo=${movie.movieNo}'/>">
 							<img class="movieImg" src="${movie.movieImg }" alt="" /><br>
-							<span class="movieTitle">${movie.movieTitle }</span>
+							<span class="movieTitle" style="color:black;font-weight: bold">${movie.movieTitle }</span>
 							</a>
 						</div>
 					</c:forEach>
