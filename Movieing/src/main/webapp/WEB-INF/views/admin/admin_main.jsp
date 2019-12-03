@@ -10,11 +10,21 @@
 		    var date = new Array;
 		    var fdate = new Array;
 		   	var userJson = ${userJson};
+		   	
+		  console.log('dt:'+dt);
+		  console.log('recentYear:'+recentYear);
+		  console.log('recentMonth:'+recentMonth);
+		  console.log('recentDay:'+recentDay);
+		  console.log('date:'+date);
+		  console.log('fdate:'+fdate);
+		  console.log('userJson:'+userJson);
 		   
 		    
 		    for(var i=11;i>=0;i--){
-		    	date[11-i] = recentDay-1>0?(recentMonth + "/" + (recentDay-i)):((recentMonth-1) + "/" + (recentDay-i));
-		    	
+		    	if(recentDay<12)
+	                date[i] = recentDay-i>0?(recentMonth + "/" + (recentDay-i)):((recentMonth-1) + "/" + (30+recentDay-i));
+	             else
+	                date[i] = recentMonth + "/" + (recentDay-i);
 		    }
 		    
 		    
@@ -26,7 +36,8 @@
 							print : false
 						},
 						axisX : {
-							categoricalValues : date
+							categoricalValues : date //x축 값 : 날짜 Array
+							
 						},
 						axisY : {
 							
