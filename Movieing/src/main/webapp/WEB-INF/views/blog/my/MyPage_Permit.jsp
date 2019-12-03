@@ -173,7 +173,7 @@
 														</dl>
 													<hr class="my-3">
 														<dl class="param param-inline small">
-															<h5>${buy.price * buy.quantity }원</h5>
+															<h5>62,000원</h5>
 														</dl>
 														
 													</figcaption>
