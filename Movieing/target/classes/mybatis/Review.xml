@@ -82,7 +82,7 @@
 		(select count(*) from COMMENT_TABLE where  review_no = r.review_no) commentCount,
 		(select USER_NICK from user_table where review_no = r.review_no and user_id= r.user_id) userNick
 		from review r,movie m,follow f, user_table u
-		WHERE PUBLIC_PRIVATE='Y' and f.following!=#{id} and r.movie_no=m.movie_no and f.following=r.user_id and r.user_id = u.user_id 
+		WHERE PUBLIC_PRIVATE='Y' and f.follower=#{id} and r.movie_no=m.movie_no and f.following=r.user_id and r.user_id = u.user_id 
 		Order by REVIEW_POSTDATE desc
 
 	</select>

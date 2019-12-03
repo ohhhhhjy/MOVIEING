@@ -4,10 +4,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 
-<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700&display=swap"
+	rel="stylesheet">
 
 <style>
-
 
 /*버튼 원형주기*/
 .btn {
@@ -15,10 +16,8 @@
 	border-radius: 15px 15px 15px 15px;
 }
 
-#page-top{
-font-family: 'Roboto Condensed', sans-serif;
-
-
+#page-top {
+	font-family: 'Roboto Condensed', sans-serif;
 }
 </style>
 
@@ -28,53 +27,50 @@ font-family: 'Roboto Condensed', sans-serif;
 
 
 	<!-- Header -->
-	
+
 	<header class="masthead">
 		<div class="container-fluid">
 			<div class="intro-text">
-			<!-- 
+				<!-- 
 				<div class="intro-heading text-uppercase"  style="margin-bottom: 10px">Welcome To MOVIEING</div>
 				 -->
-				 <h2 style="margin-bottom: 10px">Welcome To MOVIEING</h2>
-				<h3 style="font-weight: lighter;">Movieing of the movie, by the movie, for the movie...</h3>
+				<h2 style="margin-bottom: 10px">Welcome To MOVIEING</h2>
+				<h3 style="font-weight: lighter;">Movieing of the movie, by the
+					movie, for the movie...</h3>
 
 
-			<div style="margin-top: 40px"></div>
-				<hr style="border: thick; border: 1px solid gray ;width: 100px;opacity: 0.5">
-				<div style="margin-bottom:  40px"></div>
+				<div style="margin-top: 40px"></div>
+				<hr
+					style="border: thick; border: 1px solid gray; width: 100px; opacity: 0.5">
+				<div style="margin-bottom: 40px"></div>
 
-				<h5 style="font-weight: lighter;">당신의 영화 취향을 골라주세요! </h5>
+				<h5 style="font-weight: lighter;">당신의 영화 취향을 골라주세요!</h5>
 				<div style="padding-bottom: 30px"></div>
-				
+
 
 
 				<div class="btn btn-outline-light">#간담서늘한</div>
 				<div class="btn btn-outline-light" onclick="btnChange()">#배꼽빠지는</div>
-				<div class="btn btn-outline-light" onclick="btnChange()">#친구랑
-					보기 좋은</div>
+				<div class="btn btn-outline-light" onclick="btnChange()">#HAPPINESS</div>
 				<div class="btn btn-outline-light" onclick="btnChange()">#첫데이트</div>
 				<div class="btn btn-outline-light" onclick="btnChange()">#독립영화</div>
 				<div class="btn btn-outline-light" onclick="btnChange()">#아이들과
 					함께</div>
-				<div class="btn btn-outline-light" onclick="btnChange()">#명절분위기</div>
-				<div class="btn btn-outline-light" onclick="btnChange()">#이건
-					밤에 봐야해</div>
-				<div class="btn btn-outline-light" onclick="btnChange()">#앗
-					엄빠주의</div>
-				<div class="btn btn-outline-light" onclick="btnChange()">#(대충
-					액션 영화라는 내용)</div>
+				<div class="btn btn-outline-light" onclick="btnChange()">#Disney</div>
+				<div class="btn btn-outline-light" onclick="btnChange()">#MarvelStudio</div>
+				<div class="btn btn-outline-light" onclick="btnChange()">#친구42라면</div>
+				<div class="btn btn-outline-light" onclick="btnChange()">#이것이
+					바로 싸움의 기술</div>
 				<br> <br>
 				<div class="btn btn-outline-light" onclick="btnChange()">#실화
 					바탕</div>
 				<div class="btn btn-outline-light" onclick="btnChange()">#애니메이션</div>
-				<div class="btn btn-outline-light" onclick="btnChange()">#만화
-					원작</div>
+				<div class="btn btn-outline-light" onclick="btnChange()">#호기심자극</div>
 				<div class="btn btn-outline-light" onclick="btnChange()">#시리즈물</div>
 				<div class="btn btn-outline-light" onclick="btnChange()">#내이름은
 					탐정, 코난이죠</div>
-				<div class="btn btn-outline-light" onclick="btnChange()">#아이들과
-					함께</div>
-				<div class="btn btn-outline-light" onclick="btnChange()">#명절분위기</div>
+				<div class="btn btn-outline-light" onclick="btnChange()">#우와!판타지</div>
+				<div class="btn btn-outline-light" onclick="btnChange()">#신비의나라로</div>
 
 
 				<br> <br> <br> <a

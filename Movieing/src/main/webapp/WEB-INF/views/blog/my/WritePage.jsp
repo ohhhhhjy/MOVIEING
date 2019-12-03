@@ -4904,7 +4904,7 @@ px
 				<!-- Send button -->
 				<div class="mb-4">
 					<button class="btn btn-info btn-block" type="submit"
-						onclick="success()">제출</button>
+						onclick="success()">등록</button>
 				</div>
 
 
