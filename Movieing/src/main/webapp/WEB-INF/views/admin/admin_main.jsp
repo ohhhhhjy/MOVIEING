@@ -11,14 +11,6 @@
 		    var fdate = new Array;
 		   	var userJson = ${userJson};
 		   	
-		  console.log('dt:'+dt);
-		  console.log('recentYear:'+recentYear);
-		  console.log('recentMonth:'+recentMonth);
-		  console.log('recentDay:'+recentDay);
-		  console.log('date:'+date);
-		  console.log('fdate:'+fdate);
-		  console.log('userJson:'+userJson);
-		   
 		    
 		    for(var i=11;i>=0;i--){
 		    	if(recentDay<12)
